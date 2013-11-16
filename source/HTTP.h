@@ -66,31 +66,32 @@ void HTTP_GET_response(int body[]){
 	unsigned length;
 	unsigned element;
 	unsigned header[] = 
-
 "HTTP/1.1 200 OK\r\n\
 Date: Thu Oct 31 19:16:00 2013\r\n\
 Server: chips-web/0.0\r\n\
 Content-Type: text/html\r\n\
 Content-Length: ";
 
-	output_rs232_tx('c');
+	//count body length
 	body_length = 0;
 	while(body[body_length]) body_length++;
+	//count header length
 	header_length = 0;
 	while(header[header_length]) header_length++;
-	output_rs232_tx('d');
-	output_rs232_tx(body_length);
+	//count total length
 	length = body_length + header_length + 5;
+	//header length depends on body length
 	if(body_length > 9) length++;
 	if(body_length > 99) length++;
 	if(body_length > 999) length++;
+	//Send length to server
 	put_socket(length);
-	output_rs232_tx('e');
+	//Send header to server
 	socket_put_string(header);
 	socket_put_decimal(body_length);
 	socket_put_string("\r\n\r\n");
+	//Send body to server
 	socket_put_string(body);
-	output_rs232_tx('f');
+	//Send last byte if there are an odd number
 	socket_flush();
-	output_rs232_tx('g');
 }

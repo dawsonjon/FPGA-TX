@@ -23,18 +23,19 @@ void user_design()
 			index++;
 		}
 
-		output_rs232_tx('a');
-
 		HTTP_GET_response(
 "<html>\
 <head>\
-	<title>Chips 2.0 SP605 Demo</title>\
+<title>Chips-2.0 SP605 Demo</title>\
 </head>\
 <body>\
-	Hello World, this is a very simple HTML document.\
+<h1>Chips-2.0 SP605 Demo</h1>\
+<p>Welcome to the Chips-2.0 SP605 Demo!</p>\
+<p>This <a href=\"https://github.com/dawsonjon/SP605-Demo\">project</a> \
+is powered by <a href=\"https://github.com/dawsonjon/Chips-2.0\">Chips-2.0</a>.</p>\
 </body>\
-</html>");
-		output_rs232_tx('b');
+</html>"
+		);
 
 	}
 

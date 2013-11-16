@@ -580,6 +580,8 @@ void server()
 		for(resend_wait = 10000; resend_wait; resend_wait--){ //1 second @ 100MHz
 			bytes = get_tcp_packet(rx_packet);
 			if(bytes && (rx_dest == local_port)){
+				//Once connection is established ignore other connection attempts
+				if(state != listen && rx_source != tx_dest) continue;
 				new_rx_data = 0;
 				last_state = state;
 				switch(state){
