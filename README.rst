@@ -54,7 +54,7 @@ Setup and Test
         |                |                 |               |
         | 192.168.1.0    |                 | 192.168.1.1   |
         +----------------+                 +---------------+
-
+..
 
         + Connect ethernet port to SP605
         + Configure wthernet port with IP address 192.168.1.0 and subnet mask 255.255.255.0

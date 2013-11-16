@@ -526,11 +526,17 @@ void server()
 		} else {
 			timeout = 120; //2 mins @100 MHz
 			state = listen;
+			tx_syn_flag = 0;
+			tx_fin_flag = 0;
+			tx_ack_flag = 0;
+			tx_rst_flag = 1;
+			put_tcp_packet(tx_packet, 0);//send reset packet
 		}
 
 		// (optionaly) send something
 		switch(state){
 		    case 0:
+			tx_rst_flag = 0;
 			tx_syn_flag = 0;
 			tx_fin_flag = 0;
 			tx_ack_flag = 0;
@@ -581,6 +587,10 @@ void server()
 				    // If a syn packet is recieved, wait for an ack
 				    case 0:
 					if(rx_syn_flag) state = open;
+					else{
+						tx_rst_flag = 1;
+						put_tcp_packet(tx_packet, 0);//send reset packet
+					}
 					break;
 
 				    // If an ack is recieved the connection is established
