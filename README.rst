@@ -90,3 +90,4 @@ Verify connection using ping command::
 
 Connect to 192.168.1.1 using your favourite browser.
 
+.. image:: https://raw.github.com/dawsonjon/SP605-Demo/master/images/screenshot.png
