@@ -1,0 +1,3 @@
+[submodule "chips2"]
+	path = chips2
+	url = git@github.com:dawsonjon/Chips-2.0.git
