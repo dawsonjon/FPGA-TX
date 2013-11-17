@@ -1,3 +1,16 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+//  CHIPS-2.0  HTTP
+//
+//  :Author: Jonathan P Dawson
+//  :Date: 17/10/2013
+//  :email: chips@jondawson.org.uk
+//  :license: MIT
+//  :Copyright: Copyright (C) Jonathan P Dawson 2013
+//
+//  Constuct an HTTP response for simple web app.
+//
+////////////////////////////////////////////////////////////////////////////////
 unsigned socket_high = 1;
 unsigned socket_data;
 

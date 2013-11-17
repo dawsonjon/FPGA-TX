@@ -1,7 +1,16 @@
----Serial Output
----=============
+--------------------------------------------------------------------------------
 ---
----Write a stream of data to a serial UART
+---  SERIAL OUTPUT
+---
+---  :Author: Jonathan P Dawson
+---  :Date: 17/10/2013
+---  :email: chips@jondawson.org.uk
+---  :license: MIT
+---  :Copyright: Copyright (C) Jonathan P Dawson 2013
+---
+---  A Serial Output Component
+---
+--------------------------------------------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;

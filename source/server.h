@@ -1,4 +1,19 @@
 ////////////////////////////////////////////////////////////////////////////////
+//
+//  CHIPS-2.0 TCP/IP SERVER
+//
+//  :Author: Jonathan P Dawson
+//  :Date: 17/10/2013
+//  :email: chips@jondawson.org.uk
+//  :license: MIT
+//  :Copyright: Copyright (C) Jonathan P Dawson 2013
+//
+//  A TCP/IP stack that supports a single socket connection.
+//
+////////////////////////////////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////////////////////////////////
 // TCP-IP User Settings
 //
 
@@ -7,7 +22,7 @@ unsigned local_mac_address_med = 0x0203u;
 unsigned local_mac_address_lo = 0x0405u;
 unsigned local_ip_address_hi = 0xc0A8u;//192/168
 unsigned local_ip_address_lo = 0x0101u;//1/1
-unsigned local_port = 80u;//telnet
+unsigned local_port = 80u;//http
 
 ////////////////////////////////////////////////////////////////////////////////
 // TCP-IP GLOBALS
@@ -491,8 +506,6 @@ unsigned application_get_data(unsigned packet[], unsigned start){
 	}
 	return length;
 }
-
-
 
 void server()
 {

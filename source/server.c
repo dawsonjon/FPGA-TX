@@ -1,3 +1,16 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+//  CHIPS-2.0 TCP/IP SERVER
+//
+//  :Author: Jonathan P Dawson
+//  :Date: 17/10/2013
+//  :email: chips@jondawson.org.uk
+//  :license: MIT
+//  :Copyright: Copyright (C) Jonathan P Dawson 2013
+//
+//  A TCP/IP stack that supports a single socket connection.
+//
+////////////////////////////////////////////////////////////////////////////////
 void put_eth(unsigned i){
 	output_eth_tx(i);
 }
