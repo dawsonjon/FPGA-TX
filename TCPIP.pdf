@@ -1,0 +1,1944 @@
+%PDF-1.4
+%“Œ‹ž ReportLab Generated PDF document http://www.reportlab.com
+% 'BasicFonts': class PDFDictionary 
+1 0 obj
+% The standard fonts dictionary
+<< /F1 2 0 R
+ /F2 3 0 R
+ /F3 5 0 R >>
+endobj
+% 'F1': class PDFType1Font 
+2 0 obj
+% Font Helvetica
+<< /BaseFont /Helvetica
+ /Encoding /WinAnsiEncoding
+ /Name /F1
+ /Subtype /Type1
+ /Type /Font >>
+endobj
+% 'F2': class PDFType1Font 
+3 0 obj
+% Font Helvetica-Bold
+<< /BaseFont /Helvetica-Bold
+ /Encoding /WinAnsiEncoding
+ /Name /F2
+ /Subtype /Type1
+ /Type /Font >>
+endobj
+% 'Annot.NUMBER1': class PDFDictionary 
+4 0 obj
+<< /A << /S /URI
+ /Type /Action
+ /URI (mailto:chips@jondawson.org.uk) >>
+ /Border [ 0
+ 0
+ 0 ]
+ /Rect [ 153.7323
+ 690.7736
+ 526.5827
+ 702.7736 ]
+ /Subtype /Link
+ /Type /Annot >>
+endobj
+% 'F3': class PDFType1Font 
+5 0 obj
+% Font Courier
+<< /BaseFont /Courier
+ /Encoding /WinAnsiEncoding
+ /Name /F3
+ /Subtype /Type1
+ /Type /Font >>
+endobj
+% 'Page1': class PDFPage 
+6 0 obj
+% Page dictionary
+<< /Annots [ 4 0 R ]
+ /Contents 26 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 25 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Page2': class PDFPage 
+7 0 obj
+% Page dictionary
+<< /Contents 27 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 25 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Page3': class PDFPage 
+8 0 obj
+% Page dictionary
+<< /Contents 28 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 25 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'Page4': class PDFPage 
+9 0 obj
+% Page dictionary
+<< /Contents 29 0 R
+ /MediaBox [ 0
+ 0
+ 595.2756
+ 841.8898 ]
+ /Parent 25 0 R
+ /Resources << /Font 1 0 R
+ /ProcSet [ /PDF
+ /Text
+ /ImageB
+ /ImageC
+ /ImageI ] >>
+ /Rotate 0
+ /Trans <<  >>
+ /Type /Page >>
+endobj
+% 'R10': class PDFCatalog 
+10 0 obj
+% Document Root
+<< /Outlines 12 0 R
+ /PageLabels 30 0 R
+ /PageMode /UseNone
+ /Pages 25 0 R
+ /Type /Catalog >>
+endobj
+% 'R11': class PDFInfo 
+11 0 obj
+<< /Author ()
+ /CreationDate (D:20131117131158+00'00')
+ /Creator (\(unspecified\))
+ /Keywords ()
+ /Producer (ReportLab PDF Library - www.reportlab.com)
+ /Subject (\(unspecified\))
+ /Title () >>
+endobj
+% 'R12': class PDFOutlines 
+12 0 obj
+<< /Count 14
+ /First 13 0 R
+ /Last 21 0 R
+ /Type /Outlines >>
+endobj
+% 'Outline.0': class OutlineEntryObject 
+13 0 obj
+<< /Dest [ 6 0 R
+ /XYZ
+ 62.69291
+ 765.0236
+ 0 ]
+ /Next 14 0 R
+ /Parent 12 0 R
+ /Title (Chips-2.0 Demo for SP605 Development Card) >>
+endobj
+% 'Outline.1': class OutlineEntryObject 
+14 0 obj
+<< /Dest [ 6 0 R
+ /XYZ
+ 62.69291
+ 573.0236
+ 0 ]
+ /Next 15 0 R
+ /Parent 12 0 R
+ /Prev 13 0 R
+ /Title (Dependencies) >>
+endobj
+% 'Outline.2': class OutlineEntryObject 
+15 0 obj
+<< /Dest [ 6 0 R
+ /XYZ
+ 62.69291
+ 522.0236
+ 0 ]
+ /Next 16 0 R
+ /Parent 12 0 R
+ /Prev 14 0 R
+ /Title (Source Files) >>
+endobj
+% 'Outline.3': class OutlineEntryObject 
+16 0 obj
+<< /Dest [ 6 0 R
+ /XYZ
+ 62.69291
+ 429.0236
+ 0 ]
+ /Next 17 0 R
+ /Parent 12 0 R
+ /Prev 15 0 R
+ /Title (Configuration) >>
+endobj
+% 'Outline.4': class OutlineEntryObject 
+17 0 obj
+<< /Dest [ 6 0 R
+ /XYZ
+ 62.69291
+ 318.0236
+ 0 ]
+ /Next 18 0 R
+ /Parent 12 0 R
+ /Prev 16 0 R
+ /Title (Compile) >>
+endobj
+% 'Outline.5': class OutlineEntryObject 
+18 0 obj
+<< /Count 2
+ /Dest [ 6 0 R
+ /XYZ
+ 62.69291
+ 233.8236
+ 0 ]
+ /First 19 0 R
+ /Last 20 0 R
+ /Next 21 0 R
+ /Parent 12 0 R
+ /Prev 17 0 R
+ /Title (Interface) >>
+endobj
+% 'Outline.13.0': class OutlineEntryObject 
+19 0 obj
+<< /Dest [ 6 0 R
+ /XYZ
+ 62.69291
+ 200.8236
+ 0 ]
+ /Next 20 0 R
+ /Parent 18 0 R
+ /Title (Ethernet Interface) >>
+endobj
+% 'Outline.13.1': class OutlineEntryObject 
+20 0 obj
+<< /Dest [ 7 0 R
+ /XYZ
+ 62.69291
+ 765.0236
+ 0 ]
+ /Parent 18 0 R
+ /Prev 19 0 R
+ /Title (Socket Interface) >>
+endobj
+% 'Outline.6': class OutlineEntryObject 
+21 0 obj
+<< /Count 3
+ /Dest [ 7 0 R
+ /XYZ
+ 62.69291
+ 639.0236
+ 0 ]
+ /First 22 0 R
+ /Last 24 0 R
+ /Parent 12 0 R
+ /Prev 18 0 R
+ /Title (Stream Interconnect Conventions) >>
+endobj
+% 'Outline.14.0': class OutlineEntryObject 
+22 0 obj
+<< /Dest [ 7 0 R
+ /XYZ
+ 62.69291
+ 296.8236
+ 0 ]
+ /Next 23 0 R
+ /Parent 21 0 R
+ /Title (Global Signals) >>
+endobj
+% 'Outline.14.1': class OutlineEntryObject 
+23 0 obj
+<< /Dest [ 7 0 R
+ /XYZ
+ 62.69291
+ 200.8236
+ 0 ]
+ /Next 24 0 R
+ /Parent 21 0 R
+ /Prev 22 0 R
+ /Title (Interconnect Signals) >>
+endobj
+% 'Outline.14.2': class OutlineEntryObject 
+24 0 obj
+<< /Dest [ 8 0 R
+ /XYZ
+ 62.69291
+ 765.0236
+ 0 ]
+ /Parent 21 0 R
+ /Prev 23 0 R
+ /Title (Interconnect Bus Transaction) >>
+endobj
+% 'R25': class PDFPages 
+25 0 obj
+% page tree
+<< /Count 4
+ /Kids [ 6 0 R
+ 7 0 R
+ 8 0 R
+ 9 0 R ]
+ /Type /Pages >>
+endobj
+% 'R26': class PDFStream 
+26 0 obj
+% page stream
+<< /Length 7610 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 744.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Chips-2.0 Demo for SP605 Development Card) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 732.0236 cm
+Q
+q
+1 0 0 1 62.69291 717.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 36.93937 0 Td (Author:) Tj T* -36.93937 0 Td ET
+Q
+Q
+q
+1 0 0 1 91.03937 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Jonathan P Dawson) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 702.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 48.03937 0 Td (Date:) Tj T* -48.03937 0 Td ET
+Q
+Q
+q
+1 0 0 1 91.03937 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (2013-10-17) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 687.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL 44.13937 0 Td (email:) Tj T* -44.13937 0 Td ET
+Q
+Q
+q
+1 0 0 1 91.03937 3 cm
+q
+0 0 .501961 rg
+0 0 .501961 RG
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (chips@jondawson.org.uk) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 645.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 26 Tm /F1 10 Tf 12 TL 1.584692 Tw (This project implements a TCP/IP stack. The TCP/IP stack acts as a server, and can accept a single) Tj T* 0 Tw .502927 Tw (connection to a TCP port. The connection is provided as a bidirectional stream of data to the application.) Tj T* 0 Tw (The following protocols are supported:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 639.0236 cm
+Q
+q
+1 0 0 1 62.69291 585.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 48 cm
+Q
+q
+1 0 0 1 20 48 cm
+Q
+q
+1 0 0 1 20 36 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (ARP request/response \(with 16 level cache\)) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 30 cm
+Q
+q
+1 0 0 1 20 18 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (ICMP echo request/response \(ping\)) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 12 cm
+Q
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (TCP/IP socket) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 585.0236 cm
+Q
+q
+1 0 0 1 62.69291 552.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Dependencies) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 534.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The stack is implemented in C, and needs Chips-2.0 to compile it into a Verilog module.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 501.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Source Files) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 483.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The TCP/IP stack is provided by two source files:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 477.0236 cm
+Q
+q
+1 0 0 1 62.69291 441.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 30 cm
+Q
+q
+1 0 0 1 20 30 cm
+Q
+q
+1 0 0 1 20 18 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (source/server.h) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 12 cm
+Q
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (source/server.c) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 441.0236 cm
+Q
+q
+1 0 0 1 62.69291 408.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Configuration) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 390.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The following parameters can be configured at compile time within source/server.h:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 384.0236 cm
+Q
+q
+1 0 0 1 62.69291 330.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 48 cm
+Q
+q
+1 0 0 1 20 48 cm
+Q
+q
+1 0 0 1 20 36 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Local Ethernet MAC address) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 30 cm
+Q
+q
+1 0 0 1 20 18 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Local IP Address) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 12 cm
+Q
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Local TCP Port number) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 330.0236 cm
+Q
+q
+1 0 0 1 62.69291 297.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Compile) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 279.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Compile into a Verilog module \(server.v\) using the following command:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 245.8236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL ($ chip2/c2verilog source/server.v) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 212.8236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Interface) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 182.8236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Ethernet Interface) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 164.8236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The ethernet interface consists of two streams of data:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 158.8236 cm
+Q
+q
+1 0 0 1 62.69291 122.8236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 30 cm
+Q
+q
+1 0 0 1 20 30 cm
+Q
+q
+1 0 0 1 20 18 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (An input, input_eth_rx.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 12 cm
+Q
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (An output, output_eth_tx.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 122.8236 cm
+Q
+q
+1 0 0 1 62.69291 104.8236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Both streams are 16 bits wide, and use the following protocol:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 86.82362 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (word, designation 0, length in bytes n, data) Tj T* ET
+Q
+Q
+ 
+endstream
+endobj
+% 'R27': class PDFStream 
+27 0 obj
+% page stream
+<< /Length 8989 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 747.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Socket Interface) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 729.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The socket interface consists of two streams of data:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 723.0236 cm
+Q
+q
+1 0 0 1 62.69291 687.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 30 cm
+Q
+q
+1 0 0 1 20 30 cm
+Q
+q
+1 0 0 1 20 18 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (An input, input_socket.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 12 cm
+Q
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (An output, output_socket.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 687.0236 cm
+Q
+q
+1 0 0 1 62.69291 669.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Both streams are 16 bits wide, and use the following protocol:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 651.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (word, designation 0, length in bytes n, data) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 618.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Stream Interconnect Conventions) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 600.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The main aims of the interface are:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 594.0236 cm
+Q
+q
+1 0 0 1 62.69291 522.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 66 cm
+Q
+q
+1 0 0 1 20 66 cm
+Q
+q
+1 0 0 1 20 54 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (To be simple to implement.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 48 cm
+Q
+q
+1 0 0 1 20 36 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Add little performance/logic overhead.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 30 cm
+Q
+q
+1 0 0 1 20 18 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Allow designs to grow without adding extra levels of asynchronous logic.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 12 cm
+Q
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Easy to interface with standard interconnects.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 522.0236 cm
+Q
+q
+1 0 0 1 62.69291 308.8236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 204 re B*
+Q
+q
+BT 1 0 0 1 0 182 Tm 12 TL /F3 10 Tf 0 0 0 rg (RST ) Tj (>) Tj (-o-----------------------------+) Tj T* (CLK ) Tj (>) Tj (-+-o-------------------------+ |) Tj T* (      | |                         | |) Tj T* (      | |   +-----------+         | |     +--------------+) Tj T* (      | |   | TX        |         | |     | RX           |) Tj T* (      | +---) Tj (>) Tj (           |         | +-----) Tj (>) Tj (              |) Tj T* (      +-----) Tj (>) Tj (           |         +-------) Tj (>) Tj (              |) Tj T* (            |           |                 |              |) Tj T* (            |           | ) Tj (<) Tj (BUS_NAME) Tj (>) Tj (      |              |) Tj T* (            |       out ) Tj (>) Tj (=================) Tj (>) Tj ( in           |) Tj T* (            |           | ) Tj (<) Tj (BUS_NAME) Tj (>) Tj (_STB  |              |) Tj T* (            |       out ) Tj (>) Tj (-----------------) Tj (>) Tj ( in           |) Tj T* (            |           | ) Tj (<) Tj (BUS_NAME) Tj (>) Tj (_ACK  |              |) Tj T* (            |       in  ) Tj (<) Tj (-----------------) Tj (<) Tj ( out          |) Tj T* (            |           |                 |              |) Tj T* (            +-----------+                 +--------------+) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 278.8236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Global Signals) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 266.8236 cm
+Q
+q
+1 0 0 1 62.69291 212.8236 cm
+1 1 1 rg
+n 0 54 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 36 469.8898 -18 re f*
+1 1 1 rg
+n 0 18 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Name) Tj T* ET
+Q
+Q
+q
+1 0 0 1 84.31496 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Direction) Tj T* ET
+Q
+Q
+q
+1 0 0 1 227.8924 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Type) Tj T* ET
+Q
+Q
+q
+1 0 0 1 306.2073 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Description) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (CLK) Tj T* ET
+Q
+Q
+q
+1 0 0 1 84.31496 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (input) Tj T* ET
+Q
+Q
+q
+1 0 0 1 227.8924 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (bit) Tj T* ET
+Q
+Q
+q
+1 0 0 1 306.2073 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Clock) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (RST) Tj T* ET
+Q
+Q
+q
+1 0 0 1 84.31496 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (input) Tj T* ET
+Q
+Q
+q
+1 0 0 1 227.8924 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (bit) Tj T* ET
+Q
+Q
+q
+1 0 0 1 306.2073 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Reset) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 36 m 469.8898 36 l S
+n 0 18 m 469.8898 18 l S
+n 78.31496 0 m 78.31496 54 l S
+n 221.8924 0 m 221.8924 54 l S
+n 300.2073 0 m 300.2073 54 l S
+n 0 54 m 469.8898 54 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 54 l S
+n 469.8898 0 m 469.8898 54 l S
+Q
+Q
+q
+1 0 0 1 62.69291 212.8236 cm
+Q
+q
+1 0 0 1 62.69291 182.8236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Interconnect Signals) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 170.8236 cm
+Q
+q
+1 0 0 1 62.69291 98.82362 cm
+1 1 1 rg
+n 0 72 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 54 469.8898 -18 re f*
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Name) Tj T* ET
+Q
+Q
+q
+1 0 0 1 87.71996 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Direction) Tj T* ET
+Q
+Q
+q
+1 0 0 1 143.9024 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Type) Tj T* ET
+Q
+Q
+q
+1 0 0 1 174.5474 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Description) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 39 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (<) Tj (BUS_NAME) Tj (>) Tj T* ET
+Q
+Q
+q
+1 0 0 1 87.71996 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (TX to RX) Tj T* ET
+Q
+Q
+q
+1 0 0 1 143.9024 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (bus) Tj T* ET
+Q
+Q
+q
+1 0 0 1 174.5474 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Payload Data) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 21 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (<) Tj (BUS_NAME) Tj (>) Tj (_STB) Tj T* ET
+Q
+Q
+q
+1 0 0 1 87.71996 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (TX to RX) Tj T* ET
+Q
+Q
+q
+1 0 0 1 143.9024 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (bit) Tj T* ET
+Q
+Q
+q
+1 0 0 1 174.5474 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL ('1' indicates that payload data is valid and TX is ready.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (<) Tj (BUS_NAME) Tj (>) Tj (_ACK) Tj T* ET
+Q
+Q
+q
+1 0 0 1 87.71996 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (TX to RX) Tj T* ET
+Q
+Q
+q
+1 0 0 1 143.9024 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (bit) Tj T* ET
+Q
+Q
+q
+1 0 0 1 174.5474 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL ('1' indicates that RX is ready.) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 54 m 469.8898 54 l S
+n 0 36 m 469.8898 36 l S
+n 0 18 m 469.8898 18 l S
+n 81.71996 0 m 81.71996 72 l S
+n 137.9024 0 m 137.9024 72 l S
+n 168.5474 0 m 168.5474 72 l S
+n 0 72 m 469.8898 72 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 72 l S
+n 469.8898 0 m 469.8898 72 l S
+Q
+Q
+q
+1 0 0 1 62.69291 98.82362 cm
+Q
+ 
+endstream
+endobj
+% 'R28': class PDFStream 
+28 0 obj
+% page stream
+<< /Length 7515 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 747.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Interconnect Bus Transaction) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 735.0236 cm
+Q
+q
+1 0 0 1 62.69291 429.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 300 cm
+Q
+q
+1 0 0 1 20 300 cm
+Q
+q
+1 0 0 1 20 288 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Both transmitter and receiver shall be synchronised to the '0' -) Tj (> '1' transition of CLK.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 282 cm
+Q
+q
+1 0 0 1 20 258 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 14 Tm .466303 Tw 12 TL /F1 10 Tf 0 0 0 rg (If RST is set to '1' upon the '0' -) Tj (> '1' transition of clock the transmitter shall terminate any active) Tj T* 0 Tw (bus transaction and set <) Tj (BUS_NAME) Tj (>) Tj (_STB to '0'.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 252 cm
+Q
+q
+1 0 0 1 20 228 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 14 Tm .081488 Tw 12 TL /F1 10 Tf 0 0 0 rg (If RST is set to '1' upon the '0' -) Tj (> '1' transition of clock the receiver shall terminate any active bus) Tj T* 0 Tw (transaction and set <) Tj (BUS_NAME) Tj (>) Tj (_ACK to '0'.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 222 cm
+Q
+q
+1 0 0 1 20 210 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (If RST is set to '0', normal operation shall commence as follows:) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 204 cm
+Q
+q
+1 0 0 1 20 192 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (The transmitter may insert wait states on the bus by setting <) Tj (BUS_NAME) Tj (>) Tj (_STB '0'.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 186 cm
+Q
+q
+1 0 0 1 20 174 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (The transmitter shall set <) Tj (BUS_NAME) Tj (>) Tj (_STB to '1' to signify that data is valid.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 168 cm
+Q
+q
+1 0 0 1 20 144 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 14 Tm 3.227126 Tw 12 TL /F1 10 Tf 0 0 0 rg (Once <) Tj (BUS_NAME) Tj (>) Tj (_STB has been set to '1', it shall remain at '1' until the transaction) Tj T* 0 Tw (completes.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 138 cm
+Q
+q
+1 0 0 1 20 114 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 14 Tm 1.498443 Tw 12 TL /F1 10 Tf 0 0 0 rg (The transmitter shall ensure that <) Tj (BUS_NAME) Tj (> contains valid data for the entire period that) Tj T* 0 Tw (<) Tj (BUS_NAME) Tj (>) Tj (_STB is '1'.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 108 cm
+Q
+q
+1 0 0 1 20 96 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (The transmitter may set <) Tj (BUS_NAME) Tj (> to any value when <) Tj (BUS_NAME) Tj (>) Tj (_STB is '0'.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 90 cm
+Q
+q
+1 0 0 1 20 78 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (The receiver may insert wait states on the bus by setting <) Tj (BUS_NAME) Tj (>) Tj (_ACK to '0'.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 72 cm
+Q
+q
+1 0 0 1 20 60 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (The receiver shall set <) Tj (BUS_NAME) Tj (>) Tj (_ACK to '1' to signify that it is ready to receive data.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 54 cm
+Q
+q
+1 0 0 1 20 30 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 14 Tm 3.14784 Tw 12 TL /F1 10 Tf 0 0 0 rg (Once <) Tj (BUS_NAME) Tj (>) Tj (_ACK has been set to '1', it shall remain at '1' until the transaction) Tj T* 0 Tw (completes.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 24 cm
+Q
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 14 Tm 1.380888 Tw 12 TL /F1 10 Tf 0 0 0 rg (Whenever <) Tj (BUS_NAME) Tj (>) Tj (_STB is '1' and <) Tj (BUS_NAME) Tj (>) Tj (_ACK are '1', a bus transaction shall) Tj T* 0 Tw (complete on the following '0' -) Tj (> '1' transition of CLK.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 429.0236 cm
+Q
+q
+1 0 0 1 62.69291 95.80435 cm
+q
+q
+.96447 0 0 .96447 0 0 cm
+q
+1 0 0 1 6.6 6.843137 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 486 336 re B*
+Q
+q
+BT 1 0 0 1 0 314 Tm 12 TL /F3 10 Tf 0 0 0 rg (RST) Tj T* (                 --------------------------------------------------------------) Tj T* (                   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -) Tj T* ( CLK              | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |) Tj T* (                 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -) Tj T*  T* (                 ----- ------- ------------------------------------------------) Tj T* (<) Tj (BUS_NAME) Tj (>) Tj (           X VALID X) Tj T* (                 ----- ------- ------------------------------------------------) Tj T* (                       -------) Tj T* (<) Tj (BUS_NAME) Tj (>) Tj (_STB       |       |) Tj T* (                 -----         ------------------------------------------------) Tj T* (                           ---) Tj T* (<) Tj (BUS_NAME) Tj (>) Tj (_ACK           |   |) Tj T* (                 ---------     ------------------------------------------------) Tj T*  T*  T* (                       ^^^^ RX adds wait states) Tj T*  T* (                           ^^^^  Data transfers) Tj T*  T* (RST) Tj T* (                 --------------------------------------------------------------) Tj T* (                   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -) Tj T* ( CLK              | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |) Tj T* (                 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -) Tj T*  T* ET
+Q
+Q
+Q
+Q
+Q
+ 
+endstream
+endobj
+% 'R29': class PDFStream 
+29 0 obj
+% page stream
+<< /Length 4401 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 590.2617 cm
+q
+q
+.96447 0 0 .96447 0 0 cm
+q
+1 0 0 1 6.6 6.843137 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 486 180 re B*
+Q
+q
+BT 1 0 0 1 0 158 Tm 12 TL /F3 10 Tf 0 0 0 rg (                 ----- ------- ------------------------------------------------) Tj T* (<) Tj (BUS_NAME) Tj (>) Tj (           X VALID X) Tj T* (                 ----- ------- ------------------------------------------------) Tj T* (                           ---) Tj T* (<) Tj (BUS_NAME) Tj (>) Tj (_STB           |   |) Tj T* (                 ---------     ------------------------------------------------) Tj T* (                       -------) Tj T* (<) Tj (BUS_NAME) Tj (>) Tj (_ACK       |       |) Tj T* (                 -----         ------------------------------------------------) Tj T*  T*  T* (                       ^^^^ TX adds wait states) Tj T*  T* (                           ^^^^  Data transfers) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 576.2617 cm
+Q
+q
+1 0 0 1 62.69291 576.2617 cm
+Q
+q
+1 0 0 1 62.69291 564.2617 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Both the transmitter and receiver may commence a new transaction without inserting any wait states.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 564.2617 cm
+Q
+q
+1 0 0 1 62.69291 326.0053 cm
+q
+q
+.868237 0 0 .868237 0 0 cm
+q
+1 0 0 1 6.6 7.601613 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 540 264 re B*
+Q
+q
+BT 1 0 0 1 0 242 Tm 12 TL /F3 10 Tf 0 0 0 rg (RST) Tj T* (                 --------------------------------------------------------------) Tj T* (                   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -) Tj T* ( CLK              | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |) Tj T* (                 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -) Tj T*  T* (                 ----- ------- ---- ---- --------------------------------------) Tj T* (<) Tj (BUS_NAME) Tj (>) Tj (           X D0    X D1 X D2 X) Tj T* (                 ----- ------- ---- ---- --------------------------------------) Tj T* (                           -------------) Tj T* (<) Tj (BUS_NAME) Tj (>) Tj (_STB           |             |) Tj T* (                 ---------               --------------------------------------) Tj T* (                       -----------------) Tj T* (<) Tj (BUS_NAME) Tj (>) Tj (_ACK       |                 |) Tj T* (                 -----                   --------------------------------------) Tj T*  T* (                        ^^^^ TX adds wait states) Tj T*  T* (                             ^^^^  Data transfers) Tj T*  T* (                                 ^^^^ STB and ACK needn't return to 0 between data words) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 312.0053 cm
+Q
+q
+1 0 0 1 62.69291 312.0053 cm
+Q
+q
+1 0 0 1 62.69291 288.0053 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL .483984 Tw (The receiver may delay a transaction by inserting wait states until the transmitter indicates that data) Tj T* 0 Tw (is available.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 282.0053 cm
+Q
+q
+1 0 0 1 62.69291 258.0053 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 1.496235 Tw (The transmitter shall not delay a transaction by inserting wait states until the receiver is ready to) Tj T* 0 Tw (accept data.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 252.0053 cm
+Q
+q
+1 0 0 1 62.69291 228.0053 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL .853984 Tw (Deadlock would occur if both the transmitter and receiver delayed a transaction until the other was) Tj T* 0 Tw (ready.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 62.69291 228.0053 cm
+Q
+ 
+endstream
+endobj
+% 'R30': class PDFPageLabels 
+30 0 obj
+% Document Root
+<< /Nums [ 0
+ 31 0 R
+ 1
+ 32 0 R
+ 2
+ 33 0 R
+ 3
+ 34 0 R ] >>
+endobj
+% 'R31': class PDFPageLabel 
+31 0 obj
+% None
+<< /S /D
+ /St 1 >>
+endobj
+% 'R32': class PDFPageLabel 
+32 0 obj
+% None
+<< /S /D
+ /St 2 >>
+endobj
+% 'R33': class PDFPageLabel 
+33 0 obj
+% None
+<< /S /D
+ /St 3 >>
+endobj
+% 'R34': class PDFPageLabel 
+34 0 obj
+% None
+<< /S /D
+ /St 4 >>
+endobj
+xref
+0 35
+0000000000 65535 f
+0000000113 00000 n
+0000000233 00000 n
+0000000398 00000 n
+0000000585 00000 n
+0000000820 00000 n
+0000000979 00000 n
+0000001278 00000 n
+0000001557 00000 n
+0000001836 00000 n
+0000002116 00000 n
+0000002275 00000 n
+0000002523 00000 n
+0000002649 00000 n
+0000002850 00000 n
+0000003037 00000 n
+0000003224 00000 n
+0000003412 00000 n
+0000003594 00000 n
+0000003823 00000 n
+0000004004 00000 n
+0000004180 00000 n
+0000004416 00000 n
+0000004593 00000 n
+0000004791 00000 n
+0000004963 00000 n
+0000005094 00000 n
+0000012803 00000 n
+0000021891 00000 n
+0000029505 00000 n
+0000034009 00000 n
+0000034141 00000 n
+0000034218 00000 n
+0000034295 00000 n
+0000034372 00000 n
+trailer
+<< /ID 
+ % ReportLab generated PDF document -- digest (http://www.reportlab.com) 
+ [(\347\206+\306\252\345\324\262\230\354\004\330\364\371\2073) (\347\206+\306\252\345\324\262\230\354\004\330\364\371\2073)] 
+
+ /Info 11 0 R
+ /Root 10 0 R
+ /Size 35 >>
+startxref
+34419
+%%EOF
