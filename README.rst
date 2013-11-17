@@ -40,7 +40,7 @@ To compile the c code in chips, issue the following command in the project folde
 Build in ISE 
 ============
 
-Edit the xilinx variable in the scripts/user_settings to point to the xilinx ISE install directory. Then build the design using the following command::
+Edit the Xilinx variable in the scripts/user_settings to point to the Xilinx ISE install directory. Then build the design using the following command::
 
     $ ./synthesise build
 
@@ -73,9 +73,9 @@ Setup and Test
 
 ..
 
-Connect the ethernet port to SP605, using a crossed over ethernet cable (which comes with the development kit).
+Connect the Ethernet port to SP605, using a crossed over Ethernet cable (which comes with the development kit).
 
-Using the script, configure ethernet port with IP address 192.168.1.0 and subnet mask 255.255.255.0. Turn off TCP Window Scaling and TCP timestamps::
+Using the script, configure Ethernet port with IP address 192.168.1.0 and subnet mask 255.255.255.0. Turn off TCP Window Scaling and TCP time stamps::
 
     $ ./configure_network
 

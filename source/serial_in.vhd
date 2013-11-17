@@ -1,15 +1,17 @@
---name: serial_input
---tag: sources
---output: out1: 8
-
---source_file: built_in
-
---device_in: BIT : RX : port_name :1
-
---parameter: clock_frequency :100000000
---parameter: baud_rate       :115200
---parameter: port_name       :"RX"
-
+--------------------------------------------------------------------------------
+---
+---  SERIAL INPUT
+---
+---  :Author: Jonathan P Dawson
+---  :Date: 17/10/2013
+---  :email: chips@jondawson.org.uk
+---  :license: MIT
+---  :Copyright: Copyright (C) Jonathan P Dawson 2013
+---
+---  A Serial Input Component
+---
+--------------------------------------------------------------------------------
+---
 ---Serial Input
 ---============
 ---

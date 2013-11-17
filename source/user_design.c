@@ -1,3 +1,17 @@
+////////////////////////////////////////////////////////////////////////////////
+//
+//  CHIPS-2.0 USER DESIGN
+//
+//  :Author: Jonathan P Dawson
+//  :Date: 17/10/2013
+//  :email: chips@jondawson.org.uk
+//  :license: MIT
+//  :Copyright: Copyright (C) Jonathan P Dawson 2013
+//
+//  Simple web app demo.
+//
+////////////////////////////////////////////////////////////////////////////////
+
 void put_socket(unsigned i){
 	output_socket(i);
 }

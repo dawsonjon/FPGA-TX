@@ -49,16 +49,22 @@ Interface
 Ethernet Interface
 ------------------
 
-The ethernet interface consists of two streams of data:
+The Ethernet interface consists of two streams of data:
 
         + An input, input_eth_rx.
         + An output, output_eth_tx.
 
 Both streams are 16 bits wide, and use the following protocol:
 
-word, designation
-0, length in bytes
-n, data
+
++------+-----------------+
+| word |   designation   |
++------+-----------------+
+|  0   | length in bytes |
++------+-----------------+
+|  n   |       data      |
++------+-----------------+
+
 
 Socket Interface
 ----------------
@@ -70,9 +76,15 @@ The socket interface consists of two streams of data:
 
 Both streams are 16 bits wide, and use the following protocol:
 
-word, designation
-0, length in bytes
-n, data
+
++------+-----------------+
+| word |   designation   |
++------+-----------------+
+|  0   | length in bytes |
++------+-----------------+
+|  n   |       data      |
++------+-----------------+
+
 
 Stream Interconnect Conventions
 ===============================
@@ -138,19 +150,19 @@ Interconnect Signals
 Interconnect Bus Transaction
 ----------------------------
  
-  - Both transmitter and receiver shall be synchronised to the '0' -> '1' transition of CLK.
-  - If RST is set to '1' upon the '0' -> '1' transition of clock the transmitter shall terminate any active bus transaction and set <BUS_NAME>_STB to '0'.
-  - If RST is set to '1' upon the '0' -> '1' transition of clock the receiver shall terminate any active bus transaction and set <BUS_NAME>_ACK to '0'.
-  - If RST is set to '0', normal operation shall commence as follows:
-  - The transmitter may insert wait states on the bus by setting <BUS_NAME>_STB '0'.
-  - The transmitter shall set <BUS_NAME>_STB to '1' to signify that data is valid.
-  - Once <BUS_NAME>_STB has been set to '1', it shall remain at '1' until the transaction completes.
-  - The transmitter shall ensure that <BUS_NAME> contains valid data for the entire period that <BUS_NAME>_STB is '1'.
-  - The transmitter may set <BUS_NAME> to any value when <BUS_NAME>_STB is '0'.
-  - The receiver may insert wait states on the bus by setting <BUS_NAME>_ACK to '0'.
-  - The receiver shall set <BUS_NAME>_ACK to '1' to signify that it is ready to receive data.
-  - Once <BUS_NAME>_ACK has been set to '1', it shall remain at '1' until the transaction completes.
-  - Whenever <BUS_NAME>_STB is '1' and <BUS_NAME>_ACK are '1', a bus transaction shall complete on the following '0' -> '1' transition of CLK.
+- Both transmitter and receiver shall be synchronised to the '0' -> '1' transition of CLK.
+- If RST is set to '1' upon the '0' -> '1' transition of clock the transmitter shall terminate any active bus transaction and set <BUS_NAME>_STB to '0'.
+- If RST is set to '1' upon the '0' -> '1' transition of clock the receiver shall terminate any active bus transaction and set <BUS_NAME>_ACK to '0'.
+- If RST is set to '0', normal operation shall commence as follows:
+- The transmitter may insert wait states on the bus by setting <BUS_NAME>_STB '0'.
+- The transmitter shall set <BUS_NAME>_STB to '1' to signify that data is valid.
+- Once <BUS_NAME>_STB has been set to '1', it shall remain at '1' until the transaction completes.
+- The transmitter shall ensure that <BUS_NAME> contains valid data for the entire period that <BUS_NAME>_STB is '1'.
+- The transmitter may set <BUS_NAME> to any value when <BUS_NAME>_STB is '0'.
+- The receiver may insert wait states on the bus by setting <BUS_NAME>_ACK to '0'.
+- The receiver shall set <BUS_NAME>_ACK to '1' to signify that it is ready to receive data.
+- Once <BUS_NAME>_ACK has been set to '1', it shall remain at '1' until the transaction completes.
+- Whenever <BUS_NAME>_STB is '1' and <BUS_NAME>_ACK are '1', a bus transaction shall complete on the following '0' -> '1' transition of CLK.
  
 ::
  
@@ -161,13 +173,13 @@ Interconnect Bus Transaction
                          -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
          
                          ----- ------- ------------------------------------------------
-        <BUS_NAME>           X VALID X
+        <BUS_NAME>            X VALID X
                          ----- ------- ------------------------------------------------
                                -------
-        <BUS_NAME>_STB       |       |                                               
+        <BUS_NAME>_STB        |       |                                               
                          -----         ------------------------------------------------
                                    ---
-        <BUS_NAME>_ACK           |   |                                                
+        <BUS_NAME>_ACK            |   |                                                
                          ---------     ------------------------------------------------
          
          
@@ -182,13 +194,13 @@ Interconnect Bus Transaction
                          -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
          
                          ----- ------- ------------------------------------------------
-        <BUS_NAME>           X VALID X
+        <BUS_NAME>            X VALID X
                          ----- ------- ------------------------------------------------
                                    ---
-        <BUS_NAME>_STB           |   |                                               
+        <BUS_NAME>_STB            |   |                                               
                          ---------     ------------------------------------------------
                                -------
-        <BUS_NAME>_ACK       |       |                                                
+        <BUS_NAME>_ACK        |       |                                                
                          -----         ------------------------------------------------
          
          
@@ -209,13 +221,13 @@ Interconnect Bus Transaction
                          -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -
          
                          ----- ------- ---- ---- --------------------------------------
-        <BUS_NAME>           X D0    X D1 X D2 X
+        <BUS_NAME>            X D0    X D1 X D2 X
                          ----- ------- ---- ---- --------------------------------------
                                    -------------
-        <BUS_NAME>_STB           |             |                                     
+        <BUS_NAME>_STB            |             |                                     
                          ---------               --------------------------------------
                                -----------------
-        <BUS_NAME>_ACK       |                 |                                      
+        <BUS_NAME>_ACK        |                 |                                      
                          -----                   --------------------------------------
          
                                 ^^^^ TX adds wait states

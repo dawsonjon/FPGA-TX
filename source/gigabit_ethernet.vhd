@@ -1,25 +1,17 @@
---name:gigabit_ethernet
---tags:ethernet
-
---input         : tx          : 16
---output        : rx          : 16
-
---device_output : BIT : GTXCLK      : prefix+"gtxclk"      : 1
---device_input  : BIT : TXCLK       : prefix+"txclk"       : 1
---device_input  : BIT : CLK_125_MHZ : prefix+"clk_125_MHZ" : 1
---device_output : BIT : TXER        : prefix+"txer"        : 1
---device_output : BIT : TXEN        : prefix+"txen"        : 1
---device_output : BUS : TXD         : prefix+"txd"         : 8
---device_output : BIT : PHY_RESET   : prefix+"phy_reset"   : 1
---device_input  : BIT : RXCLK       : prefix+"rxclk"       : 1
---device_input  : BIT : RXDV        : prefix+"rxdv"        : 1
---device_input  : BIT : RXER        : prefix+"rxer"        : 1
---device_input  : BUS : RXD         : prefix+"rxd"         : 8
---parameter     : prefix      : ""
-
---source_file   : built_in
-
-
+--------------------------------------------------------------------------------
+---
+---  Gigabit Ethernet MAC
+---
+---  :Author: Jonathan P Dawson
+---  :Date: 17/10/2013
+---  :email: chips@jondawson.org.uk
+---  :license: MIT
+---  :Copyright: Copyright (C) Jonathan P Dawson 2013
+---
+---  A gigabit ethernet MAC
+---
+--------------------------------------------------------------------------------
+---
 ---Gigabit Ethernet
 ---================
 ---

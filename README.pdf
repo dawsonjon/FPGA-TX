@@ -158,7 +158,7 @@ endobj
 % 'R13': class PDFInfo 
 13 0 obj
 << /Author ()
- /CreationDate (D:20131117131207+00'00')
+ /CreationDate (D:20131117140248+00'00')
  /Creator (\(unspecified\))
  /Keywords ()
  /Producer (ReportLab PDF Library - www.reportlab.com)
@@ -564,7 +564,7 @@ q
 1 0 0 1 62.69291 224.6236 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL .374104 Tw (Edit the xilinx variable in the scripts/user_settings to point to the xilinx ISE install directory. Then build the) Tj T* 0 Tw (design using the following command:) Tj T* ET
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL .177633 Tw (Edit the Xilinx variable in the scripts/user_settings to point to the Xilinx ISE install directory. Then build the) Tj T* 0 Tw (design using the following command:) Tj T* ET
 Q
 Q
 q
@@ -634,7 +634,7 @@ endobj
 % 'R24': class PDFStream 
 24 0 obj
 % page stream
-<< /Length 3366 >>
+<< /Length 3367 >>
 stream
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
@@ -688,14 +688,14 @@ q
 1 0 0 1 62.69291 533.6236 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 3.163984 Tw (Connect the ethernet port to SP605, using a crossed over ethernet cable \(which comes with the) Tj T* 0 Tw (development kit\).) Tj T* ET
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 3.015984 Tw (Connect the Ethernet port to SP605, using a crossed over Ethernet cable \(which comes with the) Tj T* 0 Tw (development kit\).) Tj T* ET
 Q
 Q
 q
 1 0 0 1 62.69291 503.6236 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 1.510751 Tw (Using the script, configure ethernet port with IP address 192.168.1.0 and subnet mask 255.255.255.0.) Tj T* 0 Tw (Turn off TCP Window Scaling and TCP timestamps:) Tj T* ET
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL 1.425366 Tw (Using the script, configure Ethernet port with IP address 192.168.1.0 and subnet mask 255.255.255.0.) Tj T* 0 Tw (Turn off TCP Window Scaling and TCP time stamps:) Tj T* ET
 Q
 Q
 q
@@ -811,17 +811,17 @@ xref
 0000038737 00000 n
 0000038853 00000 n
 0000045294 00000 n
-0000048763 00000 n
-0000048869 00000 n
-0000048946 00000 n
+0000048764 00000 n
+0000048870 00000 n
+0000048947 00000 n
 trailer
 << /ID 
  % ReportLab generated PDF document -- digest (http://www.reportlab.com) 
- [(7\307\362A\312\372\357\220\316\277\005\2000\234\234\364) (7\307\362A\312\372\357\220\316\277\005\2000\234\234\364)] 
+ [(\252\347B\226#\3442*\203\3679\337\323\213\025\374) (\252\347B\226#\3442*\203\3679\337\323\213\025\374)] 
 
  /Info 13 0 R
  /Root 12 0 R
  /Size 28 >>
 startxref
-48993
+48994
 %%EOF
