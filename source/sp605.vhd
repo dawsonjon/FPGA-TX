@@ -1,51 +1,60 @@
 --           +--------------+
---           |              |
---           |  CLOCK TREE  >-- CLK1   (50MHz)
+--           | CLOCK TREE   |
+--           +--------------+
+--           |              >-- CLK1   (50MHz) ---> CLK
 -- CLK_P >--->              |
---           |              >-- CLK2   (100MHz) ------------------------+
--- CLK_N >--->              |                     +-------+             |
---           |              +-- CLK3   (125MHz) ->+ ODDR2 +-->[GTXCLK]  |
---           |              |                     |       |             |
---           |              +-- CLK3_N (125MHZ) ->+       |             |
---           |              |                     +-------+             |
--- RST >--+-->              >-- CLK4   (200MHz)                         |
---        |  |              |                                           |
---        |  +--------------+                                           |
---        |                                                             |
---        |                                                             |
---        +------------------------+  +---------------------------------+
---                                 |  |
---                           +-----v--v----+
---                           |             |
---                           |    CHIPS    |
---                 RX >------>    VHDL     >-------> TX
---                           |    MODEL    |
---           SWITCHES >------>             >-------> LEDS
---                           |             |
---            BUTTONS >------>             |                     
---                           |             |           
---                           |             |           
---                           |             +------> [PHY_RESET]           
---                           |             |           
---             [RXCLK] ----->+             +------> [TXCLK]           
---                           |             |           
--- (125MHZ) [CLK_OUT3] ----->+             +------> open           
---                           |             |           
---               [RXD] ----->+             +------> [TXD]
---                           |             |           
---              [RXDV] ----->+             +------> [TXEN]           
---                           |             |           
---              [RXER] ----->+             +------> [TXER]           
---                           |             |           
---                           |             |           
---                           |             |          
---                           |             |                +------+
---                           |             |                | TRI  |
---                           |             >-- HEADER_OUT -->     <>--<HEADER>
---                    +------>             >-- HEADER_OE --->      >--+
---                    |      +-------------+                |      |  |
---                    |                                     +------+  |
---                    +------------- HEADER IN -----------------------+
+--           |              >-- CLK2   (100MHz)
+-- CLK_N >--->              |                     +-------+
+--           |              +-- CLK3   (125MHz) ->+ ODDR2 +-->[GTXCLK]
+--           |              |                     |       |
+--           |              +-- CLK3_N (125MHZ) ->+       |
+--           |              |                     +-------+
+-- RST >----->              >-- CLK4   (200MHz)
+--           |              |
+--           |              |
+--           |              |  CLK >--+--------+
+--           |              |         |        |
+--           |              |      +--v-+   +--v-+
+--           |              |      |    |   |    |
+--           |       LOCKED >------>    >--->    >-------> INTERNAL_RESET
+--           |              |      |    |   |    |
+--           +--------------+      +----+   +----+
+--
+--              +-------------+     +--------------+               
+--              | SERVER      |     | USER DESIGN  |
+--              +-------------+     +--------------+
+--              |             |     |              |
+--              |             >----->              <-------< SWITCHES
+--              |             |     |              |
+--              |             <-----<              >-------> LEDS
+--              |             |     |              |
+--              |             |     +----^----v----+
+--              |             |          |    |
+--              |             |     +----^----v----+
+--              |             |     | UART         |
+--              |             |     +--------------+
+--              |             |     |              >-------> RS232-TX
+--              |             |     |              |
+--              +---v-----^---+     |              <-------< RS232-RX 
+--                  |     |         +--------------+
+--              +---v-----^---+           
+--              | ETHERNET    |           
+--              | MAC         |           
+--              +-------------+           
+--              |             +------> [PHY_RESET]           
+--              |             |           
+--[RXCLK] ----->+             +------> [TXCLK]           
+--              |             |           
+-- 125MHZ ----->+             +------> open           
+--              |             |           
+--  [RXD] ----->+             +------> [TXD]
+--              |             |           
+-- [RXDV] ----->+             +------> [TXEN]           
+--              |             |           
+-- [RXER] ----->+             +------> [TXER]           
+--              |             |           
+--              |             |
+--              +-------------+
 
 
 library ieee;
@@ -76,11 +85,12 @@ entity SP605 is
    TXER          : out   std_logic;   
 
    --LEDS
-   GPIO_LEDS : out std_logic_vector(3 downto 0);   
+   GPIO_LEDS     : out std_logic_vector(3 downto 0);   
+   GPIO_SWITCHES : in  std_logic_vector(3 downto 0);   
 
    --RS232 INTERFACE
-   RS232_RX            : in    std_logic;
-   RS232_TX            : out   std_logic
+   RS232_RX      : in    std_logic;
+   RS232_TX      : out   std_logic
   );
 end entity SP605;
 
@@ -154,6 +164,10 @@ architecture RTL of SP605 is
       OUTPUT_LEDS : out std_logic_vector(15 downto 0);
       OUTPUT_LEDS_STB : out std_logic;
       OUTPUT_LEDS_ACK : in std_logic;
+
+      INPUT_SWITCHES : in std_logic_vector(15 downto 0);
+      INPUT_SWITCHES_STB : in std_logic;
+      INPUT_SWITCHES_ACK : out std_logic;
 
       --SOCKET RX STREAM
       INPUT_SOCKET : in std_logic_vector(15 downto 0);
@@ -238,6 +252,11 @@ architecture RTL of SP605 is
   signal OUTPUT_LEDS : std_logic_vector(15 downto 0);
   signal OUTPUT_LEDS_STB : std_logic;
   signal OUTPUT_LEDS_ACK : std_logic;
+
+  signal INPUT_SWITCHES : std_logic_vector(15 downto 0);
+  signal INPUT_SWITCHES_STB : std_logic;
+  signal INPUT_SWITCHES_ACK : std_logic;
+  signal GPIO_SWITCHES_D : std_logic_vector(3 downto 0);
   
   --ETH RX STREAM
   signal ETH_RX          : std_logic_vector(15 downto 0);
@@ -335,6 +354,10 @@ begin
       OUTPUT_LEDS_STB => OUTPUT_LEDS_STB,
       OUTPUT_LEDS_ACK => OUTPUT_LEDS_ACK,
 
+      INPUT_SWITCHES => INPUT_SWITCHES,
+      INPUT_SWITCHES_STB => INPUT_SWITCHES_STB,
+      INPUT_SWITCHES_ACK => INPUT_SWITCHES_ACK,
+
       --RS232 RX STREAM
       INPUT_RS232_RX => INPUT_RS232_RX,
       INPUT_RS232_RX_STB => INPUT_RS232_RX_STB,
@@ -393,6 +416,11 @@ begin
 	     GPIO_LEDS <= OUTPUT_LEDS(3 downto 0);
     end if;
 	  OUTPUT_LEDS_ACK <= '1';
+
+    INPUT_SWITCHES_STB <= '1';
+    GPIO_SWITCHES_D <= GPIO_SWITCHES;
+    INPUT_SWITCHES(3 downto 0) <= GPIO_SWITCHES_D;
+    INPUT_SWITCHES(15 downto 4) <= (others => '0');
 
   end process;
 

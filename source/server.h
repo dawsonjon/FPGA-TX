@@ -645,6 +645,10 @@ void server()
 					if(state == last_state) put_tcp_packet(tx_packet, tx_length);
 				}
 
+				if(state == send && ready_socket()){
+					break;
+				}
+
 				if(state != last_state){
 					timeout = 120;
 					break;

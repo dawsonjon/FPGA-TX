@@ -1,8 +1,5 @@
 void put_socket(unsigned i){
-
-	output_rs232_tx('g');
 	output_socket(i);
-	output_rs232_tx('h');
 }
 
 #include "HTTP.h"
@@ -41,6 +38,7 @@ is powered by <a href=\"https://github.com/dawsonjon/Chips-2.0\">Chips-2.0</a>.<
 
         //dummy access to peripherals
 	output_leds(0x5);
-	input_rs232_rx();
+	i = input_switches();
+	i = input_rs232_rx();
 	output_rs232_tx(1);
 }

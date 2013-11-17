@@ -28,10 +28,10 @@ NET "GPIO_LEDS<2>"                  LOC = "D21";   ## 2   on DS5 LED
 NET "GPIO_LEDS<3>"                  LOC = "W15";   ## 2   on DS6 LED
 
 ##
-#NET "GPIO_SWITCHES<0>"               LOC = "C18";   ## 1   on S2 DIP switch (active-high)
-#NET "GPIO_SWITCHES<1>"              LOC = "Y6";    ## 2   on S2 DIP switch (active-high)
-#NET "GPIO_SWITCHES<2>"               LOC = "W6";    ## 3   on S2 DIP switch (active-high)
-#NET "GPIO_SWITCHES<3>"               LOC = "E4";    ## 4   on S2 DIP switch (active-high)
+NET "GPIO_SWITCHES<0>"               LOC = "C18";   ## 1   on S2 DIP switch (active-high)
+NET "GPIO_SWITCHES<1>"              LOC = "Y6";    ## 2   on S2 DIP switch (active-high)
+NET "GPIO_SWITCHES<2>"               LOC = "W6";    ## 3   on S2 DIP switch (active-high)
+NET "GPIO_SWITCHES<3>"               LOC = "E4";    ## 4   on S2 DIP switch (active-high)
 
 ##
 NET "RXCLK"                       LOC = "P20";   ## 7   ON U46
