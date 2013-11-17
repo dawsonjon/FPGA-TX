@@ -17,14 +17,18 @@ You will need:
 + Python 2.7 or later (but not Python 3)
 + Chips-2.0 (Included)
 + Xilinx SP605 Spartan 6 Development Kit.
++ git
 
 Install
 =======
 
 
-You can download the full `zip archive <https://github.com/dawsonjon/SP605-Demo/archive/master.zip>`_ or, if you have git installed, you can clone the git the repository with git::
+Clone the git the repository with git::
 
     $ git clone git@github.com:dawsonjon/SP605-Demo.git
+    $ cd SP605-Demo
+    $ git submodule init
+    $ git submodule update
 
 Chips Compile
 =============
