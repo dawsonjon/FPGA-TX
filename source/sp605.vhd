@@ -41,6 +41,8 @@
 ---              |             >----->              <-------< SWITCHES
 ---              |             |     |              |
 ---              |             <-----<              >-------> LEDS
+---              |             |     |              |               
+---              |             |     |              <-------< BUTTONS
 ---              |             |     |              |
 ---              |             |     +----^----v----+
 ---              |             |          |    |
@@ -101,6 +103,7 @@ entity SP605 is
    --LEDS
    GPIO_LEDS     : out std_logic_vector(3 downto 0);   
    GPIO_SWITCHES : in  std_logic_vector(3 downto 0);   
+   GPIO_BUTTONS  : in  std_logic_vector(3 downto 0);   
 
    --RS232 INTERFACE
    RS232_RX      : in    std_logic;
@@ -182,6 +185,10 @@ architecture RTL of SP605 is
       INPUT_SWITCHES : in std_logic_vector(15 downto 0);
       INPUT_SWITCHES_STB : in std_logic;
       INPUT_SWITCHES_ACK : out std_logic;
+
+      INPUT_BUTTONS : in std_logic_vector(15 downto 0);
+      INPUT_BUTTONS_STB : in std_logic;
+      INPUT_BUTTONS_ACK : out std_logic;
 
       --SOCKET RX STREAM
       INPUT_SOCKET : in std_logic_vector(15 downto 0);
@@ -271,6 +278,11 @@ architecture RTL of SP605 is
   signal INPUT_SWITCHES_STB : std_logic;
   signal INPUT_SWITCHES_ACK : std_logic;
   signal GPIO_SWITCHES_D : std_logic_vector(3 downto 0);
+
+  signal INPUT_BUTTONS : std_logic_vector(15 downto 0);
+  signal INPUT_BUTTONS_STB : std_logic;
+  signal INPUT_BUTTONS_ACK : std_logic;
+  signal GPIO_BUTTONS_D : std_logic_vector(3 downto 0);
   
   --ETH RX STREAM
   signal ETH_RX          : std_logic_vector(15 downto 0);
@@ -372,6 +384,10 @@ begin
       INPUT_SWITCHES_STB => INPUT_SWITCHES_STB,
       INPUT_SWITCHES_ACK => INPUT_SWITCHES_ACK,
 
+      INPUT_BUTTONS => INPUT_BUTTONS,
+      INPUT_BUTTONS_STB => INPUT_BUTTONS_STB,
+      INPUT_BUTTONS_ACK => INPUT_BUTTONS_ACK,
+
       --RS232 RX STREAM
       INPUT_RS232_RX => INPUT_RS232_RX,
       INPUT_RS232_RX_STB => INPUT_RS232_RX_STB,
@@ -435,6 +451,11 @@ begin
     GPIO_SWITCHES_D <= GPIO_SWITCHES;
     INPUT_SWITCHES(3 downto 0) <= GPIO_SWITCHES_D;
     INPUT_SWITCHES(15 downto 4) <= (others => '0');
+
+    INPUT_BUTTONS_STB <= '1';
+    GPIO_BUTTONS_D <= GPIO_BUTTONS;
+    INPUT_BUTTONS(3 downto 0) <= GPIO_BUTTONS_D;
+    INPUT_BUTTONS(15 downto 4) <= (others => '0');
 
   end process;
 

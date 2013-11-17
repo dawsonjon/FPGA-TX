@@ -10,10 +10,10 @@ Net RS232_RX LOC=H17 | IOSTANDARD = LVCMOS25;
 Net RS232_TX LOC=B21 | IOSTANDARD = LVCMOS25;
 
 ##
-#NET "GPIO_BUTTONS<0>"               LOC = "F3";    ## 2   on SW4 pushbutton (active-high)
-#NET "GPIO_BUTTONS<1>"               LOC = "G6";    ## 2   on SW7 pushbutton (active-high)
-#NET "GPIO_BUTTONS<2>"               LOC = "F5";    ## 2   on SW5 pushbutton (active-high)
-#NET "GPIO_BUTTONS<3>"               LOC = "C1";    ## 2   on SW8 pushbutton (active-high)
+NET "GPIO_BUTTONS<0>"               LOC = "F3";    ## 2   on SW4 pushbutton (active-high)
+NET "GPIO_BUTTONS<1>"               LOC = "G6";    ## 2   on SW7 pushbutton (active-high)
+NET "GPIO_BUTTONS<2>"               LOC = "F5";    ## 2   on SW5 pushbutton (active-high)
+NET "GPIO_BUTTONS<3>"               LOC = "C1";    ## 2   on SW8 pushbutton (active-high)
 
 ##
 #NET "GPIO_HEADER<0>"                LOC = "G7";    ## 1   on U52 (level shifter, U52.20 <-> GPIO_HEADER_0 <-> series R280 200 ohm <-> 1 on J55
