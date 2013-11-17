@@ -37,6 +37,8 @@ void user_design()
 	unsigned switches = 0;
 	unsigned buttons = 0;
 	unsigned leds = 0;
+	unsigned location;
+	unsigned end_of_line;
 
 	unsigned page[] = 
 "<html>\
@@ -74,11 +76,17 @@ void user_design()
 		leds = 0;
 		index=find(data, '?', 0);
 		if(index != -1){
+			output_leds(0xf);
 			index ++;
-			if(find(data, 'A', index) != -1) leds |= 1;
-			if(find(data, 'B', index) != -1) leds |= 2;
-			if(find(data, 'C', index) != -1) leds |= 4;
-			if(find(data, 'D', index) != -1) leds |= 8;
+			end_of_line = find(data, '\r', index);
+			location = find(data, 'A', index);
+			if(location != -1 && location < end_of_line) leds |= 1;
+			location = find(data, 'B', index);
+			if(location != -1 && location < end_of_line) leds |= 2;
+			location = find(data, 'C', index);
+			if(location != -1 && location < end_of_line) leds |= 4;
+			location = find(data, 'D', index);
+			if(location != -1 && location < end_of_line) leds |= 8;
 		}
 		output_leds(leds);
 
