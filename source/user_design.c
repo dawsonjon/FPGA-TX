@@ -78,7 +78,7 @@ void user_design()
 		if(index != -1){
 			output_leds(0xf);
 			index ++;
-			end_of_line = find(data, '\r', index);
+			end_of_line = find(data, '\n', index);
 			location = find(data, 'A', index);
 			if(location != -1 && location < end_of_line) leds |= 1;
 			location = find(data, 'B', index);
