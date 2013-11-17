@@ -18,6 +18,15 @@ void put_socket(unsigned i){
 
 #include "HTTP.h"
 
+int find(unsigned string[], unsigned search, unsigned start){
+	int value = start;
+	while(string[value]){
+	       if(string[value] == search) return value;
+	       value++;
+	}
+	return -1;
+}
+
 void user_design()
 {
 	//simple echo application
@@ -27,6 +36,7 @@ void user_design()
 	unsigned word;
 	unsigned switches = 0;
 	unsigned buttons = 0;
+	unsigned leds = 0;
 
 	unsigned page[] = 
 "<html>\
@@ -39,11 +49,11 @@ void user_design()
 <p>Switch Status: 0000</p>\
 <p>Button Status: 0000</p>\
 <form>\
-<input type=\"checkbox\" name=\"led1\" value=\"0\">led 0<br>\
-<input type=\"checkbox\" name=\"led2\" value=\"0\">led 1<br>\
-<input type=\"checkbox\" name=\"led3\" value=\"0\">led 2<br>\
-<input type=\"checkbox\" name=\"led4\" value=\"0\">led 3\
-<input type=\"sumbit\" value=\"Update\">\
+	<input type=\"checkbox\" name=\"led1\" value=\"A\">led 0</input>\
+	<input type=\"checkbox\" name=\"led2\" value=\"B\">led 1</input>\
+	<input type=\"checkbox\" name=\"led3\" value=\"C\">led 2</input>\
+	<input type=\"checkbox\" name=\"led4\" value=\"D\">led 3</input>\
+	<button type=\"sumbit\" value=\"Submit\">Update LEDs</button>\
 </form>\
 <p>This <a href=\"https://github.com/dawsonjon/SP605-Demo\">project</a>\
  is powered by <a href=\"https://github.com/dawsonjon/Chips-2.0\">Chips-2.0</a>.</p>\
@@ -59,47 +69,55 @@ void user_design()
 			index++;
 		}
 
-		//read switch values
-		switches = input_switches();
-		//find first ':'
-		index = 0;
-		while(1){
-			if(page[index] == ':') break;
-			index++;
+		//Get LED values
+		//==============
+		leds = 0;
+		index=find(data, '?', 0);
+		if(index != -1){
+			index ++;
+			if(find(data, 'A', index) != -1) leds |= 1;
+			if(find(data, 'B', index) != -1) leds |= 2;
+			if(find(data, 'C', index) != -1) leds |= 4;
+			if(find(data, 'D', index) != -1) leds |= 8;
 		}
+		output_leds(leds);
+
+		//read switch values
+		//==================
+		switches = ~input_switches();
+		//find first ':'
+		index = find(page, ':', 0);
 		index+=2;
 		//insert switch values
-		if(switches & 8) page[index] = '0';
-		else page[index] = '1';
-		index ++;
-		if(switches & 4) page[index] = '0';
+		if(switches & 1) page[index] = '0';
 		else page[index] = '1';
 		index ++;
 		if(switches & 2) page[index] = '0';
 		else page[index] = '1';
 		index ++;
-		if(switches & 1) page[index] = '0';
+		if(switches & 4) page[index] = '0';
+		else page[index] = '1';
+		index ++;
+		if(switches & 8) page[index] = '0';
 		else page[index] = '1';
 
 		//read button values
-		buttons = input_buttons();
+		//==================
+		buttons = ~input_buttons();
 		//find next ':'
-		while(1){
-			if(page[index] == ':') break;
-			index++;
-		}
+		index = find(page, ':', index+1);
 		index+=2;
 		//insert button values
-		if(buttons & 8) page[index] = '0';
-		else page[index] = '1';
-		index ++;
-		if(buttons & 4) page[index] = '0';
+		if(buttons & 1) page[index] = '0';
 		else page[index] = '1';
 		index ++;
 		if(buttons & 2) page[index] = '0';
 		else page[index] = '1';
 		index ++;
-		if(buttons & 1) page[index] = '0';
+		if(buttons & 4) page[index] = '0';
+		else page[index] = '1';
+		index ++;
+		if(buttons & 8) page[index] = '0';
 		else page[index] = '1';
 
 		HTTP_GET_response(page);
@@ -107,7 +125,6 @@ void user_design()
 	}
 
         //dummy access to peripherals
-	output_leds(0x5);
 	i = input_rs232_rx();
 	output_rs232_tx(1);
 }
