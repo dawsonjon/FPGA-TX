@@ -18,9 +18,10 @@ void put_socket(unsigned i){
 
 #include "HTTP.h"
 
-int find(unsigned string[], unsigned search, unsigned start){
+int find(unsigned string[], unsigned search, unsigned start, unsigned end){
 	int value = start;
 	while(string[value]){
+	       if(value == end) return -1;
 	       if(string[value] == search) return value;
 	       value++;
 	}
@@ -71,48 +72,39 @@ void user_design()
 
 		//Get LED values
 		//==============
+		start=find(data, '?',  0, index);
+		end=find(data, '\r', start, index);
 		leds = 0;
-		index=find(data, '?', 0);
-		if(index != -1){
-			index ++;
-			while(1){
-				index = find(data, '=', index);
-				if(index == -1) break;
-				index++;
-				     if(data[index]=='A') leds |= 1;
-				else if(data[index]=='B') leds |= 2;
-				else if(data[index]=='C') leds |= 4;
-				else if(data[index]=='D') leds |= 8;
-				else break;
-				index++;
-			}
-		}
+		if(find(data, 'A', start, end)) leds |= 1;
+		if(find(data, 'B', start, end)) leds |= 2;
+		if(find(data, 'C', start, end)) leds |= 4;
+		if(find(data, 'D', start, end)) leds |= 8;
 		output_leds(leds);
 
 		//read switch values
 		//==================
 		switches = ~input_switches();
 		//find first ':'
-		index = find(page, ':', 0);
+		index = find(page, ':', 0, 1460);
 		index+=2;
 		//insert switch values
-		if(switches & 1) page[index] = '0';
-		else page[index] = '1';
-		index ++;
-		if(switches & 2) page[index] = '0';
+		if(switches & 8) page[index] = '0';
 		else page[index] = '1';
 		index ++;
 		if(switches & 4) page[index] = '0';
 		else page[index] = '1';
 		index ++;
-		if(switches & 8) page[index] = '0';
+		if(switches & 2) page[index] = '0';
+		else page[index] = '1';
+		index ++;
+		if(switches & 1) page[index] = '0';
 		else page[index] = '1';
 
 		//read button values
 		//==================
 		buttons = ~input_buttons();
 		//find next ':'
-		index = find(page, ':', index+1);
+		index = find(page, ':', index+1, 1460);
 		index+=2;
 		//insert button values
 		if(buttons & 1) page[index] = '0';
