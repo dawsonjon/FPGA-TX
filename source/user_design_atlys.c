@@ -37,18 +37,16 @@ void user_design()
 	unsigned switches = 0;
 	unsigned buttons = 0;
 	unsigned leds = 0;
-	unsigned location;
-	unsigned end_of_line;
 
 	unsigned page[] = 
 "<html>\
 <head>\
-<title>Chips-2.0 SP605 Demo</title>\
+<title>Chips-2.0 ATLYS Demo</title>\
 </head>\
 <body>\
-<h1>Chips-2.0 SP605 Demo</h1>\
-<p>Welcome to the Chips-2.0 SP605 Demo!</p>\
-<p>Switch Status: 0000</p>\
+<h1>Chips-2.0 ATLYS Demo</h1>\
+<p>Welcome to the Chips-2.0 ATLYS Demo!</p>\
+<p>Switch Status: 00000000</p>\
 <p>Button Status: 0000</p>\
 <form>\
 	<input type=\"checkbox\" name=\"led1\" value=\"A\">led 0</input>\
@@ -57,11 +55,11 @@ void user_design()
 	<input type=\"checkbox\" name=\"led4\" value=\"D\">led 3</input>\
 	<button type=\"sumbit\" value=\"Submit\">Update LEDs</button>\
 </form>\
-<p>This <a href=\"https://github.com/dawsonjon/SP605-Demo\">project</a>\
+<p>This <a href=\"https://github.com/dawsonjon/Chips-Demo\">project</a>\
  is powered by <a href=\"https://github.com/dawsonjon/Chips-2.0\">Chips-2.0</a>.</p>\
 </body>\
 </html>";
- 
+
 	while(1){
 
 		length = input_socket();
@@ -76,17 +74,18 @@ void user_design()
 		leds = 0;
 		index=find(data, '?', 0);
 		if(index != -1){
-			output_leds(0xf);
 			index ++;
-			end_of_line = find(data, '\n', index);
-			location = find(data, 'A', index);
-			if(location != -1 && location < end_of_line) leds |= 1;
-			location = find(data, 'B', index);
-			if(location != -1 && location < end_of_line) leds |= 2;
-			location = find(data, 'C', index);
-			if(location != -1 && location < end_of_line) leds |= 4;
-			location = find(data, 'D', index);
-			if(location != -1 && location < end_of_line) leds |= 8;
+			while(1){
+				index = find(data, '=', index);
+				if(index == -1) break;
+				index++;
+				     if(data[index]=='A') leds |= 1;
+				else if(data[index]=='B') leds |= 2;
+				else if(data[index]=='C') leds |= 4;
+				else if(data[index]=='D') leds |= 8;
+				else break;
+				index++;
+			}
 		}
 		output_leds(leds);
 
@@ -133,6 +132,5 @@ void user_design()
 	}
 
         //dummy access to peripherals
-	i = input_rs232_rx();
-	output_rs232_tx(1);
+	index = input_rs232_rx();
 }

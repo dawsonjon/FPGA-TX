@@ -1,4 +1,4 @@
-Chips-2.0 Demo for SP605 Development Card
+Chips-2.0 Demo for ATLYS Development Card
 =========================================
 
 :Author: Jonathan P Dawson
@@ -6,7 +6,7 @@ Chips-2.0 Demo for SP605 Development Card
 :email: chips@jondawson.org.uk
 
 
-This project is intended to demonstrate the capabilities of the `Chips-2.0 <https://github.com/dawsonjon/Chips-2.0>`_  development environment. The project is targets the Xilinx Spartan 6 device, and more specifically, the Xilinx SP605 development platform. The demo implements a TCP/IP socket interface, and a simple web application. So far the demonstration has been tested on a Ubuntu Linux only.
+This project is intended to demonstrate the capabilities of the `Chips-2.0 <https://github.com/dawsonjon/Chips-2.0>`_  development environment. The project is targets the Xilinx Spartan 6 device, and more specifically, the Digilent ATLYS development platform. The demo implements a TCP/IP socket interface, and a simple web application. So far the demonstration has been tested on a Ubuntu Linux only.
 
 Dependencies
 ============
@@ -16,7 +16,8 @@ You will need:
 + Xilinx ISE 12.0 or later (webpack edition is free)
 + Python 2.7 or later (but not Python 3)
 + Chips-2.0 (Included)
-+ Xilinx SP605 Spartan 6 Development Kit.
++ Digilent `ATLYS <http://www.digilentinc.com/Products/Detail.cfm?NavPath=2,400,836&Prod=ATLYS&CFID=3188339&CFTOKEN=15014968>`_  Spartan 6 Development Kit.
++ Digilent ADEPT2 `utility <http://www.digilentinc.com/Products/Detail.cfm?NavPath=2,66,828&Prod=ADEPT2>`_ 
 + git
 
 Install
@@ -25,8 +26,8 @@ Install
 
 Clone the git the repository with git::
 
-    $ git clone git@github.com:dawsonjon/SP605-Demo.git
-    $ cd SP605-Demo
+    $ git clone git@github.com:dawsonjon/Chips-Demo.git
+    $ cd Chips-Demo
     $ git submodule init
     $ git submodule update
 
@@ -35,45 +36,45 @@ Chips Compile
 
 To compile the c code in chips, issue the following command in the project folder::
 
-    $ ./synthesise compile
+    $ ./ATLYS.py compile
 
 Build in ISE 
 ============
 
 Edit the Xilinx variable in the scripts/user_settings to point to the Xilinx ISE install directory. Then build the design using the following command::
 
-    $ ./synthesise build
+    $ ./ATLYS.py build
 
-Download to SP605 
+Download to ATLYS 
 =================
 
-Power up the SP605, and connect the JTAG USB cable to your PC. Run the download command::
+Power up the ATLYS, and connect the JTAG USB cable to your PC. Run the download command::
 
-    $ ./synthesise download
+    $ ./ATLYS.py download
 
 You can complete all three steps in one go using the *all* option::
 
-    $ ./synthesise all
+    $ ./ATLYS.py all
 
 Setup and Test
 ==============
 
 ::
         
-        +----------------+                 +---------------+
-        | PC             |                 | Xilinx SP 605 |
-        |                |   POWER =======>o               |
-        |                |                 |               |
-        |          USB   o<===============>o JTAG USB      |
-        |                |                 |               |
-        |          ETH0  o<===============>o ETHERNET      |
-        |                |                 |               |
-        | 192.168.1.0    |                 | 192.168.1.1   |
-        +----------------+                 +---------------+
+        +----------------+                 +----------------+
+        | PC             |                 | Digilent ATLYS |
+        |                |   POWER =======>o                |
+        |                |                 |                |
+        |          USB   o<===============>o JTAG USB       |
+        |                |                 |                |
+        |          ETH0  o<===============>o ETHERNET       |
+        |                |                 |                |
+        | 192.168.1.0    |                 | 192.168.1.1    |
+        +----------------+                 +----------------+
 
 ..
 
-Connect the Ethernet port to SP605, using a crossed over Ethernet cable (which comes with the development kit).
+Connect the Ethernet port to ATLYS, using a crossed over Ethernet cable (which comes with the development kit).
 
 Using the script, configure Ethernet port with IP address 192.168.1.0 and subnet mask 255.255.255.0. Turn off TCP Window Scaling and TCP time stamps::
 
@@ -94,4 +95,4 @@ Verify connection using ping command::
 
 Connect to 192.168.1.1 using your favourite browser.
 
-.. image:: https://raw.github.com/dawsonjon/SP605-Demo/master/images/screenshot.png
+.. image:: https://raw.github.com/dawsonjon/Chips-Demo/master/images/screenshot.png

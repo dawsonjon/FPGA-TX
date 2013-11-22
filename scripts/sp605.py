@@ -9,7 +9,7 @@ import shutil
 from user_settings import xilinx
 
 current_directory = os.getcwd()
-working_directory = "synthesis"
+working_directory = "SP605"
 shutil.copyfile("xilinx_input/SP605.ucf", os.path.join(working_directory, "SP605.ucf"))
 shutil.copyfile("xilinx_input/SP605.prj", os.path.join(working_directory, "SP605.prj"))
 shutil.copyfile("xilinx_input/xst_mixed.opt", os.path.join(working_directory, "xst_mixed.opt"))
@@ -19,7 +19,7 @@ os.chdir(working_directory)
 
 if "compile" in sys.argv or "all" in sys.argv:
     print "Compiling C files using chips ...."
-    retval = os.system("../chips2/c2verilog no_reuse ../source/user_design.c")
+    retval = os.system("../chips2/c2verilog no_reuse ../source/user_design_sp605.c")
     retval = os.system("../chips2/c2verilog no_reuse ../source/server.c")
     if retval != 0:
         sys.exit(-1)

@@ -16,9 +16,9 @@
 ---           | CLOCK TREE   |
 ---           +--------------+
 ---           |              >-- CLK1   (50MHz) ---> CLK
---- CLK_P >--->              |
+--- CLK_IN >-->              |
 ---           |              >-- CLK2   (100MHz)
---- CLK_N >--->              |                     +-------+
+---           |              |                     +-------+
 ---           |              +-- CLK3   (125MHz) ->+ ODDR2 +-->[GTXCLK]
 ---           |              |                     |       |
 ---           |              +-- CLK3_N (125MHZ) ->+       |
@@ -80,10 +80,9 @@ use ieee.numeric_std.all;
 library unisim;
 use unisim.vcomponents.all;
 
-entity SP605 is
+entity ATLYS is
   port(
-	 CLK_P         : in    std_logic;       
-	 CLK_N         : in    std_logic;       
+	 CLK_IN        : in    std_logic;       
 	 RST           : in    std_logic;       
 
    --PHY INTERFACE
@@ -101,17 +100,17 @@ entity SP605 is
    TXER          : out   std_logic;   
 
    --LEDS
-   GPIO_LEDS     : out std_logic_vector(3 downto 0);   
-   GPIO_SWITCHES : in  std_logic_vector(3 downto 0);   
+   GPIO_LEDS     : out std_logic_vector(7 downto 0);   
+   GPIO_SWITCHES : in  std_logic_vector(7 downto 0);   
    GPIO_BUTTONS  : in  std_logic_vector(3 downto 0);   
 
    --RS232 INTERFACE
    RS232_RX      : in    std_logic;
    RS232_TX      : out   std_logic
   );
-end entity SP605;
+end entity ATLYS;
 
-architecture RTL of SP605 is
+architecture RTL of ATLYS is
 
   component gigabit_ethernet is
     port(
@@ -168,7 +167,12 @@ architecture RTL of SP605 is
       --SOCKET TX STREAM
       OUTPUT_SOCKET : out std_logic_vector(15 downto 0);
       OUTPUT_SOCKET_STB : out std_logic;
-      OUTPUT_SOCKET_ACK : in std_logic
+      OUTPUT_SOCKET_ACK : in std_logic;
+
+      --RS232 TX STREAM
+      OUTPUT_RS232_TX : out std_logic_vector(15 downto 0);
+      OUTPUT_RS232_TX_STB : out std_logic;
+      OUTPUT_RS232_TX_ACK : in std_logic
 
     );
   end component;
@@ -203,12 +207,8 @@ architecture RTL of SP605 is
       --RS232 RX STREAM
       INPUT_RS232_RX : in std_logic_vector(15 downto 0);
       INPUT_RS232_RX_STB : in std_logic;
-      INPUT_RS232_RX_ACK : out std_logic;
+      INPUT_RS232_RX_ACK : out std_logic
 
-      --RS232 TX STREAM
-      OUTPUT_RS232_TX : out std_logic_vector(15 downto 0);
-      OUTPUT_RS232_TX_STB : out std_logic;
-      OUTPUT_RS232_TX_ACK : in std_logic
 
     );
   end component;
@@ -247,6 +247,7 @@ architecture RTL of SP605 is
 
   --chips signals
   signal CLK : std_logic;
+  signal RST_INV : std_logic;
 
   --clock tree signals
   signal clkin1            : std_logic;
@@ -268,7 +269,15 @@ architecture RTL of SP605 is
   signal NOT_LOCKED        : std_logic;
   signal INTERNAL_RST      : std_logic;
   signal RXD1              : std_logic;
-  
+  signal RX_LOCKED         : std_logic;
+  signal TX_LOCKED         : std_logic;
+  signal INTERNAL_RXCLK    : std_logic;
+  signal INTERNAL_RXCLK_BUF: std_logic;
+  signal RXCLK_BUF         : std_logic;
+
+  signal INTERNAL_TXD      : std_logic_vector(7 downto 0);
+  signal INTERNAL_TXEN     : std_logic;      
+  signal INTERNAL_TXER     : std_logic;   
   
   signal OUTPUT_LEDS : std_logic_vector(15 downto 0);
   signal OUTPUT_LEDS_STB : std_logic;
@@ -277,7 +286,7 @@ architecture RTL of SP605 is
   signal INPUT_SWITCHES : std_logic_vector(15 downto 0);
   signal INPUT_SWITCHES_STB : std_logic;
   signal INPUT_SWITCHES_ACK : std_logic;
-  signal GPIO_SWITCHES_D : std_logic_vector(3 downto 0);
+  signal GPIO_SWITCHES_D : std_logic_vector(7 downto 0);
 
   signal INPUT_BUTTONS : std_logic_vector(15 downto 0);
   signal INPUT_BUTTONS_STB : std_logic;
@@ -326,11 +335,11 @@ begin
       --GMII IF
       GTXCLK      => open,
       TXCLK       => TXCLK,
-      TXER        => TXER,
-      TXEN        => TXEN,
-      TXD         => TXD,
+      TXER        => INTERNAL_TXER,
+      TXEN        => INTERNAL_TXEN,
+      TXD         => INTERNAL_TXD,
       PHY_RESET   => PHY_RESET,
-      RXCLK       => RXCLK,
+      RXCLK       => INTERNAL_RXCLK,
       RXER        => RXER,
       RXDV        => RXDV,
       RXD         => RXD,
@@ -368,7 +377,12 @@ begin
       --RS232 TX STREAM
       OUTPUT_SOCKET => OUTPUT_SOCKET,
       OUTPUT_SOCKET_STB => OUTPUT_SOCKET_STB,
-      OUTPUT_SOCKET_ACK => OUTPUT_SOCKET_ACK
+      OUTPUT_SOCKET_ACK => OUTPUT_SOCKET_ACK,
+
+      --RS232 TX STREAM
+      OUTPUT_RS232_TX => OUTPUT_RS232_TX,
+      OUTPUT_RS232_TX_STB => OUTPUT_RS232_TX_STB,
+      OUTPUT_RS232_TX_ACK => OUTPUT_RS232_TX_ACK
 
     );
 
@@ -392,11 +406,6 @@ begin
       INPUT_RS232_RX => INPUT_RS232_RX,
       INPUT_RS232_RX_STB => INPUT_RS232_RX_STB,
       INPUT_RS232_RX_ACK => INPUT_RS232_RX_ACK,
-
-      --RS232 TX STREAM
-      OUTPUT_RS232_TX => OUTPUT_RS232_TX,
-      OUTPUT_RS232_TX_STB => OUTPUT_RS232_TX_STB,
-      OUTPUT_RS232_TX_ACK => OUTPUT_RS232_TX_ACK,
 
       --SOCKET STREAM
       INPUT_SOCKET => OUTPUT_SOCKET,
@@ -436,6 +445,8 @@ begin
       OUT1_ACK => INPUT_RS232_RX_ACK
     );
 
+  INPUT_RS232_RX(15 downto 8) <= (others => '0');
+
   process
   begin
     wait until rising_edge(CLK);
@@ -443,14 +454,14 @@ begin
     INTERNAL_RST <= NOT_LOCKED;
 	 
     if OUTPUT_LEDS_STB = '1' then
-	     GPIO_LEDS <= OUTPUT_LEDS(3 downto 0);
+	     GPIO_LEDS <= OUTPUT_LEDS(7 downto 0);
     end if;
 	  OUTPUT_LEDS_ACK <= '1';
 
     INPUT_SWITCHES_STB <= '1';
     GPIO_SWITCHES_D <= GPIO_SWITCHES;
-    INPUT_SWITCHES(3 downto 0) <= GPIO_SWITCHES_D;
-    INPUT_SWITCHES(15 downto 4) <= (others => '0');
+    INPUT_SWITCHES(7 downto 0) <= GPIO_SWITCHES_D;
+    INPUT_SWITCHES(15 downto 8) <= (others => '0');
 
     INPUT_BUTTONS_STB <= '1';
     GPIO_BUTTONS_D <= GPIO_BUTTONS;
@@ -477,11 +488,10 @@ begin
 
   -- Input buffering
   --------------------------------------
-  clkin1_buf : IBUFGDS
+  clkin1_buf : IBUFG
   port map
    (O  => clkin1,
-    I  => CLK_P,
-    IB => CLK_N);
+    I  => CLK_IN);
 
 
   -- Clocking primitive
@@ -494,8 +504,8 @@ begin
    (CLKDV_DIVIDE          => 2.000,
     CLKFX_DIVIDE          => 4,
     CLKFX_MULTIPLY        => 5,
-    CLKIN_DIVIDE_BY_2     => TRUE,
-    CLKIN_PERIOD          => 5.0,
+    CLKIN_DIVIDE_BY_2     => FALSE,
+    CLKIN_PERIOD          => 10.0,
     CLKOUT_PHASE_SHIFT    => "NONE",
     CLK_FEEDBACK          => "1X",
     DESKEW_ADJUST         => "SYSTEM_SYNCHRONOUS",
@@ -521,11 +531,13 @@ begin
     PSINCDEC              => '0',
     PSDONE                => open,
    -- Other control and status signals
-    LOCKED                => locked_internal,
+    LOCKED                => TX_LOCKED,
     STATUS                => status_internal,
-    RST                   => RST,
+    RST                   => RST_INV,
    -- Unused pin, tie low
     DSSEN                 => '0');
+
+  RST_INV <= not RST;
 
 
 
@@ -570,6 +582,114 @@ begin
     CE => '1',        -- 1-bit clock enable input
     D0 => '1',        -- 1-bit data input (associated with C0)
     D1 => '0',        -- 1-bit data input (associated with C1)
+    R  => '0',        -- 1-bit reset input
+    S  => '0'         -- 1-bit set input
+  );
+
+  -- Input buffering
+  --------------------------------------
+  BUFG_INST6 : IBUFG
+  port map
+   (O  => RXCLK_BUF,
+    I  => RXCLK);
+
+  -- DCM
+  --------------------------------------
+  dcm_sp_inst2: DCM_SP
+  generic map
+   (CLKDV_DIVIDE          => 2.000,
+    CLKFX_DIVIDE          => 4,
+    CLKFX_MULTIPLY        => 5,
+    CLKIN_DIVIDE_BY_2     => FALSE,
+    CLKIN_PERIOD          => 8.0,
+    CLKOUT_PHASE_SHIFT    => "FIXED",
+    CLK_FEEDBACK          => "1X",
+    DESKEW_ADJUST         => "SYSTEM_SYNCHRONOUS",
+    PHASE_SHIFT           => 14,
+    STARTUP_WAIT          => FALSE)
+  port map
+   -- Input clock
+   (CLKIN                 => RXCLK_BUF,
+    CLKFB                 => INTERNAL_RXCLK,
+    -- Output clocks
+    CLK0                  => INTERNAL_RXCLK_BUF,
+    CLK90                 => open,
+    CLK180                => open,
+    CLK270                => open,
+    CLK2X                 => open,
+    CLK2X180              => open,
+    CLKFX                 => open,
+    CLKFX180              => open,
+    CLKDV                 => open,
+   -- Ports for dynamic phase shift
+    PSCLK                 => '0',
+    PSEN                  => '0',
+    PSINCDEC              => '0',
+    PSDONE                => open,
+   -- Other control and status signals
+    LOCKED                => RX_LOCKED,
+    STATUS                => open,
+    RST                   => RST_INV,
+   -- Unused pin, tie low
+    DSSEN                 => '0');
+
+  -- Output buffering
+  --------------------------------------
+  BUFG_INST7 : BUFG
+  port map
+   (O  => INTERNAL_RXCLK,
+    I  => INTERNAL_RXCLK_BUF);
+
+  LOCKED_INTERNAL <= RX_LOCKED and TX_LOCKED;
+
+  -- Use ODDRs for clock/data forwarding
+  --------------------------------------
+  ODDR2_INST2_GENERATE : for I in 0 to 7 generate
+    ODDR2_INST2 : ODDR2
+       generic map(
+         DDR_ALIGNMENT => "NONE", -- Sets output alignment to "NONE", "C0", "C1" 
+         INIT => '0',      -- Sets initial state of the Q output to '0' or '1'
+         SRTYPE => "SYNC"
+       ) port map (
+         Q  => TXD(I),          -- 1-bit output data
+         C0 => CLK_OUT3,        -- 1-bit clock input
+         C1 => CLK_OUT3_N,      -- 1-bit clock input
+         CE => '1',             -- 1-bit clock enable input
+         D0 => INTERNAL_TXD(I), -- 1-bit data input (associated with C0)
+         D1 => INTERNAL_TXD(I), -- 1-bit data input (associated with C1)
+         R  => '0',             -- 1-bit reset input
+         S  => '0'              -- 1-bit set input
+       );
+  end generate;
+
+  ODDR2_INST3 : ODDR2
+  generic map(
+    DDR_ALIGNMENT => "NONE", -- Sets output alignment to "NONE", "C0", "C1" 
+    INIT => '0',      -- Sets initial state of the Q output to '0' or '1'
+    SRTYPE => "SYNC"
+  ) port map (
+    Q  => TXEN,     -- 1-bit output data
+    C0 => CLK_OUT3,   -- 1-bit clock input
+    C1 => CLK_OUT3_N, -- 1-bit clock input
+    CE => '1',        -- 1-bit clock enable input
+    D0 => INTERNAL_TXEN,        -- 1-bit data input (associated with C0)
+    D1 => INTERNAL_TXEN,        -- 1-bit data input (associated with C1)
+    R  => '0',        -- 1-bit reset input
+    S  => '0'         -- 1-bit set input
+  );
+
+  ODDR2_INST4 : ODDR2
+  generic map(
+    DDR_ALIGNMENT => "NONE", -- Sets output alignment to "NONE", "C0", "C1" 
+    INIT => '0',      -- Sets initial state of the Q output to '0' or '1'
+    SRTYPE => "SYNC"
+  ) port map (
+    Q  => TXER,     -- 1-bit output data
+    C0 => CLK_OUT3,   -- 1-bit clock input
+    C1 => CLK_OUT3_N, -- 1-bit clock input
+    CE => '1',        -- 1-bit clock enable input
+    D0 => INTERNAL_TXER,        -- 1-bit data input (associated with C0)
+    D1 => INTERNAL_TXER,        -- 1-bit data input (associated with C1)
     R  => '0',        -- 1-bit reset input
     S  => '0'         -- 1-bit set input
   );

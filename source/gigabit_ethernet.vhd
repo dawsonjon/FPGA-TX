@@ -262,6 +262,9 @@ architecture RTL of gigabit_ethernet is
   signal RX_WRITE_ENABLE           : std_logic;
   signal RX_ERROR                  : std_logic;
   signal RX_CRC                    : std_logic_vector(31 downto 0);
+  signal RXD_D                     : std_logic_vector(7 downto 0);
+  signal RXDV_D                    : std_logic;
+  signal RXER_D                    : std_logic;
 
 begin
   
@@ -467,41 +470,44 @@ begin
   begin
     wait until rising_edge(RXCLK);
     RX_WRITE_ENABLE <= '0';
+    RXDV_D <= RXDV;
+    RXER_D <= RXER;
+    RXD_D <= RXD;
     case RX_PHY_STATE is
 
       when WAIT_START =>
-        if RXDV = '1' and RXD = X"55" then
+        if RXDV_D = '1' and RXD_D = X"55" then
           RX_PHY_STATE <= PREAMBLE;
           RX_ERROR <= '0';
         end if;
 
       when PREAMBLE =>
-        if RXD = X"d5" then
+        if RXD_D = X"d5" then
           RX_PHY_STATE <= DATA_HIGH;
           RX_START_ADDRESS <= RX_WRITE_ADDRESS;
           RX_PACKET_LENGTH <= to_unsigned(0, ADDRESS_BITS);
           RX_CRC <= X"ffffffff";
-        elsif RXD /= X"55" or RXDV = '0' then
+        elsif RXD_D /= X"55" or RXDV_D = '0' then
           RX_PHY_STATE <= WAIT_START;
         end if;
 
       when DATA_HIGH =>
-        RX_WRITE_DATA(15 downto 8) <= RXD;
-        if RXDV = '1' then
+        RX_WRITE_DATA(15 downto 8) <= RXD_D;
+        if RXDV_D = '1' then
           RX_PACKET_LENGTH <= RX_PACKET_LENGTH + 1;
           RX_PHY_STATE <= DATA_LOW;
-          RX_CRC <= nextCRC32_D8(RXD, RX_CRC);
+          RX_CRC <= nextCRC32_D8(RXD_D, RX_CRC);
         else
           RX_PHY_STATE <= END_OF_FRAME;
         end if;
 
       when DATA_LOW =>
-        RX_WRITE_DATA(7 downto 0) <= RXD;
+        RX_WRITE_DATA(7 downto 0) <= RXD_D;
         RX_WRITE_ENABLE <= '1';
-        if RXDV = '1' then
+        if RXDV_D = '1' then
           RX_PACKET_LENGTH <= RX_PACKET_LENGTH + 1;
           RX_PHY_STATE <= DATA_HIGH;
-          RX_CRC <= nextCRC32_D8(RXD, RX_CRC);
+          RX_CRC <= nextCRC32_D8(RXD_D, RX_CRC);
         else
           RX_PHY_STATE <= END_OF_FRAME;
         end if;
@@ -531,7 +537,7 @@ begin
         
     end case;
 
-    if RXER = '1' then
+    if RXER_D = '1' then
       RX_ERROR <= '1';
     end if;
 

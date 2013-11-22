@@ -532,6 +532,7 @@ void server()
 	tx_seq[0] = 0;
 	tx_seq[1] = 0;
 
+	print_string("starting server\n");
 	while(1){
 
 		if(timeout){
@@ -553,6 +554,7 @@ void server()
 			tx_syn_flag = 0;
 			tx_fin_flag = 0;
 			tx_ack_flag = 0;
+			print_string("listen\n");
 			break;
 		    case 1:
 			// set remote ip/port
@@ -565,6 +567,7 @@ void server()
 			tx_syn_flag = 1;
 			tx_ack_flag = 1;
 			put_tcp_packet(tx_packet, 0);
+			print_string("open\n");
 			break;
 		    case 2:
 			// application -> tcp
@@ -575,10 +578,12 @@ void server()
 			tx_syn_flag = 0;
 			tx_ack_flag = 1;
 			put_tcp_packet(tx_packet, tx_length);
+			print_string("send\n");
 			break;
 		    case 3:
 			// resend until acknowledge recieved
 			put_tcp_packet(tx_packet, tx_length);
+			print_string("wait acknowledge\n");
 			break;
 		    case 4:
 			// send fin ack
@@ -586,6 +591,7 @@ void server()
 			tx_ack_flag = 1;
 			calc_ack(tx_ack, rx_seq, 1);
 			put_tcp_packet(tx_packet, 0);
+			print_string("close\n");
 			break;
 		}
 
