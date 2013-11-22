@@ -15,12 +15,18 @@
 void put_socket(unsigned i){
 	output_socket(i);
 }
+void stdout_put_char(unsigned i){
+	output_rs232_tx(i);
+}
 
+#include "print.h"
 #include "HTTP.h"
 
 int find(unsigned string[], unsigned search, unsigned start, unsigned end){
 	int value = start;
 	while(string[value]){
+	       print_decimal(string[value]); print_string("\n");
+	       print_decimal(value); print_string("\n");
 	       if(value == end) return -1;
 	       if(string[value] == search) return value;
 	       value++;
@@ -38,6 +44,7 @@ void user_design()
 	unsigned switches = 0;
 	unsigned buttons = 0;
 	unsigned leds = 0;
+	unsigned start, end;
 
 	unsigned page[] = 
 "<html>\
@@ -66,19 +73,24 @@ void user_design()
 		length = input_socket();
 		index = 0;
 		for(i=0;i<length;i+=2){
-			data[index] = input_socket();
+			word = input_socket();
+			data[index] = (word >> 8) & 0xff;
+			index++;
+			data[index] = (word) & 0xff;
 			index++;
 		}
 
 		//Get LED values
 		//==============
 		start=find(data, '?',  0, index);
+		print_string("start: "); print_decimal(start); print_string("\n");
 		end=find(data, '\r', start, index);
+		print_string("end: "); print_decimal(end); print_string("\n");
 		leds = 0;
-		if(find(data, 'A', start, end)) leds |= 1;
-		if(find(data, 'B', start, end)) leds |= 2;
-		if(find(data, 'C', start, end)) leds |= 4;
-		if(find(data, 'D', start, end)) leds |= 8;
+		if(find(data, 'A', start, end) != -1) leds |= 1;
+		if(find(data, 'B', start, end) != -1) leds |= 2;
+		if(find(data, 'C', start, end) != -1) leds |= 4;
+		if(find(data, 'D', start, end) != -1) leds |= 8;
 		output_leds(leds);
 
 		//read switch values

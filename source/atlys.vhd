@@ -167,12 +167,7 @@ architecture RTL of ATLYS is
       --SOCKET TX STREAM
       OUTPUT_SOCKET : out std_logic_vector(15 downto 0);
       OUTPUT_SOCKET_STB : out std_logic;
-      OUTPUT_SOCKET_ACK : in std_logic;
-
-      --RS232 TX STREAM
-      OUTPUT_RS232_TX : out std_logic_vector(15 downto 0);
-      OUTPUT_RS232_TX_STB : out std_logic;
-      OUTPUT_RS232_TX_ACK : in std_logic
+      OUTPUT_SOCKET_ACK : in std_logic
 
     );
   end component;
@@ -207,7 +202,12 @@ architecture RTL of ATLYS is
       --RS232 RX STREAM
       INPUT_RS232_RX : in std_logic_vector(15 downto 0);
       INPUT_RS232_RX_STB : in std_logic;
-      INPUT_RS232_RX_ACK : out std_logic
+      INPUT_RS232_RX_ACK : out std_logic;
+
+      --RS232 TX STREAM
+      OUTPUT_RS232_TX : out std_logic_vector(15 downto 0);
+      OUTPUT_RS232_TX_STB : out std_logic;
+      OUTPUT_RS232_TX_ACK : in std_logic
 
 
     );
@@ -369,20 +369,15 @@ begin
       OUTPUT_ETH_TX_STB => ETH_TX_STB,
       OUTPUT_ETH_TX_ACK => ETH_TX_ACK,
 
-      --RS232 RX STREAM
+      --SOCKET STREAM
       INPUT_SOCKET => INPUT_SOCKET,
       INPUT_SOCKET_STB => INPUT_SOCKET_STB,
       INPUT_SOCKET_ACK => INPUT_SOCKET_ACK,
 
-      --RS232 TX STREAM
+      --SOCKET STREAM
       OUTPUT_SOCKET => OUTPUT_SOCKET,
       OUTPUT_SOCKET_STB => OUTPUT_SOCKET_STB,
-      OUTPUT_SOCKET_ACK => OUTPUT_SOCKET_ACK,
-
-      --RS232 TX STREAM
-      OUTPUT_RS232_TX => OUTPUT_RS232_TX,
-      OUTPUT_RS232_TX_STB => OUTPUT_RS232_TX_STB,
-      OUTPUT_RS232_TX_ACK => OUTPUT_RS232_TX_ACK
+      OUTPUT_SOCKET_ACK => OUTPUT_SOCKET_ACK
 
     );
 
@@ -406,6 +401,11 @@ begin
       INPUT_RS232_RX => INPUT_RS232_RX,
       INPUT_RS232_RX_STB => INPUT_RS232_RX_STB,
       INPUT_RS232_RX_ACK => INPUT_RS232_RX_ACK,
+
+      --RS232 TX STREAM
+      OUTPUT_RS232_TX => OUTPUT_RS232_TX,
+      OUTPUT_RS232_TX_STB => OUTPUT_RS232_TX_STB,
+      OUTPUT_RS232_TX_ACK => OUTPUT_RS232_TX_ACK,
 
       --SOCKET STREAM
       INPUT_SOCKET => OUTPUT_SOCKET,

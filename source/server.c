@@ -26,9 +26,4 @@ unsigned rdy_eth(){
 unsigned get_socket(){
 	return input_socket();
 }
-void stdout_put_char(unsigned i){
-	output_rs232_tx(i);
-}
-
-#include "print.h"
 #include "server.h"

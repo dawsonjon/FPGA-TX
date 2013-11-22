@@ -39,37 +39,50 @@ void socket_put_string(unsigned string[]){
 }
 
 void socket_put_decimal(unsigned value){
-	unsigned digit_0 = '0';
-	unsigned digit_1 = '0';
-	unsigned digit_2 = '0';
-	unsigned digit_3 = '0';
-	unsigned digit_4 = '0';
+	unsigned digit_0 = 0;
+	unsigned digit_1 = 0;
+	unsigned digit_2 = 0;
+	unsigned digit_3 = 0;
+	unsigned digit_4 = 0;
+	unsigned significant = 0;
 
 	while(value >= 10000){
 		digit_4++;
 		value -= 10000;
 	}
-	if(digit_4 != '0') socket_put_char(digit_4);
+	if(digit_4 | significant){
+	       	socket_put_char(0x30 | digit_4);
+		significant = 1;
+	}
 	while(value >= 1000){
 		digit_3++;
 		value -= 1000;
 	}
-	if(digit_3 != '0') socket_put_char(digit_3);
+	if(digit_3 | significant) {
+		socket_put_char(0x30 | digit_3);
+		significant = 1;
+	}
 	while(value >= 100){
 		digit_2++;
 		value -= 100;
 	}
-	if(digit_2 != '0') socket_put_char(digit_2);
+	if(digit_2 | significant){
+	       	socket_put_char(0x30 | digit_2);
+		significant = 1;
+	}
 	while(value >= 10){
 		digit_1++;
 		value -= 10;
 	}
-	if(digit_1 != '0') socket_put_char(digit_1);
+	if(digit_1 | significant){
+	       	socket_put_char(0x30 | digit_1);
+		significant = 1;
+	}
 	while(value >= 1){
 		digit_0++;
 		value -= 1;
 	}
-	socket_put_char(digit_0);
+	socket_put_char(0x30 | digit_0);
 }
 
 

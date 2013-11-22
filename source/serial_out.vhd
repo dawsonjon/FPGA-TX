@@ -68,6 +68,7 @@ begin
     wait until rising_edge(CLK);
     case STATE is
       when IDLE =>
+        TX <= '1';
         S_IN1_ACK <= '1';
         if S_IN1_ACK = '1' and IN1_STB = '1' then
           S_IN1_ACK <= '0';
