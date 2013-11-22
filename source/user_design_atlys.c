@@ -156,8 +156,9 @@ void user_design()
 			if(buttons & 8) page[index] = '0';
 			else page[index] = '1';
 
-			HTTP_GET_response(page);
-
+			HTTP_OK(page);
+		} else {
+			HTTP_Not_Found();
 		}
 
 	}

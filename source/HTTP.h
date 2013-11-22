@@ -85,8 +85,24 @@ void socket_put_decimal(unsigned value){
 	socket_put_char(0x30 | digit_0);
 }
 
+void HTTP_Not_Found(){
+	unsigned header_length;
+	unsigned header[] = 
+"HTTP/1.1 404 Not Found\r\n\
+Date: Thu Oct 31 19:16:00 2013\r\n\
+Server: chips-web/0.0\r\n\
+Content-Type: text/html\r\n\
+Content-Length: 0\r\n\r\n";
 
-void HTTP_GET_response(int body[]){
+	//count header length
+	header_length = 0;
+	while(header[header_length]) header_length++;
+	put_socket(header_length);
+	socket_put_string(header);
+	socket_flush();
+}
+
+void HTTP_OK(int body[]){
 	unsigned header_length;
 	unsigned body_length;
 	unsigned length, index, packet_count;
