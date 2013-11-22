@@ -82,56 +82,65 @@ void user_design()
 
 		//Get LED values
 		//==============
-		start=find(data, '?',  0, index);
-		print_string("start: "); print_decimal(start); print_string("\n");
-		end=find(data, '\r', start, index);
-		print_string("end: "); print_decimal(end); print_string("\n");
-		leds = 0;
-		if(find(data, 'A', start, end) != -1) leds |= 1;
-		if(find(data, 'B', start, end) != -1) leds |= 2;
-		if(find(data, 'C', start, end) != -1) leds |= 4;
-		if(find(data, 'D', start, end) != -1) leds |= 8;
-		output_leds(leds);
 
-		//read switch values
-		//==================
-		switches = ~input_switches();
-		//find first ':'
-		index = find(page, ':', 0, 1460);
-		index+=2;
-		//insert switch values
-		if(switches & 8) page[index] = '0';
-		else page[index] = '1';
-		index ++;
-		if(switches & 4) page[index] = '0';
-		else page[index] = '1';
-		index ++;
-		if(switches & 2) page[index] = '0';
-		else page[index] = '1';
-		index ++;
-		if(switches & 1) page[index] = '0';
-		else page[index] = '1';
+		if(   data[0] == 'G' 
+		   && data[1] == 'E' 
+		   && data[2] == 'T' 
+		   && data[3] == ' ' 
+		   && data[4] == '/'
+		   && (data[5] == '?' || data[5] == ' ')){
+			start=find(data, '?',  0, index);
+			print_string("start: "); print_decimal(start); print_string("\n");
+			end=find(data, '\r', start, index);
+			print_string("end: "); print_decimal(end); print_string("\n");
+			leds = 0;
+			if(find(data, 'A', start, end) != -1) leds |= 1;
+			if(find(data, 'B', start, end) != -1) leds |= 2;
+			if(find(data, 'C', start, end) != -1) leds |= 4;
+			if(find(data, 'D', start, end) != -1) leds |= 8;
+			output_leds(leds);
 
-		//read button values
-		//==================
-		buttons = ~input_buttons();
-		//find next ':'
-		index = find(page, ':', index+1, 1460);
-		index+=2;
-		//insert button values
-		if(buttons & 1) page[index] = '0';
-		else page[index] = '1';
-		index ++;
-		if(buttons & 2) page[index] = '0';
-		else page[index] = '1';
-		index ++;
-		if(buttons & 4) page[index] = '0';
-		else page[index] = '1';
-		index ++;
-		if(buttons & 8) page[index] = '0';
-		else page[index] = '1';
+			//read switch values
+			//==================
+			switches = ~input_switches();
+			//find first ':'
+			index = find(page, ':', 0, 1460);
+			index+=2;
+			//insert switch values
+			if(switches & 8) page[index] = '0';
+			else page[index] = '1';
+			index ++;
+			if(switches & 4) page[index] = '0';
+			else page[index] = '1';
+			index ++;
+			if(switches & 2) page[index] = '0';
+			else page[index] = '1';
+			index ++;
+			if(switches & 1) page[index] = '0';
+			else page[index] = '1';
 
-		HTTP_GET_response(page);
+			//read button values
+			//==================
+			buttons = ~input_buttons();
+			//find next ':'
+			index = find(page, ':', index+1, 1460);
+			index+=2;
+			//insert button values
+			if(buttons & 1) page[index] = '0';
+			else page[index] = '1';
+			index ++;
+			if(buttons & 2) page[index] = '0';
+			else page[index] = '1';
+			index ++;
+			if(buttons & 4) page[index] = '0';
+			else page[index] = '1';
+			index ++;
+			if(buttons & 8) page[index] = '0';
+			else page[index] = '1';
+
+			HTTP_GET_response(page);
+
+		}
 
 	}
 
