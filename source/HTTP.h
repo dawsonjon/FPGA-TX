@@ -89,8 +89,7 @@ void socket_put_decimal(unsigned value){
 void HTTP_GET_response(int body[]){
 	unsigned header_length;
 	unsigned body_length;
-	unsigned length;
-	unsigned element;
+	unsigned length, index, packet_count;
 	unsigned header[] = 
 "HTTP/1.1 200 OK\r\n\
 Date: Thu Oct 31 19:16:00 2013\r\n\
@@ -104,8 +103,9 @@ Content-Length: ";
 	//count header length
 	header_length = 0;
 	while(header[header_length]) header_length++;
+
 	//count total length
-	length = body_length + header_length + 5;
+	length = header_length + 5;
 	//header length depends on body length
 	if(body_length > 9) length++;
 	if(body_length > 99) length++;
@@ -116,8 +116,24 @@ Content-Length: ";
 	socket_put_string(header);
 	socket_put_decimal(body_length);
 	socket_put_string("\r\n\r\n");
-	//Send body to server
-	socket_put_string(body);
-	//Send last byte if there are an odd number
+	socket_flush();
+
+	length = body_length;
+	index = 0;
+	packet_count = 0;
+	while(length >= 1046){
+		length -= 1046;
+		put_socket(1046);
+		for(packet_count=0; packet_count<1046; packet_count++){
+			socket_put_char(body[index]);
+			index++;
+		}
+		socket_flush();
+	}
+	put_socket(length);
+	for(packet_count=0; packet_count<length; packet_count++){
+		socket_put_char(body[index]);
+		index++;
+	}
 	socket_flush();
 }

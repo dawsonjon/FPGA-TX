@@ -61,6 +61,10 @@ void user_design()
 	<input type=\"checkbox\" name=\"led2\" value=\"B\">led 1</input>\
 	<input type=\"checkbox\" name=\"led3\" value=\"C\">led 2</input>\
 	<input type=\"checkbox\" name=\"led4\" value=\"D\">led 3</input>\
+	<input type=\"checkbox\" name=\"led4\" value=\"E\">led 4</input>\
+	<input type=\"checkbox\" name=\"led4\" value=\"F\">led 5</input>\
+	<input type=\"checkbox\" name=\"led4\" value=\"G\">led 6</input>\
+	<input type=\"checkbox\" name=\"led4\" value=\"H\">led 7</input>\
 	<button type=\"sumbit\" value=\"Submit\">Update LEDs</button>\
 </form>\
 <p>This <a href=\"https://github.com/dawsonjon/Chips-Demo\">project</a>\
@@ -89,15 +93,17 @@ void user_design()
 		   && data[3] == ' ' 
 		   && data[4] == '/'
 		   && (data[5] == '?' || data[5] == ' ')){
-			start=find(data, '?',  0, index);
-			print_string("start: "); print_decimal(start); print_string("\n");
-			end=find(data, '\r', start, index);
-			print_string("end: "); print_decimal(end); print_string("\n");
+			start=5;
+			end=find(data, ' ', start, index);
 			leds = 0;
 			if(find(data, 'A', start, end) != -1) leds |= 1;
 			if(find(data, 'B', start, end) != -1) leds |= 2;
 			if(find(data, 'C', start, end) != -1) leds |= 4;
 			if(find(data, 'D', start, end) != -1) leds |= 8;
+			if(find(data, 'E', start, end) != -1) leds |= 16;
+			if(find(data, 'F', start, end) != -1) leds |= 32;
+			if(find(data, 'G', start, end) != -1) leds |= 64;
+			if(find(data, 'H', start, end) != -1) leds |= 128;
 			output_leds(leds);
 
 			//read switch values
@@ -107,6 +113,18 @@ void user_design()
 			index = find(page, ':', 0, 1460);
 			index+=2;
 			//insert switch values
+			if(switches & 128) page[index] = '0';
+			else page[index] = '1';
+			index ++;
+			if(switches & 64) page[index] = '0';
+			else page[index] = '1';
+			index ++;
+			if(switches & 32) page[index] = '0';
+			else page[index] = '1';
+			index ++;
+			if(switches & 16) page[index] = '0';
+			else page[index] = '1';
+			index ++;
 			if(switches & 8) page[index] = '0';
 			else page[index] = '1';
 			index ++;
