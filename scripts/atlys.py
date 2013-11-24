@@ -19,8 +19,8 @@ os.chdir(working_directory)
 
 if "compile" in sys.argv or "all" in sys.argv:
     print "Compiling C files using chips ...."
-    retval = os.system("../chips2/c2verilog no_reuse ../source/user_design_atlys.c")
-    retval = os.system("../chips2/c2verilog no_reuse ../source/server.c")
+    retval = os.system("../chips2/c2verilog ../source/user_design_atlys.c")
+    retval = os.system("../chips2/c2verilog ../source/server.c")
     if retval != 0:
         sys.exit(-1)
 

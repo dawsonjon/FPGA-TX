@@ -36,25 +36,25 @@ Chips Compile
 
 To compile the c code in chips, issue the following command in the project folder::
 
-    $ ./ATLYS.py compile
+    $ ./atlys.py compile
 
 Build in ISE 
 ============
 
 Edit the Xilinx variable in the scripts/user_settings to point to the Xilinx ISE install directory. Then build the design using the following command::
 
-    $ ./ATLYS.py build
+    $ ./atlys.py build
 
 Download to ATLYS 
 =================
 
 Power up the ATLYS, and connect the JTAG USB cable to your PC. Run the download command::
 
-    $ ./ATLYS.py download
+    $ ./atlys.py download
 
 You can complete all three steps in one go using the *all* option::
 
-    $ ./ATLYS.py all
+    $ ./atlys.py all
 
 Setup and Test
 ==============

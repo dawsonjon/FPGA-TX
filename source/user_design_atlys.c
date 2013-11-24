@@ -72,6 +72,8 @@ void user_design()
 </body>\
 </html>";
 
+	print_string("Welcome to the Atlys Chips-2.0 demo!\n");
+	print_string("Connect your web browser to 192.168.1.1\n");
 	while(1){
 
 		length = input_socket();

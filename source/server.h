@@ -37,7 +37,7 @@ unsigned tx_packet[512];
 //store checksum in a global variable
 //unsigneds are 16 bits, so use an array of 2 to hold a 32 bit number
  
-unsigned checksum;
+long unsigned checksum;
  
 //Reset checksum before calculation
 //
@@ -50,15 +50,11 @@ void reset_checksum(){
 //
  
 void add_checksum(unsigned data){
-  unsigned temp;
- 
-  //perform addition
-  temp = checksum + data;
- 
-  //Check for carry
-  if(temp < data) temp++;
-  checksum = temp;
- 
+  checksum += data;
+  if(checksum & 0x10000ul){
+	  checksum &= 0xffffu;
+	  checksum += 1;
+  }
 }
  
 //Retrieve the calculated checksum
@@ -400,9 +396,7 @@ void put_tcp_packet(unsigned tx_packet [], unsigned tx_length){
 	tx_packet[payload_start + 8] = 0;
 	tx_packet[payload_start + 9] = 0;
 
-
 	//encode flags
-	
 	if(tx_fin_flag) tx_packet[payload_start + 6] |= 0x01;
 	if(tx_syn_flag) tx_packet[payload_start + 6] |= 0x02;
 	if(tx_rst_flag) tx_packet[payload_start + 6] |= 0x04;
