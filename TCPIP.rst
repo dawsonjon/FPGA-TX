@@ -13,6 +13,12 @@ bidirectional stream of data to the application. The following protocols are sup
         + ICMP echo request/response (ping)
         + TCP/IP socket
 
+Synthesis Estimate
+==================
+
+The TCP/IP server consumes around 800 LUTs and 300 Flip-Flops in a Xilinx Spartan 6 device.
+
+
 Dependencies
 ============
 

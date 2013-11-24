@@ -53,12 +53,12 @@ endobj
 6 0 obj
 % Page dictionary
 << /Annots [ 4 0 R ]
- /Contents 26 0 R
+ /Contents 27 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 25 0 R
+ /Parent 26 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -72,12 +72,12 @@ endobj
 % 'Page2': class PDFPage 
 7 0 obj
 % Page dictionary
-<< /Contents 27 0 R
+<< /Contents 28 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 25 0 R
+ /Parent 26 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -91,12 +91,12 @@ endobj
 % 'Page3': class PDFPage 
 8 0 obj
 % Page dictionary
-<< /Contents 28 0 R
+<< /Contents 29 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 25 0 R
+ /Parent 26 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -110,12 +110,12 @@ endobj
 % 'Page4': class PDFPage 
 9 0 obj
 % Page dictionary
-<< /Contents 29 0 R
+<< /Contents 30 0 R
  /MediaBox [ 0
  0
  595.2756
  841.8898 ]
- /Parent 25 0 R
+ /Parent 26 0 R
  /Resources << /Font 1 0 R
  /ProcSet [ /PDF
  /Text
@@ -130,15 +130,15 @@ endobj
 10 0 obj
 % Document Root
 << /Outlines 12 0 R
- /PageLabels 30 0 R
+ /PageLabels 31 0 R
  /PageMode /UseNone
- /Pages 25 0 R
+ /Pages 26 0 R
  /Type /Catalog >>
 endobj
 % 'R11': class PDFInfo 
 11 0 obj
 << /Author ()
- /CreationDate (D:20131117140255+00'00')
+ /CreationDate (D:20131124204346+00'00')
  /Creator (\(unspecified\))
  /Keywords ()
  /Producer (ReportLab PDF Library - www.reportlab.com)
@@ -147,9 +147,9 @@ endobj
 endobj
 % 'R12': class PDFOutlines 
 12 0 obj
-<< /Count 14
+<< /Count 15
  /First 13 0 R
- /Last 21 0 R
+ /Last 22 0 R
  /Type /Outlines >>
 endobj
 % 'Outline.0': class OutlineEntryObject 
@@ -173,7 +173,7 @@ endobj
  /Next 15 0 R
  /Parent 12 0 R
  /Prev 13 0 R
- /Title (Dependencies) >>
+ /Title (Synthesis Estimate) >>
 endobj
 % 'Outline.2': class OutlineEntryObject 
 15 0 obj
@@ -185,119 +185,131 @@ endobj
  /Next 16 0 R
  /Parent 12 0 R
  /Prev 14 0 R
- /Title (Source Files) >>
+ /Title (Dependencies) >>
 endobj
 % 'Outline.3': class OutlineEntryObject 
 16 0 obj
 << /Dest [ 6 0 R
  /XYZ
  62.69291
- 429.0236
+ 471.0236
  0 ]
  /Next 17 0 R
  /Parent 12 0 R
  /Prev 15 0 R
- /Title (Configuration) >>
+ /Title (Source Files) >>
 endobj
 % 'Outline.4': class OutlineEntryObject 
 17 0 obj
 << /Dest [ 6 0 R
  /XYZ
  62.69291
- 318.0236
+ 378.0236
  0 ]
  /Next 18 0 R
  /Parent 12 0 R
  /Prev 16 0 R
- /Title (Compile) >>
+ /Title (Configuration) >>
 endobj
 % 'Outline.5': class OutlineEntryObject 
 18 0 obj
+<< /Dest [ 6 0 R
+ /XYZ
+ 62.69291
+ 267.0236
+ 0 ]
+ /Next 19 0 R
+ /Parent 12 0 R
+ /Prev 17 0 R
+ /Title (Compile) >>
+endobj
+% 'Outline.6': class OutlineEntryObject 
+19 0 obj
 << /Count 2
  /Dest [ 6 0 R
  /XYZ
  62.69291
- 233.8236
+ 182.8236
  0 ]
- /First 19 0 R
- /Last 20 0 R
- /Next 21 0 R
+ /First 20 0 R
+ /Last 21 0 R
+ /Next 22 0 R
  /Parent 12 0 R
- /Prev 17 0 R
+ /Prev 18 0 R
  /Title (Interface) >>
 endobj
-% 'Outline.13.0': class OutlineEntryObject 
-19 0 obj
+% 'Outline.14.0': class OutlineEntryObject 
+20 0 obj
 << /Dest [ 6 0 R
  /XYZ
  62.69291
- 200.8236
+ 149.8236
  0 ]
- /Next 20 0 R
- /Parent 18 0 R
+ /Next 21 0 R
+ /Parent 19 0 R
  /Title (Ethernet Interface) >>
 endobj
-% 'Outline.13.1': class OutlineEntryObject 
-20 0 obj
+% 'Outline.14.1': class OutlineEntryObject 
+21 0 obj
 << /Dest [ 7 0 R
  /XYZ
  62.69291
- 717.0236
+ 639.0236
  0 ]
- /Parent 18 0 R
- /Prev 19 0 R
+ /Parent 19 0 R
+ /Prev 20 0 R
  /Title (Socket Interface) >>
 endobj
-% 'Outline.6': class OutlineEntryObject 
-21 0 obj
+% 'Outline.7': class OutlineEntryObject 
+22 0 obj
 << /Count 3
  /Dest [ 7 0 R
  /XYZ
  62.69291
- 549.0236
+ 471.0236
  0 ]
- /First 22 0 R
- /Last 24 0 R
+ /First 23 0 R
+ /Last 25 0 R
  /Parent 12 0 R
- /Prev 18 0 R
+ /Prev 19 0 R
  /Title (Stream Interconnect Conventions) >>
 endobj
-% 'Outline.14.0': class OutlineEntryObject 
-22 0 obj
-<< /Dest [ 7 0 R
- /XYZ
- 62.69291
- 206.8236
- 0 ]
- /Next 23 0 R
- /Parent 21 0 R
- /Title (Global Signals) >>
-endobj
-% 'Outline.14.1': class OutlineEntryObject 
+% 'Outline.15.0': class OutlineEntryObject 
 23 0 obj
 << /Dest [ 7 0 R
  /XYZ
  62.69291
- 110.8236
+ 128.8236
  0 ]
  /Next 24 0 R
- /Parent 21 0 R
- /Prev 22 0 R
- /Title (Interconnect Signals) >>
+ /Parent 22 0 R
+ /Title (Global Signals) >>
 endobj
-% 'Outline.14.2': class OutlineEntryObject 
+% 'Outline.15.1': class OutlineEntryObject 
 24 0 obj
 << /Dest [ 8 0 R
  /XYZ
  62.69291
- 681.0236
+ 717.0236
  0 ]
- /Parent 21 0 R
+ /Next 25 0 R
+ /Parent 22 0 R
  /Prev 23 0 R
+ /Title (Interconnect Signals) >>
+endobj
+% 'Outline.15.2': class OutlineEntryObject 
+25 0 obj
+<< /Dest [ 8 0 R
+ /XYZ
+ 62.69291
+ 603.0236
+ 0 ]
+ /Parent 22 0 R
+ /Prev 24 0 R
  /Title (Interconnect Bus Transaction) >>
 endobj
-% 'R25': class PDFPages 
-25 0 obj
+% 'R26': class PDFPages 
+26 0 obj
 % page tree
 << /Count 4
  /Kids [ 6 0 R
@@ -306,10 +318,10 @@ endobj
  9 0 R ]
  /Type /Pages >>
 endobj
-% 'R26': class PDFStream 
-26 0 obj
+% 'R27': class PDFStream 
+27 0 obj
 % page stream
-<< /Length 7966 >>
+<< /Length 6815 >>
 stream
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
@@ -487,34 +499,47 @@ Q
 q
 1 0 0 1 62.69291 552.0236 cm
 q
-BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Dependencies) Tj T* ET
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Synthesis Estimate) Tj T* ET
 Q
 Q
 q
 1 0 0 1 62.69291 534.0236 cm
 q
 0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The stack is implemented in C, and needs Chips-2.0 to compile it into a Verilog module.) Tj T* ET
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The TCP/IP server consumes around 800 LUTs and 300 Flip-Flops in a Xilinx Spartan 6 device.) Tj T* ET
 Q
 Q
 q
 1 0 0 1 62.69291 501.0236 cm
 q
-BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Source Files) Tj T* ET
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Dependencies) Tj T* ET
 Q
 Q
 q
 1 0 0 1 62.69291 483.0236 cm
 q
 0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The stack is implemented in C, and needs Chips-2.0 to compile it into a Verilog module.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 450.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Source Files) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 432.0236 cm
+q
+0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The TCP/IP stack is provided by two source files:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 477.0236 cm
+1 0 0 1 62.69291 426.0236 cm
 Q
 q
-1 0 0 1 62.69291 441.0236 cm
+1 0 0 1 62.69291 390.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 BT 1 0 0 1 0 2 Tm  T* ET
@@ -576,26 +601,26 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 441.0236 cm
+1 0 0 1 62.69291 390.0236 cm
 Q
 q
-1 0 0 1 62.69291 408.0236 cm
+1 0 0 1 62.69291 357.0236 cm
 q
 BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Configuration) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 390.0236 cm
+1 0 0 1 62.69291 339.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The following parameters can be configured at compile time within source/server.h:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 384.0236 cm
+1 0 0 1 62.69291 333.0236 cm
 Q
 q
-1 0 0 1 62.69291 330.0236 cm
+1 0 0 1 62.69291 279.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 BT 1 0 0 1 0 2 Tm  T* ET
@@ -681,23 +706,23 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 330.0236 cm
+1 0 0 1 62.69291 279.0236 cm
 Q
 q
-1 0 0 1 62.69291 297.0236 cm
+1 0 0 1 62.69291 246.0236 cm
 q
 BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Compile) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 279.0236 cm
+1 0 0 1 62.69291 228.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Compile into a Verilog module \(server.v\) using the following command:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 245.8236 cm
+1 0 0 1 62.69291 194.8236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -718,29 +743,38 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 212.8236 cm
+1 0 0 1 62.69291 161.8236 cm
 q
 BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Interface) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 182.8236 cm
+1 0 0 1 62.69291 131.8236 cm
 q
 BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Ethernet Interface) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 164.8236 cm
+1 0 0 1 62.69291 113.8236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The Ethernet interface consists of two streams of data:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 158.8236 cm
+1 0 0 1 62.69291 107.8236 cm
 Q
+ 
+endstream
+endobj
+% 'R28': class PDFStream 
+28 0 obj
+% page stream
+<< /Length 8532 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
-1 0 0 1 62.69291 122.8236 cm
+1 0 0 1 62.69291 729.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 BT 1 0 0 1 0 2 Tm  T* ET
@@ -802,204 +836,20 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 122.8236 cm
+1 0 0 1 62.69291 729.0236 cm
 Q
 q
-1 0 0 1 62.69291 104.8236 cm
+1 0 0 1 62.69291 711.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Both streams are 16 bits wide, and use the following protocol:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 98.82362 cm
+1 0 0 1 62.69291 705.0236 cm
 Q
 q
-1 0 0 1 62.69291 80.82362 cm
-1 1 1 rg
-n 0 18 469.8898 -18 re f*
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (word) Tj T* ET
-Q
-Q
-q
-1 0 0 1 128.5799 3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (designation) Tj T* ET
-Q
-Q
-q
-1 J
-1 j
-0 0 0 RG
-.25 w
-n 0 0 m 469.8898 0 l S
-n 122.5799 0 m 122.5799 18 l S
-n 0 18 m 469.8898 18 l S
-n 0 0 m 0 18 l S
-n 469.8898 0 m 469.8898 18 l S
-Q
-Q
- 
-endstream
-endobj
-% 'R27': class PDFStream 
-27 0 obj
-% page stream
-<< /Length 8373 >>
-stream
-1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
-q
-1 0 0 1 62.69291 729.0236 cm
-1 1 1 rg
-n 0 36 469.8898 -18 re f*
-.878431 .878431 .878431 rg
-n 0 18 469.8898 -18 re f*
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 21 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
-Q
-Q
-q
-1 0 0 1 128.5799 21 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (length in bytes) Tj T* ET
-Q
-Q
-q
-1 0 0 1 6 3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (n) Tj T* ET
-Q
-Q
-q
-1 0 0 1 128.5799 3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (data) Tj T* ET
-Q
-Q
-q
-1 J
-1 j
-0 0 0 RG
-.25 w
-n 0 36 m 469.8898 36 l S
-n 0 18 m 469.8898 18 l S
-n 122.5799 0 m 122.5799 36 l S
-n 0 0 m 0 36 l S
-n 469.8898 0 m 469.8898 36 l S
-n 0 0 m 469.8898 0 l S
-Q
-Q
-q
-1 0 0 1 62.69291 729.0236 cm
-Q
-q
-1 0 0 1 62.69291 699.0236 cm
-q
-BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Socket Interface) Tj T* ET
-Q
-Q
-q
-1 0 0 1 62.69291 681.0236 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The socket interface consists of two streams of data:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 62.69291 675.0236 cm
-Q
-q
-1 0 0 1 62.69291 639.0236 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-BT 1 0 0 1 0 2 Tm  T* ET
-q
-1 0 0 1 20 30 cm
-Q
-q
-1 0 0 1 20 30 cm
-Q
-q
-1 0 0 1 20 18 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (An input, input_socket.) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 20 12 cm
-Q
-q
-1 0 0 1 20 0 cm
-0 0 0 rg
-BT /F1 10 Tf 12 TL ET
-q
-1 0 0 1 6 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
-Q
-Q
-q
-1 0 0 1 23 -3 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (An output, output_socket.) Tj T* ET
-Q
-Q
-q
-Q
-Q
-q
-1 0 0 1 20 0 cm
-Q
-q
-Q
-Q
-q
-1 0 0 1 62.69291 639.0236 cm
-Q
-q
-1 0 0 1 62.69291 621.0236 cm
-q
-0 0 0 rg
-BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Both streams are 16 bits wide, and use the following protocol:) Tj T* ET
-Q
-Q
-q
-1 0 0 1 62.69291 615.0236 cm
-Q
-q
-1 0 0 1 62.69291 561.0236 cm
+1 0 0 1 62.69291 651.0236 cm
 1 1 1 rg
 n 0 54 469.8898 -18 re f*
 .878431 .878431 .878431 rg
@@ -1065,26 +915,186 @@ n 469.8898 0 m 469.8898 54 l S
 Q
 Q
 q
+1 0 0 1 62.69291 651.0236 cm
+Q
+q
+1 0 0 1 62.69291 621.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Socket Interface) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 603.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The socket interface consists of two streams of data:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 597.0236 cm
+Q
+q
+1 0 0 1 62.69291 561.0236 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 30 cm
+Q
+q
+1 0 0 1 20 30 cm
+Q
+q
+1 0 0 1 20 18 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (An input, input_socket.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 12 cm
+Q
+q
+1 0 0 1 20 0 cm
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 10.5 0 Td (\177) Tj T* -10.5 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (An output, output_socket.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+q
+1 0 0 1 20 0 cm
+Q
+q
+Q
+Q
+q
 1 0 0 1 62.69291 561.0236 cm
 Q
 q
-1 0 0 1 62.69291 528.0236 cm
+1 0 0 1 62.69291 543.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Both streams are 16 bits wide, and use the following protocol:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 537.0236 cm
+Q
+q
+1 0 0 1 62.69291 483.0236 cm
+1 1 1 rg
+n 0 54 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 36 469.8898 -18 re f*
+1 1 1 rg
+n 0 18 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (word) Tj T* ET
+Q
+Q
+q
+1 0 0 1 128.5799 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (designation) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (0) Tj T* ET
+Q
+Q
+q
+1 0 0 1 128.5799 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (length in bytes) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (n) Tj T* ET
+Q
+Q
+q
+1 0 0 1 128.5799 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (data) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 36 m 469.8898 36 l S
+n 0 18 m 469.8898 18 l S
+n 122.5799 0 m 122.5799 54 l S
+n 0 54 m 469.8898 54 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 54 l S
+n 469.8898 0 m 469.8898 54 l S
+Q
+Q
+q
+1 0 0 1 62.69291 483.0236 cm
+Q
+q
+1 0 0 1 62.69291 450.0236 cm
 q
 BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Stream Interconnect Conventions) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 510.0236 cm
+1 0 0 1 62.69291 432.0236 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The main aims of the interface are:) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 504.0236 cm
+1 0 0 1 62.69291 426.0236 cm
 Q
 q
-1 0 0 1 62.69291 432.0236 cm
+1 0 0 1 62.69291 354.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 BT 1 0 0 1 0 2 Tm  T* ET
@@ -1194,10 +1204,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 432.0236 cm
+1 0 0 1 62.69291 354.0236 cm
 Q
 q
-1 0 0 1 62.69291 218.8236 cm
+1 0 0 1 62.69291 140.8236 cm
 q
 q
 1 0 0 1 0 0 cm
@@ -1217,52 +1227,79 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 188.8236 cm
+1 0 0 1 62.69291 110.8236 cm
 q
 BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Global Signals) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 176.8236 cm
+1 0 0 1 62.69291 98.82362 cm
 Q
 q
-1 0 0 1 62.69291 122.8236 cm
-1 1 1 rg
-n 0 54 469.8898 -18 re f*
-.878431 .878431 .878431 rg
-n 0 36 469.8898 -18 re f*
+1 0 0 1 62.69291 80.82362 cm
 1 1 1 rg
 n 0 18 469.8898 -18 re f*
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
-1 0 0 1 6 39 cm
+1 0 0 1 6 3 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Name) Tj T* ET
 Q
 Q
 q
-1 0 0 1 84.31496 39 cm
+1 0 0 1 84.31496 3 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Direction) Tj T* ET
 Q
 Q
 q
-1 0 0 1 227.8924 39 cm
+1 0 0 1 227.8924 3 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Type) Tj T* ET
 Q
 Q
 q
-1 0 0 1 306.2073 39 cm
+1 0 0 1 306.2073 3 cm
 q
 0 0 0 rg
 BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Description) Tj T* ET
 Q
 Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 0 m 469.8898 0 l S
+n 78.31496 0 m 78.31496 18 l S
+n 221.8924 0 m 221.8924 18 l S
+n 300.2073 0 m 300.2073 18 l S
+n 0 18 m 469.8898 18 l S
+n 0 0 m 0 18 l S
+n 469.8898 0 m 469.8898 18 l S
+Q
+Q
+ 
+endstream
+endobj
+% 'R29': class PDFStream 
+29 0 obj
+% page stream
+<< /Length 10789 >>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 729.0236 cm
+1 1 1 rg
+n 0 36 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 18 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
 q
 1 0 0 1 6 21 cm
 q
@@ -1326,38 +1363,28 @@ q
 .25 w
 n 0 36 m 469.8898 36 l S
 n 0 18 m 469.8898 18 l S
-n 78.31496 0 m 78.31496 54 l S
-n 221.8924 0 m 221.8924 54 l S
-n 300.2073 0 m 300.2073 54 l S
-n 0 54 m 469.8898 54 l S
+n 78.31496 0 m 78.31496 36 l S
+n 221.8924 0 m 221.8924 36 l S
+n 300.2073 0 m 300.2073 36 l S
+n 0 0 m 0 36 l S
+n 469.8898 0 m 469.8898 36 l S
 n 0 0 m 469.8898 0 l S
-n 0 0 m 0 54 l S
-n 469.8898 0 m 469.8898 54 l S
 Q
 Q
 q
-1 0 0 1 62.69291 122.8236 cm
+1 0 0 1 62.69291 729.0236 cm
 Q
 q
-1 0 0 1 62.69291 92.82362 cm
+1 0 0 1 62.69291 699.0236 cm
 q
 BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Interconnect Signals) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 80.82362 cm
+1 0 0 1 62.69291 687.0236 cm
 Q
- 
-endstream
-endobj
-% 'R28': class PDFStream 
-28 0 obj
-% page stream
-<< /Length 9649 >>
-stream
-1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
-1 0 0 1 62.69291 693.0236 cm
+1 0 0 1 62.69291 615.0236 cm
 1 1 1 rg
 n 0 72 469.8898 -18 re f*
 .878431 .878431 .878431 rg
@@ -1495,22 +1522,22 @@ n 469.8898 0 m 469.8898 72 l S
 Q
 Q
 q
-1 0 0 1 62.69291 693.0236 cm
+1 0 0 1 62.69291 615.0236 cm
 Q
 q
-1 0 0 1 62.69291 663.0236 cm
+1 0 0 1 62.69291 585.0236 cm
 q
 BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Interconnect Bus Transaction) Tj T* ET
 Q
 Q
 q
-1 0 0 1 62.69291 651.0236 cm
+1 0 0 1 62.69291 573.0236 cm
 Q
 q
-1 0 0 1 62.69291 651.0236 cm
+1 0 0 1 62.69291 573.0236 cm
 Q
 q
-1 0 0 1 62.69291 639.0236 cm
+1 0 0 1 62.69291 561.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1530,10 +1557,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 633.0236 cm
+1 0 0 1 62.69291 555.0236 cm
 Q
 q
-1 0 0 1 62.69291 609.0236 cm
+1 0 0 1 62.69291 531.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1553,10 +1580,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 603.0236 cm
+1 0 0 1 62.69291 525.0236 cm
 Q
 q
-1 0 0 1 62.69291 579.0236 cm
+1 0 0 1 62.69291 501.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1576,10 +1603,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 573.0236 cm
+1 0 0 1 62.69291 495.0236 cm
 Q
 q
-1 0 0 1 62.69291 561.0236 cm
+1 0 0 1 62.69291 483.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1600,10 +1627,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 555.0236 cm
+1 0 0 1 62.69291 477.0236 cm
 Q
 q
-1 0 0 1 62.69291 543.0236 cm
+1 0 0 1 62.69291 465.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1623,10 +1650,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 537.0236 cm
+1 0 0 1 62.69291 459.0236 cm
 Q
 q
-1 0 0 1 62.69291 525.0236 cm
+1 0 0 1 62.69291 447.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1646,10 +1673,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 519.0236 cm
+1 0 0 1 62.69291 441.0236 cm
 Q
 q
-1 0 0 1 62.69291 507.0236 cm
+1 0 0 1 62.69291 429.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1669,10 +1696,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 501.0236 cm
+1 0 0 1 62.69291 423.0236 cm
 Q
 q
-1 0 0 1 62.69291 477.0236 cm
+1 0 0 1 62.69291 399.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1692,10 +1719,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 471.0236 cm
+1 0 0 1 62.69291 393.0236 cm
 Q
 q
-1 0 0 1 62.69291 459.0236 cm
+1 0 0 1 62.69291 381.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1715,10 +1742,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 453.0236 cm
+1 0 0 1 62.69291 375.0236 cm
 Q
 q
-1 0 0 1 62.69291 441.0236 cm
+1 0 0 1 62.69291 363.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1738,10 +1765,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 435.0236 cm
+1 0 0 1 62.69291 357.0236 cm
 Q
 q
-1 0 0 1 62.69291 423.0236 cm
+1 0 0 1 62.69291 345.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1761,10 +1788,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 417.0236 cm
+1 0 0 1 62.69291 339.0236 cm
 Q
 q
-1 0 0 1 62.69291 405.0236 cm
+1 0 0 1 62.69291 327.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1784,10 +1811,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 399.0236 cm
+1 0 0 1 62.69291 321.0236 cm
 Q
 q
-1 0 0 1 62.69291 375.0236 cm
+1 0 0 1 62.69291 297.0236 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1807,10 +1834,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 375.0236 cm
+1 0 0 1 62.69291 297.0236 cm
 Q
 q
-1 0 0 1 62.69291 88.09891 cm
+1 0 0 1 62.69291 91.11439 cm
 q
 q
 .96447 0 0 .96447 0 0 cm
@@ -1820,10 +1847,10 @@ q
 .662745 .662745 .662745 RG
 .5 w
 .960784 .960784 .862745 rg
-n -6 -6 486 288 re B*
+n -6 -6 486 204 re B*
 Q
 q
-BT 1 0 0 1 0 266 Tm 12 TL /F3 10 Tf 0 0 0 rg (RST) Tj T* (                 --------------------------------------------------------------) Tj T* (                   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -) Tj T* ( CLK              | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |) Tj T* (                 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -) Tj T*  T* (                 ----- ------- ------------------------------------------------) Tj T* (<) Tj (BUS_NAME) Tj (>) Tj (            X VALID X) Tj T* (                 ----- ------- ------------------------------------------------) Tj T* (                       -------) Tj T* (<) Tj (BUS_NAME) Tj (>) Tj (_STB        |       |) Tj T* (                 -----         ------------------------------------------------) Tj T* (                           ---) Tj T* (<) Tj (BUS_NAME) Tj (>) Tj (_ACK            |   |) Tj T* (                 ---------     ------------------------------------------------) Tj T*  T*  T* (                       ^^^^ RX adds wait states) Tj T*  T* (                           ^^^^  Data transfers) Tj T*  T* (RST) Tj T* (                 --------------------------------------------------------------) Tj T* ET
+BT 1 0 0 1 0 182 Tm 12 TL /F3 10 Tf 0 0 0 rg (RST) Tj T* (                 --------------------------------------------------------------) Tj T* (                   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -) Tj T* ( CLK              | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |) Tj T* (                 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -) Tj T*  T* (                 ----- ------- ------------------------------------------------) Tj T* (<) Tj (BUS_NAME) Tj (>) Tj (            X VALID X) Tj T* (                 ----- ------- ------------------------------------------------) Tj T* (                       -------) Tj T* (<) Tj (BUS_NAME) Tj (>) Tj (_STB        |       |) Tj T* (                 -----         ------------------------------------------------) Tj T* (                           ---) Tj T* (<) Tj (BUS_NAME) Tj (>) Tj (_ACK            |   |) Tj T* (                 ---------     ------------------------------------------------) Tj T*  T* ET
 Q
 Q
 Q
@@ -1832,14 +1859,14 @@ Q
  
 endstream
 endobj
-% 'R29': class PDFStream 
-29 0 obj
+% 'R30': class PDFStream 
+30 0 obj
 % page stream
-<< /Length 4671 >>
+<< /Length 4895 >>
 stream
 1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
 q
-1 0 0 1 62.69291 543.9671 cm
+1 0 0 1 62.69291 462.9516 cm
 q
 q
 .96447 0 0 .96447 0 0 cm
@@ -1849,23 +1876,23 @@ q
 .662745 .662745 .662745 RG
 .5 w
 .960784 .960784 .862745 rg
-n -6 -6 486 228 re B*
+n -6 -6 486 312 re B*
 Q
 q
-BT 1 0 0 1 0 206 Tm 12 TL /F3 10 Tf 0 0 0 rg (                   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -) Tj T* ( CLK              | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |) Tj T* (                 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -) Tj T*  T* (                 ----- ------- ------------------------------------------------) Tj T* (<) Tj (BUS_NAME) Tj (>) Tj (            X VALID X) Tj T* (                 ----- ------- ------------------------------------------------) Tj T* (                           ---) Tj T* (<) Tj (BUS_NAME) Tj (>) Tj (_STB            |   |) Tj T* (                 ---------     ------------------------------------------------) Tj T* (                       -------) Tj T* (<) Tj (BUS_NAME) Tj (>) Tj (_ACK        |       |) Tj T* (                 -----         ------------------------------------------------) Tj T*  T*  T* (                       ^^^^ TX adds wait states) Tj T*  T* (                           ^^^^  Data transfers) Tj T* ET
+BT 1 0 0 1 0 290 Tm 12 TL /F3 10 Tf 0 0 0 rg  T* (                       ^^^^ RX adds wait states) Tj T*  T* (                           ^^^^  Data transfers) Tj T*  T* (RST) Tj T* (                 --------------------------------------------------------------) Tj T* (                   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -) Tj T* ( CLK              | | | | | | | | | | | | | | | | | | | | | | | | | | | | | | |) Tj T* (                 -   -   -   -   -   -   -   -   -   -   -   -   -   -   -   -) Tj T*  T* (                 ----- ------- ------------------------------------------------) Tj T* (<) Tj (BUS_NAME) Tj (>) Tj (            X VALID X) Tj T* (                 ----- ------- ------------------------------------------------) Tj T* (                           ---) Tj T* (<) Tj (BUS_NAME) Tj (>) Tj (_STB            |   |) Tj T* (                 ---------     ------------------------------------------------) Tj T* (                       -------) Tj T* (<) Tj (BUS_NAME) Tj (>) Tj (_ACK        |       |) Tj T* (                 -----         ------------------------------------------------) Tj T*  T*  T* (                       ^^^^ TX adds wait states) Tj T*  T* (                           ^^^^  Data transfers) Tj T* ET
 Q
 Q
 Q
 Q
 Q
 q
-1 0 0 1 62.69291 529.9671 cm
+1 0 0 1 62.69291 448.9516 cm
 Q
 q
-1 0 0 1 62.69291 529.9671 cm
+1 0 0 1 62.69291 448.9516 cm
 Q
 q
-1 0 0 1 62.69291 517.9671 cm
+1 0 0 1 62.69291 436.9516 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1886,10 +1913,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 517.9671 cm
+1 0 0 1 62.69291 436.9516 cm
 Q
 q
-1 0 0 1 62.69291 279.7107 cm
+1 0 0 1 62.69291 198.6952 cm
 q
 q
 .868237 0 0 .868237 0 0 cm
@@ -1909,13 +1936,13 @@ Q
 Q
 Q
 q
-1 0 0 1 62.69291 265.7107 cm
+1 0 0 1 62.69291 184.6952 cm
 Q
 q
-1 0 0 1 62.69291 265.7107 cm
+1 0 0 1 62.69291 184.6952 cm
 Q
 q
-1 0 0 1 62.69291 241.7107 cm
+1 0 0 1 62.69291 160.6952 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1936,10 +1963,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 235.7107 cm
+1 0 0 1 62.69291 154.6952 cm
 Q
 q
-1 0 0 1 62.69291 211.7107 cm
+1 0 0 1 62.69291 130.6952 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1960,10 +1987,10 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 205.7107 cm
+1 0 0 1 62.69291 124.6952 cm
 Q
 q
-1 0 0 1 62.69291 181.7107 cm
+1 0 0 1 62.69291 100.6952 cm
 0 0 0 rg
 BT /F1 10 Tf 12 TL ET
 q
@@ -1984,49 +2011,49 @@ q
 Q
 Q
 q
-1 0 0 1 62.69291 181.7107 cm
+1 0 0 1 62.69291 100.6952 cm
 Q
  
 endstream
 endobj
-% 'R30': class PDFPageLabels 
-30 0 obj
+% 'R31': class PDFPageLabels 
+31 0 obj
 % Document Root
 << /Nums [ 0
- 31 0 R
- 1
  32 0 R
- 2
+ 1
  33 0 R
+ 2
+ 34 0 R
  3
- 34 0 R ] >>
-endobj
-% 'R31': class PDFPageLabel 
-31 0 obj
-% None
-<< /S /D
- /St 1 >>
+ 35 0 R ] >>
 endobj
 % 'R32': class PDFPageLabel 
 32 0 obj
 % None
 << /S /D
- /St 2 >>
+ /St 1 >>
 endobj
 % 'R33': class PDFPageLabel 
 33 0 obj
 % None
 << /S /D
- /St 3 >>
+ /St 2 >>
 endobj
 % 'R34': class PDFPageLabel 
 34 0 obj
 % None
 << /S /D
+ /St 3 >>
+endobj
+% 'R35': class PDFPageLabel 
+35 0 obj
+% None
+<< /S /D
  /St 4 >>
 endobj
 xref
-0 35
+0 36
 0000000000 65535 f
 0000000113 00000 n
 0000000233 00000 n
@@ -2042,34 +2069,35 @@ xref
 0000002523 00000 n
 0000002649 00000 n
 0000002850 00000 n
-0000003037 00000 n
-0000003224 00000 n
-0000003412 00000 n
-0000003594 00000 n
-0000003823 00000 n
-0000004004 00000 n
-0000004180 00000 n
-0000004416 00000 n
-0000004593 00000 n
-0000004791 00000 n
-0000004963 00000 n
-0000005094 00000 n
-0000013159 00000 n
-0000021631 00000 n
-0000031379 00000 n
-0000036153 00000 n
-0000036285 00000 n
-0000036362 00000 n
-0000036439 00000 n
-0000036516 00000 n
+0000003043 00000 n
+0000003230 00000 n
+0000003417 00000 n
+0000003605 00000 n
+0000003787 00000 n
+0000004016 00000 n
+0000004197 00000 n
+0000004373 00000 n
+0000004609 00000 n
+0000004786 00000 n
+0000004984 00000 n
+0000005156 00000 n
+0000005287 00000 n
+0000012201 00000 n
+0000020832 00000 n
+0000031721 00000 n
+0000036719 00000 n
+0000036851 00000 n
+0000036928 00000 n
+0000037005 00000 n
+0000037082 00000 n
 trailer
 << /ID 
  % ReportLab generated PDF document -- digest (http://www.reportlab.com) 
- [(Q\331v\030<\222\374i\301ov\007\345F0\207) (Q\331v\030<\222\374i\301ov\007\345F0\207)] 
+ [(\367\340\313\223\276>\264\240\026\027\213\340\005q39) (\367\340\313\223\276>\264\240\026\027\213\340\005q39)] 
 
  /Info 11 0 R
  /Root 10 0 R
- /Size 35 >>
+ /Size 36 >>
 startxref
-36563
+37129
 %%EOF
