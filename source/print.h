@@ -19,8 +19,11 @@
 
 //Print a string *string* to stdout
 void print_string(unsigned string[]){
-	unsigned i;
-	while(string[i++]) stdout_put_char(string[i]);
+	unsigned i=0;
+	while(string[i]){
+	       	stdout_put_char(string[i]);
+		i++;
+	}
 }
 
 //Print an unsigned int to stdout in hex format

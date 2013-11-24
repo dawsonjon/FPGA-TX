@@ -23,7 +23,6 @@ You will need:
 Install
 =======
 
-
 Clone the git the repository with git::
 
     $ git clone git@github.com:dawsonjon/Chips-Demo.git

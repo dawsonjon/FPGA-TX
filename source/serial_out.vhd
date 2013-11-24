@@ -25,11 +25,11 @@ entity serial_output is
   port(
     CLK     : in std_logic;
     RST     : in  std_logic;
-    TX      : out std_logic;
+    TX      : out std_logic := '1';
    
     IN1     : in std_logic_vector(7 downto 0);
     IN1_STB : in std_logic;
-    IN1_ACK : out std_logic
+    IN1_ACK : out std_logic := '1'
   );
 
 end entity serial_output;
@@ -37,13 +37,13 @@ end entity serial_output;
 architecture RTL of serial_output is
 
   constant CLOCK_DIVIDER : Unsigned(11 downto 0) := To_unsigned(CLOCK_FREQUENCY/BAUD_RATE, 12);
-  signal BAUD_COUNT      : Unsigned(11 downto 0);
-  signal DATA            : std_logic_vector(7 downto 0);
-  signal X16CLK_EN       : std_logic;
-  signal S_IN1_ACK       : std_logic;
+  signal BAUD_COUNT      : Unsigned(11 downto 0) := (others => '0');
+  signal DATA            : std_logic_vector(7 downto 0) := (others => '0');
+  signal X16CLK_EN       : std_logic := '0';
+  signal S_IN1_ACK       : std_logic := '0';
 
   type STATE_TYPE is (IDLE, START, WAIT_EN, TX0, TX1, TX2, TX3, TX4, TX5, TX6, TX7, STOP);
-  signal STATE         : STATE_TYPE;
+  signal STATE : STATE_TYPE := IDLE;
 
 begin
 
@@ -131,7 +131,7 @@ begin
         TX <= '1';
       when others =>
         STATE <= IDLE;
-      end case;
+    end case;
     if RST = '1' then
       STATE <= IDLE;
       TX <= '1';

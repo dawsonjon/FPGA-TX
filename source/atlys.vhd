@@ -269,7 +269,6 @@ architecture RTL of ATLYS is
   signal NOT_LOCKED        : std_logic;
   signal INTERNAL_RST      : std_logic;
   signal RXD1              : std_logic;
-  signal RX_LOCKED         : std_logic;
   signal TX_LOCKED         : std_logic;
   signal INTERNAL_RXCLK    : std_logic;
   signal INTERNAL_RXCLK_BUF: std_logic;
@@ -417,12 +416,12 @@ begin
       OUTPUT_SOCKET_STB => INPUT_SOCKET_STB,
       OUTPUT_SOCKET_ACK => INPUT_SOCKET_ACK
 
-    );
+  );
 
   SERIAL_OUTPUT_INST_1 : serial_output generic map(
       CLOCK_FREQUENCY => 50000000,
       BAUD_RATE       => 115200
-    ) port map(
+  )port map(
       CLK     => CLK,
       RST     => INTERNAL_RST,
       TX      => RS232_TX,
@@ -430,12 +429,12 @@ begin
       IN1     => OUTPUT_RS232_TX(7 downto 0),
       IN1_STB => OUTPUT_RS232_TX_STB,
       IN1_ACK => OUTPUT_RS232_TX_ACK
-    );
+  );
 
   SERIAL_INPUT_INST_1 : SERIAL_INPUT generic map(
       CLOCK_FREQUENCY => 50000000,
       BAUD_RATE       => 115200
-    ) port map (
+  ) port map (
       CLK      => CLK,
       RST      => INTERNAL_RST,
       RX       => RS232_RX,
@@ -443,14 +442,14 @@ begin
       OUT1     => INPUT_RS232_RX(7 downto 0),
       OUT1_STB => INPUT_RS232_RX_STB,
       OUT1_ACK => INPUT_RS232_RX_ACK
-    );
+  );
 
   INPUT_RS232_RX(15 downto 8) <= (others => '0');
 
   process
   begin
     wait until rising_edge(CLK);
-    NOT_LOCKED <= not locked_internal;
+    NOT_LOCKED <= not LOCKED_INTERNAL;
     INTERNAL_RST <= NOT_LOCKED;
 	 
     if OUTPUT_LEDS_STB = '1' then
@@ -627,7 +626,7 @@ begin
     PSINCDEC              => '0',
     PSDONE                => open,
    -- Other control and status signals
-    LOCKED                => RX_LOCKED,
+    LOCKED                => open,
     STATUS                => open,
     RST                   => RST_INV,
    -- Unused pin, tie low
@@ -640,7 +639,7 @@ begin
    (O  => INTERNAL_RXCLK,
     I  => INTERNAL_RXCLK_BUF);
 
-  LOCKED_INTERNAL <= RX_LOCKED and TX_LOCKED;
+  LOCKED_INTERNAL <= TX_LOCKED;
 
   -- Use ODDRs for clock/data forwarding
   --------------------------------------
