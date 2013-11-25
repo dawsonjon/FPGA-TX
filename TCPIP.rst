@@ -38,9 +38,9 @@ Configuration
 
 The following parameters can be configured at compile time within source/server.h:
 
-        + Local Ethernet MAC address
-        + Local IP Address
-        + Local TCP Port number
+        + Local Ethernet MAC address (default: 0x000102030405)
+        + Local IP Address (default: 192.168.1.1)
+        + Local TCP Port number (default: 80 HTTP)
 
 Compile 
 =======
@@ -51,6 +51,18 @@ Compile into a Verilog module (server.v) using the following command::
 
 Interface
 =========
+
+::
+
+                             +-----------+
+                             |  SERVER   |
+                             +-----------+
+      ethernet_rx [15:0] >===>           >===> output_socket [15:0]
+                             |           |
+                             |           |
+      ethernet_tx [15:0] <===<           <===< input_socket [15:0]
+                             +-----------+
+
 
 Ethernet Interface
 ------------------
