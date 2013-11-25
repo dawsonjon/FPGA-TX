@@ -24,6 +24,17 @@ if "compile" in sys.argv or "all" in sys.argv:
     if retval != 0:
         sys.exit(-1)
 
+if "synth_estimate" in sys.argv:
+    print "Test build to estimate size ...."
+    os.chdir(os.path.join(current_directory, "synthesis_estimate"))
+    retval = os.system("../chips2/c2verilog ../source/server.c")
+    output_file = open("server.prj", "w")
+    output_file.write("verilog work server.v")
+    output_file.close()
+    os.system("%s/xflow -synth xst_mixed.opt -p XC6Slx45-CSG324 -implement balanced.opt -config bitgen.opt server"%xilinx)
+    os.chdir(current_directory)
+    shutil.rmtree("synthesis_estimate")
+
 if "build" in sys.argv or "all" in sys.argv:
     print "Building Demo using Xilinx ise ...."
     retval = os.system("%s/xflow -synth xst_mixed.opt -p XC6Slx45-CSG324 -implement balanced.opt -config bitgen.opt ATLYS"%xilinx)

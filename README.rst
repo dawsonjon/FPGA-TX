@@ -83,15 +83,16 @@ Verify connection using ping command::
 
     $ ping 192.168.1.1
     PING 192.168.1.1 (192.168.1.1) 56(84) bytes of data.
-    64 bytes from 192.168.1.1: icmp_req=2 ttl=255 time=0.207 ms
-    64 bytes from 192.168.1.1: icmp_req=3 ttl=255 time=0.263 ms
-    64 bytes from 192.168.1.1: icmp_req=4 ttl=255 time=0.124 ms
-    64 bytes from 192.168.1.1: icmp_req=5 ttl=255 time=0.185 ms
-    64 bytes from 192.168.1.1: icmp_req=6 ttl=255 time=0.275 ms
+    64 bytes from 192.168.1.1: icmp_req=1 ttl=255 time=0.253 ms
+    64 bytes from 192.168.1.1: icmp_req=2 ttl=255 time=0.371 ms
+    64 bytes from 192.168.1.1: icmp_req=3 ttl=255 time=0.382 ms
+    64 bytes from 192.168.1.1: icmp_req=4 ttl=255 time=0.250 ms
+    ^C
     --- 192.168.1.1 ping statistics ---
-    6 packets transmitted, 5 received, 16% packet loss, time 5001ms
-    rtt min/avg/max/mdev = 0.124/0.210/0.275/0.057 ms
+    4 packets transmitted, 4 received, 0% packet loss, time 3000ms
+    rtt min/avg/max/mdev = 0.250/0.314/0.382/0.062 ms
 
 Connect to 192.168.1.1 using your favourite browser.
 
 .. image:: https://raw.github.com/dawsonjon/Chips-Demo/master/images/screenshot.png
+        :width: 75%
