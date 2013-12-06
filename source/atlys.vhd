@@ -82,17 +82,17 @@ use unisim.vcomponents.all;
 
 entity ATLYS is
   port(
-	 CLK_IN        : in    std_logic;       
-	 RST           : in    std_logic;       
+   CLK_IN        : in    std_logic;       
+   RST           : in    std_logic;       
 
    --PHY INTERFACE
-	 TX            : out   std_logic;       
-	 RX            : in    std_logic;       
-	 PHY_RESET     : out   std_logic;       
-	 RXDV          : in    std_logic;       
-	 RXER          : in    std_logic;       
-	 RXCLK         : in    std_logic;       
-	 RXD           : in    std_logic_vector(7 downto 0);
+   TX            : out   std_logic;       
+   RX            : in    std_logic;       
+   PHY_RESET     : out   std_logic;       
+   RXDV          : in    std_logic;       
+   RXER          : in    std_logic;       
+   RXCLK         : in    std_logic;       
+   RXD           : in    std_logic_vector(7 downto 0);
    TXCLK         : in    std_logic;     
    GTXCLK        : out   std_logic;      
    TXD           : out   std_logic_vector(7 downto 0);
@@ -148,7 +148,7 @@ architecture RTL of ATLYS is
     port(
       CLK : in std_logic;
       RST : in std_logic;
-		
+    
       --ETH RX STREAM
       INPUT_ETH_RX : in std_logic_vector(15 downto 0);
       INPUT_ETH_RX_STB : in std_logic;
@@ -176,7 +176,7 @@ architecture RTL of ATLYS is
     port(
       CLK : in std_logic;
       RST : in std_logic;
-		
+    
       OUTPUT_LEDS : out std_logic_vector(15 downto 0);
       OUTPUT_LEDS_STB : out std_logic;
       OUTPUT_LEDS_ACK : in std_logic;
@@ -357,7 +357,7 @@ begin
   SERVER_INST_1 : SERVER port map(
       CLK => CLK,
       RST => INTERNAL_RST,
-		
+    
       --ETH RX STREAM
       INPUT_ETH_RX => ETH_RX,
       INPUT_ETH_RX_STB => ETH_RX_STB,
@@ -383,7 +383,7 @@ begin
   USER_DESIGN_INST_1 : USER_DESIGN port map(
       CLK => CLK,
       RST => INTERNAL_RST,
-		
+    
       OUTPUT_LEDS => OUTPUT_LEDS,
       OUTPUT_LEDS_STB => OUTPUT_LEDS_STB,
       OUTPUT_LEDS_ACK => OUTPUT_LEDS_ACK,
@@ -451,11 +451,11 @@ begin
     wait until rising_edge(CLK);
     NOT_LOCKED <= not LOCKED_INTERNAL;
     INTERNAL_RST <= NOT_LOCKED;
-	 
+   
     if OUTPUT_LEDS_STB = '1' then
-	     GPIO_LEDS <= OUTPUT_LEDS(7 downto 0);
+       GPIO_LEDS <= OUTPUT_LEDS(7 downto 0);
     end if;
-	  OUTPUT_LEDS_ACK <= '1';
+    OUTPUT_LEDS_ACK <= '1';
 
     INPUT_SWITCHES_STB <= '1';
     GPIO_SWITCHES_D <= GPIO_SWITCHES;
