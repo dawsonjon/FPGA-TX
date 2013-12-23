@@ -1,4 +1,4 @@
-Chips-2.0 Demo for SP605 Development Card
+Chips-2.0 Demo for Atlys Development Card
 =========================================
 
 :Author: Jonathan P Dawson

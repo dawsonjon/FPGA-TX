@@ -116,7 +116,7 @@ endobj
 % 'R10': class PDFInfo 
 10 0 obj
 << /Author ()
- /CreationDate (D:20131223182854+00'00')
+ /CreationDate (D:20131223183124+00'00')
  /Creator (\(unspecified\))
  /Keywords ()
  /Producer (ReportLab PDF Library - www.reportlab.com)
@@ -139,7 +139,7 @@ endobj
  0 ]
  /Next 13 0 R
  /Parent 11 0 R
- /Title (Chips-2.0 Demo for SP605 Development Card) >>
+ /Title (Chips-2.0 Demo for Atlys Development Card) >>
 endobj
 % 'Outline.1': class OutlineEntryObject 
 13 0 obj
@@ -266,7 +266,7 @@ stream
 q
 1 0 0 1 62.69291 744.0236 cm
 q
-BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Chips-2.0 Demo for SP605 Development Card) Tj T* ET
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Chips-2.0 Demo for Atlys Development Card) Tj T* ET
 Q
 Q
 q
@@ -1104,7 +1104,7 @@ xref
 trailer
 << /ID 
  % ReportLab generated PDF document -- digest (http://www.reportlab.com) 
- [(\331\332\277\211\013\003\373c\252\310y\324\371\3058\001) (\331\332\277\211\013\003\373c\252\310y\324\371\3058\001)] 
+ [(O\333bF9X\2114\362\325\341\253vN\276\034) (O\333bF9X\2114\362\325\341\253vN\276\034)] 
 
  /Info 10 0 R
  /Root 9 0 R
