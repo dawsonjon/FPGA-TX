@@ -17,12 +17,12 @@
 // TCP-IP User Settings
 //
 
-unsigned local_mac_address_hi = 0x0001u;
-unsigned local_mac_address_med = 0x0203u;
-unsigned local_mac_address_lo = 0x0405u;
-unsigned local_ip_address_hi = 0xc0A8u;//192/168
-unsigned local_ip_address_lo = 0x0101u;//1/1
-unsigned local_port = 80u;//http
+const unsigned local_mac_address_hi = 0x0001u;
+const unsigned local_mac_address_med = 0x0203u;
+const unsigned local_mac_address_lo = 0x0405u;
+const unsigned local_ip_address_hi = 0xc0A8u;//192/168
+const unsigned local_ip_address_lo = 0x0101u;//1/1
+const unsigned local_port = 80u;//http
 
 ////////////////////////////////////////////////////////////////////////////////
 // TCP-IP GLOBALS
@@ -301,6 +301,7 @@ unsigned get_ip_packet(unsigned packet[]){
 	unsigned payload_length;
 	unsigned i, from, to;
 	unsigned payload_end;
+	unsigned number_of_bytes;
 
 	number_of_bytes = get_ethernet_packet(packet);
 
@@ -383,6 +384,7 @@ void put_tcp_packet(unsigned tx_packet [], unsigned tx_length){
         unsigned payload_start = 17;
 	unsigned packet_length;
 	unsigned index;
+	unsigned i;
 
 	//encode TCP header
 	tx_packet[payload_start + 0] = tx_source;
@@ -511,11 +513,11 @@ void server()
 	unsigned last_state;
 	unsigned new_rx_data;
 
-	unsigned listen           = 0;
-	unsigned open             = 1;
-	unsigned send             = 2;
-	unsigned wait_acknowledge = 3;
-	unsigned close            = 4;
+	const unsigned listen           = 0;
+	const unsigned open             = 1;
+	const unsigned send             = 2;
+	const unsigned wait_acknowledge = 3;
+	const unsigned close            = 4;
 	unsigned state = listen;
 
 	tx_seq[0] = 0;
@@ -537,13 +539,13 @@ void server()
 
 		// (optionaly) send something
 		switch(state){
-		    case 0:
+		    case listen:
 			tx_rst_flag = 0;
 			tx_syn_flag = 0;
 			tx_fin_flag = 0;
 			tx_ack_flag = 0;
 			break;
-		    case 1:
+		    case open:
 			// set remote ip/port
 			remote_ip_hi = rx_packet[13];
 			remote_ip_lo = rx_packet[14];
@@ -555,7 +557,7 @@ void server()
 			tx_ack_flag = 1;
 			put_tcp_packet(tx_packet, 0);
 			break;
-		    case 2:
+		    case send:
 			// application -> tcp
 			tx_length = application_get_data(tx_packet, tx_start);
 			tx_seq[0] = next_tx_seq[0];
@@ -565,11 +567,11 @@ void server()
 			tx_ack_flag = 1;
 			put_tcp_packet(tx_packet, tx_length);
 			break;
-		    case 3:
+		    case wait_acknowledge:
 			// resend until acknowledge recieved
 			put_tcp_packet(tx_packet, tx_length);
 			break;
-		    case 4:
+		    case close:
 			// send fin ack
 			tx_fin_flag = 1;
 			tx_ack_flag = 1;
@@ -589,7 +591,7 @@ void server()
 				switch(state){
 
 				    // If a syn packet is recieved, wait for an ack
-				    case 0:
+				    case listen:
 					if(rx_syn_flag) state = open;
 					else{
 						tx_rst_flag = 1;
@@ -598,7 +600,7 @@ void server()
 					break;
 
 				    // If an ack is recieved the connection is established
-				    case 1:
+				    case open:
 					if(rx_ack_flag){
 						tx_seq[1] = rx_ack[1];
 						tx_seq[0] = rx_ack[0];
@@ -609,7 +611,7 @@ void server()
 					break;
 
 				    // Send some data
-				    case 2:
+				    case send:
 					new_rx_data = calc_ack(tx_ack, rx_seq, rx_length);
 					if(rx_fin_flag){
 						state = close;
@@ -619,7 +621,7 @@ void server()
 					break;
 
 				    // Wait until data is acknowledged before sending some more.
-				    case 3:
+				    case wait_acknowledge:
 
 					new_rx_data = calc_ack(tx_ack, rx_seq, rx_length);
 					if(rx_fin_flag){
@@ -633,7 +635,7 @@ void server()
 					break;
 
 				    // wait for fin/ack.
-				    case 4:
+				    case close:
 					if(rx_ack_flag) state = listen;
 					break;
 				}
