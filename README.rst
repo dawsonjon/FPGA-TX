@@ -6,7 +6,7 @@ Chips-2.0 Demo for ATLYS Development Card
 :email: chips@jondawson.org.uk
 
 
-This project is intended to demonstrate the capabilities of the `Chips-2.0 <https://github.com/dawsonjon/Chips-2.0>`_  development environment. The project is targets the Xilinx Spartan 6 device, and more specifically, the Digilent ATLYS development platform. The demo implements a TCP/IP socket interface, and a simple web application. So far the demonstration has been tested on a Ubuntu Linux only.
+This project is intended to demonstrate the capabilities of the `Chips-2.0 <http:pyandchips.org>`_  development environment. The project is targets the Xilinx Spartan 6 device, and more specifically, the Digilent ATLYS development platform. The demo implements a TCP/IP socket interface, and a simple web application. So far the demonstration has been tested on a Ubuntu Linux only. Some users have reported success using windows.
 
 Dependencies
 ============
@@ -25,7 +25,7 @@ Install
 
 Clone the git the repository with git::
 
-    $ git clone git@github.com:dawsonjon/Chips-Demo.git
+    $ git clone https://github.com/dawsonjon/Chips-Demo.git
     $ cd Chips-Demo
     $ git submodule init
     $ git submodule update
@@ -73,7 +73,7 @@ Setup and Test
 
 ..
 
-Connect the Ethernet port to ATLYS, using a crossed over Ethernet cable (which comes with the development kit).
+Connect the Ethernet port to ATLYS, using a crossed over Ethernet cable.
 
 Using the script, configure Ethernet port with IP address 192.168.1.0 and subnet mask 255.255.255.0. Turn off TCP Window Scaling and TCP time stamps::
 

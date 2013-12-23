@@ -68,7 +68,7 @@ void user_design()
 	<button type=\"sumbit\" value=\"Submit\">Update LEDs</button>\
 </form>\
 <p>This <a href=\"https://github.com/dawsonjon/Chips-Demo\">project</a>\
- is powered by <a href=\"https://github.com/dawsonjon/Chips-2.0\">Chips-2.0</a>.</p>\
+ is powered by <a href=\"http:pyandchips.org\">Chips-2.0</a>.</p>\
 </body>\
 </html>";
 
