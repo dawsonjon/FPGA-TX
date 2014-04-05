@@ -1,12 +1,12 @@
-Chips-2.0 Demo for ATLYS Development Card
-=========================================
+Chips-2.0 Demo for ATLYS and NEXYS3 Development Card
+====================================================
 
 :Author: Jonathan P Dawson
 :Date: 2013-10-15
 :email: chips@jondawson.org.uk
 
 
-This project is intended to demonstrate the capabilities of the `Chips-2.0 <http:pyandchips.org>`_  development environment. The project is targets the Xilinx Spartan 6 device, and more specifically, the Digilent ATLYS development platform. The demo implements a TCP/IP socket interface, and a simple web application. So far the demonstration has been tested on a Ubuntu Linux only. Some users have reported success using windows.
+This project is intended to demonstrate the capabilities of the `Chips-2.0 <http:pyandchips.org>`_  development environment. The project is targets the Xilinx Spartan 6 device, and more specifically, the Digilent ATLYS and NEXYS3 development platform. The demo implements a TCP/IP socket interface, and a simple web application. So far the demonstration has been tested on a Ubuntu Linux only. Some users have reported success using windows.
 
 Dependencies
 ============
@@ -17,6 +17,7 @@ You will need:
 + Python 2.7 or later (but not Python 3)
 + Chips-2.0 (Included)
 + Digilent `ATLYS <http://www.digilentinc.com/Products/Detail.cfm?NavPath=2,400,836&Prod=ATLYS&CFID=3188339&CFTOKEN=15014968>`_  Spartan 6 Development Kit.
++ or Digilent `NEXYS3 <http://www.digilentinc.com/Products/Detail.cfm?NavPath=2,400,897&Prod=NEXYS3&CFID=4455791&CFTOKEN=d4173c11905a0ad4-CDFA198C-5056-0201-02E27EFD541C2A7D>`_  Spartan 6 Development Kit.
 + Digilent ADEPT2 `utility <http://www.digilentinc.com/Products/Detail.cfm?NavPath=2,66,828&Prod=ADEPT2>`_ 
 + git
 
@@ -37,12 +38,20 @@ To compile the c code in chips, issue the following command in the project folde
 
     $ ./atlys.py compile
 
+or::
+
+    $ ./nexys3.py compile
+
 Build in ISE 
 ============
 
 Edit the Xilinx variable in the scripts/user_settings to point to the Xilinx ISE install directory. Then build the design using the following command::
 
     $ ./atlys.py build
+
+or::
+
+    $ ./nexys3.py build
 
 Download to ATLYS 
 =================
@@ -51,9 +60,17 @@ Power up the ATLYS, and connect the JTAG USB cable to your PC. Run the download 
 
     $ ./atlys.py download
 
+or::
+
+    $ ./nexys3.py download
+
 You can complete all three steps in one go using the *all* option::
 
     $ ./atlys.py all
+
+or::
+
+    $ ./nexys3.py all
 
 Setup and Test
 ==============

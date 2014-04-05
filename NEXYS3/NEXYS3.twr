@@ -1,0 +1,173 @@
+--------------------------------------------------------------------------------
+Release 14.3 Trace  (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+/media/storage/Xilinx/14.3/14.3/ISE_DS/ISE/bin/lin64/unwrapped/trce -e 3
+-intstyle xflow -xml NEXYS3.twx NEXYS3.ncd NEXYS3.pcf
+
+Design file:              NEXYS3.ncd
+Physical constraint file: NEXYS3.pcf
+Device,package,speed:     xc6slx16,csg324,C,-3 (PRODUCTION 1.23 2012-10-12)
+Report level:             error report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:3412 - To improve timing, see the Timing Closure User Guide (UG612).
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+================================================================================
+Timing constraint: TS_CLK = PERIOD TIMEGRP "CLK_IN" 10 ns HIGH 50% INPUT_JITTER 
+0.05 ns;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is   5.340ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: TS_RXCLK = PERIOD TIMEGRP "RXCLK" 40 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 0 paths analyzed, 0 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 component switching limit errors)
+ Minimum period is  16.000ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: TS_clkdv = PERIOD TIMEGRP "clkdv" TS_CLK * 2 HIGH 50% 
+INPUT_JITTER 0.05 ns;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 50933 paths analyzed, 6114 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   9.638ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: TS_INTERNAL_RXCLK_BUF = PERIOD TIMEGRP "INTERNAL_RXCLK_BUF" 
+TS_RXCLK PHASE         2.1875 ns HIGH 50%;
+For more information, see Period Analysis in the Timing Closure User Guide (UG612).
+
+ 1792 paths analyzed, 902 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors, 0 component switching limit errors)
+ Minimum period is   5.869ns.
+--------------------------------------------------------------------------------
+
+================================================================================
+Timing constraint: TIMEGRP "IN_GMII" OFFSET = IN 10 ns VALID 20 ns BEFORE COMP 
+"RXCLK";
+For more information, see Offset In Analysis in the Timing Closure User Guide (UG612).
+
+ 6 paths analyzed, 6 endpoints analyzed, 0 failing endpoints
+ 0 timing errors detected. (0 setup errors, 0 hold errors)
+ Minimum allowable offset is   1.093ns.
+--------------------------------------------------------------------------------
+
+
+Derived Constraint Report
+Derived Constraints for TS_CLK
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_CLK                         |     10.000ns|      5.340ns|      4.819ns|            0|            0|            0|        50933|
+| TS_clkdv                      |     20.000ns|      9.638ns|          N/A|            0|            0|        50933|            0|
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+Derived Constraints for TS_RXCLK
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|                               |   Period    |       Actual Period       |      Timing Errors        |      Paths Analyzed       |
+|           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
+|                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+|TS_RXCLK                       |     40.000ns|     16.000ns|      5.869ns|            0|            0|            0|         1792|
+| TS_INTERNAL_RXCLK_BUF         |     40.000ns|      5.869ns|          N/A|            0|            0|         1792|            0|
++-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
+
+All constraints were met.
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock RXCLK
+------------+------------+------------+------------+------------+------------------+--------+
+            |Max Setup to|  Process   |Max Hold to |  Process   |                  | Clock  |
+Source      | clk (edge) |   Corner   | clk (edge) |   Corner   |Internal Clock(s) | Phase  |
+------------+------------+------------+------------+------------+------------------+--------+
+RXD<0>      |    0.266(R)|      SLOW  |    1.340(R)|      FAST  |INTERNAL_RXCLK    |   2.187|
+RXD<1>      |    0.292(R)|      SLOW  |    1.323(R)|      FAST  |INTERNAL_RXCLK    |   2.187|
+RXD<2>      |    0.161(R)|      SLOW  |    1.410(R)|      FAST  |INTERNAL_RXCLK    |   2.187|
+RXD<3>      |    0.476(R)|      SLOW  |    1.242(R)|      FAST  |INTERNAL_RXCLK    |   2.187|
+RXDV        |    1.093(R)|      SLOW  |    0.845(R)|      FAST  |INTERNAL_RXCLK    |   2.187|
+RXER        |    0.377(R)|      SLOW  |    1.319(R)|      FAST  |INTERNAL_RXCLK    |   2.187|
+------------+------------+------------+------------+------------+------------------+--------+
+
+Clock to Setup on destination clock CLK_IN
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+CLK_IN         |    9.638|         |         |         |
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock RXCLK
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+RXCLK          |    5.869|         |         |         |
+---------------+---------+---------+---------+---------+
+
+TIMEGRP "IN_GMII" OFFSET = IN 10 ns VALID 20 ns BEFORE COMP "RXCLK";
+Worst Case Data Window 2.503; Ideal Clock Offset To Actual Clock -0.159; 
+------------------+------------+------------+------------+------------+---------+---------+-------------+
+                  |            |  Process   |            |  Process   |  Setup  |  Hold   |Source Offset|
+Source            |   Setup    |   Corner   |    Hold    |   Corner   |  Slack  |  Slack  |  To Center  |
+------------------+------------+------------+------------+------------+---------+---------+-------------+
+RXD<0>            |    0.266(R)|      SLOW  |    1.340(R)|      FAST  |    9.734|    8.660|        0.537|
+RXD<1>            |    0.292(R)|      SLOW  |    1.323(R)|      FAST  |    9.708|    8.677|        0.516|
+RXD<2>            |    0.161(R)|      SLOW  |    1.410(R)|      FAST  |    9.839|    8.590|        0.625|
+RXD<3>            |    0.476(R)|      SLOW  |    1.242(R)|      FAST  |    9.524|    8.758|        0.383|
+RXDV              |    1.093(R)|      SLOW  |    0.845(R)|      FAST  |    8.907|    9.155|       -0.124|
+RXER              |    0.377(R)|      SLOW  |    1.319(R)|      FAST  |    9.623|    8.681|        0.471|
+------------------+------------+------------+------------+------------+---------+---------+-------------+
+Worst Case Summary|       1.093|         -  |       1.410|         -  |    8.907|    8.590|             |
+------------------+------------+------------+------------+------------+---------+---------+-------------+
+
+
+Timing summary:
+---------------
+
+Timing errors: 0  Score: 0  (Setup/Max: 0, Hold: 0)
+
+Constraints cover 52731 paths, 0 nets, and 13620 connections
+
+Design statistics:
+   Minimum period:  16.000ns   (Maximum frequency:  62.500MHz)
+   Minimum input required time before clock:   1.093ns
+
+
+Analysis completed Fri Apr  4 21:55:15 2014 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 438 MB
+
+
+

@@ -1,0 +1,392 @@
+Release 14.3 Map P.40xd (lin64)
+Xilinx Mapping Report File for Design 'NEXYS3'
+
+Design Information
+------------------
+Command Line   : map -w -o NEXYS3_map.ncd -intstyle xflow NEXYS3.ngd NEXYS3.pcf 
+Target Device  : xc6slx16
+Target Package : csg324
+Target Speed   : -3
+Mapper Version : spartan6 -- $Revision: 1.55 $
+Mapped Date    : Fri Apr  4 21:53:49 2014
+
+Design Summary
+--------------
+Number of errors:      0
+Number of warnings:   46
+Slice Logic Utilization:
+  Number of Slice Registers:                 1,048 out of  18,224    5%
+    Number used as Flip Flops:               1,047
+    Number used as Latches:                      0
+    Number used as Latch-thrus:                  0
+    Number used as AND/OR logics:                1
+  Number of Slice LUTs:                      2,571 out of   9,112   28%
+    Number used as logic:                    2,244 out of   9,112   24%
+      Number using O6 output only:           1,736
+      Number using O5 output only:              51
+      Number using O5 and O6:                  457
+      Number used as ROM:                        0
+    Number used as Memory:                     313 out of   2,176   14%
+      Number used as Dual Port RAM:            288
+        Number using O6 output only:           176
+        Number using O5 output only:             2
+        Number using O5 and O6:                110
+      Number used as Single Port RAM:            0
+      Number used as Shift Register:            25
+        Number using O6 output only:             4
+        Number using O5 output only:             0
+        Number using O5 and O6:                 21
+    Number used exclusively as route-thrus:     14
+      Number with same-slice register load:      9
+      Number with same-slice carry load:         5
+      Number with other load:                    0
+
+Slice Logic Distribution:
+  Number of occupied Slices:                   851 out of   2,278   37%
+  Nummber of MUXCYs used:                      552 out of   4,556   12%
+  Number of LUT Flip Flop pairs used:        2,855
+    Number with an unused Flip Flop:         1,889 out of   2,855   66%
+    Number with an unused LUT:                 284 out of   2,855    9%
+    Number of fully used LUT-FF pairs:         682 out of   2,855   23%
+    Number of unique control sets:              81
+    Number of slice register sites lost
+      to control set restrictions:             309 out of  18,224    1%
+
+  A LUT Flip Flop pair for this architecture represents one LUT paired with
+  one Flip Flop within a slice.  A control set is a unique combination of
+  clock, reset, set, and enable signals for a registered element.
+  The Slice Logic Distribution report is not meaningful if the design is
+  over-mapped for a non-slice resource or if Placement fails.
+
+IO Utilization:
+  Number of bonded IOBs:                        39 out of     232   16%
+    Number of LOCed IOBs:                       39 out of      39  100%
+
+Specific Feature Utilization:
+  Number of RAMB16BWERs:                        27 out of      32   84%
+  Number of RAMB8BWERs:                          3 out of      64    4%
+  Number of BUFIO2/BUFIO2_2CLKs:                 2 out of      32    6%
+    Number used as BUFIO2s:                      2
+    Number used as BUFIO2_2CLKs:                 0
+  Number of BUFIO2FB/BUFIO2FB_2CLKs:             2 out of      32    6%
+    Number used as BUFIO2FBs:                    2
+    Number used as BUFIO2FB_2CLKs:               0
+  Number of BUFG/BUFGMUXs:                       4 out of      16   25%
+    Number used as BUFGs:                        4
+    Number used as BUFGMUX:                      0
+  Number of DCM/DCM_CLKGENs:                     2 out of       4   50%
+    Number used as DCMs:                         2
+    Number used as DCM_CLKGENs:                  0
+  Number of ILOGIC2/ISERDES2s:                   0 out of     248    0%
+  Number of IODELAY2/IODRP2/IODRP2_MCBs:         0 out of     248    0%
+  Number of OLOGIC2/OSERDES2s:                   0 out of     248    0%
+  Number of BSCANs:                              0 out of       4    0%
+  Number of BUFHs:                               0 out of     128    0%
+  Number of BUFPLLs:                             0 out of       8    0%
+  Number of BUFPLL_MCBs:                         0 out of       4    0%
+  Number of DSP48A1s:                            0 out of      32    0%
+  Number of ICAPs:                               0 out of       1    0%
+  Number of MCBs:                                0 out of       2    0%
+  Number of PCILOGICSEs:                         0 out of       2    0%
+  Number of PLL_ADVs:                            0 out of       2    0%
+  Number of PMVs:                                0 out of       1    0%
+  Number of STARTUPs:                            0 out of       1    0%
+  Number of SUSPEND_SYNCs:                       0 out of       1    0%
+
+Average Fanout of Non-Clock Nets:                4.27
+
+Peak Memory Usage:  715 MB
+Total REAL time to MAP completion:  46 secs 
+Total CPU time to MAP completion:   46 secs 
+
+Table of Contents
+-----------------
+Section 1 - Errors
+Section 2 - Warnings
+Section 3 - Informational
+Section 4 - Removed Logic Summary
+Section 5 - Removed Logic
+Section 6 - IOB Properties
+Section 7 - RPMs
+Section 8 - Guide Report
+Section 9 - Area Group and Partition Summary
+Section 10 - Timing Report
+Section 11 - Configuration String Information
+Section 12 - Control Set Information
+Section 13 - Utilization by Hierarchy
+
+Section 1 - Errors
+------------------
+
+Section 2 - Warnings
+--------------------
+WARNING:Map:34 - Speed grade not specified.  Using default "-3".
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers114_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers5_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers115_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers116_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers8_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers110_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers112_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers9_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers119_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers111_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers113_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers4_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers117_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers118_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers7_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers10_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers11_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers3_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers2_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers6_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers5_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers11_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers3_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers2_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers4_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers10_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers13_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers12_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers19_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers18_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER2_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER1_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers7_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers8_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers15_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers21_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER1_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER2_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers20_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers6_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers9_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers14_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers16_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers17_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:2410 - This design is using one or more 9K Block RAMs
+   (RAMB8BWER).  9K Block RAM initialization data, both user defined and
+   default, may be incorrect and should not be used.  For more information,
+   please reference Xilinx Answer Record 39999.
+
+Section 3 - Informational
+-------------------------
+INFO:LIT:243 - Logical network RX has no load.
+INFO:LIT:395 - The above info message is repeated 105 more times for the
+   following (max. 5 shown):
+   TX,
+   SERVER_INST_1/Mram_registers342/SPO,
+   SERVER_INST_1/Mram_registers341/SPO,
+   SERVER_INST_1/Mram_registers332/SPO,
+   SERVER_INST_1/Mram_registers331/SPO
+   To see the details of these info messages, please use the -detail switch.
+INFO:MapLib:562 - No environment variables are currently set.
+INFO:LIT:244 - All of the single ended outputs in this design are using slew
+   rate limited output drivers. The delay on speed critical single ended outputs
+   can be dramatically reduced by designating them as fast outputs.
+INFO:Pack:1716 - Initializing temperature to 85.000 Celsius. (default - Range:
+   0.000 to 85.000 Celsius)
+INFO:Pack:1720 - Initializing voltage to 1.140 Volts. (default - Range: 1.140 to
+   1.260 Volts)
+INFO:Map:215 - The Interim Design Summary has been generated in the MAP Report
+   (.mrp).
+INFO:Pack:1650 - Map created a placed design.
+
+Section 4 - Removed Logic Summary
+---------------------------------
+   3 block(s) removed
+   2 block(s) optimized away
+   3 signal(s) removed
+
+Section 5 - Removed Logic
+-------------------------
+
+The trimmed logic report below shows the logic removed from your design due to
+sourceless or loadless signals, and VCC or ground connections.  If the removal
+of a signal or symbol results in the subsequent removal of an additional signal
+or symbol, the message explaining that second removal will be indented.  This
+indentation will be repeated as a chain of related logic is removed.
+
+To quickly locate the original cause for the removal of a chain of logic, look
+above the place where that logic is listed in the trimming report, then locate
+the lines that are least indented (begin at the leftmost edge).
+
+Loadless block "BUFG_INST3" (CKBUF) removed.
+ The signal "clkfx" is loadless and has been removed.
+Loadless block "BUFG_INST4" (CKBUF) removed.
+ The signal "clkfx180" is loadless and has been removed.
+Loadless block "BUFG_INST5" (CKBUF) removed.
+ The signal "clk2x" is loadless and has been removed.
+
+Optimized Block(s):
+TYPE 		BLOCK
+GND 		XST_GND
+VCC 		XST_VCC
+
+To enable printing of redundant blocks removed and signals merged, set the
+detailed map report option and rerun map.
+
+Section 6 - IOB Properties
+--------------------------
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| IOB Name                           | Type             | Direction | IO Standard          | Diff  | Drive    | Slew | Reg (s)      | Resistor | IOB      |
+|                                    |                  |           |                      | Term  | Strength | Rate |              |          | Delay    |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| CLK_IN                             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_BUTTONS<0>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_BUTTONS<1>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_BUTTONS<2>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_BUTTONS<3>                    | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_LEDS<0>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_LEDS<1>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_LEDS<2>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_LEDS<3>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_LEDS<4>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_LEDS<5>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_LEDS<6>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_LEDS<7>                       | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| GPIO_SWITCHES<0>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_SWITCHES<1>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_SWITCHES<2>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_SWITCHES<3>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_SWITCHES<4>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_SWITCHES<5>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_SWITCHES<6>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| GPIO_SWITCHES<7>                   | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| PHY_RESET                          | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| RS232_RX                           | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| RS232_TX                           | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| RST                                | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| RXCLK                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| RXD<0>                             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| RXD<1>                             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| RXD<2>                             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| RXD<3>                             | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| RXDV                               | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| RXER                               | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| TXCLK                              | IOB              | INPUT     | LVCMOS25             |       |          |      |              |          |          |
+| TXD<0>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| TXD<1>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| TXD<2>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| TXD<3>                             | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| TXEN                               | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
+| TXER                               | IOB              | OUTPUT    | LVCMOS25             |       | 12       | SLOW |              |          |          |
++---------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+Section 7 - RPMs
+----------------
+
+Section 8 - Guide Report
+------------------------
+Guide not run on this design.
+
+Section 9 - Area Group and Partition Summary
+--------------------------------------------
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+Area Group Information
+----------------------
+
+  No area groups were found in this design.
+
+----------------------
+
+Section 10 - Timing Report
+--------------------------
+A logic-level (pre-route) timing report can be generated by using Xilinx static
+timing analysis tools, Timing Analyzer (GUI) or TRCE (command line), with the
+mapped NCD and PCF files. Please note that this timing report will be generated
+using estimated delay information. For accurate numbers, please generate a
+timing report with the post Place and Route NCD file.
+
+For more information about the Timing Analyzer, consult the Xilinx Timing
+Analyzer Reference Manual; for more information about TRCE, consult the Xilinx
+Command Line Tools User Guide "TRACE" chapter.
+
+Section 11 - Configuration String Details
+-----------------------------------------
+Use the "-detail" map option to print out Configuration Strings
+
+Section 12 - Control Set Information
+------------------------------------
+Use the "-detail" map option to print out Control Set Information.
+
+Section 13 - Utilization by Hierarchy
+-------------------------------------
+Use the "-detail" map option to print out the Utilization by Hierarchy section.

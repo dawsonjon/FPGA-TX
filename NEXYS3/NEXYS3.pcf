@@ -1,0 +1,1367 @@
+//! **************************************************************************
+// Written by: Map P.40xd on Fri Apr 04 21:54:35 2014
+//! **************************************************************************
+
+SCHEMATIC START;
+COMP "RST" LOCATE = SITE "B8" LEVEL 1;
+COMP "PHY_RESET" LOCATE = SITE "P3" LEVEL 1;
+COMP "RXER" LOCATE = SITE "M1" LEVEL 1;
+COMP "RXDV" LOCATE = SITE "L1" LEVEL 1;
+COMP "TXEN" LOCATE = SITE "L2" LEVEL 1;
+COMP "TXER" LOCATE = SITE "P2" LEVEL 1;
+COMP "GPIO_BUTTONS<0>" LOCATE = SITE "C4" LEVEL 1;
+COMP "GPIO_BUTTONS<1>" LOCATE = SITE "D9" LEVEL 1;
+COMP "GPIO_BUTTONS<2>" LOCATE = SITE "A8" LEVEL 1;
+COMP "GPIO_BUTTONS<3>" LOCATE = SITE "C9" LEVEL 1;
+COMP "RXCLK" LOCATE = SITE "H4" LEVEL 1;
+COMP "TXCLK" LOCATE = SITE "L5" LEVEL 1;
+COMP "CLK_IN" LOCATE = SITE "V10" LEVEL 1;
+COMP "RXD<0>" LOCATE = SITE "P1" LEVEL 1;
+COMP "RXD<1>" LOCATE = SITE "N2" LEVEL 1;
+COMP "RXD<2>" LOCATE = SITE "N1" LEVEL 1;
+COMP "RXD<3>" LOCATE = SITE "M3" LEVEL 1;
+COMP "TXD<0>" LOCATE = SITE "U2" LEVEL 1;
+COMP "TXD<1>" LOCATE = SITE "U1" LEVEL 1;
+COMP "TXD<2>" LOCATE = SITE "T2" LEVEL 1;
+COMP "TXD<3>" LOCATE = SITE "T1" LEVEL 1;
+COMP "GPIO_LEDS<0>" LOCATE = SITE "U16" LEVEL 1;
+COMP "GPIO_LEDS<1>" LOCATE = SITE "V16" LEVEL 1;
+COMP "GPIO_LEDS<2>" LOCATE = SITE "U15" LEVEL 1;
+COMP "GPIO_LEDS<3>" LOCATE = SITE "V15" LEVEL 1;
+COMP "GPIO_LEDS<4>" LOCATE = SITE "M11" LEVEL 1;
+COMP "GPIO_LEDS<5>" LOCATE = SITE "N11" LEVEL 1;
+COMP "GPIO_LEDS<6>" LOCATE = SITE "R11" LEVEL 1;
+COMP "GPIO_LEDS<7>" LOCATE = SITE "T11" LEVEL 1;
+COMP "GPIO_SWITCHES<0>" LOCATE = SITE "T10" LEVEL 1;
+COMP "GPIO_SWITCHES<1>" LOCATE = SITE "T9" LEVEL 1;
+COMP "GPIO_SWITCHES<2>" LOCATE = SITE "V9" LEVEL 1;
+COMP "GPIO_SWITCHES<3>" LOCATE = SITE "M8" LEVEL 1;
+COMP "GPIO_SWITCHES<4>" LOCATE = SITE "N8" LEVEL 1;
+COMP "GPIO_SWITCHES<5>" LOCATE = SITE "U8" LEVEL 1;
+COMP "GPIO_SWITCHES<6>" LOCATE = SITE "V8" LEVEL 1;
+COMP "GPIO_SWITCHES<7>" LOCATE = SITE "T5" LEVEL 1;
+COMP "RS232_RX" LOCATE = SITE "N18" LEVEL 1;
+COMP "RS232_TX" LOCATE = SITE "N17" LEVEL 1;
+PIN ethernet_inst_1/Mram_RX_MEMORY2_pins<23> = BEL
+        "ethernet_inst_1/Mram_RX_MEMORY2" PINNAME CLKB;
+PIN ethernet_inst_1/Mram_RX_MEMORY1_pins<23> = BEL
+        "ethernet_inst_1/Mram_RX_MEMORY1" PINNAME CLKB;
+PIN ethernet_inst_1/Mram_TX_MEMORY_pins<18> = BEL
+        "ethernet_inst_1/Mram_TX_MEMORY" PINNAME CLKAWRCLK;
+PIN SERVER_INST_1/Mram_memory_24_pins<12> = BEL "SERVER_INST_1/Mram_memory_24"
+        PINNAME CLKA;
+PIN SERVER_INST_1/Mram_memory_22_pins<12> = BEL "SERVER_INST_1/Mram_memory_22"
+        PINNAME CLKA;
+PIN SERVER_INST_1/Mram_memory_21_pins<12> = BEL "SERVER_INST_1/Mram_memory_21"
+        PINNAME CLKA;
+PIN SERVER_INST_1/Mram_memory_23_pins<12> = BEL "SERVER_INST_1/Mram_memory_23"
+        PINNAME CLKA;
+PIN SERVER_INST_1/Mram_registers1_pins<16> = BEL
+        "SERVER_INST_1/Mram_registers1" PINNAME CLKAWRCLK;
+PIN SERVER_INST_1/Mram_registers1_pins<17> = BEL
+        "SERVER_INST_1/Mram_registers1" PINNAME CLKBRDCLK;
+PIN USER_DESIGN_INST_1/Mram_memory_24_pins<12> = BEL
+        "USER_DESIGN_INST_1/Mram_memory_24" PINNAME CLKA;
+PIN USER_DESIGN_INST_1/Mram_memory_23_pins<12> = BEL
+        "USER_DESIGN_INST_1/Mram_memory_23" PINNAME CLKA;
+PIN USER_DESIGN_INST_1/Mram_memory_22_pins<12> = BEL
+        "USER_DESIGN_INST_1/Mram_memory_22" PINNAME CLKA;
+PIN USER_DESIGN_INST_1/Mram_memory_21_pins<12> = BEL
+        "USER_DESIGN_INST_1/Mram_memory_21" PINNAME CLKA;
+PIN SERVER_INST_1_Mram_instructions13_pins<12> = BEL
+        "SERVER_INST_1_Mram_instructions13" PINNAME CLKA;
+PIN SERVER_INST_1_Mram_instructions12_pins<12> = BEL
+        "SERVER_INST_1_Mram_instructions12" PINNAME CLKA;
+PIN SERVER_INST_1_Mram_instructions14_pins<12> = BEL
+        "SERVER_INST_1_Mram_instructions14" PINNAME CLKAWRCLK;
+PIN SERVER_INST_1_Mram_instructions11_pins<12> = BEL
+        "SERVER_INST_1_Mram_instructions11" PINNAME CLKA;
+PIN SERVER_INST_1_Mram_instructions10_pins<12> = BEL
+        "SERVER_INST_1_Mram_instructions10" PINNAME CLKA;
+PIN SERVER_INST_1_Mram_instructions9_pins<12> = BEL
+        "SERVER_INST_1_Mram_instructions9" PINNAME CLKA;
+PIN SERVER_INST_1_Mram_instructions5_pins<12> = BEL
+        "SERVER_INST_1_Mram_instructions5" PINNAME CLKA;
+PIN SERVER_INST_1_Mram_instructions7_pins<12> = BEL
+        "SERVER_INST_1_Mram_instructions7" PINNAME CLKA;
+PIN SERVER_INST_1_Mram_instructions4_pins<12> = BEL
+        "SERVER_INST_1_Mram_instructions4" PINNAME CLKA;
+PIN SERVER_INST_1_Mram_instructions3_pins<12> = BEL
+        "SERVER_INST_1_Mram_instructions3" PINNAME CLKA;
+PIN SERVER_INST_1_Mram_instructions2_pins<12> = BEL
+        "SERVER_INST_1_Mram_instructions2" PINNAME CLKA;
+PIN SERVER_INST_1_Mram_instructions1_pins<12> = BEL
+        "SERVER_INST_1_Mram_instructions1" PINNAME CLKA;
+PIN USER_DESIGN_INST_1_Mram_instructions5_pins<11> = BEL
+        "USER_DESIGN_INST_1_Mram_instructions5" PINNAME CLKA;
+PIN USER_DESIGN_INST_1_Mram_instructions4_pins<11> = BEL
+        "USER_DESIGN_INST_1_Mram_instructions4" PINNAME CLKA;
+PIN USER_DESIGN_INST_1_Mram_instructions6_pins<11> = BEL
+        "USER_DESIGN_INST_1_Mram_instructions6" PINNAME CLKA;
+PIN USER_DESIGN_INST_1_Mram_instructions2_pins<11> = BEL
+        "USER_DESIGN_INST_1_Mram_instructions2" PINNAME CLKA;
+PIN USER_DESIGN_INST_1_Mram_instructions1_pins<11> = BEL
+        "USER_DESIGN_INST_1_Mram_instructions1" PINNAME CLKA;
+PIN USER_DESIGN_INST_1_Mram_instructions3_pins<11> = BEL
+        "USER_DESIGN_INST_1_Mram_instructions3" PINNAME CLKA;
+TIMEGRP clkdv = BEL "NOT_LOCKED" BEL "INTERNAL_RST" BEL "GPIO_LEDS_0" BEL
+        "GPIO_LEDS_1" BEL "GPIO_LEDS_2" BEL "GPIO_LEDS_3" BEL "GPIO_LEDS_4"
+        BEL "GPIO_LEDS_5" BEL "GPIO_LEDS_6" BEL "GPIO_LEDS_7" BEL "BUFG_INST1"
+        BEL "ethernet_inst_1/TX_WRITE_ADDRESS_8" BEL
+        "ethernet_inst_1/TX_WRITE_ADDRESS_7" BEL
+        "ethernet_inst_1/TX_WRITE_ADDRESS_6" BEL
+        "ethernet_inst_1/TX_WRITE_ADDRESS_5" BEL
+        "ethernet_inst_1/TX_WRITE_ADDRESS_4" BEL
+        "ethernet_inst_1/TX_WRITE_ADDRESS_3" BEL
+        "ethernet_inst_1/TX_WRITE_ADDRESS_2" BEL
+        "ethernet_inst_1/TX_WRITE_ADDRESS_1" BEL
+        "ethernet_inst_1/TX_WRITE_ADDRESS_0" BEL
+        "ethernet_inst_1/RX_PACKET_STATE_FSM_FFd1" BEL
+        "ethernet_inst_1/RX_PACKET_STATE_FSM_FFd2" BEL
+        "ethernet_inst_1/RX_PACKET_STATE_FSM_FFd3" BEL
+        "ethernet_inst_1/TX_PACKET_STATE_FSM_FFd1" BEL
+        "ethernet_inst_1/TX_PACKET_STATE_FSM_FFd2" BEL "ethernet_inst_1/RX_15"
+        BEL "ethernet_inst_1/RX_14" BEL "ethernet_inst_1/RX_13" BEL
+        "ethernet_inst_1/RX_12" BEL "ethernet_inst_1/RX_11" BEL
+        "ethernet_inst_1/RX_10" BEL "ethernet_inst_1/RX_9" BEL
+        "ethernet_inst_1/RX_8" BEL "ethernet_inst_1/RX_7" BEL
+        "ethernet_inst_1/RX_6" BEL "ethernet_inst_1/RX_5" BEL
+        "ethernet_inst_1/RX_4" BEL "ethernet_inst_1/RX_3" BEL
+        "ethernet_inst_1/RX_2" BEL "ethernet_inst_1/RX_1" BEL
+        "ethernet_inst_1/RX_0" BEL "ethernet_inst_1/RX_STB" BEL
+        "ethernet_inst_1/RX_READ_ADDRESS_10" BEL
+        "ethernet_inst_1/RX_READ_ADDRESS_9" BEL
+        "ethernet_inst_1/RX_READ_ADDRESS_8" BEL
+        "ethernet_inst_1/RX_READ_ADDRESS_7" BEL
+        "ethernet_inst_1/RX_READ_ADDRESS_6" BEL
+        "ethernet_inst_1/RX_READ_ADDRESS_5" BEL
+        "ethernet_inst_1/RX_READ_ADDRESS_4" BEL
+        "ethernet_inst_1/RX_READ_ADDRESS_3" BEL
+        "ethernet_inst_1/RX_READ_ADDRESS_2" BEL
+        "ethernet_inst_1/RX_READ_ADDRESS_1" BEL
+        "ethernet_inst_1/RX_READ_ADDRESS_0" BEL
+        "ethernet_inst_1/RX_END_ADDRESS_10" BEL
+        "ethernet_inst_1/RX_END_ADDRESS_9" BEL
+        "ethernet_inst_1/RX_END_ADDRESS_8" BEL
+        "ethernet_inst_1/RX_END_ADDRESS_7" BEL
+        "ethernet_inst_1/RX_END_ADDRESS_6" BEL
+        "ethernet_inst_1/RX_END_ADDRESS_5" BEL
+        "ethernet_inst_1/RX_END_ADDRESS_4" BEL
+        "ethernet_inst_1/RX_END_ADDRESS_3" BEL
+        "ethernet_inst_1/RX_END_ADDRESS_2" BEL
+        "ethernet_inst_1/RX_END_ADDRESS_1" BEL
+        "ethernet_inst_1/RX_END_ADDRESS_0" BEL
+        "ethernet_inst_1/RX_START_ADDRESS_SYNC_10" BEL
+        "ethernet_inst_1/RX_START_ADDRESS_SYNC_9" BEL
+        "ethernet_inst_1/RX_START_ADDRESS_SYNC_8" BEL
+        "ethernet_inst_1/RX_START_ADDRESS_SYNC_7" BEL
+        "ethernet_inst_1/RX_START_ADDRESS_SYNC_6" BEL
+        "ethernet_inst_1/RX_START_ADDRESS_SYNC_5" BEL
+        "ethernet_inst_1/RX_START_ADDRESS_SYNC_4" BEL
+        "ethernet_inst_1/RX_START_ADDRESS_SYNC_3" BEL
+        "ethernet_inst_1/RX_START_ADDRESS_SYNC_2" BEL
+        "ethernet_inst_1/RX_START_ADDRESS_SYNC_1" BEL
+        "ethernet_inst_1/RX_START_ADDRESS_SYNC_0" BEL
+        "ethernet_inst_1/TX_WRITE_ADDRESS_DEL_8" BEL
+        "ethernet_inst_1/TX_WRITE_ADDRESS_DEL_7" BEL
+        "ethernet_inst_1/TX_WRITE_ADDRESS_DEL_6" BEL
+        "ethernet_inst_1/TX_WRITE_ADDRESS_DEL_5" BEL
+        "ethernet_inst_1/TX_WRITE_ADDRESS_DEL_4" BEL
+        "ethernet_inst_1/TX_WRITE_ADDRESS_DEL_3" BEL
+        "ethernet_inst_1/TX_WRITE_ADDRESS_DEL_2" BEL
+        "ethernet_inst_1/TX_WRITE_ADDRESS_DEL_1" BEL
+        "ethernet_inst_1/TX_WRITE_ADDRESS_DEL_0" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_SYNC_10" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_SYNC_9" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_SYNC_8" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_SYNC_7" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_SYNC_6" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_SYNC_5" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_SYNC_4" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_SYNC_3" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_SYNC_2" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_SYNC_1" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_SYNC_0" BEL
+        "ethernet_inst_1/S_TX_ACK" BEL "ethernet_inst_1/RX_READ_BUFFER_4" BEL
+        "ethernet_inst_1/RX_READ_BUFFER_3" BEL
+        "ethernet_inst_1/RX_READ_BUFFER_2" BEL
+        "ethernet_inst_1/RX_READ_BUFFER_1" BEL
+        "ethernet_inst_1/RX_READ_BUFFER_0" BEL
+        "ethernet_inst_1/TX_IN_COUNT_10" BEL "ethernet_inst_1/TX_IN_COUNT_9"
+        BEL "ethernet_inst_1/TX_IN_COUNT_8" BEL
+        "ethernet_inst_1/TX_IN_COUNT_7" BEL "ethernet_inst_1/TX_IN_COUNT_6"
+        BEL "ethernet_inst_1/TX_IN_COUNT_5" BEL
+        "ethernet_inst_1/TX_IN_COUNT_4" BEL "ethernet_inst_1/TX_IN_COUNT_3"
+        BEL "ethernet_inst_1/TX_IN_COUNT_2" BEL
+        "ethernet_inst_1/TX_IN_COUNT_1" BEL "ethernet_inst_1/GO" BEL
+        "ethernet_inst_1/TX_WRITE" BEL "ethernet_inst_1/TX_PACKET_LENGTH_15"
+        BEL "ethernet_inst_1/TX_PACKET_LENGTH_14" BEL
+        "ethernet_inst_1/TX_PACKET_LENGTH_13" BEL
+        "ethernet_inst_1/TX_PACKET_LENGTH_12" BEL
+        "ethernet_inst_1/TX_PACKET_LENGTH_11" BEL
+        "ethernet_inst_1/TX_PACKET_LENGTH_10" BEL
+        "ethernet_inst_1/TX_PACKET_LENGTH_9" BEL
+        "ethernet_inst_1/TX_PACKET_LENGTH_8" BEL
+        "ethernet_inst_1/TX_PACKET_LENGTH_7" BEL
+        "ethernet_inst_1/TX_PACKET_LENGTH_6" BEL
+        "ethernet_inst_1/TX_PACKET_LENGTH_5" BEL
+        "ethernet_inst_1/TX_PACKET_LENGTH_4" BEL
+        "ethernet_inst_1/TX_PACKET_LENGTH_3" BEL
+        "ethernet_inst_1/TX_PACKET_LENGTH_2" BEL
+        "ethernet_inst_1/TX_PACKET_LENGTH_1" BEL
+        "ethernet_inst_1/TX_PACKET_LENGTH_0" BEL
+        "ethernet_inst_1/TX_WRITE_DATA_15" BEL
+        "ethernet_inst_1/TX_WRITE_DATA_14" BEL
+        "ethernet_inst_1/TX_WRITE_DATA_13" BEL
+        "ethernet_inst_1/TX_WRITE_DATA_12" BEL
+        "ethernet_inst_1/TX_WRITE_DATA_11" BEL
+        "ethernet_inst_1/TX_WRITE_DATA_10" BEL
+        "ethernet_inst_1/TX_WRITE_DATA_9" BEL
+        "ethernet_inst_1/TX_WRITE_DATA_8" BEL
+        "ethernet_inst_1/TX_WRITE_DATA_7" BEL
+        "ethernet_inst_1/TX_WRITE_DATA_6" BEL
+        "ethernet_inst_1/TX_WRITE_DATA_5" BEL
+        "ethernet_inst_1/TX_WRITE_DATA_4" BEL
+        "ethernet_inst_1/TX_WRITE_DATA_3" BEL
+        "ethernet_inst_1/TX_WRITE_DATA_2" BEL
+        "ethernet_inst_1/TX_WRITE_DATA_1" BEL
+        "ethernet_inst_1/TX_WRITE_DATA_0" BEL
+        "SERIAL_INPUT_INST_1/BAUD_COUNT_11" BEL
+        "SERIAL_INPUT_INST_1/BAUD_COUNT_10" BEL
+        "SERIAL_INPUT_INST_1/BAUD_COUNT_9" BEL
+        "SERIAL_INPUT_INST_1/BAUD_COUNT_8" BEL
+        "SERIAL_INPUT_INST_1/BAUD_COUNT_7" BEL
+        "SERIAL_INPUT_INST_1/BAUD_COUNT_6" BEL
+        "SERIAL_INPUT_INST_1/BAUD_COUNT_5" BEL
+        "SERIAL_INPUT_INST_1/BAUD_COUNT_4" BEL
+        "SERIAL_INPUT_INST_1/BAUD_COUNT_3" BEL
+        "SERIAL_INPUT_INST_1/BAUD_COUNT_2" BEL
+        "SERIAL_INPUT_INST_1/BAUD_COUNT_1" BEL
+        "SERIAL_INPUT_INST_1/BAUD_COUNT_0" BEL "SERIAL_INPUT_INST_1/COUNT_1"
+        BEL "SERIAL_INPUT_INST_1/COUNT_0" BEL
+        "SERIAL_INPUT_INST_1/STATE_FSM_FFd1" BEL
+        "SERIAL_INPUT_INST_1/STATE_FSM_FFd2" BEL
+        "SERIAL_INPUT_INST_1/STATE_FSM_FFd4" BEL
+        "SERIAL_INPUT_INST_1/STATE_FSM_FFd3" BEL
+        "SERIAL_INPUT_INST_1/BIT_SPACING_3" BEL
+        "SERIAL_INPUT_INST_1/BIT_SPACING_2" BEL
+        "SERIAL_INPUT_INST_1/BIT_SPACING_1" BEL
+        "SERIAL_INPUT_INST_1/BIT_SPACING_0" BEL "SERIAL_INPUT_INST_1/OUT1_7"
+        BEL "SERIAL_INPUT_INST_1/OUT1_6" BEL "SERIAL_INPUT_INST_1/OUT1_5" BEL
+        "SERIAL_INPUT_INST_1/OUT1_4" BEL "SERIAL_INPUT_INST_1/OUT1_3" BEL
+        "SERIAL_INPUT_INST_1/OUT1_2" BEL "SERIAL_INPUT_INST_1/OUT1_1" BEL
+        "SERIAL_INPUT_INST_1/OUT1_0" BEL "SERIAL_INPUT_INST_1/OUT1_STB" BEL
+        "SERIAL_INPUT_INST_1/X16CLK_EN" BEL
+        "SERIAL_INPUT_INST_1/SERIAL_DEGLITCH_1" BEL
+        "SERIAL_INPUT_INST_1/SERIAL_DEGLITCH_0" BEL "SERVER_INST_1/timer_15"
+        BEL "SERVER_INST_1/timer_14" BEL "SERVER_INST_1/timer_13" BEL
+        "SERVER_INST_1/timer_12" BEL "SERVER_INST_1/timer_11" BEL
+        "SERVER_INST_1/timer_10" BEL "SERVER_INST_1/timer_9" BEL
+        "SERVER_INST_1/timer_8" BEL "SERVER_INST_1/timer_7" BEL
+        "SERVER_INST_1/timer_6" BEL "SERVER_INST_1/timer_5" BEL
+        "SERVER_INST_1/timer_4" BEL "SERVER_INST_1/timer_3" BEL
+        "SERVER_INST_1/timer_2" BEL "SERVER_INST_1/timer_1" BEL
+        "SERVER_INST_1/timer_0" BEL
+        "SERVER_INST_1/s_output_eth_tx_stb_FSM_FFd1" BEL
+        "SERVER_INST_1/s_output_socket_stb_FSM_FFd1" BEL
+        "SERVER_INST_1/s_input_socket_ack_FSM_FFd1" BEL
+        "SERVER_INST_1/s_input_eth_rx_ack_FSM_FFd1" BEL
+        "SERVER_INST_1/stage_0_enable" BEL "SERVER_INST_1/opcode_1_5" BEL
+        "SERVER_INST_1/opcode_1_4" BEL "SERVER_INST_1/opcode_1_3" BEL
+        "SERVER_INST_1/opcode_1_2" BEL "SERVER_INST_1/opcode_1_1" BEL
+        "SERVER_INST_1/opcode_1_0" BEL "SERVER_INST_1/program_counter_11" BEL
+        "SERVER_INST_1/program_counter_10" BEL
+        "SERVER_INST_1/program_counter_9" BEL
+        "SERVER_INST_1/program_counter_8" BEL
+        "SERVER_INST_1/program_counter_7" BEL
+        "SERVER_INST_1/program_counter_6" BEL
+        "SERVER_INST_1/program_counter_5" BEL
+        "SERVER_INST_1/program_counter_4" BEL
+        "SERVER_INST_1/program_counter_3" BEL
+        "SERVER_INST_1/program_counter_2" BEL
+        "SERVER_INST_1/program_counter_1" BEL
+        "SERVER_INST_1/program_counter_0" BEL
+        "SERVER_INST_1/s_output_eth_tx_15" BEL
+        "SERVER_INST_1/s_output_eth_tx_14" BEL
+        "SERVER_INST_1/s_output_eth_tx_13" BEL
+        "SERVER_INST_1/s_output_eth_tx_12" BEL
+        "SERVER_INST_1/s_output_eth_tx_11" BEL
+        "SERVER_INST_1/s_output_eth_tx_10" BEL
+        "SERVER_INST_1/s_output_eth_tx_9" BEL
+        "SERVER_INST_1/s_output_eth_tx_8" BEL
+        "SERVER_INST_1/s_output_eth_tx_7" BEL
+        "SERVER_INST_1/s_output_eth_tx_6" BEL
+        "SERVER_INST_1/s_output_eth_tx_5" BEL
+        "SERVER_INST_1/s_output_eth_tx_4" BEL
+        "SERVER_INST_1/s_output_eth_tx_3" BEL
+        "SERVER_INST_1/s_output_eth_tx_2" BEL
+        "SERVER_INST_1/s_output_eth_tx_1" BEL
+        "SERVER_INST_1/s_output_eth_tx_0" BEL
+        "SERVER_INST_1/s_output_socket_15" BEL
+        "SERVER_INST_1/s_output_socket_14" BEL
+        "SERVER_INST_1/s_output_socket_13" BEL
+        "SERVER_INST_1/s_output_socket_12" BEL
+        "SERVER_INST_1/s_output_socket_11" BEL
+        "SERVER_INST_1/s_output_socket_10" BEL
+        "SERVER_INST_1/s_output_socket_9" BEL
+        "SERVER_INST_1/s_output_socket_8" BEL
+        "SERVER_INST_1/s_output_socket_7" BEL
+        "SERVER_INST_1/s_output_socket_6" BEL
+        "SERVER_INST_1/s_output_socket_5" BEL
+        "SERVER_INST_1/s_output_socket_4" BEL
+        "SERVER_INST_1/s_output_socket_3" BEL
+        "SERVER_INST_1/s_output_socket_2" BEL
+        "SERVER_INST_1/s_output_socket_1" BEL
+        "SERVER_INST_1/s_output_socket_0" BEL "SERVER_INST_1/register_1_31"
+        BEL "SERVER_INST_1/register_1_30" BEL "SERVER_INST_1/register_1_29"
+        BEL "SERVER_INST_1/register_1_28" BEL "SERVER_INST_1/register_1_27"
+        BEL "SERVER_INST_1/register_1_26" BEL "SERVER_INST_1/register_1_25"
+        BEL "SERVER_INST_1/register_1_24" BEL "SERVER_INST_1/register_1_23"
+        BEL "SERVER_INST_1/register_1_22" BEL "SERVER_INST_1/register_1_21"
+        BEL "SERVER_INST_1/register_1_20" BEL "SERVER_INST_1/register_1_19"
+        BEL "SERVER_INST_1/register_1_18" BEL "SERVER_INST_1/register_1_17"
+        BEL "SERVER_INST_1/register_1_16" BEL "SERVER_INST_1/register_1_15"
+        BEL "SERVER_INST_1/register_1_14" BEL "SERVER_INST_1/register_1_13"
+        BEL "SERVER_INST_1/register_1_12" BEL "SERVER_INST_1/register_1_11"
+        BEL "SERVER_INST_1/register_1_10" BEL "SERVER_INST_1/register_1_9" BEL
+        "SERVER_INST_1/register_1_8" BEL "SERVER_INST_1/register_1_7" BEL
+        "SERVER_INST_1/register_1_6" BEL "SERVER_INST_1/register_1_5" BEL
+        "SERVER_INST_1/register_1_4" BEL "SERVER_INST_1/register_1_3" BEL
+        "SERVER_INST_1/register_1_2" BEL "SERVER_INST_1/register_1_1" BEL
+        "SERVER_INST_1/register_1_0" BEL "SERVER_INST_1/result_2_31" BEL
+        "SERVER_INST_1/result_2_30" BEL "SERVER_INST_1/result_2_29" BEL
+        "SERVER_INST_1/result_2_28" BEL "SERVER_INST_1/result_2_27" BEL
+        "SERVER_INST_1/result_2_26" BEL "SERVER_INST_1/result_2_25" BEL
+        "SERVER_INST_1/result_2_24" BEL "SERVER_INST_1/result_2_23" BEL
+        "SERVER_INST_1/result_2_22" BEL "SERVER_INST_1/result_2_21" BEL
+        "SERVER_INST_1/result_2_20" BEL "SERVER_INST_1/result_2_19" BEL
+        "SERVER_INST_1/result_2_18" BEL "SERVER_INST_1/result_2_17" BEL
+        "SERVER_INST_1/result_2_16" BEL "SERVER_INST_1/result_2_15" BEL
+        "SERVER_INST_1/result_2_14" BEL "SERVER_INST_1/result_2_13" BEL
+        "SERVER_INST_1/result_2_12" BEL "SERVER_INST_1/result_2_11" BEL
+        "SERVER_INST_1/result_2_10" BEL "SERVER_INST_1/result_2_9" BEL
+        "SERVER_INST_1/result_2_8" BEL "SERVER_INST_1/result_2_7" BEL
+        "SERVER_INST_1/result_2_6" BEL "SERVER_INST_1/result_2_5" BEL
+        "SERVER_INST_1/result_2_4" BEL "SERVER_INST_1/result_2_3" BEL
+        "SERVER_INST_1/result_2_2" BEL "SERVER_INST_1/result_2_1" BEL
+        "SERVER_INST_1/result_2_0" BEL "SERVER_INST_1/data_in_2_15" BEL
+        "SERVER_INST_1/data_in_2_14" BEL "SERVER_INST_1/data_in_2_13" BEL
+        "SERVER_INST_1/data_in_2_12" BEL "SERVER_INST_1/data_in_2_11" BEL
+        "SERVER_INST_1/data_in_2_10" BEL "SERVER_INST_1/data_in_2_9" BEL
+        "SERVER_INST_1/data_in_2_8" BEL "SERVER_INST_1/data_in_2_7" BEL
+        "SERVER_INST_1/data_in_2_6" BEL "SERVER_INST_1/data_in_2_5" BEL
+        "SERVER_INST_1/data_in_2_4" BEL "SERVER_INST_1/data_in_2_3" BEL
+        "SERVER_INST_1/data_in_2_2" BEL "SERVER_INST_1/data_in_2_1" BEL
+        "SERVER_INST_1/data_in_2_0" BEL "SERVER_INST_1/dest_2_7" BEL
+        "SERVER_INST_1/dest_2_6" BEL "SERVER_INST_1/dest_2_5" BEL
+        "SERVER_INST_1/dest_2_4" BEL "SERVER_INST_1/dest_2_3" BEL
+        "SERVER_INST_1/dest_2_2" BEL "SERVER_INST_1/dest_2_1" BEL
+        "SERVER_INST_1/dest_2_0" BEL "SERVER_INST_1/literal_1_31" BEL
+        "SERVER_INST_1/literal_1_30" BEL "SERVER_INST_1/literal_1_29" BEL
+        "SERVER_INST_1/literal_1_28" BEL "SERVER_INST_1/literal_1_27" BEL
+        "SERVER_INST_1/literal_1_26" BEL "SERVER_INST_1/literal_1_25" BEL
+        "SERVER_INST_1/literal_1_24" BEL "SERVER_INST_1/literal_1_23" BEL
+        "SERVER_INST_1/literal_1_22" BEL "SERVER_INST_1/literal_1_21" BEL
+        "SERVER_INST_1/literal_1_20" BEL "SERVER_INST_1/literal_1_19" BEL
+        "SERVER_INST_1/literal_1_18" BEL "SERVER_INST_1/literal_1_17" BEL
+        "SERVER_INST_1/literal_1_16" BEL "SERVER_INST_1/literal_1_15" BEL
+        "SERVER_INST_1/literal_1_14" BEL "SERVER_INST_1/literal_1_13" BEL
+        "SERVER_INST_1/literal_1_12" BEL "SERVER_INST_1/literal_1_11" BEL
+        "SERVER_INST_1/literal_1_10" BEL "SERVER_INST_1/literal_1_9" BEL
+        "SERVER_INST_1/literal_1_8" BEL "SERVER_INST_1/literal_1_7" BEL
+        "SERVER_INST_1/literal_1_6" BEL "SERVER_INST_1/literal_1_5" BEL
+        "SERVER_INST_1/literal_1_4" BEL "SERVER_INST_1/literal_1_3" BEL
+        "SERVER_INST_1/literal_1_2" BEL "SERVER_INST_1/literal_1_1" BEL
+        "SERVER_INST_1/literal_1_0" BEL "SERVER_INST_1/dest_1_7" BEL
+        "SERVER_INST_1/dest_1_6" BEL "SERVER_INST_1/dest_1_5" BEL
+        "SERVER_INST_1/dest_1_4" BEL "SERVER_INST_1/dest_1_3" BEL
+        "SERVER_INST_1/dest_1_2" BEL "SERVER_INST_1/dest_1_1" BEL
+        "SERVER_INST_1/dest_1_0" BEL "SERVER_INST_1/timer_enable" BEL
+        "SERVER_INST_1/program_counter_1_11" BEL
+        "SERVER_INST_1/program_counter_1_10" BEL
+        "SERVER_INST_1/program_counter_1_9" BEL
+        "SERVER_INST_1/program_counter_1_8" BEL
+        "SERVER_INST_1/program_counter_1_7" BEL
+        "SERVER_INST_1/program_counter_1_6" BEL
+        "SERVER_INST_1/program_counter_1_5" BEL
+        "SERVER_INST_1/program_counter_1_4" BEL
+        "SERVER_INST_1/program_counter_1_3" BEL
+        "SERVER_INST_1/program_counter_1_2" BEL
+        "SERVER_INST_1/program_counter_1_1" BEL
+        "SERVER_INST_1/program_counter_1_0" BEL
+        "SERVER_INST_1/memory_enable_2" BEL "SERVER_INST_1/address_2_11" BEL
+        "SERVER_INST_1/address_2_10" BEL "SERVER_INST_1/address_2_9" BEL
+        "SERVER_INST_1/address_2_8" BEL "SERVER_INST_1/address_2_7" BEL
+        "SERVER_INST_1/address_2_6" BEL "SERVER_INST_1/address_2_5" BEL
+        "SERVER_INST_1/address_2_4" BEL "SERVER_INST_1/address_2_3" BEL
+        "SERVER_INST_1/address_2_2" BEL "SERVER_INST_1/address_2_1" BEL
+        "SERVER_INST_1/address_2_0" BEL "SERVER_INST_1/program_counter_0_11"
+        BEL "SERVER_INST_1/program_counter_0_10" BEL
+        "SERVER_INST_1/program_counter_0_9" BEL
+        "SERVER_INST_1/program_counter_0_8" BEL
+        "SERVER_INST_1/program_counter_0_7" BEL
+        "SERVER_INST_1/program_counter_0_6" BEL
+        "SERVER_INST_1/program_counter_0_5" BEL
+        "SERVER_INST_1/program_counter_0_4" BEL
+        "SERVER_INST_1/program_counter_0_3" BEL
+        "SERVER_INST_1/program_counter_0_2" BEL
+        "SERVER_INST_1/program_counter_0_1" BEL
+        "SERVER_INST_1/program_counter_0_0" BEL "SERVER_INST_1/literal_0_31"
+        BEL "SERVER_INST_1/literal_0_30" BEL "SERVER_INST_1/literal_0_29" BEL
+        "SERVER_INST_1/literal_0_28" BEL "SERVER_INST_1/literal_0_27" BEL
+        "SERVER_INST_1/literal_0_26" BEL "SERVER_INST_1/literal_0_25" BEL
+        "SERVER_INST_1/literal_0_24" BEL "SERVER_INST_1/literal_0_23" BEL
+        "SERVER_INST_1/literal_0_22" BEL "SERVER_INST_1/literal_0_21" BEL
+        "SERVER_INST_1/literal_0_20" BEL "SERVER_INST_1/literal_0_19" BEL
+        "SERVER_INST_1/literal_0_18" BEL "SERVER_INST_1/literal_0_17" BEL
+        "SERVER_INST_1/literal_0_16" BEL "SERVER_INST_1/literal_0_15" BEL
+        "SERVER_INST_1/literal_0_14" BEL "SERVER_INST_1/literal_0_13" BEL
+        "SERVER_INST_1/literal_0_12" BEL "SERVER_INST_1/literal_0_11" BEL
+        "SERVER_INST_1/literal_0_10" BEL "SERVER_INST_1/literal_0_9" BEL
+        "SERVER_INST_1/literal_0_8" BEL "SERVER_INST_1/literal_0_7" BEL
+        "SERVER_INST_1/literal_0_6" BEL "SERVER_INST_1/literal_0_5" BEL
+        "SERVER_INST_1/literal_0_4" BEL "SERVER_INST_1/literal_0_3" BEL
+        "SERVER_INST_1/literal_0_2" BEL "SERVER_INST_1/literal_0_1" BEL
+        "SERVER_INST_1/literal_0_0" BEL "SERVER_INST_1/src_0_7" BEL
+        "SERVER_INST_1/src_0_6" BEL "SERVER_INST_1/src_0_5" BEL
+        "SERVER_INST_1/src_0_4" BEL "SERVER_INST_1/src_0_3" BEL
+        "SERVER_INST_1/src_0_2" BEL "SERVER_INST_1/src_0_1" BEL
+        "SERVER_INST_1/src_0_0" BEL "SERVER_INST_1/dest_0_7" BEL
+        "SERVER_INST_1/dest_0_6" BEL "SERVER_INST_1/dest_0_5" BEL
+        "SERVER_INST_1/dest_0_4" BEL "SERVER_INST_1/dest_0_3" BEL
+        "SERVER_INST_1/dest_0_2" BEL "SERVER_INST_1/dest_0_1" BEL
+        "SERVER_INST_1/dest_0_0" BEL "SERVER_INST_1/opcode_0_5" BEL
+        "SERVER_INST_1/opcode_0_4" BEL "SERVER_INST_1/opcode_0_3" BEL
+        "SERVER_INST_1/opcode_0_2" BEL "SERVER_INST_1/opcode_0_1" BEL
+        "SERVER_INST_1/opcode_0_0" BEL
+        "USER_DESIGN_INST_1/s_output_socket_stb_FSM_FFd1" BEL
+        "USER_DESIGN_INST_1/s_output_leds_stb_FSM_FFd1" BEL
+        "USER_DESIGN_INST_1/s_input_rs232_rx_ack_FSM_FFd1" BEL
+        "USER_DESIGN_INST_1/s_input_socket_ack_FSM_FFd1" BEL
+        "USER_DESIGN_INST_1/s_output_rs232_tx_stb_FSM_FFd1" BEL
+        "USER_DESIGN_INST_1/s_input_switches_ack_FSM_FFd1" BEL
+        "USER_DESIGN_INST_1/s_input_buttons_ack_FSM_FFd1" BEL
+        "USER_DESIGN_INST_1/stage_0_enable" BEL
+        "USER_DESIGN_INST_1/opcode_1_5" BEL "USER_DESIGN_INST_1/opcode_1_4"
+        BEL "USER_DESIGN_INST_1/opcode_1_3" BEL
+        "USER_DESIGN_INST_1/opcode_1_2" BEL "USER_DESIGN_INST_1/opcode_1_1"
+        BEL "USER_DESIGN_INST_1/opcode_1_0" BEL
+        "USER_DESIGN_INST_1/program_counter_10" BEL
+        "USER_DESIGN_INST_1/program_counter_9" BEL
+        "USER_DESIGN_INST_1/program_counter_8" BEL
+        "USER_DESIGN_INST_1/program_counter_7" BEL
+        "USER_DESIGN_INST_1/program_counter_6" BEL
+        "USER_DESIGN_INST_1/program_counter_5" BEL
+        "USER_DESIGN_INST_1/program_counter_4" BEL
+        "USER_DESIGN_INST_1/program_counter_3" BEL
+        "USER_DESIGN_INST_1/program_counter_2" BEL
+        "USER_DESIGN_INST_1/program_counter_1" BEL
+        "USER_DESIGN_INST_1/program_counter_0" BEL
+        "USER_DESIGN_INST_1/s_output_rs232_tx_7" BEL
+        "USER_DESIGN_INST_1/s_output_rs232_tx_6" BEL
+        "USER_DESIGN_INST_1/s_output_rs232_tx_5" BEL
+        "USER_DESIGN_INST_1/s_output_rs232_tx_4" BEL
+        "USER_DESIGN_INST_1/s_output_rs232_tx_3" BEL
+        "USER_DESIGN_INST_1/s_output_rs232_tx_2" BEL
+        "USER_DESIGN_INST_1/s_output_rs232_tx_1" BEL
+        "USER_DESIGN_INST_1/s_output_rs232_tx_0" BEL
+        "USER_DESIGN_INST_1/s_output_socket_15" BEL
+        "USER_DESIGN_INST_1/s_output_socket_14" BEL
+        "USER_DESIGN_INST_1/s_output_socket_13" BEL
+        "USER_DESIGN_INST_1/s_output_socket_12" BEL
+        "USER_DESIGN_INST_1/s_output_socket_11" BEL
+        "USER_DESIGN_INST_1/s_output_socket_10" BEL
+        "USER_DESIGN_INST_1/s_output_socket_9" BEL
+        "USER_DESIGN_INST_1/s_output_socket_8" BEL
+        "USER_DESIGN_INST_1/s_output_socket_7" BEL
+        "USER_DESIGN_INST_1/s_output_socket_6" BEL
+        "USER_DESIGN_INST_1/s_output_socket_5" BEL
+        "USER_DESIGN_INST_1/s_output_socket_4" BEL
+        "USER_DESIGN_INST_1/s_output_socket_3" BEL
+        "USER_DESIGN_INST_1/s_output_socket_2" BEL
+        "USER_DESIGN_INST_1/s_output_socket_1" BEL
+        "USER_DESIGN_INST_1/s_output_socket_0" BEL
+        "USER_DESIGN_INST_1/s_output_leds_7" BEL
+        "USER_DESIGN_INST_1/s_output_leds_6" BEL
+        "USER_DESIGN_INST_1/s_output_leds_5" BEL
+        "USER_DESIGN_INST_1/s_output_leds_4" BEL
+        "USER_DESIGN_INST_1/s_output_leds_3" BEL
+        "USER_DESIGN_INST_1/s_output_leds_2" BEL
+        "USER_DESIGN_INST_1/s_output_leds_1" BEL
+        "USER_DESIGN_INST_1/s_output_leds_0" BEL
+        "USER_DESIGN_INST_1/register_1_31" BEL
+        "USER_DESIGN_INST_1/register_1_30" BEL
+        "USER_DESIGN_INST_1/register_1_29" BEL
+        "USER_DESIGN_INST_1/register_1_28" BEL
+        "USER_DESIGN_INST_1/register_1_27" BEL
+        "USER_DESIGN_INST_1/register_1_26" BEL
+        "USER_DESIGN_INST_1/register_1_25" BEL
+        "USER_DESIGN_INST_1/register_1_24" BEL
+        "USER_DESIGN_INST_1/register_1_23" BEL
+        "USER_DESIGN_INST_1/register_1_22" BEL
+        "USER_DESIGN_INST_1/register_1_21" BEL
+        "USER_DESIGN_INST_1/register_1_20" BEL
+        "USER_DESIGN_INST_1/register_1_19" BEL
+        "USER_DESIGN_INST_1/register_1_18" BEL
+        "USER_DESIGN_INST_1/register_1_17" BEL
+        "USER_DESIGN_INST_1/register_1_16" BEL
+        "USER_DESIGN_INST_1/register_1_15" BEL
+        "USER_DESIGN_INST_1/register_1_14" BEL
+        "USER_DESIGN_INST_1/register_1_13" BEL
+        "USER_DESIGN_INST_1/register_1_12" BEL
+        "USER_DESIGN_INST_1/register_1_11" BEL
+        "USER_DESIGN_INST_1/register_1_10" BEL
+        "USER_DESIGN_INST_1/register_1_9" BEL
+        "USER_DESIGN_INST_1/register_1_8" BEL
+        "USER_DESIGN_INST_1/register_1_7" BEL
+        "USER_DESIGN_INST_1/register_1_6" BEL
+        "USER_DESIGN_INST_1/register_1_5" BEL
+        "USER_DESIGN_INST_1/register_1_4" BEL
+        "USER_DESIGN_INST_1/register_1_3" BEL
+        "USER_DESIGN_INST_1/register_1_2" BEL
+        "USER_DESIGN_INST_1/register_1_1" BEL
+        "USER_DESIGN_INST_1/register_1_0" BEL "USER_DESIGN_INST_1/result_2_31"
+        BEL "USER_DESIGN_INST_1/result_2_30" BEL
+        "USER_DESIGN_INST_1/result_2_29" BEL "USER_DESIGN_INST_1/result_2_28"
+        BEL "USER_DESIGN_INST_1/result_2_27" BEL
+        "USER_DESIGN_INST_1/result_2_26" BEL "USER_DESIGN_INST_1/result_2_25"
+        BEL "USER_DESIGN_INST_1/result_2_24" BEL
+        "USER_DESIGN_INST_1/result_2_23" BEL "USER_DESIGN_INST_1/result_2_22"
+        BEL "USER_DESIGN_INST_1/result_2_21" BEL
+        "USER_DESIGN_INST_1/result_2_20" BEL "USER_DESIGN_INST_1/result_2_19"
+        BEL "USER_DESIGN_INST_1/result_2_18" BEL
+        "USER_DESIGN_INST_1/result_2_17" BEL "USER_DESIGN_INST_1/result_2_16"
+        BEL "USER_DESIGN_INST_1/result_2_15" BEL
+        "USER_DESIGN_INST_1/result_2_14" BEL "USER_DESIGN_INST_1/result_2_13"
+        BEL "USER_DESIGN_INST_1/result_2_12" BEL
+        "USER_DESIGN_INST_1/result_2_11" BEL "USER_DESIGN_INST_1/result_2_10"
+        BEL "USER_DESIGN_INST_1/result_2_9" BEL
+        "USER_DESIGN_INST_1/result_2_8" BEL "USER_DESIGN_INST_1/result_2_7"
+        BEL "USER_DESIGN_INST_1/result_2_6" BEL
+        "USER_DESIGN_INST_1/result_2_5" BEL "USER_DESIGN_INST_1/result_2_4"
+        BEL "USER_DESIGN_INST_1/result_2_3" BEL
+        "USER_DESIGN_INST_1/result_2_2" BEL "USER_DESIGN_INST_1/result_2_1"
+        BEL "USER_DESIGN_INST_1/result_2_0" BEL
+        "USER_DESIGN_INST_1/data_in_2_15" BEL
+        "USER_DESIGN_INST_1/data_in_2_14" BEL
+        "USER_DESIGN_INST_1/data_in_2_13" BEL
+        "USER_DESIGN_INST_1/data_in_2_12" BEL
+        "USER_DESIGN_INST_1/data_in_2_11" BEL
+        "USER_DESIGN_INST_1/data_in_2_10" BEL "USER_DESIGN_INST_1/data_in_2_9"
+        BEL "USER_DESIGN_INST_1/data_in_2_8" BEL
+        "USER_DESIGN_INST_1/data_in_2_7" BEL "USER_DESIGN_INST_1/data_in_2_6"
+        BEL "USER_DESIGN_INST_1/data_in_2_5" BEL
+        "USER_DESIGN_INST_1/data_in_2_4" BEL "USER_DESIGN_INST_1/data_in_2_3"
+        BEL "USER_DESIGN_INST_1/data_in_2_2" BEL
+        "USER_DESIGN_INST_1/data_in_2_1" BEL "USER_DESIGN_INST_1/data_in_2_0"
+        BEL "USER_DESIGN_INST_1/registerb_1_31" BEL
+        "USER_DESIGN_INST_1/registerb_1_30" BEL
+        "USER_DESIGN_INST_1/registerb_1_29" BEL
+        "USER_DESIGN_INST_1/registerb_1_28" BEL
+        "USER_DESIGN_INST_1/registerb_1_27" BEL
+        "USER_DESIGN_INST_1/registerb_1_26" BEL
+        "USER_DESIGN_INST_1/registerb_1_25" BEL
+        "USER_DESIGN_INST_1/registerb_1_24" BEL
+        "USER_DESIGN_INST_1/registerb_1_23" BEL
+        "USER_DESIGN_INST_1/registerb_1_22" BEL
+        "USER_DESIGN_INST_1/registerb_1_21" BEL
+        "USER_DESIGN_INST_1/registerb_1_20" BEL
+        "USER_DESIGN_INST_1/registerb_1_19" BEL
+        "USER_DESIGN_INST_1/registerb_1_18" BEL
+        "USER_DESIGN_INST_1/registerb_1_17" BEL
+        "USER_DESIGN_INST_1/registerb_1_16" BEL
+        "USER_DESIGN_INST_1/registerb_1_15" BEL
+        "USER_DESIGN_INST_1/registerb_1_14" BEL
+        "USER_DESIGN_INST_1/registerb_1_13" BEL
+        "USER_DESIGN_INST_1/registerb_1_12" BEL
+        "USER_DESIGN_INST_1/registerb_1_11" BEL
+        "USER_DESIGN_INST_1/registerb_1_10" BEL
+        "USER_DESIGN_INST_1/registerb_1_9" BEL
+        "USER_DESIGN_INST_1/registerb_1_8" BEL
+        "USER_DESIGN_INST_1/registerb_1_7" BEL
+        "USER_DESIGN_INST_1/registerb_1_6" BEL
+        "USER_DESIGN_INST_1/registerb_1_5" BEL
+        "USER_DESIGN_INST_1/registerb_1_4" BEL
+        "USER_DESIGN_INST_1/registerb_1_3" BEL
+        "USER_DESIGN_INST_1/registerb_1_2" BEL
+        "USER_DESIGN_INST_1/registerb_1_1" BEL
+        "USER_DESIGN_INST_1/registerb_1_0" BEL "USER_DESIGN_INST_1/dest_2_6"
+        BEL "USER_DESIGN_INST_1/dest_2_5" BEL "USER_DESIGN_INST_1/dest_2_4"
+        BEL "USER_DESIGN_INST_1/dest_2_3" BEL "USER_DESIGN_INST_1/dest_2_2"
+        BEL "USER_DESIGN_INST_1/dest_2_1" BEL "USER_DESIGN_INST_1/dest_2_0"
+        BEL "USER_DESIGN_INST_1/literal_1_31" BEL
+        "USER_DESIGN_INST_1/literal_1_30" BEL
+        "USER_DESIGN_INST_1/literal_1_29" BEL
+        "USER_DESIGN_INST_1/literal_1_28" BEL
+        "USER_DESIGN_INST_1/literal_1_27" BEL
+        "USER_DESIGN_INST_1/literal_1_26" BEL
+        "USER_DESIGN_INST_1/literal_1_25" BEL
+        "USER_DESIGN_INST_1/literal_1_24" BEL
+        "USER_DESIGN_INST_1/literal_1_23" BEL
+        "USER_DESIGN_INST_1/literal_1_22" BEL
+        "USER_DESIGN_INST_1/literal_1_21" BEL
+        "USER_DESIGN_INST_1/literal_1_20" BEL
+        "USER_DESIGN_INST_1/literal_1_19" BEL
+        "USER_DESIGN_INST_1/literal_1_18" BEL
+        "USER_DESIGN_INST_1/literal_1_17" BEL
+        "USER_DESIGN_INST_1/literal_1_16" BEL
+        "USER_DESIGN_INST_1/literal_1_15" BEL
+        "USER_DESIGN_INST_1/literal_1_14" BEL
+        "USER_DESIGN_INST_1/literal_1_13" BEL
+        "USER_DESIGN_INST_1/literal_1_12" BEL
+        "USER_DESIGN_INST_1/literal_1_11" BEL
+        "USER_DESIGN_INST_1/literal_1_10" BEL "USER_DESIGN_INST_1/literal_1_9"
+        BEL "USER_DESIGN_INST_1/literal_1_8" BEL
+        "USER_DESIGN_INST_1/literal_1_7" BEL "USER_DESIGN_INST_1/literal_1_6"
+        BEL "USER_DESIGN_INST_1/literal_1_5" BEL
+        "USER_DESIGN_INST_1/literal_1_4" BEL "USER_DESIGN_INST_1/literal_1_3"
+        BEL "USER_DESIGN_INST_1/literal_1_2" BEL
+        "USER_DESIGN_INST_1/literal_1_1" BEL "USER_DESIGN_INST_1/literal_1_0"
+        BEL "USER_DESIGN_INST_1/dest_1_6" BEL "USER_DESIGN_INST_1/dest_1_5"
+        BEL "USER_DESIGN_INST_1/dest_1_4" BEL "USER_DESIGN_INST_1/dest_1_3"
+        BEL "USER_DESIGN_INST_1/dest_1_2" BEL "USER_DESIGN_INST_1/dest_1_1"
+        BEL "USER_DESIGN_INST_1/dest_1_0" BEL
+        "USER_DESIGN_INST_1/program_counter_1_10" BEL
+        "USER_DESIGN_INST_1/program_counter_1_9" BEL
+        "USER_DESIGN_INST_1/program_counter_1_8" BEL
+        "USER_DESIGN_INST_1/program_counter_1_7" BEL
+        "USER_DESIGN_INST_1/program_counter_1_6" BEL
+        "USER_DESIGN_INST_1/program_counter_1_5" BEL
+        "USER_DESIGN_INST_1/program_counter_1_4" BEL
+        "USER_DESIGN_INST_1/program_counter_1_3" BEL
+        "USER_DESIGN_INST_1/program_counter_1_2" BEL
+        "USER_DESIGN_INST_1/program_counter_1_1" BEL
+        "USER_DESIGN_INST_1/program_counter_1_0" BEL
+        "USER_DESIGN_INST_1/memory_enable_2" BEL
+        "USER_DESIGN_INST_1/address_2_11" BEL
+        "USER_DESIGN_INST_1/address_2_10" BEL "USER_DESIGN_INST_1/address_2_9"
+        BEL "USER_DESIGN_INST_1/address_2_8" BEL
+        "USER_DESIGN_INST_1/address_2_7" BEL "USER_DESIGN_INST_1/address_2_6"
+        BEL "USER_DESIGN_INST_1/address_2_5" BEL
+        "USER_DESIGN_INST_1/address_2_4" BEL "USER_DESIGN_INST_1/address_2_3"
+        BEL "USER_DESIGN_INST_1/address_2_2" BEL
+        "USER_DESIGN_INST_1/address_2_1" BEL "USER_DESIGN_INST_1/address_2_0"
+        BEL "USER_DESIGN_INST_1/program_counter_0_10" BEL
+        "USER_DESIGN_INST_1/program_counter_0_9" BEL
+        "USER_DESIGN_INST_1/program_counter_0_8" BEL
+        "USER_DESIGN_INST_1/program_counter_0_7" BEL
+        "USER_DESIGN_INST_1/program_counter_0_6" BEL
+        "USER_DESIGN_INST_1/program_counter_0_5" BEL
+        "USER_DESIGN_INST_1/program_counter_0_4" BEL
+        "USER_DESIGN_INST_1/program_counter_0_3" BEL
+        "USER_DESIGN_INST_1/program_counter_0_2" BEL
+        "USER_DESIGN_INST_1/program_counter_0_1" BEL
+        "USER_DESIGN_INST_1/program_counter_0_0" BEL
+        "USER_DESIGN_INST_1/literal_0_31" BEL
+        "USER_DESIGN_INST_1/literal_0_30" BEL
+        "USER_DESIGN_INST_1/literal_0_29" BEL
+        "USER_DESIGN_INST_1/literal_0_28" BEL
+        "USER_DESIGN_INST_1/literal_0_27" BEL
+        "USER_DESIGN_INST_1/literal_0_26" BEL
+        "USER_DESIGN_INST_1/literal_0_25" BEL
+        "USER_DESIGN_INST_1/literal_0_24" BEL
+        "USER_DESIGN_INST_1/literal_0_23" BEL
+        "USER_DESIGN_INST_1/literal_0_22" BEL
+        "USER_DESIGN_INST_1/literal_0_21" BEL
+        "USER_DESIGN_INST_1/literal_0_20" BEL
+        "USER_DESIGN_INST_1/literal_0_19" BEL
+        "USER_DESIGN_INST_1/literal_0_18" BEL
+        "USER_DESIGN_INST_1/literal_0_17" BEL
+        "USER_DESIGN_INST_1/literal_0_16" BEL
+        "USER_DESIGN_INST_1/literal_0_15" BEL
+        "USER_DESIGN_INST_1/literal_0_14" BEL
+        "USER_DESIGN_INST_1/literal_0_13" BEL
+        "USER_DESIGN_INST_1/literal_0_12" BEL
+        "USER_DESIGN_INST_1/literal_0_11" BEL
+        "USER_DESIGN_INST_1/literal_0_10" BEL "USER_DESIGN_INST_1/literal_0_9"
+        BEL "USER_DESIGN_INST_1/literal_0_8" BEL
+        "USER_DESIGN_INST_1/literal_0_7" BEL "USER_DESIGN_INST_1/literal_0_6"
+        BEL "USER_DESIGN_INST_1/literal_0_5" BEL
+        "USER_DESIGN_INST_1/literal_0_4" BEL "USER_DESIGN_INST_1/literal_0_3"
+        BEL "USER_DESIGN_INST_1/literal_0_2" BEL
+        "USER_DESIGN_INST_1/literal_0_1" BEL "USER_DESIGN_INST_1/literal_0_0"
+        BEL "USER_DESIGN_INST_1/src_0_6" BEL "USER_DESIGN_INST_1/src_0_5" BEL
+        "USER_DESIGN_INST_1/src_0_4" BEL "USER_DESIGN_INST_1/src_0_3" BEL
+        "USER_DESIGN_INST_1/src_0_2" BEL "USER_DESIGN_INST_1/src_0_1" BEL
+        "USER_DESIGN_INST_1/src_0_0" BEL "USER_DESIGN_INST_1/dest_0_6" BEL
+        "USER_DESIGN_INST_1/dest_0_5" BEL "USER_DESIGN_INST_1/dest_0_4" BEL
+        "USER_DESIGN_INST_1/dest_0_3" BEL "USER_DESIGN_INST_1/dest_0_2" BEL
+        "USER_DESIGN_INST_1/dest_0_1" BEL "USER_DESIGN_INST_1/dest_0_0" BEL
+        "USER_DESIGN_INST_1/opcode_0_5" BEL "USER_DESIGN_INST_1/opcode_0_4"
+        BEL "USER_DESIGN_INST_1/opcode_0_3" BEL
+        "USER_DESIGN_INST_1/opcode_0_2" BEL "USER_DESIGN_INST_1/opcode_0_1"
+        BEL "USER_DESIGN_INST_1/opcode_0_0" BEL
+        "SERIAL_OUTPUT_INST_1/STATE_FSM_FFd1" BEL
+        "SERIAL_OUTPUT_INST_1/BAUD_COUNT_11" BEL
+        "SERIAL_OUTPUT_INST_1/BAUD_COUNT_10" BEL
+        "SERIAL_OUTPUT_INST_1/BAUD_COUNT_9" BEL
+        "SERIAL_OUTPUT_INST_1/BAUD_COUNT_8" BEL
+        "SERIAL_OUTPUT_INST_1/BAUD_COUNT_7" BEL
+        "SERIAL_OUTPUT_INST_1/BAUD_COUNT_6" BEL
+        "SERIAL_OUTPUT_INST_1/BAUD_COUNT_5" BEL
+        "SERIAL_OUTPUT_INST_1/BAUD_COUNT_4" BEL
+        "SERIAL_OUTPUT_INST_1/BAUD_COUNT_3" BEL
+        "SERIAL_OUTPUT_INST_1/BAUD_COUNT_2" BEL
+        "SERIAL_OUTPUT_INST_1/BAUD_COUNT_1" BEL
+        "SERIAL_OUTPUT_INST_1/STATE_FSM_FFd2" BEL
+        "SERIAL_OUTPUT_INST_1/STATE_FSM_FFd3" BEL
+        "SERIAL_OUTPUT_INST_1/STATE_FSM_FFd4" BEL "SERIAL_OUTPUT_INST_1/TX"
+        BEL "SERIAL_OUTPUT_INST_1/S_IN1_ACK" BEL
+        "SERIAL_OUTPUT_INST_1/X16CLK_EN" BEL "SERIAL_OUTPUT_INST_1/DATA_7" BEL
+        "SERIAL_OUTPUT_INST_1/DATA_6" BEL "SERIAL_OUTPUT_INST_1/DATA_5" BEL
+        "SERIAL_OUTPUT_INST_1/DATA_4" BEL "SERIAL_OUTPUT_INST_1/DATA_3" BEL
+        "SERIAL_OUTPUT_INST_1/DATA_2" BEL "SERIAL_OUTPUT_INST_1/DATA_1" BEL
+        "SERIAL_OUTPUT_INST_1/DATA_0" BEL "SERIAL_INPUT_INST_1/INT_SERIAL" BEL
+        "SERVER_INST_1/stage_2_enable" BEL "SERVER_INST_1/stage_1_enable" BEL
+        "SERVER_INST_1/write_enable_2" BEL "USER_DESIGN_INST_1/stage_2_enable"
+        BEL "USER_DESIGN_INST_1/stage_1_enable" BEL
+        "USER_DESIGN_INST_1/write_enable_2" PIN
+        "ethernet_inst_1/Mram_RX_MEMORY2_pins<23>" PIN
+        "ethernet_inst_1/Mram_RX_MEMORY1_pins<23>" PIN
+        "ethernet_inst_1/Mram_TX_MEMORY_pins<18>" PIN
+        "SERVER_INST_1/Mram_memory_24_pins<12>" PIN
+        "SERVER_INST_1/Mram_memory_22_pins<12>" PIN
+        "SERVER_INST_1/Mram_memory_21_pins<12>" PIN
+        "SERVER_INST_1/Mram_memory_23_pins<12>" PIN
+        "SERVER_INST_1/Mram_registers1_pins<16>" PIN
+        "SERVER_INST_1/Mram_registers1_pins<17>" PIN
+        "USER_DESIGN_INST_1/Mram_memory_24_pins<12>" PIN
+        "USER_DESIGN_INST_1/Mram_memory_23_pins<12>" PIN
+        "USER_DESIGN_INST_1/Mram_memory_22_pins<12>" PIN
+        "USER_DESIGN_INST_1/Mram_memory_21_pins<12>" PIN
+        "SERVER_INST_1_Mram_instructions13_pins<12>" PIN
+        "SERVER_INST_1_Mram_instructions12_pins<12>" PIN
+        "SERVER_INST_1_Mram_instructions14_pins<12>" PIN
+        "SERVER_INST_1_Mram_instructions11_pins<12>" PIN
+        "SERVER_INST_1_Mram_instructions10_pins<12>" PIN
+        "SERVER_INST_1_Mram_instructions9_pins<12>" PIN
+        "SERVER_INST_1_Mram_instructions5_pins<12>" PIN
+        "SERVER_INST_1_Mram_instructions7_pins<12>" PIN
+        "SERVER_INST_1_Mram_instructions4_pins<12>" PIN
+        "SERVER_INST_1_Mram_instructions3_pins<12>" PIN
+        "SERVER_INST_1_Mram_instructions2_pins<12>" PIN
+        "SERVER_INST_1_Mram_instructions1_pins<12>" PIN
+        "USER_DESIGN_INST_1_Mram_instructions5_pins<11>" PIN
+        "USER_DESIGN_INST_1_Mram_instructions4_pins<11>" PIN
+        "USER_DESIGN_INST_1_Mram_instructions6_pins<11>" PIN
+        "USER_DESIGN_INST_1_Mram_instructions2_pins<11>" PIN
+        "USER_DESIGN_INST_1_Mram_instructions1_pins<11>" PIN
+        "USER_DESIGN_INST_1_Mram_instructions3_pins<11>" BEL
+        "Mshreg_INPUT_BUTTONS_2" BEL "INPUT_BUTTONS_2" BEL
+        "Mshreg_INPUT_BUTTONS_0" BEL "INPUT_BUTTONS_0" BEL
+        "Mshreg_INPUT_BUTTONS_1" BEL "INPUT_BUTTONS_1" BEL
+        "Mshreg_INPUT_SWITCHES_1" BEL "INPUT_SWITCHES_1" BEL
+        "Mshreg_INPUT_BUTTONS_3" BEL "INPUT_BUTTONS_3" BEL
+        "Mshreg_INPUT_SWITCHES_0" BEL "INPUT_SWITCHES_0" BEL
+        "Mshreg_INPUT_SWITCHES_4" BEL "INPUT_SWITCHES_4" BEL
+        "Mshreg_INPUT_SWITCHES_2" BEL "INPUT_SWITCHES_2" BEL
+        "Mshreg_INPUT_SWITCHES_3" BEL "INPUT_SWITCHES_3" BEL
+        "Mshreg_INPUT_SWITCHES_7" BEL "INPUT_SWITCHES_7" BEL
+        "Mshreg_INPUT_SWITCHES_5" BEL "INPUT_SWITCHES_5" BEL
+        "Mshreg_INPUT_SWITCHES_6" BEL "INPUT_SWITCHES_6" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_31" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_31" BEL
+        "ethernet_inst_1/Mshreg_DONE_SYNC" BEL "ethernet_inst_1/DONE_SYNC" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_28" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_28" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_30" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_30" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_29" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_29" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_25" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_25" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_27" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_27" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_26" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_26" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_24" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_24" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_23" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_23" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_20" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_20" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_22" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_22" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_21" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_21" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_17" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_17" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_19" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_19" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_18" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_18" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_14" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_14" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_16" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_16" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_15" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_15" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_11" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_11" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_13" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_13" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_12" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_12" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_8" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_8" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_10" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_10" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_9" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_9" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_5" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_5" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_7" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_7" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_6" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_6" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_2" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_2" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_4" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_4" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_3" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_3" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_1" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_1" BEL
+        "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_0" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_0" BEL
+        "SERVER_INST_1/Mram_registers342/SP" BEL
+        "SERVER_INST_1/Mram_registers342/DP" BEL
+        "SERVER_INST_1/Mram_registers341/SP" BEL
+        "SERVER_INST_1/Mram_registers341/DP" BEL
+        "SERVER_INST_1/Mram_registers332/SP" BEL
+        "SERVER_INST_1/Mram_registers332/DP" BEL
+        "SERVER_INST_1/Mram_registers331/SP" BEL
+        "SERVER_INST_1/Mram_registers331/DP" BEL
+        "SERVER_INST_1/Mram_registers333/SP" BEL
+        "SERVER_INST_1/Mram_registers333/DP" BEL
+        "SERVER_INST_1/Mram_registers313/SP" BEL
+        "SERVER_INST_1/Mram_registers313/DP" BEL
+        "SERVER_INST_1/Mram_registers312/SP" BEL
+        "SERVER_INST_1/Mram_registers312/DP" BEL
+        "SERVER_INST_1/Mram_registers303/SP" BEL
+        "SERVER_INST_1/Mram_registers303/DP" BEL
+        "SERVER_INST_1/Mram_registers302/SP" BEL
+        "SERVER_INST_1/Mram_registers302/DP" BEL
+        "SERVER_INST_1/Mram_registers311/SP" BEL
+        "SERVER_INST_1/Mram_registers311/DP" BEL
+        "SERVER_INST_1/Mram_registers301/SP" BEL
+        "SERVER_INST_1/Mram_registers301/DP" BEL
+        "SERVER_INST_1/Mram_registers323/SP" BEL
+        "SERVER_INST_1/Mram_registers323/DP" BEL
+        "SERVER_INST_1/Mram_registers321/SP" BEL
+        "SERVER_INST_1/Mram_registers321/DP" BEL
+        "SERVER_INST_1/Mram_registers283/SP" BEL
+        "SERVER_INST_1/Mram_registers283/DP" BEL
+        "SERVER_INST_1/Mram_registers322/SP" BEL
+        "SERVER_INST_1/Mram_registers322/DP" BEL
+        "SERVER_INST_1/Mram_registers281/SP" BEL
+        "SERVER_INST_1/Mram_registers281/DP" BEL
+        "SERVER_INST_1/Mram_registers273/SP" BEL
+        "SERVER_INST_1/Mram_registers273/DP" BEL
+        "SERVER_INST_1/Mram_registers282/SP" BEL
+        "SERVER_INST_1/Mram_registers282/DP" BEL
+        "SERVER_INST_1/Mram_registers271/SP" BEL
+        "SERVER_INST_1/Mram_registers271/DP" BEL
+        "SERVER_INST_1/Mram_registers293/SP" BEL
+        "SERVER_INST_1/Mram_registers293/DP" BEL
+        "SERVER_INST_1/Mram_registers272/SP" BEL
+        "SERVER_INST_1/Mram_registers272/DP" BEL
+        "SERVER_INST_1/Mram_registers292/SP" BEL
+        "SERVER_INST_1/Mram_registers292/DP" BEL
+        "SERVER_INST_1/Mram_registers291/SP" BEL
+        "SERVER_INST_1/Mram_registers291/DP" BEL
+        "SERVER_INST_1/Mram_registers252/SP" BEL
+        "SERVER_INST_1/Mram_registers252/DP" BEL
+        "SERVER_INST_1/Mram_registers251/SP" BEL
+        "SERVER_INST_1/Mram_registers251/DP" BEL
+        "SERVER_INST_1/Mram_registers253/SP" BEL
+        "SERVER_INST_1/Mram_registers253/DP" BEL
+        "SERVER_INST_1/Mram_registers242/SP" BEL
+        "SERVER_INST_1/Mram_registers242/DP" BEL
+        "SERVER_INST_1/Mram_registers241/SP" BEL
+        "SERVER_INST_1/Mram_registers241/DP" BEL
+        "SERVER_INST_1/Mram_registers243/SP" BEL
+        "SERVER_INST_1/Mram_registers243/DP" BEL
+        "SERVER_INST_1/Mram_registers262/SP" BEL
+        "SERVER_INST_1/Mram_registers262/DP" BEL
+        "SERVER_INST_1/Mram_registers261/SP" BEL
+        "SERVER_INST_1/Mram_registers261/DP" BEL
+        "SERVER_INST_1/Mram_registers263/SP" BEL
+        "SERVER_INST_1/Mram_registers263/DP" BEL
+        "SERVER_INST_1/Mram_registers232/SP" BEL
+        "SERVER_INST_1/Mram_registers232/DP" BEL
+        "SERVER_INST_1/Mram_registers231/SP" BEL
+        "SERVER_INST_1/Mram_registers231/DP" BEL
+        "SERVER_INST_1/Mram_registers221/SP" BEL
+        "SERVER_INST_1/Mram_registers221/DP" BEL
+        "SERVER_INST_1/Mram_registers222/SP" BEL
+        "SERVER_INST_1/Mram_registers222/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1312/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1312/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1311/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1311/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1303/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1303/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1302/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1302/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1301/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1301/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1293/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1293/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1292/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1292/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1291/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1291/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1283/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1283/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1282/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1282/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1281/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1281/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1273/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1273/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1272/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1272/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1271/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1271/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1263/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1263/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1262/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1262/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1261/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1261/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1253/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1253/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1252/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1252/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1251/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1251/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1243/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1243/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1242/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1242/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1241/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1241/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1233/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1233/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1232/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1232/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1231/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1231/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1223/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1223/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1222/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1222/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1221/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1221/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1214/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1214/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1213/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1213/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1212/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1212/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1202/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1202/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1201/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1201/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers232/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers232/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers231/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers231/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers213/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers213/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers212/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers212/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers211/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers211/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers203/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers203/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers202/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers202/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers201/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers201/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers223/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers223/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers222/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers222/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers221/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers221/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers193/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers193/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers192/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers192/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers191/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers191/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers183/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers183/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers182/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers182/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers181/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers181/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers173/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers173/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers172/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers172/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers171/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers171/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers163/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers163/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers162/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers162/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers161/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers161/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers153/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers153/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers152/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers152/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers151/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers151/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers143/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers143/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers142/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers142/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers141/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers141/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers134/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers134/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers133/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers133/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers132/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers132/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1211/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1211/DP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1210/SP" BEL
+        "USER_DESIGN_INST_1/Mram_registers1210/DP" BEL
+        "SERVER_INST_1/Mram_registers10_RAMA" BEL
+        "SERVER_INST_1/Mram_registers10_RAMB" BEL
+        "SERVER_INST_1/Mram_registers10_RAMC" BEL
+        "SERVER_INST_1/Mram_registers10_RAMD" BEL
+        "SERVER_INST_1/Mram_registers11_RAMA" BEL
+        "SERVER_INST_1/Mram_registers11_RAMB" BEL
+        "SERVER_INST_1/Mram_registers11_RAMC" BEL
+        "SERVER_INST_1/Mram_registers11_RAMD" BEL
+        "SERVER_INST_1/Mram_registers12_RAMA" BEL
+        "SERVER_INST_1/Mram_registers12_RAMB" BEL
+        "SERVER_INST_1/Mram_registers12_RAMC" BEL
+        "SERVER_INST_1/Mram_registers12_RAMD" BEL
+        "SERVER_INST_1/Mram_registers13_RAMA" BEL
+        "SERVER_INST_1/Mram_registers13_RAMB" BEL
+        "SERVER_INST_1/Mram_registers13_RAMC" BEL
+        "SERVER_INST_1/Mram_registers13_RAMD" BEL
+        "SERVER_INST_1/Mram_registers14_RAMA" BEL
+        "SERVER_INST_1/Mram_registers14_RAMB" BEL
+        "SERVER_INST_1/Mram_registers14_RAMC" BEL
+        "SERVER_INST_1/Mram_registers14_RAMD" BEL
+        "SERVER_INST_1/Mram_registers15_RAMA" BEL
+        "SERVER_INST_1/Mram_registers15_RAMB" BEL
+        "SERVER_INST_1/Mram_registers15_RAMC" BEL
+        "SERVER_INST_1/Mram_registers15_RAMD" BEL
+        "SERVER_INST_1/Mram_registers16_RAMA" BEL
+        "SERVER_INST_1/Mram_registers16_RAMB" BEL
+        "SERVER_INST_1/Mram_registers16_RAMC" BEL
+        "SERVER_INST_1/Mram_registers16_RAMD" BEL
+        "SERVER_INST_1/Mram_registers17_RAMA" BEL
+        "SERVER_INST_1/Mram_registers17_RAMB" BEL
+        "SERVER_INST_1/Mram_registers17_RAMC" BEL
+        "SERVER_INST_1/Mram_registers17_RAMD" BEL
+        "SERVER_INST_1/Mram_registers18_RAMA" BEL
+        "SERVER_INST_1/Mram_registers18_RAMB" BEL
+        "SERVER_INST_1/Mram_registers18_RAMC" BEL
+        "SERVER_INST_1/Mram_registers18_RAMD" BEL
+        "SERVER_INST_1/Mram_registers19_RAMA" BEL
+        "SERVER_INST_1/Mram_registers19_RAMB" BEL
+        "SERVER_INST_1/Mram_registers19_RAMC" BEL
+        "SERVER_INST_1/Mram_registers19_RAMD" BEL
+        "SERVER_INST_1/Mram_registers2_RAMA" BEL
+        "SERVER_INST_1/Mram_registers2_RAMB" BEL
+        "SERVER_INST_1/Mram_registers2_RAMC" BEL
+        "SERVER_INST_1/Mram_registers2_RAMD" BEL
+        "SERVER_INST_1/Mram_registers20_RAMA" BEL
+        "SERVER_INST_1/Mram_registers20_RAMB" BEL
+        "SERVER_INST_1/Mram_registers20_RAMC" BEL
+        "SERVER_INST_1/Mram_registers20_RAMD" BEL
+        "SERVER_INST_1/Mram_registers21_RAMA" BEL
+        "SERVER_INST_1/Mram_registers21_RAMB" BEL
+        "SERVER_INST_1/Mram_registers21_RAMC" BEL
+        "SERVER_INST_1/Mram_registers21_RAMD" BEL
+        "SERVER_INST_1/Mram_registers3_RAMA" BEL
+        "SERVER_INST_1/Mram_registers3_RAMB" BEL
+        "SERVER_INST_1/Mram_registers3_RAMC" BEL
+        "SERVER_INST_1/Mram_registers3_RAMD" BEL
+        "SERVER_INST_1/Mram_registers4_RAMA" BEL
+        "SERVER_INST_1/Mram_registers4_RAMB" BEL
+        "SERVER_INST_1/Mram_registers4_RAMC" BEL
+        "SERVER_INST_1/Mram_registers4_RAMD" BEL
+        "SERVER_INST_1/Mram_registers5_RAMA" BEL
+        "SERVER_INST_1/Mram_registers5_RAMB" BEL
+        "SERVER_INST_1/Mram_registers5_RAMC" BEL
+        "SERVER_INST_1/Mram_registers5_RAMD" BEL
+        "SERVER_INST_1/Mram_registers6_RAMA" BEL
+        "SERVER_INST_1/Mram_registers6_RAMB" BEL
+        "SERVER_INST_1/Mram_registers6_RAMC" BEL
+        "SERVER_INST_1/Mram_registers6_RAMD" BEL
+        "SERVER_INST_1/Mram_registers7_RAMA" BEL
+        "SERVER_INST_1/Mram_registers7_RAMB" BEL
+        "SERVER_INST_1/Mram_registers7_RAMC" BEL
+        "SERVER_INST_1/Mram_registers7_RAMD" BEL
+        "SERVER_INST_1/Mram_registers8_RAMA" BEL
+        "SERVER_INST_1/Mram_registers8_RAMB" BEL
+        "SERVER_INST_1/Mram_registers8_RAMC" BEL
+        "SERVER_INST_1/Mram_registers8_RAMD" BEL
+        "SERVER_INST_1/Mram_registers9_RAMA" BEL
+        "SERVER_INST_1/Mram_registers9_RAMB" BEL
+        "SERVER_INST_1/Mram_registers9_RAMC" BEL
+        "SERVER_INST_1/Mram_registers9_RAMD" BEL
+        "USER_DESIGN_INST_1/Mram_registers10_RAMA" BEL
+        "USER_DESIGN_INST_1/Mram_registers10_RAMB" BEL
+        "USER_DESIGN_INST_1/Mram_registers10_RAMC" BEL
+        "USER_DESIGN_INST_1/Mram_registers10_RAMD" BEL
+        "USER_DESIGN_INST_1/Mram_registers11_RAMA" BEL
+        "USER_DESIGN_INST_1/Mram_registers11_RAMB" BEL
+        "USER_DESIGN_INST_1/Mram_registers11_RAMC" BEL
+        "USER_DESIGN_INST_1/Mram_registers11_RAMD" BEL
+        "USER_DESIGN_INST_1/Mram_registers110_RAMA" BEL
+        "USER_DESIGN_INST_1/Mram_registers110_RAMB" BEL
+        "USER_DESIGN_INST_1/Mram_registers110_RAMC" BEL
+        "USER_DESIGN_INST_1/Mram_registers110_RAMD" BEL
+        "USER_DESIGN_INST_1/Mram_registers111_RAMA" BEL
+        "USER_DESIGN_INST_1/Mram_registers111_RAMB" BEL
+        "USER_DESIGN_INST_1/Mram_registers111_RAMC" BEL
+        "USER_DESIGN_INST_1/Mram_registers111_RAMD" BEL
+        "USER_DESIGN_INST_1/Mram_registers112_RAMA" BEL
+        "USER_DESIGN_INST_1/Mram_registers112_RAMB" BEL
+        "USER_DESIGN_INST_1/Mram_registers112_RAMC" BEL
+        "USER_DESIGN_INST_1/Mram_registers112_RAMD" BEL
+        "USER_DESIGN_INST_1/Mram_registers113_RAMA" BEL
+        "USER_DESIGN_INST_1/Mram_registers113_RAMB" BEL
+        "USER_DESIGN_INST_1/Mram_registers113_RAMC" BEL
+        "USER_DESIGN_INST_1/Mram_registers113_RAMD" BEL
+        "USER_DESIGN_INST_1/Mram_registers114_RAMA" BEL
+        "USER_DESIGN_INST_1/Mram_registers114_RAMB" BEL
+        "USER_DESIGN_INST_1/Mram_registers114_RAMC" BEL
+        "USER_DESIGN_INST_1/Mram_registers114_RAMD" BEL
+        "USER_DESIGN_INST_1/Mram_registers115_RAMA" BEL
+        "USER_DESIGN_INST_1/Mram_registers115_RAMB" BEL
+        "USER_DESIGN_INST_1/Mram_registers115_RAMC" BEL
+        "USER_DESIGN_INST_1/Mram_registers115_RAMD" BEL
+        "USER_DESIGN_INST_1/Mram_registers116_RAMA" BEL
+        "USER_DESIGN_INST_1/Mram_registers116_RAMB" BEL
+        "USER_DESIGN_INST_1/Mram_registers116_RAMC" BEL
+        "USER_DESIGN_INST_1/Mram_registers116_RAMD" BEL
+        "USER_DESIGN_INST_1/Mram_registers117_RAMA" BEL
+        "USER_DESIGN_INST_1/Mram_registers117_RAMB" BEL
+        "USER_DESIGN_INST_1/Mram_registers117_RAMC" BEL
+        "USER_DESIGN_INST_1/Mram_registers117_RAMD" BEL
+        "USER_DESIGN_INST_1/Mram_registers118_RAMA" BEL
+        "USER_DESIGN_INST_1/Mram_registers118_RAMB" BEL
+        "USER_DESIGN_INST_1/Mram_registers118_RAMC" BEL
+        "USER_DESIGN_INST_1/Mram_registers118_RAMD" BEL
+        "USER_DESIGN_INST_1/Mram_registers119_RAMA" BEL
+        "USER_DESIGN_INST_1/Mram_registers119_RAMB" BEL
+        "USER_DESIGN_INST_1/Mram_registers119_RAMC" BEL
+        "USER_DESIGN_INST_1/Mram_registers119_RAMD" BEL
+        "USER_DESIGN_INST_1/Mram_registers2_RAMA" BEL
+        "USER_DESIGN_INST_1/Mram_registers2_RAMB" BEL
+        "USER_DESIGN_INST_1/Mram_registers2_RAMC" BEL
+        "USER_DESIGN_INST_1/Mram_registers2_RAMD" BEL
+        "USER_DESIGN_INST_1/Mram_registers3_RAMA" BEL
+        "USER_DESIGN_INST_1/Mram_registers3_RAMB" BEL
+        "USER_DESIGN_INST_1/Mram_registers3_RAMC" BEL
+        "USER_DESIGN_INST_1/Mram_registers3_RAMD" BEL
+        "USER_DESIGN_INST_1/Mram_registers4_RAMA" BEL
+        "USER_DESIGN_INST_1/Mram_registers4_RAMB" BEL
+        "USER_DESIGN_INST_1/Mram_registers4_RAMC" BEL
+        "USER_DESIGN_INST_1/Mram_registers4_RAMD" BEL
+        "USER_DESIGN_INST_1/Mram_registers5_RAMA" BEL
+        "USER_DESIGN_INST_1/Mram_registers5_RAMB" BEL
+        "USER_DESIGN_INST_1/Mram_registers5_RAMC" BEL
+        "USER_DESIGN_INST_1/Mram_registers5_RAMD" BEL
+        "USER_DESIGN_INST_1/Mram_registers6_RAMA" BEL
+        "USER_DESIGN_INST_1/Mram_registers6_RAMB" BEL
+        "USER_DESIGN_INST_1/Mram_registers6_RAMC" BEL
+        "USER_DESIGN_INST_1/Mram_registers6_RAMD" BEL
+        "USER_DESIGN_INST_1/Mram_registers7_RAMA" BEL
+        "USER_DESIGN_INST_1/Mram_registers7_RAMB" BEL
+        "USER_DESIGN_INST_1/Mram_registers7_RAMC" BEL
+        "USER_DESIGN_INST_1/Mram_registers7_RAMD" BEL
+        "USER_DESIGN_INST_1/Mram_registers8_RAMA" BEL
+        "USER_DESIGN_INST_1/Mram_registers8_RAMB" BEL
+        "USER_DESIGN_INST_1/Mram_registers8_RAMC" BEL
+        "USER_DESIGN_INST_1/Mram_registers8_RAMD" BEL
+        "USER_DESIGN_INST_1/Mram_registers9_RAMA" BEL
+        "USER_DESIGN_INST_1/Mram_registers9_RAMB" BEL
+        "USER_DESIGN_INST_1/Mram_registers9_RAMC" BEL
+        "USER_DESIGN_INST_1/Mram_registers9_RAMD";
+PIN ethernet_inst_1/Mram_RX_MEMORY2_pins<22> = BEL
+        "ethernet_inst_1/Mram_RX_MEMORY2" PINNAME CLKA;
+PIN ethernet_inst_1/Mram_RX_MEMORY1_pins<22> = BEL
+        "ethernet_inst_1/Mram_RX_MEMORY1" PINNAME CLKA;
+PIN SP6_INS_BUFIO2FB_DCM_ML_BUFIO2FB_3_pins<1> = BEL
+        "SP6_INS_BUFIO2FB_DCM_ML_BUFIO2FB_3" PINNAME O;
+PIN dcm_sp_inst2_pins<1> = BEL "dcm_sp_inst2" PINNAME CLKFB;
+TIMEGRP INTERNAL_RXCLK_BUF = BEL "ethernet_inst_1/RX_PHY_STATE_FSM_FFd1" BEL
+        "ethernet_inst_1/RX_PHY_STATE_FSM_FFd2" BEL
+        "ethernet_inst_1/RX_PHY_STATE_FSM_FFd3" BEL
+        "ethernet_inst_1/RX_WRITE_BUFFER_4" BEL
+        "ethernet_inst_1/RX_WRITE_BUFFER_3" BEL
+        "ethernet_inst_1/RX_WRITE_BUFFER_2" BEL
+        "ethernet_inst_1/RX_WRITE_BUFFER_1" BEL
+        "ethernet_inst_1/RX_WRITE_BUFFER_0" BEL
+        "ethernet_inst_1/RX_WRITE_ADDRESS_10" BEL
+        "ethernet_inst_1/RX_WRITE_ADDRESS_9" BEL
+        "ethernet_inst_1/RX_WRITE_ADDRESS_8" BEL
+        "ethernet_inst_1/RX_WRITE_ADDRESS_7" BEL
+        "ethernet_inst_1/RX_WRITE_ADDRESS_6" BEL
+        "ethernet_inst_1/RX_WRITE_ADDRESS_5" BEL
+        "ethernet_inst_1/RX_WRITE_ADDRESS_4" BEL
+        "ethernet_inst_1/RX_WRITE_ADDRESS_3" BEL
+        "ethernet_inst_1/RX_WRITE_ADDRESS_2" BEL
+        "ethernet_inst_1/RX_WRITE_ADDRESS_1" BEL
+        "ethernet_inst_1/RX_WRITE_ADDRESS_0" BEL
+        "ethernet_inst_1/RX_WRITE_DATA_15" BEL
+        "ethernet_inst_1/RX_WRITE_DATA_14" BEL
+        "ethernet_inst_1/RX_WRITE_DATA_13" BEL
+        "ethernet_inst_1/RX_WRITE_DATA_12" BEL
+        "ethernet_inst_1/RX_WRITE_DATA_11" BEL
+        "ethernet_inst_1/RX_WRITE_DATA_10" BEL
+        "ethernet_inst_1/RX_WRITE_DATA_9" BEL
+        "ethernet_inst_1/RX_WRITE_DATA_8" BEL
+        "ethernet_inst_1/RX_WRITE_DATA_7" BEL
+        "ethernet_inst_1/RX_WRITE_DATA_6" BEL
+        "ethernet_inst_1/RX_WRITE_DATA_5" BEL
+        "ethernet_inst_1/RX_WRITE_DATA_4" BEL
+        "ethernet_inst_1/RX_WRITE_DATA_3" BEL
+        "ethernet_inst_1/RX_WRITE_DATA_2" BEL
+        "ethernet_inst_1/RX_WRITE_DATA_1" BEL
+        "ethernet_inst_1/RX_WRITE_DATA_0" BEL "ethernet_inst_1/RX_CRC_31" BEL
+        "ethernet_inst_1/RX_CRC_30" BEL "ethernet_inst_1/RX_CRC_29" BEL
+        "ethernet_inst_1/RX_CRC_28" BEL "ethernet_inst_1/RX_CRC_27" BEL
+        "ethernet_inst_1/RX_CRC_26" BEL "ethernet_inst_1/RX_CRC_25" BEL
+        "ethernet_inst_1/RX_CRC_24" BEL "ethernet_inst_1/RX_CRC_23" BEL
+        "ethernet_inst_1/RX_CRC_22" BEL "ethernet_inst_1/RX_CRC_21" BEL
+        "ethernet_inst_1/RX_CRC_20" BEL "ethernet_inst_1/RX_CRC_19" BEL
+        "ethernet_inst_1/RX_CRC_18" BEL "ethernet_inst_1/RX_CRC_17" BEL
+        "ethernet_inst_1/RX_CRC_16" BEL "ethernet_inst_1/RX_CRC_15" BEL
+        "ethernet_inst_1/RX_CRC_14" BEL "ethernet_inst_1/RX_CRC_13" BEL
+        "ethernet_inst_1/RX_CRC_12" BEL "ethernet_inst_1/RX_CRC_11" BEL
+        "ethernet_inst_1/RX_CRC_10" BEL "ethernet_inst_1/RX_CRC_9" BEL
+        "ethernet_inst_1/RX_CRC_8" BEL "ethernet_inst_1/RX_CRC_7" BEL
+        "ethernet_inst_1/RX_CRC_6" BEL "ethernet_inst_1/RX_CRC_5" BEL
+        "ethernet_inst_1/RX_CRC_4" BEL "ethernet_inst_1/RX_CRC_3" BEL
+        "ethernet_inst_1/RX_CRC_2" BEL "ethernet_inst_1/RX_CRC_1" BEL
+        "ethernet_inst_1/RX_CRC_0" BEL "ethernet_inst_1/RX_START_ADDRESS_10"
+        BEL "ethernet_inst_1/RX_START_ADDRESS_9" BEL
+        "ethernet_inst_1/RX_START_ADDRESS_8" BEL
+        "ethernet_inst_1/RX_START_ADDRESS_7" BEL
+        "ethernet_inst_1/RX_START_ADDRESS_6" BEL
+        "ethernet_inst_1/RX_START_ADDRESS_5" BEL
+        "ethernet_inst_1/RX_START_ADDRESS_4" BEL
+        "ethernet_inst_1/RX_START_ADDRESS_3" BEL
+        "ethernet_inst_1/RX_START_ADDRESS_2" BEL
+        "ethernet_inst_1/RX_START_ADDRESS_1" BEL
+        "ethernet_inst_1/RX_START_ADDRESS_0" BEL
+        "ethernet_inst_1/RX_WRITE_ENABLE" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_10" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_9" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_8" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_7" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_6" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_5" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_4" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_3" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_2" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_1" BEL
+        "ethernet_inst_1/RX_PACKET_LENGTH_0" BEL
+        "ethernet_inst_1/LOW_NIBBLE_3" BEL "ethernet_inst_1/LOW_NIBBLE_2" BEL
+        "ethernet_inst_1/LOW_NIBBLE_1" BEL "ethernet_inst_1/LOW_NIBBLE_0" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_31" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_30" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_29" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_28" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_27" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_26" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_25" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_24" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_23" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_22" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_21" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_20" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_19" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_18" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_17" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_16" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_15" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_14" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_13" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_12" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_11" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_10" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_9" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_8" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_7" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_6" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_5" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_4" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_3" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_2" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_1" BEL
+        "ethernet_inst_1/RX_BUFFER_BUSY_0" BEL "ethernet_inst_1/RXER_D" BEL
+        "ethernet_inst_1/RXDV_D" BEL "ethernet_inst_1/RXD_D_3" BEL
+        "ethernet_inst_1/RXD_D_2" BEL "ethernet_inst_1/RXD_D_1" BEL
+        "ethernet_inst_1/RXD_D_0" BEL "ethernet_inst_1/RX_ERROR" PIN
+        "ethernet_inst_1/Mram_RX_MEMORY2_pins<22>" PIN
+        "ethernet_inst_1/Mram_RX_MEMORY1_pins<22>" BEL
+        "ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER1_RAMA_D1" BEL
+        "ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER1_RAMA" BEL
+        "ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER1_RAMB_D1" BEL
+        "ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER1_RAMB" BEL
+        "ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER1_RAMC_D1" BEL
+        "ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER1_RAMC" BEL
+        "ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER1_RAMD_D1" BEL
+        "ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER1_RAMD" BEL
+        "ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER2_RAMA_D1" BEL
+        "ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER2_RAMA" BEL
+        "ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER2_RAMB_D1" BEL
+        "ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER2_RAMB" BEL
+        "ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER2_RAMC" BEL
+        "ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER2_RAMD_D1" BEL
+        "ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER2_RAMD" BEL
+        "ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER1_RAMA_D1" BEL
+        "ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER1_RAMA" BEL
+        "ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER1_RAMB_D1" BEL
+        "ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER1_RAMB" BEL
+        "ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER1_RAMC_D1" BEL
+        "ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER1_RAMC" BEL
+        "ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER1_RAMD_D1" BEL
+        "ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER1_RAMD" BEL
+        "ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER2_RAMA_D1" BEL
+        "ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER2_RAMA" BEL
+        "ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER2_RAMB_D1" BEL
+        "ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER2_RAMB" BEL
+        "ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER2_RAMC" BEL
+        "ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER2_RAMD_D1" BEL
+        "ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER2_RAMD" BEL "BUFG_INST7"
+        PIN "SP6_INS_BUFIO2FB_DCM_ML_BUFIO2FB_3_pins<1>" PIN
+        "dcm_sp_inst2_pins<1>";
+TIMEGRP IN_GMII = BEL "RXD<3>" BEL "RXD<2>" BEL "RXD<1>" BEL "RXD<0>" BEL
+        "RXDV" BEL "RXER";
+PIN SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0> = BEL "SP6_BUFIO_INSERT_ML_BUFIO2_0"
+        PINNAME DIVCLK;
+PIN dcm_sp_inst_pins<3> = BEL "dcm_sp_inst" PINNAME CLKIN;
+TIMEGRP CLK_IN = PIN "SP6_BUFIO_INSERT_ML_BUFIO2_0_pins<0>" PIN
+        "dcm_sp_inst_pins<3>";
+PIN SP6_BUFIO_INSERT_ML_BUFIO2_1_pins<0> = BEL "SP6_BUFIO_INSERT_ML_BUFIO2_1"
+        PINNAME DIVCLK;
+PIN dcm_sp_inst2_pins<2> = BEL "dcm_sp_inst2" PINNAME CLKIN;
+TIMEGRP RXCLK = PIN "SP6_BUFIO_INSERT_ML_BUFIO2_1_pins<0>" PIN
+        "dcm_sp_inst2_pins<2>";
+TS_CLK = PERIOD TIMEGRP "CLK_IN" 10 ns HIGH 50% INPUT_JITTER 0.05 ns;
+TS_RXCLK = PERIOD TIMEGRP "RXCLK" 40 ns HIGH 50%;
+TS_clkdv = PERIOD TIMEGRP "clkdv" TS_CLK * 2 HIGH 50% INPUT_JITTER 0.05 ns;
+TS_INTERNAL_RXCLK_BUF = PERIOD TIMEGRP "INTERNAL_RXCLK_BUF" TS_RXCLK PHASE
+        2.1875 ns HIGH 50%;
+PIN RST_pins<0> = BEL "RST" PINNAME PAD;
+PIN "RST_pins<0>" TIG;
+TIMEGRP "IN_GMII" OFFSET = IN 10 ns VALID 20 ns BEFORE COMP "RXCLK";
+SCHEMATIC END;
+

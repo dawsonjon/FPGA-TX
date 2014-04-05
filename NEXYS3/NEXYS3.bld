@@ -1,0 +1,57 @@
+Release 14.3 ngdbuild P.40xd (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line:
+/media/storage/Xilinx/14.3/14.3/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -p
+XC6Slx16-CSG324 -nt timestamp -intstyle xflow NEXYS3.ngc NEXYS3.ngd
+
+Reading NGO file "/media/storage/Projects/Chips-Demo/NEXYS3/NEXYS3.ngc" ...
+Gathering constraint information from source properties...
+Done.
+
+Annotating constraints to design from ucf file "NEXYS3.ucf" ...
+Resolving constraint associations...
+Checking Constraint Associations...
+INFO:ConstraintSystem:178 - TNM 'CLK_IN', used in period specification 'TS_CLK',
+   was traced into DCM_SP instance dcm_sp_inst. The following new TNM groups and
+   period specifications were generated at the DCM_SP output(s): 
+   CLKDV: <TIMESPEC TS_clkdv = PERIOD "clkdv" TS_CLK * 2 HIGH 50% INPUT_JITTER
+   50 ps>
+
+INFO:ConstraintSystem:178 - TNM 'RXCLK', used in period specification
+   'TS_RXCLK', was traced into DCM_SP instance dcm_sp_inst2. The following new
+   TNM groups and period specifications were generated at the DCM_SP output(s): 
+   CLK0: <TIMESPEC TS_INTERNAL_RXCLK_BUF = PERIOD "INTERNAL_RXCLK_BUF" TS_RXCLK
+   PHASE 2.1875 ns HIGH 50%>
+
+Done...
+
+INFO:NgdBuild:1222 - Setting CLKIN_PERIOD attribute associated with DCM instance
+   dcm_sp_inst to 10.000000 ns based on the period specification (<TIMESPEC
+   "TS_CLK" = PERIOD "CLK_IN" 10 ns HIGH 50% INPUT_JITTER 50.0ps;>
+   [NEXYS3.ucf(59)]).
+WARNING:NgdBuild:1212 - User specified non-default attribute value (8.0) was
+   detected for the CLKIN_PERIOD attribute on DCM "dcm_sp_inst2".  This does not
+   match the PERIOD constraint value (40 ns.).  The uncertainty calculation will
+   use the non-default attribute value.  This could result in incorrect
+   uncertainty calculated for DCM output clocks.
+Checking expanded design ...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   1
+
+Total memory usage is 415732 kilobytes
+
+Writing NGD file "NEXYS3.ngd" ...
+Total REAL time to NGDBUILD completion:  7 sec
+Total CPU time to NGDBUILD completion:   7 sec
+
+Writing NGDBUILD log file "NEXYS3.bld"...

@@ -283,7 +283,7 @@ begin
         if S_TX_ACK = '1' and TX_STB = '1' then
           S_TX_ACK <= '0';
           TX_PACKET_LENGTH <= TX;
-	        TX_IN_COUNT <= 2;
+            TX_IN_COUNT <= 2;
           TX_PACKET_STATE <= GET_DATA;
         end if;
 
@@ -411,7 +411,7 @@ begin
         If TX_OUT_COUNT = 0 then
           TX_PHY_STATE <= SEND_CRC_3;
         else
-		      TX_PHY_STATE <= SEND_DATA_LO;
+              TX_PHY_STATE <= SEND_DATA_LO;
           TX_READ_ADDRESS <= TX_READ_ADDRESS + 1;
           TX_OUT_COUNT <= TX_OUT_COUNT - 1;
         end if;
