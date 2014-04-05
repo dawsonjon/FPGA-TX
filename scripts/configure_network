@@ -1,5 +1,5 @@
 #force speed of ethernet interface requires ethtool
-sudo ethtool -s eth0 speed 1000 duplex full
+#sudo ethtool -s eth0 speed 1000 duplex full
 
 #Configure a new network conected to adaptor eth0
 #This pc's IP on the network is 192.168.1.0
