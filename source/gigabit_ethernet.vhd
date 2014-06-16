@@ -198,7 +198,7 @@ architecture RTL of gigabit_ethernet is
   constant ADDRESS_MAX : integer := (2**ADDRESS_BITS) - 1;
 
   --memories
-  type TX_MEMORY_TYPE is array (0 to 511) of
+  type TX_MEMORY_TYPE is array (0 to 1023) of
     std_logic_vector(15 downto 0);
   shared variable TX_MEMORY : TX_MEMORY_TYPE;
 
