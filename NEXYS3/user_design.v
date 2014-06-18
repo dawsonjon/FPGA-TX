@@ -1462,10 +1462,10 @@ module user_design(input_switches,input_buttons,input_socket,input_rs232_rx,inpu
     instructions[20] = {6'd8, 7'd34, 7'd33, 32'd50};//{'dest': 34, 'src': 33, 'srcb': 50, 'signed': False, 'op': '+'}
     instructions[21] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[22] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[23] = {6'd9, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140276183809128, 'op': 'memory_read_request'}
+    instructions[23] = {6'd9, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140350363774056, 'op': 'memory_read_request'}
     instructions[24] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[25] = {6'd10, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140276183809128, 'op': 'memory_read_wait'}
-    instructions[26] = {6'd11, 7'd32, 7'd34, 32'd0};//{'dest': 32, 'src': 34, 'sequence': 140276183809128, 'element_size': 2, 'op': 'memory_read'}
+    instructions[25] = {6'd10, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140350363774056, 'op': 'memory_read_wait'}
+    instructions[26] = {6'd11, 7'd32, 7'd34, 32'd0};//{'dest': 32, 'src': 34, 'sequence': 140350363774056, 'element_size': 2, 'op': 'memory_read'}
     instructions[27] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[28] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[29] = {6'd12, 7'd0, 7'd32, 32'd47};//{'src': 32, 'label': 47, 'op': 'jmp_if_false'}
@@ -1475,10 +1475,10 @@ module user_design(input_switches,input_buttons,input_socket,input_rs232_rx,inpu
     instructions[33] = {6'd8, 7'd36, 7'd34, 32'd50};//{'dest': 36, 'src': 34, 'srcb': 50, 'signed': False, 'op': '+'}
     instructions[34] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[35] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[36] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183813800, 'op': 'memory_read_request'}
+    instructions[36] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363778728, 'op': 'memory_read_request'}
     instructions[37] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[38] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183813800, 'op': 'memory_read_wait'}
-    instructions[39] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140276183813800, 'element_size': 2, 'op': 'memory_read'}
+    instructions[38] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363778728, 'op': 'memory_read_wait'}
+    instructions[39] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140350363778728, 'element_size': 2, 'op': 'memory_read'}
     instructions[40] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[41] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[42] = {6'd3, 7'd48, 7'd33, 32'd0};//{'dest': 48, 'src': 33, 'op': 'move'}
@@ -1789,10 +1789,10 @@ module user_design(input_switches,input_buttons,input_socket,input_rs232_rx,inpu
     instructions[347] = {6'd8, 7'd34, 7'd33, 32'd64};//{'dest': 34, 'src': 33, 'srcb': 64, 'signed': False, 'op': '+'}
     instructions[348] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[349] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[350] = {6'd9, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140276183839736, 'op': 'memory_read_request'}
+    instructions[350] = {6'd9, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140350363804664, 'op': 'memory_read_request'}
     instructions[351] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[352] = {6'd10, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140276183839736, 'op': 'memory_read_wait'}
-    instructions[353] = {6'd11, 7'd32, 7'd34, 32'd0};//{'dest': 32, 'src': 34, 'sequence': 140276183839736, 'element_size': 2, 'op': 'memory_read'}
+    instructions[352] = {6'd10, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140350363804664, 'op': 'memory_read_wait'}
+    instructions[353] = {6'd11, 7'd32, 7'd34, 32'd0};//{'dest': 32, 'src': 34, 'sequence': 140350363804664, 'element_size': 2, 'op': 'memory_read'}
     instructions[354] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[355] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[356] = {6'd12, 7'd0, 7'd32, 32'd374};//{'src': 32, 'label': 374, 'op': 'jmp_if_false'}
@@ -1802,10 +1802,10 @@ module user_design(input_switches,input_buttons,input_socket,input_rs232_rx,inpu
     instructions[360] = {6'd8, 7'd36, 7'd34, 32'd64};//{'dest': 36, 'src': 34, 'srcb': 64, 'signed': False, 'op': '+'}
     instructions[361] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[362] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[363] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183844408, 'op': 'memory_read_request'}
+    instructions[363] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363809336, 'op': 'memory_read_request'}
     instructions[364] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[365] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183844408, 'op': 'memory_read_wait'}
-    instructions[366] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140276183844408, 'element_size': 2, 'op': 'memory_read'}
+    instructions[365] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363809336, 'op': 'memory_read_wait'}
+    instructions[366] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140350363809336, 'element_size': 2, 'op': 'memory_read'}
     instructions[367] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[368] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[369] = {6'd3, 7'd61, 7'd33, 32'd0};//{'dest': 61, 'src': 33, 'op': 'move'}
@@ -2024,10 +2024,10 @@ module user_design(input_switches,input_buttons,input_socket,input_rs232_rx,inpu
     instructions[582] = {6'd8, 7'd34, 7'd33, 32'd76};//{'dest': 34, 'src': 33, 'srcb': 76, 'signed': False, 'op': '+'}
     instructions[583] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[584] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[585] = {6'd9, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140276183859424, 'op': 'memory_read_request'}
+    instructions[585] = {6'd9, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140350363824352, 'op': 'memory_read_request'}
     instructions[586] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[587] = {6'd10, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140276183859424, 'op': 'memory_read_wait'}
-    instructions[588] = {6'd11, 7'd32, 7'd34, 32'd0};//{'dest': 32, 'src': 34, 'sequence': 140276183859424, 'element_size': 2, 'op': 'memory_read'}
+    instructions[587] = {6'd10, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140350363824352, 'op': 'memory_read_wait'}
+    instructions[588] = {6'd11, 7'd32, 7'd34, 32'd0};//{'dest': 32, 'src': 34, 'sequence': 140350363824352, 'element_size': 2, 'op': 'memory_read'}
     instructions[589] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[590] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[591] = {6'd12, 7'd0, 7'd32, 32'd595};//{'src': 32, 'label': 595, 'op': 'jmp_if_false'}
@@ -2066,10 +2066,10 @@ module user_design(input_switches,input_buttons,input_socket,input_rs232_rx,inpu
     instructions[624] = {6'd8, 7'd34, 7'd33, 32'd1};//{'dest': 34, 'src': 33, 'srcb': 1, 'signed': False, 'op': '+'}
     instructions[625] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[626] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[627] = {6'd9, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140276183862952, 'op': 'memory_read_request'}
+    instructions[627] = {6'd9, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140350363827880, 'op': 'memory_read_request'}
     instructions[628] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[629] = {6'd10, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140276183862952, 'op': 'memory_read_wait'}
-    instructions[630] = {6'd11, 7'd32, 7'd34, 32'd0};//{'dest': 32, 'src': 34, 'sequence': 140276183862952, 'element_size': 2, 'op': 'memory_read'}
+    instructions[629] = {6'd10, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140350363827880, 'op': 'memory_read_wait'}
+    instructions[630] = {6'd11, 7'd32, 7'd34, 32'd0};//{'dest': 32, 'src': 34, 'sequence': 140350363827880, 'element_size': 2, 'op': 'memory_read'}
     instructions[631] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[632] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[633] = {6'd12, 7'd0, 7'd32, 32'd637};//{'src': 32, 'label': 637, 'op': 'jmp_if_false'}
@@ -2090,10 +2090,10 @@ module user_design(input_switches,input_buttons,input_socket,input_rs232_rx,inpu
     instructions[648] = {6'd8, 7'd34, 7'd33, 32'd7};//{'dest': 34, 'src': 33, 'srcb': 7, 'signed': False, 'op': '+'}
     instructions[649] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[650] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[651] = {6'd9, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140276183863880, 'op': 'memory_read_request'}
+    instructions[651] = {6'd9, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140350363828808, 'op': 'memory_read_request'}
     instructions[652] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[653] = {6'd10, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140276183863880, 'op': 'memory_read_wait'}
-    instructions[654] = {6'd11, 7'd32, 7'd34, 32'd0};//{'dest': 32, 'src': 34, 'sequence': 140276183863880, 'element_size': 2, 'op': 'memory_read'}
+    instructions[653] = {6'd10, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140350363828808, 'op': 'memory_read_wait'}
+    instructions[654] = {6'd11, 7'd32, 7'd34, 32'd0};//{'dest': 32, 'src': 34, 'sequence': 140350363828808, 'element_size': 2, 'op': 'memory_read'}
     instructions[655] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[656] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[657] = {6'd12, 7'd0, 7'd32, 32'd661};//{'src': 32, 'label': 661, 'op': 'jmp_if_false'}
@@ -2214,10 +2214,10 @@ module user_design(input_switches,input_buttons,input_socket,input_rs232_rx,inpu
     instructions[772] = {6'd8, 7'd36, 7'd34, 32'd1};//{'dest': 36, 'src': 34, 'srcb': 1, 'signed': False, 'op': '+'}
     instructions[773] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[774] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[775] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183875240, 'op': 'memory_read_request'}
+    instructions[775] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363840168, 'op': 'memory_read_request'}
     instructions[776] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[777] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183875240, 'op': 'memory_read_wait'}
-    instructions[778] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140276183875240, 'element_size': 2, 'op': 'memory_read'}
+    instructions[777] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363840168, 'op': 'memory_read_wait'}
+    instructions[778] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140350363840168, 'element_size': 2, 'op': 'memory_read'}
     instructions[779] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[780] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[781] = {6'd3, 7'd61, 7'd33, 32'd0};//{'dest': 61, 'src': 33, 'op': 'move'}
@@ -2256,10 +2256,10 @@ module user_design(input_switches,input_buttons,input_socket,input_rs232_rx,inpu
     instructions[814] = {6'd8, 7'd36, 7'd34, 32'd1};//{'dest': 36, 'src': 34, 'srcb': 1, 'signed': False, 'op': '+'}
     instructions[815] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[816] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[817] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183877464, 'op': 'memory_read_request'}
+    instructions[817] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363842392, 'op': 'memory_read_request'}
     instructions[818] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[819] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183877464, 'op': 'memory_read_wait'}
-    instructions[820] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140276183877464, 'element_size': 2, 'op': 'memory_read'}
+    instructions[819] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363842392, 'op': 'memory_read_wait'}
+    instructions[820] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140350363842392, 'element_size': 2, 'op': 'memory_read'}
     instructions[821] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[822] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[823] = {6'd3, 7'd61, 7'd33, 32'd0};//{'dest': 61, 'src': 33, 'op': 'move'}
@@ -2280,10 +2280,10 @@ module user_design(input_switches,input_buttons,input_socket,input_rs232_rx,inpu
     instructions[838] = {6'd8, 7'd34, 7'd33, 32'd11};//{'dest': 34, 'src': 33, 'srcb': 11, 'signed': False, 'op': '+'}
     instructions[839] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[840] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[841] = {6'd9, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140276183867264, 'op': 'memory_read_request'}
+    instructions[841] = {6'd9, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140350363832192, 'op': 'memory_read_request'}
     instructions[842] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[843] = {6'd10, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140276183867264, 'op': 'memory_read_wait'}
-    instructions[844] = {6'd11, 7'd32, 7'd34, 32'd0};//{'dest': 32, 'src': 34, 'sequence': 140276183867264, 'element_size': 2, 'op': 'memory_read'}
+    instructions[843] = {6'd10, 7'd0, 7'd34, 32'd0};//{'element_size': 2, 'src': 34, 'sequence': 140350363832192, 'op': 'memory_read_wait'}
+    instructions[844] = {6'd11, 7'd32, 7'd34, 32'd0};//{'dest': 32, 'src': 34, 'sequence': 140350363832192, 'element_size': 2, 'op': 'memory_read'}
     instructions[845] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[846] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[847] = {6'd12, 7'd0, 7'd32, 32'd923};//{'src': 32, 'label': 923, 'op': 'jmp_if_false'}
@@ -2293,10 +2293,10 @@ module user_design(input_switches,input_buttons,input_socket,input_rs232_rx,inpu
     instructions[851] = {6'd8, 7'd36, 7'd34, 32'd11};//{'dest': 36, 'src': 34, 'srcb': 11, 'signed': False, 'op': '+'}
     instructions[852] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[853] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[854] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183880048, 'op': 'memory_read_request'}
+    instructions[854] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363844976, 'op': 'memory_read_request'}
     instructions[855] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[856] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183880048, 'op': 'memory_read_wait'}
-    instructions[857] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140276183880048, 'element_size': 2, 'op': 'memory_read'}
+    instructions[856] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363844976, 'op': 'memory_read_wait'}
+    instructions[857] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140350363844976, 'element_size': 2, 'op': 'memory_read'}
     instructions[858] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[859] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[860] = {6'd3, 7'd57, 7'd33, 32'd0};//{'dest': 57, 'src': 33, 'op': 'move'}
@@ -2342,10 +2342,10 @@ module user_design(input_switches,input_buttons,input_socket,input_rs232_rx,inpu
     instructions[900] = {6'd8, 7'd36, 7'd34, 32'd11};//{'dest': 36, 'src': 34, 'srcb': 11, 'signed': False, 'op': '+'}
     instructions[901] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[902] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[903] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183867048, 'op': 'memory_read_request'}
+    instructions[903] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363831976, 'op': 'memory_read_request'}
     instructions[904] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[905] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183867048, 'op': 'memory_read_wait'}
-    instructions[906] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140276183867048, 'element_size': 2, 'op': 'memory_read'}
+    instructions[905] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363831976, 'op': 'memory_read_wait'}
+    instructions[906] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140350363831976, 'element_size': 2, 'op': 'memory_read'}
     instructions[907] = {6'd3, 7'd34, 7'd12, 32'd0};//{'dest': 34, 'src': 12, 'op': 'move'}
     instructions[908] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[909] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
@@ -2467,10 +2467,10 @@ module user_design(input_switches,input_buttons,input_socket,input_rs232_rx,inpu
     instructions[1025] = {6'd8, 7'd36, 7'd34, 32'd22};//{'dest': 36, 'src': 34, 'srcb': 22, 'signed': False, 'op': '+'}
     instructions[1026] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[1027] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[1028] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183886808, 'op': 'memory_read_request'}
+    instructions[1028] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363851736, 'op': 'memory_read_request'}
     instructions[1029] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[1030] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183886808, 'op': 'memory_read_wait'}
-    instructions[1031] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140276183886808, 'element_size': 2, 'op': 'memory_read'}
+    instructions[1030] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363851736, 'op': 'memory_read_wait'}
+    instructions[1031] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140350363851736, 'element_size': 2, 'op': 'memory_read'}
     instructions[1032] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[1033] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[1034] = {6'd23, 7'd32, 7'd33, 32'd71};//{'src': 33, 'right': 71, 'dest': 32, 'signed': False, 'op': '==', 'type': 'int', 'size': 2}
@@ -2483,10 +2483,10 @@ module user_design(input_switches,input_buttons,input_socket,input_rs232_rx,inpu
     instructions[1041] = {6'd8, 7'd36, 7'd34, 32'd22};//{'dest': 36, 'src': 34, 'srcb': 22, 'signed': False, 'op': '+'}
     instructions[1042] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[1043] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[1044] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183887096, 'op': 'memory_read_request'}
+    instructions[1044] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363852024, 'op': 'memory_read_request'}
     instructions[1045] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[1046] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183887096, 'op': 'memory_read_wait'}
-    instructions[1047] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140276183887096, 'element_size': 2, 'op': 'memory_read'}
+    instructions[1046] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363852024, 'op': 'memory_read_wait'}
+    instructions[1047] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140350363852024, 'element_size': 2, 'op': 'memory_read'}
     instructions[1048] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[1049] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[1050] = {6'd23, 7'd32, 7'd33, 32'd69};//{'src': 33, 'right': 69, 'dest': 32, 'signed': False, 'op': '==', 'type': 'int', 'size': 2}
@@ -2499,10 +2499,10 @@ module user_design(input_switches,input_buttons,input_socket,input_rs232_rx,inpu
     instructions[1057] = {6'd8, 7'd36, 7'd34, 32'd22};//{'dest': 36, 'src': 34, 'srcb': 22, 'signed': False, 'op': '+'}
     instructions[1058] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[1059] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[1060] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183887456, 'op': 'memory_read_request'}
+    instructions[1060] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363852384, 'op': 'memory_read_request'}
     instructions[1061] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[1062] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183887456, 'op': 'memory_read_wait'}
-    instructions[1063] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140276183887456, 'element_size': 2, 'op': 'memory_read'}
+    instructions[1062] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363852384, 'op': 'memory_read_wait'}
+    instructions[1063] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140350363852384, 'element_size': 2, 'op': 'memory_read'}
     instructions[1064] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[1065] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[1066] = {6'd23, 7'd32, 7'd33, 32'd84};//{'src': 33, 'right': 84, 'dest': 32, 'signed': False, 'op': '==', 'type': 'int', 'size': 2}
@@ -2515,10 +2515,10 @@ module user_design(input_switches,input_buttons,input_socket,input_rs232_rx,inpu
     instructions[1073] = {6'd8, 7'd36, 7'd34, 32'd22};//{'dest': 36, 'src': 34, 'srcb': 22, 'signed': False, 'op': '+'}
     instructions[1074] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[1075] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[1076] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183887816, 'op': 'memory_read_request'}
+    instructions[1076] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363852744, 'op': 'memory_read_request'}
     instructions[1077] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[1078] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183887816, 'op': 'memory_read_wait'}
-    instructions[1079] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140276183887816, 'element_size': 2, 'op': 'memory_read'}
+    instructions[1078] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363852744, 'op': 'memory_read_wait'}
+    instructions[1079] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140350363852744, 'element_size': 2, 'op': 'memory_read'}
     instructions[1080] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[1081] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[1082] = {6'd23, 7'd32, 7'd33, 32'd32};//{'src': 33, 'right': 32, 'dest': 32, 'signed': False, 'op': '==', 'type': 'int', 'size': 2}
@@ -2531,10 +2531,10 @@ module user_design(input_switches,input_buttons,input_socket,input_rs232_rx,inpu
     instructions[1089] = {6'd8, 7'd36, 7'd34, 32'd22};//{'dest': 36, 'src': 34, 'srcb': 22, 'signed': False, 'op': '+'}
     instructions[1090] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[1091] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[1092] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276184199536, 'op': 'memory_read_request'}
+    instructions[1092] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350364164464, 'op': 'memory_read_request'}
     instructions[1093] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[1094] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276184199536, 'op': 'memory_read_wait'}
-    instructions[1095] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140276184199536, 'element_size': 2, 'op': 'memory_read'}
+    instructions[1094] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350364164464, 'op': 'memory_read_wait'}
+    instructions[1095] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140350364164464, 'element_size': 2, 'op': 'memory_read'}
     instructions[1096] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[1097] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[1098] = {6'd23, 7'd32, 7'd33, 32'd47};//{'src': 33, 'right': 47, 'dest': 32, 'signed': False, 'op': '==', 'type': 'int', 'size': 2}
@@ -2547,10 +2547,10 @@ module user_design(input_switches,input_buttons,input_socket,input_rs232_rx,inpu
     instructions[1105] = {6'd8, 7'd36, 7'd34, 32'd22};//{'dest': 36, 'src': 34, 'srcb': 22, 'signed': False, 'op': '+'}
     instructions[1106] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[1107] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[1108] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183888744, 'op': 'memory_read_request'}
+    instructions[1108] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363853672, 'op': 'memory_read_request'}
     instructions[1109] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[1110] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183888744, 'op': 'memory_read_wait'}
-    instructions[1111] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140276183888744, 'element_size': 2, 'op': 'memory_read'}
+    instructions[1110] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363853672, 'op': 'memory_read_wait'}
+    instructions[1111] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140350363853672, 'element_size': 2, 'op': 'memory_read'}
     instructions[1112] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[1113] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[1114] = {6'd23, 7'd32, 7'd33, 32'd63};//{'src': 33, 'right': 63, 'dest': 32, 'signed': False, 'op': '==', 'type': 'int', 'size': 2}
@@ -2563,10 +2563,10 @@ module user_design(input_switches,input_buttons,input_socket,input_rs232_rx,inpu
     instructions[1121] = {6'd8, 7'd36, 7'd34, 32'd22};//{'dest': 36, 'src': 34, 'srcb': 22, 'signed': False, 'op': '+'}
     instructions[1122] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[1123] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[1124] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183889032, 'op': 'memory_read_request'}
+    instructions[1124] = {6'd9, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363853960, 'op': 'memory_read_request'}
     instructions[1125] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
-    instructions[1126] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140276183889032, 'op': 'memory_read_wait'}
-    instructions[1127] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140276183889032, 'element_size': 2, 'op': 'memory_read'}
+    instructions[1126] = {6'd10, 7'd0, 7'd36, 32'd0};//{'element_size': 2, 'src': 36, 'sequence': 140350363853960, 'op': 'memory_read_wait'}
+    instructions[1127] = {6'd11, 7'd33, 7'd36, 32'd0};//{'dest': 33, 'src': 36, 'sequence': 140350363853960, 'element_size': 2, 'op': 'memory_read'}
     instructions[1128] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[1129] = {6'd4, 7'd0, 7'd0, 32'd0};//{'op': 'nop'}
     instructions[1130] = {6'd23, 7'd32, 7'd33, 32'd32};//{'src': 33, 'right': 32, 'dest': 32, 'signed': False, 'op': '==', 'type': 'int', 'size': 2}

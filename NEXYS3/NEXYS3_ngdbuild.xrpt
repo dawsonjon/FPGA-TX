@@ -5,7 +5,7 @@
     The structure and the elements are likely to change over the next few releases.
     This means code written to parse this file will need to be revisited each subsequent release.-->
 
-  <application stringID="NgdBuild" timeStamp="Fri Apr  4 21:53:46 2014">
+  <application stringID="NgdBuild" timeStamp="Wed Jun 18 20:41:32 2014">
     <section stringID="User_Env">
       <table stringID="User_EnvVar">
         <column stringID="variable"/>
@@ -20,7 +20,7 @@
         </row>
         <row stringID="row" value="2">
           <item stringID="variable" value="PATH"/>
-          <item stringID="value" value="/media/storage/Xilinx/14.3/14.3/ISE_DS/ISE//bin/lin64:/media/storage/Xilinx/14.3/14.3/ISE_DS/ISE/bin/lin64:/home/media/Xilinx/14.3/14.3/ISE_DS/ISE/bin/lin64:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"/>
+          <item stringID="value" value="/media/storage/Xilinx/14.3/14.3/ISE_DS/ISE//bin/lin64:/media/storage/Xilinx/14.3/14.3/ISE_DS/ISE/bin/lin64:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"/>
         </row>
       </table>
       <item stringID="User_EnvOs" value="OS Information">
@@ -33,7 +33,7 @@
         <column stringID="speed"/>
         <row stringID="row" value="0">
           <item stringID="arch" value="AMD Phenom(tm) II X6 1055T Processor"/>
-          <item stringID="speed" value="2800.000 MHz"/>
+          <item stringID="speed" value="800.000 MHz"/>
         </row>
         <row stringID="row" value="1">
           <item stringID="arch" value="AMD Phenom(tm) II X6 1055T Processor"/>
@@ -68,7 +68,7 @@
         <item dataType="int" stringID="NGDBUILD_NUM_GND" value="1"/>
         <item dataType="int" stringID="NGDBUILD_NUM_IBUF" value="20"/>
         <item dataType="int" stringID="NGDBUILD_NUM_IBUFG" value="2"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_INV" value="30"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_INV" value="29"/>
         <item dataType="int" stringID="NGDBUILD_NUM_LUT1" value="56"/>
         <item dataType="int" stringID="NGDBUILD_NUM_LUT2" value="340"/>
         <item dataType="int" stringID="NGDBUILD_NUM_LUT3" value="316"/>
@@ -101,7 +101,7 @@
         <item dataType="int" stringID="NGDBUILD_NUM_GND" value="1"/>
         <item dataType="int" stringID="NGDBUILD_NUM_IBUF" value="20"/>
         <item dataType="int" stringID="NGDBUILD_NUM_IBUFG" value="3"/>
-        <item dataType="int" stringID="NGDBUILD_NUM_INV" value="30"/>
+        <item dataType="int" stringID="NGDBUILD_NUM_INV" value="29"/>
         <item dataType="int" stringID="NGDBUILD_NUM_LUT1" value="56"/>
         <item dataType="int" stringID="NGDBUILD_NUM_LUT2" value="340"/>
         <item dataType="int" stringID="NGDBUILD_NUM_LUT3" value="316"/>

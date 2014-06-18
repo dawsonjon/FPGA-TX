@@ -1,7 +1,7 @@
 Release 14.3 par P.40xd (lin64)
 Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
 
-jonathan-GA-MA770T-ES3::  Fri Apr 04 21:54:39 2014
+jonathan-GA-MA770T-ES3::  Wed Jun 18 20:42:26 2014
 
 par -w -ol std -intstyle xflow NEXYS3_map.ncd NEXYS3.ncd NEXYS3.pcf 
 
@@ -27,7 +27,7 @@ Slice Logic Utilization:
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                1
-  Number of Slice LUTs:                      2,571 out of   9,112   28%
+  Number of Slice LUTs:                      2,578 out of   9,112   28%
     Number used as logic:                    2,244 out of   9,112   24%
       Number using O6 output only:           1,736
       Number using O5 output only:              51
@@ -43,18 +43,18 @@ Slice Logic Utilization:
         Number using O6 output only:             4
         Number using O5 output only:             0
         Number using O5 and O6:                 21
-    Number used exclusively as route-thrus:     14
-      Number with same-slice register load:      9
+    Number used exclusively as route-thrus:     21
+      Number with same-slice register load:     16
       Number with same-slice carry load:         5
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   851 out of   2,278   37%
+  Number of occupied Slices:                   847 out of   2,278   37%
   Nummber of MUXCYs used:                      552 out of   4,556   12%
-  Number of LUT Flip Flop pairs used:        2,855
-    Number with an unused Flip Flop:         1,889 out of   2,855   66%
-    Number with an unused LUT:                 284 out of   2,855    9%
-    Number of fully used LUT-FF pairs:         682 out of   2,855   23%
+  Number of LUT Flip Flop pairs used:        2,860
+    Number with an unused Flip Flop:         1,900 out of   2,860   66%
+    Number with an unused LUT:                 282 out of   2,860    9%
+    Number of fully used LUT-FF pairs:         678 out of   2,860   23%
     Number of slice register sites lost
       to control set restrictions:               0 out of  18,224    0%
 
@@ -106,64 +106,64 @@ Router effort level (-rl):    Standard
 Starting initial Timing Analysis.  REAL time: 6 secs 
 Finished initial Timing Analysis.  REAL time: 6 secs 
 
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers114_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers116_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers117_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers112_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers5_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers115_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers116_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers8_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers110_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers112_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers9_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers119_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers8_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers11_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers10_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers111_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers113_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers110_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers4_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers117_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers118_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers114_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers6_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers7_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers10_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers11_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers118_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers9_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers3_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers2_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers6_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers5_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers11_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers3_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers2_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers4_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers10_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers13_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers12_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers19_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers16_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers6_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers18_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER2_RAMD_D1_O has no load.  PAR will not attempt to route this
    signal.
-WARNING:Par:288 - The signal ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER1_RAMD_D1_O has no load.  PAR will not attempt to route this
-   signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers4_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers7_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers8_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers15_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers10_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers17_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers19_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers21_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER1_RAMD_D1_O has no load.  PAR will not attempt to route this
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers20_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER1_RAMD_D1_O has no load.  PAR will not attempt to route this
    signal.
 WARNING:Par:288 - The signal ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER2_RAMD_D1_O has no load.  PAR will not attempt to route this
    signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers20_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers6_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER1_RAMD_D1_O has no load.  PAR will not attempt to route this
+   signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers3_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers5_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers9_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers13_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers12_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers11_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers14_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers16_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers17_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers15_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers2_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers8_RAMD_O has no load.  PAR will not attempt to route this signal.
 Starting Router
 
 
-Phase  1  : 15903 unrouted;      REAL time: 6 secs 
+Phase  1  : 15901 unrouted;      REAL time: 6 secs 
 
-Phase  2  : 14288 unrouted;      REAL time: 7 secs 
+Phase  2  : 14282 unrouted;      REAL time: 7 secs 
 
-Phase  3  : 6876 unrouted;      REAL time: 13 secs 
+Phase  3  : 6945 unrouted;      REAL time: 13 secs 
 
-Phase  4  : 6876 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 14 secs 
+Phase  4  : 6945 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 14 secs 
 
 Updating file: NEXYS3.ncd with current fully routed design.
 
@@ -197,11 +197,11 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|      INTERNAL_RXCLK |  BUFGMUX_X2Y3| No   |   45 |  0.060     |  0.906      |
+|      INTERNAL_RXCLK |  BUFGMUX_X2Y3| No   |   45 |  0.052     |  0.905      |
 +---------------------+--------------+------+------+------------+-------------+
-|            CLK_OUT1 |  BUFGMUX_X2Y2| No   |  360 |  0.065     |  0.911      |
+|            CLK_OUT1 |  BUFGMUX_X2Y2| No   |  359 |  0.066     |  0.912      |
 +---------------------+--------------+------+------+------------+-------------+
-|         TXCLK_BUFGP | BUFGMUX_X2Y12| No   |   31 |  0.059     |  0.910      |
+|         TXCLK_BUFGP | BUFGMUX_X2Y12| No   |   31 |  0.042     |  0.909      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -226,17 +226,17 @@ Asterisk (*) preceding a constraint indicates it was not met.
   TS_CLK = PERIOD TIMEGRP "CLK_IN" 10 ns HI | MINLOWPULSE |     4.660ns|     5.340ns|       0|           0
   GH 50% INPUT_JITTER 0.05 ns               |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
-  TIMEGRP "IN_GMII" OFFSET = IN 10 ns VALID | SETUP       |     8.907ns|     1.093ns|       0|           0
-   20 ns BEFORE COMP "RXCLK"                | HOLD        |     8.590ns|            |       0|           0
+  TIMEGRP "IN_GMII" OFFSET = IN 10 ns VALID | SETUP       |     9.361ns|     0.639ns|       0|           0
+   20 ns BEFORE COMP "RXCLK"                | HOLD        |     8.591ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  TS_clkdv = PERIOD TIMEGRP "clkdv" TS_CLK  | SETUP       |    10.362ns|     9.638ns|       0|           0
-  * 2 HIGH 50% INPUT_JITTER 0.05 ns         | HOLD        |     0.250ns|            |       0|           0
+  TS_clkdv = PERIOD TIMEGRP "clkdv" TS_CLK  | SETUP       |    10.167ns|     9.833ns|       0|           0
+  * 2 HIGH 50% INPUT_JITTER 0.05 ns         | HOLD        |     0.257ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
   TS_RXCLK = PERIOD TIMEGRP "RXCLK" 40 ns H | MINLOWPULSE |    24.000ns|    16.000ns|       0|           0
   IGH 50%                                   |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
-  TS_INTERNAL_RXCLK_BUF = PERIOD TIMEGRP "I | SETUP       |    34.131ns|     5.869ns|       0|           0
-  NTERNAL_RXCLK_BUF" TS_RXCLK PHASE         | HOLD        |     0.265ns|            |       0|           0
+  TS_INTERNAL_RXCLK_BUF = PERIOD TIMEGRP "I | SETUP       |    34.164ns|     5.836ns|       0|           0
+  NTERNAL_RXCLK_BUF" TS_RXCLK PHASE         | HOLD        |     0.262ns|            |       0|           0
    2.1875 ns HIGH 50%                       |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
 
@@ -251,8 +251,8 @@ Derived Constraints for TS_CLK
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_CLK                         |     10.000ns|      5.340ns|      4.819ns|            0|            0|            0|        50933|
-| TS_clkdv                      |     20.000ns|      9.638ns|          N/A|            0|            0|        50933|            0|
+|TS_CLK                         |     10.000ns|      5.340ns|      4.917ns|            0|            0|            0|        50933|
+| TS_clkdv                      |     20.000ns|      9.833ns|          N/A|            0|            0|        50933|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 Derived Constraints for TS_RXCLK
@@ -261,8 +261,8 @@ Derived Constraints for TS_RXCLK
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_RXCLK                       |     40.000ns|     16.000ns|      5.869ns|            0|            0|            0|         1792|
-| TS_INTERNAL_RXCLK_BUF         |     40.000ns|      5.869ns|          N/A|            0|            0|         1792|            0|
+|TS_RXCLK                       |     40.000ns|     16.000ns|      5.836ns|            0|            0|            0|         1792|
+| TS_INTERNAL_RXCLK_BUF         |     40.000ns|      5.836ns|          N/A|            0|            0|         1792|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 All constraints were met.
@@ -275,9 +275,9 @@ All signals are completely routed.
 WARNING:Par:283 - There are 44 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
 Total REAL time to PAR completion: 27 secs 
-Total CPU time to PAR completion: 27 secs 
+Total CPU time to PAR completion: 28 secs 
 
-Peak Memory Usage:  658 MB
+Peak Memory Usage:  657 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.

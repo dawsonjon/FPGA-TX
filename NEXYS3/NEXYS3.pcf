@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.40xd on Fri Apr 04 21:54:35 2014
+// Written by: Map P.40xd on Wed Jun 18 20:42:22 2014
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -747,18 +747,18 @@ TIMEGRP clkdv = BEL "NOT_LOCKED" BEL "INTERNAL_RST" BEL "GPIO_LEDS_0" BEL
         "USER_DESIGN_INST_1_Mram_instructions2_pins<11>" PIN
         "USER_DESIGN_INST_1_Mram_instructions1_pins<11>" PIN
         "USER_DESIGN_INST_1_Mram_instructions3_pins<11>" BEL
-        "Mshreg_INPUT_BUTTONS_2" BEL "INPUT_BUTTONS_2" BEL
-        "Mshreg_INPUT_BUTTONS_0" BEL "INPUT_BUTTONS_0" BEL
-        "Mshreg_INPUT_BUTTONS_1" BEL "INPUT_BUTTONS_1" BEL
-        "Mshreg_INPUT_SWITCHES_1" BEL "INPUT_SWITCHES_1" BEL
-        "Mshreg_INPUT_BUTTONS_3" BEL "INPUT_BUTTONS_3" BEL
-        "Mshreg_INPUT_SWITCHES_0" BEL "INPUT_SWITCHES_0" BEL
-        "Mshreg_INPUT_SWITCHES_4" BEL "INPUT_SWITCHES_4" BEL
         "Mshreg_INPUT_SWITCHES_2" BEL "INPUT_SWITCHES_2" BEL
-        "Mshreg_INPUT_SWITCHES_3" BEL "INPUT_SWITCHES_3" BEL
-        "Mshreg_INPUT_SWITCHES_7" BEL "INPUT_SWITCHES_7" BEL
+        "Mshreg_INPUT_SWITCHES_0" BEL "INPUT_SWITCHES_0" BEL
+        "Mshreg_INPUT_SWITCHES_1" BEL "INPUT_SWITCHES_1" BEL
         "Mshreg_INPUT_SWITCHES_5" BEL "INPUT_SWITCHES_5" BEL
+        "Mshreg_INPUT_SWITCHES_3" BEL "INPUT_SWITCHES_3" BEL
+        "Mshreg_INPUT_SWITCHES_4" BEL "INPUT_SWITCHES_4" BEL
+        "Mshreg_INPUT_BUTTONS_0" BEL "INPUT_BUTTONS_0" BEL
         "Mshreg_INPUT_SWITCHES_6" BEL "INPUT_SWITCHES_6" BEL
+        "Mshreg_INPUT_SWITCHES_7" BEL "INPUT_SWITCHES_7" BEL
+        "Mshreg_INPUT_BUTTONS_3" BEL "INPUT_BUTTONS_3" BEL
+        "Mshreg_INPUT_BUTTONS_1" BEL "INPUT_BUTTONS_1" BEL
+        "Mshreg_INPUT_BUTTONS_2" BEL "INPUT_BUTTONS_2" BEL
         "ethernet_inst_1/Mshreg_RX_BUFFER_BUSY_SYNC_31" BEL
         "ethernet_inst_1/RX_BUFFER_BUSY_SYNC_31" BEL
         "ethernet_inst_1/Mshreg_DONE_SYNC" BEL "ethernet_inst_1/DONE_SYNC" BEL

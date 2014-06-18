@@ -5,7 +5,7 @@ Loading device for application Rf_Device from file '6slx16.nph' in environment
    "NEXYS3" is an NCD, version 3.2, device xc6slx16, package csg324, speed -3
 Opened constraints file NEXYS3.pcf.
 
-Fri Apr  4 21:55:21 2014
+Wed Jun 18 20:43:08 2014
 
 /media/storage/Xilinx/14.3/14.3/ISE_DS/ISE/bin/lin64/unwrapped/bitgen -l -w -m -intstyle xflow NEXYS3.ncd 
 
@@ -151,7 +151,13 @@ non-EXTERN block <BUFG> in CLKFB path.
 Now executing Pdr_LogDcm_DeskewExtern::DoCheck for block<dcm_sp_inst> found NO
 extern 
 WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers114_RAMD_O> is incomplete. The signal does
+   <USER_DESIGN_INST_1/Mram_registers116_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers117_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers112_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <USER_DESIGN_INST_1/Mram_registers5_RAMD_O> is incomplete. The signal does
@@ -160,22 +166,16 @@ WARNING:PhysDesignRules:367 - The signal
    <USER_DESIGN_INST_1/Mram_registers115_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers116_RAMD_O> is incomplete. The signal does
+   <USER_DESIGN_INST_1/Mram_registers119_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <USER_DESIGN_INST_1/Mram_registers8_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers110_RAMD_O> is incomplete. The signal does
+   <USER_DESIGN_INST_1/Mram_registers11_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers112_RAMD_O> is incomplete. The signal does
-   not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers9_RAMD_O> is incomplete. The signal does
-   not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers119_RAMD_O> is incomplete. The signal does
+   <USER_DESIGN_INST_1/Mram_registers10_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <USER_DESIGN_INST_1/Mram_registers111_RAMD_O> is incomplete. The signal does
@@ -184,22 +184,25 @@ WARNING:PhysDesignRules:367 - The signal
    <USER_DESIGN_INST_1/Mram_registers113_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers110_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
    <USER_DESIGN_INST_1/Mram_registers4_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers117_RAMD_O> is incomplete. The signal does
+   <USER_DESIGN_INST_1/Mram_registers114_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers118_RAMD_O> is incomplete. The signal does
+   <USER_DESIGN_INST_1/Mram_registers6_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <USER_DESIGN_INST_1/Mram_registers7_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers10_RAMD_O> is incomplete. The signal does
+   <USER_DESIGN_INST_1/Mram_registers118_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers11_RAMD_O> is incomplete. The signal does
+   <USER_DESIGN_INST_1/Mram_registers9_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <USER_DESIGN_INST_1/Mram_registers3_RAMD_O> is incomplete. The signal does
@@ -207,60 +210,57 @@ WARNING:PhysDesignRules:367 - The signal
 WARNING:PhysDesignRules:367 - The signal
    <USER_DESIGN_INST_1/Mram_registers2_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers6_RAMD_O> is incomplete. The signal does
-   not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers5_RAMD_O>
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers16_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers11_RAMD_O>
-   is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers3_RAMD_O>
-   is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers2_RAMD_O>
-   is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers4_RAMD_O>
-   is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers10_RAMD_O>
-   is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers13_RAMD_O>
-   is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers12_RAMD_O>
-   is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers19_RAMD_O>
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers6_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers18_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER2_RAMD_D1_O> is incomplete. The
    signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER1_RAMD_D1_O> is incomplete. The
-   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers4_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers7_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers8_RAMD_O>
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers10_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers15_RAMD_O>
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers17_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers19_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers21_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers20_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER1_RAMD_D1_O> is incomplete. The
+   <ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER1_RAMD_D1_O> is incomplete. The
    signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER2_RAMD_D1_O> is incomplete. The
    signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers20_RAMD_O>
+WARNING:PhysDesignRules:367 - The signal
+   <ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER1_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers3_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers6_RAMD_O>
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers5_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers9_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers13_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers12_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers11_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers14_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers16_RAMD_O>
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers15_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers17_RAMD_O>
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers2_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers8_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:2410 - This design is using one or more 9K Block RAMs
    (RAMB8BWER).  9K Block RAM initialization data, both user defined and

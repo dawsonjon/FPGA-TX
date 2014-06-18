@@ -145,8 +145,8 @@ INFO:Xst:3210 - "/media/storage/Projects/Chips-Demo/source/nexys3.vhd" line 368:
     Found 4-bit register for signal <INPUT_BUTTONS>.
     WARNING:Xst:2404 -  FFs/Latches <OUTPUT_LEDS_ACK<0:0>> (without init value) have a constant value of 1 in block <NEXYS3>.
     WARNING:Xst:2404 -  FFs/Latches <INPUT_SWITCHES_STB<0:0>> (without init value) have a constant value of 1 in block <NEXYS3>.
-    WARNING:Xst:2404 -  FFs/Latches <INPUT_SWITCHES<15:8>> (without init value) have a constant value of 0 in block <NEXYS3>.
     WARNING:Xst:2404 -  FFs/Latches <INPUT_BUTTONS_STB<0:0>> (without init value) have a constant value of 1 in block <NEXYS3>.
+    WARNING:Xst:2404 -  FFs/Latches <INPUT_SWITCHES<15:8>> (without init value) have a constant value of 0 in block <NEXYS3>.
     WARNING:Xst:2404 -  FFs/Latches <INPUT_BUTTONS<15:4>> (without init value) have a constant value of 0 in block <NEXYS3>.
     Summary:
 	inferred  34 D-type flip-flop(s).
@@ -1335,10 +1335,6 @@ FlipFlop ethernet_inst_1/TX_PHY_STATE_FSM_FFd1 has been replicated 1 time(s)
 Final Macro Processing ...
 
 Processing Unit <NEXYS3> :
-	Found 2-bit shift register for signal <INPUT_BUTTONS_0>.
-	Found 2-bit shift register for signal <INPUT_BUTTONS_1>.
-	Found 2-bit shift register for signal <INPUT_BUTTONS_2>.
-	Found 2-bit shift register for signal <INPUT_BUTTONS_3>.
 	Found 2-bit shift register for signal <INPUT_SWITCHES_0>.
 	Found 2-bit shift register for signal <INPUT_SWITCHES_1>.
 	Found 2-bit shift register for signal <INPUT_SWITCHES_2>.
@@ -1347,6 +1343,10 @@ Processing Unit <NEXYS3> :
 	Found 2-bit shift register for signal <INPUT_SWITCHES_5>.
 	Found 2-bit shift register for signal <INPUT_SWITCHES_6>.
 	Found 2-bit shift register for signal <INPUT_SWITCHES_7>.
+	Found 2-bit shift register for signal <INPUT_BUTTONS_0>.
+	Found 2-bit shift register for signal <INPUT_BUTTONS_1>.
+	Found 2-bit shift register for signal <INPUT_BUTTONS_2>.
+	Found 2-bit shift register for signal <INPUT_BUTTONS_3>.
 	Found 2-bit shift register for signal <ethernet_inst_1/DONE_SYNC>.
 	Found 2-bit shift register for signal <ethernet_inst_1/GO_SYNC>.
 	Found 2-bit shift register for signal <ethernet_inst_1/RX_BUFFER_BUSY_SYNC_31>.
@@ -1413,9 +1413,9 @@ Top Level Output File Name         : NEXYS3.ngc
 
 Primitive and Black Box Usage:
 ------------------------------
-# BELS                             : 3609
+# BELS                             : 3608
 #      GND                         : 1
-#      INV                         : 30
+#      INV                         : 29
 #      LUT1                        : 56
 #      LUT2                        : 340
 #      LUT3                        : 316
@@ -1461,17 +1461,17 @@ Selected Device : 6slx16csg324-3
 
 Slice Logic Utilization: 
  Number of Slice Registers:            1047  out of  18224     5%  
- Number of Slice LUTs:                 3103  out of   9112    34%  
-    Number used as Logic:              2673  out of   9112    29%  
+ Number of Slice LUTs:                 3102  out of   9112    34%  
+    Number used as Logic:              2672  out of   9112    29%  
     Number used as Memory:              430  out of   2176    19%  
        Number used as RAM:              384
        Number used as SRL:               46
 
 Slice Logic Distribution: 
- Number of LUT Flip Flop pairs used:   3392
-   Number with an unused Flip Flop:    2345  out of   3392    69%  
-   Number with an unused LUT:           289  out of   3392     8%  
-   Number of fully used LUT-FF pairs:   758  out of   3392    22%  
+ Number of LUT Flip Flop pairs used:   3391
+   Number with an unused Flip Flop:    2344  out of   3391    69%  
+   Number with an unused LUT:           289  out of   3391     8%  
+   Number of fully used LUT-FF pairs:   758  out of   3391    22%  
    Number of unique control sets:        74
 
 IO Utilization: 
@@ -1717,12 +1717,12 @@ TXCLK          |    5.119|         |         |         |
 
 
 Total REAL time to Xst completion: 34.00 secs
-Total CPU time to Xst completion: 33.85 secs
+Total CPU time to Xst completion: 34.26 secs
  
 --> 
 
 
-Total memory usage is 445736 kilobytes
+Total memory usage is 446076 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   96 (   0 filtered)

@@ -115,8 +115,8 @@ INFO:Xst:3210 - "/media/storage/Projects/Chips-Demo/source/nexys3.vhd" line 368:
     Found 4-bit register for signal <INPUT_BUTTONS>.
     WARNING:Xst:2404 -  FFs/Latches <OUTPUT_LEDS_ACK<0:0>> (without init value) have a constant value of 1 in block <NEXYS3>.
     WARNING:Xst:2404 -  FFs/Latches <INPUT_SWITCHES_STB<0:0>> (without init value) have a constant value of 1 in block <NEXYS3>.
-    WARNING:Xst:2404 -  FFs/Latches <INPUT_SWITCHES<15:8>> (without init value) have a constant value of 0 in block <NEXYS3>.
     WARNING:Xst:2404 -  FFs/Latches <INPUT_BUTTONS_STB<0:0>> (without init value) have a constant value of 1 in block <NEXYS3>.
+    WARNING:Xst:2404 -  FFs/Latches <INPUT_SWITCHES<15:8>> (without init value) have a constant value of 0 in block <NEXYS3>.
     WARNING:Xst:2404 -  FFs/Latches <INPUT_BUTTONS<15:4>> (without init value) have a constant value of 0 in block <NEXYS3>.
     Summary:
 	inferred  34 D-type flip-flop(s).
@@ -1305,10 +1305,6 @@ FlipFlop ethernet_inst_1/TX_PHY_STATE_FSM_FFd1 has been replicated 1 time(s)
 Final Macro Processing ...
 
 Processing Unit <NEXYS3> :
-	Found 2-bit shift register for signal <INPUT_BUTTONS_0>.
-	Found 2-bit shift register for signal <INPUT_BUTTONS_1>.
-	Found 2-bit shift register for signal <INPUT_BUTTONS_2>.
-	Found 2-bit shift register for signal <INPUT_BUTTONS_3>.
 	Found 2-bit shift register for signal <INPUT_SWITCHES_0>.
 	Found 2-bit shift register for signal <INPUT_SWITCHES_1>.
 	Found 2-bit shift register for signal <INPUT_SWITCHES_2>.
@@ -1317,6 +1313,10 @@ Processing Unit <NEXYS3> :
 	Found 2-bit shift register for signal <INPUT_SWITCHES_5>.
 	Found 2-bit shift register for signal <INPUT_SWITCHES_6>.
 	Found 2-bit shift register for signal <INPUT_SWITCHES_7>.
+	Found 2-bit shift register for signal <INPUT_BUTTONS_0>.
+	Found 2-bit shift register for signal <INPUT_BUTTONS_1>.
+	Found 2-bit shift register for signal <INPUT_BUTTONS_2>.
+	Found 2-bit shift register for signal <INPUT_BUTTONS_3>.
 	Found 2-bit shift register for signal <ethernet_inst_1/DONE_SYNC>.
 	Found 2-bit shift register for signal <ethernet_inst_1/GO_SYNC>.
 	Found 2-bit shift register for signal <ethernet_inst_1/RX_BUFFER_BUSY_SYNC_31>.
@@ -1500,22 +1500,22 @@ Phase 8.5  Local Placement Optimization (Checksum:98e27a34) REAL time: 15 secs
 Phase 9.8  Global Placement
 ................................
 ........................
-..................................
-.............................................................................
+.........................................
 .....................
-Phase 9.8  Global Placement (Checksum:f80e0ee1) REAL time: 39 secs 
+....................
+Phase 9.8  Global Placement (Checksum:10efeecd) REAL time: 40 secs 
 
 Phase 10.5  Local Placement Optimization
-Phase 10.5  Local Placement Optimization (Checksum:f80e0ee1) REAL time: 39 secs 
+Phase 10.5  Local Placement Optimization (Checksum:10efeecd) REAL time: 40 secs 
 
 Phase 11.18  Placement Optimization
-Phase 11.18  Placement Optimization (Checksum:1d37305d) REAL time: 43 secs 
+Phase 11.18  Placement Optimization (Checksum:72dd321) REAL time: 44 secs 
 
 Phase 12.5  Local Placement Optimization
-Phase 12.5  Local Placement Optimization (Checksum:1d37305d) REAL time: 43 secs 
+Phase 12.5  Local Placement Optimization (Checksum:72dd321) REAL time: 44 secs 
 
 Phase 13.34  Placement Validation
-Phase 13.34  Placement Validation (Checksum:3cb428cc) REAL time: 44 secs 
+Phase 13.34  Placement Validation (Checksum:3e17dff8) REAL time: 44 secs 
 
 Total REAL time to Placer completion: 44 secs 
 Total CPU  time to Placer completion: 44 secs 
@@ -1549,7 +1549,7 @@ Slice Logic Utilization:
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                1
-  Number of Slice LUTs:                      2,571 out of   9,112   28%
+  Number of Slice LUTs:                      2,578 out of   9,112   28%
     Number used as logic:                    2,244 out of   9,112   24%
       Number using O6 output only:           1,736
       Number using O5 output only:              51
@@ -1565,18 +1565,18 @@ Slice Logic Utilization:
         Number using O6 output only:             4
         Number using O5 output only:             0
         Number using O5 and O6:                 21
-    Number used exclusively as route-thrus:     14
-      Number with same-slice register load:      9
+    Number used exclusively as route-thrus:     21
+      Number with same-slice register load:     16
       Number with same-slice carry load:         5
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   851 out of   2,278   37%
+  Number of occupied Slices:                   847 out of   2,278   37%
   Nummber of MUXCYs used:                      552 out of   4,556   12%
-  Number of LUT Flip Flop pairs used:        2,855
-    Number with an unused Flip Flop:         1,889 out of   2,855   66%
-    Number with an unused LUT:                 284 out of   2,855    9%
-    Number of fully used LUT-FF pairs:         682 out of   2,855   23%
+  Number of LUT Flip Flop pairs used:        2,860
+    Number with an unused Flip Flop:         1,900 out of   2,860   66%
+    Number with an unused LUT:                 282 out of   2,860    9%
+    Number of fully used LUT-FF pairs:         678 out of   2,860   23%
     Number of unique control sets:              81
     Number of slice register sites lost
       to control set restrictions:             309 out of  18,224    1%
@@ -1624,9 +1624,9 @@ Specific Feature Utilization:
 
 Average Fanout of Non-Clock Nets:                4.27
 
-Peak Memory Usage:  715 MB
-Total REAL time to MAP completion:  46 secs 
-Total CPU time to MAP completion:   46 secs 
+Peak Memory Usage:  717 MB
+Total REAL time to MAP completion:  47 secs 
+Total CPU time to MAP completion:   47 secs 
 
 Mapping completed.
 See MAP report file "NEXYS3_map.mrp" for details.
@@ -1661,7 +1661,7 @@ Slice Logic Utilization:
     Number used as Latches:                      0
     Number used as Latch-thrus:                  0
     Number used as AND/OR logics:                1
-  Number of Slice LUTs:                      2,571 out of   9,112   28%
+  Number of Slice LUTs:                      2,578 out of   9,112   28%
     Number used as logic:                    2,244 out of   9,112   24%
       Number using O6 output only:           1,736
       Number using O5 output only:              51
@@ -1677,18 +1677,18 @@ Slice Logic Utilization:
         Number using O6 output only:             4
         Number using O5 output only:             0
         Number using O5 and O6:                 21
-    Number used exclusively as route-thrus:     14
-      Number with same-slice register load:      9
+    Number used exclusively as route-thrus:     21
+      Number with same-slice register load:     16
       Number with same-slice carry load:         5
       Number with other load:                    0
 
 Slice Logic Distribution:
-  Number of occupied Slices:                   851 out of   2,278   37%
+  Number of occupied Slices:                   847 out of   2,278   37%
   Nummber of MUXCYs used:                      552 out of   4,556   12%
-  Number of LUT Flip Flop pairs used:        2,855
-    Number with an unused Flip Flop:         1,889 out of   2,855   66%
-    Number with an unused LUT:                 284 out of   2,855    9%
-    Number of fully used LUT-FF pairs:         682 out of   2,855   23%
+  Number of LUT Flip Flop pairs used:        2,860
+    Number with an unused Flip Flop:         1,900 out of   2,860   66%
+    Number with an unused LUT:                 282 out of   2,860    9%
+    Number of fully used LUT-FF pairs:         678 out of   2,860   23%
     Number of slice register sites lost
       to control set restrictions:               0 out of  18,224    0%
 
@@ -1740,64 +1740,64 @@ Router effort level (-rl):    Standard
 Starting initial Timing Analysis.  REAL time: 6 secs 
 Finished initial Timing Analysis.  REAL time: 6 secs 
 
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers114_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers116_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers117_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers112_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers5_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers115_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers116_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers8_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers110_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers112_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers9_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers119_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers8_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers11_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers10_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers111_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers113_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers110_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers4_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers117_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers118_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers114_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers6_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers7_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers10_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers11_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers118_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers9_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers3_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers2_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal USER_DESIGN_INST_1/Mram_registers6_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers5_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers11_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers3_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers2_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers4_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers10_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers13_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers12_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers19_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers16_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers6_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers18_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER2_RAMD_D1_O has no load.  PAR will not attempt to route this
    signal.
-WARNING:Par:288 - The signal ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER1_RAMD_D1_O has no load.  PAR will not attempt to route this
-   signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers4_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers7_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers8_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers15_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers10_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers17_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers19_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers21_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER1_RAMD_D1_O has no load.  PAR will not attempt to route this
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers20_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER1_RAMD_D1_O has no load.  PAR will not attempt to route this
    signal.
 WARNING:Par:288 - The signal ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER2_RAMD_D1_O has no load.  PAR will not attempt to route this
    signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers20_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers6_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER1_RAMD_D1_O has no load.  PAR will not attempt to route this
+   signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers3_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers5_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers9_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers13_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers12_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers11_RAMD_O has no load.  PAR will not attempt to route this signal.
 WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers14_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers16_RAMD_O has no load.  PAR will not attempt to route this signal.
-WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers17_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers15_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers2_RAMD_O has no load.  PAR will not attempt to route this signal.
+WARNING:Par:288 - The signal SERVER_INST_1/Mram_registers8_RAMD_O has no load.  PAR will not attempt to route this signal.
 Starting Router
 
 
-Phase  1  : 15903 unrouted;      REAL time: 6 secs 
+Phase  1  : 15901 unrouted;      REAL time: 6 secs 
 
-Phase  2  : 14288 unrouted;      REAL time: 7 secs 
+Phase  2  : 14282 unrouted;      REAL time: 7 secs 
 
-Phase  3  : 6876 unrouted;      REAL time: 13 secs 
+Phase  3  : 6945 unrouted;      REAL time: 13 secs 
 
-Phase  4  : 6876 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 14 secs 
+Phase  4  : 6945 unrouted; (Setup:0, Hold:0, Component Switching Limit:0)     REAL time: 14 secs 
 
 Updating file: NEXYS3.ncd with current fully routed design.
 
@@ -1831,11 +1831,11 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|      INTERNAL_RXCLK |  BUFGMUX_X2Y3| No   |   45 |  0.060     |  0.906      |
+|      INTERNAL_RXCLK |  BUFGMUX_X2Y3| No   |   45 |  0.052     |  0.905      |
 +---------------------+--------------+------+------+------------+-------------+
-|            CLK_OUT1 |  BUFGMUX_X2Y2| No   |  360 |  0.065     |  0.911      |
+|            CLK_OUT1 |  BUFGMUX_X2Y2| No   |  359 |  0.066     |  0.912      |
 +---------------------+--------------+------+------+------------+-------------+
-|         TXCLK_BUFGP | BUFGMUX_X2Y12| No   |   31 |  0.059     |  0.910      |
+|         TXCLK_BUFGP | BUFGMUX_X2Y12| No   |   31 |  0.042     |  0.909      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -1860,17 +1860,17 @@ Asterisk (*) preceding a constraint indicates it was not met.
   TS_CLK = PERIOD TIMEGRP "CLK_IN" 10 ns HI | MINLOWPULSE |     4.660ns|     5.340ns|       0|           0
   GH 50% INPUT_JITTER 0.05 ns               |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
-  TIMEGRP "IN_GMII" OFFSET = IN 10 ns VALID | SETUP       |     8.907ns|     1.093ns|       0|           0
-   20 ns BEFORE COMP "RXCLK"                | HOLD        |     8.590ns|            |       0|           0
+  TIMEGRP "IN_GMII" OFFSET = IN 10 ns VALID | SETUP       |     9.361ns|     0.639ns|       0|           0
+   20 ns BEFORE COMP "RXCLK"                | HOLD        |     8.591ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  TS_clkdv = PERIOD TIMEGRP "clkdv" TS_CLK  | SETUP       |    10.362ns|     9.638ns|       0|           0
-  * 2 HIGH 50% INPUT_JITTER 0.05 ns         | HOLD        |     0.250ns|            |       0|           0
+  TS_clkdv = PERIOD TIMEGRP "clkdv" TS_CLK  | SETUP       |    10.167ns|     9.833ns|       0|           0
+  * 2 HIGH 50% INPUT_JITTER 0.05 ns         | HOLD        |     0.257ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
   TS_RXCLK = PERIOD TIMEGRP "RXCLK" 40 ns H | MINLOWPULSE |    24.000ns|    16.000ns|       0|           0
   IGH 50%                                   |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
-  TS_INTERNAL_RXCLK_BUF = PERIOD TIMEGRP "I | SETUP       |    34.131ns|     5.869ns|       0|           0
-  NTERNAL_RXCLK_BUF" TS_RXCLK PHASE         | HOLD        |     0.265ns|            |       0|           0
+  TS_INTERNAL_RXCLK_BUF = PERIOD TIMEGRP "I | SETUP       |    34.164ns|     5.836ns|       0|           0
+  NTERNAL_RXCLK_BUF" TS_RXCLK PHASE         | HOLD        |     0.262ns|            |       0|           0
    2.1875 ns HIGH 50%                       |             |            |            |        |            
 ----------------------------------------------------------------------------------------------------------
 
@@ -1885,8 +1885,8 @@ Derived Constraints for TS_CLK
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_CLK                         |     10.000ns|      5.340ns|      4.819ns|            0|            0|            0|        50933|
-| TS_clkdv                      |     20.000ns|      9.638ns|          N/A|            0|            0|        50933|            0|
+|TS_CLK                         |     10.000ns|      5.340ns|      4.917ns|            0|            0|            0|        50933|
+| TS_clkdv                      |     20.000ns|      9.833ns|          N/A|            0|            0|        50933|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 Derived Constraints for TS_RXCLK
@@ -1895,8 +1895,8 @@ Derived Constraints for TS_RXCLK
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_RXCLK                       |     40.000ns|     16.000ns|      5.869ns|            0|            0|            0|         1792|
-| TS_INTERNAL_RXCLK_BUF         |     40.000ns|      5.869ns|          N/A|            0|            0|         1792|            0|
+|TS_RXCLK                       |     40.000ns|     16.000ns|      5.836ns|            0|            0|            0|         1792|
+| TS_INTERNAL_RXCLK_BUF         |     40.000ns|      5.836ns|          N/A|            0|            0|         1792|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 All constraints were met.
@@ -1909,9 +1909,9 @@ All signals are completely routed.
 WARNING:Par:283 - There are 44 loadless signals in this design. This design will cause Bitgen to issue DRC warnings.
 
 Total REAL time to PAR completion: 27 secs 
-Total CPU time to PAR completion: 27 secs 
+Total CPU time to PAR completion: 28 secs 
 
-Peak Memory Usage:  658 MB
+Peak Memory Usage:  657 MB
 
 Placer: Placement generated during map.
 Routing: Completed - No errors found.
@@ -1937,7 +1937,7 @@ Loading device for application Rf_Device from file '6slx16.nph' in environment
 /media/storage/Xilinx/14.3/14.3/ISE_DS/ISE/.
    "NEXYS3" is an NCD, version 3.2, device xc6slx16, package csg324, speed -3
 
-Analysis completed Fri Apr  4 21:55:15 2014
+Analysis completed Wed Jun 18 20:43:02 2014
 --------------------------------------------------------------------------------
 
 Generating Report ...
@@ -1956,7 +1956,13 @@ INFO:Bitgen:341 - This design is using one or more 9K Block RAMs (RAMB8BWER).
    special bit stream format.  For more information, please reference Xilinx
    Answer Record 39999.
 WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers114_RAMD_O> is incomplete. The signal does
+   <USER_DESIGN_INST_1/Mram_registers116_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers117_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers112_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <USER_DESIGN_INST_1/Mram_registers5_RAMD_O> is incomplete. The signal does
@@ -1965,22 +1971,16 @@ WARNING:PhysDesignRules:367 - The signal
    <USER_DESIGN_INST_1/Mram_registers115_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers116_RAMD_O> is incomplete. The signal does
+   <USER_DESIGN_INST_1/Mram_registers119_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <USER_DESIGN_INST_1/Mram_registers8_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers110_RAMD_O> is incomplete. The signal does
+   <USER_DESIGN_INST_1/Mram_registers11_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers112_RAMD_O> is incomplete. The signal does
-   not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers9_RAMD_O> is incomplete. The signal does
-   not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers119_RAMD_O> is incomplete. The signal does
+   <USER_DESIGN_INST_1/Mram_registers10_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <USER_DESIGN_INST_1/Mram_registers111_RAMD_O> is incomplete. The signal does
@@ -1989,22 +1989,25 @@ WARNING:PhysDesignRules:367 - The signal
    <USER_DESIGN_INST_1/Mram_registers113_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/Mram_registers110_RAMD_O> is incomplete. The signal does
+   not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
    <USER_DESIGN_INST_1/Mram_registers4_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers117_RAMD_O> is incomplete. The signal does
+   <USER_DESIGN_INST_1/Mram_registers114_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers118_RAMD_O> is incomplete. The signal does
+   <USER_DESIGN_INST_1/Mram_registers6_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <USER_DESIGN_INST_1/Mram_registers7_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers10_RAMD_O> is incomplete. The signal does
+   <USER_DESIGN_INST_1/Mram_registers118_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers11_RAMD_O> is incomplete. The signal does
+   <USER_DESIGN_INST_1/Mram_registers9_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <USER_DESIGN_INST_1/Mram_registers3_RAMD_O> is incomplete. The signal does
@@ -2012,60 +2015,57 @@ WARNING:PhysDesignRules:367 - The signal
 WARNING:PhysDesignRules:367 - The signal
    <USER_DESIGN_INST_1/Mram_registers2_RAMD_O> is incomplete. The signal does
    not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <USER_DESIGN_INST_1/Mram_registers6_RAMD_O> is incomplete. The signal does
-   not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers5_RAMD_O>
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers16_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers11_RAMD_O>
-   is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers3_RAMD_O>
-   is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers2_RAMD_O>
-   is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers4_RAMD_O>
-   is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers10_RAMD_O>
-   is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers13_RAMD_O>
-   is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers12_RAMD_O>
-   is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers19_RAMD_O>
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers6_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers18_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER2_RAMD_D1_O> is incomplete. The
    signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal
-   <ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER1_RAMD_D1_O> is incomplete. The
-   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers4_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers7_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers8_RAMD_O>
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers10_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers15_RAMD_O>
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers17_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers19_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers21_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers20_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
-   <ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER1_RAMD_D1_O> is incomplete. The
+   <ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER1_RAMD_D1_O> is incomplete. The
    signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal
    <ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER2_RAMD_D1_O> is incomplete. The
    signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers20_RAMD_O>
+WARNING:PhysDesignRules:367 - The signal
+   <ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER1_RAMD_D1_O> is incomplete. The
+   signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers3_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers6_RAMD_O>
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers5_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers9_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers13_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers12_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers11_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers14_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers16_RAMD_O>
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers15_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
-WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers17_RAMD_O>
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers2_RAMD_O>
+   is incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal <SERVER_INST_1/Mram_registers8_RAMD_O>
    is incomplete. The signal does not drive any load pins in the design.
 WARNING:PhysDesignRules:2410 - This design is using one or more 9K Block RAMs
    (RAMB8BWER).  9K Block RAM initialization data, both user defined and
