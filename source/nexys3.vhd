@@ -521,7 +521,7 @@ begin
    -- Unused pin, tie low
     DSSEN                 => '0');
 
-  RST_INV <= not RST;
+  RST_INV <= RST;
 
 
 
