@@ -1,9 +1,0 @@
-run
--ifn "/media/storage/Projects/Chips-Demo/NEXYS3/NEXYS3.prj"
--ifmt mixed
--ofn NEXYS3
--ofmt ngc
--top NEXYS3
--p XC6Slx16-CSG324
--opt_level 1
--opt_mode SPEED

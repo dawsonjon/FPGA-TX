@@ -1,8 +1,0 @@
-INTSTYLE=xflow
-INFILE=/media/storage/Projects/Chips-Demo/NEXYS3/NEXYS3.ncd
-OUTFILE=/media/storage/Projects/Chips-Demo/NEXYS3/NEXYS3.bit
-FAMILY=Spartan6
-PART=xc6slx16-3csg324
-WORKINGDIR=/media/storage/Projects/Chips-Demo/NEXYS3
-LICENSE=WebPack
-USER_INFO=176529646_206660144_0_111
