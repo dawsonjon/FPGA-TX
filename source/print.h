@@ -28,18 +28,15 @@ void print_string(unsigned string[]){
 
 //Print an unsigned int to stdout in hex format
 void print_uhex(unsigned uhex){
+    unsigned hexchars[] = "0123456789abcdef";
 	unsigned digit_3 = (uhex >> 12) & 0xf;
 	unsigned digit_2 = (uhex >> 8) & 0xf;
 	unsigned digit_1 = (uhex >> 4) & 0xf;
 	unsigned digit_0 = uhex & 0xf;
-	if(digit_3 < 9) stdout_put_char(digit_3 | 0x30);
-	else stdout_put_char(digit_3 + 87);
-	if(digit_2 < 9) stdout_put_char(digit_2 | 0x30);
-	else stdout_put_char(digit_2 + 87);
-	if(digit_1 < 9) stdout_put_char(digit_1 | 0x30);
-	else stdout_put_char(digit_1 + 87);
-	if(digit_0 < 9) stdout_put_char(digit_0 | 0x30);
-	else stdout_put_char(digit_0 + 87);
+    stdout_put_char(hexchars[digit_3]);
+    stdout_put_char(hexchars[digit_2]);
+    stdout_put_char(hexchars[digit_1]);
+    stdout_put_char(hexchars[digit_0]);
 }
 
 //Print an unsigned int to stdout in decimal format

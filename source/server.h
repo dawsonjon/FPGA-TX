@@ -12,7 +12,6 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
-
 ////////////////////////////////////////////////////////////////////////////////
 // TCP-IP User Settings
 //
@@ -77,7 +76,7 @@ unsigned calc_ack(unsigned ack[], unsigned seq[], unsigned length){
 	unsigned return_value = 0;
 	new_ack_0 = seq[0] + length;
 	new_ack_1 = seq[1];
-	if(new_ack_0 < length) new_ack_1 = new_ack_1 + 1;
+	if(new_ack_0 > 0xffffu) new_ack_1 = new_ack_1 + 1;
 
 	//Is this data we have allready acknowledged?
 	if((new_ack_0 != ack[0]) || (new_ack_1 != ack[1])){
