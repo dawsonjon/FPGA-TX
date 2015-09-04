@@ -7,7 +7,7 @@
 sudo ifconfig eth0 192.168.1.0 netmask 255.255.255.0
 
 #Manualy configure hardware address of dev board (not requires)
-#sudo arp -s 192.168.1.1 hw_addr 00:01:02:03:04:05
+sudo arp -s 192.168.1.1 hw_addr 00:01:02:03:04:05
 
 #turn off window scaling and timestamps (not implemented)
 sudo sysctl -w net.ipv4.tcp_window_scaling=0

@@ -1,0 +1,8 @@
+INTSTYLE=xflow
+INFILE=/media/storage/Projects/Chips-Demo/synthesis/bsp.ncd
+OUTFILE=/media/storage/Projects/Chips-Demo/synthesis/bsp.bit
+FAMILY=Spartan6
+PART=xc6slx45-3csg324
+WORKINGDIR=/media/storage/Projects/Chips-Demo/synthesis
+LICENSE=WebPack
+USER_INFO=176529646_206660144_0_111
