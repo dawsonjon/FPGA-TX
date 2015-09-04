@@ -92,10 +92,20 @@ void process_arp_request(){
         /*send 20 bytes of padding to give 64 byte packet*/
         for(i=0; i<21; i++) fputc(0, ethernet_out);
     }
+
+    /*store in arp cache*/
+    arp_ip_hi[arp_pointer] = sender_ip_address_hi;
+    arp_ip_lo[arp_pointer] = sender_ip_address_lo;
+    arp_mac_0[arp_pointer] = sender_mac_address_hi;
+    arp_mac_1[arp_pointer] = sender_mac_address_med;
+    arp_mac_2[arp_pointer] = sender_mac_address_lo;
+    i = arp_pointer;
+    arp_pointer++;
+    if(arp_pointer == 16) arp_pointer = 0;
 }
 
 /* return the location of the ip address in the arp cache table */
-unsigned get_arp_cache(unsigned ip_hi, unsigned ip_lo){
+int get_arp_cache(unsigned ip_hi, unsigned ip_lo){
 
     unsigned number_of_bytes, htype, ptype, hlen_plen, oper, sender_mac_address_hi,
     sender_mac_address_med, sender_mac_address_lo, sender_ip_address_hi,
@@ -139,9 +149,10 @@ unsigned get_arp_cache(unsigned ip_hi, unsigned ip_lo){
         fputc(0, ethernet_out);
     }
 
+    return -1;
+
     /*wait for a reply*/
-	while(1){
-        puts("tx  waiting for arp response\n");
+    /*    puts("tx  waiting for arp response\n");
 		number_of_bytes = fgetc(arp);
         htype = fgetc(arp);
         ptype = fgetc(arp);
@@ -153,7 +164,6 @@ unsigned get_arp_cache(unsigned ip_hi, unsigned ip_lo){
         sender_ip_address_hi = fgetc(arp);   //SENDER_PROTOCOL_ADDRESS
         sender_ip_address_lo = fgetc(arp);   //SENDER_PROTOCOL_ADDRESS
 
-        /* discard the rest of the arp request */
         remaining_words = (number_of_bytes - 18 + 1) >> 1;
         for(i=0; i<remaining_words; i++) fgetc(arp);
         puts("tx  arp reponse seen\n");
@@ -178,8 +188,7 @@ unsigned get_arp_cache(unsigned ip_hi, unsigned ip_lo){
             return i;
             puts("tx  returning ip address\n");
 		}
-        puts("tx arp response not for us\n");
-	}
+        puts("tx arp response not for us\n");*/
 }
 
 void send_ip_header(
@@ -229,7 +238,7 @@ void send_ip_header(
 }
 
 void ip_rx(){
-    unsigned length, payload_words, ip_from, ip_to, i;
+    unsigned length, payload_words, ip_from, ip_to, i, ip_to_hi, ip_to_lo;
     stdout = output("cout");
     while(1){
         if(ready(icmp_in)){
@@ -240,12 +249,23 @@ void ip_rx(){
             payload_words = ((length + 1) >> 1);
             ip_from = fgetc(icmp_in);
             ip_to   = fgetc(icmp_in);
+            ip_to_hi = ip_to >> 16;
+            ip_to_lo = ip_to & 0xffff;
 
             /* send ip packet via ethernet */
-            send_ip_header(length, ip_to, 1);
-            for(i=0; i<payload_words; i++){
-                fputc(fgetc(icmp_in), ethernet_out);
+            i = get_arp_cache(ip_to_hi, ip_to_lo);
+            if(i < 0){
+                /*if the ip is in not in out cache then discard it*/
+                for(i=0; i<payload_words; i++){
+                    fputc(fgetc(icmp_in), ethernet_out);
+                }
+            } else {
+                send_ip_header(length, ip_to, 1);
+                for(i=0; i<payload_words; i++){
+                    fputc(fgetc(icmp_in), ethernet_out);
+                }
             }
+
 
         }
         if(ready(arp)){

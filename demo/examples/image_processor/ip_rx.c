@@ -104,7 +104,7 @@ void ip_rx(){
             if(1){//icmp
                 puts("   is ICMP\n");
 
-                if(output_ready(icmp_out)){
+                //if(output_ready(icmp_out)){
                     puts("   icmp ready, processing\n");
                     fputc(payload_length, icmp_out);
                     ip_from = (ip_from_hi << 16) | ip_from_lo;
@@ -112,10 +112,10 @@ void ip_rx(){
                     ip_to = (ip_to_hi << 16) | ip_to_lo;
                     fputc(ip_to, icmp_out);
                     for(i=0; i<payload_words; i++) fputc(fgetc(ethernet_in), icmp_out);
-                } else {
-                    puts("   icmp not ready, discarding\n");
-                    discard(payload_words);
-                }
+                //} else {
+                    //puts("   icmp not ready, discarding\n");
+                    //discard(payload_words);
+                //}
 
                 discard(padding_words);
             } else {
