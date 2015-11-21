@@ -16,7 +16,7 @@ int in1 = input("in1");
 int in2 = input("in2");
 int out = output("out");
 
-void arbiter(){
+void main(){
     int temp;
 
     while(1){

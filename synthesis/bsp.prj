@@ -1,9 +1,0 @@
-verilog work user_design.v
-verilog work chips_lib.v
-verilog work application.v
-verilog work arbiter.v
-verilog work server.v
-vhdl work serial_out.vhd
-vhdl work serial_in.vhd
-vhdl work gigabit_ethernet.vhd
-vhdl work bsp.vhd

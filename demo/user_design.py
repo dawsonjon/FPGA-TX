@@ -1,4 +1,5 @@
 from chips.api.api import Component, Chip, Input, Output, Stimulus, Response
+from chips.compiler.exceptions import C2CHIPError
 from demo.rundemo import build_xst, compile_user_design, download_digilent
 from pytun import TunTapDevice, IFF_TAP, IFF_NO_PI
 import sys
@@ -90,42 +91,37 @@ else:
     #Create models of user_design inputs
 
     application = __import__("demo.examples.%s.application"%example, globals(), locals(), ["application"], -1)
-    application.application(
-        chip, 
-        eth_stim,
-        rs232_stim,
-        switches_stim,
-        buttons_stim,
-        timer_stim,
-        eth_response,
-        rs232_response,
-        led_response,
-    )
+    try:
+        application.application(
+            chip, 
+            eth_stim,
+            rs232_stim,
+            switches_stim,
+            buttons_stim,
+            timer_stim,
+            eth_response,
+            rs232_response,
+            led_response,
+        )
 
-    if "simulate" in sys.argv:
-        chip.simulation_reset()
-        chip.simulation_run()
+        if "simulate" in sys.argv:
+            chip.simulation_reset()
+            chip.simulation_run()
 
-    if "vsim" in sys.argv:
-        chip.generate_verilog()
-        chip.generate_testbench()
-        chip.compile_iverilog(True)
+        if "vsim" in sys.argv:
+            chip.generate_verilog()
+            chip.generate_testbench()
+            chip.compile_iverilog(True)
 
-    if "compile" in sys.argv:
-        compile_user_design(chip)
+        if "compile" in sys.argv:
+            compile_user_design(chip)
 
-    if "build" in sys.argv:
+        if "build" in sys.argv:
 
-        file_list = [
-            "user_design.v",
-            "chips_lib.v",
-            "application.v",
-            "arbiter.v",
-            "server.v",
-        ]
+            build_xst(chip, os.path.join("bsp", board))
 
-        build_xst(file_list, os.path.join("bsp", board))
+        if "download" in sys.argv:
+            download_digilent(board.title())
 
-    if "download" in sys.argv:
-
-        download_digilent(board.title())
+    except C2CHIPError as e:
+        print e

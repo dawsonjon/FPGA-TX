@@ -1,2 +1,2 @@
 #!/usr/bin/env python
-import demo.user_design
+import demo.run_demo

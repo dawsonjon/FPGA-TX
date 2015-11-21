@@ -1,1 +1,0 @@
-scripts/nexys3.py

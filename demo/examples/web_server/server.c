@@ -505,7 +505,7 @@ unsigned application_get_data(unsigned packet[], unsigned start){
 	return length;
 }
 
-void server()
+void main()
 {
 	unsigned rx_packet[1024];
 	unsigned tx_packet[1024];

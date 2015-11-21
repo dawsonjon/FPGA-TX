@@ -21,7 +21,6 @@ int socket_tx = output("socket");
 unsigned rs232_tx = output("rs232_tx");
 int rs232_rx = input("rs232_rx");
 
-int timer = input("timer");
 int input_switches = input("switches");
 int input_buttons = input("buttons");
 int output_leds = output("leds");
@@ -49,7 +48,7 @@ int find(unsigned string[], unsigned search, unsigned start, unsigned end){
 	return -1;
 }
 
-void application()
+void main()
 {
 	//simple echo application
 	unsigned length;

@@ -1,0 +1,9 @@
+benchmark                  OK
+clock                      OK
+hello_world                OK
+image_processor
+knight_rider               OK
+seven_segment              OK
+telnet_server
+temperature                FAIL
+web_server

@@ -1,28 +1,21 @@
-from chips.api.api import Component
-import os
+from demo.components.server import server
+from chips.api.api import *
 
+def application(chip):
 
-def application(chip, eth_stim, rs232_stim, switches_stim, buttons_stim, 
-    timer_stim, eth_response, rs232_response, led_response):
+    hello_world = Component(
+    """
+    #include <stdio.h>
+    stdout = output("rs232_tx");
 
-    local_dir = os.path.dirname(__file__)
-    local_dir = os.path.abspath(local_dir)
+    void main(){
+        puts("Hello World!\n");
+    }
+    """, inline = True)
 
-    c = Component(os.path.join(local_dir, "application.c"))
-    return c(  
-        chip = chip, 
-        inputs = {
-           "eth_rx":   eth_stim,
-           "rs232_rx": rs232_stim,
-           "switches": switches_stim,
-           "buttons":  buttons_stim,
-           "timer":    timer_stim,
-        },
-        outputs = {
-           "eth_tx":   eth_response,
-           "rs232_tx": rs232_response,
-           "leds":     led_response,
-        },
-        debug=False
-    )
+    hello_world(
+        chip, 
+        inputs = {}, 
+        outputs = {"rs232_tx":chip.outputs["output_rs232_tx"]},
+        parameters = {})
 
