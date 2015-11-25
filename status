@@ -1,9 +1,11 @@
 benchmark                  OK
 clock                      OK
 hello_world                OK
-image_processor
+image_processor            OK
 knight_rider               OK
 seven_segment              OK
 telnet_server
-temperature                FAIL
+temperature                OK
+keyboard                   OK
+tri_color                  OK
 web_server

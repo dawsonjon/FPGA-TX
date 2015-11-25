@@ -1,27 +1,31 @@
 #include "i2c.h"
-void write_register_single(i2c * self, unsigned address, unsigned data){
-    i2c_write_byte(self, 1, 0, 0x4b << 1);
-    i2c_write_byte(self, 0, 0, address);
-    i2c_write_byte(self, 0, 1, data);
+
+typedef struct {
+  i2c *bus;
+  unsigned target_address;
+} adt7420;
+
+/* initialise temperature sensor */
+void adt7420_init(adt7420 * self, i2c * bus, unsigned target_address){
+	self->bus = bus;
+	self->target_address = target_address;
+	while(1){
+	  //allow 1 second from power up
+          if(timer_low() > 50000000) return;
+	}
 }
-void write_register_double(i2c * self, unsigned address, unsigned data){
-    i2c_write_byte(self, 1, 0, 0x4b << 1);
-    i2c_write_byte(self, 0, 0, address);
-    i2c_write_byte(self, 0, 0, data>>8);
-    i2c_write_byte(self, 0, 1, data);
-}
-unsigned read_register_single(i2c * self, unsigned address){
-    i2c_write_byte(self, 1, 0, 0x4b << 1);
-    i2c_write_byte(self, 0, 0, address);
-    i2c_write_byte(self, 1, 0, 0x4b << 1 | 1);
-    return i2c_read_byte(self, 1, 1);
-}
-unsigned read_register_double(i2c * self, unsigned address){
-    unsigned data;
-    i2c_write_byte(self, 1, 0, 0x4b << 1);
-    i2c_write_byte(self, 0, 0, address);
-    i2c_write_byte(self, 1, 0, 0x4b << 1 | 1);
-    data = i2c_read_byte(self, 0, 0) << 16;
-    data |= i2c_read_byte(self, 1, 1);
-    return data;
+
+/* Return the current temperature in 0.0625 degree C steps */
+unsigned adt7420_get_temp(adt7420 *self){
+       unsigned temp;
+       unsigned target_address;
+
+       /*calculate i2c address of adt7420 based on address pins*/
+       target_address = 0x48 | self->target_address;
+
+       i2c_write_byte(self->bus, I2C_START_FLAG | (target_address<< 1) | 1);
+       temp  = i2c_read_byte(self->bus, 0) << 8;
+       temp |= i2c_read_byte(self->bus, I2C_STOP_FLAG | I2C_NACK_FLAG);
+       temp >>= 3;
+       return temp;
 }
