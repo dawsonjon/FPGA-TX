@@ -11,19 +11,27 @@
 //  A TCP/IP stack that supports a single socket connection.
 //
 ////////////////////////////////////////////////////////////////////////////////
+
+input_eth_rx  =   input ("eth_rx");
+output_eth_tx =   output("eth_tx");
+
+input_socket    =   input ("socket");
+output_socket   =   output("socket");
+
+
 void put_eth(unsigned i){
-	output_eth_tx(i);
+	fputc(i, output_eth_tx);
 }
 void put_socket(unsigned i){
-	output_socket(i);
+	fputc(i,output_socket);
 }
 unsigned get_eth(){
-	return input_eth_rx();
+	return fgetc(input_eth_rx);
 }
 unsigned rdy_eth(){
-	return ready_eth_rx();
+	return ready(input_eth_rx);
 }
 unsigned get_socket(){
-	return input_socket();
+	return fgetc(input_socket);
 }
 #include "server.h"

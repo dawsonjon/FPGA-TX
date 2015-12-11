@@ -163,7 +163,7 @@ unsigned get_ethernet_packet(unsigned packet[]){
 			tx_packet[20] = packet[15]; //
 			put_ethernet_packet(
 				tx_packet, 
-				64,
+				60,
 				packet[11],
 				packet[12],
 				packet[13],
@@ -210,7 +210,7 @@ unsigned get_arp_cache(unsigned ip_hi, unsigned ip_lo){
 	tx_packet[20] = ip_lo; //
 	put_ethernet_packet(
 		tx_packet, 
-		64u,
+		60u,
 		0xffffu, //broadcast via ethernet
 		0xffffu,
 		0xffffu,
@@ -279,10 +279,10 @@ void put_ip_packet(unsigned packet[], unsigned total_length, unsigned protocol, 
 	packet[12] = check_checksum();
 
 	//enforce minimum ethernet frame size
-	if(number_of_bytes < 64){
-		number_of_bytes = 64;
+	if(number_of_bytes < 60){
+		number_of_bytes = 60;
 	}
-
+	
 	//send packet over ethernet
 	put_ethernet_packet(
 		packet,                  //packet
@@ -485,7 +485,7 @@ void application_put_data(unsigned packet[], unsigned start, unsigned length){
 unsigned application_get_data(unsigned packet[], unsigned start){
 	unsigned i, index, length;
 
-	if(!ready_socket()){
+	if(!ready(input_socket)){
 		return 0;
 	}
 
@@ -649,7 +649,7 @@ void server()
 					if(state == last_state) put_tcp_packet(tx_packet, tx_length);
 				}
 
-				if(state == send && ready_socket()){
+				if(state == send && ready(output_socket)){
 					break;
 				}
 

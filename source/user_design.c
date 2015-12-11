@@ -12,11 +12,28 @@
 //
 ////////////////////////////////////////////////////////////////////////////////
 
+#include <stdio.h>
+
+
+output_leds   	=   output("leds");
+      
+input_switches  =   input ("switches");
+input_buttons   =   input ("buttons");
+      
+input_socket    =   input ("socket");
+output_socket   =   output("socket");
+      
+input_rs232_rx  =   input ("rs232_rx");
+output_rs232_tx =   output("rs232_tx");
+
+module("user_design");
+      
+
 void put_socket(unsigned i){
-	output_socket(i);
+	fputc(i, output_socket);
 }
 void stdout_put_char(unsigned i){
-	output_rs232_tx(i);
+	fputc(i,output_rs232_tx);
 }
 
 #include "print.h"
@@ -33,6 +50,7 @@ int find(unsigned string[], unsigned search, unsigned start, unsigned end){
 	}
 	return -1;
 }
+
 
 void user_design()
 {
@@ -76,10 +94,11 @@ void user_design()
 	print_string("Connect your web browser to 192.168.1.1\n");
 	while(1){
 
-		length = input_socket();
+		length = fgetc(input_socket);
 		index = 0;
-		for(i=0;i<length;i+=2){
-			word = input_socket();
+		for(i=0;i<length;i+=2)
+		{
+			word = fgetc(input_socket);
 			data[index] = (word >> 8) & 0xff;
 			index++;
 			data[index] = (word) & 0xff;
@@ -106,11 +125,11 @@ void user_design()
 			if(find(data, 'F', start, end) != -1) leds |= 32;
 			if(find(data, 'G', start, end) != -1) leds |= 64;
 			if(find(data, 'H', start, end) != -1) leds |= 128;
-			output_leds(leds);
+			fputc(leds, output_leds);
 
 			//read switch values
 			//==================
-			switches = ~input_switches();
+			switches = ~fgetc(input_switches);
 			//find first ':'
 			index = find(page, ':', 0, 1460);
 			index+=2;
@@ -141,7 +160,7 @@ void user_design()
 
 			//read button values
 			//==================
-			buttons = ~input_buttons();
+			buttons = ~fgetc(input_buttons);
 			//find next ':'
 			index = find(page, ':', index+1, 1460);
 			index+=2;
@@ -165,6 +184,6 @@ void user_design()
 
 	}
 
-        //dummy access to peripherals
-	index = input_rs232_rx();
+    // dummy access to peripherals
+	index = fgetc(input_rs232_rx);
 }
