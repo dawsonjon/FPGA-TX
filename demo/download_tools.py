@@ -6,17 +6,16 @@ import sys
 import os
 import shutil
 
-from user_settings import working_directory
 from user_settings import vivado as vivado_path
 
-def digilent(chip, bsp):
+def digilent(chip, bsp, working_directory):
     print "Downloading bit file to development kit ...."
     board = bsp.board
     retval = os.system("sudo djtgcfg prog -d %s -i 0 -f %s/bsp.bit"%(board, working_directory))
     if retval != 0:
         sys.exit(-1)
 
-def vivado(chip, bsp):
+def vivado(chip, bsp, working_directory):
     print "Downloading bit file to development kit ...."
     current_directory = os.getcwd()
     os.chdir(working_directory)

@@ -1,0 +1,35 @@
+[*]
+[*] GTKWave Analyzer v3.3.58 (w)1999-2014 BSI
+[*] Sat Dec  5 17:39:56 2015
+[*]
+[dumpfile] "/home/storage/Projects/Chips-Demo/demo/bsp/nexys_4/test_bench/wave.ghw"
+[dumpfile_mtime] "Sat Dec  5 17:36:47 2015"
+[dumpfile_size] 700970
+[savefile] "/home/storage/Projects/Chips-Demo/demo/bsp/nexys_4/test_bench/audio.gtkw"
+[timestart] 44400000
+[size] 1000 600
+[pos] -1 -1
+*-27.000000 221500000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.pwm_audio_tb.
+[treeopen] top.pwm_audio_tb.pwm_audio_i1.
+[sst_width] 196
+[signals_width] 205
+[sst_expanded] 1
+[sst_vpaned_height] 150
+@22
+#{top.pwm_audio_tb.pwm_audio_i1.comparator[7:0]} top.pwm_audio_tb.pwm_audio_i1.comparator[7] top.pwm_audio_tb.pwm_audio_i1.comparator[6] top.pwm_audio_tb.pwm_audio_i1.comparator[5] top.pwm_audio_tb.pwm_audio_i1.comparator[4] top.pwm_audio_tb.pwm_audio_i1.comparator[3] top.pwm_audio_tb.pwm_audio_i1.comparator[2] top.pwm_audio_tb.pwm_audio_i1.comparator[1] top.pwm_audio_tb.pwm_audio_i1.comparator[0]
+#{top.pwm_audio_tb.pwm_audio_i1.delta[7:0]} top.pwm_audio_tb.pwm_audio_i1.delta[7] top.pwm_audio_tb.pwm_audio_i1.delta[6] top.pwm_audio_tb.pwm_audio_i1.delta[5] top.pwm_audio_tb.pwm_audio_i1.delta[4] top.pwm_audio_tb.pwm_audio_i1.delta[3] top.pwm_audio_tb.pwm_audio_i1.delta[2] top.pwm_audio_tb.pwm_audio_i1.delta[1] top.pwm_audio_tb.pwm_audio_i1.delta[0]
+#{top.pwm_audio_tb.pwm_audio_i1.sigma[7:0]} top.pwm_audio_tb.pwm_audio_i1.sigma[7] top.pwm_audio_tb.pwm_audio_i1.sigma[6] top.pwm_audio_tb.pwm_audio_i1.sigma[5] top.pwm_audio_tb.pwm_audio_i1.sigma[4] top.pwm_audio_tb.pwm_audio_i1.sigma[3] top.pwm_audio_tb.pwm_audio_i1.sigma[2] top.pwm_audio_tb.pwm_audio_i1.sigma[1] top.pwm_audio_tb.pwm_audio_i1.sigma[0]
+#{top.pwm_audio_tb.pwm_audio_i1.sample[7:0]} top.pwm_audio_tb.pwm_audio_i1.sample[7] top.pwm_audio_tb.pwm_audio_i1.sample[6] top.pwm_audio_tb.pwm_audio_i1.sample[5] top.pwm_audio_tb.pwm_audio_i1.sample[4] top.pwm_audio_tb.pwm_audio_i1.sample[3] top.pwm_audio_tb.pwm_audio_i1.sample[2] top.pwm_audio_tb.pwm_audio_i1.sample[1] top.pwm_audio_tb.pwm_audio_i1.sample[0]
+@28
+top.pwm_audio_tb.pwm_audio_i1.state
+top.pwm_audio_tb.pwm_audio_i1.count
+top.pwm_audio_tb.pwm_audio_i1.audio
+top.pwm_audio_tb.pwm_audio_i1.clk
+top.pwm_audio_tb.pwm_audio_i1.rst
+top.pwm_audio_tb.pwm_audio_i1.data_in_stb
+@29
+top.pwm_audio_tb.pwm_audio_i1.data_in_ack
+[pattern_trace] 1
+[pattern_trace] 0

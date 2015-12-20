@@ -98,6 +98,8 @@ entity BSP is
    TXD                   : out   std_logic_vector(1 downto 0);
    TXEN                  : out   std_logic;      
 
+   JC                    : inout std_logic_vector(7 downto 0);
+
    --I2C
    SDA                   : inout std_logic;
    SCL                   : inout std_logic;
@@ -105,6 +107,10 @@ entity BSP is
    --PS2 keyboard interface
    KD                    : in  std_logic;
    KC                    : in  std_logic;
+
+   --AUDIO interface
+   AUDIO                 : out std_logic;
+   AUDIO_EN              : out std_logic;
 
    --VGA interface
    VGA_R                 : out Std_logic_vector(3 downto 0);
@@ -256,6 +262,10 @@ architecture RTL of BSP is
       OUTPUT_VGA_ACK : in Std_logic;
       OUTPUT_VGA_STB : out  Std_logic;
 
+      OUTPUT_AUDIO : out std_logic_vector(31 downto 0);
+      OUTPUT_AUDIO_STB : out std_logic;
+      OUTPUT_AUDIO_ACK : in std_logic;
+
       OUTPUT_LED_R : out std_logic_vector(31 downto 0);
       OUTPUT_LED_R_STB : out std_logic;
       OUTPUT_LED_R_ACK : in std_logic;
@@ -341,6 +351,25 @@ architecture RTL of BSP is
     );
   end component serial_output;
 
+  component pwm_audio is
+    generic(
+      CLOCK_FREQUENCY : integer := 50000000;
+      SAMPLE_RATE : integer := 44100;
+      AUDIO_BITS : integer := 8
+    );
+    port(
+      CLK : in std_logic;
+      RST : in std_logic;
+
+      DATA_IN : in std_logic_vector(31 downto 0);
+      DATA_IN_STB : in std_logic;
+      DATA_IN_ACK : out std_logic;
+
+      AUDIO : out std_logic
+
+    );
+  end component pwm_audio;
+
   --chips signals
   signal CLK : std_logic;
 
@@ -388,6 +417,11 @@ architecture RTL of BSP is
   signal OUTPUT_SEVEN_SEGMENT_ANNODE : std_logic_vector(31 downto 0);
   signal OUTPUT_SEVEN_SEGMENT_ANNODE_STB : std_logic;
   signal OUTPUT_SEVEN_SEGMENT_ANNODE_ACK : std_logic;
+
+  --AUDIO
+  signal OUTPUT_AUDIO : std_logic_vector(31 downto 0);
+  signal OUTPUT_AUDIO_STB : std_logic;
+  signal OUTPUT_AUDIO_ACK :  std_logic;
 
   --Interface for SVGA
   signal VGACLK : std_logic;
@@ -444,6 +478,7 @@ architecture RTL of BSP is
 
 begin
 
+
   ethernet_inst_1 : rmii_ethernet port map(
       CLK         => CLK,
       RST         => INTERNAL_RST,
@@ -495,6 +530,26 @@ begin
     VGA_B(I) <= VGA_BB;
   end generate;
 
+  pwm_audio_inst_1 : pwm_audio 
+  generic map(
+      CLOCK_FREQUENCY => 50000000,
+      SAMPLE_RATE => 44100,
+      AUDIO_BITS => 8
+  ) port map (
+      CLK => CLK,
+      RST => INTERNAL_RST,
+
+      DATA_IN => OUTPUT_AUDIO,
+      DATA_IN_STB => OUTPUT_AUDIO_STB,
+      DATA_IN_ACK => OUTPUT_AUDIO_ACK,
+
+      AUDIO => AUDIO
+
+  );
+  AUDIO_EN <= '1';
+  JC(0) <= OUTPUT_AUDIO_STB;
+  JC(1) <= OUTPUT_AUDIO_ACK;
+
   USER_DESIGN_INST_1 : USER_DESIGN port map(
       CLK => CLK,
       RST => INTERNAL_RST,
@@ -537,6 +592,11 @@ begin
       OUTPUT_RS232_TX => OUTPUT_RS232_TX,
       OUTPUT_RS232_TX_STB => OUTPUT_RS232_TX_STB,
       OUTPUT_RS232_TX_ACK => OUTPUT_RS232_TX_ACK,
+
+      --AUDIO OUT
+      OUTPUT_AUDIO => OUTPUT_AUDIO,
+      OUTPUT_AUDIO_STB => OUTPUT_AUDIO_STB,
+      OUTPUT_AUDIO_ACK => OUTPUT_AUDIO_ACK,
 
       --SEVEN SEGMENT DISPLAY INTERFACE
       OUTPUT_SEVEN_SEGMENT_CATHODE => OUTPUT_SEVEN_SEGMENT_CATHODE,
@@ -675,14 +735,10 @@ begin
     NOT_LOCKED <= not LOCKED_INTERNAL;
     INTERNAL_RST <= NOT_LOCKED;
    
-    --if OUTPUT_LEDS_STB = '1' then
-       --GPIO_LEDS <= OUTPUT_LEDS(15 downto 0);
-    --end if;
-    --OUTPUT_LEDS_ACK <= '1';
-
-    if OUTPUT_VGA_STB = '1' then
-       GPIO_LEDS <= OUTPUT_VGA(15 downto 0);
+    if OUTPUT_LEDS_STB = '1' then
+       GPIO_LEDS <= OUTPUT_LEDS(15 downto 0);
     end if;
+    OUTPUT_LEDS_ACK <= '1';
 
     if OUTPUT_SEVEN_SEGMENT_ANNODE_STB = '1' then
        SEVEN_SEGMENT_ANNODE <= not OUTPUT_SEVEN_SEGMENT_ANNODE(7 downto 0);

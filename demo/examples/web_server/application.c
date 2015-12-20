@@ -39,8 +39,6 @@ void stdout_put_char(unsigned i){
 int find(unsigned string[], unsigned search, unsigned start, unsigned end){
 	int value = start;
 	while(string[value]){
-	       print_decimal(string[value]); puts("\n");
-	       print_decimal(value); puts("\n");
 	       if(value == end) return -1;
 	       if(string[value] == search) return value;
 	       value++;

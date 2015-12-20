@@ -1,0 +1,4 @@
+ghdl -a ../i2c.vhd
+ghdl -a i2c_tb.vhd
+ghdl -e i2c_tb
+./i2c_tb --wave=wave.ghw

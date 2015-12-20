@@ -15,6 +15,7 @@ unsigned socket_high = 1;
 unsigned socket_data;
 
 void socket_put_char(char x){
+	putc(x);
 	if(socket_high){
 		socket_high = 0;
 		socket_data = x << 8;
@@ -31,7 +32,7 @@ void socket_flush(){
 }
 
 void socket_put_string(unsigned string[]){
-	unsigned i;
+	unsigned i=0;
 	while(string[i]){
 		socket_put_char(string[i]);
 		i++;

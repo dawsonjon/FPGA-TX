@@ -84,9 +84,9 @@ unsigned calc_ack(unsigned ack[], unsigned seq[], unsigned length){
 	unsigned return_value = 0;
 	new_ack_0 = seq[0] + length;
 	new_ack_1 = seq[1];
-	if(new_ack_0 < length) new_ack_1 = new_ack_1 + 1;
+	if(new_ack_0 > 0xffffu) new_ack_1 = new_ack_1 + 1;
 
-	//Is this data we have allready acknowledged?
+	//Is this data we have already acknowledged?
 	if((new_ack_0 != ack[0]) || (new_ack_1 != ack[1])){
 		ack[0] = new_ack_0;
 		ack[1] = new_ack_1;
@@ -170,7 +170,7 @@ unsigned get_ethernet_packet(unsigned packet[]){
 			tx_packet[20] = packet[15]; //
 			put_ethernet_packet(
 				tx_packet, 
-				64,
+				60,
 				packet[11],
 				packet[12],
 				packet[13],
@@ -217,7 +217,7 @@ unsigned get_arp_cache(unsigned ip_hi, unsigned ip_lo){
 	tx_packet[20] = ip_lo; //
 	put_ethernet_packet(
 		tx_packet, 
-		64u,
+		60u,
 		0xffffu, //broadcast via ethernet
 		0xffffu,
 		0xffffu,
@@ -286,8 +286,8 @@ void put_ip_packet(unsigned packet[], unsigned total_length, unsigned protocol, 
 	packet[12] = check_checksum();
 
 	//enforce minimum ethernet frame size
-	if(number_of_bytes < 64){
-		number_of_bytes = 64;
+	if(number_of_bytes < 60){
+		number_of_bytes = 60;
 	}
 
 	//send packet over ethernet
@@ -388,7 +388,7 @@ unsigned rx_urg_flag=0;
 
 void put_tcp_packet(unsigned tx_packet [], unsigned tx_length){
 
-        unsigned payload_start = 17;
+    unsigned payload_start = 17;
 	unsigned packet_length;
 	unsigned index;
 	unsigned i;
@@ -415,13 +415,13 @@ void put_tcp_packet(unsigned tx_packet [], unsigned tx_length){
 
 	//calculate checksum
 	//length of payload + header + pseudo_header in words
-        reset_checksum();
-        add_checksum(local_ip_address_hi);
-        add_checksum(local_ip_address_lo);
-        add_checksum(remote_ip_hi);
-        add_checksum(remote_ip_lo);
-        add_checksum(0x0006);
-        add_checksum(tx_length+20);//tcp_header + tcp_payload in bytes
+    reset_checksum();
+    add_checksum(local_ip_address_hi);
+    add_checksum(local_ip_address_lo);
+    add_checksum(remote_ip_hi);
+    add_checksum(remote_ip_lo);
+    add_checksum(0x0006);
+    add_checksum(tx_length+20);//tcp_header + tcp_payload in bytes
 
 	packet_length = (tx_length + 20 + 1) >> 1; 
 	index = payload_start;
@@ -547,7 +547,7 @@ void main()
 			put_tcp_packet(tx_packet, 0);//send reset packet
 		}
 
-		// (optionaly) send something
+		// (optionally) send something
 		switch(state){
 		    case listen:
 			tx_rst_flag = 0;
@@ -578,7 +578,7 @@ void main()
 			put_tcp_packet(tx_packet, tx_length);
 			break;
 		    case wait_acknowledge:
-			// resend until acknowledge recieved
+			// resend until acknowledge received
 			put_tcp_packet(tx_packet, tx_length);
 			break;
 		    case close:

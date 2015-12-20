@@ -6,9 +6,9 @@ import sys
 import os
 import shutil
 
-from user_settings import ise, vivado, working_directory
+from user_settings import ise, vivado
 
-def build_ise(chip, bsp):
+def build_ise(chip, bsp, working_directory):
 
     """Build using Xilinx ISE an FPGA using the specified BSP
     
@@ -76,12 +76,12 @@ def build_ise(chip, bsp):
 
     os.chdir(working_directory)
     print "Building Demo using Xilinx ise ...."
-    retval = os.system("%s/xflow -synth xst_mixed.opt -p XC6Slx45-CSG324 -implement balanced.opt -config bitgen.opt bsp"%ise)
+    retval = os.system("%s/xflow -synth xst_mixed.opt -p %s -implement balanced.opt -config bitgen.opt bsp"%(ise, bsp.device))
     if retval != 0:
         sys.exit(-1)
     os.chdir(current_directory)
 
-def build_vivado(chip, bsp):
+def build_vivado(chip, bsp, working_directory):
 
     """Build using Xilinx Vivado an FPGA using the specified BSP
     
@@ -107,9 +107,11 @@ def build_vivado(chip, bsp):
     #
     bsp_dir = os.path.dirname(bsp.__file__)
     if not os.path.exists(working_directory):
-        os.mkdir(working_directory)
+        os.makedirs(working_directory)
     current_directory = os.getcwd()
-    shutil.copyfile(os.path.join(bsp_dir, "bsp.xdc"), os.path.join(working_directory, "bsp.xdc"))
+    from_file = os.path.join(bsp_dir, "bsp.xdc")
+    to_file = os.path.join(working_directory, "bsp.xdc")
+    shutil.copyfile(from_file, to_file)
 
     #create a comprehensive file list
     #

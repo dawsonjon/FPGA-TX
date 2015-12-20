@@ -1,0 +1,5 @@
+ghdl -a ../pwm_audio.vhd
+ghdl -a pwm_audio_tb.vhd
+
+ghdl -e pwm_audio_tb
+./pwm_audio_tb --stop-time=1ms --wave=wave.ghw

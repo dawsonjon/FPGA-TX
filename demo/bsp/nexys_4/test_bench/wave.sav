@@ -1,0 +1,33 @@
+[*]
+[*] GTKWave Analyzer v3.3.58 (w)1999-2014 BSI
+[*] Sun Nov 15 10:23:03 2015
+[*]
+[dumpfile] "/home/storage/Projects/Chips-Demo/demo/bsp/nexys_4/test_bench/wave.ghw"
+[dumpfile_mtime] "Sun Nov 15 10:17:40 2015"
+[dumpfile_size] 387368
+[savefile] "/home/storage/Projects/Chips-Demo/demo/bsp/nexys_4/test_bench/wave.sav"
+[timestart] 7730300000
+[size] 1000 600
+[pos] 1242 -79
+*-25.610687 7798000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] top.
+[treeopen] top.ethernet_tb.
+[treeopen] top.ethernet_tb.ethernet_inst1.
+[sst_width] 196
+[signals_width] 230
+[sst_expanded] 1
+[sst_vpaned_height] 150
+@28
+top.ethernet_tb.ethernet_inst1.go
+top.ethernet_tb.ethernet_inst1.tx_ack
+top.ethernet_tb.ethernet_inst1.tx_stb
+top.ethernet_tb.ethernet_inst1.tx_packet_state
+top.ethernet_tb.ethernet_inst1.rx_phy_state
+top.ethernet_tb.ethernet_inst1.rx_packet_state
+top.ethernet_tb.ethernet_inst1.go_sync
+@23
+#{top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[31:0]} top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[31] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[30] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[29] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[28] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[27] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[26] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[25] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[24] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[23] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[22] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[21] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[20] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[19] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[18] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[17] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[16] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[15] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[14] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[13] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[12] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[11] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[10] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[9] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[8] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[7] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[6] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[5] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[4] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[3] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[2] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[1] top.ethernet_tb.ethernet_inst1.rx_buffer_busy_sync[0]
+@28
+top.ethernet_tb.ethernet_inst1.rx_read_buffer
+[pattern_trace] 1
+[pattern_trace] 0
