@@ -289,7 +289,7 @@ void put_ip_packet(unsigned packet[], unsigned total_length, unsigned protocol, 
 	if(number_of_bytes < 60){
 		number_of_bytes = 60;
 	}
-
+	
 	//send packet over ethernet
 	put_ethernet_packet(
 		packet,                  //packet
