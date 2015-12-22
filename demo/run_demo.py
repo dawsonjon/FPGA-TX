@@ -24,8 +24,7 @@ all_bsps = [i for i in os.listdir("demo/bsp") if ".py" not in i]
 #build all demonstrations
 try:
     if "build_all" in sys.argv:
-        #for bsp_name in all_bsps:
-        for bsp_name in ["atlys"]:
+        for bsp_name in all_bsps:
             for application_name in all_applications:
                 print "building:", application_name, "for hardware platform", bsp_name
                 print ""
