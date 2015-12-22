@@ -63,7 +63,10 @@ def build_ise(chip, bsp, working_directory):
     bsp_files = open(os.path.join(bsp_dir, "bsp.prj")).read().splitlines()
     for filename in bsp_files:
         print "Adding file ...", filename
-        shutil.copyfile(os.path.join(bsp_dir, filename), os.path.join(working_directory, filename))
+        from_file = os.path.join(bsp_dir, filename)
+        filename = os.path.split(from_file)[1]
+        to_file = os.path.join(working_directory, filename)
+        shutil.copyfile(from_file, to_file)
         if filename.upper().endswith(".V"):
             prj_file.write("verilog work " + filename + "\n")
         elif filename.upper().endswith(".VHD") or filename.upper().endswith(".VHDL"):
@@ -141,7 +144,10 @@ def build_vivado(chip, bsp, working_directory):
     bsp_files = open(os.path.join(bsp_dir, "bsp.prj")).read().splitlines()
     for filename in bsp_files:
         print "Adding file ...", filename
-        shutil.copyfile(os.path.join(bsp_dir, filename), os.path.join(working_directory, filename))
+        from_file = os.path.join(bsp_dir, filename)
+        filename = os.path.split(from_file)[1]
+        to_file = os.path.join(working_directory, os.path.split(from_file)[1])
+        shutil.copyfile(from_file, to_file)
         if filename.upper().endswith(".V"):
             prj_file.write("read_verilog " + filename + "\n")
         elif filename.upper().endswith(".VHD") or filename.upper().endswith(".VHDL"):

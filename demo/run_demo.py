@@ -24,15 +24,20 @@ all_bsps = [i for i in os.listdir("demo/bsp") if ".py" not in i]
 #build all demonstrations
 try:
     if "build_all" in sys.argv:
-        for bsp_name in all_bsps:
+        #for bsp_name in all_bsps:
+        for bsp_name in ["atlys"]:
             for application_name in all_applications:
                 print "building:", application_name, "for hardware platform", bsp_name
+                print ""
                 working_directory = os.path.join(user_settings.working_directory, bsp_name, application_name)
                 host = __import__("demo.examples.%s.host"%application_name, globals(), locals(), ["host"], -1)
                 application = __import__("demo.examples.%s.application"%application_name, globals(), locals(), ["application"], -1)
                 bsp = __import__("demo.bsp.%s.bsp"%bsp_name, globals(), locals(), ["bsp"], -1)
                 chip = bsp.make_chip()
-                application.application(chip)
+                try:
+                    application.application(chip)
+                except KeyError:
+                    continue
                 #terminate unused bsp io
                 for i in chip.inputs.values():
                     if i.sink is None:
@@ -88,7 +93,10 @@ bsp = __import__("demo.bsp.%s.bsp"%bsp, globals(), locals(), ["bsp"], -1)
 
 #apply the application to the chip
 chip = bsp.make_chip()
-application.application(chip)
+try:
+    application.application(chip)
+except KeyError:
+    pass
 
 #terminate unused bsp io
 for i in chip.inputs.values():

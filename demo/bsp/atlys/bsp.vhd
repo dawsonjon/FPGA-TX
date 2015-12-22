@@ -103,6 +103,10 @@ entity BSP is
    GPIO_LEDS     : out std_logic_vector(7 downto 0);   
    GPIO_SWITCHES : in  std_logic_vector(7 downto 0);   
    GPIO_BUTTONS  : in  std_logic_vector(3 downto 0);   
+    
+   --PS2 KEYBOARD
+   KD            : in  Std_logic;
+   KC            : in  Std_logic;
 
    --RS232 INTERFACE
    RS232_RX      : in    std_logic;
@@ -145,6 +149,20 @@ architecture RTL of BSP is
     );
   end component gigabit_ethernet;
 
+  component KEYBOARD is
+    port (
+    CLK      : in  Std_logic;
+    RST      : in  Std_logic;
+
+    DATA_STB : out Std_logic;
+    DATA_ACK : in  Std_logic;
+    DATA     : out Std_logic_vector (31 downto 0);
+    
+    KD      : in  Std_logic;
+    KC      : in  Std_logic
+    );
+  end component KEYBOARD;
+
   component USER_DESIGN is
     port(
       CLK : in std_logic;
@@ -176,6 +194,10 @@ architecture RTL of BSP is
       INPUT_TIMER : in std_logic_vector(31 downto 0);
       INPUT_TIMER_STB : in std_logic;
       INPUT_TIMER_ACK : out std_logic;
+
+      INPUT_PS2_STB : in Std_logic;
+      INPUT_PS2_ACK : out  Std_logic;
+      INPUT_PS2     : in Std_logic_vector (31 downto 0);
 
       --RS232 RX STREAM
       INPUT_RS232_RX : in std_logic_vector(31 downto 0);
@@ -298,15 +320,10 @@ architecture RTL of BSP is
   signal OUTPUT_RS232_TX_STB      : std_logic;
   signal OUTPUT_RS232_TX_ACK      : std_logic;
 
-  --SOCKET RX STREAM
-  signal INPUT_SOCKET          : std_logic_vector(31 downto 0);
-  signal INPUT_SOCKET_STB      : std_logic;
-  signal INPUT_SOCKET_ACK      : std_logic;
-
-  --SOCKET TX STREAM
-  signal OUTPUT_SOCKET          : std_logic_vector(31 downto 0);
-  signal OUTPUT_SOCKET_STB      : std_logic;
-  signal OUTPUT_SOCKET_ACK      : std_logic;
+  --PS2 DATA
+  signal PS2_DATA_STB : Std_logic;
+  signal PS2_DATA_ACK : Std_logic;
+  signal PS2_DATA     : Std_logic_vector (31 downto 0);
 
 begin
 
@@ -370,6 +387,11 @@ begin
       INPUT_BUTTONS_STB => INPUT_BUTTONS_STB,
       INPUT_BUTTONS_ACK => INPUT_BUTTONS_ACK,
 
+      --PS2 KEYBOARD
+      INPUT_PS2_STB => PS2_DATA_STB,
+      INPUT_PS2_ACK => PS2_DATA_ACK,
+      INPUT_PS2 => PS2_DATA,
+
       --TIMER
       INPUT_TIMER => INPUT_TIMER,
       INPUT_TIMER_STB => INPUT_TIMER_STB,
@@ -387,20 +409,18 @@ begin
 
   );
 
-  SERIAL_OUTPUT_INST_1 : serial_output generic map(
+  SERIAL_OUTPUT_INST_1 : SERIAL_OUTPUT generic map(
       CLOCK_FREQUENCY => 50000000,
       BAUD_RATE       => 115200
   )port map(
       CLK     => CLK,
       RST     => INTERNAL_RST,
-      --TX      => RS232_TX,
-      TX      => open,
+      TX      => RS232_TX,
      
       IN1     => OUTPUT_RS232_TX(7 downto 0),
       IN1_STB => OUTPUT_RS232_TX_STB,
       IN1_ACK => OUTPUT_RS232_TX_ACK
   );
-  RS232_TX <= RS232_RX;
 
   SERIAL_INPUT_INST_1 : SERIAL_INPUT generic map(
       CLOCK_FREQUENCY => 50000000,
@@ -417,6 +437,18 @@ begin
 
   INPUT_RS232_RX(31 downto 8) <= (others => '0');
 
+  KEYBOARD_INST_1 : KEYBOARD port map(
+    CLK => CLK,
+    RST => INTERNAL_RST,
+
+    DATA_STB => PS2_DATA_STB,
+    DATA_ACK => PS2_DATA_ACK,
+    DATA => PS2_DATA,
+    
+    KD => KD,
+    KC => KC
+  );
+
   process
   begin
     wait until rising_edge(CLK);
@@ -427,7 +459,6 @@ begin
        GPIO_LEDS(7 downto 0) <= OUTPUT_LEDS(7 downto 0);
     end if;
     OUTPUT_LEDS_ACK <= '1';
-    GPIO_LEDS(0) <= RS232_RX;
 
     INPUT_SWITCHES_STB <= '1';
     GPIO_SWITCHES_D <= GPIO_SWITCHES;
