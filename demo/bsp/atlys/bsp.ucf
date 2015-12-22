@@ -66,6 +66,8 @@ NET "RXCLK"                       LOC = "K15";   ## 7   ON U46
 
 NET "KD"                          LOC = "N15" | IOSTANDARD = LVCMOS33 | PULLUP;
 NET "KC"                          LOC = "P17" | IOSTANDARD = LVCMOS33 | PULLUP;
+NET "MKD"                         LOC = "P18" | IOSTANDARD = LVCMOS33 | PULLUP;
+NET "MKC"                         LOC = "N18" | IOSTANDARD = LVCMOS33 | PULLUP;
 
 NET "CLK_IN" TNM_NET = "CLK_IN";
 TIMESPEC "TS_CLK" = PERIOD "CLK_IN" 10 ns HIGH 50% INPUT_JITTER 50.0ps;

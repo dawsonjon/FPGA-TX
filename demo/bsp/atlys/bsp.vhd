@@ -108,6 +108,10 @@ entity BSP is
    KD            : in  Std_logic;
    KC            : in  Std_logic;
 
+   --make these inputs and pull them up
+   MKD           : in  Std_logic;
+   MKC           : in  Std_logic;
+
    --RS232 INTERFACE
    RS232_RX      : in    std_logic;
    RS232_TX      : out   std_logic
