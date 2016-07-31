@@ -1,0 +1,175 @@
+Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
+| Date         : Tue Dec 22 18:46:01 2015
+| Host         : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
+| Command      : report_drc
+------------------------------------------------------------------------------------
+
+Report DRC
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: bsp
+          Floorplan: design_1
+      Design limits: <entire design considered>
+           Ruledeck: default
+             Max violations: <unlimited>
+             Violations found: 28
+
+2. REPORT DETAILS
+-----------------
+BUFC-1#1 Warning
+Input Buffer Connections  
+Input buffer GPIO_BUTTONS[0]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#2 Warning
+Input Buffer Connections  
+Input buffer GPIO_BUTTONS[1]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#3 Warning
+Input Buffer Connections  
+Input buffer GPIO_BUTTONS[2]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#4 Warning
+Input Buffer Connections  
+Input buffer GPIO_BUTTONS[3]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#5 Warning
+Input Buffer Connections  
+Input buffer GPIO_BUTTONS[4]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#6 Warning
+Input Buffer Connections  
+Input buffer GPIO_SWITCHES[0]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#7 Warning
+Input Buffer Connections  
+Input buffer GPIO_SWITCHES[10]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#8 Warning
+Input Buffer Connections  
+Input buffer GPIO_SWITCHES[11]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#9 Warning
+Input Buffer Connections  
+Input buffer GPIO_SWITCHES[12]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#10 Warning
+Input Buffer Connections  
+Input buffer GPIO_SWITCHES[13]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#11 Warning
+Input Buffer Connections  
+Input buffer GPIO_SWITCHES[14]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#12 Warning
+Input Buffer Connections  
+Input buffer GPIO_SWITCHES[15]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#13 Warning
+Input Buffer Connections  
+Input buffer GPIO_SWITCHES[1]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#14 Warning
+Input Buffer Connections  
+Input buffer GPIO_SWITCHES[2]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#15 Warning
+Input Buffer Connections  
+Input buffer GPIO_SWITCHES[3]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#16 Warning
+Input Buffer Connections  
+Input buffer GPIO_SWITCHES[4]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#17 Warning
+Input Buffer Connections  
+Input buffer GPIO_SWITCHES[5]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#18 Warning
+Input Buffer Connections  
+Input buffer GPIO_SWITCHES[6]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#19 Warning
+Input Buffer Connections  
+Input buffer GPIO_SWITCHES[7]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#20 Warning
+Input Buffer Connections  
+Input buffer GPIO_SWITCHES[8]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#21 Warning
+Input Buffer Connections  
+Input buffer GPIO_SWITCHES[9]_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#22 Warning
+Input Buffer Connections  
+Input buffer KC_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#23 Warning
+Input Buffer Connections  
+Input buffer KD_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+BUFC-1#24 Warning
+Input Buffer Connections  
+Input buffer RS232_RX_IBUF_inst has no loads. An input buffer must drive an internal load.
+Related violations: <none>
+
+CFGBVS-1#1 Warning
+Missing CFGBVS and CONFIG_VOLTAGE Design Properties  
+Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_design.  Configuration bank voltage select (CFGBVS) must be set to VCCO or GND, and CONFIG_VOLTAGE must be set to the correct configuration voltage, in order to determine the I/O voltage support for the pins in bank 0.  It is suggested to specify these either using the 'Edit Device Properties' function in the GUI or directly in the XDC file using the following syntax:
+
+ set_property CFGBVS value1 [current_design]
+ #where value1 is either VCCO or GND
+
+ set_property CONFIG_VOLTAGE value2 [current_design]
+ #where value2 is the voltage provided to configuration bank 0
+
+Refer to the device configuration user guide for more information.
+Related violations: <none>
+
+RPBF-3#1 Warning
+IO port buffering is incomplete  
+Device port JC[0] expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RPBF-3#2 Warning
+IO port buffering is incomplete  
+Device port JC[1] expects both input and output buffering but the buffers are incomplete.
+Related violations: <none>
+
+RTSTAT-10#1 Warning
+No routable loads  
+24 net(s) have no routable loads. The problem bus(es) and/or net(s) are GPIO_BUTTONS[0]_IBUF, GPIO_BUTTONS[1]_IBUF, GPIO_BUTTONS[2]_IBUF, GPIO_BUTTONS[3]_IBUF, GPIO_BUTTONS[4]_IBUF, GPIO_SWITCHES[0]_IBUF, GPIO_SWITCHES[1]_IBUF, GPIO_SWITCHES[2]_IBUF, GPIO_SWITCHES[3]_IBUF, GPIO_SWITCHES[4]_IBUF, GPIO_SWITCHES[5]_IBUF, GPIO_SWITCHES[6]_IBUF, GPIO_SWITCHES[7]_IBUF, GPIO_SWITCHES[8]_IBUF, GPIO_SWITCHES[9]_IBUF (the first 15 of 24 listed).
+Related violations: <none>
+
+

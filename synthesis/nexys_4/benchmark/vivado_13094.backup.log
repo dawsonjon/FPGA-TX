@@ -1,0 +1,2217 @@
+#-----------------------------------------------------------
+# Vivado v2015.2 (64-bit)
+# SW Build 1266856 on Fri Jun 26 16:35:25 MDT 2015
+# IP Build 1264090 on Wed Jun 24 14:22:01 MDT 2015
+# Start of session at: Mon Dec 21 21:48:01 2015
+# Process ID: 11964
+# Log file: /home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/vivado.log
+# Journal file: /home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/vivado.jou
+#-----------------------------------------------------------
+source bsp.tcl
+# set outputDir .
+# read_xdc ./bsp.xdc
+# read_verilog main_12.v
+# read_verilog main_11.v
+# read_verilog main_13.v
+# read_verilog main_15.v
+# read_verilog main_10.v
+# read_verilog main_0.v
+# read_verilog main_1.v
+# read_verilog main_2.v
+# read_verilog main_3.v
+# read_verilog main_4.v
+# read_verilog main_5.v
+# read_verilog main_6.v
+# read_verilog main_7.v
+# read_verilog main_8.v
+# read_verilog main_9.v
+# read_verilog main_16.v
+# read_verilog main_14.v
+# read_verilog main_17.v
+# read_verilog user_design.v
+# read_verilog chips_lib.v
+# read_vhdl serial_out.vhd
+# read_vhdl serial_in.vhd
+# read_vhdl rmii_ethernet.vhd
+# read_vhdl bsp.vhd
+# read_vhdl i2c.vhd
+# read_vhdl pwm.vhd
+# read_vhdl keyboard.vhd
+# read_vhdl bram.vhd
+# read_vhdl svga_package.vhd
+# read_vhdl svga_core.vhd
+# read_vhdl svga_timing_gen.vhd
+# read_vhdl pwm_audio.vhd
+# synth_design -top bsp -part XC7A100T-CSG324-1
+Command: synth_design -top bsp -part XC7A100T-CSG324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 946.066 ; gain = 141.520 ; free physical = 1409 ; free virtual = 6522
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'BSP' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:141]
+INFO: [Synth 8-3491] module 'rmii_ethernet' declared at '/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/rmii_ethernet.vhd:82' bound to instance 'ethernet_inst_1' of component 'rmii_ethernet' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:482]
+INFO: [Synth 8-638] synthesizing module 'rmii_ethernet' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/rmii_ethernet.vhd:110]
+INFO: [Synth 8-256] done synthesizing module 'rmii_ethernet' (1#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/rmii_ethernet.vhd:110]
+INFO: [Synth 8-3491] module 'CHARSVGA' declared at '/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/svga_core.vhd:32' bound to instance 'CHARSVGA_INST_1' of component 'CHARSVGA' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:510]
+INFO: [Synth 8-638] synthesizing module 'CHARSVGA' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/svga_core.vhd:51]
+INFO: [Synth 8-3491] module 'VIDEO_TIME_GEN' declared at '/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/svga_timing_gen.vhd:28' bound to instance 'TIMEING1' of component 'VIDEO_TIME_GEN' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/svga_core.vhd:103]
+INFO: [Synth 8-638] synthesizing module 'VIDEO_TIME_GEN' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/svga_timing_gen.vhd:40]
+INFO: [Synth 8-256] done synthesizing module 'VIDEO_TIME_GEN' (2#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/svga_timing_gen.vhd:40]
+	Parameter DEPTH bound to: 7500 - type: integer 
+	Parameter WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-3491] module 'BRAM' declared at '/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bram.vhd:5' bound to instance 'BRAM_INST_1' of component 'BRAM' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/svga_core.vhd:115]
+INFO: [Synth 8-638] synthesizing module 'BRAM' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bram.vhd:23]
+	Parameter DEPTH bound to: 7500 - type: integer 
+	Parameter WIDTH bound to: 8 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'BRAM' (3#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bram.vhd:23]
+INFO: [Synth 8-256] done synthesizing module 'CHARSVGA' (4#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/svga_core.vhd:51]
+	Parameter CLOCK_FREQUENCY bound to: 50000000 - type: integer 
+	Parameter SAMPLE_RATE bound to: 44100 - type: integer 
+	Parameter AUDIO_BITS bound to: 8 - type: integer 
+INFO: [Synth 8-3491] module 'pwm_audio' declared at '/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/pwm_audio.vhd:6' bound to instance 'pwm_audio_inst_1' of component 'pwm_audio' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:533]
+INFO: [Synth 8-638] synthesizing module 'pwm_audio' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/pwm_audio.vhd:25]
+	Parameter CLOCK_FREQUENCY bound to: 50000000 - type: integer 
+	Parameter SAMPLE_RATE bound to: 44100 - type: integer 
+	Parameter AUDIO_BITS bound to: 8 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'pwm_audio' (5#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/pwm_audio.vhd:25]
+INFO: [Synth 8-3491] module 'user_design' declared at '/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/user_design.v:1' bound to instance 'USER_DESIGN_INST_1' of component 'USER_DESIGN' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+INFO: [Synth 8-638] synthesizing module 'user_design' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/user_design.v:1]
+INFO: [Synth 8-638] synthesizing module 'main_0' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_0.v:15]
+	Parameter stop bound to: 5'b00000 
+	Parameter instruction_fetch bound to: 5'b00001 
+	Parameter operand_fetch bound to: 5'b00010 
+	Parameter execute bound to: 5'b00011 
+	Parameter load bound to: 5'b00100 
+	Parameter wait_state bound to: 5'b00101 
+	Parameter read bound to: 5'b00110 
+	Parameter write bound to: 5'b00111 
+	Parameter divider_write_a bound to: 5'b01000 
+	Parameter divider_write_b bound to: 5'b01001 
+	Parameter divider_read_z bound to: 5'b01010 
+	Parameter adder_write_a bound to: 5'b01011 
+	Parameter adder_write_b bound to: 5'b01100 
+	Parameter adder_read_z bound to: 5'b01101 
+	Parameter multiplier_write_a bound to: 5'b01110 
+	Parameter multiplier_write_b bound to: 5'b01111 
+	Parameter multiplier_read_z bound to: 5'b10000 
+	Parameter int_to_float_write_a bound to: 5'b10001 
+	Parameter int_to_float_read_z bound to: 5'b10010 
+	Parameter float_to_int_write_a bound to: 5'b10011 
+	Parameter float_to_int_read_z bound to: 5'b10100 
+INFO: [Synth 8-638] synthesizing module 'divider' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/chips_lib.v:287]
+	Parameter get_a bound to: 4'b0000 
+	Parameter get_b bound to: 4'b0001 
+	Parameter unpack bound to: 4'b0010 
+	Parameter special_cases bound to: 4'b0011 
+	Parameter normalise_a bound to: 4'b0100 
+	Parameter normalise_b bound to: 4'b0101 
+	Parameter divide_0 bound to: 4'b0110 
+	Parameter divide_1 bound to: 4'b0111 
+	Parameter divide_2 bound to: 4'b1000 
+	Parameter divide_3 bound to: 4'b1001 
+	Parameter normalise_1 bound to: 4'b1010 
+	Parameter normalise_2 bound to: 4'b1011 
+	Parameter round bound to: 4'b1100 
+	Parameter pack bound to: 4'b1101 
+	Parameter put_z bound to: 4'b1110 
+INFO: [Synth 8-155] case statement is not full and has no default [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/chips_lib.v:348]
+INFO: [Synth 8-256] done synthesizing module 'divider' (6#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/chips_lib.v:287]
+INFO: [Synth 8-638] synthesizing module 'adder' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/chips_lib.v:5]
+	Parameter get_a bound to: 4'b0000 
+	Parameter get_b bound to: 4'b0001 
+	Parameter unpack bound to: 4'b0010 
+	Parameter special_cases bound to: 4'b0011 
+	Parameter align bound to: 4'b0100 
+	Parameter add_0 bound to: 4'b0101 
+	Parameter add_1 bound to: 4'b0110 
+	Parameter normalise_1 bound to: 4'b0111 
+	Parameter normalise_2 bound to: 4'b1000 
+	Parameter round bound to: 4'b1001 
+	Parameter pack bound to: 4'b1010 
+	Parameter put_z bound to: 4'b1011 
+INFO: [Synth 8-155] case statement is not full and has no default [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/chips_lib.v:63]
+INFO: [Synth 8-256] done synthesizing module 'adder' (7#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/chips_lib.v:5]
+INFO: [Synth 8-638] synthesizing module 'multiplier' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/chips_lib.v:602]
+	Parameter get_a bound to: 4'b0000 
+	Parameter get_b bound to: 4'b0001 
+	Parameter unpack bound to: 4'b0010 
+	Parameter special_cases bound to: 4'b0011 
+	Parameter normalise_a bound to: 4'b0100 
+	Parameter normalise_b bound to: 4'b0101 
+	Parameter multiply_0 bound to: 4'b0110 
+	Parameter multiply_1 bound to: 4'b0111 
+	Parameter normalise_1 bound to: 4'b1000 
+	Parameter normalise_2 bound to: 4'b1001 
+	Parameter round bound to: 4'b1010 
+	Parameter pack bound to: 4'b1011 
+	Parameter put_z bound to: 4'b1100 
+INFO: [Synth 8-155] case statement is not full and has no default [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/chips_lib.v:660]
+INFO: [Synth 8-256] done synthesizing module 'multiplier' (8#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/chips_lib.v:602]
+INFO: [Synth 8-638] synthesizing module 'int_to_float' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/chips_lib.v:1740]
+	Parameter get_a bound to: 3'b000 
+	Parameter convert_0 bound to: 3'b001 
+	Parameter convert_1 bound to: 3'b010 
+	Parameter convert_2 bound to: 3'b011 
+	Parameter round bound to: 3'b100 
+	Parameter pack bound to: 3'b101 
+	Parameter put_z bound to: 3'b110 
+INFO: [Synth 8-155] case statement is not full and has no default [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/chips_lib.v:1785]
+INFO: [Synth 8-256] done synthesizing module 'int_to_float' (9#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/chips_lib.v:1740]
+INFO: [Synth 8-638] synthesizing module 'float_to_int' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/chips_lib.v:1881]
+	Parameter get_a bound to: 3'b000 
+	Parameter special_cases bound to: 3'b001 
+	Parameter unpack bound to: 3'b010 
+	Parameter convert bound to: 3'b011 
+	Parameter put_z bound to: 3'b100 
+INFO: [Synth 8-155] case statement is not full and has no default [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/chips_lib.v:1920]
+INFO: [Synth 8-256] done synthesizing module 'float_to_int' (10#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/chips_lib.v:1881]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_0.v:2250]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_0.v:2447]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_0.v:2234]
+WARNING: [Synth 8-3848] Net exception in module/entity main_0 does not have driver. [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_0.v:115]
+INFO: [Synth 8-256] done synthesizing module 'main_0' (11#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_0.v:15]
+INFO: [Synth 8-638] synthesizing module 'main_1' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_1.v:2]
+INFO: [Synth 8-256] done synthesizing module 'main_1' (12#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_1.v:2]
+INFO: [Synth 8-638] synthesizing module 'main_2' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_2.v:2]
+INFO: [Synth 8-256] done synthesizing module 'main_2' (13#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_2.v:2]
+INFO: [Synth 8-638] synthesizing module 'main_3' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_3.v:2]
+INFO: [Synth 8-256] done synthesizing module 'main_3' (14#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_3.v:2]
+INFO: [Synth 8-638] synthesizing module 'main_4' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_4.v:2]
+INFO: [Synth 8-256] done synthesizing module 'main_4' (15#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_4.v:2]
+INFO: [Synth 8-638] synthesizing module 'main_5' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_5.v:2]
+INFO: [Synth 8-256] done synthesizing module 'main_5' (16#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_5.v:2]
+INFO: [Synth 8-638] synthesizing module 'main_6' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_6.v:2]
+INFO: [Synth 8-256] done synthesizing module 'main_6' (17#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_6.v:2]
+INFO: [Synth 8-638] synthesizing module 'main_7' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_7.v:2]
+INFO: [Synth 8-256] done synthesizing module 'main_7' (18#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_7.v:2]
+INFO: [Synth 8-638] synthesizing module 'main_8' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_8.v:1]
+INFO: [Synth 8-256] done synthesizing module 'main_8' (19#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_8.v:1]
+INFO: [Synth 8-638] synthesizing module 'main_9' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_9.v:1]
+INFO: [Synth 8-256] done synthesizing module 'main_9' (20#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_9.v:1]
+INFO: [Synth 8-638] synthesizing module 'main_10' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_10.v:1]
+INFO: [Synth 8-256] done synthesizing module 'main_10' (21#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_10.v:1]
+INFO: [Synth 8-638] synthesizing module 'main_11' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_11.v:1]
+INFO: [Synth 8-256] done synthesizing module 'main_11' (22#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_11.v:1]
+INFO: [Synth 8-638] synthesizing module 'main_12' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_12.v:1]
+INFO: [Synth 8-256] done synthesizing module 'main_12' (23#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_12.v:1]
+INFO: [Synth 8-638] synthesizing module 'main_13' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_13.v:1]
+INFO: [Synth 8-256] done synthesizing module 'main_13' (24#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_13.v:1]
+INFO: [Synth 8-638] synthesizing module 'main_14' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_14.v:1]
+INFO: [Synth 8-256] done synthesizing module 'main_14' (25#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_14.v:1]
+INFO: [Synth 8-638] synthesizing module 'main_15' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_15.v:1]
+INFO: [Synth 8-256] done synthesizing module 'main_15' (26#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_15.v:1]
+INFO: [Synth 8-638] synthesizing module 'main_16' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_16.v:1]
+INFO: [Synth 8-256] done synthesizing module 'main_16' (27#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_16.v:1]
+INFO: [Synth 8-638] synthesizing module 'main_17' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_17.v:1]
+INFO: [Synth 8-256] done synthesizing module 'main_17' (28#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/main_17.v:1]
+INFO: [Synth 8-256] done synthesizing module 'user_design' (29#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/user_design.v:1]
+	Parameter CLOCK_FREQUENCY bound to: 50000000 - type: integer 
+	Parameter BAUD_RATE bound to: 115200 - type: integer 
+INFO: [Synth 8-3491] module 'serial_output' declared at '/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/serial_out.vhd:19' bound to instance 'SERIAL_OUTPUT_INST_1' of component 'SERIAL_OUTPUT' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:634]
+INFO: [Synth 8-638] synthesizing module 'serial_output' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/serial_out.vhd:37]
+	Parameter CLOCK_FREQUENCY bound to: 50000000 - type: integer 
+	Parameter BAUD_RATE bound to: 115200 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'serial_output' (30#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/serial_out.vhd:37]
+	Parameter CLOCK_FREQUENCY bound to: 50000000 - type: integer 
+	Parameter BAUD_RATE bound to: 115200 - type: integer 
+INFO: [Synth 8-3491] module 'SERIAL_INPUT' declared at '/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/serial_in.vhd:35' bound to instance 'SERIAL_INPUT_INST_1' of component 'SERIAL_INPUT' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:647]
+INFO: [Synth 8-638] synthesizing module 'SERIAL_INPUT' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/serial_in.vhd:53]
+	Parameter CLOCK_FREQUENCY bound to: 50000000 - type: integer 
+	Parameter BAUD_RATE bound to: 115200 - type: integer 
+INFO: [Synth 8-4512] found unpartitioned construct node [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/serial_in.vhd:127]
+INFO: [Synth 8-256] done synthesizing module 'SERIAL_INPUT' (31#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/serial_in.vhd:53]
+	Parameter CLOCKS_PER_SECOND bound to: 50000000 - type: integer 
+	Parameter SPEED bound to: 10000 - type: integer 
+INFO: [Synth 8-3491] module 'I2C' declared at '/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/i2c.vhd:40' bound to instance 'I2C_INST_1' of component 'I2C' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:662]
+INFO: [Synth 8-638] synthesizing module 'I2C' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/i2c.vhd:62]
+	Parameter CLOCKS_PER_SECOND bound to: 50000000 - type: integer 
+	Parameter SPEED bound to: 10000 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'I2C' (32#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/i2c.vhd:62]
+	Parameter MAX_VAL bound to: 255 - type: integer 
+	Parameter CLOCK_DIVIDER bound to: 1000 - type: integer 
+INFO: [Synth 8-3491] module 'PWM' declared at '/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/pwm.vhd:5' bound to instance 'PWM_INST_1' of component 'PWM' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:681]
+INFO: [Synth 8-638] synthesizing module 'PWM' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/pwm.vhd:21]
+	Parameter MAX_VAL bound to: 255 - type: integer 
+	Parameter CLOCK_DIVIDER bound to: 1000 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'PWM' (33#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/pwm.vhd:21]
+	Parameter MAX_VAL bound to: 255 - type: integer 
+	Parameter CLOCK_DIVIDER bound to: 1000 - type: integer 
+INFO: [Synth 8-3491] module 'PWM' declared at '/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/pwm.vhd:5' bound to instance 'PWM_INST_2' of component 'PWM' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:694]
+	Parameter MAX_VAL bound to: 255 - type: integer 
+	Parameter CLOCK_DIVIDER bound to: 1000 - type: integer 
+INFO: [Synth 8-3491] module 'PWM' declared at '/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/pwm.vhd:5' bound to instance 'PWM_INST_3' of component 'PWM' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:707]
+INFO: [Synth 8-3491] module 'KEYBOARD' declared at '/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/keyboard.vhd:24' bound to instance 'KEYBOARD_INST1' of component 'KEYBOARD' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:720]
+INFO: [Synth 8-638] synthesizing module 'KEYBOARD' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/keyboard.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'KEYBOARD' (34#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/keyboard.vhd:39]
+	Parameter CAPACITANCE bound to: DONT_CARE - type: string 
+	Parameter IBUF_DELAY_VALUE bound to: 0 - type: string 
+	Parameter IBUF_LOW_PWR bound to: 1 - type: bool 
+	Parameter IOSTANDARD bound to: DEFAULT - type: string 
+INFO: [Synth 8-113] binding component instance 'clkin1_buf' to cell 'IBUFG' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:783]
+	Parameter CLKDV_DIVIDE bound to: 2.000000 - type: float 
+	Parameter CLKFX_DIVIDE bound to: 4 - type: integer 
+	Parameter CLKFX_MULTIPLY bound to: 5 - type: integer 
+	Parameter CLKIN_DIVIDE_BY_2 bound to: 0 - type: bool 
+	Parameter CLKIN_PERIOD bound to: 10.000000 - type: float 
+	Parameter CLKOUT_PHASE_SHIFT bound to: NONE - type: string 
+	Parameter CLK_FEEDBACK bound to: 1X - type: string 
+	Parameter DESKEW_ADJUST bound to: SYSTEM_SYNCHRONOUS - type: string 
+	Parameter DFS_FREQUENCY_MODE bound to: LOW - type: string 
+	Parameter DLL_FREQUENCY_MODE bound to: LOW - type: string 
+	Parameter DSS_MODE bound to: NONE - type: string 
+	Parameter DUTY_CYCLE_CORRECTION bound to: 1 - type: bool 
+	Parameter FACTORY_JF bound to: 16'b1100000010000000 
+	Parameter PHASE_SHIFT bound to: 0 - type: integer 
+	Parameter STARTUP_WAIT bound to: 0 - type: bool 
+INFO: [Synth 8-113] binding component instance 'dcm_sp_inst' to cell 'DCM_SP' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:794]
+INFO: [Synth 8-113] binding component instance 'BUFG_INST1' to cell 'BUFG' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:836]
+INFO: [Synth 8-113] binding component instance 'BUFG_INST2' to cell 'BUFG' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:841]
+INFO: [Synth 8-113] binding component instance 'BUFG_INST3' to cell 'BUFG' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:846]
+INFO: [Synth 8-113] binding component instance 'BUFG_INST4' to cell 'BUFG' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:851]
+INFO: [Synth 8-113] binding component instance 'BUFG_INST5' to cell 'BUFG' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:856]
+INFO: [Synth 8-4471] merging register 'OUTPUT_SEVEN_SEGMENT_ANNODE_ACK_reg' into 'OUTPUT_LEDS_ACK_reg' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:607]
+INFO: [Synth 8-4471] merging register 'OUTPUT_SEVEN_SEGMENT_CATHODE_ACK_reg' into 'OUTPUT_LEDS_ACK_reg' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:604]
+INFO: [Synth 8-4471] merging register 'INPUT_SWITCHES_STB_reg' into 'OUTPUT_LEDS_ACK_reg' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:563]
+INFO: [Synth 8-4471] merging register 'INPUT_BUTTONS_STB_reg' into 'OUTPUT_LEDS_ACK_reg' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:567]
+INFO: [Synth 8-256] done synthesizing module 'BSP' (35#1302) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:141]
+WARNING: [Synth 8-3917] design BSP has port AUDIO_EN driven by constant 1
+WARNING: [Synth 8-3331] design BSP has unconnected port JC[7]
+WARNING: [Synth 8-3331] design BSP has unconnected port JC[6]
+WARNING: [Synth 8-3331] design BSP has unconnected port JC[5]
+WARNING: [Synth 8-3331] design BSP has unconnected port JC[4]
+WARNING: [Synth 8-3331] design BSP has unconnected port JC[3]
+WARNING: [Synth 8-3331] design BSP has unconnected port JC[2]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1019.363 ; gain = 214.816 ; free physical = 1333 ; free virtual = 6448
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[31] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[30] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[29] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[28] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[27] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[26] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[25] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[24] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[23] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[22] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[21] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[20] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[19] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[18] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[17] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[16] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[15] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[14] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[13] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[12] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[11] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[10] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[9] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[8] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[7] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[6] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[5] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[4] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[3] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[2] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[1] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer[0] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_rs232_rx[31] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_rs232_rx[30] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_rs232_rx[29] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_rs232_rx[28] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_rs232_rx[27] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_rs232_rx[26] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_rs232_rx[25] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_rs232_rx[24] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_rs232_rx[23] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_rs232_rx[22] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_rs232_rx[21] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_rs232_rx[20] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_rs232_rx[19] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_rs232_rx[18] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_rs232_rx[17] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_rs232_rx[16] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_eth_rx[31] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_eth_rx[30] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_eth_rx[29] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_eth_rx[28] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_eth_rx[27] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_eth_rx[26] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_eth_rx[25] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_eth_rx[24] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_eth_rx[23] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_eth_rx[22] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_eth_rx[21] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_eth_rx[20] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_eth_rx[19] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_eth_rx[18] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_eth_rx[17] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_eth_rx[16] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer_stb to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.vhd:553]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1019.363 ; gain = 214.816 ; free physical = 1333 ; free virtual = 6447
+---------------------------------------------------------------------------------
+INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.xdc]
+Finished Parsing XDC File [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 2 instances were transformed.
+  DCM_SP => MMCME2_ADV (inverted pins: PSINCDEC): 1 instances
+  IBUFG => IBUF: 1 instances
+
+INFO: [Timing 38-2] Deriving generated clocks
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.27 ; elapsed = 00:00:00.10 . Memory (MB): peak = 1347.809 ; gain = 1.000 ; free physical = 1126 ; free virtual = 6241
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1347.809 ; gain = 543.262 ; free physical = 1125 ; free virtual = 6240
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1347.809 ; gain = 543.262 ; free physical = 1125 ; free virtual = 6240
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:21 . Memory (MB): peak = 1347.809 ; gain = 543.262 ; free physical = 1125 ; free virtual = 6240
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/rmii_ethernet.vhd:366]
+INFO: [Synth 8-5546] ROM "TX_PHY_STATE" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "TX_PHY_STATE" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "TX_PHY_STATE" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "TX_OUT_COUNT" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "PREAMBLE_COUNT" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "RX_PHY_STATE" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "RX_START_ADDRESS" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'RX_PACKET_STATE_reg' in module 'rmii_ethernet'
+INFO: [Synth 8-5544] ROM "COL_ADDRESS" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "PIX_ROW_ADDRESS" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "ROW_ADDRESS" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "INTVSYNCH" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "INTVSYNCH" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "VBLANK" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "VBLANK" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "VTIMER_EN" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "INTHSYNCH" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "HBLANK" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "HBLANK" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "STATE" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "COUNT" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/chips_lib.v:348]
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'divider'
+INFO: [Synth 8-5546] ROM "a_m" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "b_m" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "a_e" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "b_e" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "z_e" won't be mapped to RAM because address size (24) is larger than maximum supported(18)
+INFO: [Synth 8-5546] ROM "count" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "s_output_z_stb" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "dividend" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "z_s" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "a_s" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "s_input_b_ack" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "s_input_a_ack" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/chips_lib.v:174]
+INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/chips_lib.v:63]
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'adder'
+INFO: [Synth 8-5546] ROM "a_m" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "b_m" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "a_e" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "b_e" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "z_e" won't be mapped to RAM because address size (24) is larger than maximum supported(18)
+INFO: [Synth 8-5544] ROM "s_output_z_stb" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "sum" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "a_s" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "s_input_b_ack" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "s_input_a_ack" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/chips_lib.v:660]
+INFO: [Synth 8-5546] ROM "a_m" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "b_m" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "a_e" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "b_e" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "z_e" won't be mapped to RAM because address size (24) is larger than maximum supported(18)
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'multiplier'
+INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/chips_lib.v:1785]
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'int_to_float'
+INFO: [Synth 8-5545] ROM "z_s" won't be mapped to RAM because address size (32) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "z_m" won't be mapped to RAM because address size (32) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "z_e" won't be mapped to RAM because address size (24) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "value" won't be mapped to RAM because address size (32) is larger than maximum supported(18)
+INFO: [Synth 8-5544] ROM "s_output_z_stb" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "z" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "z_s" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "s_input_a_ack" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5545] ROM "state" won't be mapped to RAM because address size (32) is larger than maximum supported(18)
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'float_to_int'
+INFO: [Synth 8-5546] ROM "z" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "s_input_a_ack" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "a_s" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "s_output_z_stb" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+ROM size is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5545] ROM "program_counter" won't be mapped to RAM because address size (21) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "state" won't be mapped to RAM because address size (32) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "address_z_3" won't be mapped to RAM because address size (21) is larger than maximum supported(18)
+INFO: [Synth 8-5546] ROM "adder_a_stb" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5545] ROM "s_output_rs232_tx_stb" won't be mapped to RAM because address size (32) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "divider_b_stb" won't be mapped to RAM because address size (21) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "divider_z_ack" won't be mapped to RAM because address size (21) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "adder_b_stb" won't be mapped to RAM because address size (21) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "adder_z_ack" won't be mapped to RAM because address size (21) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "multiplier_b_stb" won't be mapped to RAM because address size (21) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "multiplier_z_ack" won't be mapped to RAM because address size (21) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "int_to_float_in_stb" won't be mapped to RAM because address size (21) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "int_to_float_out_ack" won't be mapped to RAM because address size (21) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "float_to_int_in_stb" won't be mapped to RAM because address size (21) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "float_to_int_out_ack" won't be mapped to RAM because address size (21) is larger than maximum supported(18)
+INFO: [Synth 8-802] inferred FSM for state register 'STATE_reg' in module 'serial_output'
+INFO: [Synth 8-5546] ROM "X16CLK_EN" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "S_IN1_ACK" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "TX" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "STATE" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'STATE_reg' in module 'SERIAL_INPUT'
+INFO: [Synth 8-5546] ROM "X16CLK_EN" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "INT_SERIAL" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "INT_SERIAL" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "COUNT" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "COUNT" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "STATE" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "STATE" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "STATE" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5546] ROM "STATE" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "COUNT" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5544] ROM "STATE" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5545] ROM "STATE" won't be mapped to RAM because address size (26) is larger than maximum supported(18)
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                     Old Encoding 
+---------------------------------------------------------------------------------------------------
+         wait_initialise |                              000 |                              000
+         wait_new_packet |                              001 |                              001
+             send_length |                              010 |                              101
+               prefetch0 |                              011 |                              011
+               prefetch1 |                              100 |                              100
+               send_data |                              101 |                              010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'RX_PACKET_STATE_reg' using encoding 'sequential' in module 'rmii_ethernet'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                     Old Encoding 
+---------------------------------------------------------------------------------------------------
+                   get_a |                             0000 |                             0000
+                   get_b |                             0001 |                             0001
+                  unpack |                             0010 |                             0010
+           special_cases |                             0011 |                             0011
+             normalise_a |                             0100 |                             0100
+             normalise_b |                             0101 |                             0101
+                divide_0 |                             0110 |                             0110
+                divide_1 |                             0111 |                             0111
+                divide_2 |                             1000 |                             1000
+                divide_3 |                             1001 |                             1001
+             normalise_1 |                             1010 |                             1010
+             normalise_2 |                             1011 |                             1011
+                   round |                             1100 |                             1100
+                    pack |                             1101 |                             1101
+                   put_z |                             1110 |                             1110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'divider'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                     Old Encoding 
+---------------------------------------------------------------------------------------------------
+                   get_a |                             0000 |                             0000
+                   get_b |                             0001 |                             0001
+                  unpack |                             0010 |                             0010
+           special_cases |                             0011 |                             0011
+                   align |                             0100 |                             0100
+                   add_0 |                             0101 |                             0101
+                   add_1 |                             0110 |                             0110
+             normalise_1 |                             0111 |                             0111
+             normalise_2 |                             1000 |                             1000
+                   round |                             1001 |                             1001
+                    pack |                             1010 |                             1010
+                   put_z |                             1011 |                             1011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'adder'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                     Old Encoding 
+---------------------------------------------------------------------------------------------------
+                   get_a |                              000 |                              000
+               convert_0 |                              001 |                              001
+               convert_1 |                              010 |                              010
+               convert_2 |                              011 |                              011
+                   round |                              100 |                              100
+                    pack |                              101 |                              101
+                   put_z |                              110 |                              110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'int_to_float'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                     Old Encoding 
+---------------------------------------------------------------------------------------------------
+                   get_a |                              000 |                              000
+                  unpack |                              001 |                              010
+           special_cases |                              010 |                              001
+                 convert |                              011 |                              011
+                   put_z |                              100 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'float_to_int'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                     Old Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                             0000 |                             0000
+                 wait_en |                             0001 |                             0010
+                   start |                             0010 |                             0001
+                     tx0 |                             0011 |                             0011
+                     tx1 |                             0100 |                             0100
+                     tx2 |                             0101 |                             0101
+                     tx3 |                             0110 |                             0110
+                     tx4 |                             0111 |                             0111
+                     tx5 |                             1000 |                             1000
+                     tx6 |                             1001 |                             1001
+                     tx7 |                             1010 |                             1010
+                    stop |                             1011 |                             1011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'STATE_reg' using encoding 'sequential' in module 'serial_output'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                     Old Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                             0000 |                             0000
+                   start |                             0001 |                             0001
+                     rx0 |                             0010 |                             0010
+                     rx1 |                             0011 |                             0011
+                     rx2 |                             0100 |                             0100
+                     rx3 |                             0101 |                             0101
+                     rx4 |                             0110 |                             0110
+                     rx5 |                             0111 |                             0111
+                     rx6 |                             1000 |                             1000
+                     rx7 |                             1001 |                             1001
+                    stop |                             1010 |                             1010
+             output_data |                             1011 |                             1011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'STATE_reg' using encoding 'sequential' in module 'SERIAL_INPUT'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1347.809 ; gain = 543.262 ; free physical = 1121 ; free virtual = 6235
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     51 Bit       Adders := 1     
+	   3 Input     32 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 2     
+	   3 Input     28 Bit       Adders := 1     
+	   2 Input     28 Bit       Adders := 1     
+	   2 Input     26 Bit       Adders := 1     
+	   2 Input     24 Bit       Adders := 4     
+	   2 Input     17 Bit       Adders := 1     
+	   2 Input     16 Bit       Adders := 1     
+	   2 Input     13 Bit       Adders := 2     
+	   2 Input     12 Bit       Adders := 3     
+	   2 Input     11 Bit       Adders := 12    
+	   2 Input     10 Bit       Adders := 17    
+	   3 Input     10 Bit       Adders := 2     
+	   4 Input      9 Bit       Adders := 1     
+	   2 Input      9 Bit       Adders := 2     
+	   2 Input      8 Bit       Adders := 10    
+	   2 Input      7 Bit       Adders := 1     
+	   2 Input      6 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 3     
+	   2 Input      4 Bit       Adders := 2     
+	   2 Input      3 Bit       Adders := 3     
+	   2 Input      2 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 71    
+	   3 Input      1 Bit         XORs := 6     
+	   9 Input      1 Bit         XORs := 5     
+	   5 Input      1 Bit         XORs := 16    
+	   4 Input      1 Bit         XORs := 20    
+	   8 Input      1 Bit         XORs := 13    
+	   6 Input      1 Bit         XORs := 15    
+	   7 Input      1 Bit         XORs := 9     
++---Registers : 
+	               51 Bit    Registers := 3     
+	               50 Bit    Registers := 1     
+	               32 Bit    Registers := 45    
+	               29 Bit    Registers := 1     
+	               28 Bit    Registers := 1     
+	               27 Bit    Registers := 2     
+	               26 Bit    Registers := 1     
+	               24 Bit    Registers := 9     
+	               16 Bit    Registers := 10    
+	               13 Bit    Registers := 2     
+	               12 Bit    Registers := 3     
+	               11 Bit    Registers := 12    
+	               10 Bit    Registers := 13    
+	                9 Bit    Registers := 2     
+	                8 Bit    Registers := 15    
+	                7 Bit    Registers := 2     
+	                6 Bit    Registers := 2     
+	                5 Bit    Registers := 12    
+	                4 Bit    Registers := 6     
+	                3 Bit    Registers := 6     
+	                2 Bit    Registers := 6     
+	                1 Bit    Registers := 106   
++---RAMs : 
+	             128K Bit         RAMs := 1     
+	              58K Bit         RAMs := 1     
+	              32K Bit         RAMs := 1     
+	              16K Bit         RAMs := 1     
+	              512 Bit         RAMs := 1     
+	              352 Bit         RAMs := 2     
++---ROMs : 
+	                              ROMs := 2     
++---Muxes : 
+	  15 Input     51 Bit        Muxes := 4     
+	  13 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 15    
+	  15 Input     32 Bit        Muxes := 1     
+	  12 Input     32 Bit        Muxes := 1     
+	  14 Input     32 Bit        Muxes := 1     
+	   5 Input     32 Bit        Muxes := 2     
+	  26 Input     32 Bit        Muxes := 2     
+	  30 Input     32 Bit        Muxes := 2     
+	   2 Input     28 Bit        Muxes := 2     
+	   2 Input     27 Bit        Muxes := 2     
+	  12 Input     27 Bit        Muxes := 4     
+	   2 Input     24 Bit        Muxes := 4     
+	  15 Input     24 Bit        Muxes := 6     
+	  12 Input     24 Bit        Muxes := 1     
+	  14 Input     24 Bit        Muxes := 4     
+	   7 Input     24 Bit        Muxes := 1     
+	   2 Input     21 Bit        Muxes := 1     
+	  21 Input     21 Bit        Muxes := 1     
+	  26 Input     21 Bit        Muxes := 1     
+	   6 Input     16 Bit        Muxes := 1     
+	  13 Input     16 Bit        Muxes := 1     
+	  26 Input     16 Bit        Muxes := 1     
+	  30 Input     12 Bit        Muxes := 1     
+	   4 Input     11 Bit        Muxes := 3     
+	   6 Input     11 Bit        Muxes := 1     
+	  32 Input     11 Bit        Muxes := 1     
+	  13 Input     11 Bit        Muxes := 1     
+	  15 Input     11 Bit        Muxes := 1     
+	   2 Input     11 Bit        Muxes := 1     
+	  15 Input     10 Bit        Muxes := 4     
+	  12 Input     10 Bit        Muxes := 3     
+	  14 Input     10 Bit        Muxes := 4     
+	   5 Input      9 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 3     
+	   7 Input      8 Bit        Muxes := 2     
+	  12 Input      8 Bit        Muxes := 2     
+	   2 Input      7 Bit        Muxes := 1     
+	  13 Input      6 Bit        Muxes := 1     
+	  15 Input      6 Bit        Muxes := 1     
+	  32 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 5     
+	   6 Input      5 Bit        Muxes := 1     
+	  30 Input      5 Bit        Muxes := 3     
+	   2 Input      4 Bit        Muxes := 11    
+	   5 Input      4 Bit        Muxes := 1     
+	  22 Input      4 Bit        Muxes := 1     
+	  18 Input      4 Bit        Muxes := 1     
+	  14 Input      4 Bit        Muxes := 1     
+	  12 Input      4 Bit        Muxes := 3     
+	   4 Input      4 Bit        Muxes := 1     
+	  32 Input      3 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 4     
+	  14 Input      3 Bit        Muxes := 2     
+	   8 Input      3 Bit        Muxes := 1     
+	   7 Input      3 Bit        Muxes := 1     
+	  30 Input      3 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 2     
+	  32 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 2     
+	  12 Input      2 Bit        Muxes := 1     
+	   7 Input      2 Bit        Muxes := 1     
+	  21 Input      2 Bit        Muxes := 1     
+	  32 Input      1 Bit        Muxes := 6     
+	   4 Input      1 Bit        Muxes := 14    
+	   2 Input      1 Bit        Muxes := 126   
+	   5 Input      1 Bit        Muxes := 10    
+	  13 Input      1 Bit        Muxes := 8     
+	   6 Input      1 Bit        Muxes := 9     
+	   3 Input      1 Bit        Muxes := 5     
+	  15 Input      1 Bit        Muxes := 21    
+	  12 Input      1 Bit        Muxes := 27    
+	  14 Input      1 Bit        Muxes := 14    
+	   7 Input      1 Bit        Muxes := 11    
+	  21 Input      1 Bit        Muxes := 28    
+	  26 Input      1 Bit        Muxes := 8     
+	  27 Input      1 Bit        Muxes := 1     
+	  30 Input      1 Bit        Muxes := 17    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module BSP 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 2     
+	               16 Bit    Registers := 2     
+	                8 Bit    Registers := 1     
+	                7 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
+Module rmii_ethernet 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 10    
+	   2 Input      5 Bit       Adders := 3     
++---XORs : 
+	   2 Input      1 Bit         XORs := 69    
+	   3 Input      1 Bit         XORs := 6     
+	   9 Input      1 Bit         XORs := 5     
+	   5 Input      1 Bit         XORs := 16    
+	   4 Input      1 Bit         XORs := 20    
+	   8 Input      1 Bit         XORs := 13    
+	   6 Input      1 Bit         XORs := 15    
+	   7 Input      1 Bit         XORs := 9     
++---Registers : 
+	               32 Bit    Registers := 5     
+	               16 Bit    Registers := 3     
+	               11 Bit    Registers := 9     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 3     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 14    
++---RAMs : 
+	              32K Bit         RAMs := 1     
+	              16K Bit         RAMs := 1     
+	              352 Bit         RAMs := 2     
++---Muxes : 
+	  13 Input     32 Bit        Muxes := 1     
+	   6 Input     16 Bit        Muxes := 1     
+	  13 Input     16 Bit        Muxes := 1     
+	   4 Input     11 Bit        Muxes := 2     
+	   6 Input     11 Bit        Muxes := 1     
+	  32 Input     11 Bit        Muxes := 1     
+	  13 Input     11 Bit        Muxes := 1     
+	  13 Input      6 Bit        Muxes := 1     
+	  32 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 2     
+	   6 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 2     
+	   5 Input      4 Bit        Muxes := 1     
+	  32 Input      3 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	  32 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	  32 Input      1 Bit        Muxes := 6     
+	   4 Input      1 Bit        Muxes := 10    
+	   2 Input      1 Bit        Muxes := 68    
+	   5 Input      1 Bit        Muxes := 1     
+	  13 Input      1 Bit        Muxes := 8     
+	   6 Input      1 Bit        Muxes := 9     
+Module VIDEO_TIME_GEN 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     13 Bit       Adders := 2     
+	   2 Input     11 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 2     
++---Registers : 
+	               13 Bit    Registers := 1     
+	               11 Bit    Registers := 1     
+	               10 Bit    Registers := 1     
+	                7 Bit    Registers := 1     
+	                3 Bit    Registers := 2     
+	                1 Bit    Registers := 5     
++---Muxes : 
+	   2 Input      7 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 2     
+	   3 Input      1 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 7     
+Module BRAM 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---RAMs : 
+	              58K Bit         RAMs := 1     
+Module CHARSVGA 
+Detailed RTL Component Info : 
++---Registers : 
+	               13 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                3 Bit    Registers := 3     
+	                1 Bit    Registers := 7     
++---ROMs : 
+	                              ROMs := 1     
+Module pwm_audio 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     11 Bit       Adders := 1     
+	   4 Input      9 Bit       Adders := 1     
++---Registers : 
+	               11 Bit    Registers := 1     
+	                9 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   3 Input      1 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 4     
+Module divider 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     51 Bit       Adders := 1     
+	   2 Input     24 Bit       Adders := 1     
+	   3 Input     10 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 4     
+	   2 Input      8 Bit       Adders := 1     
+	   2 Input      6 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               51 Bit    Registers := 3     
+	               32 Bit    Registers := 4     
+	               24 Bit    Registers := 4     
+	               10 Bit    Registers := 3     
+	                6 Bit    Registers := 1     
+	                1 Bit    Registers := 9     
++---Muxes : 
+	  15 Input     51 Bit        Muxes := 4     
+	   2 Input     32 Bit        Muxes := 5     
+	  15 Input     32 Bit        Muxes := 1     
+	   2 Input     24 Bit        Muxes := 2     
+	  15 Input     24 Bit        Muxes := 5     
+	  15 Input     11 Bit        Muxes := 1     
+	  15 Input     10 Bit        Muxes := 4     
+	   2 Input      8 Bit        Muxes := 1     
+	  15 Input      6 Bit        Muxes := 1     
+	  22 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+	  15 Input      1 Bit        Muxes := 21    
+Module adder 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     28 Bit       Adders := 1     
+	   2 Input     28 Bit       Adders := 1     
+	   2 Input     24 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 5     
+	   2 Input      8 Bit       Adders := 3     
++---Registers : 
+	               32 Bit    Registers := 4     
+	               28 Bit    Registers := 1     
+	               27 Bit    Registers := 2     
+	               24 Bit    Registers := 1     
+	               10 Bit    Registers := 3     
+	                1 Bit    Registers := 9     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 4     
+	  12 Input     32 Bit        Muxes := 1     
+	   2 Input     28 Bit        Muxes := 2     
+	   2 Input     27 Bit        Muxes := 2     
+	  12 Input     27 Bit        Muxes := 4     
+	   2 Input     24 Bit        Muxes := 1     
+	  12 Input     24 Bit        Muxes := 1     
+	  12 Input     10 Bit        Muxes := 3     
+	   2 Input      8 Bit        Muxes := 1     
+	  18 Input      4 Bit        Muxes := 1     
+	  12 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 7     
+	  12 Input      1 Bit        Muxes := 18    
+Module multiplier 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     24 Bit       Adders := 1     
+	   3 Input     10 Bit       Adders := 1     
+	   2 Input     10 Bit       Adders := 4     
+	   2 Input      8 Bit       Adders := 1     
++---XORs : 
+	   2 Input      1 Bit         XORs := 1     
++---Registers : 
+	               50 Bit    Registers := 1     
+	               32 Bit    Registers := 4     
+	               24 Bit    Registers := 3     
+	               10 Bit    Registers := 3     
+	                1 Bit    Registers := 9     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	  14 Input     32 Bit        Muxes := 1     
+	  14 Input     24 Bit        Muxes := 4     
+	   2 Input     24 Bit        Muxes := 1     
+	  15 Input     24 Bit        Muxes := 1     
+	  14 Input     10 Bit        Muxes := 4     
+	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 3     
+	  14 Input      4 Bit        Muxes := 1     
+	  14 Input      3 Bit        Muxes := 2     
+	   5 Input      1 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 2     
+	  14 Input      1 Bit        Muxes := 14    
+Module int_to_float 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     24 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 2     
++---Registers : 
+	               32 Bit    Registers := 4     
+	               24 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   7 Input     24 Bit        Muxes := 1     
+	   7 Input      8 Bit        Muxes := 2     
+	   8 Input      3 Bit        Muxes := 1     
+	   7 Input      2 Bit        Muxes := 1     
+	   7 Input      1 Bit        Muxes := 11    
+Module float_to_int 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 2     
++---Registers : 
+	               32 Bit    Registers := 4     
+	                9 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   5 Input     32 Bit        Muxes := 2     
+	   5 Input      9 Bit        Muxes := 1     
+	   7 Input      3 Bit        Muxes := 1     
+	   5 Input      1 Bit        Muxes := 7     
+Module main_0 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     32 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 2     
+	   2 Input     17 Bit       Adders := 1     
+	   2 Input     16 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 14    
+	               29 Bit    Registers := 1     
+	               16 Bit    Registers := 5     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 3     
+	                1 Bit    Registers := 14    
++---RAMs : 
+	             128K Bit         RAMs := 1     
+	              512 Bit         RAMs := 1     
++---ROMs : 
+	                              ROMs := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	  26 Input     32 Bit        Muxes := 2     
+	   2 Input     21 Bit        Muxes := 1     
+	  21 Input     21 Bit        Muxes := 1     
+	  26 Input     21 Bit        Muxes := 1     
+	  26 Input     16 Bit        Muxes := 1     
+	  21 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 30    
+	  21 Input      1 Bit        Muxes := 28    
+	  26 Input      1 Bit        Muxes := 8     
+	  27 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
+Module serial_output 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     12 Bit       Adders := 1     
++---Registers : 
+	               12 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	  12 Input      4 Bit        Muxes := 1     
+	  12 Input      1 Bit        Muxes := 5     
+Module SERIAL_INPUT 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     12 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	               12 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	  12 Input      8 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 3     
+	  12 Input      4 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+	  12 Input      1 Bit        Muxes := 4     
+Module I2C 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     12 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 3     
+	               12 Bit    Registers := 1     
+	                5 Bit    Registers := 7     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 10    
++---Muxes : 
+	  30 Input     32 Bit        Muxes := 2     
+	  30 Input     12 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 3     
+	  30 Input      5 Bit        Muxes := 3     
+	   2 Input      4 Bit        Muxes := 2     
+	  30 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 2     
+	  30 Input      1 Bit        Muxes := 17    
+Module PWM 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     10 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	               10 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                1 Bit    Registers := 1     
+Module KEYBOARD 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     26 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	               26 Bit    Registers := 1     
+	               11 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 6     
++---Muxes : 
+	   4 Input     11 Bit        Muxes := 1     
+	   2 Input     11 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 2     
+	   3 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:28 ; elapsed = 00:00:28 . Memory (MB): peak = 1347.809 ; gain = 543.262 ; free physical = 1121 ; free virtual = 6235
+---------------------------------------------------------------------------------
+Start Cross Boundary Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "RX_BUFFER_BUSY" won't be mapped to RAM because it is too sparse
+INFO: [Common 17-14] Message 'Synth 8-5546' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-5545] ROM "z_e" won't be mapped to RAM because address size (24) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "z_e" won't be mapped to RAM because address size (24) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "z_e" won't be mapped to RAM because address size (24) is larger than maximum supported(18)
+DSP Report: Generating DSP product1, operation Mode is: A*B.
+DSP Report: operator product1 is absorbed into DSP product1.
+DSP Report: operator product1 is absorbed into DSP product1.
+DSP Report: Generating DSP product1, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator product1 is absorbed into DSP product1.
+DSP Report: operator product1 is absorbed into DSP product1.
+INFO: [Synth 8-5545] ROM "value" won't be mapped to RAM because address size (32) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "z_m" won't be mapped to RAM because address size (32) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "z_e" won't be mapped to RAM because address size (24) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "z_s" won't be mapped to RAM because address size (32) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "s_output_rs232_tx_stb" won't be mapped to RAM because address size (32) is larger than maximum supported(18)
+INFO: [Synth 8-5545] ROM "STATE" won't be mapped to RAM because address size (26) is larger than maximum supported(18)
+WARNING: [Synth 8-3917] design BSP has port AUDIO_EN driven by constant 1
+WARNING: [Synth 8-3331] design BSP has unconnected port JC[7]
+WARNING: [Synth 8-3331] design BSP has unconnected port JC[6]
+WARNING: [Synth 8-3331] design BSP has unconnected port JC[5]
+WARNING: [Synth 8-3331] design BSP has unconnected port JC[4]
+WARNING: [Synth 8-3331] design BSP has unconnected port JC[3]
+WARNING: [Synth 8-3331] design BSP has unconnected port JC[2]
+WARNING: [Synth 8-3917] design BSP has port JC[0] driven by constant 1
+WARNING: [Synth 8-3331] design BSP has unconnected port GPIO_SWITCHES[15]
+WARNING: [Synth 8-3331] design BSP has unconnected port GPIO_SWITCHES[14]
+WARNING: [Synth 8-3331] design BSP has unconnected port GPIO_SWITCHES[13]
+WARNING: [Synth 8-3331] design BSP has unconnected port GPIO_SWITCHES[12]
+WARNING: [Synth 8-3331] design BSP has unconnected port GPIO_SWITCHES[11]
+WARNING: [Synth 8-3331] design BSP has unconnected port GPIO_SWITCHES[10]
+WARNING: [Synth 8-3331] design BSP has unconnected port GPIO_SWITCHES[9]
+WARNING: [Synth 8-3331] design BSP has unconnected port GPIO_SWITCHES[8]
+WARNING: [Synth 8-3331] design BSP has unconnected port GPIO_SWITCHES[7]
+WARNING: [Synth 8-3331] design BSP has unconnected port GPIO_SWITCHES[6]
+WARNING: [Synth 8-3331] design BSP has unconnected port GPIO_SWITCHES[5]
+WARNING: [Synth 8-3331] design BSP has unconnected port GPIO_SWITCHES[4]
+WARNING: [Synth 8-3331] design BSP has unconnected port GPIO_SWITCHES[3]
+WARNING: [Synth 8-3331] design BSP has unconnected port GPIO_SWITCHES[2]
+WARNING: [Synth 8-3331] design BSP has unconnected port GPIO_SWITCHES[1]
+WARNING: [Synth 8-3331] design BSP has unconnected port GPIO_SWITCHES[0]
+WARNING: [Synth 8-3331] design BSP has unconnected port GPIO_BUTTONS[4]
+WARNING: [Synth 8-3331] design BSP has unconnected port GPIO_BUTTONS[3]
+WARNING: [Synth 8-3331] design BSP has unconnected port GPIO_BUTTONS[2]
+WARNING: [Synth 8-3331] design BSP has unconnected port GPIO_BUTTONS[1]
+WARNING: [Synth 8-3331] design BSP has unconnected port GPIO_BUTTONS[0]
+---------------------------------------------------------------------------------
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1347.809 ; gain = 543.262 ; free physical = 1113 ; free virtual = 6228
+---------------------------------------------------------------------------------
+Finished Parallel Reinference  : Time (s): cpu = 00:00:34 ; elapsed = 00:00:35 . Memory (MB): peak = 1347.809 ; gain = 543.262 ; free physical = 1113 ; free virtual = 6228
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM TX_MEMORY_reg to conserve power
+INFO: [Synth 8-4652] Swapped enable and write-enable on 2 RAM instances of RAM BRAM_INST_1/MEMORY_reg to conserve power
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++------------+------------+---------------+----------------+
+|Module Name | RTL Object | Depth x Width | Implemented As | 
++------------+------------+---------------+----------------+
+|CHARSVGA    | extrom     | 2048x8        | Block RAM      | 
+|main_0      | extrom__1  | 2048x29       | Block RAM      | 
+|I2C         | rom        | 32x1          | LUT            | 
+|CHARSVGA    | extrom     | 2048x8        | Block RAM      | 
+|main_0      | extrom__2  | 2048x29       | Block RAM      | 
+|I2C         | rom        | 32x1          | LUT            | 
++------------+------------+---------------+----------------+
+
+
+Block RAM:
++------------+------------------------+------------------------+---+---+------------------------+---+---+--------------+--------+--------+-----------------------------+
+|Module Name | RTL Object             | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | OUT_REG      | RAMB18 | RAMB36 | Hierarchical Name           | 
++------------+------------------------+------------------------+---+---+------------------------+---+---+--------------+--------+--------+-----------------------------+
+|BSP         | TX_MEMORY_reg          | 2 K x 16(READ_FIRST)   | W |   | 2 K x 16(WRITE_FIRST)  |   | R | Port A and B | 0      | 1      | BSP/rmii_ethernet/extram__8 | 
+|BSP         | BRAM_INST_1/MEMORY_reg | 8 K x 8(READ_FIRST)    | W |   | 8 K x 8(WRITE_FIRST)   |   | R | Port A and B | 0      | 2      | BSP/CHARSVGA/extram__15     | 
+|BSP         | memory_reg             | 8 K x 32(READ_FIRST)   | W | R |                        |   |   | Port A       | 0      | 8      | BSP/main_0/extram__19       | 
++------------+------------------------+------------------------+---+---+------------------------+---+---+--------------+--------+--------+-----------------------------+
+
+Note: The table shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. "Hierarchical Name" reflects the Block RAM name as it appears in the hierarchical module and only part of it is displayed.
+Distributed RAM: 
++------------+-----------------------------+-----------+----------------------+-------------------------------+--------------------------+
+|Module Name | RTL Object                  | Inference | Size (Depth x Width) | Primitives                    | Hierarchical Name        | 
++------------+-----------------------------+-----------+----------------------+-------------------------------+--------------------------+
+|BSP         | RX_PACKET_LENGTH_BUFFER_reg | Implied   | 32 x 11              | RAM32M x 2                    | BSP/rmii_ethernet/ram__5 | 
+|BSP         | RX_START_ADDRESS_BUFFER_reg | Implied   | 32 x 11              | RAM32M x 2                    | BSP/rmii_ethernet/ram__6 | 
+|BSP         | RX_MEMORY_reg               | Implied   | 2 K x 16             | RAM64X1D x 32  RAM64M x 160   | BSP/rmii_ethernet/ram__7 | 
+|BSP         | registers_reg               | Implied   | 16 x 32              | RAM32M x 12                   | BSP/main_0/ram__8        | 
++------------+-----------------------------+-----------+----------------------+-------------------------------+--------------------------+
+
+Note: The table shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once. "Hierarchical Name" reflects the Distributed RAM name as it appears in the hierarchical module and only part of it is displayed.
+DSP:
++------------+----------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping    | Neg Edge Clk | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+----------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|multiplier  | A*B            | No           | 25     | 18     | 48     | 25     | 48     | 0    | 0    | 1    | 1    | 1     | 0    | 0    | 
+|multiplier  | (PCIN>>17)+A*B | No           | 25     | 8      | 31     | 25     | 31     | 0    | 0    | 1    | 1    | 1     | 0    | 0    | 
++------------+----------------+--------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /multiplier_inst/\product_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /\s_output_rs232_tx_stb_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /\state_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (ethernet_inst_1/\TX_PACKET_LENGTH_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (I2C_INST_1/\SEND_BIT_RETURN_reg[4] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (I2C_INST_1/\GET_BIT_RETURN_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (I2C_INST_1/\GET_BIT_RETURN_reg[1] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (I2C_INST_1/\SEND_BIT_RETURN_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (I2C_INST_1/\SEND_BYTE_RETURN_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (I2C_INST_1/\GET_BYTE_RETURN_reg[3] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (I2C_INST_1/\SEND_BYTE_RETURN_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (I2C_INST_1/\COMMAND_reg[10] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (I2C_INST_1/\GET_BYTE_RETURN_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (CHARSVGA_INST_1/\AIN_reg[12] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (CHARSVGA_INST_1/WE_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (ethernet_inst_1/\TX_WRITE_DATA_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\pwm_audio_inst_1/SAMPLE_reg[7] )
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (\SEVEN_SEGMENT_CATHODE_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GPIO_LEDS_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (I2C_INST_1/\SEND_START_RETURN_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (I2C_INST_1/\SEND_STOP_RETURN_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (I2C_INST_1/\SEND_START_RETURN_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (I2C_INST_1/\SEND_START_RETURN_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140423859035960 /divider_inst/\dividend_reg[26] )
+WARNING: [Synth 8-3332] Sequential element (\RX_reg[15] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_reg[14] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_reg[13] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_reg[12] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_reg[11] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_reg[10] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_reg[9] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_reg[8] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_reg[7] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_reg[6] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_reg[5] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_reg[4] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_reg[3] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_reg[2] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_reg[1] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_reg[0] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_WRITE_DATA_reg[15] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_WRITE_DATA_reg[14] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_WRITE_DATA_reg[13] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_WRITE_DATA_reg[12] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_WRITE_DATA_reg[11] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_WRITE_DATA_reg[10] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_WRITE_DATA_reg[9] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_WRITE_DATA_reg[8] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_WRITE_DATA_reg[7] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_WRITE_DATA_reg[6] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_WRITE_DATA_reg[5] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_WRITE_DATA_reg[4] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_WRITE_DATA_reg[3] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_WRITE_DATA_reg[2] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_WRITE_DATA_reg[1] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_WRITE_DATA_reg[0] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_WRITE_DATA_reg[15] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_WRITE_DATA_reg[14] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_WRITE_DATA_reg[13] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_WRITE_DATA_reg[12] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_WRITE_DATA_reg[11] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_WRITE_DATA_reg[10] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_WRITE_DATA_reg[9] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_WRITE_DATA_reg[8] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_WRITE_DATA_reg[7] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_WRITE_DATA_reg[6] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_WRITE_DATA_reg[5] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_WRITE_DATA_reg[4] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_WRITE_DATA_reg[3] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_WRITE_DATA_reg[2] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_WRITE_DATA_reg[1] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_WRITE_DATA_reg[0] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_READ_ADDRESS_reg_rep[10] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_READ_ADDRESS_reg_rep[9] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_READ_ADDRESS_reg_rep[8] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_READ_ADDRESS_reg_rep[7] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_READ_ADDRESS_reg_rep[6] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_READ_ADDRESS_reg_rep[5] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_READ_ADDRESS_reg_rep[4] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_READ_ADDRESS_reg_rep[3] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_READ_ADDRESS_reg_rep[2] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_READ_ADDRESS_reg_rep[1] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\RX_READ_ADDRESS_reg_rep[0] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_PACKET_LENGTH_reg[15] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_PACKET_LENGTH_reg[14] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_PACKET_LENGTH_reg[13] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_PACKET_LENGTH_reg[12] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_PACKET_LENGTH_reg[11] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_PACKET_LENGTH_reg[10] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_PACKET_LENGTH_reg[9] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_PACKET_LENGTH_reg[8] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_PACKET_LENGTH_reg[7] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_PACKET_LENGTH_reg[6] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_PACKET_LENGTH_reg[5] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_PACKET_LENGTH_reg[4] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_PACKET_LENGTH_reg[3] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_PACKET_LENGTH_reg[2] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_PACKET_LENGTH_reg[1] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_PACKET_LENGTH_reg[0] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (RX_STB_reg) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_READ_ADDRESS_reg[9] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_READ_ADDRESS_reg[8] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_READ_ADDRESS_reg[7] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_READ_ADDRESS_reg[6] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_READ_ADDRESS_reg[5] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_READ_ADDRESS_reg[4] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_READ_ADDRESS_reg[3] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_READ_ADDRESS_reg[2] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_READ_ADDRESS_reg[1] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_READ_ADDRESS_reg[0] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TX_READ_ADDRESS_reg[10] ) is unused and will be removed from module rmii_ethernet.
+WARNING: [Synth 8-3332] Sequential element (\TIMEING1/ROW_ADDRESS_reg[0] ) is unused and will be removed from module CHARSVGA.
+WARNING: [Synth 8-3332] Sequential element (WE_reg) is unused and will be removed from module CHARSVGA.
+WARNING: [Synth 8-3332] Sequential element (\AIN_reg[12] ) is unused and will be removed from module CHARSVGA.
+WARNING: [Synth 8-3332] Sequential element (\DIN_reg[0] ) is unused and will be removed from module CHARSVGA.
+WARNING: [Synth 8-3332] Sequential element (\DIN_reg[1] ) is unused and will be removed from module CHARSVGA.
+WARNING: [Synth 8-3332] Sequential element (\DIN_reg[2] ) is unused and will be removed from module CHARSVGA.
+WARNING: [Synth 8-3332] Sequential element (\DIN_reg[3] ) is unused and will be removed from module CHARSVGA.
+WARNING: [Synth 8-3332] Sequential element (\DIN_reg[4] ) is unused and will be removed from module CHARSVGA.
+WARNING: [Synth 8-3332] Sequential element (\DIN_reg[5] ) is unused and will be removed from module CHARSVGA.
+WARNING: [Synth 8-3332] Sequential element (\DIN_reg[6] ) is unused and will be removed from module CHARSVGA.
+WARNING: [Synth 8-3332] Sequential element (\DIN_reg[7] ) is unused and will be removed from module CHARSVGA.
+WARNING: [Synth 8-3332] Sequential element (\AIN_reg[0] ) is unused and will be removed from module CHARSVGA.
+WARNING: [Synth 8-3332] Sequential element (\AIN_reg[1] ) is unused and will be removed from module CHARSVGA.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Start Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PWM_INST_3/\PWM_VAL_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PWM_INST_2/\PWM_VAL_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (PWM_INST_1/\PWM_VAL_reg[7] )
+---------------------------------------------------------------------------------
+Finished Area Optimization : Time (s): cpu = 00:00:52 ; elapsed = 00:00:52 . Memory (MB): peak = 1347.809 ; gain = 543.262 ; free physical = 1107 ; free virtual = 6222
+---------------------------------------------------------------------------------
+Finished Parallel Area Optimization  : Time (s): cpu = 00:00:52 ; elapsed = 00:00:52 . Memory (MB): peak = 1347.809 ; gain = 543.262 ; free physical = 1107 ; free virtual = 6222
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:00:52 ; elapsed = 00:00:52 . Memory (MB): peak = 1347.809 ; gain = 543.262 ; free physical = 1107 ; free virtual = 6222
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+CRITICAL WARNING: [Synth 8-5560] create_generated_clock attempting to set clock on an unknown port/pin command: "create_generated_clock -name clk0 -source [get_pins dcm_sp_inst/CLKIN1] -multiply_by 1 -add -master_clock sys_clk_pin [get_pins dcm_sp_inst/CLKFBOUT]" for an auto-generated constraint
+CRITICAL WARNING: [Synth 8-5560] create_generated_clock attempting to set clock on an unknown port/pin command: "create_generated_clock -name clkfx -source [get_pins dcm_sp_inst/CLKIN1] -multiply_by 4 -add -master_clock sys_clk_pin [get_pins dcm_sp_inst/CLKOUT0]" for an auto-generated constraint
+CRITICAL WARNING: [Synth 8-5560] create_generated_clock attempting to set clock on an unknown port/pin command: "create_generated_clock -name clkfx180 -source [get_pins dcm_sp_inst/CLKIN1] -multiply_by 4 -invert -add -master_clock sys_clk_pin [get_pins dcm_sp_inst/CLKOUT0B]" for an auto-generated constraint
+CRITICAL WARNING: [Synth 8-5560] create_generated_clock attempting to set clock on an unknown port/pin command: "create_generated_clock -name clk2x -source [get_pins dcm_sp_inst/CLKIN1] -multiply_by 2 -add -master_clock sys_clk_pin [get_pins dcm_sp_inst/CLKOUT1]" for an auto-generated constraint
+CRITICAL WARNING: [Synth 8-5560] create_generated_clock attempting to set clock on an unknown port/pin command: "create_generated_clock -name clkdv -source [get_pins dcm_sp_inst/CLKIN1] -edges {1 2 3} -edge_shift {0.000 5.000 10.000} -add -master_clock sys_clk_pin [get_pins dcm_sp_inst/CLKOUT4]" for an auto-generated constraint
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:06 ; elapsed = 00:01:07 . Memory (MB): peak = 1366.801 ; gain = 562.254 ; free physical = 1019 ; free virtual = 6133
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:06 ; elapsed = 00:01:07 . Memory (MB): peak = 1369.801 ; gain = 565.254 ; free physical = 1015 ; free virtual = 6130
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\ethernet_inst_1/TX_IN_COUNT_reg[0] )
+INFO: [Synth 8-223] decloning instance '\CHARSVGA_INST_1/BRAM_INST_1/MEMORY_reg_1 ' (RAMB36E1_1) to '\CHARSVGA_INST_1/BRAM_INST_1/MEMORY_reg_0 '
+INFO: [Synth 8-4480] The timing for the instance \ethernet_inst_1/TX_MEMORY_reg  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance \CHARSVGA_INST_1/BRAM_INST_1/MEMORY_reg_0  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance \CHARSVGA_INST_1/PIXELS_reg  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_140423859035960/memory_reg_0  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_140423859035960/memory_reg_1  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_140423859035960/memory_reg_2  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_140423859035960/memory_reg_3  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_140423859035960/memory_reg_4  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_140423859035960/memory_reg_5  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_140423859035960/memory_reg_6  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_140423859035960/memory_reg_7  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:12 ; elapsed = 00:01:13 . Memory (MB): peak = 1439.051 ; gain = 634.504 ; free physical = 948 ; free virtual = 6062
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:13 ; elapsed = 00:01:14 . Memory (MB): peak = 1439.051 ; gain = 634.504 ; free physical = 948 ; free virtual = 6062
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:13 ; elapsed = 00:01:14 . Memory (MB): peak = 1439.051 ; gain = 634.504 ; free physical = 948 ; free virtual = 6062
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:13 ; elapsed = 00:01:14 . Memory (MB): peak = 1439.051 ; gain = 634.504 ; free physical = 948 ; free virtual = 6062
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports : Time (s): cpu = 00:01:13 ; elapsed = 00:01:14 . Memory (MB): peak = 1439.051 ; gain = 634.504 ; free physical = 948 ; free virtual = 6062
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:13 ; elapsed = 00:01:14 . Memory (MB): peak = 1439.051 ; gain = 634.504 ; free physical = 948 ; free virtual = 6062
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Static Shift Register:
++------------+---------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|Module Name | RTL Name                                    | Length | Width | Reset Signal | Pull out first Reg | Pull out last Reg | SRL16E | SRLC32E | 
++------------+---------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+|BSP         | ethernet_inst_1/RX_BUFFER_BUSY_SYNC_reg[31] | 3      | 32    | NO           | NO                 | YES               | 32     | 0       | 
++------------+---------------------------------------------+--------+-------+--------------+--------------------+-------------------+--------+---------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----------+------+
+|      |Cell       |Count |
++------+-----------+------+
+|1     |BUFG       |     5|
+|2     |CARRY4     |   177|
+|3     |DCM_SP     |     1|
+|4     |DSP48E1    |     2|
+|5     |LUT1       |   302|
+|6     |LUT2       |   350|
+|7     |LUT3       |   440|
+|8     |LUT4       |   550|
+|9     |LUT5       |   699|
+|10    |LUT6       |   941|
+|11    |MUXF7      |    35|
+|12    |MUXF8      |     2|
+|13    |RAM32M     |    16|
+|14    |RAMB18E1   |     1|
+|15    |RAMB36E1   |     1|
+|16    |RAMB36E1_1 |     1|
+|17    |RAMB36E1_2 |     8|
+|18    |RAMB36E1_5 |     1|
+|19    |RAMB36E1_6 |     1|
+|20    |SRL16E     |    32|
+|21    |FDRE       |  2172|
+|22    |FDSE       |   101|
+|23    |IBUF       |     6|
+|24    |IBUFG      |     1|
+|25    |IOBUF      |     2|
+|26    |OBUF       |    58|
++------+-----------+------+
+
+Report Instance Areas: 
++------+---------------------------+---------------+------+
+|      |Instance                   |Module         |Cells |
++------+---------------------------+---------------+------+
+|1     |top                        |               |  5905|
+|2     |  CHARSVGA_INST_1          |CHARSVGA       |   187|
+|3     |    BRAM_INST_1            |BRAM           |     1|
+|4     |    TIMEING1               |VIDEO_TIME_GEN |   167|
+|5     |  I2C_INST_1               |I2C            |   105|
+|6     |  PWM_INST_1               |PWM            |    53|
+|7     |  PWM_INST_2               |PWM_0          |    53|
+|8     |  PWM_INST_3               |PWM_1          |    53|
+|9     |  SERIAL_INPUT_INST_1      |SERIAL_INPUT   |    87|
+|10    |  SERIAL_OUTPUT_INST_1     |serial_output  |    70|
+|11    |  USER_DESIGN_INST_1       |user_design    |  4405|
+|12    |    main_0_140423859035960 |main_0         |  4390|
+|13    |      adder_inst           |adder          |   878|
+|14    |      divider_inst         |divider        |   940|
+|15    |      float_to_int_inst    |float_to_int   |   323|
+|16    |      int_to_float_inst    |int_to_float   |   352|
+|17    |      multiplier_inst      |multiplier     |   655|
+|18    |  ethernet_inst_1          |rmii_ethernet  |   782|
+|19    |  pwm_audio_inst_1         |pwm_audio      |    32|
++------+---------------------------+---------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:13 ; elapsed = 00:01:14 . Memory (MB): peak = 1439.051 ; gain = 634.504 ; free physical = 947 ; free virtual = 6062
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 5 critical warnings and 624 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:03 ; elapsed = 00:01:04 . Memory (MB): peak = 1439.051 ; gain = 189.535 ; free physical = 947 ; free virtual = 6062
+Synthesis Optimization Complete : Time (s): cpu = 00:01:14 ; elapsed = 00:01:15 . Memory (MB): peak = 1439.051 ; gain = 634.504 ; free physical = 947 ; free virtual = 6062
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 218 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.xdc]
+Finished Parsing XDC File [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/bsp.xdc]
+INFO: [Opt 31-140] Inserted 23 IBUFs to IO ports without IO buffers.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 20 instances were transformed.
+  DCM_SP => MMCME2_ADV (inverted pins: PSINCDEC): 1 instances
+  IBUFG => IBUF: 1 instances
+  IOBUF => IOBUF (IBUF, OBUFT): 2 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 16 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+377 Infos, 202 Warnings, 5 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:14 ; elapsed = 00:01:15 . Memory (MB): peak = 1455.059 ; gain = 541.992 ; free physical = 946 ; free virtual = 6061
+# write_checkpoint -force $outputDir/post_synth.dcp
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1487.074 ; gain = 0.000 ; free physical = 945 ; free virtual = 6061
+# report_timing_summary -file $outputDir/post_synth_timing_summary.rpt
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-2] Deriving generated clocks
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 6 CPUs
+report_timing_summary: Time (s): cpu = 00:00:16 ; elapsed = 00:00:13 . Memory (MB): peak = 1718.242 ; gain = 231.164 ; free physical = 766 ; free virtual = 5881
+# report_utilization -file $outputDir/post_synth_util.rpt
+report_utilization: Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.19 . Memory (MB): peak = 1719.242 ; gain = 1.000 ; free physical = 766 ; free virtual = 5881
+# opt_design
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 6 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:00.26 ; elapsed = 00:00:00.26 . Memory (MB): peak = 1721.242 ; gain = 2.000 ; free physical = 763 ; free virtual = 5878
+
+Starting Logic Optimization Task
+
+Phase 1 Retarget
+INFO: [Opt 31-138] Pushed 1 inverter(s) to 1 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: 24e610399
+
+Time (s): cpu = 00:00:00.43 ; elapsed = 00:00:00.39 . Memory (MB): peak = 1721.242 ; gain = 0.000 ; free physical = 763 ; free virtual = 5878
+
+Phase 2 Constant Propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-10] Eliminated 0 cells.
+Phase 2 Constant Propagation | Checksum: 1bfe9816a
+
+Time (s): cpu = 00:00:00.67 ; elapsed = 00:00:00.63 . Memory (MB): peak = 1721.242 ; gain = 0.000 ; free physical = 763 ; free virtual = 5878
+
+Phase 3 Sweep
+INFO: [Opt 31-12] Eliminated 931 unconnected nets.
+INFO: [Opt 31-140] Inserted 28 IBUFs to IO ports without IO buffers.
+INFO: [Opt 31-11] Eliminated 534 unconnected cells.
+Phase 3 Sweep | Checksum: 20c171bc2
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1721.242 ; gain = 0.000 ; free physical = 763 ; free virtual = 5878
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1721.242 ; gain = 0.000 ; free physical = 763 ; free virtual = 5878
+Ending Logic Optimization Task | Checksum: 20c171bc2
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1721.242 ; gain = 0.000 ; free physical = 763 ; free virtual = 5878
+Implement Debug Cores | Checksum: 1ece11fa6
+Logic Optimization | Checksum: 1ece11fa6
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 3.12 ns.
+INFO: [Pwropt 34-9] Applying IDT optimizations ...
+INFO: [Pwropt 34-10] Applying ODC optimizations ...
+
+
+Starting PowerOpt Patch Enables Task
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 13 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
+Number of BRAM Ports augmented: 0 newly gated: 10 Total Ports: 26
+Ending PowerOpt Patch Enables Task | Checksum: 18ed405eb
+
+Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 1814.258 ; gain = 0.000 ; free physical = 689 ; free virtual = 5804
+Ending Power Optimization Task | Checksum: 18ed405eb
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1814.258 ; gain = 93.016 ; free physical = 689 ; free virtual = 5804
+INFO: [Common 17-83] Releasing license: Implementation
+17 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+# place_design
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [DRC 23-27] Running DRC with 6 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 6 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 6 CPUs
+
+Phase 1 Placer Runtime Estimator
+Phase 1 Placer Runtime Estimator | Checksum: ef35bf71
+
+Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.08 . Memory (MB): peak = 1814.262 ; gain = 0.004 ; free physical = 688 ; free virtual = 5803
+
+Phase 2 Placer Initialization
+Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1814.262 ; gain = 0.000 ; free physical = 688 ; free virtual = 5803
+INFO: [Opt 31-138] Pushed 2 inverter(s) to 2 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1814.262 ; gain = 0.000 ; free physical = 688 ; free virtual = 5803
+
+Phase 2.1 IO Placement/ Clock Placement/ Build Placer Device
+
+Phase 2.1.1 Pre-Place Cells
+Phase 2.1.1 Pre-Place Cells | Checksum: 1db95e4a
+
+Time (s): cpu = 00:00:00.35 ; elapsed = 00:00:00.34 . Memory (MB): peak = 1814.262 ; gain = 0.004 ; free physical = 688 ; free virtual = 5803
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 2.1.2 IO & Clk Clean Up
+Phase 2.1.2 IO & Clk Clean Up | Checksum: 1db95e4a
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1862.281 ; gain = 48.023 ; free physical = 688 ; free virtual = 5803
+
+Phase 2.1.3 Implementation Feasibility check On IDelay
+Phase 2.1.3 Implementation Feasibility check On IDelay | Checksum: 1db95e4a
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1862.281 ; gain = 48.023 ; free physical = 688 ; free virtual = 5803
+
+Phase 2.1.4 Commit IO Placement
+Phase 2.1.4 Commit IO Placement | Checksum: 4fea6fda
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1862.281 ; gain = 48.023 ; free physical = 688 ; free virtual = 5803
+Phase 2.1 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 13fb1db78
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1862.281 ; gain = 48.023 ; free physical = 688 ; free virtual = 5803
+
+Phase 2.2 Build Placer Netlist Model
+
+Phase 2.2.1 Place Init Design
+
+Phase 2.2.1.1 Init Lut Pin Assignment
+Phase 2.2.1.1 Init Lut Pin Assignment | Checksum: 1fd315f7c
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 1862.281 ; gain = 48.023 ; free physical = 688 ; free virtual = 5803
+Phase 2.2.1 Place Init Design | Checksum: 1c793dcfc
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:03 . Memory (MB): peak = 1862.281 ; gain = 48.023 ; free physical = 688 ; free virtual = 5803
+Phase 2.2 Build Placer Netlist Model | Checksum: 1c793dcfc
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:03 . Memory (MB): peak = 1862.281 ; gain = 48.023 ; free physical = 688 ; free virtual = 5803
+
+Phase 2.3 Constrain Clocks/Macros
+
+Phase 2.3.1 Constrain Global/Regional Clocks
+Phase 2.3.1 Constrain Global/Regional Clocks | Checksum: 1c793dcfc
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:03 . Memory (MB): peak = 1862.281 ; gain = 48.023 ; free physical = 688 ; free virtual = 5803
+Phase 2.3 Constrain Clocks/Macros | Checksum: 1c793dcfc
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:03 . Memory (MB): peak = 1862.281 ; gain = 48.023 ; free physical = 688 ; free virtual = 5803
+Phase 2 Placer Initialization | Checksum: 1c793dcfc
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:03 . Memory (MB): peak = 1862.281 ; gain = 48.023 ; free physical = 688 ; free virtual = 5803
+
+Phase 3 Global Placement
+Phase 3 Global Placement | Checksum: 1f6d60945
+
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:07 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+
+Phase 4 Detail Placement
+
+Phase 4.1 Commit Multi Column Macros
+Phase 4.1 Commit Multi Column Macros | Checksum: 1f6d60945
+
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:07 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+
+Phase 4.2 Commit Most Macros & LUTRAMs
+Phase 4.2 Commit Most Macros & LUTRAMs | Checksum: 25698058d
+
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:08 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+
+Phase 4.3 Area Swap Optimization
+Phase 4.3 Area Swap Optimization | Checksum: 243627704
+
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:08 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+
+Phase 4.4 updateClock Trees: DP
+Phase 4.4 updateClock Trees: DP | Checksum: 243627704
+
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:08 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+
+Phase 4.5 Timing Path Optimizer
+Phase 4.5 Timing Path Optimizer | Checksum: 20ea5a07c
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:08 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+
+Phase 4.6 Small Shape Detail Placement
+
+Phase 4.6.1 Commit Small Macros & Core Logic
+
+Phase 4.6.1.1 setBudgets
+Phase 4.6.1.1 setBudgets | Checksum: 2887ad8e5
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:08 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+
+Phase 4.6.1.2 Commit Slice Clusters
+Phase 4.6.1.2 Commit Slice Clusters | Checksum: 242bf5fad
+
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:09 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+Phase 4.6.1 Commit Small Macros & Core Logic | Checksum: 242bf5fad
+
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:09 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+
+Phase 4.6.2 Clock Restriction Legalization for Leaf Columns
+Phase 4.6.2 Clock Restriction Legalization for Leaf Columns | Checksum: 242bf5fad
+
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:09 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+
+Phase 4.6.3 Clock Restriction Legalization for Non-Clock Pins
+Phase 4.6.3 Clock Restriction Legalization for Non-Clock Pins | Checksum: 242bf5fad
+
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:09 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+Phase 4.6 Small Shape Detail Placement | Checksum: 242bf5fad
+
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:09 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+
+Phase 4.7 Re-assign LUT pins
+Phase 4.7 Re-assign LUT pins | Checksum: 242bf5fad
+
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:10 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+Phase 4 Detail Placement | Checksum: 242bf5fad
+
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:10 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+
+Phase 5 Post Placement Optimization and Clean-Up
+
+Phase 5.1 PCOPT Shape updates
+Phase 5.1 PCOPT Shape updates | Checksum: 1b73fb074
+
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:10 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+
+Phase 5.2 Post Commit Optimization
+
+Phase 5.2.1 updateClock Trees: PCOPT
+Phase 5.2.1 updateClock Trees: PCOPT | Checksum: 1b73fb074
+
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:10 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+
+Phase 5.2.2 Post Placement Optimization
+
+Phase 5.2.2.1 Post Placement Timing Optimization
+INFO: [Place 30-746] Post Placement Timing Summary WNS=10.697. For the most accurate timing information please run report_timing.
+Phase 5.2.2.1 Post Placement Timing Optimization | Checksum: 1d8fc814f
+
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:10 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+Phase 5.2.2 Post Placement Optimization | Checksum: 1d8fc814f
+
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:10 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+Phase 5.2 Post Commit Optimization | Checksum: 1d8fc814f
+
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:10 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+
+Phase 5.3 Sweep Clock Roots: Post-Placement
+Phase 5.3 Sweep Clock Roots: Post-Placement | Checksum: 1d8fc814f
+
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:10 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+
+Phase 5.4 Post Placement Cleanup
+Phase 5.4 Post Placement Cleanup | Checksum: 1d8fc814f
+
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:10 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+
+Phase 5.5 Placer Reporting
+
+Phase 5.5.1 Restore STA
+Phase 5.5.1 Restore STA | Checksum: 1d8fc814f
+
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:10 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+Phase 5.5 Placer Reporting | Checksum: 1d8fc814f
+
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:10 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+
+Phase 5.6 Final Placement Cleanup
+Phase 5.6 Final Placement Cleanup | Checksum: 2106e371d
+
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:10 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+Phase 5 Post Placement Optimization and Clean-Up | Checksum: 2106e371d
+
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:10 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+Ending Placer Task | Checksum: 14c49c57a
+
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:10 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+INFO: [Common 17-83] Releasing license: Implementation
+12 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:11 . Memory (MB): peak = 1894.297 ; gain = 80.039 ; free physical = 687 ; free virtual = 5802
+# report_clock_utilization -file $outputDir/clock_util.rpt
+# phys_opt_design
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [Vivado_Tcl 4-383] Design worst setup slack (WNS) is greater than or equal to 0.500 ns. Skipping all physical synthesis optimizations.
+INFO: [Vivado_Tcl 4-232] No setup violation found. The netlist was not modified.
+INFO: [Common 17-83] Releasing license: Implementation
+4 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+# write_checkpoint -force $outputDir/post_place.dcp
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:00.97 ; elapsed = 00:00:00.37 . Memory (MB): peak = 1894.297 ; gain = 0.000 ; free physical = 681 ; free virtual = 5802
+# report_utilization -file $outputDir/post_place_util.rpt
+report_utilization: Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.20 . Memory (MB): peak = 1894.297 ; gain = 0.000 ; free physical = 686 ; free virtual = 5801
+# report_timing_summary -file $outputDir/post_place_timing_summary.rpt
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 6 CPUs
+# route_design
+Command: route_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
+Running DRC as a precondition to command route_design
+INFO: [DRC 23-27] Running DRC with 6 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 6 CPUs
+
+Phase 1 Build RT Design
+Phase 1 Build RT Design | Checksum: 11ec16815
+
+Time (s): cpu = 00:00:35 ; elapsed = 00:00:28 . Memory (MB): peak = 1897.949 ; gain = 3.652 ; free physical = 595 ; free virtual = 5710
+
+Phase 2 Router Initialization
+
+Phase 2.1 Create Timer
+Phase 2.1 Create Timer | Checksum: 11ec16815
+
+Time (s): cpu = 00:00:35 ; elapsed = 00:00:28 . Memory (MB): peak = 1897.949 ; gain = 3.652 ; free physical = 595 ; free virtual = 5710
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: 11ec16815
+
+Time (s): cpu = 00:00:35 ; elapsed = 00:00:28 . Memory (MB): peak = 1910.945 ; gain = 16.648 ; free physical = 575 ; free virtual = 5690
+ Number of Nodes with overlaps = 0
+
+Phase 2.3 Update Timing
+Phase 2.3 Update Timing | Checksum: 1730c7805
+
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:29 . Memory (MB): peak = 1939.211 ; gain = 44.914 ; free physical = 546 ; free virtual = 5661
+INFO: [Route 35-57] Estimated Timing Summary | WNS=10.873 | TNS=0.000  | WHS=-0.155 | THS=-64.068|
+
+Phase 2 Router Initialization | Checksum: 1c27e001a
+
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:30 . Memory (MB): peak = 1939.211 ; gain = 44.914 ; free physical = 546 ; free virtual = 5661
+
+Phase 3 Initial Routing
+Phase 3 Initial Routing | Checksum: 11e60ed71
+
+Time (s): cpu = 00:00:42 ; elapsed = 00:00:30 . Memory (MB): peak = 1939.211 ; gain = 44.914 ; free physical = 546 ; free virtual = 5661
+
+Phase 4 Rip-up And Reroute
+
+Phase 4.1 Global Iteration 0
+ Number of Nodes with overlaps = 499
+ Number of Nodes with overlaps = 8
+ Number of Nodes with overlaps = 0
+
+Phase 4.1.1 Update Timing
+Phase 4.1.1 Update Timing | Checksum: 147e90eb3
+
+Time (s): cpu = 00:00:46 ; elapsed = 00:00:31 . Memory (MB): peak = 1939.211 ; gain = 44.914 ; free physical = 545 ; free virtual = 5660
+INFO: [Route 35-57] Estimated Timing Summary | WNS=9.879  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 4.1 Global Iteration 0 | Checksum: 12e2f6130
+
+Time (s): cpu = 00:00:46 ; elapsed = 00:00:31 . Memory (MB): peak = 1939.211 ; gain = 44.914 ; free physical = 545 ; free virtual = 5660
+
+Phase 4.2 Global Iteration 1
+ Number of Nodes with overlaps = 0
+
+Phase 4.2.1 Update Timing
+Phase 4.2.1 Update Timing | Checksum: 1238df102
+
+Time (s): cpu = 00:00:46 ; elapsed = 00:00:32 . Memory (MB): peak = 1939.211 ; gain = 44.914 ; free physical = 545 ; free virtual = 5660
+INFO: [Route 35-57] Estimated Timing Summary | WNS=9.879  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 4.2 Global Iteration 1 | Checksum: 114fd660b
+
+Time (s): cpu = 00:00:46 ; elapsed = 00:00:32 . Memory (MB): peak = 1939.211 ; gain = 44.914 ; free physical = 545 ; free virtual = 5660
+Phase 4 Rip-up And Reroute | Checksum: 114fd660b
+
+Time (s): cpu = 00:00:46 ; elapsed = 00:00:32 . Memory (MB): peak = 1939.211 ; gain = 44.914 ; free physical = 545 ; free virtual = 5660
+
+Phase 5 Delay and Skew Optimization
+
+Phase 5.1 Delay CleanUp
+
+Phase 5.1.1 Update Timing
+Phase 5.1.1 Update Timing | Checksum: 16282ed4b
+
+Time (s): cpu = 00:00:46 ; elapsed = 00:00:32 . Memory (MB): peak = 1939.211 ; gain = 44.914 ; free physical = 545 ; free virtual = 5660
+INFO: [Route 35-57] Estimated Timing Summary | WNS=9.958  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+
+Phase 5.1 Delay CleanUp | Checksum: 16282ed4b
+
+Time (s): cpu = 00:00:46 ; elapsed = 00:00:32 . Memory (MB): peak = 1939.211 ; gain = 44.914 ; free physical = 545 ; free virtual = 5660
+
+Phase 5.2 Clock Skew Optimization
+Phase 5.2 Clock Skew Optimization | Checksum: 16282ed4b
+
+Time (s): cpu = 00:00:46 ; elapsed = 00:00:32 . Memory (MB): peak = 1939.211 ; gain = 44.914 ; free physical = 545 ; free virtual = 5660
+Phase 5 Delay and Skew Optimization | Checksum: 16282ed4b
+
+Time (s): cpu = 00:00:46 ; elapsed = 00:00:32 . Memory (MB): peak = 1939.211 ; gain = 44.914 ; free physical = 545 ; free virtual = 5660
+
+Phase 6 Post Hold Fix
+
+Phase 6.1 Update Timing
+Phase 6.1 Update Timing | Checksum: 92c77af9
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:32 . Memory (MB): peak = 1939.211 ; gain = 44.914 ; free physical = 545 ; free virtual = 5660
+INFO: [Route 35-57] Estimated Timing Summary | WNS=9.958  | TNS=0.000  | WHS=0.104  | THS=0.000  |
+
+Phase 6 Post Hold Fix | Checksum: e0912978
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:32 . Memory (MB): peak = 1939.211 ; gain = 44.914 ; free physical = 545 ; free virtual = 5660
+
+Phase 7 Route finalize
+
+Router Utilization Summary
+  Global Vertical Routing Utilization    = 0.622971 %
+  Global Horizontal Routing Utilization  = 0.748579 %
+  Routable Net Status*
+  *Does not include unroutable nets such as driverless and loadless.
+  Run report_route_status for detailed report.
+  Number of Failed Nets               = 0
+  Number of Unrouted Nets             = 0
+  Number of Partially Routed Nets     = 0
+  Number of Node Overlaps             = 0
+
+Phase 7 Route finalize | Checksum: 1733c0c03
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:32 . Memory (MB): peak = 1939.211 ; gain = 44.914 ; free physical = 545 ; free virtual = 5660
+
+Phase 8 Verifying routed nets
+
+ Verification completed successfully
+Phase 8 Verifying routed nets | Checksum: 1733c0c03
+
+Time (s): cpu = 00:00:47 ; elapsed = 00:00:32 . Memory (MB): peak = 1939.211 ; gain = 44.914 ; free physical = 545 ; free virtual = 5660
+
+Phase 9 Depositing Routes
+Phase 9 Depositing Routes | Checksum: 22c093b76
+
+Time (s): cpu = 00:00:48 ; elapsed = 00:00:32 . Memory (MB): peak = 1939.211 ; gain = 44.914 ; free physical = 545 ; free virtual = 5660
+
+Phase 10 Post Router Timing
+INFO: [Route 35-57] Estimated Timing Summary | WNS=9.958  | TNS=0.000  | WHS=0.104  | THS=0.000  |
+
+INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
+Phase 10 Post Router Timing | Checksum: 22c093b76
+
+Time (s): cpu = 00:00:48 ; elapsed = 00:00:32 . Memory (MB): peak = 1939.211 ; gain = 44.914 ; free physical = 545 ; free virtual = 5660
+INFO: [Route 35-16] Router Completed Successfully
+
+Time (s): cpu = 00:00:48 ; elapsed = 00:00:32 . Memory (MB): peak = 1939.211 ; gain = 44.914 ; free physical = 545 ; free virtual = 5660
+
+Routing Is Done.
+INFO: [Common 17-83] Releasing license: Implementation
+14 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+route_design completed successfully
+route_design: Time (s): cpu = 00:00:49 ; elapsed = 00:00:33 . Memory (MB): peak = 1939.211 ; gain = 44.914 ; free physical = 545 ; free virtual = 5660
+# write_checkpoint -force $outputDir/post_route.dcp
+Writing placer database...
+Writing XDEF routing.
+Writing XDEF routing logical nets.
+Writing XDEF routing special nets.
+Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.40 . Memory (MB): peak = 1939.211 ; gain = 0.000 ; free physical = 538 ; free virtual = 5660
+# report_route_status -file $outputDir/post_route_status.rpt
+# report_timing_summary -file $outputDir/post_route_timing_summary.rpt
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 6 CPUs
+# report_power -file $outputDir/post_route_power.rpt
+Running Vector-less Activity Propagation...
+
+Finished Running Vector-less Activity Propagation
+# report_drc -file $outputDir/post_imp_drc.rpt
+INFO: [DRC 23-27] Running DRC with 6 threads
+INFO: [Coretcl 2-168] The results of DRC are in file /home/storage/Projects/Chips-Demo/synthesis/nexys_4/benchmark/post_imp_drc.rpt.
+# write_verilog -force $outputDir/cpu_impl_netlist.v -mode timesim -sdf_anno true
+# write_bitstream -force $outputDir/bsp.bit
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
+Running DRC as a precondition to command write_bitstream
+INFO: [DRC 23-27] Running DRC with 6 threads
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer GPIO_BUTTONS[0]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer GPIO_BUTTONS[1]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer GPIO_BUTTONS[2]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer GPIO_BUTTONS[3]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer GPIO_BUTTONS[4]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer GPIO_SWITCHES[0]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer GPIO_SWITCHES[10]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer GPIO_SWITCHES[11]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer GPIO_SWITCHES[12]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer GPIO_SWITCHES[13]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer GPIO_SWITCHES[14]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer GPIO_SWITCHES[15]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer GPIO_SWITCHES[1]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer GPIO_SWITCHES[2]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer GPIO_SWITCHES[3]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer GPIO_SWITCHES[4]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer GPIO_SWITCHES[5]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer GPIO_SWITCHES[6]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer GPIO_SWITCHES[7]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer GPIO_SWITCHES[8]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer GPIO_SWITCHES[9]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer KC_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer KD_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer RS232_RX_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer RXDV_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer RXD[0]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer RXD[1]_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (BUFC-1) Input Buffer Connections - Input buffer RXER_IBUF_inst has no loads. An input buffer must drive an internal load.
+WARNING: [DRC 23-20] Rule violation (CFGBVS-1) Missing CFGBVS and CONFIG_VOLTAGE Design Properties - Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_design.  Configuration bank voltage select (CFGBVS) must be set to VCCO or GND, and CONFIG_VOLTAGE must be set to the correct configuration voltage, in order to determine the I/O voltage support for the pins in bank 0.  It is suggested to specify these either using the 'Edit Device Properties' function in the GUI or directly in the XDC file using the following syntax:
+
+ set_property CFGBVS value1 [current_design]
+ #where value1 is either VCCO or GND
+
+ set_property CONFIG_VOLTAGE value2 [current_design]
+ #where value2 is the voltage provided to configuration bank 0
+
+Refer to the device configuration user guide for more information.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP USER_DESIGN_INST_1/main_0_140423859035960/multiplier_inst/product1 input A B is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP USER_DESIGN_INST_1/main_0_140423859035960/multiplier_inst/product1__0 input B is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPOP-1) Output pipelining - DSP USER_DESIGN_INST_1/main_0_140423859035960/multiplier_inst/product1 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+WARNING: [DRC 23-20] Rule violation (DPOP-1) Output pipelining - DSP USER_DESIGN_INST_1/main_0_140423859035960/multiplier_inst/product1__0 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+WARNING: [DRC 23-20] Rule violation (RPBF-3) IO port buffering is incomplete - Device port JC[0] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC 23-20] Rule violation (RPBF-3) IO port buffering is incomplete - Device port JC[1] expects both input and output buffering but the buffers are incomplete.
+WARNING: [DRC 23-20] Rule violation (RTSTAT-10) No routable loads - 28 net(s) have no routable loads. The problem bus(es) and/or net(s) are GPIO_BUTTONS[0]_IBUF, GPIO_BUTTONS[1]_IBUF, GPIO_BUTTONS[2]_IBUF, GPIO_BUTTONS[3]_IBUF, GPIO_BUTTONS[4]_IBUF, GPIO_SWITCHES[0]_IBUF, GPIO_SWITCHES[1]_IBUF, GPIO_SWITCHES[2]_IBUF, GPIO_SWITCHES[3]_IBUF, GPIO_SWITCHES[4]_IBUF, GPIO_SWITCHES[5]_IBUF, GPIO_SWITCHES[6]_IBUF, GPIO_SWITCHES[7]_IBUF, GPIO_SWITCHES[8]_IBUF, GPIO_SWITCHES[9]_IBUF (the first 15 of 28 listed).
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 36 Warnings
+INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
+Loading data files...
+Loading site data...
+Loading route data...
+Processing options...
+Creating bitmap...
+Creating bitstream...
+Writing bitstream ./bsp.bit...
+INFO: [Vivado 12-1842] Bitgen Completed Successfully.
+INFO: [Common 17-83] Releasing license: Implementation
+write_bitstream: Time (s): cpu = 00:00:29 ; elapsed = 00:00:27 . Memory (MB): peak = 2227.812 ; gain = 240.555 ; free physical = 258 ; free virtual = 5373
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 21 21:51:04 2015...
