@@ -101,7 +101,7 @@ entity gigabit_ethernet is
     RXDV        : in  std_logic;
     RXD         : in  std_logic_vector(7 downto 0);
 
-    --RX STREAM
+    --TX STREAM
     TX          : in  std_logic_vector(15 downto 0);
     TX_STB      : in  std_logic;
     TX_ACK      : out std_logic;
