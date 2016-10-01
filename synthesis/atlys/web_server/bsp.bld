@@ -1,0 +1,65 @@
+Release 14.3 ngdbuild P.40xd (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Command Line:
+/home/storage/Xilinx/14.3/14.3/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -p
+XC6Slx45-CSG324 -nt timestamp -intstyle xflow bsp.ngc bsp.ngd
+
+Reading NGO file
+"/home/storage/Projects/Chips-Demo/synthesis/atlys/web_server/bsp.ngc" ...
+Gathering constraint information from source properties...
+Done.
+
+Annotating constraints to design from ucf file "bsp.ucf" ...
+Resolving constraint associations...
+Checking Constraint Associations...
+INFO:ConstraintSystem:178 - TNM 'CLK_IN', used in period specification 'TS_CLK',
+   was traced into DCM_SP instance dcm_sp_inst. The following new TNM groups and
+   period specifications were generated at the DCM_SP output(s): 
+   CLKFX: <TIMESPEC TS_clkfx = PERIOD "clkfx" TS_CLK / 1.25 HIGH 50%
+   INPUT_JITTER 50 ps>
+
+INFO:ConstraintSystem:178 - TNM 'CLK_IN', used in period specification 'TS_CLK',
+   was traced into DCM_SP instance dcm_sp_inst. The following new TNM groups and
+   period specifications were generated at the DCM_SP output(s): 
+   CLKFX180: <TIMESPEC TS_clkfx180 = PERIOD "clkfx180" TS_CLK / 1.25 PHASE 4 ns
+   HIGH 50% INPUT_JITTER 50 ps>
+
+INFO:ConstraintSystem:178 - TNM 'CLK_IN', used in period specification 'TS_CLK',
+   was traced into DCM_SP instance dcm_sp_inst. The following new TNM groups and
+   period specifications were generated at the DCM_SP output(s): 
+   CLKDV: <TIMESPEC TS_clkdv = PERIOD "clkdv" TS_CLK * 2 HIGH 50% INPUT_JITTER
+   50 ps>
+
+INFO:ConstraintSystem:178 - TNM 'RXCLK', used in period specification
+   'TS_RXCLK', was traced into DCM_SP instance dcm_sp_inst2. The following new
+   TNM groups and period specifications were generated at the DCM_SP output(s): 
+   CLK0: <TIMESPEC TS_INTERNAL_RXCLK_BUF = PERIOD "INTERNAL_RXCLK_BUF" TS_RXCLK
+   PHASE 437.5 ps HIGH 50%>
+
+Done...
+
+INFO:NgdBuild:1222 - Setting CLKIN_PERIOD attribute associated with DCM instance
+   dcm_sp_inst to 10.000000 ns based on the period specification (<TIMESPEC
+   "TS_CLK" = PERIOD "CLK_IN" 10 ns HIGH 50% INPUT_JITTER 50.0ps;>
+   [bsp.ucf(73)]).
+Checking expanded design ...
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+NGDBUILD Design Results Summary:
+  Number of errors:     0
+  Number of warnings:   0
+
+Total memory usage is 419832 kilobytes
+
+Writing NGD file "bsp.ngd" ...
+Total REAL time to NGDBUILD completion:  9 sec
+Total CPU time to NGDBUILD completion:   9 sec
+
+Writing NGDBUILD log file "bsp.bld"...

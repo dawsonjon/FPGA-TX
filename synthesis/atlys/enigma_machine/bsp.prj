@@ -1,0 +1,15 @@
+verilog work main_0.v
+verilog work main_1.v
+verilog work main_2.v
+verilog work main_3.v
+verilog work main_4.v
+verilog work main_5.v
+verilog work main_6.v
+verilog work main_7.v
+verilog work user_design.v
+verilog work chips_lib.v
+vhdl work serial_out.vhd
+vhdl work serial_in.vhd
+vhdl work gigabit_ethernet.vhd
+vhdl work keyboard.vhd
+vhdl work bsp.vhd

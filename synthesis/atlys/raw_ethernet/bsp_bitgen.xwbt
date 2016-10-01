@@ -1,0 +1,8 @@
+INTSTYLE=xflow
+INFILE=/home/storage/Projects/Chips-Demo/synthesis/atlys/raw_ethernet/bsp.ncd
+OUTFILE=/home/storage/Projects/Chips-Demo/synthesis/atlys/raw_ethernet/bsp.bit
+FAMILY=Spartan6
+PART=xc6slx45-3csg324
+WORKINGDIR=/home/storage/Projects/Chips-Demo/synthesis/atlys/raw_ethernet
+LICENSE=WebPack
+USER_INFO=176529646_206660144_0_111

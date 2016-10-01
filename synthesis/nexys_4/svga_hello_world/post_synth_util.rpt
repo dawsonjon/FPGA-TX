@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date         : Tue Dec 22 18:53:58 2015
+| Date         : Sun Jul 31 18:20:11 2016
 | Host         : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command      : report_utilization -file ./post_synth_util.rpt
 | Design       : BSP
@@ -30,16 +30,16 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 1725 |     0 |     63400 |  2.72 |
-|   LUT as Logic             | 1629 |     0 |     63400 |  2.57 |
+| Slice LUTs*                | 1724 |     0 |     63400 |  2.72 |
+|   LUT as Logic             | 1628 |     0 |     63400 |  2.57 |
 |   LUT as Memory            |   96 |     0 |     19000 |  0.51 |
 |     LUT as Distributed RAM |   64 |     0 |           |       |
 |     LUT as Shift Register  |   32 |     0 |           |       |
-| Slice Registers            |  772 |     0 |    126800 |  0.61 |
-|   Register as Flip Flop    |  772 |     0 |    126800 |  0.61 |
+| Slice Registers            |  775 |     0 |    126800 |  0.61 |
+|   Register as Flip Flop    |  775 |     0 |    126800 |  0.61 |
 |   Register as Latch        |    0 |     0 |    126800 |  0.00 |
-| F7 Muxes                   |  122 |     0 |     31700 |  0.38 |
-| F8 Muxes                   |    7 |     0 |     15850 |  0.04 |
+| F7 Muxes                   |  114 |     0 |     31700 |  0.36 |
+| F8 Muxes                   |    6 |     0 |     15850 |  0.04 |
 +----------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 
@@ -59,7 +59,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 77    |          Yes |         Set |            - |
-| 695   |          Yes |       Reset |            - |
+| 698   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -154,13 +154,13 @@ Table of Contents
 +------------+------+---------------------+
 |  Ref Name  | Used | Functional Category |
 +------------+------+---------------------+
-| LUT6       |  880 |                 LUT |
-| FDRE       |  695 |        Flop & Latch |
-| LUT5       |  385 |                 LUT |
-| LUT2       |  194 |                 LUT |
-| LUT3       |  166 |                 LUT |
-| LUT4       |  159 |                 LUT |
-| MUXF7      |  122 |               MuxFx |
+| LUT6       |  882 |                 LUT |
+| FDRE       |  698 |        Flop & Latch |
+| LUT5       |  380 |                 LUT |
+| LUT2       |  184 |                 LUT |
+| LUT3       |  171 |                 LUT |
+| LUT4       |  163 |                 LUT |
+| MUXF7      |  114 |               MuxFx |
 | LUT1       |  105 |                 LUT |
 | RAMD32     |   96 |  Distributed Memory |
 | FDSE       |   77 |        Flop & Latch |
@@ -170,7 +170,7 @@ Table of Contents
 | RAMS32     |   32 |  Distributed Memory |
 | IBUF       |   32 |                  IO |
 | RAMB36E1   |   11 |        Block Memory |
-| MUXF8      |    7 |               MuxFx |
+| MUXF8      |    6 |               MuxFx |
 | BUFG       |    5 |               Clock |
 | DSP48E1    |    3 |    Block Arithmetic |
 | OBUFT      |    2 |                  IO |

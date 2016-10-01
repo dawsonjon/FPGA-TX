@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date             : Tue Dec 22 18:51:57 2015
+| Date             : Sun Jul 31 18:18:05 2016
 | Host             : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command          : report_power -file ./post_route_power.rpt
 | Design           : BSP
@@ -31,7 +31,7 @@ Table of Contents
 
 +--------------------------+-------+
 | Total On-Chip Power (W)  | 0.137 |
-| Dynamic (W)              | 0.039 |
+| Dynamic (W)              | 0.038 |
 | Device Static (W)        | 0.098 |
 | Effective TJA (C/W)      | 4.6   |
 | Max Ambient (C)          | 84.4  |
@@ -50,15 +50,15 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.004 |        8 |       --- |             --- |
-| Slice Logic              |     0.005 |     2756 |       --- |             --- |
-|   LUT as Logic           |     0.004 |     1574 |     63400 |            2.48 |
+| Slice Logic              |     0.005 |     2786 |       --- |             --- |
+|   LUT as Logic           |     0.004 |     1617 |     63400 |            2.55 |
 |   CARRY4                 |    <0.001 |      138 |     15850 |            0.87 |
 |   LUT as Distributed RAM |    <0.001 |       48 |     19000 |            0.25 |
 |   Register               |    <0.001 |      671 |    126800 |            0.53 |
-|   F7/F8 Muxes            |    <0.001 |       29 |     63400 |            0.05 |
+|   F7/F8 Muxes            |    <0.001 |       22 |     63400 |            0.03 |
 |   Others                 |     0.000 |       36 |       --- |             --- |
-| Signals                  |     0.006 |     2540 |       --- |             --- |
-| Block RAM                |     0.010 |       18 |       135 |           13.33 |
+| Signals                  |     0.006 |     2568 |       --- |             --- |
+| Block RAM                |     0.009 |       18 |       135 |           13.33 |
 | MMCM                     |     0.000 |        1 |         6 |           16.67 |
 | DSPs                     |     0.002 |        4 |       240 |            1.67 |
 | I/O                      |     0.013 |       90 |       210 |           42.86 |
@@ -144,7 +144,7 @@ Table of Contents
 +-----------------------------------+-----------+
 | Name                              | Power (W) |
 +-----------------------------------+-----------+
-| BSP                               |     0.039 |
+| BSP                               |     0.038 |
 |   CHARSVGA_INST_1                 |     0.002 |
 |     BRAM_INST_1                   |     0.001 |
 |     TIMEING1                      |    <0.001 |
@@ -157,7 +157,7 @@ Table of Contents
 |   SERIAL_INPUT_INST_1             |    <0.001 |
 |   SERIAL_OUTPUT_INST_1            |    <0.001 |
 |   USER_DESIGN_INST_1              |     0.020 |
-|     main_0_139931277432880        |     0.020 |
+|     main_0_139862653362472        |     0.020 |
 |       registers_reg_r1_0_15_0_5   |    <0.001 |
 |       registers_reg_r1_0_15_12_17 |    <0.001 |
 |       registers_reg_r1_0_15_18_23 |    <0.001 |

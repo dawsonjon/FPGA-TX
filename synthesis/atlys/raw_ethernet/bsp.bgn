@@ -1,0 +1,201 @@
+Release 14.3 - Bitgen P.40xd (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+Loading device for application Rf_Device from file '6slx45.nph' in environment
+/home/storage/Xilinx/14.3/14.3/ISE_DS/ISE/.
+   "BSP" is an NCD, version 3.2, device xc6slx45, package csg324, speed -3
+Opened constraints file bsp.pcf.
+
+Sun Jul 31 18:58:25 2016
+
+/home/storage/Xilinx/14.3/14.3/ISE_DS/ISE/bin/lin64/unwrapped/bitgen -l -w -m -intstyle xflow bsp.ncd 
+
+Summary of Bitgen Options:
++----------------------+----------------------+
+| Option Name          | Current Setting      |
++----------------------+----------------------+
+| Compress             | (Not Specified)*     |
++----------------------+----------------------+
+| Readback             | (Not Specified)*     |
++----------------------+----------------------+
+| CRC                  | Enable*              |
++----------------------+----------------------+
+| DebugBitstream       | No*                  |
++----------------------+----------------------+
+| ConfigRate           | 2*                   |
++----------------------+----------------------+
+| StartupClk           | Cclk*                |
++----------------------+----------------------+
+| DonePin              | Pullup*              |
++----------------------+----------------------+
+| ProgPin              | Pullup*              |
++----------------------+----------------------+
+| TckPin               | Pullup*              |
++----------------------+----------------------+
+| TdiPin               | Pullup*              |
++----------------------+----------------------+
+| TdoPin               | Pullup*              |
++----------------------+----------------------+
+| TmsPin               | Pullup*              |
++----------------------+----------------------+
+| UnusedPin            | Pulldown*            |
++----------------------+----------------------+
+| GWE_cycle            | 6*                   |
++----------------------+----------------------+
+| GTS_cycle            | 5*                   |
++----------------------+----------------------+
+| LCK_cycle            | NoWait*              |
++----------------------+----------------------+
+| DONE_cycle           | 4*                   |
++----------------------+----------------------+
+| Persist              | No*                  |
++----------------------+----------------------+
+| DriveDone            | No*                  |
++----------------------+----------------------+
+| DonePipe             | No*                  |
++----------------------+----------------------+
+| Security             | None*                |
++----------------------+----------------------+
+| UserID               | 0xFFFFFFFF*          |
++----------------------+----------------------+
+| ActiveReconfig       | No*                  |
++----------------------+----------------------+
+| Partial              | (Not Specified)*     |
++----------------------+----------------------+
+| Encrypt              | No*                  |
++----------------------+----------------------+
+| Key0                 | pick*                |
++----------------------+----------------------+
+| StartCBC             | pick*                |
++----------------------+----------------------+
+| KeyFile              | (Not Specified)*     |
++----------------------+----------------------+
+| drive_awake          | No*                  |
++----------------------+----------------------+
+| Reset_on_err         | No*                  |
++----------------------+----------------------+
+| suspend_filter       | Yes*                 |
++----------------------+----------------------+
+| en_sw_gsr            | No*                  |
++----------------------+----------------------+
+| en_suspend           | No*                  |
++----------------------+----------------------+
+| sw_clk               | Startupclk*          |
++----------------------+----------------------+
+| sw_gwe_cycle         | 5*                   |
++----------------------+----------------------+
+| sw_gts_cycle         | 4*                   |
++----------------------+----------------------+
+| multipin_wakeup      | No*                  |
++----------------------+----------------------+
+| wakeup_mask          | 0x00*                |
++----------------------+----------------------+
+| ExtMasterCclk_en     | No*                  |
++----------------------+----------------------+
+| ExtMasterCclk_divide | 1*                   |
++----------------------+----------------------+
+| CrcCoverage          | No*                  |
++----------------------+----------------------+
+| glutmask             | Yes*                 |
++----------------------+----------------------+
+| next_config_addr     | 0x00000000*          |
++----------------------+----------------------+
+| next_config_new_mode | No*                  |
++----------------------+----------------------+
+| next_config_boot_mode | 001*                 |
++----------------------+----------------------+
+| next_config_register_write | Enable*              |
++----------------------+----------------------+
+| next_config_reboot   | Enable*              |
++----------------------+----------------------+
+| golden_config_addr   | 0x00000000*          |
++----------------------+----------------------+
+| failsafe_user        | 0x0000*              |
++----------------------+----------------------+
+| TIMER_CFG            | None*                |
++----------------------+----------------------+
+| spi_buswidth         | 1*                   |
++----------------------+----------------------+
+| TimeStamp            | Default*             |
++----------------------+----------------------+
+| IEEE1532             | No*                  |
++----------------------+----------------------+
+| Binary               | No*                  |
++----------------------+----------------------+
+ *  Default setting.
+ ** The specified setting matches the default setting.
+
+There were 0 CONFIG constraint(s) processed from bsp.pcf.
+
+
+Running DRC.
+Now executing Pdr_LogDcm_DeskewExtern::DoCheck for block<dcm_sp_inst2>. 
+Now executing Pdr_LogDcm_DeskewExtern::DoCheck for block<dcm_sp_inst2> and
+DESKEW(5). 
+Now executing Pdr_LogDcm_DeskewExtern::DoCheck for block<dcm_sp_inst2> found no
+EXTERN driver in CLKFB path. 
+Now executing Pdr_LogDcm_DeskewExtern::DoCheck for block<dcm_sp_inst2> found
+non-EXTERN block <BUFG> in CLKFB path. 
+Now executing Pdr_LogDcm_DeskewExtern::DoCheck for block<dcm_sp_inst2> found NO
+extern 
+Now executing Pdr_LogDcm_DeskewExtern::DoCheck for block<dcm_sp_inst>. 
+Now executing Pdr_LogDcm_DeskewExtern::DoCheck for block<dcm_sp_inst> and
+DESKEW(5). 
+Now executing Pdr_LogDcm_DeskewExtern::DoCheck for block<dcm_sp_inst> found no
+EXTERN driver in CLKFB path. 
+Now executing Pdr_LogDcm_DeskewExtern::DoCheck for block<dcm_sp_inst> found
+non-EXTERN block <BUFG> in CLKFB path. 
+Now executing Pdr_LogDcm_DeskewExtern::DoCheck for block<dcm_sp_inst> found NO
+extern 
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/main_0_139862647006128/Mram_registers11_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/main_0_139862647006128/Mram_registers14_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/main_0_139862647006128/Mram_registers15_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/main_0_139862647006128/Mram_registers3_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/main_0_139862647006128/Mram_registers12_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/main_0_139862647006128/Mram_registers4_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/main_0_139862647006128/Mram_registers5_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/main_0_139862647006128/Mram_registers6_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/main_0_139862647006128/Mram_registers2_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/main_0_139862647006128/Mram_registers13_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <gigabit_ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER2_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <gigabit_ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER1_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <gigabit_ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER1_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <gigabit_ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER2_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+INFO:PhysDesignRules:1861 - To achieve optimal frequency synthesis performance
+   with the CLKFX and CLKFX180 outputs of the DCM comp dcm_sp_inst, consult the
+   device Data Sheet.
+DRC detected 0 errors and 14 warnings.  Please see the previously displayed
+individual error or warning messages for more details.
+Saving ll file in "bsp.ll".
+Creating bit map...
+Saving bit stream in "bsp.bit".
+Creating bit mask...
+Saving mask bit stream in "bsp.msk".
+Bitstream generation is complete.

@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date         : Tue Dec 22 18:44:59 2015
+| Date         : Sun Jul 31 18:11:07 2016
 | Host         : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command      : report_utilization -file ./post_synth_util.rpt
 | Design       : BSP
@@ -30,16 +30,16 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 2754 |     0 |     63400 |  4.34 |
-|   LUT as Logic             | 1954 |     0 |     63400 |  3.08 |
+| Slice LUTs*                | 2760 |     0 |     63400 |  4.35 |
+|   LUT as Logic             | 1960 |     0 |     63400 |  3.09 |
 |   LUT as Memory            |  800 |     0 |     19000 |  4.21 |
 |     LUT as Distributed RAM |  768 |     0 |           |       |
 |     LUT as Shift Register  |   32 |     0 |           |       |
-| Slice Registers            |  869 |     0 |    126800 |  0.69 |
-|   Register as Flip Flop    |  869 |     0 |    126800 |  0.69 |
+| Slice Registers            |  875 |     0 |    126800 |  0.69 |
+|   Register as Flip Flop    |  875 |     0 |    126800 |  0.69 |
 |   Register as Latch        |    0 |     0 |    126800 |  0.00 |
-| F7 Muxes                   |  255 |     0 |     31700 |  0.80 |
-| F8 Muxes                   |   87 |     0 |     15850 |  0.55 |
+| F7 Muxes                   |  257 |     0 |     31700 |  0.81 |
+| F8 Muxes                   |   90 |     0 |     15850 |  0.57 |
 +----------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 
@@ -59,7 +59,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 79    |          Yes |         Set |            - |
-| 790   |          Yes |       Reset |            - |
+| 796   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -153,17 +153,17 @@ Table of Contents
 +------------+------+---------------------+
 |  Ref Name  | Used | Functional Category |
 +------------+------+---------------------+
-| LUT6       | 1142 |                 LUT |
-| FDRE       |  790 |        Flop & Latch |
+| LUT6       | 1140 |                 LUT |
+| FDRE       |  796 |        Flop & Latch |
 | RAMD64E    |  704 |  Distributed Memory |
-| LUT5       |  422 |                 LUT |
-| MUXF7      |  255 |               MuxFx |
-| LUT4       |  203 |                 LUT |
+| LUT5       |  426 |                 LUT |
+| MUXF7      |  257 |               MuxFx |
+| LUT4       |  208 |                 LUT |
 | LUT3       |  172 |                 LUT |
 | LUT2       |  115 |                 LUT |
 | LUT1       |  104 |                 LUT |
 | RAMD32     |   96 |  Distributed Memory |
-| MUXF8      |   87 |               MuxFx |
+| MUXF8      |   90 |               MuxFx |
 | FDSE       |   79 |        Flop & Latch |
 | CARRY4     |   63 |          CarryLogic |
 | OBUF       |   58 |                  IO |

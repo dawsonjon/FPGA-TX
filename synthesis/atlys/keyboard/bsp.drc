@@ -1,0 +1,51 @@
+Release 14.3 Drc P.40xd (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Sun Jul 31 18:50:22 2016
+
+drc -z bsp.ncd bsp.pcf
+
+Now executing Pdr_LogDcm_DeskewExtern::DoCheck for block<dcm_sp_inst>. 
+Now executing Pdr_LogDcm_DeskewExtern::DoCheck for block<dcm_sp_inst> and
+DESKEW(5). 
+Now executing Pdr_LogDcm_DeskewExtern::DoCheck for block<dcm_sp_inst> found no
+EXTERN driver in CLKFB path. 
+Now executing Pdr_LogDcm_DeskewExtern::DoCheck for block<dcm_sp_inst> found
+non-EXTERN block <BUFG> in CLKFB path. 
+Now executing Pdr_LogDcm_DeskewExtern::DoCheck for block<dcm_sp_inst> found NO
+extern 
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/main_0_139862646396544/Mram_registers11_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/main_0_139862646396544/Mram_registers2_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/main_0_139862646396544/Mram_registers12_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/main_0_139862646396544/Mram_registers6_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/main_0_139862646396544/Mram_registers3_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/main_0_139862646396544/Mram_registers13_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/main_0_139862646396544/Mram_registers14_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/main_0_139862646396544/Mram_registers4_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/main_0_139862646396544/Mram_registers15_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+WARNING:PhysDesignRules:367 - The signal
+   <USER_DESIGN_INST_1/main_0_139862646396544/Mram_registers5_RAMD_D1_O> is
+   incomplete. The signal does not drive any load pins in the design.
+INFO:PhysDesignRules:1861 - To achieve optimal frequency synthesis performance
+   with the CLKFX and CLKFX180 outputs of the DCM comp dcm_sp_inst, consult the
+   device Data Sheet.
+DRC detected 0 errors and 10 warnings.  Please see the previously displayed
+individual error or warning messages for more details.

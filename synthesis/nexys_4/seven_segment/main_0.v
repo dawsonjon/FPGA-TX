@@ -1,6 +1,6 @@
 //name : main_0
 //output : output_value:16
-//source_file : /tmp/tmpqm0Sya/inline_c_file.c
+//source_file : /tmp/tmpLptN6z/inline_c_file.c
 
 ///+============================================================================+
 ///|                                                                            |
@@ -103,61 +103,61 @@ module main_0(output_value_ack,clk,rst,output_value,output_value_stb,exception);
   
   initial
   begin
-    instructions[0] = {4'd0, 4'd3, 4'd0, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 9 {'literal': 0, 'z': 3, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 9, 'op': 'literal'}
-    instructions[1] = {4'd0, 4'd4, 4'd0, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 9 {'literal': 0, 'z': 4, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 9, 'op': 'literal'}
-    instructions[2] = {4'd1, 4'd3, 4'd3, 16'd1};///tmp/tmpqm0Sya/inline_c_file.c : 9 {'a': 3, 'literal': 1, 'z': 3, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 9, 'op': 'addl'}
-    instructions[3] = {4'd0, 4'd8, 4'd0, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 1 {'literal': 0, 'z': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 1, 'op': 'literal'}
-    instructions[4] = {4'd0, 4'd2, 4'd0, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 1 {'literal': 0, 'z': 2, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 1, 'op': 'literal'}
-    instructions[5] = {4'd2, 4'd0, 4'd2, 16'd8};///tmp/tmpqm0Sya/inline_c_file.c : 1 {'a': 2, 'b': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 1, 'op': 'store'}
-    instructions[6] = {4'd1, 4'd7, 4'd4, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 9 {'a': 4, 'literal': 0, 'z': 7, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 9, 'op': 'addl'}
-    instructions[7] = {4'd1, 4'd4, 4'd3, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 9 {'a': 3, 'literal': 0, 'z': 4, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 9, 'op': 'addl'}
-    instructions[8] = {4'd3, 4'd6, 4'd0, 16'd10};///tmp/tmpqm0Sya/inline_c_file.c : 9 {'z': 6, 'label': 10, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 9, 'op': 'call'}
-    instructions[9] = {4'd4, 4'd0, 4'd0, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 9 {'trace': /tmp/tmpqm0Sya/inline_c_file.c : 9, 'op': 'stop'}
-    instructions[10] = {4'd1, 4'd3, 4'd3, 16'd1};///tmp/tmpqm0Sya/inline_c_file.c : 2 {'a': 3, 'literal': 1, 'z': 3, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 2, 'op': 'addl'}
-    instructions[11] = {4'd0, 4'd8, 4'd0, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 3 {'literal': 0, 'z': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 3, 'op': 'literal'}
-    instructions[12] = {4'd1, 4'd2, 4'd4, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 3 {'a': 4, 'literal': 0, 'z': 2, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 3, 'op': 'addl'}
-    instructions[13] = {4'd2, 4'd0, 4'd2, 16'd8};///tmp/tmpqm0Sya/inline_c_file.c : 3 {'a': 2, 'b': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 3, 'op': 'store'}
-    instructions[14] = {4'd0, 4'd8, 4'd0, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'literal': 0, 'z': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'literal'}
-    instructions[15] = {4'd1, 4'd2, 4'd8, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 8, 'literal': 0, 'z': 2, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'addl'}
-    instructions[16] = {4'd5, 4'd8, 4'd2, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 2, 'z': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'load'}
-    instructions[17] = {4'd2, 4'd0, 4'd3, 16'd8};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 3, 'comment': 'push', 'b': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'store'}
-    instructions[18] = {4'd1, 4'd3, 4'd3, 16'd1};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 3, 'literal': 1, 'z': 3, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'addl'}
-    instructions[19] = {4'd1, 4'd8, 4'd4, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 4, 'literal': 0, 'z': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'addl'}
-    instructions[20] = {4'd1, 4'd2, 4'd8, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 8, 'literal': 0, 'z': 2, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'addl'}
-    instructions[21] = {4'd5, 4'd8, 4'd2, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 2, 'z': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'load'}
-    instructions[22] = {4'd2, 4'd0, 4'd3, 16'd8};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 3, 'comment': 'push', 'b': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'store'}
-    instructions[23] = {4'd1, 4'd3, 4'd3, 16'd1};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 3, 'literal': 1, 'z': 3, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'addl'}
-    instructions[24] = {4'd0, 4'd8, 4'd0, 16'd1};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'literal': 1, 'z': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'literal'}
-    instructions[25] = {4'd2, 4'd0, 4'd3, 16'd8};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 3, 'comment': 'push', 'b': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'store'}
-    instructions[26] = {4'd1, 4'd3, 4'd3, 16'd1};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 3, 'literal': 1, 'z': 3, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'addl'}
-    instructions[27] = {4'd1, 4'd8, 4'd4, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 4, 'literal': 0, 'z': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'addl'}
-    instructions[28] = {4'd1, 4'd2, 4'd8, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 8, 'literal': 0, 'z': 2, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'addl'}
-    instructions[29] = {4'd5, 4'd8, 4'd2, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 2, 'z': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'load'}
-    instructions[30] = {4'd1, 4'd3, 4'd3, -16'd1};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 3, 'comment': 'pop', 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'literal': -1, 'z': 3, 'op': 'addl'}
-    instructions[31] = {4'd5, 4'd10, 4'd3, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 3, 'z': 10, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'load'}
-    instructions[32] = {4'd6, 4'd8, 4'd8, 16'd10};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 8, 'z': 8, 'b': 10, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'add'}
-    instructions[33] = {4'd1, 4'd2, 4'd4, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 4, 'literal': 0, 'z': 2, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'addl'}
-    instructions[34] = {4'd2, 4'd0, 4'd2, 16'd8};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 2, 'b': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'store'}
-    instructions[35] = {4'd1, 4'd3, 4'd3, -16'd1};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 3, 'comment': 'pop', 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'literal': -1, 'z': 3, 'op': 'addl'}
-    instructions[36] = {4'd5, 4'd8, 4'd3, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 3, 'z': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'load'}
-    instructions[37] = {4'd2, 4'd0, 4'd3, 16'd8};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 3, 'comment': 'push', 'b': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'store'}
-    instructions[38] = {4'd1, 4'd3, 4'd3, 16'd1};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 3, 'literal': 1, 'z': 3, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'addl'}
-    instructions[39] = {4'd0, 4'd8, 4'd0, 16'd65535};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'literal': 65535, 'z': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'literal'}
-    instructions[40] = {4'd7, 4'd8, 4'd8, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 8, 'literal': 0, 'z': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'literal_hi'}
-    instructions[41] = {4'd1, 4'd3, 4'd3, -16'd1};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 3, 'comment': 'pop', 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'literal': -1, 'z': 3, 'op': 'addl'}
-    instructions[42] = {4'd5, 4'd10, 4'd3, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 3, 'z': 10, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'load'}
-    instructions[43] = {4'd8, 4'd8, 4'd8, 16'd10};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 8, 'z': 8, 'b': 10, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'and'}
-    instructions[44] = {4'd1, 4'd3, 4'd3, -16'd1};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 3, 'comment': 'pop', 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'literal': -1, 'z': 3, 'op': 'addl'}
-    instructions[45] = {4'd5, 4'd0, 4'd3, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 3, 'z': 0, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'load'}
-    instructions[46] = {4'd9, 4'd0, 4'd0, 16'd8};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 0, 'b': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'write'}
-    instructions[47] = {4'd1, 4'd3, 4'd3, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 5 {'a': 3, 'literal': 0, 'z': 3, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 5, 'op': 'addl'}
-    instructions[48] = {4'd0, 4'd8, 4'd0, 16'd61568};///tmp/tmpqm0Sya/inline_c_file.c : 6 {'literal': 61568, 'z': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 6, 'op': 'literal'}
-    instructions[49] = {4'd7, 4'd8, 4'd8, 16'd762};///tmp/tmpqm0Sya/inline_c_file.c : 6 {'a': 8, 'literal': 762, 'z': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 6, 'op': 'literal_hi'}
-    instructions[50] = {4'd10, 4'd0, 4'd8, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 6 {'a': 8, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 6, 'op': 'wait_clocks'}
-    instructions[51] = {4'd11, 4'd0, 4'd0, 16'd14};///tmp/tmpqm0Sya/inline_c_file.c : 4 {'label': 14, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 4, 'op': 'goto'}
-    instructions[52] = {4'd1, 4'd3, 4'd4, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 2 {'a': 4, 'literal': 0, 'z': 3, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 2, 'op': 'addl'}
-    instructions[53] = {4'd1, 4'd4, 4'd7, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 2 {'a': 7, 'literal': 0, 'z': 4, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 2, 'op': 'addl'}
-    instructions[54] = {4'd12, 4'd0, 4'd6, 16'd0};///tmp/tmpqm0Sya/inline_c_file.c : 2 {'a': 6, 'trace': /tmp/tmpqm0Sya/inline_c_file.c : 2, 'op': 'return'}
+    instructions[0] = {4'd0, 4'd3, 4'd0, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 9 {'literal': 0, 'z': 3, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 9, 'op': 'literal'}
+    instructions[1] = {4'd0, 4'd4, 4'd0, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 9 {'literal': 0, 'z': 4, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 9, 'op': 'literal'}
+    instructions[2] = {4'd1, 4'd3, 4'd3, 16'd1};///tmp/tmpLptN6z/inline_c_file.c : 9 {'a': 3, 'literal': 1, 'z': 3, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 9, 'op': 'addl'}
+    instructions[3] = {4'd0, 4'd8, 4'd0, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 1 {'literal': 0, 'z': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 1, 'op': 'literal'}
+    instructions[4] = {4'd0, 4'd2, 4'd0, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 1 {'literal': 0, 'z': 2, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 1, 'op': 'literal'}
+    instructions[5] = {4'd2, 4'd0, 4'd2, 16'd8};///tmp/tmpLptN6z/inline_c_file.c : 1 {'a': 2, 'b': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 1, 'op': 'store'}
+    instructions[6] = {4'd1, 4'd7, 4'd4, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 9 {'a': 4, 'literal': 0, 'z': 7, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 9, 'op': 'addl'}
+    instructions[7] = {4'd1, 4'd4, 4'd3, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 9 {'a': 3, 'literal': 0, 'z': 4, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 9, 'op': 'addl'}
+    instructions[8] = {4'd3, 4'd6, 4'd0, 16'd10};///tmp/tmpLptN6z/inline_c_file.c : 9 {'z': 6, 'label': 10, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 9, 'op': 'call'}
+    instructions[9] = {4'd4, 4'd0, 4'd0, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 9 {'trace': /tmp/tmpLptN6z/inline_c_file.c : 9, 'op': 'stop'}
+    instructions[10] = {4'd1, 4'd3, 4'd3, 16'd1};///tmp/tmpLptN6z/inline_c_file.c : 2 {'a': 3, 'literal': 1, 'z': 3, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 2, 'op': 'addl'}
+    instructions[11] = {4'd0, 4'd8, 4'd0, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 3 {'literal': 0, 'z': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 3, 'op': 'literal'}
+    instructions[12] = {4'd1, 4'd2, 4'd4, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 3 {'a': 4, 'literal': 0, 'z': 2, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 3, 'op': 'addl'}
+    instructions[13] = {4'd2, 4'd0, 4'd2, 16'd8};///tmp/tmpLptN6z/inline_c_file.c : 3 {'a': 2, 'b': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 3, 'op': 'store'}
+    instructions[14] = {4'd0, 4'd8, 4'd0, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 5 {'literal': 0, 'z': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'literal'}
+    instructions[15] = {4'd1, 4'd2, 4'd8, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 8, 'literal': 0, 'z': 2, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'addl'}
+    instructions[16] = {4'd5, 4'd8, 4'd2, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 2, 'z': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'load'}
+    instructions[17] = {4'd2, 4'd0, 4'd3, 16'd8};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 3, 'comment': 'push', 'b': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'store'}
+    instructions[18] = {4'd1, 4'd3, 4'd3, 16'd1};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 3, 'literal': 1, 'z': 3, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'addl'}
+    instructions[19] = {4'd1, 4'd8, 4'd4, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 4, 'literal': 0, 'z': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'addl'}
+    instructions[20] = {4'd1, 4'd2, 4'd8, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 8, 'literal': 0, 'z': 2, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'addl'}
+    instructions[21] = {4'd5, 4'd8, 4'd2, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 2, 'z': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'load'}
+    instructions[22] = {4'd2, 4'd0, 4'd3, 16'd8};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 3, 'comment': 'push', 'b': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'store'}
+    instructions[23] = {4'd1, 4'd3, 4'd3, 16'd1};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 3, 'literal': 1, 'z': 3, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'addl'}
+    instructions[24] = {4'd0, 4'd8, 4'd0, 16'd1};///tmp/tmpLptN6z/inline_c_file.c : 5 {'literal': 1, 'z': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'literal'}
+    instructions[25] = {4'd2, 4'd0, 4'd3, 16'd8};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 3, 'comment': 'push', 'b': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'store'}
+    instructions[26] = {4'd1, 4'd3, 4'd3, 16'd1};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 3, 'literal': 1, 'z': 3, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'addl'}
+    instructions[27] = {4'd1, 4'd8, 4'd4, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 4, 'literal': 0, 'z': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'addl'}
+    instructions[28] = {4'd1, 4'd2, 4'd8, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 8, 'literal': 0, 'z': 2, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'addl'}
+    instructions[29] = {4'd5, 4'd8, 4'd2, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 2, 'z': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'load'}
+    instructions[30] = {4'd1, 4'd3, 4'd3, -16'd1};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 3, 'comment': 'pop', 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'literal': -1, 'z': 3, 'op': 'addl'}
+    instructions[31] = {4'd5, 4'd10, 4'd3, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 3, 'z': 10, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'load'}
+    instructions[32] = {4'd6, 4'd8, 4'd8, 16'd10};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 8, 'z': 8, 'b': 10, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'add'}
+    instructions[33] = {4'd1, 4'd2, 4'd4, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 4, 'literal': 0, 'z': 2, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'addl'}
+    instructions[34] = {4'd2, 4'd0, 4'd2, 16'd8};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 2, 'b': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'store'}
+    instructions[35] = {4'd1, 4'd3, 4'd3, -16'd1};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 3, 'comment': 'pop', 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'literal': -1, 'z': 3, 'op': 'addl'}
+    instructions[36] = {4'd5, 4'd8, 4'd3, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 3, 'z': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'load'}
+    instructions[37] = {4'd2, 4'd0, 4'd3, 16'd8};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 3, 'comment': 'push', 'b': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'store'}
+    instructions[38] = {4'd1, 4'd3, 4'd3, 16'd1};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 3, 'literal': 1, 'z': 3, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'addl'}
+    instructions[39] = {4'd0, 4'd8, 4'd0, 16'd65535};///tmp/tmpLptN6z/inline_c_file.c : 5 {'literal': 65535, 'z': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'literal'}
+    instructions[40] = {4'd7, 4'd8, 4'd8, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 8, 'literal': 0, 'z': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'literal_hi'}
+    instructions[41] = {4'd1, 4'd3, 4'd3, -16'd1};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 3, 'comment': 'pop', 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'literal': -1, 'z': 3, 'op': 'addl'}
+    instructions[42] = {4'd5, 4'd10, 4'd3, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 3, 'z': 10, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'load'}
+    instructions[43] = {4'd8, 4'd8, 4'd8, 16'd10};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 8, 'z': 8, 'b': 10, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'and'}
+    instructions[44] = {4'd1, 4'd3, 4'd3, -16'd1};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 3, 'comment': 'pop', 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'literal': -1, 'z': 3, 'op': 'addl'}
+    instructions[45] = {4'd5, 4'd0, 4'd3, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 3, 'z': 0, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'load'}
+    instructions[46] = {4'd9, 4'd0, 4'd0, 16'd8};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 0, 'b': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'write'}
+    instructions[47] = {4'd1, 4'd3, 4'd3, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 5 {'a': 3, 'literal': 0, 'z': 3, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 5, 'op': 'addl'}
+    instructions[48] = {4'd0, 4'd8, 4'd0, 16'd61568};///tmp/tmpLptN6z/inline_c_file.c : 6 {'literal': 61568, 'z': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 6, 'op': 'literal'}
+    instructions[49] = {4'd7, 4'd8, 4'd8, 16'd762};///tmp/tmpLptN6z/inline_c_file.c : 6 {'a': 8, 'literal': 762, 'z': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 6, 'op': 'literal_hi'}
+    instructions[50] = {4'd10, 4'd0, 4'd8, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 6 {'a': 8, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 6, 'op': 'wait_clocks'}
+    instructions[51] = {4'd11, 4'd0, 4'd0, 16'd14};///tmp/tmpLptN6z/inline_c_file.c : 4 {'label': 14, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 4, 'op': 'goto'}
+    instructions[52] = {4'd1, 4'd3, 4'd4, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 2 {'a': 4, 'literal': 0, 'z': 3, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 2, 'op': 'addl'}
+    instructions[53] = {4'd1, 4'd4, 4'd7, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 2 {'a': 7, 'literal': 0, 'z': 4, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 2, 'op': 'addl'}
+    instructions[54] = {4'd12, 4'd0, 4'd6, 16'd0};///tmp/tmpLptN6z/inline_c_file.c : 2 {'a': 6, 'trace': /tmp/tmpLptN6z/inline_c_file.c : 2, 'op': 'return'}
   end
 
   

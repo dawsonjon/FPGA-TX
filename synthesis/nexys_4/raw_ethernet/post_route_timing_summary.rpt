@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date         : Tue Dec 22 19:00:43 2015
+| Date         : Sun Jul 31 18:28:30 2016
 | Host         : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command      : report_timing_summary -file ./post_route_timing_summary.rpt
 | Design       : BSP
@@ -124,7 +124,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-      9.255        0.000                      0                 8263        0.037        0.000                      0                 8263        3.000        0.000                       0                  1715  
+      9.412        0.000                      0                 8263        0.061        0.000                      0                 8263        3.000        0.000                       0                  1715  
 
 
 All user specified timing constraints are met.
@@ -154,7 +154,7 @@ Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoin
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
 sys_clk_pin                                                                                                                                                     3.000        0.000                       0                     1  
   clk0                                                                                                                                                          7.845        0.000                       0                     3  
-  clkdv             9.255        0.000                      0                 8263        0.037        0.000                      0                 8263        8.750        0.000                       0                  1711  
+  clkdv             9.412        0.000                      0                 8263        0.061        0.000                      0                 8263        8.750        0.000                       0                  1711  
 
 
 ------------------------------------------------------------------------------------------------
@@ -233,28 +233,28 @@ Max Period  n/a     MMCME2_ADV/CLKFBIN  n/a            100.000       10.000     
 From Clock:  clkdv
   To Clock:  clkdv
 
-Setup :            0  Failing Endpoints,  Worst Slack        9.255ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.037ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        9.412ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.061ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        8.750ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             9.255ns  (required time - arrival time)
-  Source:                 USER_DESIGN_INST_1/main_0_139931284189480/address_a_2_reg[0]/C
+Slack (MET) :             9.412ns  (required time - arrival time)
+  Source:                 USER_DESIGN_INST_1/main_0_139862646442032/address_a_2_reg[0]/C
                             (rising edge-triggered cell FDRE clocked by clkdv  {rise@0.000ns fall@10.000ns period=20.000ns})
-  Destination:            USER_DESIGN_INST_1/main_0_139931284189480/memory_reg_6/ENARDEN
+  Destination:            USER_DESIGN_INST_1/main_0_139862646442032/memory_reg_2/ENARDEN
                             (rising edge-triggered cell RAMB36E1 clocked by clkdv  {rise@0.000ns fall@10.000ns period=20.000ns})
   Path Group:             clkdv
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            20.000ns  (clkdv rise@20.000ns - clkdv rise@0.000ns)
-  Data Path Delay:        10.217ns  (logic 1.576ns (15.425%)  route 8.641ns (84.575%))
+  Data Path Delay:        9.798ns  (logic 1.554ns (15.860%)  route 8.244ns (84.140%))
   Logic Levels:           7  (LUT4=1 LUT5=1 LUT6=4 RAMD32=1)
-  Clock Path Skew:        0.003ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    -1.300ns = ( 18.700 - 20.000 ) 
-    Source Clock Delay      (SCD):    -0.735ns
-    Clock Pessimism Removal (CPR):    0.569ns
+  Clock Path Skew:        -0.258ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -1.482ns = ( 18.518 - 20.000 ) 
+    Source Clock Delay      (SCD):    -0.736ns
+    Clock Pessimism Removal (CPR):    0.488ns
   Clock Uncertainty:      0.089ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Discrete Jitter          (DJ):    0.163ns
@@ -271,27 +271,27 @@ Slack (MET) :             9.255ns  (required time - arrival time)
                                                      -6.826    -4.111 r  dcm_sp_inst/CLKOUT4
                          net (fo=1, routed)           1.475    -2.636    clkdv
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096    -2.540 r  BUFG_INST1/O
-                         net (fo=1710, routed)        1.805    -0.735    USER_DESIGN_INST_1/main_0_139931284189480/ETH_CLK_OBUF
-    SLICE_X36Y159        FDRE                                         r  USER_DESIGN_INST_1/main_0_139931284189480/address_a_2_reg[0]/C
+                         net (fo=1710, routed)        1.804    -0.736    USER_DESIGN_INST_1/main_0_139862646442032/ETH_CLK_OBUF
+    SLICE_X40Y160        FDRE                                         r  USER_DESIGN_INST_1/main_0_139862646442032/address_a_2_reg[0]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X36Y159        FDRE (Prop_fdre_C_Q)         0.456    -0.279 r  USER_DESIGN_INST_1/main_0_139931284189480/address_a_2_reg[0]/Q
-                         net (fo=38, routed)          1.894     1.615    USER_DESIGN_INST_1/main_0_139931284189480/registers_reg_r2_0_15_24_29/ADDRB0
-    SLICE_X12Y155        RAMD32 (Prop_ramd32_RADR0_O)
-                                                      0.152     1.767 f  USER_DESIGN_INST_1/main_0_139931284189480/registers_reg_r2_0_15_24_29/RAMB/O
-                         net (fo=7, routed)           1.434     3.201    USER_DESIGN_INST_1/main_0_139931284189480/register_a[26]
-    SLICE_X5Y157         LUT5 (Prop_lut5_I4_O)        0.348     3.549 f  USER_DESIGN_INST_1/main_0_139931284189480/write_output[26]_i_1/O
-                         net (fo=9, routed)           1.491     5.040    USER_DESIGN_INST_1/main_0_139931284189480/write_output[26]_i_1_n_0
-    SLICE_X17Y152        LUT6 (Prop_lut6_I1_O)        0.124     5.164 f  USER_DESIGN_INST_1/main_0_139931284189480/program_counter_rep[8]_i_11/O
-                         net (fo=1, routed)           0.415     5.579    USER_DESIGN_INST_1/main_0_139931284189480/program_counter_rep[8]_i_11_n_0
-    SLICE_X16Y152        LUT6 (Prop_lut6_I3_O)        0.124     5.703 f  USER_DESIGN_INST_1/main_0_139931284189480/program_counter_rep[8]_i_4/O
-                         net (fo=28, routed)          0.823     6.526    USER_DESIGN_INST_1/main_0_139931284189480/program_counter_rep[8]_i_4_n_0
-    SLICE_X22Y159        LUT6 (Prop_lut6_I1_O)        0.124     6.650 r  USER_DESIGN_INST_1/main_0_139931284189480/state[2]_i_3/O
-                         net (fo=3, routed)           0.432     7.082    USER_DESIGN_INST_1/main_0_139931284189480/state[2]_i_3_n_0
-    SLICE_X21Y160        LUT6 (Prop_lut6_I4_O)        0.124     7.206 f  USER_DESIGN_INST_1/main_0_139931284189480/state[0]_i_1/O
-                         net (fo=7, routed)           1.418     8.624    USER_DESIGN_INST_1/main_0_139931284189480/state[0]_i_1_n_0
-    SLICE_X11Y177        LUT4 (Prop_lut4_I1_O)        0.124     8.748 r  USER_DESIGN_INST_1/main_0_139931284189480/memory_reg_6_ENARDEN_cooolgate_en_gate_9/O
-                         net (fo=1, routed)           0.734     9.482    USER_DESIGN_INST_1/main_0_139931284189480/memory_reg_6_ENARDEN_cooolgate_en_sig_5
-    RAMB36_X0Y36         RAMB36E1                                     r  USER_DESIGN_INST_1/main_0_139931284189480/memory_reg_6/ENARDEN
+    SLICE_X40Y160        FDRE (Prop_fdre_C_Q)         0.456    -0.280 r  USER_DESIGN_INST_1/main_0_139862646442032/address_a_2_reg[0]/Q
+                         net (fo=38, routed)          1.405     1.125    USER_DESIGN_INST_1/main_0_139862646442032/registers_reg_r2_0_15_6_11/ADDRA0
+    SLICE_X34Y162        RAMD32 (Prop_ramd32_RADR0_O)
+                                                      0.150     1.275 f  USER_DESIGN_INST_1/main_0_139862646442032/registers_reg_r2_0_15_6_11/RAMA/O
+                         net (fo=5, routed)           1.164     2.439    USER_DESIGN_INST_1/main_0_139862646442032/register_a[6]
+    SLICE_X38Y161        LUT5 (Prop_lut5_I4_O)        0.328     2.767 f  USER_DESIGN_INST_1/main_0_139862646442032/write_output[6]_i_1/O
+                         net (fo=17, routed)          1.218     3.985    USER_DESIGN_INST_1/main_0_139862646442032/write_output[6]_i_1_n_0
+    SLICE_X26Y165        LUT6 (Prop_lut6_I2_O)        0.124     4.109 f  USER_DESIGN_INST_1/main_0_139862646442032/program_counter_rep[8]_i_8/O
+                         net (fo=1, routed)           0.853     4.962    USER_DESIGN_INST_1/main_0_139862646442032/program_counter_rep[8]_i_8_n_0
+    SLICE_X26Y165        LUT6 (Prop_lut6_I0_O)        0.124     5.086 f  USER_DESIGN_INST_1/main_0_139862646442032/program_counter_rep[8]_i_4/O
+                         net (fo=28, routed)          0.729     5.815    USER_DESIGN_INST_1/main_0_139862646442032/program_counter_rep[8]_i_4_n_0
+    SLICE_X32Y158        LUT6 (Prop_lut6_I1_O)        0.124     5.939 r  USER_DESIGN_INST_1/main_0_139862646442032/state[2]_i_3/O
+                         net (fo=3, routed)           0.513     6.453    USER_DESIGN_INST_1/main_0_139862646442032/state[2]_i_3_n_0
+    SLICE_X37Y158        LUT6 (Prop_lut6_I4_O)        0.124     6.577 f  USER_DESIGN_INST_1/main_0_139862646442032/state[0]_i_1/O
+                         net (fo=7, routed)           1.621     8.198    USER_DESIGN_INST_1/main_0_139862646442032/state[0]_i_1_n_0
+    SLICE_X62Y152        LUT4 (Prop_lut4_I1_O)        0.124     8.322 r  USER_DESIGN_INST_1/main_0_139862646442032/memory_reg_2_ENARDEN_cooolgate_en_gate_1/O
+                         net (fo=1, routed)           0.741     9.062    USER_DESIGN_INST_1/main_0_139862646442032/memory_reg_2_ENARDEN_cooolgate_en_sig_1
+    RAMB36_X1Y29         RAMB36E1                                     r  USER_DESIGN_INST_1/main_0_139862646442032/memory_reg_2/ENARDEN
   -------------------------------------------------------------------    -------------------
 
                          (clock clkdv rise edge)     20.000    20.000 r  
@@ -303,17 +303,17 @@ Slack (MET) :             9.255ns  (required time - arrival time)
                                                      -7.087    15.486 r  dcm_sp_inst/CLKOUT4
                          net (fo=1, routed)           1.402    16.888    clkdv
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    16.979 r  BUFG_INST1/O
-                         net (fo=1710, routed)        1.721    18.700    USER_DESIGN_INST_1/main_0_139931284189480/ETH_CLK_OBUF
-    RAMB36_X0Y36         RAMB36E1                                     r  USER_DESIGN_INST_1/main_0_139931284189480/memory_reg_6/CLKARDCLK
-                         clock pessimism              0.569    19.269    
-                         clock uncertainty           -0.089    19.180    
-    RAMB36_X0Y36         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ENARDEN)
-                                                     -0.443    18.737    USER_DESIGN_INST_1/main_0_139931284189480/memory_reg_6
+                         net (fo=1710, routed)        1.538    18.518    USER_DESIGN_INST_1/main_0_139862646442032/ETH_CLK_OBUF
+    RAMB36_X1Y29         RAMB36E1                                     r  USER_DESIGN_INST_1/main_0_139862646442032/memory_reg_2/CLKARDCLK
+                         clock pessimism              0.488    19.006    
+                         clock uncertainty           -0.089    18.917    
+    RAMB36_X1Y29         RAMB36E1 (Setup_ramb36e1_CLKARDCLK_ENARDEN)
+                                                     -0.443    18.474    USER_DESIGN_INST_1/main_0_139862646442032/memory_reg_2
   -------------------------------------------------------------------
-                         required time                         18.737    
-                         arrival time                          -9.482    
+                         required time                         18.474    
+                         arrival time                          -9.062    
   -------------------------------------------------------------------
-                         slack                                  9.255    
+                         slack                                  9.412    
 
 
 
@@ -321,20 +321,20 @@ Slack (MET) :             9.255ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.037ns  (arrival time - required time)
-  Source:                 ethernet_inst_1/RX_START_ADDRESS_reg[6]/C
+Slack (MET) :             0.061ns  (arrival time - required time)
+  Source:                 ethernet_inst_1/RX_WRITE_ADDRESS_reg[0]_rep/C
                             (rising edge-triggered cell FDRE clocked by clkdv  {rise@0.000ns fall@10.000ns period=20.000ns})
-  Destination:            ethernet_inst_1/RX_START_ADDRESS_BUFFER_reg_0_31_6_10/RAMA/I
-                            (rising edge-triggered cell RAMD32 clocked by clkdv  {rise@0.000ns fall@10.000ns period=20.000ns})
+  Destination:            ethernet_inst_1/RX_MEMORY_reg_256_319_6_8/RAMA/WADR0
+                            (rising edge-triggered cell RAMD64E clocked by clkdv  {rise@0.000ns fall@10.000ns period=20.000ns})
   Path Group:             clkdv
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clkdv rise@0.000ns - clkdv rise@0.000ns)
-  Data Path Delay:        0.197ns  (logic 0.141ns (71.611%)  route 0.056ns (28.389%))
+  Data Path Delay:        0.384ns  (logic 0.141ns (36.747%)  route 0.243ns (63.253%))
   Logic Levels:           0  
   Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    -0.755ns
-    Source Clock Delay      (SCD):    -0.519ns
-    Clock Pessimism Removal (CPR):    -0.249ns
+    Destination Clock Delay (DCD):    -0.722ns
+    Source Clock Delay      (SCD):    -0.489ns
+    Clock Pessimism Removal (CPR):    -0.246ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -347,12 +347,12 @@ Slack (MET) :             0.037ns  (arrival time - required time)
                                                      -2.293    -1.603 r  dcm_sp_inst/CLKOUT4
                          net (fo=1, routed)           0.413    -1.190    clkdv
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.164 r  BUFG_INST1/O
-                         net (fo=1710, routed)        0.645    -0.519    ethernet_inst_1/ETH_CLK_OBUF
-    SLICE_X15Y182        FDRE                                         r  ethernet_inst_1/RX_START_ADDRESS_reg[6]/C
+                         net (fo=1710, routed)        0.675    -0.489    ethernet_inst_1/ETH_CLK_OBUF
+    SLICE_X7Y163         FDRE                                         r  ethernet_inst_1/RX_WRITE_ADDRESS_reg[0]_rep/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X15Y182        FDRE (Prop_fdre_C_Q)         0.141    -0.378 r  ethernet_inst_1/RX_START_ADDRESS_reg[6]/Q
-                         net (fo=1, routed)           0.056    -0.322    ethernet_inst_1/RX_START_ADDRESS_BUFFER_reg_0_31_6_10/DIA0
-    SLICE_X14Y182        RAMD32                                       r  ethernet_inst_1/RX_START_ADDRESS_BUFFER_reg_0_31_6_10/RAMA/I
+    SLICE_X7Y163         FDRE (Prop_fdre_C_Q)         0.141    -0.348 r  ethernet_inst_1/RX_WRITE_ADDRESS_reg[0]_rep/Q
+                         net (fo=498, routed)         0.243    -0.105    ethernet_inst_1/RX_MEMORY_reg_256_319_6_8/ADDRD0
+    SLICE_X6Y163         RAMD64E                                      r  ethernet_inst_1/RX_MEMORY_reg_256_319_6_8/RAMA/WADR0
   -------------------------------------------------------------------    -------------------
 
                          (clock clkdv rise edge)      0.000     0.000 r  
@@ -364,16 +364,16 @@ Slack (MET) :             0.037ns  (arrival time - required time)
                                                      -3.067    -2.149 r  dcm_sp_inst/CLKOUT4
                          net (fo=1, routed)           0.448    -1.702    clkdv
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.673 r  BUFG_INST1/O
-                         net (fo=1710, routed)        0.918    -0.755    ethernet_inst_1/RX_START_ADDRESS_BUFFER_reg_0_31_6_10/WCLK
-    SLICE_X14Y182        RAMD32                                       r  ethernet_inst_1/RX_START_ADDRESS_BUFFER_reg_0_31_6_10/RAMA/CLK
-                         clock pessimism              0.249    -0.506    
-    SLICE_X14Y182        RAMD32 (Hold_ramd32_CLK_I)
-                                                      0.147    -0.359    ethernet_inst_1/RX_START_ADDRESS_BUFFER_reg_0_31_6_10/RAMA
+                         net (fo=1710, routed)        0.951    -0.722    ethernet_inst_1/RX_MEMORY_reg_256_319_6_8/WCLK
+    SLICE_X6Y163         RAMD64E                                      r  ethernet_inst_1/RX_MEMORY_reg_256_319_6_8/RAMA/CLK
+                         clock pessimism              0.246    -0.476    
+    SLICE_X6Y163         RAMD64E (Hold_ramd64e_CLK_WADR0)
+                                                      0.310    -0.166    ethernet_inst_1/RX_MEMORY_reg_256_319_6_8/RAMA
   -------------------------------------------------------------------
-                         required time                          0.359    
-                         arrival time                          -0.322    
+                         required time                          0.166    
+                         arrival time                          -0.105    
   -------------------------------------------------------------------
-                         slack                                  0.037    
+                         slack                                  0.061    
 
 
 
@@ -387,10 +387,10 @@ Period(ns):         20.000
 Sources:            { dcm_sp_inst/CLKOUT4 }
 
 Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location         Pin
-Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.576         20.000      17.424     RAMB36_X0Y26     CHARSVGA_INST_1/BRAM_INST_1/MEMORY_reg_0/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.576         20.000      17.424     RAMB36_X0Y25     CHARSVGA_INST_1/BRAM_INST_1/MEMORY_reg_0/CLKARDCLK
 Max Period        n/a     MMCME2_ADV/CLKOUT4  n/a            213.360       20.000      193.360    MMCME2_ADV_X1Y2  dcm_sp_inst/CLKOUT4
-Low Pulse Width   Slow    RAMD64E/CLK         n/a            1.250         10.000      8.750      SLICE_X12Y165    ethernet_inst_1/RX_MEMORY_reg_0_63_0_2/RAMA/CLK
-High Pulse Width  Fast    RAMD64E/CLK         n/a            1.250         10.000      8.750      SLICE_X12Y165    ethernet_inst_1/RX_MEMORY_reg_0_63_0_2/RAMA/CLK
+Low Pulse Width   Fast    RAMD32/CLK          n/a            1.250         10.000      8.750      SLICE_X34Y160    USER_DESIGN_INST_1/main_0_139862646442032/registers_reg_r1_0_15_0_5/RAMA/CLK
+High Pulse Width  Slow    RAMD32/CLK          n/a            1.250         10.000      8.750      SLICE_X38Y165    USER_DESIGN_INST_1/main_0_139862646442032/registers_reg_r1_0_15_18_23/RAMA/CLK
 
 
 

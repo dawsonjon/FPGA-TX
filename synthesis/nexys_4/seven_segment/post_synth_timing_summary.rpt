@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date         : Tue Dec 22 19:02:39 2015
+| Date         : Sun Jul 31 18:31:12 2016
 | Host         : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command      : report_timing_summary -file ./post_synth_timing_summary.rpt
 | Design       : BSP
@@ -124,7 +124,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-     12.387        0.000                      0                 4032        0.176        0.000                      0                 4032        0.345        0.000                       0                  1349  
+     12.387        0.000                      0                 4026        0.176        0.000                      0                 4026        0.345        0.000                       0                  1347  
 
 
 All user specified timing constraints are met.
@@ -155,7 +155,7 @@ Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoin
 sys_clk_pin                                                                                                                                                     3.000        0.000                       0                     1  
   clk0                                                                                                                                                          7.845        0.000                       0                     3  
   clk2x                                                                                                                                                         2.845        0.000                       0                     2  
-  clkdv            12.387        0.000                      0                 4032        0.176        0.000                      0                 4032        8.750        0.000                       0                  1339  
+  clkdv            12.387        0.000                      0                 4026        0.176        0.000                      0                 4026        8.750        0.000                       0                  1337  
   clkfx                                                                                                                                                         0.345        0.000                       0                     2  
   clkfx180                                                                                                                                                      0.345        0.000                       0                     2  
 
@@ -268,9 +268,9 @@ PW    :            0  Failing Endpoints,  Worst Slack        8.750ns,  Total Vio
 Max Delay Paths
 --------------------------------------------------------------------------------------
 Slack (MET) :             12.387ns  (required time - arrival time)
-  Source:                 USER_DESIGN_INST_1/main_1_139931279302312/address_z_3_reg[2]/C
+  Source:                 USER_DESIGN_INST_1/main_1_139862643227464/address_z_3_reg[2]/C
                             (rising edge-triggered cell FDRE clocked by clkdv  {rise@0.000ns fall@10.000ns period=20.000ns})
-  Destination:            USER_DESIGN_INST_1/main_1_139931279302312/result_reg[31]/D
+  Destination:            USER_DESIGN_INST_1/main_1_139862643227464/result_reg[31]/D
                             (rising edge-triggered cell FDRE clocked by clkdv  {rise@0.000ns fall@10.000ns period=20.000ns})
   Path Group:             clkdv
   Path Type:              Setup (Max at Slow Process Corner)
@@ -297,52 +297,52 @@ Slack (MET) :             12.387ns  (required time - arrival time)
                                                      -5.330    -3.045 r  dcm_sp_inst/CLKOUT4
                          net (fo=1, unplaced)         0.803    -2.242    clkdv
                          BUFG (Prop_bufg_I_O)         0.096    -2.146 r  BUFG_INST1/O
-                         net (fo=1338, unplaced)      0.803    -1.343    USER_DESIGN_INST_1/main_1_139931279302312/ETH_CLK_OBUF
-                         FDRE                                         r  USER_DESIGN_INST_1/main_1_139931279302312/address_z_3_reg[2]/C
+                         net (fo=1336, unplaced)      0.803    -1.343    USER_DESIGN_INST_1/main_1_139862643227464/ETH_CLK_OBUF
+                         FDRE                                         r  USER_DESIGN_INST_1/main_1_139862643227464/address_z_3_reg[2]/C
   -------------------------------------------------------------------    -------------------
-                         FDRE (Prop_fdre_C_Q)         0.478    -0.865 r  USER_DESIGN_INST_1/main_1_139931279302312/address_z_3_reg[2]/Q
-                         net (fo=98, unplaced)        0.862    -0.003    USER_DESIGN_INST_1/main_1_139931279302312/address_z_3[2]
-                         LUT4 (Prop_lut4_I1_O)        0.295     0.292 f  USER_DESIGN_INST_1/main_1_139931279302312/read_input[31]_i_4/O
-                         net (fo=1, unplaced)         0.449     0.741    USER_DESIGN_INST_1/main_1_139931279302312/read_input[31]_i_4_n_0
-                         LUT6 (Prop_lut6_I1_O)        0.124     0.865 r  USER_DESIGN_INST_1/main_1_139931279302312/read_input[31]_i_3/O
-                         net (fo=232, unplaced)       0.540     1.405    USER_DESIGN_INST_1/main_1_139931279302312/operand_a1
-                         LUT3 (Prop_lut3_I1_O)        0.124     1.529 r  USER_DESIGN_INST_1/main_1_139931279302312/read_input[1]_i_1/O
-                         net (fo=34, unplaced)        0.492     2.021    USER_DESIGN_INST_1/main_1_139931279302312/read_input[1]_i_1_n_0
-                         LUT2 (Prop_lut2_I0_O)        0.124     2.145 r  USER_DESIGN_INST_1/main_1_139931279302312/result[3]_i_29/O
-                         net (fo=1, unplaced)         0.000     2.145    USER_DESIGN_INST_1/main_1_139931279302312/result[3]_i_29_n_0
+                         FDRE (Prop_fdre_C_Q)         0.478    -0.865 r  USER_DESIGN_INST_1/main_1_139862643227464/address_z_3_reg[2]/Q
+                         net (fo=98, unplaced)        0.862    -0.003    USER_DESIGN_INST_1/main_1_139862643227464/address_z_3[2]
+                         LUT4 (Prop_lut4_I1_O)        0.295     0.292 f  USER_DESIGN_INST_1/main_1_139862643227464/read_input[31]_i_4/O
+                         net (fo=1, unplaced)         0.449     0.741    USER_DESIGN_INST_1/main_1_139862643227464/read_input[31]_i_4_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     0.865 r  USER_DESIGN_INST_1/main_1_139862643227464/read_input[31]_i_3/O
+                         net (fo=232, unplaced)       0.540     1.405    USER_DESIGN_INST_1/main_1_139862643227464/operand_a1
+                         LUT3 (Prop_lut3_I1_O)        0.124     1.529 r  USER_DESIGN_INST_1/main_1_139862643227464/read_input[1]_i_1/O
+                         net (fo=34, unplaced)        0.492     2.021    USER_DESIGN_INST_1/main_1_139862643227464/read_input[1]_i_1_n_0
+                         LUT2 (Prop_lut2_I0_O)        0.124     2.145 r  USER_DESIGN_INST_1/main_1_139862643227464/result[3]_i_29/O
+                         net (fo=1, unplaced)         0.000     2.145    USER_DESIGN_INST_1/main_1_139862643227464/result[3]_i_29_n_0
                          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.533     2.678 r  USER_DESIGN_INST_1/main_1_139931279302312/result_reg[3]_i_12/CO[3]
-                         net (fo=1, unplaced)         0.000     2.678    USER_DESIGN_INST_1/main_1_139931279302312/result_reg[3]_i_12_n_0
+                                                      0.533     2.678 r  USER_DESIGN_INST_1/main_1_139862643227464/result_reg[3]_i_12/CO[3]
+                         net (fo=1, unplaced)         0.000     2.678    USER_DESIGN_INST_1/main_1_139862643227464/result_reg[3]_i_12_n_0
                          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     2.795 r  USER_DESIGN_INST_1/main_1_139931279302312/result_reg[7]_i_14/CO[3]
-                         net (fo=1, unplaced)         0.000     2.795    USER_DESIGN_INST_1/main_1_139931279302312/result_reg[7]_i_14_n_0
+                                                      0.117     2.795 r  USER_DESIGN_INST_1/main_1_139862643227464/result_reg[7]_i_14/CO[3]
+                         net (fo=1, unplaced)         0.000     2.795    USER_DESIGN_INST_1/main_1_139862643227464/result_reg[7]_i_14_n_0
                          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     2.912 r  USER_DESIGN_INST_1/main_1_139931279302312/result_reg[11]_i_14/CO[3]
-                         net (fo=1, unplaced)         0.000     2.912    USER_DESIGN_INST_1/main_1_139931279302312/result_reg[11]_i_14_n_0
+                                                      0.117     2.912 r  USER_DESIGN_INST_1/main_1_139862643227464/result_reg[11]_i_14/CO[3]
+                         net (fo=1, unplaced)         0.000     2.912    USER_DESIGN_INST_1/main_1_139862643227464/result_reg[11]_i_14_n_0
                          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     3.029 r  USER_DESIGN_INST_1/main_1_139931279302312/result_reg[15]_i_14/CO[3]
-                         net (fo=1, unplaced)         0.000     3.029    USER_DESIGN_INST_1/main_1_139931279302312/result_reg[15]_i_14_n_0
+                                                      0.117     3.029 r  USER_DESIGN_INST_1/main_1_139862643227464/result_reg[15]_i_14/CO[3]
+                         net (fo=1, unplaced)         0.000     3.029    USER_DESIGN_INST_1/main_1_139862643227464/result_reg[15]_i_14_n_0
                          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     3.146 r  USER_DESIGN_INST_1/main_1_139931279302312/result_reg[19]_i_11/CO[3]
-                         net (fo=1, unplaced)         0.000     3.146    USER_DESIGN_INST_1/main_1_139931279302312/result_reg[19]_i_11_n_0
+                                                      0.117     3.146 r  USER_DESIGN_INST_1/main_1_139862643227464/result_reg[19]_i_11/CO[3]
+                         net (fo=1, unplaced)         0.000     3.146    USER_DESIGN_INST_1/main_1_139862643227464/result_reg[19]_i_11_n_0
                          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     3.263 r  USER_DESIGN_INST_1/main_1_139931279302312/result_reg[27]_i_13/CO[3]
-                         net (fo=1, unplaced)         0.000     3.263    USER_DESIGN_INST_1/main_1_139931279302312/result_reg[27]_i_13_n_0
+                                                      0.117     3.263 r  USER_DESIGN_INST_1/main_1_139862643227464/result_reg[27]_i_13/CO[3]
+                         net (fo=1, unplaced)         0.000     3.263    USER_DESIGN_INST_1/main_1_139862643227464/result_reg[27]_i_13_n_0
                          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     3.380 r  USER_DESIGN_INST_1/main_1_139931279302312/result_reg[27]_i_7/CO[3]
-                         net (fo=1, unplaced)         0.000     3.380    USER_DESIGN_INST_1/main_1_139931279302312/result_reg[27]_i_7_n_0
+                                                      0.117     3.380 r  USER_DESIGN_INST_1/main_1_139862643227464/result_reg[27]_i_7/CO[3]
+                         net (fo=1, unplaced)         0.000     3.380    USER_DESIGN_INST_1/main_1_139862643227464/result_reg[27]_i_7_n_0
                          CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.331     3.711 r  USER_DESIGN_INST_1/main_1_139931279302312/result_reg[30]_i_11/O[3]
-                         net (fo=1, unplaced)         0.448     4.159    USER_DESIGN_INST_1/main_1_139931279302312/result_reg[30]_i_11_n_4
-                         LUT6 (Prop_lut6_I2_O)        0.307     4.466 r  USER_DESIGN_INST_1/main_1_139931279302312/result[31]_i_18/O
-                         net (fo=1, unplaced)         0.449     4.915    USER_DESIGN_INST_1/main_1_139931279302312/result[31]_i_18_n_0
-                         LUT5 (Prop_lut5_I4_O)        0.124     5.039 r  USER_DESIGN_INST_1/main_1_139931279302312/result[31]_i_13__0/O
-                         net (fo=1, unplaced)         0.449     5.488    USER_DESIGN_INST_1/main_1_139931279302312/result[31]_i_13__0_n_0
-                         LUT6 (Prop_lut6_I1_O)        0.124     5.612 r  USER_DESIGN_INST_1/main_1_139931279302312/result[31]_i_6__0/O
-                         net (fo=1, unplaced)         0.449     6.061    USER_DESIGN_INST_1/main_1_139931279302312/result[31]_i_6__0_n_0
-                         LUT5 (Prop_lut5_I0_O)        0.124     6.185 r  USER_DESIGN_INST_1/main_1_139931279302312/result[31]_i_2__0/O
-                         net (fo=1, unplaced)         0.000     6.185    USER_DESIGN_INST_1/main_1_139931279302312/result[31]_i_2__0_n_0
-                         FDRE                                         r  USER_DESIGN_INST_1/main_1_139931279302312/result_reg[31]/D
+                                                      0.331     3.711 r  USER_DESIGN_INST_1/main_1_139862643227464/result_reg[30]_i_11/O[3]
+                         net (fo=1, unplaced)         0.448     4.159    USER_DESIGN_INST_1/main_1_139862643227464/result_reg[30]_i_11_n_4
+                         LUT6 (Prop_lut6_I2_O)        0.307     4.466 r  USER_DESIGN_INST_1/main_1_139862643227464/result[31]_i_18/O
+                         net (fo=1, unplaced)         0.449     4.915    USER_DESIGN_INST_1/main_1_139862643227464/result[31]_i_18_n_0
+                         LUT5 (Prop_lut5_I4_O)        0.124     5.039 r  USER_DESIGN_INST_1/main_1_139862643227464/result[31]_i_13__0/O
+                         net (fo=1, unplaced)         0.449     5.488    USER_DESIGN_INST_1/main_1_139862643227464/result[31]_i_13__0_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124     5.612 r  USER_DESIGN_INST_1/main_1_139862643227464/result[31]_i_6__0/O
+                         net (fo=1, unplaced)         0.449     6.061    USER_DESIGN_INST_1/main_1_139862643227464/result[31]_i_6__0_n_0
+                         LUT5 (Prop_lut5_I0_O)        0.124     6.185 r  USER_DESIGN_INST_1/main_1_139862643227464/result[31]_i_2__0/O
+                         net (fo=1, unplaced)         0.000     6.185    USER_DESIGN_INST_1/main_1_139862643227464/result[31]_i_2__0_n_0
+                         FDRE                                         r  USER_DESIGN_INST_1/main_1_139862643227464/result_reg[31]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clkdv rise edge)     20.000    20.000 r  
@@ -354,11 +354,11 @@ Slack (MET) :             12.387ns  (required time - arrival time)
                                                      -5.705    16.469 r  dcm_sp_inst/CLKOUT4
                          net (fo=1, unplaced)         0.763    17.232    clkdv
                          BUFG (Prop_bufg_I_O)         0.091    17.323 r  BUFG_INST1/O
-                         net (fo=1338, unplaced)      0.763    18.086    USER_DESIGN_INST_1/main_1_139931279302312/ETH_CLK_OBUF
-                         FDRE                                         r  USER_DESIGN_INST_1/main_1_139931279302312/result_reg[31]/C
+                         net (fo=1336, unplaced)      0.763    18.086    USER_DESIGN_INST_1/main_1_139862643227464/ETH_CLK_OBUF
+                         FDRE                                         r  USER_DESIGN_INST_1/main_1_139862643227464/result_reg[31]/C
                          clock pessimism              0.531    18.617    
                          clock uncertainty           -0.089    18.528    
-                         FDRE (Setup_fdre_C_D)        0.044    18.572    USER_DESIGN_INST_1/main_1_139931279302312/result_reg[31]
+                         FDRE (Setup_fdre_C_D)        0.044    18.572    USER_DESIGN_INST_1/main_1_139862643227464/result_reg[31]
   -------------------------------------------------------------------
                          required time                         18.572    
                          arrival time                          -6.185    
@@ -397,7 +397,7 @@ Slack (MET) :             0.176ns  (arrival time - required time)
                                                      -2.002    -1.414 r  dcm_sp_inst/CLKOUT4
                          net (fo=1, unplaced)         0.338    -1.075    clkdv
                          BUFG (Prop_bufg_I_O)         0.026    -1.049 r  BUFG_INST1/O
-                         net (fo=1338, unplaced)      0.338    -0.711    ethernet_inst_1/ETH_CLK_OBUF
+                         net (fo=1336, unplaced)      0.338    -0.711    ethernet_inst_1/ETH_CLK_OBUF
                          FDRE                                         r  ethernet_inst_1/RX_START_ADDRESS_reg[0]/C
   -------------------------------------------------------------------    -------------------
                          FDRE (Prop_fdre_C_Q)         0.147    -0.564 r  ethernet_inst_1/RX_START_ADDRESS_reg[0]/Q
@@ -414,7 +414,7 @@ Slack (MET) :             0.176ns  (arrival time - required time)
                                                      -2.509    -1.715 r  dcm_sp_inst/CLKOUT4
                          net (fo=1, unplaced)         0.356    -1.358    clkdv
                          BUFG (Prop_bufg_I_O)         0.029    -1.329 r  BUFG_INST1/O
-                         net (fo=1338, unplaced)      0.356    -0.973    ethernet_inst_1/RX_START_ADDRESS_BUFFER_reg_0_31_0_5/WCLK
+                         net (fo=1336, unplaced)      0.356    -0.973    ethernet_inst_1/RX_START_ADDRESS_BUFFER_reg_0_31_0_5/WCLK
                          RAMD32                                       r  ethernet_inst_1/RX_START_ADDRESS_BUFFER_reg_0_31_0_5/RAMA/CLK
                          clock pessimism              0.280    -0.693    
                          RAMD32 (Hold_ramd32_CLK_I)
@@ -439,8 +439,8 @@ Sources:            { dcm_sp_inst/CLKOUT4 }
 Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location  Pin
 Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.576         20.000      17.424               CHARSVGA_INST_1/BRAM_INST_1/MEMORY_reg_0/CLKARDCLK
 Max Period        n/a     MMCME2_ADV/CLKOUT4  n/a            213.360       20.000      193.360              dcm_sp_inst/CLKOUT4
-Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         10.000      8.750                USER_DESIGN_INST_1/main_0_139931282298208/registers_reg_r1_0_15_0_5/RAMA/CLK
-High Pulse Width  Fast    RAMD32/CLK          n/a            1.250         10.000      8.750                USER_DESIGN_INST_1/main_0_139931282298208/registers_reg_r1_0_15_0_5/RAMA/CLK
+Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         10.000      8.750                USER_DESIGN_INST_1/main_0_139862649017984/registers_reg_r1_0_15_0_5/RAMA/CLK
+High Pulse Width  Fast    RAMD32/CLK          n/a            1.250         10.000      8.750                USER_DESIGN_INST_1/main_0_139862649017984/registers_reg_r1_0_15_0_5/RAMA/CLK
 
 
 

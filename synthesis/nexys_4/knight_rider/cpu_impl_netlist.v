@@ -1,7 +1,7 @@
 // Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-// Date        : Tue Dec 22 19:13:01 2015
+// Date        : Sun Jul 31 18:42:43 2016
 // Host        : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 // Command     : write_verilog -force ./cpu_impl_netlist.v -mode timesim -sdf_anno true
 // Design      : BSP
@@ -109,7 +109,7 @@ module BRAM
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
-(* ECO_CHECKSUM = "ba2191df" *) (* POWER_OPT_BRAM_CDC = "0" *) (* POWER_OPT_BRAM_SR_ADDR = "0" *) 
+(* ECO_CHECKSUM = "635c82fe" *) (* POWER_OPT_BRAM_CDC = "0" *) (* POWER_OPT_BRAM_SR_ADDR = "0" *) 
 (* POWER_OPT_LOOPED_NET_PERCENTAGE = "0" *) 
 (* NotValidForBitStream *)
 module BSP
@@ -20905,7 +20905,7 @@ module user_design
   wire INTERNAL_RST_reg;
   wire [15:0]output_leds;
 
-  main_0 main_0_139931267303256
+  main_0 main_0_139862638468704
        (.E(E),
         .ETH_CLK_OBUF(ETH_CLK_OBUF),
         .INTERNAL_RST_reg(INTERNAL_RST_reg),

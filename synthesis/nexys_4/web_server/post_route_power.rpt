@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date             : Tue Dec 22 19:07:12 2015
+| Date             : Sun Jul 31 18:36:57 2016
 | Host             : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command          : report_power -file ./post_route_power.rpt
 | Design           : BSP
@@ -50,15 +50,15 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.006 |        8 |       --- |             --- |
-| Slice Logic              |     0.008 |     6360 |       --- |             --- |
-|   LUT as Logic           |     0.007 |     2922 |     63400 |            4.61 |
+| Slice Logic              |     0.009 |     6360 |       --- |             --- |
+|   LUT as Logic           |     0.007 |     2924 |     63400 |            4.61 |
 |   LUT as Distributed RAM |    <0.001 |      864 |     19000 |            4.55 |
 |   CARRY4                 |    <0.001 |      162 |     15850 |            1.02 |
 |   Register               |    <0.001 |     1519 |    126800 |            1.20 |
 |   F7/F8 Muxes            |    <0.001 |      203 |     63400 |            0.32 |
 |   LUT as Shift Register  |    <0.001 |       16 |     19000 |            0.08 |
 |   Others                 |     0.000 |       42 |       --- |             --- |
-| Signals                  |     0.012 |     4980 |       --- |             --- |
+| Signals                  |     0.012 |     4976 |       --- |             --- |
 | Block RAM                |     0.025 |     41.5 |       135 |           30.74 |
 | MMCM                     |     0.000 |        1 |         6 |           16.67 |
 | I/O                      |     0.021 |       90 |       210 |           42.86 |
@@ -73,7 +73,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.066 |       0.050 |      0.016 |
+| Vccint    |       1.000 |     0.066 |       0.049 |      0.016 |
 | Vccaux    |       1.800 |     0.019 |       0.001 |      0.018 |
 | Vcco33    |       3.300 |     0.010 |       0.006 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -157,7 +157,7 @@ Table of Contents
 |   SERIAL_INPUT_INST_1                     |    <0.001 |
 |   SERIAL_OUTPUT_INST_1                    |    <0.001 |
 |   USER_DESIGN_INST_1                      |     0.041 |
-|     main_0_139931284560784                |     0.005 |
+|     main_0_139862652896896                |     0.005 |
 |       registers_reg_r1_0_15_0_5           |    <0.001 |
 |       registers_reg_r1_0_15_12_17         |    <0.001 |
 |       registers_reg_r1_0_15_18_23         |    <0.001 |
@@ -170,7 +170,7 @@ Table of Contents
 |       registers_reg_r2_0_15_24_29         |    <0.001 |
 |       registers_reg_r2_0_15_30_31         |    <0.001 |
 |       registers_reg_r2_0_15_6_11          |    <0.001 |
-|     main_1_139931279976424                |     0.019 |
+|     main_1_139862648885544                |     0.019 |
 |       registers_reg_r1_0_15_0_5           |    <0.001 |
 |       registers_reg_r1_0_15_12_17         |    <0.001 |
 |       registers_reg_r1_0_15_18_23         |    <0.001 |
@@ -183,7 +183,7 @@ Table of Contents
 |       registers_reg_r2_0_15_24_29         |    <0.001 |
 |       registers_reg_r2_0_15_30_31         |    <0.001 |
 |       registers_reg_r2_0_15_6_11          |    <0.001 |
-|     main_2_139931274821216                |     0.017 |
+|     main_2_139862642642528                |     0.017 |
 |       registers_reg_r1_0_15_0_5           |    <0.001 |
 |       registers_reg_r1_0_15_12_17         |    <0.001 |
 |       registers_reg_r1_0_15_18_23         |    <0.001 |

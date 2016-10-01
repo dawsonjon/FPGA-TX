@@ -1,0 +1,44 @@
+Release 14.3 - par P.40xd (lin64)
+Copyright (c) 1995-2012 Xilinx, Inc.  All rights reserved.
+
+Sun Jul 31 18:52:38 2016
+
+All signals are completely routed.
+
+WARNING:ParHelpers:361 - There are 32 loadless signals in this design. This design will cause Bitgen to issue DRC
+   warnings.
+
+   GPIO_BUTTONS<0>_IBUF
+   GPIO_BUTTONS<1>_IBUF
+   GPIO_BUTTONS<2>_IBUF
+   GPIO_BUTTONS<3>_IBUF
+   GPIO_SWITCHES<0>_IBUF
+   GPIO_SWITCHES<1>_IBUF
+   GPIO_SWITCHES<2>_IBUF
+   GPIO_SWITCHES<3>_IBUF
+   GPIO_SWITCHES<4>_IBUF
+   GPIO_SWITCHES<5>_IBUF
+   GPIO_SWITCHES<6>_IBUF
+   GPIO_SWITCHES<7>_IBUF
+   KC_IBUF
+   KD_IBUF
+   MKC_IBUF
+   MKD_IBUF
+   RS232_RX_IBUF
+   TXCLK_IBUF
+   USER_DESIGN_INST_1/main_0_139862646470488/Mram_registers11_RAMD_D1_O
+   USER_DESIGN_INST_1/main_0_139862646470488/Mram_registers12_RAMD_D1_O
+   USER_DESIGN_INST_1/main_0_139862646470488/Mram_registers13_RAMD_D1_O
+   USER_DESIGN_INST_1/main_0_139862646470488/Mram_registers14_RAMD_D1_O
+   USER_DESIGN_INST_1/main_0_139862646470488/Mram_registers15_RAMD_D1_O
+   USER_DESIGN_INST_1/main_0_139862646470488/Mram_registers2_RAMD_D1_O
+   USER_DESIGN_INST_1/main_0_139862646470488/Mram_registers3_RAMD_D1_O
+   USER_DESIGN_INST_1/main_0_139862646470488/Mram_registers4_RAMD_D1_O
+   USER_DESIGN_INST_1/main_0_139862646470488/Mram_registers5_RAMD_D1_O
+   USER_DESIGN_INST_1/main_0_139862646470488/Mram_registers6_RAMD_D1_O
+   gigabit_ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER1_RAMD_D1_O
+   gigabit_ethernet_inst_1/Mram_RX_PACKET_LENGTH_BUFFER2_RAMD_D1_O
+   gigabit_ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER1_RAMD_D1_O
+   gigabit_ethernet_inst_1/Mram_RX_START_ADDRESS_BUFFER2_RAMD_D1_O
+
+

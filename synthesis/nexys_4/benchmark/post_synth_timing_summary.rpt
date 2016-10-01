@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date         : Tue Dec 22 19:15:33 2015
+| Date         : Sun Jul 31 18:45:01 2016
 | Host         : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command      : report_timing_summary -file ./post_synth_timing_summary.rpt
 | Design       : BSP
@@ -268,9 +268,9 @@ PW    :            0  Failing Endpoints,  Worst Slack        8.750ns,  Total Vio
 Max Delay Paths
 --------------------------------------------------------------------------------------
 Slack (MET) :             12.025ns  (required time - arrival time)
-  Source:                 USER_DESIGN_INST_1/main_0_139931269791112/multiplier_inst/b_m_reg[23]/C
+  Source:                 USER_DESIGN_INST_1/main_0_139862650834528/multiplier_inst/b_m_reg[23]/C
                             (rising edge-triggered cell FDRE clocked by clkdv  {rise@0.000ns fall@10.000ns period=20.000ns})
-  Destination:            USER_DESIGN_INST_1/main_0_139931269791112/multiplier_inst/product_reg[19]/D
+  Destination:            USER_DESIGN_INST_1/main_0_139862650834528/multiplier_inst/product_reg[19]/D
                             (rising edge-triggered cell FDRE clocked by clkdv  {rise@0.000ns fall@10.000ns period=20.000ns})
   Path Group:             clkdv
   Path Type:              Setup (Max at Slow Process Corner)
@@ -297,18 +297,18 @@ Slack (MET) :             12.025ns  (required time - arrival time)
                                                      -5.330    -3.045 r  dcm_sp_inst/CLKOUT4
                          net (fo=1, unplaced)         0.803    -2.242    clkdv
                          BUFG (Prop_bufg_I_O)         0.096    -2.146 r  BUFG_INST1/O
-                         net (fo=2449, unplaced)      0.803    -1.343    USER_DESIGN_INST_1/main_0_139931269791112/multiplier_inst/ETH_CLK_OBUF
-                         FDRE                                         r  USER_DESIGN_INST_1/main_0_139931269791112/multiplier_inst/b_m_reg[23]/C
+                         net (fo=2449, unplaced)      0.803    -1.343    USER_DESIGN_INST_1/main_0_139862650834528/multiplier_inst/ETH_CLK_OBUF
+                         FDRE                                         r  USER_DESIGN_INST_1/main_0_139862650834528/multiplier_inst/b_m_reg[23]/C
   -------------------------------------------------------------------    -------------------
-                         FDRE (Prop_fdre_C_Q)         0.478    -0.865 r  USER_DESIGN_INST_1/main_0_139931269791112/multiplier_inst/b_m_reg[23]/Q
-                         net (fo=7, unplaced)         0.803    -0.062    USER_DESIGN_INST_1/main_0_139931269791112/multiplier_inst/b_m_reg_n_0_[23]
+                         FDRE (Prop_fdre_C_Q)         0.478    -0.865 r  USER_DESIGN_INST_1/main_0_139862650834528/multiplier_inst/b_m_reg[23]/Q
+                         net (fo=7, unplaced)         0.803    -0.062    USER_DESIGN_INST_1/main_0_139862650834528/multiplier_inst/b_m_reg_n_0_[23]
                          DSP48E1 (Prop_dsp48e1_A[23]_PCOUT[47])
-                                                      4.211     4.149 r  USER_DESIGN_INST_1/main_0_139931269791112/multiplier_inst/product1/PCOUT[47]
-                         net (fo=1, unplaced)         0.000     4.149    USER_DESIGN_INST_1/main_0_139931269791112/multiplier_inst/product1_n_106
+                                                      4.211     4.149 r  USER_DESIGN_INST_1/main_0_139862650834528/multiplier_inst/product1/PCOUT[47]
+                         net (fo=1, unplaced)         0.000     4.149    USER_DESIGN_INST_1/main_0_139862650834528/multiplier_inst/product1_n_106
                          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
-                                                      1.518     5.667 r  USER_DESIGN_INST_1/main_0_139931269791112/multiplier_inst/product1__0/P[0]
-                         net (fo=1, unplaced)         0.803     6.470    USER_DESIGN_INST_1/main_0_139931269791112/multiplier_inst/product1__0_n_105
-                         FDRE                                         r  USER_DESIGN_INST_1/main_0_139931269791112/multiplier_inst/product_reg[19]/D
+                                                      1.518     5.667 r  USER_DESIGN_INST_1/main_0_139862650834528/multiplier_inst/product1__0/P[0]
+                         net (fo=1, unplaced)         0.803     6.470    USER_DESIGN_INST_1/main_0_139862650834528/multiplier_inst/product1__0_n_105
+                         FDRE                                         r  USER_DESIGN_INST_1/main_0_139862650834528/multiplier_inst/product_reg[19]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clkdv rise edge)     20.000    20.000 r  
@@ -320,11 +320,11 @@ Slack (MET) :             12.025ns  (required time - arrival time)
                                                      -5.705    16.469 r  dcm_sp_inst/CLKOUT4
                          net (fo=1, unplaced)         0.763    17.232    clkdv
                          BUFG (Prop_bufg_I_O)         0.091    17.323 r  BUFG_INST1/O
-                         net (fo=2449, unplaced)      0.763    18.086    USER_DESIGN_INST_1/main_0_139931269791112/multiplier_inst/ETH_CLK_OBUF
-                         FDRE                                         r  USER_DESIGN_INST_1/main_0_139931269791112/multiplier_inst/product_reg[19]/C
+                         net (fo=2449, unplaced)      0.763    18.086    USER_DESIGN_INST_1/main_0_139862650834528/multiplier_inst/ETH_CLK_OBUF
+                         FDRE                                         r  USER_DESIGN_INST_1/main_0_139862650834528/multiplier_inst/product_reg[19]/C
                          clock pessimism              0.531    18.617    
                          clock uncertainty           -0.089    18.528    
-                         FDRE (Setup_fdre_C_D)       -0.033    18.495    USER_DESIGN_INST_1/main_0_139931269791112/multiplier_inst/product_reg[19]
+                         FDRE (Setup_fdre_C_D)       -0.033    18.495    USER_DESIGN_INST_1/main_0_139862650834528/multiplier_inst/product_reg[19]
   -------------------------------------------------------------------
                          required time                         18.495    
                          arrival time                          -6.470    
@@ -405,8 +405,8 @@ Sources:            { dcm_sp_inst/CLKOUT4 }
 Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location  Pin
 Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.576         20.000      17.424               CHARSVGA_INST_1/BRAM_INST_1/MEMORY_reg_0/CLKARDCLK
 Max Period        n/a     MMCME2_ADV/CLKOUT4  n/a            213.360       20.000      193.360              dcm_sp_inst/CLKOUT4
-Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         10.000      8.750                USER_DESIGN_INST_1/main_0_139931269791112/registers_reg_r1_0_15_0_5/RAMA/CLK
-High Pulse Width  Fast    RAMD32/CLK          n/a            1.250         10.000      8.750                USER_DESIGN_INST_1/main_0_139931269791112/registers_reg_r1_0_15_0_5/RAMA/CLK
+Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         10.000      8.750                USER_DESIGN_INST_1/main_0_139862650834528/registers_reg_r1_0_15_0_5/RAMA/CLK
+High Pulse Width  Fast    RAMD32/CLK          n/a            1.250         10.000      8.750                USER_DESIGN_INST_1/main_0_139862650834528/registers_reg_r1_0_15_0_5/RAMA/CLK
 
 
 

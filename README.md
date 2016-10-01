@@ -47,7 +47,7 @@ Pre-requisites
 The first thing you need is Chips-2.0. A compatible version is included in chips-demo. 
 
 ```
-cd Chips-Demo
+cd Chips-Demo\chips2
 sudo python setup.py install
 ```
 

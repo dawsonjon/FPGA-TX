@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date         : Tue Dec 22 19:02:40 2015
+| Date         : Sun Jul 31 18:31:12 2016
 | Host         : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command      : report_utilization -file ./post_synth_util.rpt
 | Design       : BSP
@@ -30,13 +30,13 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 2474 |     0 |     63400 |  3.90 |
-|   LUT as Logic             | 2330 |     0 |     63400 |  3.68 |
+| Slice LUTs*                | 2473 |     0 |     63400 |  3.90 |
+|   LUT as Logic             | 2329 |     0 |     63400 |  3.67 |
 |   LUT as Memory            |  144 |     0 |     19000 |  0.76 |
 |     LUT as Distributed RAM |  112 |     0 |           |       |
 |     LUT as Shift Register  |   32 |     0 |           |       |
-| Slice Registers            | 1060 |     0 |    126800 |  0.84 |
-|   Register as Flip Flop    | 1060 |     0 |    126800 |  0.84 |
+| Slice Registers            | 1058 |     0 |    126800 |  0.83 |
+|   Register as Flip Flop    | 1058 |     0 |    126800 |  0.83 |
 |   Register as Latch        |    0 |     0 |    126800 |  0.00 |
 | F7 Muxes                   |   28 |     0 |     31700 |  0.09 |
 | F8 Muxes                   |    2 |     0 |     15850 |  0.01 |
@@ -59,7 +59,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 78    |          Yes |         Set |            - |
-| 982   |          Yes |       Reset |            - |
+| 980   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -153,14 +153,14 @@ Table of Contents
 +------------+------+---------------------+
 |  Ref Name  | Used | Functional Category |
 +------------+------+---------------------+
-| LUT6       | 1055 |                 LUT |
-| FDRE       |  982 |        Flop & Latch |
-| LUT5       |  585 |                 LUT |
-| LUT3       |  446 |                 LUT |
-| LUT4       |  271 |                 LUT |
+| LUT6       | 1050 |                 LUT |
+| FDRE       |  980 |        Flop & Latch |
+| LUT5       |  586 |                 LUT |
+| LUT3       |  445 |                 LUT |
+| LUT4       |  275 |                 LUT |
 | LUT1       |  211 |                 LUT |
 | RAMD32     |  168 |  Distributed Memory |
-| LUT2       |  152 |                 LUT |
+| LUT2       |  151 |                 LUT |
 | CARRY4     |  107 |          CarryLogic |
 | FDSE       |   78 |        Flop & Latch |
 | OBUF       |   58 |                  IO |

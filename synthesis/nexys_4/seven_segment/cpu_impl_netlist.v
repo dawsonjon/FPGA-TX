@@ -1,7 +1,7 @@
 // Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-// Date        : Tue Dec 22 19:03:34 2015
+// Date        : Sun Jul 31 18:32:23 2016
 // Host        : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 // Command     : write_verilog -force ./cpu_impl_netlist.v -mode timesim -sdf_anno true
 // Design      : BSP
@@ -109,7 +109,7 @@ module BRAM
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
-(* ECO_CHECKSUM = "92b6bc6c" *) (* POWER_OPT_BRAM_CDC = "0" *) (* POWER_OPT_BRAM_SR_ADDR = "0" *) 
+(* ECO_CHECKSUM = "af0ca4fa" *) (* POWER_OPT_BRAM_CDC = "0" *) (* POWER_OPT_BRAM_SR_ADDR = "0" *) 
 (* POWER_OPT_LOOPED_NET_PERCENTAGE = "0" *) 
 (* NotValidForBitStream *)
 module BSP
@@ -10695,14 +10695,14 @@ module VIDEO_TIME_GEN
 endmodule
 
 module main_0
-   (wire_139931276046560_stb,
+   (wire_139862652510720_stb,
     output_value,
-    wire_139931276046560_ack,
+    wire_139862652510720_ack,
     ETH_CLK_OBUF,
     INTERNAL_RST_reg);
-  output wire_139931276046560_stb;
+  output wire_139862652510720_stb;
   output [31:0]output_value;
-  input wire_139931276046560_ack;
+  input wire_139862652510720_ack;
   input ETH_CLK_OBUF;
   input INTERNAL_RST_reg;
 
@@ -11101,8 +11101,8 @@ module main_0
   wire \timer_reg[28]_i_2_n_0 ;
   wire \timer_reg[4]_i_2_n_0 ;
   wire \timer_reg[8]_i_2_n_0 ;
-  wire wire_139931276046560_ack;
-  wire wire_139931276046560_stb;
+  wire wire_139862652510720_ack;
+  wire wire_139862652510720_stb;
   wire write_enable;
   wire [31:0]write_output;
   wire \write_output[0]_i_1_n_0 ;
@@ -11757,7 +11757,7 @@ module main_0
   (* METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}" *) 
   (* POWER_OPTED_CE = "ENARDEN=NEW" *) 
   (* RTL_RAM_BITS = "131104" *) 
-  (* RTL_RAM_NAME = "main_0_139931282298208/memory" *) 
+  (* RTL_RAM_NAME = "main_0_139862649017984/memory" *) 
   (* bram_addr_begin = "0" *) 
   (* bram_addr_end = "8191" *) 
   (* bram_slice_begin = "0" *) 
@@ -11840,7 +11840,7 @@ module main_0
   (* METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}" *) 
   (* POWER_OPTED_CE = "ENARDEN=NEW" *) 
   (* RTL_RAM_BITS = "131104" *) 
-  (* RTL_RAM_NAME = "main_0_139931282298208/memory" *) 
+  (* RTL_RAM_NAME = "main_0_139862649017984/memory" *) 
   (* bram_addr_begin = "0" *) 
   (* bram_addr_end = "8191" *) 
   (* bram_slice_begin = "4" *) 
@@ -11913,7 +11913,7 @@ module main_0
   (* METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}" *) 
   (* POWER_OPTED_CE = "ENARDEN=NEW" *) 
   (* RTL_RAM_BITS = "131104" *) 
-  (* RTL_RAM_NAME = "main_0_139931282298208/memory" *) 
+  (* RTL_RAM_NAME = "main_0_139862649017984/memory" *) 
   (* bram_addr_begin = "0" *) 
   (* bram_addr_end = "8191" *) 
   (* bram_slice_begin = "8" *) 
@@ -11986,7 +11986,7 @@ module main_0
   (* METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}" *) 
   (* POWER_OPTED_CE = "ENARDEN=NEW" *) 
   (* RTL_RAM_BITS = "131104" *) 
-  (* RTL_RAM_NAME = "main_0_139931282298208/memory" *) 
+  (* RTL_RAM_NAME = "main_0_139862649017984/memory" *) 
   (* bram_addr_begin = "0" *) 
   (* bram_addr_end = "8191" *) 
   (* bram_slice_begin = "12" *) 
@@ -12059,7 +12059,7 @@ module main_0
   (* METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}" *) 
   (* POWER_OPTED_CE = "ENARDEN=NEW" *) 
   (* RTL_RAM_BITS = "131104" *) 
-  (* RTL_RAM_NAME = "main_0_139931282298208/memory" *) 
+  (* RTL_RAM_NAME = "main_0_139862649017984/memory" *) 
   (* bram_addr_begin = "0" *) 
   (* bram_addr_end = "8191" *) 
   (* bram_slice_begin = "16" *) 
@@ -12132,7 +12132,7 @@ module main_0
   (* METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}" *) 
   (* POWER_OPTED_CE = "ENARDEN=NEW" *) 
   (* RTL_RAM_BITS = "131104" *) 
-  (* RTL_RAM_NAME = "main_0_139931282298208/memory" *) 
+  (* RTL_RAM_NAME = "main_0_139862649017984/memory" *) 
   (* bram_addr_begin = "0" *) 
   (* bram_addr_end = "8191" *) 
   (* bram_slice_begin = "20" *) 
@@ -12205,7 +12205,7 @@ module main_0
   (* METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}" *) 
   (* POWER_OPTED_CE = "ENARDEN=NEW" *) 
   (* RTL_RAM_BITS = "131104" *) 
-  (* RTL_RAM_NAME = "main_0_139931282298208/memory" *) 
+  (* RTL_RAM_NAME = "main_0_139862649017984/memory" *) 
   (* bram_addr_begin = "0" *) 
   (* bram_addr_end = "8191" *) 
   (* bram_slice_begin = "24" *) 
@@ -12278,7 +12278,7 @@ module main_0
   (* METHODOLOGY_DRC_VIOS = "{SYNTH-6 {cell *THIS*}}" *) 
   (* POWER_OPTED_CE = "ENARDEN=NEW" *) 
   (* RTL_RAM_BITS = "131104" *) 
-  (* RTL_RAM_NAME = "main_0_139931282298208/memory" *) 
+  (* RTL_RAM_NAME = "main_0_139862649017984/memory" *) 
   (* bram_addr_begin = "0" *) 
   (* bram_addr_end = "8191" *) 
   (* bram_slice_begin = "28" *) 
@@ -15537,15 +15537,15 @@ module main_0
   LUT3 #(
     .INIT(8'h7C)) 
     \s_output_value_stb[0]_i_1 
-       (.I0(wire_139931276046560_ack),
+       (.I0(wire_139862652510720_ack),
         .I1(\s_output_value[31]_i_1_n_0 ),
-        .I2(wire_139931276046560_stb),
+        .I2(wire_139862652510720_stb),
         .O(\s_output_value_stb[0]_i_1_n_0 ));
   FDRE \s_output_value_stb_reg[0] 
        (.C(ETH_CLK_OBUF),
         .CE(1'b1),
         .D(\s_output_value_stb[0]_i_1_n_0 ),
-        .Q(wire_139931276046560_stb),
+        .Q(wire_139862652510720_stb),
         .R(INTERNAL_RST_reg));
   LUT6 #(
     .INIT(64'hFF8AFFFFFFAA0000)) 
@@ -15640,8 +15640,8 @@ module main_0
     \state[2]_i_8 
        (.I0(write_output[31]),
         .I1(write_output[30]),
-        .I2(wire_139931276046560_ack),
-        .I3(wire_139931276046560_stb),
+        .I2(wire_139862652510720_ack),
+        .I3(wire_139862652510720_stb),
         .I4(write_output[22]),
         .I5(write_output[23]),
         .O(\state[2]_i_8_n_0 ));
@@ -17353,21 +17353,21 @@ endmodule
 module main_1
    (E,
     \SEVEN_SEGMENT_CATHODE_reg[0] ,
-    wire_139931276046560_ack,
+    wire_139862652510720_ack,
     D,
     \SEVEN_SEGMENT_ANNODE_reg[7] ,
     output_value,
-    wire_139931276046560_stb,
+    wire_139862652510720_stb,
     ETH_CLK_OBUF,
     INTERNAL_RST_reg,
     pwropt);
   output [0:0]E;
   output [0:0]\SEVEN_SEGMENT_CATHODE_reg[0] ;
-  output wire_139931276046560_ack;
+  output wire_139862652510720_ack;
   output [6:0]D;
   output [7:0]\SEVEN_SEGMENT_ANNODE_reg[7] ;
   input [31:0]output_value;
-  input wire_139931276046560_stb;
+  input wire_139862652510720_stb;
   input ETH_CLK_OBUF;
   input INTERNAL_RST_reg;
   input pwropt;
@@ -17405,6 +17405,9 @@ module main_1
   wire \instruction[0]_i_18_n_0 ;
   wire \instruction[0]_i_19_n_0 ;
   wire \instruction[0]_i_1__0_n_0 ;
+  wire \instruction[0]_i_20_n_0 ;
+  wire \instruction[0]_i_21_n_0 ;
+  wire \instruction[0]_i_22_n_0 ;
   wire \instruction[0]_i_2_n_0 ;
   wire \instruction[0]_i_3_n_0 ;
   wire \instruction[0]_i_4_n_0 ;
@@ -17539,7 +17542,9 @@ module main_1
   wire \instruction[1]_i_16_n_0 ;
   wire \instruction[1]_i_17_n_0 ;
   wire \instruction[1]_i_18_n_0 ;
+  wire \instruction[1]_i_19_n_0 ;
   wire \instruction[1]_i_1__0_n_0 ;
+  wire \instruction[1]_i_20_n_0 ;
   wire \instruction[1]_i_2_n_0 ;
   wire \instruction[1]_i_3_n_0 ;
   wire \instruction[1]_i_4_n_0 ;
@@ -17743,11 +17748,6 @@ module main_1
   wire \instruction[3]_i_22_n_0 ;
   wire \instruction[3]_i_23_n_0 ;
   wire \instruction[3]_i_24_n_0 ;
-  wire \instruction[3]_i_25_n_0 ;
-  wire \instruction[3]_i_26_n_0 ;
-  wire \instruction[3]_i_27_n_0 ;
-  wire \instruction[3]_i_28_n_0 ;
-  wire \instruction[3]_i_29_n_0 ;
   wire \instruction[3]_i_2_n_0 ;
   wire \instruction[3]_i_3_n_0 ;
   wire \instruction[3]_i_4_n_0 ;
@@ -17762,8 +17762,6 @@ module main_1
   wire \instruction[4]_i_13_n_0 ;
   wire \instruction[4]_i_14_n_0 ;
   wire \instruction[4]_i_15_n_0 ;
-  wire \instruction[4]_i_16_n_0 ;
-  wire \instruction[4]_i_17_n_0 ;
   wire \instruction[4]_i_1_n_0 ;
   wire \instruction[4]_i_2_n_0 ;
   wire \instruction[4]_i_3_n_0 ;
@@ -17910,8 +17908,6 @@ module main_1
   wire \program_counter_reg_rep[3]_rep_n_0 ;
   wire \program_counter_reg_rep[4]_i_2__0_n_0 ;
   wire \program_counter_reg_rep[4]_rep_n_0 ;
-  wire \program_counter_reg_rep[5]_rep_n_0 ;
-  wire \program_counter_reg_rep[6]_rep__0_n_0 ;
   wire \program_counter_reg_rep[6]_rep_n_0 ;
   wire \program_counter_reg_rep[7]_rep_n_0 ;
   wire \program_counter_reg_rep[8]_i_3_n_0 ;
@@ -18929,8 +18925,8 @@ module main_1
   wire \timer_reg[28]_i_2__0_n_0 ;
   wire \timer_reg[4]_i_2__0_n_0 ;
   wire \timer_reg[8]_i_2__0_n_0 ;
-  wire wire_139931276046560_ack;
-  wire wire_139931276046560_stb;
+  wire wire_139862652510720_ack;
+  wire wire_139862652510720_stb;
   wire write_enable_reg_n_0;
   wire [31:0]write_output;
   wire \write_output[31]_i_1__0_n_0 ;
@@ -19309,188 +19305,214 @@ module main_1
         .D(address_z_2[3]),
         .Q(address_z_3[3]),
         .R(INTERNAL_RST_reg));
-  LUT6 #(
-    .INIT(64'h1E03BC13700DE00C)) 
+  LUT5 #(
+    .INIT(32'h10000000)) 
     \instruction[0]_i_10 
-       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I3(\program_counter_reg_rep[3]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I4(\program_counter_reg_rep_n_0_[0] ),
         .O(\instruction[0]_i_10_n_0 ));
   LUT4 #(
     .INIT(16'hFFAC)) 
     \instruction[0]_i_11 
-       (.I0(\instruction[0]_i_16_n_0 ),
-        .I1(\instruction[0]_i_17_n_0 ),
-        .I2(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I3(\instruction[0]_i_18_n_0 ),
+       (.I0(\instruction[0]_i_20_n_0 ),
+        .I1(\instruction[0]_i_21_n_0 ),
+        .I2(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I3(\instruction[0]_i_22_n_0 ),
         .O(\instruction[0]_i_11_n_0 ));
-  LUT2 #(
-    .INIT(4'h2)) 
+  LUT6 #(
+    .INIT(64'h0010001000A00008)) 
     \instruction[0]_i_12 
-       (.I0(\instruction[0]_i_19_n_0 ),
-        .I1(\program_counter_reg_rep[2]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[6] ),
+        .I3(\program_counter_reg_rep[2]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I5(\program_counter_reg_rep_n_0_[0] ),
         .O(\instruction[0]_i_12_n_0 ));
   LUT6 #(
-    .INIT(64'h0200A901E2994470)) 
+    .INIT(64'h4800000100000001)) 
     \instruction[0]_i_13 
-       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I2(\program_counter_reg_rep[3]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[6] ),
         .I3(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I4(\program_counter_reg_rep_n_0_[1] ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I5(\program_counter_reg_rep_n_0_[0] ),
         .O(\instruction[0]_i_13_n_0 ));
   LUT6 #(
-    .INIT(64'hB09D03005A04E004)) 
+    .INIT(64'hA0A0E0318080F202)) 
     \instruction[0]_i_14 
-       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I2(\program_counter_reg_rep[3]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I4(\program_counter_reg_rep_n_0_[1] ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[6] ),
+        .I3(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[2]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[1]_rep_n_0 ),
         .O(\instruction[0]_i_14_n_0 ));
   LUT6 #(
-    .INIT(64'h1000001000000010)) 
+    .INIT(64'h222080803A612871)) 
     \instruction[0]_i_15 
-       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I2(\program_counter_reg_rep[3]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I4(\program_counter_reg_rep_n_0_[1] ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[6] ),
+        .I3(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[2]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[1]_rep_n_0 ),
         .O(\instruction[0]_i_15_n_0 ));
   LUT6 #(
-    .INIT(64'h2C0020001000F010)) 
+    .INIT(64'h0000000000000400)) 
     \instruction[0]_i_16 
-       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I2(\program_counter_reg_rep[3]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I4(\program_counter_reg_rep_n_0_[1] ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[6] ),
+        .I3(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[2]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[1]_rep_n_0 ),
         .O(\instruction[0]_i_16_n_0 ));
   LUT6 #(
-    .INIT(64'h9920140221200A02)) 
+    .INIT(64'h000084C58123CCC8)) 
     \instruction[0]_i_17 
-       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I2(\program_counter_reg_rep[3]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I4(\program_counter_reg_rep_n_0_[1] ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
-        .O(\instruction[0]_i_17_n_0 ));
-  LUT5 #(
-    .INIT(32'h00000040)) 
-    \instruction[0]_i_18 
-       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
         .I1(\program_counter_reg_rep[3]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I3(\program_counter_reg_rep_n_0_[1] ),
-        .I4(\program_counter_reg_rep[0]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[2]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I5(\program_counter_reg_rep_n_0_[0] ),
+        .O(\instruction[0]_i_17_n_0 ));
+  LUT6 #(
+    .INIT(64'h0288D89904042276)) 
+    \instruction[0]_i_18 
+       (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[2]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I5(\program_counter_reg_rep_n_0_[0] ),
         .O(\instruction[0]_i_18_n_0 ));
   LUT6 #(
-    .INIT(64'h0080008000400202)) 
+    .INIT(64'h0000000080050000)) 
     \instruction[0]_i_19 
-       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I3(\program_counter_reg_rep[3]_rep_n_0 ),
-        .I4(\program_counter_reg_rep_n_0_[1] ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[2]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I5(\program_counter_reg_rep_n_0_[0] ),
         .O(\instruction[0]_i_19_n_0 ));
-  LUT6 #(
-    .INIT(64'hFF80FF80FFFF8080)) 
+  LUT4 #(
+    .INIT(16'hFFAC)) 
     \instruction[0]_i_1__0 
        (.I0(\instruction[0]_i_2_n_0 ),
-        .I1(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I3(\instruction[0]_i_3_n_0 ),
-        .I4(\instruction[0]_i_4_n_0 ),
-        .I5(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I1(\instruction[0]_i_3_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
+        .I3(\instruction[0]_i_4_n_0 ),
         .O(\instruction[0]_i_1__0_n_0 ));
-  LUT6 #(
-    .INIT(64'h0101008800000000)) 
+  LUT5 #(
+    .INIT(32'hF2F2FF22)) 
     \instruction[0]_i_2 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I1(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[3]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I4(\program_counter_reg_rep_n_0_[1] ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
+       (.I0(\instruction[0]_i_5_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[6] ),
+        .I2(\instruction[0]_i_6_n_0 ),
+        .I3(\instruction[0]_i_7_n_0 ),
+        .I4(\program_counter_reg_rep[4]_rep_n_0 ),
         .O(\instruction[0]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFFACACFF00)) 
-    \instruction[0]_i_3 
-       (.I0(\instruction[0]_i_5_n_0 ),
-        .I1(\instruction[0]_i_6_n_0 ),
-        .I2(\program_counter_reg_rep[0]_rep_n_0 ),
-        .I3(\instruction[0]_i_7_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I5(\instruction[0]_i_8_n_0 ),
-        .O(\instruction[0]_i_3_n_0 ));
+    .INIT(64'hD004A42926030424)) 
+    \instruction[0]_i_20 
+       (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[6] ),
+        .I3(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[2]_rep_n_0 ),
+        .I5(\program_counter_reg_rep_n_0_[0] ),
+        .O(\instruction[0]_i_20_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFFACACFF00)) 
+    .INIT(64'h02120A0099CD052A)) 
+    \instruction[0]_i_21 
+       (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[6] ),
+        .I3(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[2]_rep_n_0 ),
+        .I5(\program_counter_reg_rep_n_0_[0] ),
+        .O(\instruction[0]_i_21_n_0 ));
+  LUT5 #(
+    .INIT(32'h00000800)) 
+    \instruction[0]_i_22 
+       (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[2]_rep_n_0 ),
+        .I4(\program_counter_reg_rep_n_0_[0] ),
+        .O(\instruction[0]_i_22_n_0 ));
+  LUT6 #(
+    .INIT(64'hFFACFFACFFFF0000)) 
+    \instruction[0]_i_3 
+       (.I0(\instruction[0]_i_8_n_0 ),
+        .I1(\instruction[0]_i_9_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[6] ),
+        .I3(\instruction[0]_i_10_n_0 ),
+        .I4(\instruction[0]_i_11_n_0 ),
+        .I5(\program_counter_reg_rep[8]_rep_n_0 ),
+        .O(\instruction[0]_i_3_n_0 ));
+  LUT4 #(
+    .INIT(16'hAC00)) 
     \instruction[0]_i_4 
-       (.I0(\instruction[0]_i_9_n_0 ),
-        .I1(\instruction[0]_i_10_n_0 ),
-        .I2(\program_counter_reg_rep_n_0_[1] ),
-        .I3(\instruction[0]_i_11_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I5(\instruction[0]_i_12_n_0 ),
+       (.I0(\instruction[0]_i_12_n_0 ),
+        .I1(\instruction[0]_i_13_n_0 ),
+        .I2(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[7]_rep_n_0 ),
         .O(\instruction[0]_i_4_n_0 ));
   LUT6 #(
-    .INIT(64'hC2C1A651C000A7AF)) 
+    .INIT(64'h4048000800040300)) 
     \instruction[0]_i_5 
-       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I3(\program_counter_reg_rep[3]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I5(\program_counter_reg_rep_n_0_[1] ),
+       (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[2]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I5(\program_counter_reg_rep_n_0_[0] ),
         .O(\instruction[0]_i_5_n_0 ));
-  LUT6 #(
-    .INIT(64'h00C8C00098EC9AD1)) 
+  LUT4 #(
+    .INIT(16'hFFAC)) 
     \instruction[0]_i_6 
-       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I3(\program_counter_reg_rep[3]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I5(\program_counter_reg_rep_n_0_[1] ),
+       (.I0(\instruction[0]_i_14_n_0 ),
+        .I1(\instruction[0]_i_15_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[0] ),
+        .I3(\instruction[0]_i_16_n_0 ),
         .O(\instruction[0]_i_6_n_0 ));
   LUT4 #(
     .INIT(16'hFFAC)) 
     \instruction[0]_i_7 
-       (.I0(\instruction[0]_i_13_n_0 ),
-        .I1(\instruction[0]_i_14_n_0 ),
-        .I2(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I3(\instruction[0]_i_15_n_0 ),
+       (.I0(\instruction[0]_i_17_n_0 ),
+        .I1(\instruction[0]_i_18_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[6] ),
+        .I3(\instruction[0]_i_19_n_0 ),
         .O(\instruction[0]_i_7_n_0 ));
   LUT6 #(
-    .INIT(64'h0000000200000000)) 
+    .INIT(64'h1100A0008800CE08)) 
     \instruction[0]_i_8 
-       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I4(\program_counter_reg_rep_n_0_[1] ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I5(\program_counter_reg_rep_n_0_[0] ),
         .O(\instruction[0]_i_8_n_0 ));
   LUT6 #(
-    .INIT(64'h22140F0088101100)) 
+    .INIT(64'h7830C20AA40A440C)) 
     \instruction[0]_i_9 
-       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I3(\program_counter_reg_rep[3]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[2]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I5(\program_counter_reg_rep_n_0_[0] ),
         .O(\instruction[0]_i_9_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair158" *) 
+  (* SOFT_HLUTNM = "soft_lutpair149" *) 
   LUT3 #(
     .INIT(8'hAC)) 
     \instruction[10]_i_1 
@@ -19501,7 +19523,7 @@ module main_1
   LUT6 #(
     .INIT(64'h000080800008C000)) 
     \instruction[10]_i_10 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[4]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep[8]_rep_n_0 ),
@@ -19511,7 +19533,7 @@ module main_1
   LUT6 #(
     .INIT(64'h3000080040800000)) 
     \instruction[10]_i_11 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[4]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep[8]_rep_n_0 ),
@@ -19521,8 +19543,8 @@ module main_1
   LUT6 #(
     .INIT(64'hE040000004080848)) 
     \instruction[10]_i_12 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep[8]_rep_n_0 ),
         .I4(\program_counter_reg_rep[3]_rep_n_0 ),
@@ -19531,8 +19553,8 @@ module main_1
   LUT6 #(
     .INIT(64'h00A0E0500B000000)) 
     \instruction[10]_i_13 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep[8]_rep_n_0 ),
         .I4(\program_counter_reg_rep[3]_rep_n_0 ),
@@ -19543,7 +19565,7 @@ module main_1
     \instruction[10]_i_2 
        (.I0(\instruction[10]_i_4_n_0 ),
         .I1(\instruction[10]_i_5_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\instruction[10]_i_6_n_0 ),
         .I4(\program_counter_reg_rep[3]_rep_n_0 ),
         .O(\instruction[10]_i_2_n_0 ));
@@ -19552,14 +19574,14 @@ module main_1
     \instruction[10]_i_3 
        (.I0(\instruction[10]_i_7_n_0 ),
         .I1(\instruction[10]_i_8_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\instruction[10]_i_9_n_0 ),
         .I4(\program_counter_reg_rep[1]_rep_n_0 ),
         .O(\instruction[10]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hC8C0000080800000)) 
     \instruction[10]_i_4 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[4]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep[8]_rep_n_0 ),
@@ -19569,7 +19591,7 @@ module main_1
   LUT6 #(
     .INIT(64'h00A000200A002240)) 
     \instruction[10]_i_5 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[4]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep[8]_rep_n_0 ),
@@ -19581,12 +19603,12 @@ module main_1
     \instruction[10]_i_6 
        (.I0(\instruction[10]_i_10_n_0 ),
         .I1(\instruction[10]_i_11_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .O(\instruction[10]_i_6_n_0 ));
   LUT6 #(
     .INIT(64'h00040000F8000200)) 
     \instruction[10]_i_7 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[4]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep[8]_rep_n_0 ),
@@ -19596,7 +19618,7 @@ module main_1
   LUT6 #(
     .INIT(64'h0110000000000400)) 
     \instruction[10]_i_8 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[4]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep[8]_rep_n_0 ),
@@ -19621,29 +19643,29 @@ module main_1
     .INIT(64'h00C00A0000A06000)) 
     \instruction[12]_i_10 
        (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I4(\program_counter_reg_rep_n_0_[5] ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[12]_i_10_n_0 ));
   LUT6 #(
     .INIT(64'h0000008040000000)) 
     \instruction[12]_i_11 
        (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I4(\program_counter_reg_rep_n_0_[5] ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[12]_i_11_n_0 ));
   LUT6 #(
     .INIT(64'hA5C00A0D00000040)) 
     \instruction[12]_i_12 
        (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I3(\program_counter_reg_rep_n_0_[5] ),
         .I4(\program_counter_reg_rep[3]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[12]_i_12_n_0 ));
@@ -19651,9 +19673,9 @@ module main_1
     .INIT(64'h000000004A82C000)) 
     \instruction[12]_i_13 
        (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I3(\program_counter_reg_rep_n_0_[5] ),
         .I4(\program_counter_reg_rep[3]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[12]_i_13_n_0 ));
@@ -19662,7 +19684,7 @@ module main_1
     \instruction[12]_i_2 
        (.I0(\instruction[12]_i_4_n_0 ),
         .I1(\instruction[12]_i_5_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\instruction[12]_i_6_n_0 ),
         .I4(\program_counter_reg_rep[3]_rep_n_0 ),
         .O(\instruction[12]_i_2_n_0 ));
@@ -19682,7 +19704,7 @@ module main_1
         .I1(\program_counter_reg_rep_n_0_[7] ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I4(\program_counter_reg_rep_n_0_[5] ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[12]_i_4_n_0 ));
   LUT6 #(
@@ -19692,7 +19714,7 @@ module main_1
         .I1(\program_counter_reg_rep_n_0_[7] ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I4(\program_counter_reg_rep_n_0_[5] ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[12]_i_5_n_0 ));
   LUT3 #(
@@ -19706,9 +19728,9 @@ module main_1
     .INIT(64'h00010000C8880C10)) 
     \instruction[12]_i_7 
        (.I0(\program_counter_reg_rep_n_0_[7] ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I3(\program_counter_reg_rep_n_0_[5] ),
         .I4(\program_counter_reg_rep[3]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[12]_i_7_n_0 ));
@@ -19716,9 +19738,9 @@ module main_1
     .INIT(64'h0042000000000200)) 
     \instruction[12]_i_8 
        (.I0(\program_counter_reg_rep_n_0_[7] ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I3(\program_counter_reg_rep_n_0_[5] ),
         .I4(\program_counter_reg_rep[3]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[12]_i_8_n_0 ));
@@ -19740,8 +19762,8 @@ module main_1
     .INIT(64'h1100000002002080)) 
     \instruction[15]_i_11 
        (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep[7]_rep_n_0 ),
         .I4(\program_counter_reg_rep[8]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
@@ -19750,8 +19772,8 @@ module main_1
     .INIT(64'h8020800088000000)) 
     \instruction[15]_i_12 
        (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep[7]_rep_n_0 ),
         .I4(\program_counter_reg_rep[8]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
@@ -19760,8 +19782,8 @@ module main_1
     .INIT(64'hA8002000006010C0)) 
     \instruction[15]_i_13 
        (.I0(\program_counter_reg_rep[3]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep[7]_rep_n_0 ),
         .I4(\program_counter_reg_rep[8]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
@@ -19770,13 +19792,13 @@ module main_1
     .INIT(64'h54009900008A0000)) 
     \instruction[15]_i_14 
        (.I0(\program_counter_reg_rep[3]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep[7]_rep_n_0 ),
         .I4(\program_counter_reg_rep[8]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[15]_i_14_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair158" *) 
+  (* SOFT_HLUTNM = "soft_lutpair146" *) 
   LUT3 #(
     .INIT(8'hAC)) 
     \instruction[15]_i_1__0 
@@ -19807,8 +19829,8 @@ module main_1
     .INIT(64'hA080AC00800C8000)) 
     \instruction[15]_i_4 
        (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep[7]_rep_n_0 ),
         .I4(\program_counter_reg_rep[8]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
@@ -19817,8 +19839,8 @@ module main_1
     .INIT(64'h0000100004042200)) 
     \instruction[15]_i_5 
        (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep[7]_rep_n_0 ),
         .I4(\program_counter_reg_rep[8]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
@@ -19827,8 +19849,8 @@ module main_1
     .INIT(64'h0000040000000000)) 
     \instruction[15]_i_6 
        (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep[7]_rep_n_0 ),
         .I4(\program_counter_reg_rep[8]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
@@ -19844,8 +19866,8 @@ module main_1
     .INIT(64'h00010120F0800000)) 
     \instruction[15]_i_8 
        (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep[7]_rep_n_0 ),
         .I4(\program_counter_reg_rep[8]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
@@ -19854,8 +19876,8 @@ module main_1
     .INIT(64'h0000000040620400)) 
     \instruction[15]_i_9 
        (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep[7]_rep_n_0 ),
         .I4(\program_counter_reg_rep[8]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
@@ -19962,7 +19984,7 @@ module main_1
     \instruction[16]_i_1__0 
        (.I0(\instruction[16]_i_2_n_0 ),
         .I1(\instruction[16]_i_3_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\instruction[16]_i_4_n_0 ),
         .O(\instruction[16]_i_1__0_n_0 ));
   LUT6 #(
@@ -20079,7 +20101,7 @@ module main_1
     \instruction[17]_i_10 
        (.I0(\instruction[17]_i_18_n_0 ),
         .I1(\instruction[17]_i_19_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\instruction[17]_i_20_n_0 ),
         .O(\instruction[17]_i_10_n_0 ));
   LUT4 #(
@@ -20185,7 +20207,7 @@ module main_1
        (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I3(\program_counter_reg_rep_n_0_[5] ),
         .I4(\program_counter_reg_rep_n_0_[3] ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[17]_i_2_n_0 ));
@@ -20203,7 +20225,7 @@ module main_1
     \instruction[17]_i_21 
        (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep_n_0_[3] ),
         .I4(\program_counter_reg_rep[6]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
@@ -20213,7 +20235,7 @@ module main_1
     \instruction[17]_i_22 
        (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep_n_0_[3] ),
         .I4(\program_counter_reg_rep[6]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
@@ -20223,7 +20245,7 @@ module main_1
     \instruction[17]_i_23 
        (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep_n_0_[3] ),
         .I4(\program_counter_reg_rep[6]_rep_n_0 ),
         .O(\instruction[17]_i_23_n_0 ));
@@ -20234,7 +20256,7 @@ module main_1
         .I1(\program_counter_reg_rep_n_0_[3] ),
         .I2(\instruction[17]_i_6_n_0 ),
         .I3(\instruction[17]_i_7_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I4(\program_counter_reg_rep_n_0_[5] ),
         .O(\instruction[17]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hFFF2FFF2FFFFF2F2)) 
@@ -20277,7 +20299,7 @@ module main_1
     \instruction[17]_i_8 
        (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep_n_0_[3] ),
         .I4(\program_counter_reg_rep_n_0_[2] ),
         .O(\instruction[17]_i_8_n_0 ));
@@ -20286,7 +20308,7 @@ module main_1
     \instruction[17]_i_9 
        (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep_n_0_[3] ),
         .I4(\program_counter_reg_rep[6]_rep_n_0 ),
         .I5(\program_counter_reg_rep_n_0_[2] ),
@@ -20297,7 +20319,7 @@ module main_1
        (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep_n_0_[2] ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I3(\program_counter_reg_rep_n_0_[5] ),
         .I4(\program_counter_reg_rep[8]_rep_n_0 ),
         .I5(\program_counter_reg_rep[7]_rep_n_0 ),
         .O(\instruction[18]_i_10_n_0 ));
@@ -20307,7 +20329,7 @@ module main_1
        (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep_n_0_[2] ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I3(\program_counter_reg_rep_n_0_[5] ),
         .I4(\program_counter_reg_rep[8]_rep_n_0 ),
         .I5(\program_counter_reg_rep[7]_rep_n_0 ),
         .O(\instruction[18]_i_11_n_0 ));
@@ -20318,7 +20340,7 @@ module main_1
         .I1(\program_counter_reg_rep_n_0_[3] ),
         .I2(\program_counter_reg_rep_n_0_[1] ),
         .I3(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I4(\program_counter_reg_rep_n_0_[5] ),
         .I5(\program_counter_reg_rep[7]_rep_n_0 ),
         .O(\instruction[18]_i_12_n_0 ));
   LUT6 #(
@@ -20328,10 +20350,10 @@ module main_1
         .I1(\program_counter_reg_rep_n_0_[3] ),
         .I2(\program_counter_reg_rep_n_0_[1] ),
         .I3(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I4(\program_counter_reg_rep_n_0_[5] ),
         .I5(\program_counter_reg_rep[7]_rep_n_0 ),
         .O(\instruction[18]_i_13_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair145" *) 
+  (* SOFT_HLUTNM = "soft_lutpair149" *) 
   LUT3 #(
     .INIT(8'hAC)) 
     \instruction[18]_i_1__0 
@@ -20363,7 +20385,7 @@ module main_1
        (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep_n_0_[3] ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I3(\program_counter_reg_rep_n_0_[5] ),
         .I4(\program_counter_reg_rep[8]_rep_n_0 ),
         .I5(\program_counter_reg_rep[7]_rep_n_0 ),
         .O(\instruction[18]_i_4_n_0 ));
@@ -20373,7 +20395,7 @@ module main_1
        (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep_n_0_[3] ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I3(\program_counter_reg_rep_n_0_[5] ),
         .I4(\program_counter_reg_rep[8]_rep_n_0 ),
         .I5(\program_counter_reg_rep[7]_rep_n_0 ),
         .O(\instruction[18]_i_5_n_0 ));
@@ -20390,7 +20412,7 @@ module main_1
        (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep_n_0_[3] ),
         .I2(\program_counter_reg_rep_n_0_[1] ),
-        .I3(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I3(\program_counter_reg_rep_n_0_[5] ),
         .I4(\program_counter_reg_rep[8]_rep_n_0 ),
         .I5(\program_counter_reg_rep[7]_rep_n_0 ),
         .O(\instruction[18]_i_7_n_0 ));
@@ -20400,7 +20422,7 @@ module main_1
        (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep_n_0_[3] ),
         .I2(\program_counter_reg_rep_n_0_[1] ),
-        .I3(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I3(\program_counter_reg_rep_n_0_[5] ),
         .I4(\program_counter_reg_rep[8]_rep_n_0 ),
         .I5(\program_counter_reg_rep[7]_rep_n_0 ),
         .O(\instruction[18]_i_8_n_0 ));
@@ -20580,174 +20602,190 @@ module main_1
         .I5(\program_counter_reg_rep_n_0_[1] ),
         .O(\instruction[19]_i_9_n_0 ));
   LUT6 #(
-    .INIT(64'h0B083A21AA8D002E)) 
+    .INIT(64'h034D12021041404A)) 
     \instruction[1]_i_10 
        (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I2(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I5(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
+        .I3(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[1]_i_10_n_0 ));
-  LUT5 #(
-    .INIT(32'h00008000)) 
+  LUT3 #(
+    .INIT(8'hAC)) 
     \instruction[1]_i_11 
-       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[3]_rep_n_0 ),
+       (.I0(\instruction[1]_i_18_n_0 ),
+        .I1(\instruction[1]_i_19_n_0 ),
+        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .O(\instruction[1]_i_11_n_0 ));
-  LUT4 #(
-    .INIT(16'hFFAC)) 
+  LUT2 #(
+    .INIT(4'h8)) 
     \instruction[1]_i_12 
-       (.I0(\instruction[1]_i_16_n_0 ),
-        .I1(\instruction[1]_i_17_n_0 ),
-        .I2(\program_counter_reg_rep[3]_rep_n_0 ),
-        .I3(\instruction[1]_i_18_n_0 ),
+       (.I0(\instruction[1]_i_20_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
         .O(\instruction[1]_i_12_n_0 ));
   LUT6 #(
-    .INIT(64'h04111F0101720085)) 
+    .INIT(64'h0800000000108800)) 
     \instruction[1]_i_13 
-       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I2(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[8]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[8] ),
+        .I3(\program_counter_reg_rep_n_0_[5] ),
         .I4(\program_counter_reg_rep[3]_rep_n_0 ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[1]_rep_n_0 ),
         .O(\instruction[1]_i_13_n_0 ));
-  LUT6 #(
-    .INIT(64'h000460008091080B)) 
+  LUT5 #(
+    .INIT(32'h40000000)) 
     \instruction[1]_i_14 
-       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I2(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[3]_rep_n_0 ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[8] ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
+        .I3(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[1]_rep_n_0 ),
         .O(\instruction[1]_i_14_n_0 ));
   LUT6 #(
-    .INIT(64'h8080030000000080)) 
+    .INIT(64'hD801989CB8006418)) 
     \instruction[1]_i_15 
        (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I2(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[3]_rep_n_0 ),
-        .I5(\program_counter_reg_rep_n_0_[1] ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[8] ),
+        .I3(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[1]_i_15_n_0 ));
   LUT6 #(
-    .INIT(64'hC804C80405014100)) 
+    .INIT(64'h10B4030089A08AE1)) 
     \instruction[1]_i_16 
        (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I2(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I5(\program_counter_reg_rep_n_0_[1] ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[8] ),
+        .I3(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[1]_i_16_n_0 ));
   LUT6 #(
-    .INIT(64'hCC401011404630B0)) 
+    .INIT(64'h0200000000000000)) 
     \instruction[1]_i_17 
        (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I2(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I5(\program_counter_reg_rep_n_0_[1] ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[8] ),
+        .I3(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[1]_i_17_n_0 ));
   LUT6 #(
-    .INIT(64'h0000000000400000)) 
+    .INIT(64'h1310ECE300000010)) 
     \instruction[1]_i_18 
-       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I2(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I5(\program_counter_reg_rep_n_0_[1] ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[8] ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
+        .I3(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[1]_i_18_n_0 ));
   LUT6 #(
-    .INIT(64'hFF80FF80FFFF8080)) 
+    .INIT(64'h500041322311C420)) 
+    \instruction[1]_i_19 
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[8] ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
+        .I3(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
+        .O(\instruction[1]_i_19_n_0 ));
+  LUT4 #(
+    .INIT(16'hFFAC)) 
     \instruction[1]_i_1__0 
        (.I0(\instruction[1]_i_2_n_0 ),
-        .I1(\program_counter_reg_rep[0]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[3]_rep_n_0 ),
-        .I3(\instruction[1]_i_3_n_0 ),
-        .I4(\instruction[1]_i_4_n_0 ),
-        .I5(\program_counter_reg_rep[2]_rep_n_0 ),
+        .I1(\instruction[1]_i_3_n_0 ),
+        .I2(\program_counter_reg_rep[2]_rep_n_0 ),
+        .I3(\instruction[1]_i_4_n_0 ),
         .O(\instruction[1]_i_1__0_n_0 ));
   LUT6 #(
-    .INIT(64'h1180000000000200)) 
+    .INIT(64'hFFFF8888FBC8FBC8)) 
     \instruction[1]_i_2 
-       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I2(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I5(\program_counter_reg_rep_n_0_[1] ),
+       (.I0(\instruction[1]_i_5_n_0 ),
+        .I1(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I2(\instruction[1]_i_6_n_0 ),
+        .I3(\instruction[1]_i_7_n_0 ),
+        .I4(\instruction[1]_i_8_n_0 ),
+        .I5(\program_counter_reg_rep_n_0_[5] ),
         .O(\instruction[1]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'h0000000088C00000)) 
+    \instruction[1]_i_20 
+       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[8] ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
+        .I3(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
+        .O(\instruction[1]_i_20_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFACACFF00)) 
     \instruction[1]_i_3 
-       (.I0(\instruction[1]_i_5_n_0 ),
-        .I1(\instruction[1]_i_6_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I3(\instruction[1]_i_7_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I5(\instruction[1]_i_8_n_0 ),
-        .O(\instruction[1]_i_3_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFACFFACFFFF0000)) 
-    \instruction[1]_i_4 
        (.I0(\instruction[1]_i_9_n_0 ),
         .I1(\instruction[1]_i_10_n_0 ),
-        .I2(\program_counter_reg_rep_n_0_[1] ),
+        .I2(\program_counter_reg_rep_n_0_[8] ),
         .I3(\instruction[1]_i_11_n_0 ),
-        .I4(\instruction[1]_i_12_n_0 ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I5(\instruction[1]_i_12_n_0 ),
+        .O(\instruction[1]_i_3_n_0 ));
+  LUT4 #(
+    .INIT(16'hAC00)) 
+    \instruction[1]_i_4 
+       (.I0(\instruction[1]_i_13_n_0 ),
+        .I1(\instruction[1]_i_14_n_0 ),
+        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[1]_i_4_n_0 ));
   LUT6 #(
-    .INIT(64'hC801888CAA006638)) 
+    .INIT(64'h8800000800000000)) 
     \instruction[1]_i_5 
-       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[8] ),
         .I3(\program_counter_reg_rep[3]_rep_n_0 ),
-        .I4(\program_counter_reg_rep_n_0_[1] ),
+        .I4(\program_counter_reg_rep[1]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[1]_i_5_n_0 ));
   LUT6 #(
-    .INIT(64'h4A044340C0248265)) 
+    .INIT(64'h0030004005080823)) 
     \instruction[1]_i_6 
-       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[8] ),
         .I3(\program_counter_reg_rep[3]_rep_n_0 ),
-        .I4(\program_counter_reg_rep_n_0_[1] ),
+        .I4(\program_counter_reg_rep[1]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[1]_i_6_n_0 ));
-  LUT3 #(
-    .INIT(8'hAC)) 
+  LUT6 #(
+    .INIT(64'h257102801C070100)) 
     \instruction[1]_i_7 
-       (.I0(\instruction[1]_i_13_n_0 ),
-        .I1(\instruction[1]_i_14_n_0 ),
-        .I2(\program_counter_reg_rep_n_0_[1] ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[8] ),
+        .I3(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[1]_i_7_n_0 ));
-  LUT2 #(
-    .INIT(4'h8)) 
+  LUT4 #(
+    .INIT(16'hFFAC)) 
     \instruction[1]_i_8 
        (.I0(\instruction[1]_i_15_n_0 ),
-        .I1(\program_counter_reg_rep[0]_rep_n_0 ),
+        .I1(\instruction[1]_i_16_n_0 ),
+        .I2(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I3(\instruction[1]_i_17_n_0 ),
         .O(\instruction[1]_i_8_n_0 ));
   LUT6 #(
-    .INIT(64'h0003003A204220D0)) 
+    .INIT(64'h00A203A0CCC10443)) 
     \instruction[1]_i_9 
        (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I2(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I5(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
+        .I3(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[1]_i_9_n_0 ));
   LUT6 #(
     .INIT(64'h2002000000200000)) 
@@ -20814,7 +20852,7 @@ module main_1
         .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\instruction[20]_i_3_n_0 ),
         .I4(\instruction[20]_i_4_n_0 ),
-        .I5(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I5(\program_counter_reg_rep_n_0_[5] ),
         .O(\instruction[20]_i_1__0_n_0 ));
   LUT6 #(
     .INIT(64'h0000000000010000)) 
@@ -21433,13 +21471,13 @@ module main_1
     \instruction[24]_i_12 
        (.I0(\instruction[24]_i_27_n_0 ),
         .I1(\instruction[24]_i_28_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\instruction[24]_i_29_n_0 ),
         .O(\instruction[24]_i_12_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFF00040000)) 
     \instruction[24]_i_13 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep_n_0_[3] ),
         .I2(\program_counter_reg_rep_n_0_[8] ),
         .I3(\program_counter_reg_rep_n_0_[0] ),
@@ -21450,7 +21488,7 @@ module main_1
     .INIT(64'h0000000080000000)) 
     \instruction[24]_i_14 
        (.I0(\program_counter_reg_rep_n_0_[6] ),
-        .I1(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
         .I2(\program_counter_reg_rep_n_0_[4] ),
         .I3(\program_counter_reg_rep_n_0_[3] ),
         .I4(\program_counter_reg_rep_n_0_[8] ),
@@ -21522,7 +21560,7 @@ module main_1
         .I2(\program_counter_reg_rep_n_0_[8] ),
         .I3(\instruction[24]_i_7_n_0 ),
         .I4(\instruction[24]_i_8_n_0 ),
-        .I5(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I5(\program_counter_reg_rep_n_0_[5] ),
         .O(\instruction[24]_i_2_n_0 ));
   LUT5 #(
     .INIT(32'h82028000)) 
@@ -21537,7 +21575,7 @@ module main_1
     .INIT(64'h703C505CFFFC735C)) 
     \instruction[24]_i_21 
        (.I0(\program_counter_reg_rep_n_0_[6] ),
-        .I1(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
         .I2(\program_counter_reg_rep_n_0_[4] ),
         .I3(\program_counter_reg_rep_n_0_[3] ),
         .I4(\program_counter_reg_rep_n_0_[1] ),
@@ -21547,7 +21585,7 @@ module main_1
     .INIT(64'hE4C0EFCFBD5DAC0C)) 
     \instruction[24]_i_22 
        (.I0(\program_counter_reg_rep_n_0_[6] ),
-        .I1(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
         .I2(\program_counter_reg_rep_n_0_[4] ),
         .I3(\program_counter_reg_rep_n_0_[3] ),
         .I4(\program_counter_reg_rep_n_0_[1] ),
@@ -21557,7 +21595,7 @@ module main_1
     .INIT(64'h1018005D11181108)) 
     \instruction[24]_i_23 
        (.I0(\program_counter_reg_rep_n_0_[6] ),
-        .I1(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
         .I2(\program_counter_reg_rep_n_0_[4] ),
         .I3(\program_counter_reg_rep_n_0_[3] ),
         .I4(\program_counter_reg_rep_n_0_[1] ),
@@ -21566,7 +21604,7 @@ module main_1
   LUT6 #(
     .INIT(64'h20F3AEAA20212C75)) 
     \instruction[24]_i_24 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[7]_rep_n_0 ),
         .I2(\program_counter_reg_rep_n_0_[4] ),
         .I3(\program_counter_reg_rep_n_0_[3] ),
@@ -21576,7 +21614,7 @@ module main_1
   LUT5 #(
     .INIT(32'h00800000)) 
     \instruction[24]_i_25 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[7]_rep_n_0 ),
         .I2(\program_counter_reg_rep_n_0_[4] ),
         .I3(\program_counter_reg_rep_n_0_[3] ),
@@ -21585,7 +21623,7 @@ module main_1
   LUT6 #(
     .INIT(64'h0000000000010000)) 
     \instruction[24]_i_26 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[7]_rep_n_0 ),
         .I2(\program_counter_reg_rep_n_0_[4] ),
         .I3(\program_counter_reg_rep_n_0_[3] ),
@@ -21686,7 +21724,7 @@ module main_1
     .INIT(64'h10001A0810005A48)) 
     \instruction[24]_i_9 
        (.I0(\program_counter_reg_rep_n_0_[6] ),
-        .I1(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep_n_0_[3] ),
         .I4(\program_counter_reg_rep_n_0_[1] ),
@@ -21714,7 +21752,7 @@ module main_1
     .INIT(64'h0100000000000020)) 
     \instruction[25]_i_12 
        (.I0(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
         .I2(\program_counter_reg_rep[1]_rep_n_0 ),
         .I3(\program_counter_reg_rep[7]_rep_n_0 ),
         .I4(\program_counter_reg_rep[6]_rep_n_0 ),
@@ -21724,7 +21762,7 @@ module main_1
     .INIT(64'h0000000004000000)) 
     \instruction[25]_i_13 
        (.I0(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
         .I2(\program_counter_reg_rep[1]_rep_n_0 ),
         .I3(\program_counter_reg_rep[7]_rep_n_0 ),
         .I4(\program_counter_reg_rep[6]_rep_n_0 ),
@@ -21736,7 +21774,7 @@ module main_1
        (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
         .I2(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I3(\program_counter_reg_rep_n_0_[5] ),
         .I4(\program_counter_reg_rep[7]_rep_n_0 ),
         .I5(\program_counter_reg_rep[6]_rep_n_0 ),
         .O(\instruction[25]_i_14_n_0 ));
@@ -21746,7 +21784,7 @@ module main_1
        (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
         .I2(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I3(\program_counter_reg_rep_n_0_[5] ),
         .I4(\program_counter_reg_rep[7]_rep_n_0 ),
         .I5(\program_counter_reg_rep[6]_rep_n_0 ),
         .O(\instruction[25]_i_15_n_0 ));
@@ -21785,7 +21823,7 @@ module main_1
     \instruction[25]_i_19 
        (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
         .I1(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep[1]_rep_n_0 ),
         .I4(\program_counter_reg_rep[6]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
@@ -21812,7 +21850,7 @@ module main_1
     \instruction[25]_i_20 
        (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
         .I1(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep[1]_rep_n_0 ),
         .I4(\program_counter_reg_rep[6]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
@@ -21822,7 +21860,7 @@ module main_1
     \instruction[25]_i_21 
        (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
         .I1(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep[1]_rep_n_0 ),
         .I4(\program_counter_reg_rep[6]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
@@ -21840,7 +21878,7 @@ module main_1
     .INIT(64'hFFFFF00088888888)) 
     \instruction[25]_i_4 
        (.I0(\instruction[25]_i_11_n_0 ),
-        .I1(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
         .I2(\instruction[25]_i_12_n_0 ),
         .I3(\program_counter_reg_rep[8]_rep_n_0 ),
         .I4(\instruction[25]_i_13_n_0 ),
@@ -21851,7 +21889,7 @@ module main_1
     \instruction[25]_i_5 
        (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep[1]_rep_n_0 ),
         .I4(\program_counter_reg_rep[7]_rep_n_0 ),
         .I5(\program_counter_reg_rep[6]_rep_n_0 ),
@@ -21861,7 +21899,7 @@ module main_1
     \instruction[25]_i_6 
        (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep[1]_rep_n_0 ),
         .I4(\program_counter_reg_rep[7]_rep_n_0 ),
         .I5(\program_counter_reg_rep[6]_rep_n_0 ),
@@ -21877,7 +21915,7 @@ module main_1
     .INIT(64'h0010000000000000)) 
     \instruction[25]_i_8 
        (.I0(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
         .I2(\program_counter_reg_rep[1]_rep_n_0 ),
         .I3(\program_counter_reg_rep[7]_rep_n_0 ),
         .I4(\program_counter_reg_rep[6]_rep_n_0 ),
@@ -21888,13 +21926,13 @@ module main_1
     \instruction[25]_i_9 
        (.I0(\instruction[25]_i_16_n_0 ),
         .I1(\instruction[25]_i_17_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\instruction[25]_i_18_n_0 ),
         .O(\instruction[25]_i_9_n_0 ));
   LUT6 #(
     .INIT(64'h8000000000000000)) 
     \instruction[26]_i_10 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[3]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .I3(\program_counter_reg_rep[2]_rep_n_0 ),
@@ -21912,7 +21950,7 @@ module main_1
   LUT6 #(
     .INIT(64'h44000000439342A9)) 
     \instruction[26]_i_12 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[3]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .I3(\program_counter_reg_rep[6]_rep_n_0 ),
@@ -21922,7 +21960,7 @@ module main_1
   LUT6 #(
     .INIT(64'hAA128901B010B000)) 
     \instruction[26]_i_13 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[3]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .I3(\program_counter_reg_rep[6]_rep_n_0 ),
@@ -21932,7 +21970,7 @@ module main_1
   LUT6 #(
     .INIT(64'h0000000400000000)) 
     \instruction[26]_i_14 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[3]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .I3(\program_counter_reg_rep[6]_rep_n_0 ),
@@ -21942,7 +21980,7 @@ module main_1
   LUT6 #(
     .INIT(64'h2C24110000041104)) 
     \instruction[26]_i_15 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[4]_rep_n_0 ),
         .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep_n_0_[8] ),
@@ -21952,7 +21990,7 @@ module main_1
   LUT6 #(
     .INIT(64'h0A0100100C48283C)) 
     \instruction[26]_i_16 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[4]_rep_n_0 ),
         .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep_n_0_[8] ),
@@ -21962,7 +22000,7 @@ module main_1
   LUT6 #(
     .INIT(64'h0000010000000000)) 
     \instruction[26]_i_17 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[4]_rep_n_0 ),
         .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep_n_0_[8] ),
@@ -21972,7 +22010,7 @@ module main_1
   LUT6 #(
     .INIT(64'h2C700C00008C0001)) 
     \instruction[26]_i_18 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[4]_rep_n_0 ),
         .I2(\program_counter_reg_rep[2]_rep_n_0 ),
         .I3(\program_counter_reg_rep_n_0_[8] ),
@@ -21982,7 +22020,7 @@ module main_1
   LUT6 #(
     .INIT(64'h4A810A9A080020B0)) 
     \instruction[26]_i_19 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[4]_rep_n_0 ),
         .I2(\program_counter_reg_rep[2]_rep_n_0 ),
         .I3(\program_counter_reg_rep_n_0_[8] ),
@@ -21994,7 +22032,7 @@ module main_1
     \instruction[26]_i_1__0 
        (.I0(\instruction[26]_i_2_n_0 ),
         .I1(\program_counter_reg_rep[3]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\instruction[26]_i_3_n_0 ),
         .I4(\instruction[26]_i_4_n_0 ),
         .I5(\program_counter_reg_rep[7]_rep_n_0 ),
@@ -22012,7 +22050,7 @@ module main_1
   LUT5 #(
     .INIT(32'h00080000)) 
     \instruction[26]_i_20 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[4]_rep_n_0 ),
         .I2(\program_counter_reg_rep[2]_rep_n_0 ),
         .I3(\program_counter_reg_rep[1]_rep_n_0 ),
@@ -22055,7 +22093,7 @@ module main_1
   LUT6 #(
     .INIT(64'h2000000000000000)) 
     \instruction[26]_i_7 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[3]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .I3(\program_counter_reg_rep[6]_rep_n_0 ),
@@ -22065,7 +22103,7 @@ module main_1
   LUT6 #(
     .INIT(64'h0000000100008000)) 
     \instruction[26]_i_8 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[3]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .I3(\program_counter_reg_rep[2]_rep_n_0 ),
@@ -22075,7 +22113,7 @@ module main_1
   LUT6 #(
     .INIT(64'h2520C000090EB810)) 
     \instruction[26]_i_9 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[3]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .I3(\program_counter_reg_rep[2]_rep_n_0 ),
@@ -22092,7 +22130,7 @@ module main_1
   LUT6 #(
     .INIT(64'h00500000010004C2)) 
     \instruction[27]_i_11 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[0]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep[3]_rep_n_0 ),
@@ -22102,7 +22140,7 @@ module main_1
   LUT6 #(
     .INIT(64'h0010000000000000)) 
     \instruction[27]_i_12 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[0]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep[3]_rep_n_0 ),
@@ -22124,7 +22162,7 @@ module main_1
         .I2(\program_counter_reg_rep[0]_rep_n_0 ),
         .I3(\instruction[27]_i_6_n_0 ),
         .I4(\instruction[27]_i_7_n_0 ),
-        .I5(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I5(\program_counter_reg_rep_n_0_[5] ),
         .O(\instruction[27]_i_2_n_0 ));
   LUT5 #(
     .INIT(32'hF8F8FF00)) 
@@ -22178,7 +22216,7 @@ module main_1
   LUT6 #(
     .INIT(64'h0002000011004000)) 
     \instruction[27]_i_8 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[0]_rep_n_0 ),
         .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep[3]_rep_n_0 ),
@@ -22188,7 +22226,7 @@ module main_1
   LUT6 #(
     .INIT(64'h0080000000000000)) 
     \instruction[27]_i_9 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[0]_rep_n_0 ),
         .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep[3]_rep_n_0 ),
@@ -22205,7 +22243,7 @@ module main_1
   LUT6 #(
     .INIT(64'h0000500400100000)) 
     \instruction[28]_i_10 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
         .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep[4]_rep_n_0 ),
@@ -22220,7 +22258,7 @@ module main_1
         .I2(\program_counter_reg_rep[3]_rep_n_0 ),
         .I3(\instruction[28]_i_6_n_0 ),
         .I4(\instruction[28]_i_7_n_0 ),
-        .I5(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I5(\program_counter_reg_rep_n_0_[5] ),
         .O(\instruction[28]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFF000000F8F8F8F8)) 
@@ -22275,7 +22313,7 @@ module main_1
   LUT6 #(
     .INIT(64'h000000000C000004)) 
     \instruction[28]_i_8 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep[6]_rep_n_0 ),
@@ -22285,7 +22323,7 @@ module main_1
   LUT6 #(
     .INIT(64'h0020000000000000)) 
     \instruction[28]_i_9 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep[6]_rep_n_0 ),
@@ -22293,9 +22331,9 @@ module main_1
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[28]_i_9_n_0 ));
   LUT6 #(
-    .INIT(64'h0021141088002109)) 
+    .INIT(64'h00A1141088002189)) 
     \instruction[2]_i_10 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[7]_rep_n_0 ),
         .I2(\program_counter_reg_rep[8]_rep_n_0 ),
         .I3(\program_counter_reg_rep[3]_rep_n_0 ),
@@ -22311,41 +22349,41 @@ module main_1
         .I3(\instruction[2]_i_16_n_0 ),
         .O(\instruction[2]_i_11_n_0 ));
   LUT6 #(
-    .INIT(64'h0005000000A02200)) 
+    .INIT(64'h00010174A8028800)) 
     \instruction[2]_i_12 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I1(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[3]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I4(\program_counter_reg_rep_n_0_[5] ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[2]_i_12_n_0 ));
   LUT6 #(
-    .INIT(64'h001C000186012365)) 
+    .INIT(64'h000000110A081011)) 
     \instruction[2]_i_13 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I1(\program_counter_reg_rep[4]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[3]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I4(\program_counter_reg_rep_n_0_[5] ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[2]_i_13_n_0 ));
   LUT6 #(
     .INIT(64'h14000000B4EB0010)) 
     \instruction[2]_i_14 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep[3]_rep_n_0 ),
         .I4(\program_counter_reg_rep[2]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[2]_i_14_n_0 ));
   LUT6 #(
-    .INIT(64'h111201300214D402)) 
+    .INIT(64'h511201300214D402)) 
     \instruction[2]_i_15 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep[3]_rep_n_0 ),
         .I4(\program_counter_reg_rep[2]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
@@ -22353,9 +22391,9 @@ module main_1
   LUT6 #(
     .INIT(64'h0000400000000000)) 
     \instruction[2]_i_16 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep[3]_rep_n_0 ),
         .I4(\program_counter_reg_rep[2]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
@@ -22373,11 +22411,11 @@ module main_1
   LUT6 #(
     .INIT(64'h0000000100000000)) 
     \instruction[2]_i_2 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[7]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .I3(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I4(\program_counter_reg_rep_n_0_[5] ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[2]_i_2_n_0 ));
   LUT6 #(
@@ -22385,7 +22423,7 @@ module main_1
     \instruction[2]_i_3 
        (.I0(\instruction[2]_i_5_n_0 ),
         .I1(\instruction[2]_i_6_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\instruction[2]_i_7_n_0 ),
         .I4(\instruction[2]_i_8_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
@@ -22395,14 +22433,14 @@ module main_1
     \instruction[2]_i_4 
        (.I0(\instruction[2]_i_9_n_0 ),
         .I1(\instruction[2]_i_10_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\instruction[2]_i_11_n_0 ),
         .I4(\program_counter_reg_rep[4]_rep_n_0 ),
         .O(\instruction[2]_i_4_n_0 ));
   LUT6 #(
     .INIT(64'hA0CC010191812020)) 
     \instruction[2]_i_5 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[7]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .I3(\program_counter_reg_rep[8]_rep_n_0 ),
@@ -22412,7 +22450,7 @@ module main_1
   LUT6 #(
     .INIT(64'h00005C00001840D0)) 
     \instruction[2]_i_6 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[7]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .I3(\program_counter_reg_rep[8]_rep_n_0 ),
@@ -22422,7 +22460,7 @@ module main_1
   LUT5 #(
     .INIT(32'h80000000)) 
     \instruction[2]_i_7 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[7]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .I3(\program_counter_reg_rep[3]_rep_n_0 ),
@@ -22433,108 +22471,109 @@ module main_1
     \instruction[2]_i_8 
        (.I0(\instruction[2]_i_12_n_0 ),
         .I1(\instruction[2]_i_13_n_0 ),
-        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[3]_rep_n_0 ),
         .O(\instruction[2]_i_8_n_0 ));
   LUT6 #(
-    .INIT(64'h00080054C0180222)) 
+    .INIT(64'h00080050C0180222)) 
     \instruction[2]_i_9 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[7]_rep_n_0 ),
         .I2(\program_counter_reg_rep[8]_rep_n_0 ),
         .I3(\program_counter_reg_rep[3]_rep_n_0 ),
         .I4(\program_counter_reg_rep[2]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[2]_i_9_n_0 ));
-  LUT6 #(
-    .INIT(64'h00102E100000000A)) 
+  LUT4 #(
+    .INIT(16'hFFAC)) 
     \instruction[3]_i_10 
-       (.I0(\program_counter_reg_rep_n_0_[3] ),
-        .I1(\program_counter_reg_rep_n_0_[8] ),
-        .I2(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[6]_rep_n_0 ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
+       (.I0(\instruction[3]_i_21_n_0 ),
+        .I1(\instruction[3]_i_22_n_0 ),
+        .I2(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I3(\instruction[3]_i_23_n_0 ),
         .O(\instruction[3]_i_10_n_0 ));
-  LUT4 #(
-    .INIT(16'hFFAC)) 
+  LUT2 #(
+    .INIT(4'h8)) 
     \instruction[3]_i_11 
-       (.I0(\instruction[3]_i_22_n_0 ),
-        .I1(\instruction[3]_i_23_n_0 ),
-        .I2(\program_counter_reg_rep_n_0_[3] ),
-        .I3(\instruction[3]_i_24_n_0 ),
+       (.I0(\instruction[3]_i_24_n_0 ),
+        .I1(\program_counter_reg_rep[4]_rep_n_0 ),
         .O(\instruction[3]_i_11_n_0 ));
-  LUT4 #(
-    .INIT(16'hFFAC)) 
+  LUT6 #(
+    .INIT(64'h0100111000000000)) 
     \instruction[3]_i_12 
-       (.I0(\instruction[3]_i_25_n_0 ),
-        .I1(\instruction[3]_i_26_n_0 ),
-        .I2(\program_counter_reg_rep_n_0_[3] ),
-        .I3(\instruction[3]_i_27_n_0 ),
+       (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[2]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[3]_i_12_n_0 ));
   LUT6 #(
-    .INIT(64'h0030000000000008)) 
+    .INIT(64'h0087000000001100)) 
     \instruction[3]_i_13 
-       (.I0(\program_counter_reg_rep_n_0_[3] ),
-        .I1(\program_counter_reg_rep_n_0_[8] ),
-        .I2(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[2]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[3]_i_13_n_0 ));
   LUT6 #(
-    .INIT(64'h00010801000000B0)) 
+    .INIT(64'h0000220000002044)) 
     \instruction[3]_i_14 
-       (.I0(\program_counter_reg_rep_n_0_[3] ),
-        .I1(\program_counter_reg_rep_n_0_[8] ),
+       (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
         .I2(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[3]_i_14_n_0 ));
-  LUT3 #(
-    .INIT(8'hAC)) 
+  LUT6 #(
+    .INIT(64'hBA50200ACC505B5F)) 
     \instruction[3]_i_15 
-       (.I0(\instruction[3]_i_28_n_0 ),
-        .I1(\instruction[3]_i_29_n_0 ),
-        .I2(\program_counter_reg_rep_n_0_[3] ),
+       (.I0(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[2]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[3]_i_15_n_0 ));
   LUT6 #(
-    .INIT(64'h5C4000088B899080)) 
+    .INIT(64'h04C000C000042505)) 
     \instruction[3]_i_16 
-       (.I0(\program_counter_reg_rep_n_0_[8] ),
-        .I1(\program_counter_reg_rep[2]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[8]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[2]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[3]_i_16_n_0 ));
-  LUT6 #(
-    .INIT(64'h03C0A0A003C3010B)) 
-    \instruction[3]_i_17 
-       (.I0(\program_counter_reg_rep_n_0_[8] ),
-        .I1(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[6]_rep_n_0 ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
-        .O(\instruction[3]_i_17_n_0 ));
   LUT5 #(
-    .INIT(32'h00000401)) 
-    \instruction[3]_i_18 
-       (.I0(\program_counter_reg_rep[2]_rep_n_0 ),
+    .INIT(32'h00008000)) 
+    \instruction[3]_i_17 
+       (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
         .I1(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[2]_rep_n_0 ),
         .I4(\program_counter_reg_rep[0]_rep_n_0 ),
+        .O(\instruction[3]_i_17_n_0 ));
+  LUT6 #(
+    .INIT(64'h01018880BB01F1A0)) 
+    \instruction[3]_i_18 
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[3]_i_18_n_0 ));
   LUT6 #(
-    .INIT(64'hA210C000E20345A0)) 
+    .INIT(64'h10DD0C05103F0007)) 
     \instruction[3]_i_19 
-       (.I0(\program_counter_reg_rep_n_0_[3] ),
-        .I1(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[6]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[3]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[3]_i_19_n_0 ));
   LUT4 #(
@@ -22542,181 +22581,133 @@ module main_1
     \instruction[3]_i_1__0 
        (.I0(\instruction[3]_i_2_n_0 ),
         .I1(\instruction[3]_i_3_n_0 ),
-        .I2(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\instruction[3]_i_4_n_0 ),
         .O(\instruction[3]_i_1__0_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFACFFACFFFFACAC)) 
+  LUT5 #(
+    .INIT(32'hF2F2FF22)) 
     \instruction[3]_i_2 
        (.I0(\instruction[3]_i_5_n_0 ),
-        .I1(\instruction[3]_i_6_n_0 ),
-        .I2(\program_counter_reg_rep_n_0_[3] ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I2(\instruction[3]_i_6_n_0 ),
         .I3(\instruction[3]_i_7_n_0 ),
-        .I4(\instruction[3]_i_8_n_0 ),
-        .I5(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[4]_rep_n_0 ),
         .O(\instruction[3]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'h54492CAF08141E5E)) 
+    .INIT(64'h0404040400040084)) 
     \instruction[3]_i_20 
-       (.I0(\program_counter_reg_rep_n_0_[3] ),
-        .I1(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[6]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[3]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[3]_i_20_n_0 ));
   LUT6 #(
-    .INIT(64'h0000000020800000)) 
+    .INIT(64'h1B1830B7C280C822)) 
     \instruction[3]_i_21 
-       (.I0(\program_counter_reg_rep_n_0_[3] ),
-        .I1(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[6]_rep_n_0 ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[3]_i_21_n_0 ));
   LUT6 #(
-    .INIT(64'h03000366C1C301E7)) 
+    .INIT(64'hA457200A542A2A00)) 
     \instruction[3]_i_22 
-       (.I0(\program_counter_reg_rep_n_0_[8] ),
-        .I1(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[6]_rep_n_0 ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[3]_i_22_n_0 ));
   LUT6 #(
-    .INIT(64'hD80055008A888580)) 
+    .INIT(64'h0050001000000000)) 
     \instruction[3]_i_23 
-       (.I0(\program_counter_reg_rep_n_0_[8] ),
-        .I1(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[6]_rep_n_0 ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[3]_i_23_n_0 ));
   LUT6 #(
-    .INIT(64'h00005501000101C1)) 
+    .INIT(64'h0005000080800000)) 
     \instruction[3]_i_24 
-       (.I0(\program_counter_reg_rep_n_0_[8] ),
-        .I1(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[6]_rep_n_0 ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[3]_i_24_n_0 ));
   LUT6 #(
-    .INIT(64'h202020A00004CC84)) 
-    \instruction[3]_i_25 
-       (.I0(\program_counter_reg_rep_n_0_[8] ),
-        .I1(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[6]_rep_n_0 ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
-        .O(\instruction[3]_i_25_n_0 ));
-  LUT6 #(
-    .INIT(64'h8000800060E06040)) 
-    \instruction[3]_i_26 
-       (.I0(\program_counter_reg_rep_n_0_[8] ),
-        .I1(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[6]_rep_n_0 ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
-        .O(\instruction[3]_i_26_n_0 ));
-  LUT5 #(
-    .INIT(32'h00004000)) 
-    \instruction[3]_i_27 
-       (.I0(\program_counter_reg_rep_n_0_[8] ),
-        .I1(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[0]_rep_n_0 ),
-        .O(\instruction[3]_i_27_n_0 ));
-  LUT6 #(
-    .INIT(64'h003010040000A000)) 
-    \instruction[3]_i_28 
-       (.I0(\program_counter_reg_rep_n_0_[8] ),
-        .I1(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
-        .O(\instruction[3]_i_28_n_0 ));
-  LUT6 #(
-    .INIT(64'h0000200000000000)) 
-    \instruction[3]_i_29 
-       (.I0(\program_counter_reg_rep_n_0_[8] ),
-        .I1(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
-        .O(\instruction[3]_i_29_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFACFFACFFFFACAC)) 
+    .INIT(64'hFFFFFFFFACACFF00)) 
     \instruction[3]_i_3 
-       (.I0(\instruction[3]_i_9_n_0 ),
-        .I1(\instruction[3]_i_10_n_0 ),
-        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I3(\instruction[3]_i_11_n_0 ),
-        .I4(\instruction[3]_i_12_n_0 ),
-        .I5(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\instruction[3]_i_8_n_0 ),
+        .I1(\instruction[3]_i_9_n_0 ),
+        .I2(\program_counter_reg_rep[8]_rep_n_0 ),
+        .I3(\instruction[3]_i_10_n_0 ),
+        .I4(\program_counter_reg_rep[0]_rep_n_0 ),
+        .I5(\instruction[3]_i_11_n_0 ),
         .O(\instruction[3]_i_3_n_0 ));
-  LUT5 #(
-    .INIT(32'hACACFF00)) 
+  LUT6 #(
+    .INIT(64'hFF000000ACACACAC)) 
     \instruction[3]_i_4 
-       (.I0(\instruction[3]_i_13_n_0 ),
-        .I1(\instruction[3]_i_14_n_0 ),
-        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I3(\instruction[3]_i_15_n_0 ),
-        .I4(\program_counter_reg_rep[2]_rep_n_0 ),
+       (.I0(\instruction[3]_i_12_n_0 ),
+        .I1(\instruction[3]_i_13_n_0 ),
+        .I2(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I3(\instruction[3]_i_14_n_0 ),
+        .I4(\program_counter_reg_rep[0]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[7]_rep_n_0 ),
         .O(\instruction[3]_i_4_n_0 ));
   LUT6 #(
-    .INIT(64'h4000000000000000)) 
+    .INIT(64'h20200A0000000003)) 
     \instruction[3]_i_5 
-       (.I0(\program_counter_reg_rep_n_0_[8] ),
-        .I1(\program_counter_reg_rep[2]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[8]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I3(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[2]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[3]_i_5_n_0 ));
-  LUT6 #(
-    .INIT(64'h0008A08000020002)) 
+  LUT4 #(
+    .INIT(16'hFFAC)) 
     \instruction[3]_i_6 
-       (.I0(\program_counter_reg_rep_n_0_[8] ),
-        .I1(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[6]_rep_n_0 ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
+       (.I0(\instruction[3]_i_15_n_0 ),
+        .I1(\instruction[3]_i_16_n_0 ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I3(\instruction[3]_i_17_n_0 ),
         .O(\instruction[3]_i_6_n_0 ));
   LUT4 #(
     .INIT(16'hFFAC)) 
     \instruction[3]_i_7 
-       (.I0(\instruction[3]_i_16_n_0 ),
-        .I1(\instruction[3]_i_17_n_0 ),
-        .I2(\program_counter_reg_rep_n_0_[3] ),
-        .I3(\instruction[3]_i_18_n_0 ),
-        .O(\instruction[3]_i_7_n_0 ));
-  LUT4 #(
-    .INIT(16'hFFAC)) 
-    \instruction[3]_i_8 
-       (.I0(\instruction[3]_i_19_n_0 ),
-        .I1(\instruction[3]_i_20_n_0 ),
-        .I2(\program_counter_reg_rep_n_0_[8] ),
-        .I3(\instruction[3]_i_21_n_0 ),
-        .O(\instruction[3]_i_8_n_0 ));
-  LUT5 #(
-    .INIT(32'h01000000)) 
-    \instruction[3]_i_9 
-       (.I0(\program_counter_reg_rep_n_0_[3] ),
-        .I1(\program_counter_reg_rep_n_0_[8] ),
+       (.I0(\instruction[3]_i_18_n_0 ),
+        .I1(\instruction[3]_i_19_n_0 ),
         .I2(\program_counter_reg_rep[2]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[6]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[0]_rep_n_0 ),
+        .I3(\instruction[3]_i_20_n_0 ),
+        .O(\instruction[3]_i_7_n_0 ));
+  LUT6 #(
+    .INIT(64'hA10C7000550008D0)) 
+    \instruction[3]_i_8 
+       (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[2]_rep_n_0 ),
+        .O(\instruction[3]_i_8_n_0 ));
+  LUT6 #(
+    .INIT(64'h820A88A023C2800A)) 
+    \instruction[3]_i_9 
+       (.I0(\program_counter_reg_rep[4]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I2(\program_counter_reg_rep[1]_rep_n_0 ),
+        .I3(\program_counter_reg_rep[7]_rep_n_0 ),
+        .I4(\program_counter_reg_rep[3]_rep_n_0 ),
+        .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[3]_i_9_n_0 ));
   LUT3 #(
     .INIT(8'hAC)) 
@@ -22728,76 +22719,60 @@ module main_1
   LUT3 #(
     .INIT(8'hAC)) 
     \instruction[4]_i_10 
-       (.I0(\instruction[4]_i_15_n_0 ),
-        .I1(\instruction[4]_i_16_n_0 ),
-        .I2(\program_counter_reg_rep_n_0_[1] ),
+       (.I0(\instruction[4]_i_14_n_0 ),
+        .I1(\instruction[4]_i_15_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[4] ),
         .O(\instruction[4]_i_10_n_0 ));
-  LUT2 #(
-    .INIT(4'h8)) 
+  LUT6 #(
+    .INIT(64'h0808006C00128009)) 
     \instruction[4]_i_11 
-       (.I0(\instruction[4]_i_17_n_0 ),
-        .I1(\program_counter_reg_rep_n_0_[8] ),
+       (.I0(\program_counter_reg_rep_n_0_[7] ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
+        .I2(\program_counter_reg_rep_n_0_[8] ),
+        .I3(\program_counter_reg_rep_n_0_[4] ),
+        .I4(\program_counter_reg_rep_n_0_[1] ),
+        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[4]_i_11_n_0 ));
   LUT6 #(
-    .INIT(64'h0044020C01008025)) 
+    .INIT(64'h404002C004042150)) 
     \instruction[4]_i_12 
-       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[7] ),
         .I1(\program_counter_reg_rep_n_0_[5] ),
-        .I2(\program_counter_reg_rep_n_0_[4] ),
-        .I3(\program_counter_reg_rep_n_0_[2] ),
+        .I2(\program_counter_reg_rep_n_0_[8] ),
+        .I3(\program_counter_reg_rep_n_0_[4] ),
         .I4(\program_counter_reg_rep_n_0_[1] ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[4]_i_12_n_0 ));
   LUT6 #(
-    .INIT(64'h88000C2006440910)) 
+    .INIT(64'h0000000001000000)) 
     \instruction[4]_i_13 
-       (.I0(\program_counter_reg_rep[7]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[7] ),
         .I1(\program_counter_reg_rep_n_0_[5] ),
-        .I2(\program_counter_reg_rep_n_0_[4] ),
+        .I2(\program_counter_reg_rep_n_0_[8] ),
         .I3(\program_counter_reg_rep_n_0_[2] ),
         .I4(\program_counter_reg_rep_n_0_[1] ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[4]_i_13_n_0 ));
   LUT6 #(
-    .INIT(64'h0000000001000000)) 
+    .INIT(64'h0028C004080400A0)) 
     \instruction[4]_i_14 
-       (.I0(\program_counter_reg_rep_n_0_[8] ),
-        .I1(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I2(\program_counter_reg_rep_n_0_[5] ),
+       (.I0(\program_counter_reg_rep_n_0_[7] ),
+        .I1(\program_counter_reg_rep_n_0_[8] ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep_n_0_[2] ),
         .I4(\program_counter_reg_rep_n_0_[1] ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[4]_i_14_n_0 ));
   LUT6 #(
-    .INIT(64'h0044404000010E21)) 
+    .INIT(64'h8C0000103101A200)) 
     \instruction[4]_i_15 
-       (.I0(\program_counter_reg_rep_n_0_[8] ),
-        .I1(\program_counter_reg_rep_n_0_[5] ),
-        .I2(\program_counter_reg_rep_n_0_[4] ),
-        .I3(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I4(\program_counter_reg_rep_n_0_[2] ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
-        .O(\instruction[4]_i_15_n_0 ));
-  LUT6 #(
-    .INIT(64'h2000006000C4C040)) 
-    \instruction[4]_i_16 
-       (.I0(\program_counter_reg_rep_n_0_[8] ),
-        .I1(\program_counter_reg_rep_n_0_[5] ),
-        .I2(\program_counter_reg_rep_n_0_[4] ),
-        .I3(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I4(\program_counter_reg_rep_n_0_[2] ),
-        .I5(\program_counter_reg_rep[0]_rep_n_0 ),
-        .O(\instruction[4]_i_16_n_0 ));
-  LUT6 #(
-    .INIT(64'h0100000000000000)) 
-    \instruction[4]_i_17 
-       (.I0(\program_counter_reg_rep_n_0_[5] ),
-        .I1(\program_counter_reg_rep_n_0_[4] ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[7] ),
+        .I1(\program_counter_reg_rep_n_0_[8] ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep_n_0_[2] ),
         .I4(\program_counter_reg_rep_n_0_[1] ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
-        .O(\instruction[4]_i_17_n_0 ));
+        .O(\instruction[4]_i_15_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFACACFF00)) 
     \instruction[4]_i_2 
@@ -22805,35 +22780,34 @@ module main_1
         .I1(\instruction[4]_i_5_n_0 ),
         .I2(\program_counter_reg_rep[0]_rep_n_0 ),
         .I3(\instruction[4]_i_6_n_0 ),
-        .I4(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I4(\program_counter_reg_rep[6]_rep_n_0 ),
         .I5(\instruction[4]_i_7_n_0 ),
         .O(\instruction[4]_i_2_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFACACFF00)) 
+  LUT5 #(
+    .INIT(32'hACACFF00)) 
     \instruction[4]_i_3 
        (.I0(\instruction[4]_i_8_n_0 ),
         .I1(\instruction[4]_i_9_n_0 ),
-        .I2(\program_counter_reg_rep_n_0_[5] ),
+        .I2(\program_counter_reg_rep_n_0_[2] ),
         .I3(\instruction[4]_i_10_n_0 ),
-        .I4(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I5(\instruction[4]_i_11_n_0 ),
+        .I4(\program_counter_reg_rep_n_0_[5] ),
         .O(\instruction[4]_i_3_n_0 ));
   LUT6 #(
-    .INIT(64'hEC00C00000000000)) 
+    .INIT(64'hEA00880000000000)) 
     \instruction[4]_i_4 
-       (.I0(\program_counter_reg_rep_n_0_[8] ),
-        .I1(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I2(\program_counter_reg_rep_n_0_[5] ),
+       (.I0(\program_counter_reg_rep_n_0_[7] ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
+        .I2(\program_counter_reg_rep_n_0_[8] ),
         .I3(\program_counter_reg_rep_n_0_[4] ),
         .I4(\program_counter_reg_rep_n_0_[2] ),
         .I5(\program_counter_reg_rep_n_0_[1] ),
         .O(\instruction[4]_i_4_n_0 ));
   LUT6 #(
-    .INIT(64'h0000A88814C892A0)) 
+    .INIT(64'h0000E0A006A894C0)) 
     \instruction[4]_i_5 
-       (.I0(\program_counter_reg_rep_n_0_[8] ),
-        .I1(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I2(\program_counter_reg_rep_n_0_[5] ),
+       (.I0(\program_counter_reg_rep_n_0_[7] ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
+        .I2(\program_counter_reg_rep_n_0_[8] ),
         .I3(\program_counter_reg_rep_n_0_[4] ),
         .I4(\program_counter_reg_rep_n_0_[2] ),
         .I5(\program_counter_reg_rep_n_0_[1] ),
@@ -22841,33 +22815,33 @@ module main_1
   LUT3 #(
     .INIT(8'hAC)) 
     \instruction[4]_i_6 
-       (.I0(\instruction[4]_i_12_n_0 ),
-        .I1(\instruction[4]_i_13_n_0 ),
-        .I2(\program_counter_reg_rep_n_0_[8] ),
+       (.I0(\instruction[4]_i_11_n_0 ),
+        .I1(\instruction[4]_i_12_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[2] ),
         .O(\instruction[4]_i_6_n_0 ));
   LUT2 #(
     .INIT(4'h8)) 
     \instruction[4]_i_7 
-       (.I0(\instruction[4]_i_14_n_0 ),
+       (.I0(\instruction[4]_i_13_n_0 ),
         .I1(\program_counter_reg_rep_n_0_[4] ),
         .O(\instruction[4]_i_7_n_0 ));
   LUT6 #(
-    .INIT(64'h0001400C01004200)) 
+    .INIT(64'h0011200000022059)) 
     \instruction[4]_i_8 
-       (.I0(\program_counter_reg_rep_n_0_[8] ),
-        .I1(\program_counter_reg_rep_n_0_[4] ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I3(\program_counter_reg_rep_n_0_[2] ),
+       (.I0(\program_counter_reg_rep_n_0_[7] ),
+        .I1(\program_counter_reg_rep_n_0_[8] ),
+        .I2(\program_counter_reg_rep_n_0_[4] ),
+        .I3(\program_counter_reg_rep[6]_rep_n_0 ),
         .I4(\program_counter_reg_rep_n_0_[1] ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[4]_i_8_n_0 ));
   LUT6 #(
-    .INIT(64'h2248000018003140)) 
+    .INIT(64'h101200900C005010)) 
     \instruction[4]_i_9 
-       (.I0(\program_counter_reg_rep_n_0_[8] ),
-        .I1(\program_counter_reg_rep_n_0_[4] ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I3(\program_counter_reg_rep_n_0_[2] ),
+       (.I0(\program_counter_reg_rep_n_0_[7] ),
+        .I1(\program_counter_reg_rep_n_0_[8] ),
+        .I2(\program_counter_reg_rep_n_0_[4] ),
+        .I3(\program_counter_reg_rep[6]_rep_n_0 ),
         .I4(\program_counter_reg_rep_n_0_[1] ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[4]_i_9_n_0 ));
@@ -22884,20 +22858,20 @@ module main_1
     .INIT(64'h04000A4000202000)) 
     \instruction[5]_i_10 
        (.I0(\program_counter_reg_rep_n_0_[7] ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I4(\program_counter_reg_rep_n_0_[5] ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[5]_i_10_n_0 ));
   LUT6 #(
     .INIT(64'h0100001052018000)) 
     \instruction[5]_i_11 
        (.I0(\program_counter_reg_rep_n_0_[7] ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I4(\program_counter_reg_rep_n_0_[5] ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[5]_i_11_n_0 ));
   LUT6 #(
@@ -22905,9 +22879,9 @@ module main_1
     \instruction[5]_i_12 
        (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
         .I1(\program_counter_reg_rep_n_0_[7] ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I4(\program_counter_reg_rep_n_0_[5] ),
         .I5(\program_counter_reg_rep[3]_rep_n_0 ),
         .O(\instruction[5]_i_12_n_0 ));
   LUT6 #(
@@ -22915,9 +22889,9 @@ module main_1
     \instruction[5]_i_13 
        (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
         .I1(\program_counter_reg_rep_n_0_[7] ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I4(\program_counter_reg_rep_n_0_[5] ),
         .I5(\program_counter_reg_rep[3]_rep_n_0 ),
         .O(\instruction[5]_i_13_n_0 ));
   LUT5 #(
@@ -22925,17 +22899,17 @@ module main_1
     \instruction[5]_i_14 
        (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
         .I1(\program_counter_reg_rep_n_0_[7] ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep[1]_rep_n_0 ),
         .I4(\program_counter_reg_rep[3]_rep_n_0 ),
         .O(\instruction[5]_i_14_n_0 ));
   LUT6 #(
     .INIT(64'h0000080000000000)) 
     \instruction[5]_i_2 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[4]_rep_n_0 ),
         .I2(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I3(\program_counter_reg_rep_n_0_[5] ),
         .I4(\program_counter_reg_rep[3]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[5]_i_2_n_0 ));
@@ -22944,7 +22918,7 @@ module main_1
     \instruction[5]_i_3 
        (.I0(\instruction[5]_i_5_n_0 ),
         .I1(\instruction[12]_i_5_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\instruction[5]_i_6_n_0 ),
         .I4(\program_counter_reg_rep[3]_rep_n_0 ),
         .O(\instruction[5]_i_3_n_0 ));
@@ -22964,7 +22938,7 @@ module main_1
         .I1(\program_counter_reg_rep_n_0_[7] ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I4(\program_counter_reg_rep_n_0_[5] ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[5]_i_5_n_0 ));
   LUT3 #(
@@ -22978,20 +22952,20 @@ module main_1
     .INIT(64'h00A501C00002000D)) 
     \instruction[5]_i_7 
        (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I4(\program_counter_reg_rep_n_0_[5] ),
         .I5(\program_counter_reg_rep[3]_rep_n_0 ),
         .O(\instruction[5]_i_7_n_0 ));
   LUT6 #(
     .INIT(64'h0000520000210100)) 
     \instruction[5]_i_8 
        (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .I3(\program_counter_reg_rep[1]_rep_n_0 ),
-        .I4(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I4(\program_counter_reg_rep_n_0_[5] ),
         .I5(\program_counter_reg_rep[3]_rep_n_0 ),
         .O(\instruction[5]_i_8_n_0 ));
   LUT4 #(
@@ -23002,7 +22976,7 @@ module main_1
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .I3(\instruction[5]_i_14_n_0 ),
         .O(\instruction[5]_i_9_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair141" *) 
+  (* SOFT_HLUTNM = "soft_lutpair142" *) 
   LUT3 #(
     .INIT(8'hAC)) 
     \instruction[6]_i_1 
@@ -23144,7 +23118,7 @@ module main_1
     \instruction[7]_i_10 
        (.I0(\program_counter_reg_rep[2]_rep_n_0 ),
         .I1(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep[8]_rep_n_0 ),
         .I4(\program_counter_reg_rep[4]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
@@ -23154,7 +23128,7 @@ module main_1
     \instruction[7]_i_11 
        (.I0(\program_counter_reg_rep[2]_rep_n_0 ),
         .I1(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep[8]_rep_n_0 ),
         .I4(\program_counter_reg_rep[4]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
@@ -23162,20 +23136,20 @@ module main_1
   LUT6 #(
     .INIT(64'h0020004006401A00)) 
     \instruction[7]_i_12 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[3]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I3(\program_counter_reg_rep[6]_rep_n_0 ),
         .I4(\program_counter_reg_rep[8]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[7]_i_12_n_0 ));
   LUT6 #(
     .INIT(64'h00880200080C0000)) 
     \instruction[7]_i_13 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[3]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I3(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I3(\program_counter_reg_rep[6]_rep_n_0 ),
         .I4(\program_counter_reg_rep[8]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
         .O(\instruction[7]_i_13_n_0 ));
@@ -23191,7 +23165,7 @@ module main_1
     \instruction[7]_i_2 
        (.I0(\instruction[7]_i_4_n_0 ),
         .I1(\instruction[7]_i_5_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\instruction[7]_i_6_n_0 ),
         .I4(\program_counter_reg_rep[3]_rep_n_0 ),
         .O(\instruction[7]_i_2_n_0 ));
@@ -23200,14 +23174,14 @@ module main_1
     \instruction[7]_i_3 
        (.I0(\instruction[7]_i_7_n_0 ),
         .I1(\instruction[7]_i_8_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\instruction[7]_i_9_n_0 ),
         .I4(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[7]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hC8E0000032043000)) 
     \instruction[7]_i_4 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[2]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep[8]_rep_n_0 ),
@@ -23217,7 +23191,7 @@ module main_1
   LUT6 #(
     .INIT(64'h028002A000000440)) 
     \instruction[7]_i_5 
-       (.I0(\program_counter_reg_rep[5]_rep_n_0 ),
+       (.I0(\program_counter_reg_rep_n_0_[5] ),
         .I1(\program_counter_reg_rep[2]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep[8]_rep_n_0 ),
@@ -23229,14 +23203,14 @@ module main_1
     \instruction[7]_i_6 
        (.I0(\instruction[7]_i_10_n_0 ),
         .I1(\instruction[7]_i_11_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .O(\instruction[7]_i_6_n_0 ));
   LUT6 #(
     .INIT(64'h0040000808408488)) 
     \instruction[7]_i_7 
        (.I0(\program_counter_reg_rep[3]_rep_n_0 ),
         .I1(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep[8]_rep_n_0 ),
         .I4(\program_counter_reg_rep[4]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
@@ -23246,7 +23220,7 @@ module main_1
     \instruction[7]_i_8 
        (.I0(\program_counter_reg_rep[3]_rep_n_0 ),
         .I1(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\program_counter_reg_rep[8]_rep_n_0 ),
         .I4(\program_counter_reg_rep[4]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
@@ -23258,7 +23232,7 @@ module main_1
         .I1(\instruction[7]_i_13_n_0 ),
         .I2(\program_counter_reg_rep[4]_rep_n_0 ),
         .O(\instruction[7]_i_9_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair141" *) 
+  (* SOFT_HLUTNM = "soft_lutpair142" *) 
   LUT3 #(
     .INIT(8'hAC)) 
     \instruction[8]_i_1 
@@ -23269,7 +23243,7 @@ module main_1
   LUT6 #(
     .INIT(64'h000A0C0000001088)) 
     \instruction[8]_i_10 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep[2]_rep_n_0 ),
@@ -23279,7 +23253,7 @@ module main_1
   LUT6 #(
     .INIT(64'h4060C40040040000)) 
     \instruction[8]_i_11 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep[2]_rep_n_0 ),
@@ -23289,9 +23263,9 @@ module main_1
   LUT6 #(
     .INIT(64'h01004004042802A0)) 
     \instruction[8]_i_12 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep[7]_rep_n_0 ),
         .I4(\program_counter_reg_rep[3]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
@@ -23299,9 +23273,9 @@ module main_1
   LUT6 #(
     .INIT(64'h4040000000C40000)) 
     \instruction[8]_i_13 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep[7]_rep_n_0 ),
         .I4(\program_counter_reg_rep[3]_rep_n_0 ),
         .I5(\program_counter_reg_rep[0]_rep_n_0 ),
@@ -23311,7 +23285,7 @@ module main_1
     \instruction[8]_i_2 
        (.I0(\instruction[8]_i_4_n_0 ),
         .I1(\instruction[8]_i_5_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\instruction[8]_i_6_n_0 ),
         .I4(\program_counter_reg_rep[3]_rep_n_0 ),
         .O(\instruction[8]_i_2_n_0 ));
@@ -23320,7 +23294,7 @@ module main_1
     \instruction[8]_i_3 
        (.I0(\instruction[8]_i_7_n_0 ),
         .I1(\instruction[8]_i_8_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\instruction[8]_i_9_n_0 ),
         .I4(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[8]_i_3_n_0 ));
@@ -23328,7 +23302,7 @@ module main_1
     .INIT(64'hD8C2000041A800A0)) 
     \instruction[8]_i_4 
        (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep[2]_rep_n_0 ),
         .I4(\program_counter_reg_rep[4]_rep_n_0 ),
@@ -23338,7 +23312,7 @@ module main_1
     .INIT(64'h4008400808001200)) 
     \instruction[8]_i_5 
        (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I1(\program_counter_reg_rep_n_0_[5] ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep[2]_rep_n_0 ),
         .I4(\program_counter_reg_rep[4]_rep_n_0 ),
@@ -23349,12 +23323,12 @@ module main_1
     \instruction[8]_i_6 
        (.I0(\instruction[8]_i_10_n_0 ),
         .I1(\instruction[8]_i_11_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .O(\instruction[8]_i_6_n_0 ));
   LUT6 #(
     .INIT(64'h00A01000C004B0C0)) 
     \instruction[8]_i_7 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep[3]_rep_n_0 ),
@@ -23364,7 +23338,7 @@ module main_1
   LUT6 #(
     .INIT(64'h00080000A000C0B0)) 
     \instruction[8]_i_8 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[8]_rep_n_0 ),
         .I2(\program_counter_reg_rep[7]_rep_n_0 ),
         .I3(\program_counter_reg_rep[3]_rep_n_0 ),
@@ -23382,8 +23356,8 @@ module main_1
     .INIT(64'h000AC0000610A000)) 
     \instruction[9]_i_10 
        (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep[4]_rep_n_0 ),
         .I4(\program_counter_reg_rep[1]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
@@ -23392,8 +23366,8 @@ module main_1
     .INIT(64'h0000080040000000)) 
     \instruction[9]_i_11 
        (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep[4]_rep_n_0 ),
         .I4(\program_counter_reg_rep[1]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
@@ -23402,8 +23376,8 @@ module main_1
     .INIT(64'hAC5000AD00000400)) 
     \instruction[9]_i_12 
        (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep[4]_rep_n_0 ),
         .I4(\program_counter_reg_rep[3]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
@@ -23412,13 +23386,13 @@ module main_1
     .INIT(64'h0000000048A2C000)) 
     \instruction[9]_i_13 
        (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
-        .I1(\program_counter_reg_rep[6]_rep__0_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I1(\program_counter_reg_rep[6]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep[4]_rep_n_0 ),
         .I4(\program_counter_reg_rep[3]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
         .O(\instruction[9]_i_13_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair145" *) 
+  (* SOFT_HLUTNM = "soft_lutpair146" *) 
   LUT3 #(
     .INIT(8'hAC)) 
     \instruction[9]_i_1__0 
@@ -23431,7 +23405,7 @@ module main_1
     \instruction[9]_i_2 
        (.I0(\instruction[9]_i_4_n_0 ),
         .I1(\instruction[9]_i_5_n_0 ),
-        .I2(\program_counter_reg_rep[6]_rep__0_n_0 ),
+        .I2(\program_counter_reg_rep[6]_rep_n_0 ),
         .I3(\instruction[9]_i_6_n_0 ),
         .I4(\program_counter_reg_rep[3]_rep_n_0 ),
         .O(\instruction[9]_i_2_n_0 ));
@@ -23449,7 +23423,7 @@ module main_1
     \instruction[9]_i_4 
        (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
         .I1(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep[4]_rep_n_0 ),
         .I4(\program_counter_reg_rep[1]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
@@ -23459,7 +23433,7 @@ module main_1
     \instruction[9]_i_5 
        (.I0(\program_counter_reg_rep[8]_rep_n_0 ),
         .I1(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep[4]_rep_n_0 ),
         .I4(\program_counter_reg_rep[1]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
@@ -23474,9 +23448,9 @@ module main_1
   LUT6 #(
     .INIT(64'h00010000A8880120)) 
     \instruction[9]_i_7 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep[4]_rep_n_0 ),
         .I4(\program_counter_reg_rep[3]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
@@ -23484,9 +23458,9 @@ module main_1
   LUT6 #(
     .INIT(64'h0204000000000000)) 
     \instruction[9]_i_8 
-       (.I0(\program_counter_reg_rep[6]_rep__0_n_0 ),
+       (.I0(\program_counter_reg_rep[6]_rep_n_0 ),
         .I1(\program_counter_reg_rep[7]_rep_n_0 ),
-        .I2(\program_counter_reg_rep[5]_rep_n_0 ),
+        .I2(\program_counter_reg_rep_n_0_[5] ),
         .I3(\program_counter_reg_rep[4]_rep_n_0 ),
         .I4(\program_counter_reg_rep[3]_rep_n_0 ),
         .I5(\program_counter_reg_rep[2]_rep_n_0 ),
@@ -25063,21 +25037,12 @@ module main_1
         .D(\program_counter_rep[4]_i_1__0_n_0 ),
         .Q(\program_counter_reg_rep[4]_rep_n_0 ),
         .R(INTERNAL_RST_reg));
-  (* ORIG_CELL_NAME = "program_counter_reg_rep[5]" *) 
   (* equivalent_register_removal = "no" *) 
   FDRE \program_counter_reg_rep[5] 
        (.C(ETH_CLK_OBUF),
         .CE(instruction0),
         .D(\program_counter_rep[5]_i_1__0_n_0 ),
         .Q(\program_counter_reg_rep_n_0_[5] ),
-        .R(INTERNAL_RST_reg));
-  (* ORIG_CELL_NAME = "program_counter_reg_rep[5]" *) 
-  (* equivalent_register_removal = "no" *) 
-  FDRE \program_counter_reg_rep[5]_rep 
-       (.C(ETH_CLK_OBUF),
-        .CE(instruction0),
-        .D(\program_counter_rep[5]_i_1__0_n_0 ),
-        .Q(\program_counter_reg_rep[5]_rep_n_0 ),
         .R(INTERNAL_RST_reg));
   (* ORIG_CELL_NAME = "program_counter_reg_rep[6]" *) 
   (* equivalent_register_removal = "no" *) 
@@ -25094,14 +25059,6 @@ module main_1
         .CE(instruction0),
         .D(\program_counter_rep[6]_i_1_n_0 ),
         .Q(\program_counter_reg_rep[6]_rep_n_0 ),
-        .R(INTERNAL_RST_reg));
-  (* ORIG_CELL_NAME = "program_counter_reg_rep[6]" *) 
-  (* equivalent_register_removal = "no" *) 
-  FDRE \program_counter_reg_rep[6]_rep__0 
-       (.C(ETH_CLK_OBUF),
-        .CE(instruction0),
-        .D(\program_counter_rep[6]_i_1_n_0 ),
-        .Q(\program_counter_reg_rep[6]_rep__0_n_0 ),
         .R(INTERNAL_RST_reg));
   (* ORIG_CELL_NAME = "program_counter_reg_rep[7]" *) 
   (* equivalent_register_removal = "no" *) 
@@ -26324,7 +26281,7 @@ module main_1
     \result[0]_i_4 
        (.I0(opcode_2[2]),
         .I1(opcode_2[4]),
-        .I2(wire_139931276046560_stb),
+        .I2(wire_139862652510720_stb),
         .I3(opcode_2[3]),
         .I4(\program_counter_rep[8]_i_5_n_0 ),
         .I5(\result[0]_i_12_n_0 ),
@@ -31465,8 +31422,8 @@ module main_1
   LUT2 #(
     .INIT(4'h7)) 
     \result[31]_i_4__0 
-       (.I0(wire_139931276046560_ack),
-        .I1(wire_139931276046560_stb),
+       (.I0(wire_139862652510720_ack),
+        .I1(wire_139862652510720_stb),
         .O(p_1_in));
   LUT6 #(
     .INIT(64'hFFFFFFFFFFFFFFFE)) 
@@ -33250,9 +33207,9 @@ module main_1
   LUT3 #(
     .INIT(8'h7C)) 
     \s_input_value_ack[0]_i_1 
-       (.I0(wire_139931276046560_stb),
+       (.I0(wire_139862652510720_stb),
         .I1(\s_input_value_ack[0]_i_2_n_0 ),
-        .I2(wire_139931276046560_ack),
+        .I2(wire_139862652510720_ack),
         .O(\s_input_value_ack[0]_i_1_n_0 ));
   LUT3 #(
     .INIT(8'h04)) 
@@ -33265,7 +33222,7 @@ module main_1
        (.C(ETH_CLK_OBUF),
         .CE(1'b1),
         .D(\s_input_value_ack[0]_i_1_n_0 ),
-        .Q(wire_139931276046560_ack),
+        .Q(wire_139862652510720_ack),
         .R(INTERNAL_RST_reg));
   LUT4 #(
     .INIT(16'h0800)) 
@@ -33591,7 +33548,7 @@ module main_1
         .I1(timer[0]),
         .I2(\state_reg_n_0_[2] ),
         .O(\timer[0]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair167" *) 
+  (* SOFT_HLUTNM = "soft_lutpair161" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \timer[10]_i_1__0 
@@ -33599,7 +33556,7 @@ module main_1
         .I1(\state_reg_n_0_[2] ),
         .I2(\read_input[10]_i_1_n_0 ),
         .O(\timer[10]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair165" *) 
+  (* SOFT_HLUTNM = "soft_lutpair164" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \timer[11]_i_1__0 
@@ -33607,7 +33564,7 @@ module main_1
         .I1(\state_reg_n_0_[2] ),
         .I2(\read_input[11]_i_1_n_0 ),
         .O(\timer[11]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair154" *) 
+  (* SOFT_HLUTNM = "soft_lutpair160" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \timer[12]_i_1__0 
@@ -33718,7 +33675,7 @@ module main_1
         .I3(operand_a1),
         .I4(register_a[19]),
         .O(\timer[19]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair142" *) 
+  (* SOFT_HLUTNM = "soft_lutpair143" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \timer[1]_i_1__0 
@@ -33876,7 +33833,7 @@ module main_1
         .I3(operand_a1),
         .I4(register_a[29]),
         .O(\timer[29]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair152" *) 
+  (* SOFT_HLUTNM = "soft_lutpair144" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \timer[2]_i_1__0 
@@ -33948,7 +33905,7 @@ module main_1
         .I4(\state_reg_n_0_[2] ),
         .I5(\state_reg_n_0_[1] ),
         .O(\timer[31]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair167" *) 
+  (* SOFT_HLUTNM = "soft_lutpair164" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \timer[31]_i_2__0 
@@ -34001,7 +33958,7 @@ module main_1
     \timer[31]_i_9 
        (.I0(timer[30]),
         .O(\timer[31]_i_9_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair152" *) 
+  (* SOFT_HLUTNM = "soft_lutpair143" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \timer[3]_i_1__0 
@@ -34037,7 +33994,7 @@ module main_1
     \timer[4]_i_6__0 
        (.I0(timer[1]),
         .O(\timer[4]_i_6__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair142" *) 
+  (* SOFT_HLUTNM = "soft_lutpair144" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \timer[5]_i_1__0 
@@ -34045,7 +34002,7 @@ module main_1
         .I1(\state_reg_n_0_[2] ),
         .I2(\read_input[5]_i_1_n_0 ),
         .O(\timer[5]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair154" *) 
+  (* SOFT_HLUTNM = "soft_lutpair145" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \timer[6]_i_1__0 
@@ -34053,7 +34010,7 @@ module main_1
         .I1(\state_reg_n_0_[2] ),
         .I2(\read_input[6]_i_1_n_0 ),
         .O(\timer[6]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair161" *) 
+  (* SOFT_HLUTNM = "soft_lutpair160" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \timer[7]_i_1__0 
@@ -34061,7 +34018,7 @@ module main_1
         .I1(\state_reg_n_0_[2] ),
         .I2(\read_input[7]_i_1_n_0 ),
         .O(\timer[7]_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair161" *) 
+  (* SOFT_HLUTNM = "soft_lutpair145" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \timer[8]_i_1__0 
@@ -34089,7 +34046,7 @@ module main_1
     \timer[8]_i_6__0 
        (.I0(timer[5]),
         .O(\timer[8]_i_6__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair165" *) 
+  (* SOFT_HLUTNM = "soft_lutpair161" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \timer[9]_i_1__0 
@@ -34717,7 +34674,7 @@ module pwm_audio
   wire S_DATA_IN_ACK_i_1_n_0;
   wire [10:0]p_0_in;
 
-  (* SOFT_HLUTNM = "soft_lutpair260" *) 
+  (* SOFT_HLUTNM = "soft_lutpair259" *) 
   LUT1 #(
     .INIT(2'h1)) 
     \COUNT[0]_i_1__4 
@@ -34771,14 +34728,14 @@ module pwm_audio
         .I4(COUNT_reg__0[9]),
         .I5(COUNT_reg__0[4]),
         .O(\COUNT[10]_i_6_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair260" *) 
+  (* SOFT_HLUTNM = "soft_lutpair259" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \COUNT[1]_i_1__4 
        (.I0(COUNT_reg__0[0]),
         .I1(COUNT_reg__0[1]),
         .O(p_0_in[1]));
-  (* SOFT_HLUTNM = "soft_lutpair259" *) 
+  (* SOFT_HLUTNM = "soft_lutpair258" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \COUNT[2]_i_1__3 
@@ -34786,7 +34743,7 @@ module pwm_audio
         .I1(COUNT_reg__0[1]),
         .I2(COUNT_reg__0[2]),
         .O(p_0_in[2]));
-  (* SOFT_HLUTNM = "soft_lutpair259" *) 
+  (* SOFT_HLUTNM = "soft_lutpair258" *) 
   LUT4 #(
     .INIT(16'h6AAA)) 
     \COUNT[3]_i_1__2 
@@ -34814,7 +34771,7 @@ module pwm_audio
         .I4(COUNT_reg__0[2]),
         .I5(COUNT_reg__0[4]),
         .O(p_0_in[5]));
-  (* SOFT_HLUTNM = "soft_lutpair258" *) 
+  (* SOFT_HLUTNM = "soft_lutpair257" *) 
   LUT3 #(
     .INIT(8'h6A)) 
     \COUNT[6]_i_1__2 
@@ -34822,7 +34779,7 @@ module pwm_audio
         .I1(\COUNT[9]_i_2_n_0 ),
         .I2(COUNT_reg__0[5]),
         .O(p_0_in[6]));
-  (* SOFT_HLUTNM = "soft_lutpair258" *) 
+  (* SOFT_HLUTNM = "soft_lutpair257" *) 
   LUT4 #(
     .INIT(16'h6AAA)) 
     \COUNT[7]_i_1__2 
@@ -35362,7 +35319,7 @@ module rmii_ethernet
     \PREAMBLE_COUNT[0]_i_1 
        (.I0(\PREAMBLE_COUNT_reg_n_0_[0] ),
         .O(\PREAMBLE_COUNT[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair235" *) 
+  (* SOFT_HLUTNM = "soft_lutpair234" *) 
   LUT2 #(
     .INIT(4'h9)) 
     \PREAMBLE_COUNT[1]_i_1 
@@ -35379,7 +35336,7 @@ module rmii_ethernet
         .I4(\PREAMBLE_COUNT_reg_n_0_[1] ),
         .I5(\PREAMBLE_COUNT_reg_n_0_[2] ),
         .O(\PREAMBLE_COUNT[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair235" *) 
+  (* SOFT_HLUTNM = "soft_lutpair234" *) 
   LUT4 #(
     .INIT(16'hFE01)) 
     \PREAMBLE_COUNT[3]_i_1 
@@ -35464,7 +35421,7 @@ module rmii_ethernet
         .D(S_TX_ACK_i_1_n_0),
         .Q(S_TX_ACK_reg_n_0),
         .R(INTERNAL_RST_reg));
-  (* SOFT_HLUTNM = "soft_lutpair248" *) 
+  (* SOFT_HLUTNM = "soft_lutpair247" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \TXD[0]_i_1 
@@ -35550,7 +35507,7 @@ module rmii_ethernet
         .I4(\TX_PHY_STATE_reg_n_0_[0] ),
         .I5(\TX_CRC_reg_n_0_[19] ),
         .O(\TXD[0]_i_9_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair248" *) 
+  (* SOFT_HLUTNM = "soft_lutpair247" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \TXD[1]_i_1 
@@ -36925,7 +36882,7 @@ module rmii_ethernet
         .I2(\TX_PACKET_STATE_reg_n_0_[0] ),
         .I3(\TX_PACKET_STATE_reg[1]_i_2_n_2 ),
         .O(\TX_IN_COUNT[10]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair183" *) 
+  (* SOFT_HLUTNM = "soft_lutpair182" *) 
   LUT5 #(
     .INIT(32'hAAAA6AAA)) 
     \TX_IN_COUNT[10]_i_3 
@@ -36945,7 +36902,7 @@ module rmii_ethernet
         .I4(TX_IN_COUNT[4]),
         .I5(TX_IN_COUNT[6]),
         .O(\TX_IN_COUNT[10]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair184" *) 
+  (* SOFT_HLUTNM = "soft_lutpair183" *) 
   LUT5 #(
     .INIT(32'hFFBF0444)) 
     \TX_IN_COUNT[1]_i_1 
@@ -36972,7 +36929,7 @@ module rmii_ethernet
         .I1(TX_IN_COUNT[2]),
         .I2(TX_IN_COUNT[1]),
         .O(\TX_IN_COUNT[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair176" *) 
+  (* SOFT_HLUTNM = "soft_lutpair175" *) 
   LUT4 #(
     .INIT(16'h6AAA)) 
     \TX_IN_COUNT[4]_i_1 
@@ -36981,7 +36938,7 @@ module rmii_ethernet
         .I2(TX_IN_COUNT[1]),
         .I3(TX_IN_COUNT[2]),
         .O(\TX_IN_COUNT[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair176" *) 
+  (* SOFT_HLUTNM = "soft_lutpair175" *) 
   LUT5 #(
     .INIT(32'h6AAAAAAA)) 
     \TX_IN_COUNT[5]_i_1 
@@ -37001,14 +36958,14 @@ module rmii_ethernet
         .I4(TX_IN_COUNT[2]),
         .I5(TX_IN_COUNT[4]),
         .O(\TX_IN_COUNT[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair246" *) 
+  (* SOFT_HLUTNM = "soft_lutpair245" *) 
   LUT2 #(
     .INIT(4'h9)) 
     \TX_IN_COUNT[7]_i_1 
        (.I0(TX_IN_COUNT[7]),
         .I1(\TX_IN_COUNT[10]_i_4_n_0 ),
         .O(\TX_IN_COUNT[7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair246" *) 
+  (* SOFT_HLUTNM = "soft_lutpair245" *) 
   LUT3 #(
     .INIT(8'hA6)) 
     \TX_IN_COUNT[8]_i_1 
@@ -37016,7 +36973,7 @@ module rmii_ethernet
         .I1(TX_IN_COUNT[7]),
         .I2(\TX_IN_COUNT[10]_i_4_n_0 ),
         .O(\TX_IN_COUNT[8]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair183" *) 
+  (* SOFT_HLUTNM = "soft_lutpair182" *) 
   LUT4 #(
     .INIT(16'h9AAA)) 
     \TX_IN_COUNT[9]_i_1 
@@ -37158,7 +37115,7 @@ module rmii_ethernet
         .I2(\TX_PHY_STATE[4]_i_1_n_0 ),
         .I3(INTERNAL_RST_reg),
         .O(TX_MEMORY_reg_ENBWREN_cooolgate_en_sig_17));
-  (* SOFT_HLUTNM = "soft_lutpair251" *) 
+  (* SOFT_HLUTNM = "soft_lutpair250" *) 
   LUT2 #(
     .INIT(4'h7)) 
     \TX_OUT_COUNT[0]_i_1 
@@ -37175,7 +37132,7 @@ module rmii_ethernet
         .I4(\TX_OUT_COUNT[10]_i_3_n_0 ),
         .I5(\TX_OUT_COUNT[10]_i_4_n_0 ),
         .O(\TX_OUT_COUNT[10]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair236" *) 
+  (* SOFT_HLUTNM = "soft_lutpair235" *) 
   LUT4 #(
     .INIT(16'hE133)) 
     \TX_OUT_COUNT[10]_i_2 
@@ -37230,7 +37187,7 @@ module rmii_ethernet
         .I1(\TX_OUT_COUNT_reg_n_0_[8] ),
         .I2(\TX_OUT_COUNT_reg_n_0_[7] ),
         .O(\TX_OUT_COUNT[10]_i_8_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair251" *) 
+  (* SOFT_HLUTNM = "soft_lutpair250" *) 
   LUT3 #(
     .INIT(8'h9F)) 
     \TX_OUT_COUNT[1]_i_1 
@@ -37238,7 +37195,7 @@ module rmii_ethernet
         .I1(\TX_OUT_COUNT_reg_n_0_[1] ),
         .I2(\TX_PHY_STATE_reg_n_0_[3] ),
         .O(\TX_OUT_COUNT[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair174" *) 
+  (* SOFT_HLUTNM = "soft_lutpair173" *) 
   LUT4 #(
     .INIT(16'hE1FF)) 
     \TX_OUT_COUNT[2]_i_1 
@@ -37247,7 +37204,7 @@ module rmii_ethernet
         .I2(\TX_OUT_COUNT_reg_n_0_[2] ),
         .I3(\TX_PHY_STATE_reg_n_0_[3] ),
         .O(\TX_OUT_COUNT[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair174" *) 
+  (* SOFT_HLUTNM = "soft_lutpair173" *) 
   LUT5 #(
     .INIT(32'hFE01FFFF)) 
     \TX_OUT_COUNT[3]_i_1 
@@ -37274,7 +37231,7 @@ module rmii_ethernet
         .I1(\TX_OUT_COUNT_reg_n_0_[5] ),
         .I2(\TX_PHY_STATE_reg_n_0_[3] ),
         .O(\TX_OUT_COUNT[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair175" *) 
+  (* SOFT_HLUTNM = "soft_lutpair174" *) 
   LUT4 #(
     .INIT(16'hE133)) 
     \TX_OUT_COUNT[6]_i_1 
@@ -37283,7 +37240,7 @@ module rmii_ethernet
         .I2(\TX_OUT_COUNT_reg_n_0_[6] ),
         .I3(\TX_PHY_STATE_reg_n_0_[3] ),
         .O(\TX_OUT_COUNT[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair175" *) 
+  (* SOFT_HLUTNM = "soft_lutpair174" *) 
   LUT5 #(
     .INIT(32'hFE013333)) 
     \TX_OUT_COUNT[7]_i_1 
@@ -37313,7 +37270,7 @@ module rmii_ethernet
         .I4(\TX_OUT_COUNT_reg_n_0_[4] ),
         .I5(\TX_PHY_STATE_reg_n_0_[3] ),
         .O(\TX_OUT_COUNT[8]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair236" *) 
+  (* SOFT_HLUTNM = "soft_lutpair235" *) 
   LUT3 #(
     .INIT(8'h95)) 
     \TX_OUT_COUNT[9]_i_1 
@@ -37387,7 +37344,7 @@ module rmii_ethernet
         .D(\TX_OUT_COUNT[9]_i_1_n_0 ),
         .Q(\TX_OUT_COUNT_reg_n_0_[9] ),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair173" *) 
+  (* SOFT_HLUTNM = "soft_lutpair172" *) 
   LUT5 #(
     .INIT(32'hFF007C7C)) 
     \TX_PACKET_STATE[0]_i_1 
@@ -37397,7 +37354,7 @@ module rmii_ethernet
         .I3(DONE_SYNC),
         .I4(\TX_PACKET_STATE_reg_n_0_[1] ),
         .O(\TX_PACKET_STATE[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair173" *) 
+  (* SOFT_HLUTNM = "soft_lutpair172" *) 
   LUT5 #(
     .INIT(32'hFF338080)) 
     \TX_PACKET_STATE[1]_i_1 
@@ -37736,14 +37693,14 @@ module rmii_ethernet
         .I4(TX_READ_ADDRESS[9]),
         .I5(TX_READ_ADDRESS[10]),
         .O(TX_READ_ADDRESS0[10]));
-  (* SOFT_HLUTNM = "soft_lutpair250" *) 
+  (* SOFT_HLUTNM = "soft_lutpair249" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \TX_READ_ADDRESS_rep[1]_i_1 
        (.I0(TX_READ_ADDRESS[0]),
         .I1(TX_READ_ADDRESS[1]),
         .O(TX_READ_ADDRESS0[1]));
-  (* SOFT_HLUTNM = "soft_lutpair250" *) 
+  (* SOFT_HLUTNM = "soft_lutpair249" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \TX_READ_ADDRESS_rep[2]_i_1 
@@ -37751,7 +37708,7 @@ module rmii_ethernet
         .I1(TX_READ_ADDRESS[1]),
         .I2(TX_READ_ADDRESS[2]),
         .O(TX_READ_ADDRESS0[2]));
-  (* SOFT_HLUTNM = "soft_lutpair219" *) 
+  (* SOFT_HLUTNM = "soft_lutpair218" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
     \TX_READ_ADDRESS_rep[3]_i_1 
@@ -37760,7 +37717,7 @@ module rmii_ethernet
         .I2(TX_READ_ADDRESS[2]),
         .I3(TX_READ_ADDRESS[3]),
         .O(TX_READ_ADDRESS0[3]));
-  (* SOFT_HLUTNM = "soft_lutpair219" *) 
+  (* SOFT_HLUTNM = "soft_lutpair218" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \TX_READ_ADDRESS_rep[4]_i_1 
@@ -37780,14 +37737,14 @@ module rmii_ethernet
         .I4(TX_READ_ADDRESS[4]),
         .I5(TX_READ_ADDRESS[5]),
         .O(TX_READ_ADDRESS0[5]));
-  (* SOFT_HLUTNM = "soft_lutpair249" *) 
+  (* SOFT_HLUTNM = "soft_lutpair248" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \TX_READ_ADDRESS_rep[6]_i_1 
        (.I0(\TX_READ_ADDRESS_rep[9]_i_4_n_0 ),
         .I1(TX_READ_ADDRESS[6]),
         .O(TX_READ_ADDRESS0[6]));
-  (* SOFT_HLUTNM = "soft_lutpair249" *) 
+  (* SOFT_HLUTNM = "soft_lutpair248" *) 
   LUT3 #(
     .INIT(8'h78)) 
     \TX_READ_ADDRESS_rep[7]_i_1 
@@ -37795,7 +37752,7 @@ module rmii_ethernet
         .I1(TX_READ_ADDRESS[6]),
         .I2(TX_READ_ADDRESS[7]),
         .O(TX_READ_ADDRESS0[7]));
-  (* SOFT_HLUTNM = "soft_lutpair216" *) 
+  (* SOFT_HLUTNM = "soft_lutpair215" *) 
   LUT4 #(
     .INIT(16'h7F80)) 
     \TX_READ_ADDRESS_rep[8]_i_1 
@@ -37824,7 +37781,7 @@ module rmii_ethernet
         .I4(GO_SYNC),
         .I5(\TX_PHY_STATE_reg_n_0_[2] ),
         .O(\TX_READ_ADDRESS_rep[9]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair216" *) 
+  (* SOFT_HLUTNM = "soft_lutpair215" *) 
   LUT5 #(
     .INIT(32'h7FFF8000)) 
     \TX_READ_ADDRESS_rep[9]_i_3 
@@ -37844,7 +37801,7 @@ module rmii_ethernet
         .I4(TX_READ_ADDRESS[2]),
         .I5(TX_READ_ADDRESS[4]),
         .O(\TX_READ_ADDRESS_rep[9]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair232" *) 
+  (* SOFT_HLUTNM = "soft_lutpair231" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \TX_WRITE_ADDRESS[0]_i_1 
@@ -37859,7 +37816,7 @@ module rmii_ethernet
         .I2(\TX_PACKET_STATE_reg_n_0_[1] ),
         .I3(\TX_PACKET_STATE_reg_n_0_[0] ),
         .O(\TX_WRITE_ADDRESS[10]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair232" *) 
+  (* SOFT_HLUTNM = "soft_lutpair231" *) 
   LUT4 #(
     .INIT(16'h0078)) 
     \TX_WRITE_ADDRESS[10]_i_2 
@@ -37876,7 +37833,7 @@ module rmii_ethernet
         .I2(\TX_WRITE_ADDRESS[9]_i_2_n_0 ),
         .I3(TX_WRITE_ADDRESS[6]),
         .O(\TX_WRITE_ADDRESS[10]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair242" *) 
+  (* SOFT_HLUTNM = "soft_lutpair241" *) 
   LUT3 #(
     .INIT(8'h06)) 
     \TX_WRITE_ADDRESS[1]_i_1 
@@ -37884,7 +37841,7 @@ module rmii_ethernet
         .I1(TX_WRITE_ADDRESS[0]),
         .I2(\TX_PACKET_STATE_reg_n_0_[1] ),
         .O(\TX_WRITE_ADDRESS[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair179" *) 
+  (* SOFT_HLUTNM = "soft_lutpair178" *) 
   LUT4 #(
     .INIT(16'h1540)) 
     \TX_WRITE_ADDRESS[2]_i_1 
@@ -37893,7 +37850,7 @@ module rmii_ethernet
         .I2(TX_WRITE_ADDRESS[1]),
         .I3(TX_WRITE_ADDRESS[2]),
         .O(\TX_WRITE_ADDRESS[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair179" *) 
+  (* SOFT_HLUTNM = "soft_lutpair178" *) 
   LUT5 #(
     .INIT(32'h15554000)) 
     \TX_WRITE_ADDRESS[3]_i_1 
@@ -37913,7 +37870,7 @@ module rmii_ethernet
         .I4(TX_WRITE_ADDRESS[3]),
         .I5(TX_WRITE_ADDRESS[4]),
         .O(\TX_WRITE_ADDRESS[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair242" *) 
+  (* SOFT_HLUTNM = "soft_lutpair241" *) 
   LUT3 #(
     .INIT(8'h41)) 
     \TX_WRITE_ADDRESS[5]_i_1 
@@ -37937,7 +37894,7 @@ module rmii_ethernet
         .I1(\TX_WRITE_ADDRESS[9]_i_2_n_0 ),
         .I2(TX_WRITE_ADDRESS[6]),
         .O(\TX_WRITE_ADDRESS[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair178" *) 
+  (* SOFT_HLUTNM = "soft_lutpair177" *) 
   LUT4 #(
     .INIT(16'h4510)) 
     \TX_WRITE_ADDRESS[7]_i_1 
@@ -37946,7 +37903,7 @@ module rmii_ethernet
         .I2(TX_WRITE_ADDRESS[6]),
         .I3(TX_WRITE_ADDRESS[7]),
         .O(\TX_WRITE_ADDRESS[7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair178" *) 
+  (* SOFT_HLUTNM = "soft_lutpair177" *) 
   LUT5 #(
     .INIT(32'h51550400)) 
     \TX_WRITE_ADDRESS[8]_i_1 
@@ -38108,7 +38065,7 @@ module rmii_ethernet
         .D(\TX_WRITE_ADDRESS[9]_i_1_n_0 ),
         .Q(TX_WRITE_ADDRESS[9]),
         .R(INTERNAL_RST_reg));
-  (* SOFT_HLUTNM = "soft_lutpair184" *) 
+  (* SOFT_HLUTNM = "soft_lutpair183" *) 
   LUT3 #(
     .INIT(8'h20)) 
     TX_WRITE_i_1
@@ -38542,27 +38499,27 @@ module user_design
   wire [7:0]\SEVEN_SEGMENT_ANNODE_reg[7] ;
   wire [0:0]\SEVEN_SEGMENT_CATHODE_reg[0] ;
   wire pwropt;
-  wire [31:0]wire_139931276046560;
-  wire wire_139931276046560_ack;
-  wire wire_139931276046560_stb;
+  wire [31:0]wire_139862652510720;
+  wire wire_139862652510720_ack;
+  wire wire_139862652510720_stb;
 
-  main_0 main_0_139931282298208
+  main_0 main_0_139862649017984
        (.ETH_CLK_OBUF(ETH_CLK_OBUF),
         .INTERNAL_RST_reg(INTERNAL_RST_reg),
-        .output_value(wire_139931276046560),
-        .wire_139931276046560_ack(wire_139931276046560_ack),
-        .wire_139931276046560_stb(wire_139931276046560_stb));
-  main_1 main_1_139931279302312
+        .output_value(wire_139862652510720),
+        .wire_139862652510720_ack(wire_139862652510720_ack),
+        .wire_139862652510720_stb(wire_139862652510720_stb));
+  main_1 main_1_139862643227464
        (.D(D),
         .E(E),
         .ETH_CLK_OBUF(ETH_CLK_OBUF),
         .INTERNAL_RST_reg(INTERNAL_RST_reg),
         .\SEVEN_SEGMENT_ANNODE_reg[7] (\SEVEN_SEGMENT_ANNODE_reg[7] ),
         .\SEVEN_SEGMENT_CATHODE_reg[0] (\SEVEN_SEGMENT_CATHODE_reg[0] ),
-        .output_value(wire_139931276046560),
+        .output_value(wire_139862652510720),
         .pwropt(pwropt),
-        .wire_139931276046560_ack(wire_139931276046560_ack),
-        .wire_139931276046560_stb(wire_139931276046560_stb));
+        .wire_139862652510720_ack(wire_139862652510720_ack),
+        .wire_139862652510720_stb(wire_139862652510720_stb));
 endmodule
 `ifndef GLBL
 `define GLBL

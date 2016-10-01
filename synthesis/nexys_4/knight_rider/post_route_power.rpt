@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date             : Tue Dec 22 19:12:59 2015
+| Date             : Sun Jul 31 18:42:41 2016
 | Host             : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command          : report_power -file ./post_route_power.rpt
 | Design           : BSP
@@ -155,7 +155,7 @@ Table of Contents
 |   SDA_IOBUF_inst                  |     0.000 |
 |   SERIAL_OUTPUT_INST_1            |    <0.001 |
 |   USER_DESIGN_INST_1              |     0.009 |
-|     main_0_139931267303256        |     0.009 |
+|     main_0_139862638468704        |     0.009 |
 |       registers_reg_r1_0_15_0_5   |    <0.001 |
 |       registers_reg_r1_0_15_12_17 |    <0.001 |
 |       registers_reg_r1_0_15_18_23 |    <0.001 |

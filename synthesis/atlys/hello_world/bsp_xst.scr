@@ -1,0 +1,9 @@
+run
+-ifn "/home/storage/Projects/Chips-Demo/synthesis/atlys/hello_world/bsp.prj"
+-ifmt mixed
+-ofn bsp
+-ofmt ngc
+-top bsp
+-p XC6Slx45-CSG324
+-opt_level 1
+-opt_mode SPEED

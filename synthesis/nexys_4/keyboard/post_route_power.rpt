@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date             : Tue Dec 22 18:39:47 2015
+| Date             : Sun Jul 31 18:05:57 2016
 | Host             : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command          : report_power -file ./post_route_power.rpt
 | Design           : BSP
@@ -30,7 +30,7 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.128 |
+| Total On-Chip Power (W)  | 0.129 |
 | Dynamic (W)              | 0.031 |
 | Device Static (W)        | 0.098 |
 | Effective TJA (C/W)      | 4.6   |
@@ -50,19 +50,19 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.004 |        8 |       --- |             --- |
-| Slice Logic              |     0.005 |     2857 |       --- |             --- |
-|   LUT as Logic           |     0.005 |     1610 |     63400 |            2.54 |
+| Slice Logic              |     0.006 |     2867 |       --- |             --- |
+|   LUT as Logic           |     0.005 |     1611 |     63400 |            2.54 |
 |   CARRY4                 |    <0.001 |       62 |     15850 |            0.39 |
-|   Register               |    <0.001 |      652 |    126800 |            0.51 |
+|   Register               |    <0.001 |      655 |    126800 |            0.52 |
 |   LUT as Distributed RAM |    <0.001 |       48 |     19000 |            0.25 |
-|   F7/F8 Muxes            |    <0.001 |      186 |     63400 |            0.29 |
+|   F7/F8 Muxes            |    <0.001 |      188 |     63400 |            0.30 |
 |   Others                 |     0.000 |       36 |       --- |             --- |
-| Signals                  |     0.005 |     2101 |       --- |             --- |
+| Signals                  |     0.006 |     2110 |       --- |             --- |
 | Block RAM                |     0.003 |     10.5 |       135 |            7.78 |
 | MMCM                     |     0.000 |        1 |         6 |           16.67 |
 | I/O                      |     0.013 |       90 |       210 |           42.86 |
 | Static Power             |     0.098 |          |           |                 |
-| Total                    |     0.128 |          |           |                 |
+| Total                    |     0.129 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.033 |       0.018 |      0.015 |
+| Vccint    |       1.000 |     0.034 |       0.018 |      0.015 |
 | Vccaux    |       1.800 |     0.019 |       0.000 |      0.018 |
 | Vcco33    |       3.300 |     0.008 |       0.004 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -156,8 +156,8 @@ Table of Contents
 |   SDA_IOBUF_inst                  |     0.000 |
 |   SERIAL_INPUT_INST_1             |    <0.001 |
 |   SERIAL_OUTPUT_INST_1            |    <0.001 |
-|   USER_DESIGN_INST_1              |     0.011 |
-|     main_0_139931283423456        |     0.011 |
+|   USER_DESIGN_INST_1              |     0.012 |
+|     main_0_139862653275888        |     0.012 |
 |       registers_reg_r1_0_15_0_5   |    <0.001 |
 |       registers_reg_r1_0_15_12_17 |    <0.001 |
 |       registers_reg_r1_0_15_18_23 |    <0.001 |

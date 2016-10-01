@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date         : Tue Dec 22 18:36:44 2015
+| Date         : Sun Jul 31 18:02:58 2016
 | Host         : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command      : report_timing_summary -file ./post_route_timing_summary.rpt
 | Design       : BSP
@@ -376,8 +376,8 @@ Sources:            { dcm_sp_inst/CLKOUT4 }
 Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location         Pin
 Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.576         20.000      17.424     RAMB36_X0Y28     CHARSVGA_INST_1/BRAM_INST_1/MEMORY_reg_0/CLKARDCLK
 Max Period        n/a     MMCME2_ADV/CLKOUT4  n/a            213.360       20.000      193.360    MMCME2_ADV_X1Y2  dcm_sp_inst/CLKOUT4
-Low Pulse Width   Fast    RAMD32/CLK          n/a            1.250         10.000      8.750      SLICE_X70Y113    USER_DESIGN_INST_1/main_0_139931286003792/registers_reg_r1_0_15_0_5/RAMA/CLK
-High Pulse Width  Fast    RAMD32/CLK          n/a            1.250         10.000      8.750      SLICE_X70Y116    USER_DESIGN_INST_1/main_0_139931286003792/registers_reg_r1_0_15_12_17/RAMA/CLK
+Low Pulse Width   Fast    RAMD32/CLK          n/a            1.250         10.000      8.750      SLICE_X70Y113    USER_DESIGN_INST_1/main_0_139862653956176/registers_reg_r1_0_15_0_5/RAMA/CLK
+High Pulse Width  Fast    RAMD32/CLK          n/a            1.250         10.000      8.750      SLICE_X70Y116    USER_DESIGN_INST_1/main_0_139862653956176/registers_reg_r1_0_15_12_17/RAMA/CLK
 
 
 
