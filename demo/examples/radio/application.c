@@ -14,11 +14,18 @@ unsigned rs232_tx = output("rs232_tx");
 #include "print.h"
 
 #define AUDIO_RANGE 256
+#define AUDIO_BIAS 128
+#define AUDIO_MAX 127
+#define AUDIO_MIN -128
+
+#define SAMPLING_FREQUENCY 100.0e6
+#define AVERAGE_SAMPLES 16384
+#define AUDIO_SAMPLING_FREQUENCY SAMPLING_FREQUENCY/AVERAGE_SAMPLES
 
 void output_audio(int sample){
-    if(sample > 127) sample = 127;
-    if(sample < -128) sample = -128;
-    fputc(sample+128, audio_out);
+    if(sample > AUDIO_MAX) sample = AUDIO_MAX;
+    if(sample < AUDIO_MIN) sample = AUDIO_MIN;
+    fputc(sample+AUDIO_BIAS, audio_out);
 }
 
 void main(){
@@ -26,15 +33,16 @@ void main(){
     unsigned frequency_hz = 910e3;
     int min=0, max=0, range=0, attenuation=0, differential=0,
     integral=0, sample=0, centre=0, last_integral=0, last_sample=0;
+    unsigned audio_leak = 2;
 
     stdout = rs232_tx;
     stdin = rs232_rx;
 
-    fputc(16384, samples_out);
+    fputc(AVERAGE_SAMPLES, samples_out);
     puts("Enter frequency in hz:\n");
     frequency_hz = scan_udecimal();
     puts("calculating frequency:\n");
-    fputc((int)(frequency_hz/(1000.0e6/4294967296.0)), frequency_out);
+    fputc((int)(frequency_hz/(SAMPLING_FREQUENCY/4294967296.0)), frequency_out);
     puts("playing audio:\n");
 
     while(1){
@@ -50,8 +58,8 @@ void main(){
 
         //leaky integrator
         last_integral = integral;
-        //integral = ((last_integral*2) >> 10) + differential;
-        integral = last_integral + differential;
+        integral = (last_integral >> 10) + differential;
+        //integral = last_integral + differential;
 
         //automatic gain control
         if(integral > max) max = integral;
@@ -63,10 +71,13 @@ void main(){
             attenuation++;
         }
         output_audio((integral-centre)>>attenuation);
-        //if(range > 2){
-            //max -= 1;
-            //min += 1;
-        //}
+        if(!audio_leak--){
+            audio_leak = 2;
+            if(range > 2){
+                max -= 1;
+                min += 1;
+            }
+        }
 
         //print_decimal(min);
         //puts(" ");

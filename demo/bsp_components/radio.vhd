@@ -74,7 +74,7 @@ architecture rtl of radio is
   signal rf_d1 : std_logic;
   signal rf_d2 : std_logic;
   signal s_audio_stb : std_logic;
-  signal average_stb : std_logic;
+  signal rect_stb : std_logic;
   signal magnitude_stb : std_logic;
   signal lo_i : signed(9 downto 0) := (others => '0');
   signal lo_q : signed(9 downto 0) := (others => '0');
@@ -86,6 +86,8 @@ architecture rtl of radio is
   signal frequency_reg  : unsigned(31 downto 0) := (others => '0');
   signal average_i : std_logic_vector(30 downto 0) := (others => '0');
   signal average_q : std_logic_vector(30 downto 0) := (others => '0');
+  signal rect_i : std_logic_vector(30 downto 0) := (others => '0');
+  signal rect_q : std_logic_vector(30 downto 0) := (others => '0');
   signal magnitude : std_logic_vector(31 downto 0) := (others => '0');
   signal phase : std_logic_vector(31 downto 0) := (others => '0');
   signal average_samples_reg : unsigned(31 downto 0) := (others => '0');
@@ -113,14 +115,14 @@ begin
       average_i <= (others => '0');
       average_q <= (others => '0');
       sample_count <= (others => '0');
-      average_stb <= '1';
-      s_audio_stb <= '1';
-      audio <= average_i(30) & average_i;
+      rect_i <= average_i;
+      rect_q <= average_q;
+      rect_stb <= '1';
     else
       average_i <= std_logic_vector(signed(average_i) + i);
       average_q <= std_logic_vector(signed(average_q) + q);
       sample_count <= sample_count + 1;
-      average_stb <= '0';
+      rect_stb <= '0';
     end if;
 
     if frequency_stb = '1' then
@@ -131,8 +133,10 @@ begin
       average_samples_reg <= unsigned(average_samples);
     end if;
 
-    --if magnitude_stb = '1' then
-    --end if;
+    if magnitude_stb = '1' then
+      s_audio_stb <= '1';
+      audio <= magnitude;
+    end if;
 
     if s_audio_stb = '1' and audio_ack = '1' then
       s_audio_stb <= '0';
@@ -149,10 +153,10 @@ begin
   ) port map(
       clk => clk,
       rst => rst,
-      stb_in => average_stb,
+      stb_in => rect_stb,
       stb_out => magnitude_stb,
-      i => average_i,
-      q => average_q,
+      i => rect_i,
+      q => rect_q,
       phase => phase,
       magnitude => magnitude
   );

@@ -2,8 +2,8 @@
 # Vivado v2015.2 (64-bit)
 # SW Build 1266856 on Fri Jun 26 16:35:25 MDT 2015
 # IP Build 1264090 on Wed Jun 24 14:22:01 MDT 2015
-# Start of session at: Sun Oct  9 12:43:15 2016
-# Process ID: 23943
+# Start of session at: Sun Oct  9 14:06:26 2016
+# Process ID: 12531
 # Log file: /home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/vivado.log
 # Journal file: /home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/vivado.jou
 #-----------------------------------------------------------
@@ -46,7 +46,7 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 946.070 ; gain = 141.520 ; free physical = 2258 ; free virtual = 6462
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 946.066 ; gain = 141.520 ; free physical = 1949 ; free virtual = 6656
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'BSP' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/bsp.vhd:147]
 INFO: [Synth 8-3491] module 'rmii_ethernet' declared at '/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/rmii_ethernet.vhd:82' bound to instance 'ethernet_inst_1' of component 'rmii_ethernet' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/bsp.vhd:544]
@@ -68,12 +68,12 @@ INFO: [Synth 8-256] done synthesizing module 'CHARSVGA' (4#1300) [/home/storage/
 INFO: [Synth 8-3491] module 'radio' declared at '/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/radio.vhd:7' bound to instance 'radio_inst_1' of component 'radio' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/bsp.vhd:597]
 INFO: [Synth 8-638] synthesizing module 'radio' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/radio.vhd:33]
 	Parameter width bound to: 31 - type: integer 
-INFO: [Synth 8-3491] module 'rectangular_to_polar' declared at '/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/rectangular_to_polar.vhd:20' bound to instance 'rectangular_to_polar_inst_1' of component 'rectangular_to_polar' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/radio.vhd:147]
+INFO: [Synth 8-3491] module 'rectangular_to_polar' declared at '/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/rectangular_to_polar.vhd:20' bound to instance 'rectangular_to_polar_inst_1' of component 'rectangular_to_polar' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/radio.vhd:151]
 INFO: [Synth 8-638] synthesizing module 'rectangular_to_polar' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/rectangular_to_polar.vhd:36]
 	Parameter width bound to: 31 - type: integer 
 WARNING: [Synth 8-3512] assigned value '-2147483648' out of range [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/rectangular_to_polar.vhd:78]
 INFO: [Synth 8-256] done synthesizing module 'rectangular_to_polar' (5#1300) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/rectangular_to_polar.vhd:36]
-WARNING: [Synth 8-3936] Found unconnected internal register 'wt_reg' and it is trimmed from '64' to '32' bits. [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/radio.vhd:106]
+WARNING: [Synth 8-3936] Found unconnected internal register 'wt_reg' and it is trimmed from '64' to '32' bits. [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/radio.vhd:108]
 INFO: [Synth 8-256] done synthesizing module 'radio' (6#1300) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/radio.vhd:33]
 	Parameter CAPACITANCE bound to: DONT_CARE - type: string 
 	Parameter DIFF_TERM bound to: 0 - type: bool 
@@ -147,10 +147,10 @@ INFO: [Synth 8-638] synthesizing module 'long_to_double' [/home/storage/Projects
 	Parameter put_z bound to: 3'b110 
 INFO: [Synth 8-155] case statement is not full and has no default [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/chips_lib.v:2042]
 INFO: [Synth 8-256] done synthesizing module 'long_to_double' (10#1300) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/chips_lib.v:1997]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/main_0.v:1165]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/main_0.v:1386]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/main_0.v:1422]
-INFO: [Synth 8-155] case statement is not full and has no default [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/main_0.v:1149]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/main_0.v:1236]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/main_0.v:1457]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/main_0.v:1493]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/main_0.v:1220]
 WARNING: [Synth 8-3848] Net exception in module/entity main_0 does not have driver. [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/main_0.v:131]
 INFO: [Synth 8-256] done synthesizing module 'main_0' (11#1300) [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/main_0.v:22]
 INFO: [Synth 8-638] synthesizing module 'main_1' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/main_1.v:2]
@@ -259,7 +259,7 @@ WARNING: [Synth 8-3331] design BSP has unconnected port JC[4]
 WARNING: [Synth 8-3331] design BSP has unconnected port JC[3]
 WARNING: [Synth 8-3331] design BSP has unconnected port JC[2]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 1058.367 ; gain = 253.816 ; free physical = 2142 ; free virtual = 6347
+Finished RTL Elaboration : Time (s): cpu = 00:00:25 ; elapsed = 00:00:26 . Memory (MB): peak = 1059.363 ; gain = 254.816 ; free physical = 1817 ; free virtual = 6526
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -334,7 +334,7 @@ WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_eth_rx[17] t
 WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_eth_rx[16] to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/bsp.vhd:649]
 WARNING: [Synth 8-3295] tying undriven pin USER_DESIGN_INST_1:input_timer_stb to constant 0 [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/bsp.vhd:649]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 1058.367 ; gain = 253.816 ; free physical = 2141 ; free virtual = 6347
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:26 ; elapsed = 00:00:26 . Memory (MB): peak = 1059.363 ; gain = 254.816 ; free physical = 1817 ; free virtual = 6526
 ---------------------------------------------------------------------------------
 INFO: [Netlist 29-17] Analyzing 3 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -354,22 +354,22 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   IBUFG => IBUF: 1 instances
 
 INFO: [Timing 38-2] Deriving generated clocks
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.44 ; elapsed = 00:00:00.18 . Memory (MB): peak = 1381.812 ; gain = 2.000 ; free physical = 1954 ; free virtual = 6159
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.49 ; elapsed = 00:00:00.18 . Memory (MB): peak = 1381.809 ; gain = 2.000 ; free physical = 1642 ; free virtual = 6351
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:39 ; elapsed = 00:00:39 . Memory (MB): peak = 1381.812 ; gain = 577.262 ; free physical = 1953 ; free virtual = 6158
+Finished Constraint Validation : Time (s): cpu = 00:00:39 ; elapsed = 00:00:38 . Memory (MB): peak = 1381.809 ; gain = 577.262 ; free physical = 1641 ; free virtual = 6350
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tcsg324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:39 ; elapsed = 00:00:39 . Memory (MB): peak = 1381.812 ; gain = 577.262 ; free physical = 1953 ; free virtual = 6158
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:39 ; elapsed = 00:00:38 . Memory (MB): peak = 1381.809 ; gain = 577.262 ; free physical = 1641 ; free virtual = 6350
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:40 ; elapsed = 00:00:40 . Memory (MB): peak = 1381.812 ; gain = 577.262 ; free physical = 1951 ; free virtual = 6158
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:40 ; elapsed = 00:00:39 . Memory (MB): peak = 1381.809 ; gain = 577.262 ; free physical = 1641 ; free virtual = 6350
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-3537] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the inputs of the operator [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/rmii_ethernet.vhd:366]
 INFO: [Synth 8-5546] ROM "TX_PHY_STATE" won't be mapped to RAM because it is too sparse
@@ -613,7 +613,7 @@ INFO: [Synth 8-3354] encoded FSM with state register 'STATE_reg' using encoding 
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'STATE_reg' using encoding 'sequential' in module 'SERIAL_INPUT'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:49 ; elapsed = 00:00:49 . Memory (MB): peak = 1381.812 ; gain = 577.262 ; free physical = 1929 ; free virtual = 6137
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:49 ; elapsed = 00:00:49 . Memory (MB): peak = 1381.809 ; gain = 577.262 ; free physical = 1623 ; free virtual = 6332
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -630,8 +630,8 @@ Report RTL Partitions:
 |8     |rectangular_to_polar__GB7 |           1|      9880|
 |9     |rectangular_to_polar__GB8 |           1|      9626|
 |10    |rectangular_to_polar__GB9 |           1|     10330|
-|11    |radio__GC0                |           1|       558|
-|12    |BSP__GCB0                 |           1|     40768|
+|11    |radio__GC0                |           1|       621|
+|12    |BSP__GCB0                 |           1|     41560|
 |13    |BSP__GCB1                 |           1|      6592|
 +------+--------------------------+------------+----------+
 ---------------------------------------------------------------------------------
@@ -671,8 +671,8 @@ Detailed RTL Component Info :
 	              109 Bit    Registers := 3     
 	               64 Bit    Registers := 16    
 	               53 Bit    Registers := 5     
-	               32 Bit    Registers := 130   
-	               31 Bit    Registers := 1     
+	               32 Bit    Registers := 131   
+	               31 Bit    Registers := 2     
 	               29 Bit    Registers := 1     
 	               26 Bit    Registers := 1     
 	               16 Bit    Registers := 9     
@@ -711,11 +711,12 @@ Detailed RTL Component Info :
 	   7 Input     53 Bit        Muxes := 1     
 	   2 Input     32 Bit        Muxes := 248   
 	  16 Input     32 Bit        Muxes := 3     
+	  27 Input     32 Bit        Muxes := 1     
 	   4 Input     32 Bit        Muxes := 1     
 	  30 Input     32 Bit        Muxes := 2     
 	  13 Input     32 Bit        Muxes := 1     
 	   2 Input     29 Bit        Muxes := 2     
-	 853 Input     29 Bit        Muxes := 1     
+	 924 Input     29 Bit        Muxes := 1     
 	   2 Input     28 Bit        Muxes := 1     
 	   2 Input     27 Bit        Muxes := 1     
 	   2 Input     26 Bit        Muxes := 1     
@@ -730,6 +731,7 @@ Detailed RTL Component Info :
 	   2 Input     17 Bit        Muxes := 1     
 	   2 Input     16 Bit        Muxes := 3     
 	  16 Input     16 Bit        Muxes := 2     
+	   4 Input     16 Bit        Muxes := 1     
 	   6 Input     16 Bit        Muxes := 1     
 	  13 Input     16 Bit        Muxes := 1     
 	   2 Input     15 Bit        Muxes := 1     
@@ -770,6 +772,7 @@ Detailed RTL Component Info :
 	   6 Input      3 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 4     
 	   7 Input      2 Bit        Muxes := 1     
+	  27 Input      2 Bit        Muxes := 1     
 	   4 Input      2 Bit        Muxes := 2     
 	  32 Input      2 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 130   
@@ -842,8 +845,8 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input     32 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 2     
-	               31 Bit    Registers := 1     
+	               32 Bit    Registers := 3     
+	               31 Bit    Registers := 2     
 	               10 Bit    Registers := 4     
 	                2 Bit    Registers := 1     
 	                1 Bit    Registers := 4     
@@ -937,10 +940,13 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 4     
 	  16 Input     32 Bit        Muxes := 3     
+	  27 Input     32 Bit        Muxes := 1     
 	   4 Input     32 Bit        Muxes := 1     
-	 853 Input     29 Bit        Muxes := 1     
+	 924 Input     29 Bit        Muxes := 1     
 	   2 Input     16 Bit        Muxes := 2     
 	  16 Input     16 Bit        Muxes := 2     
+	   4 Input     16 Bit        Muxes := 1     
+	  27 Input      2 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 42    
 	  16 Input      1 Bit        Muxes := 30    
 	  27 Input      1 Bit        Muxes := 10    
@@ -1156,7 +1162,7 @@ BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
 ---------------------------------------------------------------------------------
 Finished Part Resource Summary
 ---------------------------------------------------------------------------------
-Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:51 ; elapsed = 00:00:51 . Memory (MB): peak = 1381.812 ; gain = 577.262 ; free physical = 1929 ; free virtual = 6137
+Start Parallel Synthesis Optimization  : Time (s): cpu = 00:00:51 ; elapsed = 00:00:51 . Memory (MB): peak = 1381.809 ; gain = 577.262 ; free physical = 1623 ; free virtual = 6332
 ---------------------------------------------------------------------------------
 Start Cross Boundary Optimization
 ---------------------------------------------------------------------------------
@@ -1195,8 +1201,8 @@ INFO: [Synth 8-5545] ROM "value" won't be mapped to RAM because address size (64
 INFO: [Synth 8-5545] ROM "z_m" won't be mapped to RAM because address size (64) is larger than maximum supported(18)
 INFO: [Synth 8-5545] ROM "z_e" won't be mapped to RAM because address size (53) is larger than maximum supported(18)
 INFO: [Synth 8-5545] ROM "z_s" won't be mapped to RAM because address size (64) is larger than maximum supported(18)
-WARNING: [Synth 8-3936] Found unconnected internal register 'product_c_reg' and it is trimmed from '32' to '16' bits. [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/main_0.v:1356]
-WARNING: [Synth 8-3936] Found unconnected internal register 'product_b_reg' and it is trimmed from '32' to '16' bits. [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/main_0.v:1355]
+WARNING: [Synth 8-3936] Found unconnected internal register 'product_c_reg' and it is trimmed from '32' to '16' bits. [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/main_0.v:1427]
+WARNING: [Synth 8-3936] Found unconnected internal register 'product_b_reg' and it is trimmed from '32' to '16' bits. [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/main_0.v:1426]
 DSP Report: Generating DSP product_c_reg, operation Mode is: (A*B)'.
 DSP Report: register product_c_reg is absorbed into DSP product_c_reg.
 DSP Report: operator product_c0 is absorbed into DSP product_c_reg.
@@ -1210,7 +1216,7 @@ DSP Report: operator product_b0 is absorbed into DSP product_b_reg.
 INFO: [Synth 8-4471] merging register 'PWM_INST_2/PWM_VAL_reg[7:0]' into 'PWM_INST_1/PWM_VAL_reg[7:0]' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/pwm.vhd:36]
 INFO: [Synth 8-4471] merging register 'PWM_INST_3/PWM_VAL_reg[7:0]' into 'PWM_INST_1/PWM_VAL_reg[7:0]' [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/pwm.vhd:36]
 WARNING: [Synth 8-3917] design BSP__GCB0 has port DATA_ACK driven by constant 1
-WARNING: [Synth 8-3917] design BSP__GCB0 has port O10 driven by constant 1
+WARNING: [Synth 8-3917] design BSP__GCB0 has port O9 driven by constant 1
 WARNING: [Synth 8-3917] design BSP__GCB0 has port output_i2c[31] driven by constant 0
 WARNING: [Synth 8-3917] design BSP__GCB0 has port output_i2c[30] driven by constant 0
 WARNING: [Synth 8-3917] design BSP__GCB0 has port output_i2c[29] driven by constant 0
@@ -1275,8 +1281,8 @@ WARNING: [Synth 8-3917] design BSP__GCB0 has port output_vga[3] driven by consta
 WARNING: [Synth 8-3917] design BSP__GCB0 has port output_vga[2] driven by constant 0
 WARNING: [Synth 8-3917] design BSP__GCB0 has port output_vga[1] driven by constant 0
 WARNING: [Synth 8-3917] design BSP__GCB0 has port output_vga[0] driven by constant 0
+WARNING: [Synth 8-3917] design BSP__GCB0 has port O13 driven by constant 1
 WARNING: [Synth 8-3917] design BSP__GCB0 has port O14 driven by constant 1
-WARNING: [Synth 8-3917] design BSP__GCB0 has port O15 driven by constant 1
 WARNING: [Synth 8-3331] design BSP__GCB0 has unconnected port GPIO_BUTTONS[4]
 WARNING: [Synth 8-3331] design BSP__GCB0 has unconnected port GPIO_BUTTONS[3]
 WARNING: [Synth 8-3331] design BSP__GCB0 has unconnected port GPIO_BUTTONS[2]
@@ -1367,9 +1373,9 @@ WARNING: [Synth 8-3331] design BSP__GCB0 has unconnected port GPIO_SWITCHES[2]
 WARNING: [Synth 8-3331] design BSP__GCB0 has unconnected port GPIO_SWITCHES[1]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary Optimization : Time (s): cpu = 00:00:59 ; elapsed = 00:01:18 . Memory (MB): peak = 1385.449 ; gain = 580.898 ; free physical = 535 ; free virtual = 4758
+Finished Cross Boundary Optimization : Time (s): cpu = 00:00:59 ; elapsed = 00:01:18 . Memory (MB): peak = 1385.445 ; gain = 580.898 ; free physical = 213 ; free virtual = 4936
 ---------------------------------------------------------------------------------
-Finished Parallel Reinference  : Time (s): cpu = 00:00:59 ; elapsed = 00:01:18 . Memory (MB): peak = 1385.449 ; gain = 580.898 ; free physical = 535 ; free virtual = 4758
+Finished Parallel Reinference  : Time (s): cpu = 00:00:59 ; elapsed = 00:01:18 . Memory (MB): peak = 1385.445 ; gain = 580.898 ; free physical = 213 ; free virtual = 4936
 
 Report RTL Partitions: 
 +------+--------------------------+------------+----------+
@@ -1385,8 +1391,8 @@ Report RTL Partitions:
 |8     |rectangular_to_polar__GB7 |           1|      7711|
 |9     |rectangular_to_polar__GB8 |           1|      6584|
 |10    |rectangular_to_polar__GB9 |           1|      9335|
-|11    |radio__GC0                |           1|      1224|
-|12    |BSP__GCB0                 |           1|     28343|
+|11    |radio__GC0                |           1|      1287|
+|12    |BSP__GCB0                 |           1|     29137|
 |13    |BSP__GCB1                 |           1|      6633|
 +------+--------------------------+------------+----------+
 INFO: [Synth 8-4652] Swapped enable and write-enable on 2 RAM instances of RAM CHARSVGA_INST_1/BRAM_INST_1/MEMORY_reg to conserve power
@@ -1562,74 +1568,74 @@ WARNING: [Synth 8-3332] Sequential element (\s_output_rs232_tx_reg[11] ) is unus
 WARNING: [Synth 8-3332] Sequential element (\s_output_rs232_tx_reg[10] ) is unused and will be removed from module main_0.
 WARNING: [Synth 8-3332] Sequential element (\s_output_rs232_tx_reg[9] ) is unused and will be removed from module main_0.
 WARNING: [Synth 8-3332] Sequential element (\s_output_rs232_tx_reg[8] ) is unused and will be removed from module main_0.
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[0] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\PWM_INST_1/PWM_VAL_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /\s_output_samples_out_stb_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /\s_output_frequency_out_stb_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /\s_output_audio_out_stb_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /\s_output_rs232_tx_stb_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /\s_output_eth_out_stb_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /\s_input_eth_in_ack_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /\s_input_audio_in_ack_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /\s_input_rs232_rx_ack_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /\state_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /\s_output_samples_out_stb_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /\s_output_frequency_out_stb_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /\s_output_audio_out_stb_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /\s_output_rs232_tx_stb_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /\s_output_eth_out_stb_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /\s_input_eth_in_ack_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /\s_input_audio_in_ack_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /\s_input_rs232_rx_ack_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /\state_reg[8] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\GPIO_LEDS_reg[15] )
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (\SEVEN_SEGMENT_ANNODE_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[9] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[12] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[14] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[15] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[16] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[17] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[18] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[19] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[20] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[21] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[22] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[23] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[24] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[25] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[26] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[27] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[28] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[29] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[30] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[31] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[32] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[33] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[34] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[35] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[36] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[37] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[38] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[39] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[40] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[41] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[42] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[43] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[44] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[45] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[46] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[47] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[48] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[49] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[50] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[51] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[52] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[53] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[54] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_140457473533424 /double_divider_inst/\dividend_reg[55] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[32] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[33] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[34] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[35] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[36] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[37] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[38] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[39] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[40] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[41] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[42] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[43] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[44] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[45] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[46] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[47] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[48] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[49] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[50] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[51] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[52] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[53] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[54] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\USER_DESIGN_INST_1/main_0_139935148058096 /double_divider_inst/\dividend_reg[55] )
 WARNING: [Synth 8-3332] Sequential element (\dividend_reg[55] ) is unused and will be removed from module double_divider.
 WARNING: [Synth 8-3332] Sequential element (\dividend_reg[54] ) is unused and will be removed from module double_divider.
 WARNING: [Synth 8-3332] Sequential element (\dividend_reg[53] ) is unused and will be removed from module double_divider.
@@ -1640,9 +1646,9 @@ WARNING: [Synth 8-3332] Sequential element (\dividend_reg[49] ) is unused and wi
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished Area Optimization : Time (s): cpu = 00:01:12 ; elapsed = 00:02:10 . Memory (MB): peak = 1393.453 ; gain = 588.902 ; free physical = 259 ; free virtual = 4499
+Finished Area Optimization : Time (s): cpu = 00:01:12 ; elapsed = 00:02:15 . Memory (MB): peak = 1393.449 ; gain = 588.902 ; free physical = 121 ; free virtual = 4695
 ---------------------------------------------------------------------------------
-Finished Parallel Area Optimization  : Time (s): cpu = 00:01:12 ; elapsed = 00:02:10 . Memory (MB): peak = 1393.453 ; gain = 588.902 ; free physical = 259 ; free virtual = 4499
+Finished Parallel Area Optimization  : Time (s): cpu = 00:01:12 ; elapsed = 00:02:15 . Memory (MB): peak = 1393.449 ; gain = 588.902 ; free physical = 121 ; free virtual = 4695
 
 Report RTL Partitions: 
 +------+--------------------------+------------+----------+
@@ -1654,15 +1660,15 @@ Report RTL Partitions:
 |4     |rectangular_to_polar__GB3 |           1|      1343|
 |5     |rectangular_to_polar__GB4 |           1|      6876|
 |6     |rectangular_to_polar__GB5 |           1|      4315|
-|7     |rectangular_to_polar__GB6 |           1|      2005|
+|7     |rectangular_to_polar__GB6 |           1|      2354|
 |8     |rectangular_to_polar__GB7 |           1|      1903|
 |9     |rectangular_to_polar__GB8 |           1|      2024|
-|10    |rectangular_to_polar__GB9 |           1|      1249|
-|11    |radio__GC0                |           1|       861|
-|12    |BSP__GCB0                 |           1|     12274|
+|10    |rectangular_to_polar__GB9 |           1|      1473|
+|11    |radio__GC0                |           1|       924|
+|12    |BSP__GCB0                 |           1|     12000|
 |13    |BSP__GCB1                 |           1|      4061|
 +------+--------------------------+------------+----------+
-Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:01:12 ; elapsed = 00:02:10 . Memory (MB): peak = 1393.453 ; gain = 588.902 ; free physical = 259 ; free virtual = 4499
+Finished Parallel Synthesis Optimization  : Time (s): cpu = 00:01:12 ; elapsed = 00:02:15 . Memory (MB): peak = 1393.449 ; gain = 588.902 ; free physical = 121 ; free virtual = 4694
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
@@ -1675,47 +1681,48 @@ CRITICAL WARNING: [Synth 8-5560] create_generated_clock attempting to set clock 
 CRITICAL WARNING: [Synth 8-5560] create_generated_clock attempting to set clock on an unknown port/pin command: "create_generated_clock -name clk2x -source [get_pins dcm_sp_inst/CLKIN1] -multiply_by 2 -add -master_clock sys_clk_pin [get_pins dcm_sp_inst/CLKOUT1]" for an auto-generated constraint
 CRITICAL WARNING: [Synth 8-5560] create_generated_clock attempting to set clock on an unknown port/pin command: "create_generated_clock -name clkdv -source [get_pins dcm_sp_inst/CLKIN1] -edges {1 2 3} -edge_shift {0.000 5.000 10.000} -add -master_clock sys_clk_pin [get_pins dcm_sp_inst/CLKOUT4]" for an auto-generated constraint
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:27 ; elapsed = 00:02:25 . Memory (MB): peak = 1514.816 ; gain = 710.266 ; free physical = 138 ; free virtual = 4297
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:27 ; elapsed = 00:02:30 . Memory (MB): peak = 1516.812 ; gain = 712.266 ; free physical = 161 ; free virtual = 4525
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:31 ; elapsed = 00:02:28 . Memory (MB): peak = 1530.820 ; gain = 726.270 ; free physical = 120 ; free virtual = 4279
+Finished Timing Optimization : Time (s): cpu = 00:01:30 ; elapsed = 00:02:33 . Memory (MB): peak = 1534.816 ; gain = 730.270 ; free physical = 143 ; free virtual = 4508
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
 +------+--------------------------+------------+----------+
 |      |RTL Partition             |Replication |Instances |
 +------+--------------------------+------------+----------+
-|1     |rectangular_to_polar__GB0 |           1|         9|
-|2     |rectangular_to_polar__GB1 |           1|         2|
-|3     |rectangular_to_polar__GB2 |           1|         2|
-|4     |rectangular_to_polar__GB3 |           1|         2|
-|5     |rectangular_to_polar__GB4 |           1|        44|
-|6     |rectangular_to_polar__GB5 |           1|         2|
-|7     |rectangular_to_polar__GB7 |           1|         6|
-|8     |rectangular_to_polar__GB8 |           1|         4|
-|9     |rectangular_to_polar__GB9 |           1|         1|
-|10    |radio__GC0                |           1|       649|
-|11    |BSP__GCB0                 |           1|     12247|
-|12    |BSP__GCB1                 |           1|      3731|
+|1     |rectangular_to_polar__GB0 |           1|      3351|
+|2     |rectangular_to_polar__GB1 |           1|       948|
+|3     |rectangular_to_polar__GB2 |           1|       944|
+|4     |rectangular_to_polar__GB3 |           1|      1343|
+|5     |rectangular_to_polar__GB4 |           1|      6876|
+|6     |rectangular_to_polar__GB5 |           1|      4315|
+|7     |rectangular_to_polar__GB6 |           1|      2354|
+|8     |rectangular_to_polar__GB7 |           1|      1903|
+|9     |rectangular_to_polar__GB8 |           1|      2024|
+|10    |rectangular_to_polar__GB9 |           1|      1473|
+|11    |radio__GC0                |           1|       924|
+|12    |BSP__GCB0                 |           1|     11974|
+|13    |BSP__GCB1                 |           1|      3731|
 +------+--------------------------+------------+----------+
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\ethernet_inst_1/TX_IN_COUNT_reg[0] )
 INFO: [Synth 8-223] decloning instance '\CHARSVGA_INST_1/BRAM_INST_1/MEMORY_reg_1 ' (RAMB36E1_1) to '\CHARSVGA_INST_1/BRAM_INST_1/MEMORY_reg_0 '
-INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_140457473533424/memory_reg_0  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_140457473533424/memory_reg_1  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_140457473533424/memory_reg_2  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_140457473533424/memory_reg_3  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_140457473533424/memory_reg_4  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_140457473533424/memory_reg_5  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_140457473533424/memory_reg_6  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
-INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_140457473533424/memory_reg_7  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_139935148058096/memory_reg_0  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_139935148058096/memory_reg_1  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_139935148058096/memory_reg_2  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_139935148058096/memory_reg_3  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_139935148058096/memory_reg_4  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_139935148058096/memory_reg_5  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_139935148058096/memory_reg_6  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-4480] The timing for the instance \USER_DESIGN_INST_1/main_0_139935148058096/memory_reg_7  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance \CHARSVGA_INST_1/BRAM_INST_1/MEMORY_reg_0  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance \CHARSVGA_INST_1/PIXELS_reg  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 INFO: [Synth 8-4480] The timing for the instance \ethernet_inst_1/TX_MEMORY_reg  (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:38 ; elapsed = 00:02:36 . Memory (MB): peak = 1546.832 ; gain = 742.281 ; free physical = 112 ; free virtual = 4271
+Finished Technology Mapping : Time (s): cpu = 00:01:45 ; elapsed = 00:02:48 . Memory (MB): peak = 1574.141 ; gain = 769.594 ; free physical = 134 ; free virtual = 4476
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1733,7 +1740,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:39 ; elapsed = 00:02:37 . Memory (MB): peak = 1546.832 ; gain = 742.281 ; free physical = 112 ; free virtual = 4271
+Finished IO Insertion : Time (s): cpu = 00:01:47 ; elapsed = 00:02:50 . Memory (MB): peak = 1574.141 ; gain = 769.594 ; free physical = 128 ; free virtual = 4475
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1746,7 +1753,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:40 ; elapsed = 00:02:37 . Memory (MB): peak = 1546.832 ; gain = 742.281 ; free physical = 112 ; free virtual = 4271
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:47 ; elapsed = 00:02:50 . Memory (MB): peak = 1574.141 ; gain = 769.594 ; free physical = 128 ; free virtual = 4475
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1758,13 +1765,13 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:40 ; elapsed = 00:02:37 . Memory (MB): peak = 1546.832 ; gain = 742.281 ; free physical = 112 ; free virtual = 4271
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:49 ; elapsed = 00:02:52 . Memory (MB): peak = 1574.141 ; gain = 769.594 ; free physical = 127 ; free virtual = 4476
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Start Renaming Generated Ports : Time (s): cpu = 00:01:40 ; elapsed = 00:02:37 . Memory (MB): peak = 1546.832 ; gain = 742.281 ; free physical = 112 ; free virtual = 4271
+Start Renaming Generated Ports : Time (s): cpu = 00:01:49 ; elapsed = 00:02:52 . Memory (MB): peak = 1574.141 ; gain = 769.594 ; free physical = 127 ; free virtual = 4476
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:40 ; elapsed = 00:02:37 . Memory (MB): peak = 1546.832 ; gain = 742.281 ; free physical = 112 ; free virtual = 4271
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:49 ; elapsed = 00:02:52 . Memory (MB): peak = 1574.141 ; gain = 769.594 ; free physical = 127 ; free virtual = 4476
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1795,45 +1802,46 @@ Report Cell Usage:
 |      |Cell       |Count |
 +------+-----------+------+
 |1     |BUFG       |     5|
-|2     |CARRY4     |   239|
+|2     |CARRY4     |  3186|
 |3     |DCM_SP     |     1|
 |4     |DSP48E1    |     2|
 |5     |DSP48E1_1  |     1|
 |6     |DSP48E1_2  |     2|
 |7     |DSP48E1_3  |     1|
-|8     |LUT1       |   454|
-|9     |LUT2       |   544|
-|10    |LUT3       |   561|
-|11    |LUT4       |   568|
-|12    |LUT5       |   594|
-|13    |LUT6       |  1593|
-|14    |MUXCY_L    |   103|
-|15    |MUXF7      |   261|
-|16    |MUXF8      |    95|
+|8     |LUT1       |  2452|
+|9     |LUT2       |  3725|
+|10    |LUT3       |  4809|
+|11    |LUT4       |  2941|
+|12    |LUT5       |  2867|
+|13    |LUT6       |  1937|
+|14    |MUXCY_L    |   133|
+|15    |MUXF7      |   279|
+|16    |MUXF8      |   101|
 |17    |RAM32M     |    16|
 |18    |RAM64M     |   160|
 |19    |RAM64X1D   |    32|
 |20    |RAMB18E1_2 |     1|
 |21    |RAMB18E1_3 |     1|
-|22    |RAMB36E1   |     8|
-|23    |RAMB36E1_1 |     1|
-|24    |RAMB36E1_2 |     1|
-|25    |SRLC32E    |     1|
-|26    |XORCY      |   107|
-|27    |FDRE       |  2901|
-|28    |FDSE       |    84|
-|29    |IBUF       |     6|
-|30    |IBUFDS     |     1|
-|31    |IBUFG      |     1|
-|32    |IOBUF      |     2|
-|33    |OBUF       |    60|
+|22    |RAMB18E1_4 |     1|
+|23    |RAMB36E1   |     8|
+|24    |RAMB36E1_1 |     1|
+|25    |RAMB36E1_2 |     1|
+|26    |SRLC32E    |     1|
+|27    |XORCY      |   138|
+|28    |FDRE       |  5024|
+|29    |FDSE       |    84|
+|30    |IBUF       |     6|
+|31    |IBUFDS     |     1|
+|32    |IBUFG      |     1|
+|33    |IOBUF      |     2|
+|34    |OBUF       |    60|
 +------+-----------+------+
 
 Report Instance Areas: 
 +------+--------------------------------+---------------------+------+
 |      |Instance                        |Module               |Cells |
 +------+--------------------------------+---------------------+------+
-|1     |top                             |                     |  8407|
+|1     |top                             |                     | 27980|
 |2     |  CHARSVGA_INST_1               |CHARSVGA             |   181|
 |3     |    BRAM_INST_1                 |BRAM                 |     1|
 |4     |    TIMEING1                    |VIDEO_TIME_GEN       |   161|
@@ -1843,24 +1851,24 @@ Report Instance Areas:
 |8     |  PWM_INST_3                    |PWM_1                |    53|
 |9     |  SERIAL_INPUT_INST_1           |SERIAL_INPUT         |   111|
 |10    |  SERIAL_OUTPUT_INST_1          |serial_output        |    71|
-|11    |  USER_DESIGN_INST_1            |user_design          |  5687|
-|12    |    main_0_140457473533424      |main_0               |  5671|
-|13    |      double_divider_inst       |double_divider       |  1881|
+|11    |  USER_DESIGN_INST_1            |user_design          |  5609|
+|12    |    main_0_139935148058096      |main_0               |  5593|
+|13    |      double_divider_inst       |double_divider       |  1880|
 |14    |      double_to_long_inst       |double_to_long       |   596|
 |15    |      long_to_double_inst       |long_to_double       |   764|
-|16    |  ethernet_inst_1               |rmii_ethernet        |  1403|
+|16    |  ethernet_inst_1               |rmii_ethernet        |  1400|
 |17    |  pwm_audio_inst_1              |pwm_audio            |    71|
-|18    |  radio_inst_1                  |radio                |   537|
-|19    |    rectangular_to_polar_inst_1 |rectangular_to_polar |    17|
+|18    |  radio_inst_1                  |radio                | 20165|
+|19    |    rectangular_to_polar_inst_1 |rectangular_to_polar | 19424|
 +------+--------------------------------+---------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:40 ; elapsed = 00:02:38 . Memory (MB): peak = 1546.832 ; gain = 742.281 ; free physical = 112 ; free virtual = 4271
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:49 ; elapsed = 00:02:52 . Memory (MB): peak = 1574.141 ; gain = 769.594 ; free physical = 127 ; free virtual = 4476
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 5 critical warnings and 293 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:03:49 ; elapsed = 00:02:27 . Memory (MB): peak = 1550.746 ; gain = 306.227 ; free physical = 1713 ; free virtual = 5872
-Synthesis Optimization Complete : Time (s): cpu = 00:04:01 ; elapsed = 00:02:38 . Memory (MB): peak = 1550.746 ; gain = 746.195 ; free physical = 1744 ; free virtual = 5872
+Synthesis Optimization Runtime : Time (s): cpu = 00:04:04 ; elapsed = 00:02:42 . Memory (MB): peak = 1578.055 ; gain = 334.539 ; free physical = 1723 ; free virtual = 6084
+Synthesis Optimization Complete : Time (s): cpu = 00:04:16 ; elapsed = 00:02:54 . Memory (MB): peak = 1578.055 ; gain = 773.508 ; free physical = 1755 ; free virtual = 6085
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 686 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 3695 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 Parsing XDC File [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/bsp.xdc]
@@ -1869,8 +1877,8 @@ Finished Parsing XDC File [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/r
 INFO: [Opt 31-140] Inserted 23 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 239 instances were transformed.
-  (MUXCY,XORCY) => CARRY4: 27 instances
+  A total of 247 instances were transformed.
+  (MUXCY,XORCY) => CARRY4: 35 instances
   DCM_SP => MMCME2_ADV (inverted pins: PSINCDEC): 1 instances
   IBUFG => IBUF: 1 instances
   IOBUF => IOBUF (IBUF, OBUFT): 2 instances
@@ -1881,21 +1889,21 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 INFO: [Common 17-83] Releasing license: Synthesis
 384 Infos, 344 Warnings, 7 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:04:02 ; elapsed = 00:02:39 . Memory (MB): peak = 1578.848 ; gain = 665.777 ; free physical = 1745 ; free virtual = 5872
+synth_design: Time (s): cpu = 00:04:22 ; elapsed = 00:03:00 . Memory (MB): peak = 1606.156 ; gain = 693.090 ; free physical = 1749 ; free virtual = 6087
 # write_checkpoint -force $outputDir/post_synth.dcp
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.03 . Memory (MB): peak = 1610.863 ; gain = 0.000 ; free physical = 1743 ; free virtual = 5872
+Write XDEF Complete: Time (s): cpu = 00:00:00.10 ; elapsed = 00:00:00.05 . Memory (MB): peak = 1638.172 ; gain = 0.000 ; free physical = 1748 ; free virtual = 6087
 # report_timing_summary -file $outputDir/post_synth_timing_summary.rpt
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Timing 38-2] Deriving generated clocks
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
 INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 6 CPUs
-report_timing_summary: Time (s): cpu = 00:00:18 ; elapsed = 00:00:14 . Memory (MB): peak = 1785.891 ; gain = 175.023 ; free physical = 1641 ; free virtual = 5769
+report_timing_summary: Time (s): cpu = 00:00:27 ; elapsed = 00:00:17 . Memory (MB): peak = 1855.199 ; gain = 217.023 ; free physical = 1585 ; free virtual = 5946
 # report_utilization -file $outputDir/post_synth_util.rpt
-report_utilization: Time (s): cpu = 00:00:00.17 ; elapsed = 00:00:00.21 . Memory (MB): peak = 1785.891 ; gain = 0.000 ; free physical = 1641 ; free virtual = 5768
+report_utilization: Time (s): cpu = 00:00:00.27 ; elapsed = 00:00:00.36 . Memory (MB): peak = 1855.199 ; gain = 0.000 ; free physical = 1584 ; free virtual = 5946
 # opt_design
 Command: opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
@@ -1907,40 +1915,40 @@ INFO: [DRC 23-27] Running DRC with 6 threads
 INFO: [Project 1-461] DRC finished with 0 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:00.29 ; elapsed = 00:00:00.29 . Memory (MB): peak = 1786.891 ; gain = 1.000 ; free physical = 1639 ; free virtual = 5767
+Time (s): cpu = 00:00:00.46 ; elapsed = 00:00:00.53 . Memory (MB): peak = 1857.199 ; gain = 2.000 ; free physical = 1581 ; free virtual = 5944
 
 Starting Logic Optimization Task
 
 Phase 1 Retarget
 INFO: [Opt 31-138] Pushed 1 inverter(s) to 1 load pin(s).
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 1 Retarget | Checksum: 18e5dad8c
+Phase 1 Retarget | Checksum: 2cc6551c4
 
-Time (s): cpu = 00:00:00.66 ; elapsed = 00:00:00.64 . Memory (MB): peak = 1786.891 ; gain = 0.000 ; free physical = 1639 ; free virtual = 5767
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1857.199 ; gain = 0.000 ; free physical = 1581 ; free virtual = 5944
 
 Phase 2 Constant Propagation
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-INFO: [Opt 31-10] Eliminated 0 cells.
-Phase 2 Constant Propagation | Checksum: 198b02fdd
+INFO: [Opt 31-10] Eliminated 13 cells.
+Phase 2 Constant Propagation | Checksum: 1d523a360
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 1786.891 ; gain = 0.000 ; free physical = 1639 ; free virtual = 5767
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1857.199 ; gain = 0.000 ; free physical = 1581 ; free virtual = 5944
 
 Phase 3 Sweep
-INFO: [Opt 31-12] Eliminated 939 unconnected nets.
+INFO: [Opt 31-12] Eliminated 12983 unconnected nets.
 INFO: [Opt 31-140] Inserted 23 IBUFs to IO ports without IO buffers.
-INFO: [Opt 31-11] Eliminated 28 unconnected cells.
-Phase 3 Sweep | Checksum: 25d032aef
+INFO: [Opt 31-11] Eliminated 2401 unconnected cells.
+Phase 3 Sweep | Checksum: 229a342b9
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1786.891 ; gain = 0.000 ; free physical = 1639 ; free virtual = 5767
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1857.199 ; gain = 0.000 ; free physical = 1581 ; free virtual = 5944
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1786.891 ; gain = 0.000 ; free physical = 1639 ; free virtual = 5767
-Ending Logic Optimization Task | Checksum: 25d032aef
+Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.08 . Memory (MB): peak = 1857.199 ; gain = 0.000 ; free physical = 1581 ; free virtual = 5944
+Ending Logic Optimization Task | Checksum: 229a342b9
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1786.891 ; gain = 0.000 ; free physical = 1639 ; free virtual = 5767
-Implement Debug Cores | Checksum: 2bd11d8bc
-Logic Optimization | Checksum: 2bd11d8bc
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 1857.199 ; gain = 0.000 ; free physical = 1581 ; free virtual = 5944
+Implement Debug Cores | Checksum: 278c7235d
+Logic Optimization | Checksum: 278c7235d
 
 Starting Power Optimization Task
 INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 3.12 ns.
@@ -1949,18 +1957,19 @@ INFO: [Pwropt 34-10] Applying ODC optimizations ...
 
 
 Starting PowerOpt Patch Enables Task
-INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 12 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
+INFO: [Pwropt 34-162] WRITE_MODE attribute of 0 BRAM(s) out of a total of 13 has been updated to save power. Run report_power_opt to get a complete listing of the BRAMs updated.
 INFO: [Pwropt 34-201] Structural ODC has moved 0 WE to EN ports
-Number of BRAM Ports augmented: 0 newly gated: 9 Total Ports: 24
-Ending PowerOpt Patch Enables Task | Checksum: 201ee344d
+Number of BRAM Ports augmented: 0 newly gated: 9 Total Ports: 26
+Ending PowerOpt Patch Enables Task | Checksum: 1d4bad54b
 
-Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1850.898 ; gain = 0.000 ; free physical = 1575 ; free virtual = 5703
-Ending Power Optimization Task | Checksum: 201ee344d
+Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.08 . Memory (MB): peak = 1887.348 ; gain = 0.000 ; free physical = 1512 ; free virtual = 5879
+Ending Power Optimization Task | Checksum: 1d4bad54b
 
-Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1850.898 ; gain = 64.008 ; free physical = 1575 ; free virtual = 5703
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1887.348 ; gain = 30.148 ; free physical = 1512 ; free virtual = 5879
 INFO: [Common 17-83] Releasing license: Implementation
 17 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1887.348 ; gain = 32.148 ; free physical = 1512 ; free virtual = 5879
 # place_design
 Command: place_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
@@ -1977,21 +1986,21 @@ Starting Placer Task
 INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 6 CPUs
 
 Phase 1 Placer Runtime Estimator
-Phase 1 Placer Runtime Estimator | Checksum: 10c31445a
+Phase 1 Placer Runtime Estimator | Checksum: 10c34b02f
 
-Time (s): cpu = 00:00:00.16 ; elapsed = 00:00:00.15 . Memory (MB): peak = 1850.898 ; gain = 0.000 ; free physical = 1574 ; free virtual = 5702
+Time (s): cpu = 00:00:00.37 ; elapsed = 00:00:00.38 . Memory (MB): peak = 1887.352 ; gain = 0.004 ; free physical = 1510 ; free virtual = 5878
 
 Phase 2 Placer Initialization
-Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 1850.898 ; gain = 0.000 ; free physical = 1574 ; free virtual = 5702
+Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.06 . Memory (MB): peak = 1887.352 ; gain = 0.000 ; free physical = 1510 ; free virtual = 5878
 INFO: [Opt 31-138] Pushed 2 inverter(s) to 2 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1850.898 ; gain = 0.000 ; free physical = 1574 ; free virtual = 5702
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 1887.352 ; gain = 0.000 ; free physical = 1509 ; free virtual = 5878
 
 Phase 2.1 IO Placement/ Clock Placement/ Build Placer Device
 
 Phase 2.1.1 Pre-Place Cells
 Phase 2.1.1 Pre-Place Cells | Checksum: f419acaa
 
-Time (s): cpu = 00:00:00.61 ; elapsed = 00:00:00.59 . Memory (MB): peak = 1850.898 ; gain = 0.000 ; free physical = 1574 ; free virtual = 5702
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1887.352 ; gain = 0.004 ; free physical = 1509 ; free virtual = 5878
 WARNING: [Place 30-12] An IO Bus GPIO_BUTTONS with more than one IO standard is found. Components associated with this bus are: 
 	GPIO_BUTTONS[4] of IOStandard LVCMOS33
 	GPIO_BUTTONS[3] of IOStandard LVCMOS33
@@ -2003,207 +2012,526 @@ INFO: [Timing 38-35] Done setting XDC timing constraints.
 Phase 2.1.2 IO & Clk Clean Up
 Phase 2.1.2 IO & Clk Clean Up | Checksum: f419acaa
 
-Time (s): cpu = 00:00:04 ; elapsed = 00:00:03 . Memory (MB): peak = 1898.914 ; gain = 48.016 ; free physical = 1564 ; free virtual = 5696
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:08 . Memory (MB): peak = 1935.371 ; gain = 48.023 ; free physical = 1506 ; free virtual = 5877
 
 Phase 2.1.3 Implementation Feasibility check On IDelay
 Phase 2.1.3 Implementation Feasibility check On IDelay | Checksum: f419acaa
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 1898.914 ; gain = 48.016 ; free physical = 1564 ; free virtual = 5696
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:08 . Memory (MB): peak = 1935.371 ; gain = 48.023 ; free physical = 1505 ; free virtual = 5876
 
 Phase 2.1.4 Commit IO Placement
 Phase 2.1.4 Commit IO Placement | Checksum: 490b266d
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 1898.914 ; gain = 48.016 ; free physical = 1564 ; free virtual = 5696
-Phase 2.1 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 108efa1ab
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:08 . Memory (MB): peak = 1935.371 ; gain = 48.023 ; free physical = 1505 ; free virtual = 5876
+Phase 2.1 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 1126302b1
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 1898.914 ; gain = 48.016 ; free physical = 1564 ; free virtual = 5696
+Time (s): cpu = 00:00:11 ; elapsed = 00:00:08 . Memory (MB): peak = 1935.371 ; gain = 48.023 ; free physical = 1505 ; free virtual = 5876
 
 Phase 2.2 Build Placer Netlist Model
 
 Phase 2.2.1 Place Init Design
 
 Phase 2.2.1.1 Init Lut Pin Assignment
-Phase 2.2.1.1 Init Lut Pin Assignment | Checksum: 1340197bb
+Phase 2.2.1.1 Init Lut Pin Assignment | Checksum: 1b0eb9061
 
-Time (s): cpu = 00:00:05 ; elapsed = 00:00:03 . Memory (MB): peak = 1898.914 ; gain = 48.016 ; free physical = 1564 ; free virtual = 5696
-Phase 2.2.1 Place Init Design | Checksum: 1e4805e24
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:09 . Memory (MB): peak = 1935.371 ; gain = 48.023 ; free physical = 1502 ; free virtual = 5873
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+INFO: [Common 17-14] Message 'Device 21-190' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+Phase 2.2.1 Place Init Design | Checksum: 17dc15650
 
-Time (s): cpu = 00:00:10 ; elapsed = 00:00:05 . Memory (MB): peak = 1898.914 ; gain = 48.016 ; free physical = 1565 ; free virtual = 5697
-Phase 2.2 Build Placer Netlist Model | Checksum: 1e4805e24
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:30 . Memory (MB): peak = 1935.371 ; gain = 48.023 ; free physical = 1474 ; free virtual = 5848
+Phase 2.2 Build Placer Netlist Model | Checksum: 17dc15650
 
-Time (s): cpu = 00:00:10 ; elapsed = 00:00:05 . Memory (MB): peak = 1898.914 ; gain = 48.016 ; free physical = 1565 ; free virtual = 5697
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:30 . Memory (MB): peak = 1935.371 ; gain = 48.023 ; free physical = 1474 ; free virtual = 5848
 
 Phase 2.3 Constrain Clocks/Macros
 
 Phase 2.3.1 Constrain Global/Regional Clocks
-Phase 2.3.1 Constrain Global/Regional Clocks | Checksum: 1e4805e24
+Phase 2.3.1 Constrain Global/Regional Clocks | Checksum: 17dc15650
 
-Time (s): cpu = 00:00:10 ; elapsed = 00:00:05 . Memory (MB): peak = 1898.914 ; gain = 48.016 ; free physical = 1565 ; free virtual = 5697
-Phase 2.3 Constrain Clocks/Macros | Checksum: 1e4805e24
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1935.371 ; gain = 48.023 ; free physical = 1474 ; free virtual = 5848
+Phase 2.3 Constrain Clocks/Macros | Checksum: 17dc15650
 
-Time (s): cpu = 00:00:10 ; elapsed = 00:00:05 . Memory (MB): peak = 1898.914 ; gain = 48.016 ; free physical = 1565 ; free virtual = 5697
-Phase 2 Placer Initialization | Checksum: 1e4805e24
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1935.371 ; gain = 48.023 ; free physical = 1474 ; free virtual = 5848
+Phase 2 Placer Initialization | Checksum: 17dc15650
 
-Time (s): cpu = 00:00:10 ; elapsed = 00:00:05 . Memory (MB): peak = 1898.914 ; gain = 48.016 ; free physical = 1565 ; free virtual = 5697
+Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 1935.371 ; gain = 48.023 ; free physical = 1474 ; free virtual = 5848
 
 Phase 3 Global Placement
-Phase 3 Global Placement | Checksum: 237780099
+Phase 3 Global Placement | Checksum: 1482ea12c
 
-Time (s): cpu = 00:00:25 ; elapsed = 00:00:13 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1559 ; free virtual = 5691
+Time (s): cpu = 00:01:16 ; elapsed = 00:01:15 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1453 ; free virtual = 5827
 
 Phase 4 Detail Placement
 
 Phase 4.1 Commit Multi Column Macros
-Phase 4.1 Commit Multi Column Macros | Checksum: 237780099
+Phase 4.1 Commit Multi Column Macros | Checksum: 1482ea12c
 
-Time (s): cpu = 00:00:25 ; elapsed = 00:00:13 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1559 ; free virtual = 5691
+Time (s): cpu = 00:01:17 ; elapsed = 00:01:15 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1453 ; free virtual = 5827
 
 Phase 4.2 Commit Most Macros & LUTRAMs
-Phase 4.2 Commit Most Macros & LUTRAMs | Checksum: 202e29693
+Phase 4.2 Commit Most Macros & LUTRAMs | Checksum: 1b8a20765
 
-Time (s): cpu = 00:00:29 ; elapsed = 00:00:15 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1559 ; free virtual = 5692
+Time (s): cpu = 00:01:35 ; elapsed = 00:01:35 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1397 ; free virtual = 5801
 
 Phase 4.3 Area Swap Optimization
-Phase 4.3 Area Swap Optimization | Checksum: 20184580b
+Phase 4.3 Area Swap Optimization | Checksum: 1bf82dd2c
 
-Time (s): cpu = 00:00:29 ; elapsed = 00:00:15 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1559 ; free virtual = 5692
+Time (s): cpu = 00:01:35 ; elapsed = 00:01:35 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1396 ; free virtual = 5801
 
 Phase 4.4 updateClock Trees: DP
-Phase 4.4 updateClock Trees: DP | Checksum: 20184580b
+Phase 4.4 updateClock Trees: DP | Checksum: 1bf82dd2c
 
-Time (s): cpu = 00:00:29 ; elapsed = 00:00:15 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1559 ; free virtual = 5692
+Time (s): cpu = 00:01:35 ; elapsed = 00:01:35 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1397 ; free virtual = 5801
 
 Phase 4.5 Timing Path Optimizer
-Phase 4.5 Timing Path Optimizer | Checksum: 2099cbbe4
+Phase 4.5 Timing Path Optimizer | Checksum: 17f0029d9
 
-Time (s): cpu = 00:00:31 ; elapsed = 00:00:16 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1559 ; free virtual = 5692
+Time (s): cpu = 00:01:42 ; elapsed = 00:01:41 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1399 ; free virtual = 5802
 
 Phase 4.6 Small Shape Detail Placement
 
 Phase 4.6.1 Commit Small Macros & Core Logic
 
 Phase 4.6.1.1 setBudgets
-Phase 4.6.1.1 setBudgets | Checksum: 1f767a5de
+Phase 4.6.1.1 setBudgets | Checksum: 14b48b152
 
-Time (s): cpu = 00:00:31 ; elapsed = 00:00:16 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1559 ; free virtual = 5692
+Time (s): cpu = 00:01:42 ; elapsed = 00:01:41 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1399 ; free virtual = 5803
 
 Phase 4.6.1.2 Commit Slice Clusters
-Phase 4.6.1.2 Commit Slice Clusters | Checksum: 1d29a3b9e
+Phase 4.6.1.2 Commit Slice Clusters | Checksum: 190a56a49
 
-Time (s): cpu = 00:00:33 ; elapsed = 00:00:18 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1558 ; free virtual = 5690
-Phase 4.6.1 Commit Small Macros & Core Logic | Checksum: 1d29a3b9e
+Time (s): cpu = 00:01:45 ; elapsed = 00:01:44 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1399 ; free virtual = 5803
+Phase 4.6.1 Commit Small Macros & Core Logic | Checksum: 190a56a49
 
-Time (s): cpu = 00:00:33 ; elapsed = 00:00:18 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1558 ; free virtual = 5690
+Time (s): cpu = 00:01:45 ; elapsed = 00:01:44 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1399 ; free virtual = 5803
 
 Phase 4.6.2 Clock Restriction Legalization for Leaf Columns
-Phase 4.6.2 Clock Restriction Legalization for Leaf Columns | Checksum: 1d29a3b9e
+Phase 4.6.2 Clock Restriction Legalization for Leaf Columns | Checksum: 190a56a49
 
-Time (s): cpu = 00:00:33 ; elapsed = 00:00:18 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1558 ; free virtual = 5690
+Time (s): cpu = 00:01:46 ; elapsed = 00:01:44 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1398 ; free virtual = 5802
 
 Phase 4.6.3 Clock Restriction Legalization for Non-Clock Pins
-Phase 4.6.3 Clock Restriction Legalization for Non-Clock Pins | Checksum: 1d29a3b9e
+Phase 4.6.3 Clock Restriction Legalization for Non-Clock Pins | Checksum: 190a56a49
 
-Time (s): cpu = 00:00:33 ; elapsed = 00:00:18 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1558 ; free virtual = 5690
-Phase 4.6 Small Shape Detail Placement | Checksum: 1d29a3b9e
+Time (s): cpu = 00:01:46 ; elapsed = 00:01:45 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1398 ; free virtual = 5802
+Phase 4.6 Small Shape Detail Placement | Checksum: 190a56a49
 
-Time (s): cpu = 00:00:33 ; elapsed = 00:00:18 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1558 ; free virtual = 5690
+Time (s): cpu = 00:01:46 ; elapsed = 00:01:45 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1398 ; free virtual = 5802
 
 Phase 4.7 Re-assign LUT pins
-Phase 4.7 Re-assign LUT pins | Checksum: 1d29a3b9e
+Phase 4.7 Re-assign LUT pins | Checksum: 190a56a49
 
-Time (s): cpu = 00:00:34 ; elapsed = 00:00:18 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1558 ; free virtual = 5690
-Phase 4 Detail Placement | Checksum: 1d29a3b9e
+Time (s): cpu = 00:01:47 ; elapsed = 00:01:46 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1398 ; free virtual = 5802
+Phase 4 Detail Placement | Checksum: 190a56a49
 
-Time (s): cpu = 00:00:34 ; elapsed = 00:00:18 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1558 ; free virtual = 5690
+Time (s): cpu = 00:01:47 ; elapsed = 00:01:46 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1398 ; free virtual = 5802
 
 Phase 5 Post Placement Optimization and Clean-Up
 
 Phase 5.1 PCOPT Shape updates
-Phase 5.1 PCOPT Shape updates | Checksum: 1d542a06e
+Phase 5.1 PCOPT Shape updates | Checksum: 1e9ecc945
 
-Time (s): cpu = 00:00:34 ; elapsed = 00:00:18 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1558 ; free virtual = 5690
+Time (s): cpu = 00:01:47 ; elapsed = 00:01:46 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1398 ; free virtual = 5802
 
 Phase 5.2 Post Commit Optimization
 
 Phase 5.2.1 updateClock Trees: PCOPT
-Phase 5.2.1 updateClock Trees: PCOPT | Checksum: 1d542a06e
+Phase 5.2.1 updateClock Trees: PCOPT | Checksum: 1e9ecc945
 
-Time (s): cpu = 00:00:34 ; elapsed = 00:00:18 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1558 ; free virtual = 5690
+Time (s): cpu = 00:01:47 ; elapsed = 00:01:46 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1399 ; free virtual = 5803
 
 Phase 5.2.2 Post Placement Optimization
 
 Phase 5.2.2.1 Post Placement Timing Optimization
 
 Phase 5.2.2.1.1 Restore Best Placement
-Phase 5.2.2.1.1 Restore Best Placement | Checksum: 1ec1a5ed0
+Phase 5.2.2.1.1 Restore Best Placement | Checksum: 212fcd7bd
 
-Time (s): cpu = 00:00:38 ; elapsed = 00:00:20 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1543 ; free virtual = 5677
-INFO: [Place 30-746] Post Placement Timing Summary WNS=0.514. For the most accurate timing information please run report_timing.
-Phase 5.2.2.1 Post Placement Timing Optimization | Checksum: 1ec1a5ed0
+Time (s): cpu = 00:02:15 ; elapsed = 00:02:13 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1419 ; free virtual = 5824
+INFO: [Place 30-746] Post Placement Timing Summary WNS=-0.462. For the most accurate timing information please run report_timing.
+Phase 5.2.2.1 Post Placement Timing Optimization | Checksum: 212fcd7bd
 
-Time (s): cpu = 00:00:38 ; elapsed = 00:00:20 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1543 ; free virtual = 5677
-Phase 5.2.2 Post Placement Optimization | Checksum: 1ec1a5ed0
+Time (s): cpu = 00:02:15 ; elapsed = 00:02:13 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1419 ; free virtual = 5824
+Phase 5.2.2 Post Placement Optimization | Checksum: 212fcd7bd
 
-Time (s): cpu = 00:00:38 ; elapsed = 00:00:20 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1543 ; free virtual = 5677
-Phase 5.2 Post Commit Optimization | Checksum: 1ec1a5ed0
+Time (s): cpu = 00:02:15 ; elapsed = 00:02:13 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1419 ; free virtual = 5824
+Phase 5.2 Post Commit Optimization | Checksum: 212fcd7bd
 
-Time (s): cpu = 00:00:38 ; elapsed = 00:00:20 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1543 ; free virtual = 5677
+Time (s): cpu = 00:02:15 ; elapsed = 00:02:13 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1420 ; free virtual = 5824
 
 Phase 5.3 Sweep Clock Roots: Post-Placement
-Phase 5.3 Sweep Clock Roots: Post-Placement | Checksum: 1ec1a5ed0
+Phase 5.3 Sweep Clock Roots: Post-Placement | Checksum: 212fcd7bd
 
-Time (s): cpu = 00:00:38 ; elapsed = 00:00:20 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1543 ; free virtual = 5677
+Time (s): cpu = 00:02:16 ; elapsed = 00:02:13 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1420 ; free virtual = 5824
 
 Phase 5.4 Post Placement Cleanup
-Phase 5.4 Post Placement Cleanup | Checksum: 1ec1a5ed0
+Phase 5.4 Post Placement Cleanup | Checksum: 212fcd7bd
 
-Time (s): cpu = 00:00:38 ; elapsed = 00:00:20 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1543 ; free virtual = 5677
+Time (s): cpu = 00:02:16 ; elapsed = 00:02:13 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1420 ; free virtual = 5824
 
 Phase 5.5 Placer Reporting
 
 Phase 5.5.1 Restore STA
-Phase 5.5.1 Restore STA | Checksum: 1ec1a5ed0
+Phase 5.5.1 Restore STA | Checksum: 212fcd7bd
 
-Time (s): cpu = 00:00:38 ; elapsed = 00:00:20 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1543 ; free virtual = 5677
-Phase 5.5 Placer Reporting | Checksum: 1ec1a5ed0
+Time (s): cpu = 00:02:16 ; elapsed = 00:02:13 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1420 ; free virtual = 5824
+Phase 5.5 Placer Reporting | Checksum: 212fcd7bd
 
-Time (s): cpu = 00:00:38 ; elapsed = 00:00:20 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1543 ; free virtual = 5677
+Time (s): cpu = 00:02:16 ; elapsed = 00:02:13 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1420 ; free virtual = 5824
 
 Phase 5.6 Final Placement Cleanup
-Phase 5.6 Final Placement Cleanup | Checksum: 13ecd3d7b
+Phase 5.6 Final Placement Cleanup | Checksum: 21c7c3c1a
 
-Time (s): cpu = 00:00:38 ; elapsed = 00:00:20 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1543 ; free virtual = 5677
-Phase 5 Post Placement Optimization and Clean-Up | Checksum: 13ecd3d7b
+Time (s): cpu = 00:02:16 ; elapsed = 00:02:13 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1420 ; free virtual = 5824
+Phase 5 Post Placement Optimization and Clean-Up | Checksum: 21c7c3c1a
 
-Time (s): cpu = 00:00:38 ; elapsed = 00:00:20 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1543 ; free virtual = 5677
-Ending Placer Task | Checksum: f6cb74bf
+Time (s): cpu = 00:02:16 ; elapsed = 00:02:13 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1420 ; free virtual = 5824
+Ending Placer Task | Checksum: 197f02efc
 
-Time (s): cpu = 00:00:38 ; elapsed = 00:00:20 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1543 ; free virtual = 5677
+Time (s): cpu = 00:02:16 ; elapsed = 00:02:13 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1420 ; free virtual = 5824
 INFO: [Common 17-83] Releasing license: Implementation
-12 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+13 Infos, 101 Warnings, 0 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
-place_design: Time (s): cpu = 00:00:40 ; elapsed = 00:00:22 . Memory (MB): peak = 1930.930 ; gain = 80.031 ; free physical = 1543 ; free virtual = 5677
+place_design: Time (s): cpu = 00:02:20 ; elapsed = 00:02:16 . Memory (MB): peak = 2000.309 ; gain = 112.961 ; free physical = 1420 ; free virtual = 5824
 # report_clock_utilization -file $outputDir/clock_util.rpt
 # phys_opt_design
 Command: phys_opt_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
-INFO: [Vivado_Tcl 4-383] Design worst setup slack (WNS) is greater than or equal to 0.500 ns. Skipping all physical synthesis optimizations.
-INFO: [Vivado_Tcl 4-232] No setup violation found. The netlist was not modified.
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+INFO: [Common 17-14] Message 'Device 21-190' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 6 CPUs
+Phase 1 Physical Synthesis Initialization | Checksum: 1d5347222
+
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:11 . Memory (MB): peak = 2000.309 ; gain = 0.000 ; free physical = 1420 ; free virtual = 5825
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 2000.309 ; gain = 0.000 ; free physical = 1419 ; free virtual = 5825
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.383 | TNS=-3.989 |
+
+Phase 2 Fanout Optimization
+INFO: [Physopt 32-76] Pass 1. Identified 2 candidate nets for fanout optimization.
+INFO: [Physopt 32-572] Net radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[23][31]_i_14_n_0 was not replicated.
+Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
+INFO: [Physopt 32-572] Net radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[22][31]_i_12_n_0 was not replicated.
+Resolution: phys_opt_design can be forced to replicate a net driver using the option -force_replication_on_nets <list of net objects>.
+INFO: [Physopt 32-29] End Pass 1. Optimized 0 net. Created 0 new instance.
+
+Phase 2 Fanout Optimization | Checksum: 1695ae34c
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:12 . Memory (MB): peak = 2000.309 ; gain = 0.000 ; free physical = 1419 ; free virtual = 5824
+
+Phase 3 Placement Based Optimization
+INFO: [Physopt 32-660] Identified 10 candidate nets for placement-based optimization.
+INFO: [Physopt 32-663] Processed net radio_inst_1/wt_reg_rep_bsel_rep_rep_i_16_n_0.  Re-placed instance radio_inst_1/wt_reg_rep_bsel_rep_rep_i_16
+INFO: [Physopt 32-663] Processed net radio_inst_1/wt_reg_rep_bsel_rep_rep_i_14_n_0.  Re-placed instance radio_inst_1/wt_reg_rep_bsel_rep_rep_i_14
+INFO: [Physopt 32-663] Processed net radio_inst_1/wt_reg_rep_bsel_rep_rep_i_15_n_0.  Re-placed instance radio_inst_1/wt_reg_rep_bsel_rep_rep_i_15
+INFO: [Physopt 32-663] Processed net radio_inst_1/wt_reg_rep_bsel_rep_rep_i_11_n_0.  Re-placed instance radio_inst_1/wt_reg_rep_bsel_rep_rep_i_11
+INFO: [Physopt 32-663] Processed net radio_inst_1/wt_reg_rep_bsel_rep_rep_i_13_n_0.  Re-placed instance radio_inst_1/wt_reg_rep_bsel_rep_rep_i_13
+INFO: [Physopt 32-663] Processed net radio_inst_1/wt_reg_rep_bsel_rep_rep_i_19_n_0.  Re-placed instance radio_inst_1/wt_reg_rep_bsel_rep_rep_i_19
+INFO: [Physopt 32-663] Processed net radio_inst_1/wt_reg_rep_bsel_rep_rep_i_17_n_0.  Re-placed instance radio_inst_1/wt_reg_rep_bsel_rep_rep_i_17
+INFO: [Physopt 32-662] Processed net radio_inst_1/wt_reg_rep_bsel_rep_rep_i_18_n_0.  Did not re-place instance radio_inst_1/wt_reg_rep_bsel_rep_rep_i_18
+INFO: [Physopt 32-663] Processed net radio_inst_1/wt_reg_rep_bsel_rep_rep_i_9_n_0.  Re-placed instance radio_inst_1/wt_reg_rep_bsel_rep_rep_i_9
+INFO: [Physopt 32-663] Processed net radio_inst_1/wt_reg_rep_bsel_rep_rep_i_10_n_0.  Re-placed instance radio_inst_1/wt_reg_rep_bsel_rep_rep_i_10
+INFO: [Physopt 32-661] Optimized 9 nets.  Re-placed 9 instances.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.217 | TNS=-1.301 |
+Phase 3 Placement Based Optimization | Checksum: 1132eecb9
+
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:13 . Memory (MB): peak = 2000.309 ; gain = 0.000 ; free physical = 1418 ; free virtual = 5824
+
+Phase 4 Rewire
+INFO: [Physopt 32-246] Starting Signal Push optimization...
+INFO: [Physopt 32-241] No nets found for rewiring (Signal Push) optimization.
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2000.309 ; gain = 0.000 ; free physical = 1418 ; free virtual = 5824
+Phase 4 Rewire | Checksum: 17f087b8f
+
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:13 . Memory (MB): peak = 2000.309 ; gain = 0.000 ; free physical = 1417 ; free virtual = 5823
+
+Phase 5 Critical Cell Optimization
+INFO: [Physopt 32-68] No nets found for critical-cell optimization.
+Phase 5 Critical Cell Optimization | Checksum: 17f087b8f
+
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:13 . Memory (MB): peak = 2000.309 ; gain = 0.000 ; free physical = 1417 ; free virtual = 5823
+
+Phase 6 DSP Register Optimization
+INFO: [Physopt 32-456] No candidate cells for DSP register optimization found in the design.
+Phase 6 DSP Register Optimization | Checksum: 17f087b8f
+
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 2000.309 ; gain = 0.000 ; free physical = 1417 ; free virtual = 5823
+
+Phase 7 BRAM Register Optimization
+INFO: [Physopt 32-614] Property 'READ_WIDTH_B' on BRAM cell 'CHARSVGA_INST_1/PIXELS_reg' is 0. Skip BRAM Register Optimization on the cell
+INFO: [Physopt 32-614] Property 'READ_WIDTH_B' on BRAM cell 'USER_DESIGN_INST_1/main_0_139935148058096/memory_reg_0' is 0. Skip BRAM Register Optimization on the cell
+INFO: [Physopt 32-614] Property 'READ_WIDTH_B' on BRAM cell 'USER_DESIGN_INST_1/main_0_139935148058096/memory_reg_1' is 0. Skip BRAM Register Optimization on the cell
+INFO: [Physopt 32-614] Property 'READ_WIDTH_B' on BRAM cell 'USER_DESIGN_INST_1/main_0_139935148058096/memory_reg_2' is 0. Skip BRAM Register Optimization on the cell
+INFO: [Physopt 32-614] Property 'READ_WIDTH_B' on BRAM cell 'USER_DESIGN_INST_1/main_0_139935148058096/memory_reg_3' is 0. Skip BRAM Register Optimization on the cell
+INFO: [Physopt 32-614] Property 'READ_WIDTH_B' on BRAM cell 'USER_DESIGN_INST_1/main_0_139935148058096/memory_reg_4' is 0. Skip BRAM Register Optimization on the cell
+INFO: [Physopt 32-614] Property 'READ_WIDTH_B' on BRAM cell 'USER_DESIGN_INST_1/main_0_139935148058096/memory_reg_5' is 0. Skip BRAM Register Optimization on the cell
+INFO: [Physopt 32-614] Property 'READ_WIDTH_B' on BRAM cell 'USER_DESIGN_INST_1/main_0_139935148058096/memory_reg_6' is 0. Skip BRAM Register Optimization on the cell
+INFO: [Physopt 32-614] Property 'READ_WIDTH_B' on BRAM cell 'USER_DESIGN_INST_1/main_0_139935148058096/memory_reg_7' is 0. Skip BRAM Register Optimization on the cell
+INFO: [Physopt 32-614] Property 'READ_WIDTH_B' on BRAM cell 'radio_inst_1/wt_reg_rep_bsel_rep' is 0. Skip BRAM Register Optimization on the cell
+INFO: [Physopt 32-614] Property 'READ_WIDTH_B' on BRAM cell 'radio_inst_1/wt_reg_rep_bsel_rep_rep' is 0. Skip BRAM Register Optimization on the cell
+INFO: [Physopt 32-526] No candidate cells for BRAM register optimization found in the design
+Phase 7 BRAM Register Optimization | Checksum: 17f087b8f
+
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 2000.309 ; gain = 0.000 ; free physical = 1418 ; free virtual = 5823
+
+Phase 8 Shift Register Optimization
+INFO: [Physopt 32-677] No candidate cells for Shift Register optimization found in the design
+Phase 8 Shift Register Optimization | Checksum: 17f087b8f
+
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:14 . Memory (MB): peak = 2000.309 ; gain = 0.000 ; free physical = 1418 ; free virtual = 5824
+
+Phase 9 Critical Pin Optimization
+INFO: [Physopt 32-606] Identified 12 candidate nets for critical-pin optimization.
+INFO: [Physopt 32-613] Processed net radio_inst_1/wt0__1_n_100.  Swapped 1 critical pins.
+INFO: [Physopt 32-613] Processed net radio_inst_1/wt0__1_n_104.  Swapped 1 critical pins.
+INFO: [Physopt 32-613] Processed net radio_inst_1/wt0__1_n_96.  Swapped 1 critical pins.
+INFO: [Physopt 32-613] Processed net radio_inst_1/wt0__1_n_103.  Swapped 1 critical pins.
+INFO: [Physopt 32-613] Processed net radio_inst_1/wt0__1_n_94.  Swapped 1 critical pins.
+INFO: [Physopt 32-609] Processed net radio_inst_1/wt0__1_n_101.  Critical pin optimization did not optimize the net.
+INFO: [Physopt 32-613] Processed net radio_inst_1/wt0__1_n_99.  Swapped 1 critical pins.
+INFO: [Physopt 32-613] Processed net radio_inst_1/wt0__1_n_95.  Swapped 1 critical pins.
+INFO: [Physopt 32-613] Processed net radio_inst_1/wt0__1_n_93.  Swapped 1 critical pins.
+INFO: [Physopt 32-613] Processed net radio_inst_1/wt0__1_n_97.  Swapped 1 critical pins.
+INFO: [Physopt 32-608] Optimized 9 nets.  Swapped 9 pins.
+INFO: [Physopt 32-619] Estimated Timing Summary | WNS=-0.175 | TNS=-0.801 |
+Phase 9 Critical Pin Optimization | Checksum: 17f087b8f
+
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 2000.309 ; gain = 0.000 ; free physical = 1418 ; free virtual = 5824
+
+Phase 10 Very High Fanout Optimization
+INFO: [Physopt 32-64] No nets found for fanout-optimization.
+Phase 10 Very High Fanout Optimization | Checksum: 17f087b8f
+
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 2000.309 ; gain = 0.000 ; free physical = 1418 ; free virtual = 5824
+
+Phase 11 BRAM Enable Optimization
+Phase 11 BRAM Enable Optimization | Checksum: 17f087b8f
+
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 2000.309 ; gain = 0.000 ; free physical = 1418 ; free virtual = 5824
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.05 . Memory (MB): peak = 2000.309 ; gain = 0.000 ; free physical = 1418 ; free virtual = 5824
+INFO: [Physopt 32-603] Post Physical Optimization Timing Summary | WNS=-0.175 | TNS=-0.801 |
+Ending Physical Synthesis Task | Checksum: 1edc8d9e4
+
+Time (s): cpu = 00:00:18 ; elapsed = 00:00:15 . Memory (MB): peak = 2000.309 ; gain = 0.000 ; free physical = 1418 ; free virtual = 5824
 INFO: [Common 17-83] Releasing license: Implementation
-4 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+54 Infos, 100 Warnings, 0 Critical Warnings and 0 Errors encountered.
 phys_opt_design completed successfully
+phys_opt_design: Time (s): cpu = 00:00:34 ; elapsed = 00:00:27 . Memory (MB): peak = 2000.309 ; gain = 0.000 ; free physical = 1418 ; free virtual = 5824
 # write_checkpoint -force $outputDir/post_place.dcp
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.62 . Memory (MB): peak = 1930.930 ; gain = 0.000 ; free physical = 1535 ; free virtual = 5677
+Write XDEF Complete: Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 2000.309 ; gain = 0.000 ; free physical = 1395 ; free virtual = 5824
 # report_utilization -file $outputDir/post_place_util.rpt
-report_utilization: Time (s): cpu = 00:00:00.15 ; elapsed = 00:00:00.23 . Memory (MB): peak = 1930.930 ; gain = 0.000 ; free physical = 1542 ; free virtual = 5675
+report_utilization: Time (s): cpu = 00:00:00.29 ; elapsed = 00:00:00.34 . Memory (MB): peak = 2000.309 ; gain = 0.000 ; free physical = 1413 ; free virtual = 5823
 # report_timing_summary -file $outputDir/post_place_timing_summary.rpt
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
 INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 6 CPUs
+report_timing_summary: Time (s): cpu = 00:00:15 ; elapsed = 00:00:11 . Memory (MB): peak = 2000.309 ; gain = 0.000 ; free physical = 1412 ; free virtual = 5822
 # route_design
 Command: route_design
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
@@ -2219,110 +2547,331 @@ Starting Routing Task
 INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 6 CPUs
 
 Phase 1 Build RT Design
-Phase 1 Build RT Design | Checksum: a8d190ac
+Phase 1 Build RT Design | Checksum: c6b45f52
 
-Time (s): cpu = 00:00:36 ; elapsed = 00:00:28 . Memory (MB): peak = 1967.582 ; gain = 36.652 ; free physical = 1447 ; free virtual = 5580
+Time (s): cpu = 00:00:38 ; elapsed = 00:00:28 . Memory (MB): peak = 2045.961 ; gain = 45.652 ; free physical = 1319 ; free virtual = 5732
 
 Phase 2 Router Initialization
 
 Phase 2.1 Create Timer
-Phase 2.1 Create Timer | Checksum: a8d190ac
+Phase 2.1 Create Timer | Checksum: c6b45f52
 
-Time (s): cpu = 00:00:36 ; elapsed = 00:00:28 . Memory (MB): peak = 1967.582 ; gain = 36.652 ; free physical = 1447 ; free virtual = 5580
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:29 . Memory (MB): peak = 2045.961 ; gain = 45.652 ; free physical = 1319 ; free virtual = 5732
 
 Phase 2.2 Pre Route Cleanup
-Phase 2.2 Pre Route Cleanup | Checksum: a8d190ac
+Phase 2.2 Pre Route Cleanup | Checksum: c6b45f52
 
-Time (s): cpu = 00:00:36 ; elapsed = 00:00:28 . Memory (MB): peak = 1980.578 ; gain = 49.648 ; free physical = 1426 ; free virtual = 5559
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:29 . Memory (MB): peak = 2060.957 ; gain = 60.648 ; free physical = 1296 ; free virtual = 5710
  Number of Nodes with overlaps = 0
 
 Phase 2.3 Update Timing
-Phase 2.3 Update Timing | Checksum: 20f4c4e2e
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+WARNING: [Device 21-190] There is a mismatch between the device model and delay estimator tables. Process will continue, but timing estimates will not be accurate
+INFO: [Common 17-14] Message 'Device 21-190' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+Phase 2.3 Update Timing | Checksum: 269f1c8db
 
-Time (s): cpu = 00:00:42 ; elapsed = 00:00:31 . Memory (MB): peak = 2007.844 ; gain = 76.914 ; free physical = 1398 ; free virtual = 5531
-INFO: [Route 35-57] Estimated Timing Summary | WNS=0.473  | TNS=0.000  | WHS=-0.354 | THS=-218.821|
+Time (s): cpu = 00:00:54 ; elapsed = 00:00:36 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1265 ; free virtual = 5680
+INFO: [Route 35-57] Estimated Timing Summary | WNS=-0.560 | TNS=-7.959 | WHS=-0.402 | THS=-394.897|
 
-Phase 2 Router Initialization | Checksum: 1427e414b
+Phase 2 Router Initialization | Checksum: 2027d6b8d
 
-Time (s): cpu = 00:00:45 ; elapsed = 00:00:32 . Memory (MB): peak = 2007.844 ; gain = 76.914 ; free physical = 1398 ; free virtual = 5531
+Time (s): cpu = 00:01:01 ; elapsed = 00:00:38 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1266 ; free virtual = 5680
 
 Phase 3 Initial Routing
-Phase 3 Initial Routing | Checksum: 103d3b2ce
+Phase 3 Initial Routing | Checksum: 149da1d51
 
-Time (s): cpu = 00:00:49 ; elapsed = 00:00:33 . Memory (MB): peak = 2007.844 ; gain = 76.914 ; free physical = 1398 ; free virtual = 5531
+Time (s): cpu = 00:01:11 ; elapsed = 00:00:40 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1265 ; free virtual = 5680
 
 Phase 4 Rip-up And Reroute
 
 Phase 4.1 Global Iteration 0
- Number of Nodes with overlaps = 1200
- Number of Nodes with overlaps = 274
- Number of Nodes with overlaps = 62
- Number of Nodes with overlaps = 11
- Number of Nodes with overlaps = 6
- Number of Nodes with overlaps = 3
- Number of Nodes with overlaps = 3
- Number of Nodes with overlaps = 2
- Number of Nodes with overlaps = 1
-INFO: [Route 35-325] The following overlapped node exist in the design and there is low overall congestion. 
-1. INT_L_X26Y154/NL1BEG0
-Overlapping nets: 2
-	USER_DESIGN_INST_1/main_0_140457473533424/operand_b1
-	USER_DESIGN_INST_1/main_0_140457473533424/result[20]
-
+ Number of Nodes with overlaps = 1035
+ Number of Nodes with overlaps = 23
  Number of Nodes with overlaps = 0
 
 Phase 4.1.1 Update Timing
-Phase 4.1.1 Update Timing | Checksum: 1b01d6b24
+Phase 4.1.1 Update Timing | Checksum: 112cf8ce8
 
-Time (s): cpu = 00:01:04 ; elapsed = 00:00:38 . Memory (MB): peak = 2007.844 ; gain = 76.914 ; free physical = 1397 ; free virtual = 5530
-INFO: [Route 35-57] Estimated Timing Summary | WNS=0.422  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+Time (s): cpu = 00:01:28 ; elapsed = 00:00:45 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1265 ; free virtual = 5680
+INFO: [Route 35-57] Estimated Timing Summary | WNS=-1.188 | TNS=-61.523| WHS=N/A    | THS=N/A    |
 
-Phase 4.1 Global Iteration 0 | Checksum: 14e58b61c
 
-Time (s): cpu = 00:01:04 ; elapsed = 00:00:39 . Memory (MB): peak = 2007.844 ; gain = 76.914 ; free physical = 1397 ; free virtual = 5530
-Phase 4 Rip-up And Reroute | Checksum: 14e58b61c
+Phase 4.1.2 GlobIterForTiming
 
-Time (s): cpu = 00:01:05 ; elapsed = 00:00:39 . Memory (MB): peak = 2007.844 ; gain = 76.914 ; free physical = 1397 ; free virtual = 5530
+Phase 4.1.2.1 Update Timing
+Phase 4.1.2.1 Update Timing | Checksum: db8fdccb
+
+Time (s): cpu = 00:01:29 ; elapsed = 00:00:46 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1265 ; free virtual = 5680
+
+Phase 4.1.2.2 Fast Budgeting
+Phase 4.1.2.2 Fast Budgeting | Checksum: dc99ad8c
+
+Time (s): cpu = 00:01:30 ; elapsed = 00:00:47 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1262 ; free virtual = 5677
+Phase 4.1.2 GlobIterForTiming | Checksum: 14ca620aa
+
+Time (s): cpu = 00:01:30 ; elapsed = 00:00:47 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1262 ; free virtual = 5677
+Phase 4.1 Global Iteration 0 | Checksum: 14ca620aa
+
+Time (s): cpu = 00:01:30 ; elapsed = 00:00:47 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1262 ; free virtual = 5677
+
+Phase 4.2 Global Iteration 1
+ Number of Nodes with overlaps = 8
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+
+Phase 4.2.1 Update Timing
+Phase 4.2.1 Update Timing | Checksum: 166e02939
+
+Time (s): cpu = 00:01:32 ; elapsed = 00:00:48 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1262 ; free virtual = 5677
+INFO: [Route 35-57] Estimated Timing Summary | WNS=-1.027 | TNS=-45.777| WHS=N/A    | THS=N/A    |
+
+
+Phase 4.2.2 GlobIterForTiming
+
+Phase 4.2.2.1 Update Timing
+Phase 4.2.2.1 Update Timing | Checksum: 1f6c3d546
+
+Time (s): cpu = 00:01:33 ; elapsed = 00:00:49 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1262 ; free virtual = 5677
+
+Phase 4.2.2.2 Fast Budgeting
+Phase 4.2.2.2 Fast Budgeting | Checksum: 18a297db3
+
+Time (s): cpu = 00:01:34 ; elapsed = 00:00:50 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5674
+Phase 4.2.2 GlobIterForTiming | Checksum: 1ee0c8f6d
+
+Time (s): cpu = 00:01:35 ; elapsed = 00:00:50 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5674
+Phase 4.2 Global Iteration 1 | Checksum: 1ee0c8f6d
+
+Time (s): cpu = 00:01:35 ; elapsed = 00:00:50 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5674
+
+Phase 4.3 Global Iteration 2
+ Number of Nodes with overlaps = 14
+ Number of Nodes with overlaps = 7
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 0
+
+Phase 4.3.1 Update Timing
+Phase 4.3.1 Update Timing | Checksum: 198827f17
+
+Time (s): cpu = 00:01:38 ; elapsed = 00:00:52 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5673
+INFO: [Route 35-57] Estimated Timing Summary | WNS=-1.003 | TNS=-31.160| WHS=N/A    | THS=N/A    |
+
+
+Phase 4.3.2 GlobIterForTiming
+
+Phase 4.3.2.1 Update Timing
+Phase 4.3.2.1 Update Timing | Checksum: 653bd5d0
+
+Time (s): cpu = 00:01:39 ; elapsed = 00:00:53 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5674
+
+Phase 4.3.2.2 Fast Budgeting
+Phase 4.3.2.2 Fast Budgeting | Checksum: 71a7240c
+
+Time (s): cpu = 00:01:40 ; elapsed = 00:00:54 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5673
+Phase 4.3.2 GlobIterForTiming | Checksum: 1870b8095
+
+Time (s): cpu = 00:01:41 ; elapsed = 00:00:54 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5673
+Phase 4.3 Global Iteration 2 | Checksum: 1870b8095
+
+Time (s): cpu = 00:01:41 ; elapsed = 00:00:54 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5673
+
+Phase 4.4 Global Iteration 3
+ Number of Nodes with overlaps = 37
+ Number of Nodes with overlaps = 26
+ Number of Nodes with overlaps = 18
+ Number of Nodes with overlaps = 15
+ Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 9
+ Number of Nodes with overlaps = 9
+ Number of Nodes with overlaps = 5
+ Number of Nodes with overlaps = 3
+INFO: [Route 35-325] The following overlapped nodes exist in the design and there is low overall congestion. 
+1. INT_L_X16Y47/IMUX_L43
+Overlapping nets: 2
+	USER_DESIGN_INST_1/main_0_139935148058096/result[14]_i_31_n_0
+	USER_DESIGN_INST_1/main_0_139935148058096/result[14]_i_28_n_0
+2. INT_R_X15Y42/IMUX43
+Overlapping nets: 2
+	USER_DESIGN_INST_1/main_0_139935148058096/result[1]_i_7_n_0
+	USER_DESIGN_INST_1/main_0_139935148058096/result[1]_i_8_n_0
+3. INT_R_X15Y46/IMUX22
+Overlapping nets: 2
+	USER_DESIGN_INST_1/main_0_139935148058096/result[6]_i_12_n_0
+	USER_DESIGN_INST_1/main_0_139935148058096/result[8]_i_12_n_0
+
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 2
+ Number of Nodes with overlaps = 3
+ Number of Nodes with overlaps = 3
+INFO: [Route 35-325] The following overlapped nodes exist in the design and there is low overall congestion. 
+1. INT_L_X14Y46/IMUX_L28
+Overlapping nets: 2
+	USER_DESIGN_INST_1/main_0_139935148058096/p_0_in1_in[29]
+	USER_DESIGN_INST_1/main_0_139935148058096/result[14]_i_18_n_0
+2. INT_L_X16Y46/IMUX_L22
+Overlapping nets: 2
+	USER_DESIGN_INST_1/main_0_139935148058096/p_0_in1_in[31]
+	USER_DESIGN_INST_1/main_0_139935148058096/result[12]_i_14_n_0
+3. INT_R_X15Y45/SE2BEG2
+Overlapping nets: 2
+	USER_DESIGN_INST_1/main_0_139935148058096/result[7]_i_12_n_0
+	USER_DESIGN_INST_1/main_0_139935148058096/result[6]_i_8_n_0
+
+ Number of Nodes with overlaps = 0
+
+Phase 4.4.1 Update Timing
+Phase 4.4.1 Update Timing | Checksum: 15107eccb
+
+Time (s): cpu = 00:01:56 ; elapsed = 00:01:05 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5674
+INFO: [Route 35-57] Estimated Timing Summary | WNS=-1.003 | TNS=-22.298| WHS=N/A    | THS=N/A    |
+
+Phase 4.4 Global Iteration 3 | Checksum: b0dcb562
+
+Time (s): cpu = 00:01:56 ; elapsed = 00:01:05 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5674
+Phase 4 Rip-up And Reroute | Checksum: b0dcb562
+
+Time (s): cpu = 00:01:56 ; elapsed = 00:01:05 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5674
 
 Phase 5 Delay and Skew Optimization
 
 Phase 5.1 Delay CleanUp
 
 Phase 5.1.1 Update Timing
-Phase 5.1.1 Update Timing | Checksum: 22f4589d9
+Phase 5.1.1 Update Timing | Checksum: 14f35853e
 
-Time (s): cpu = 00:01:05 ; elapsed = 00:00:39 . Memory (MB): peak = 2007.844 ; gain = 76.914 ; free physical = 1397 ; free virtual = 5530
-INFO: [Route 35-57] Estimated Timing Summary | WNS=0.510  | TNS=0.000  | WHS=N/A    | THS=N/A    |
+Time (s): cpu = 00:01:58 ; elapsed = 00:01:06 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5674
+INFO: [Route 35-57] Estimated Timing Summary | WNS=-0.924 | TNS=-18.567| WHS=N/A    | THS=N/A    |
 
-Phase 5.1 Delay CleanUp | Checksum: 22f4589d9
+ Number of Nodes with overlaps = 0
+Phase 5.1 Delay CleanUp | Checksum: c1941123
 
-Time (s): cpu = 00:01:05 ; elapsed = 00:00:39 . Memory (MB): peak = 2007.844 ; gain = 76.914 ; free physical = 1397 ; free virtual = 5530
+Time (s): cpu = 00:01:59 ; elapsed = 00:01:06 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5674
 
 Phase 5.2 Clock Skew Optimization
-Phase 5.2 Clock Skew Optimization | Checksum: 22f4589d9
+Phase 5.2 Clock Skew Optimization | Checksum: c1941123
 
-Time (s): cpu = 00:01:05 ; elapsed = 00:00:39 . Memory (MB): peak = 2007.844 ; gain = 76.914 ; free physical = 1397 ; free virtual = 5530
-Phase 5 Delay and Skew Optimization | Checksum: 22f4589d9
+Time (s): cpu = 00:01:59 ; elapsed = 00:01:06 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5674
+Phase 5 Delay and Skew Optimization | Checksum: c1941123
 
-Time (s): cpu = 00:01:06 ; elapsed = 00:00:39 . Memory (MB): peak = 2007.844 ; gain = 76.914 ; free physical = 1397 ; free virtual = 5530
+Time (s): cpu = 00:01:59 ; elapsed = 00:01:06 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5674
 
 Phase 6 Post Hold Fix
 
 Phase 6.1 Update Timing
-Phase 6.1 Update Timing | Checksum: 161476aea
+Phase 6.1 Update Timing | Checksum: 1478ab3d7
 
-Time (s): cpu = 00:01:07 ; elapsed = 00:00:39 . Memory (MB): peak = 2007.844 ; gain = 76.914 ; free physical = 1397 ; free virtual = 5530
-INFO: [Route 35-57] Estimated Timing Summary | WNS=0.510  | TNS=0.000  | WHS=0.017  | THS=0.000  |
+Time (s): cpu = 00:02:02 ; elapsed = 00:01:07 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5674
+INFO: [Route 35-57] Estimated Timing Summary | WNS=-0.924 | TNS=-17.218| WHS=0.036  | THS=0.000  |
 
-Phase 6 Post Hold Fix | Checksum: 178cefcaa
+Phase 6 Post Hold Fix | Checksum: d65ecdf9
 
-Time (s): cpu = 00:01:07 ; elapsed = 00:00:39 . Memory (MB): peak = 2007.844 ; gain = 76.914 ; free physical = 1397 ; free virtual = 5530
+Time (s): cpu = 00:02:02 ; elapsed = 00:01:07 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5674
 
 Phase 7 Route finalize
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 1.3188 %
-  Global Horizontal Routing Utilization  = 1.67448 %
+  Global Vertical Routing Utilization    = 4.46777 %
+  Global Horizontal Routing Utilization  = 5.0898 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
@@ -2331,44 +2880,50 @@ Router Utilization Summary
   Number of Partially Routed Nets     = 0
   Number of Node Overlaps             = 0
 
-Phase 7 Route finalize | Checksum: 19e8713ca
+Congestion Report
+North Dir 1x1 Area, Max Cong = 71.1712%, No Congested Regions.
+South Dir 1x1 Area, Max Cong = 59.4595%, No Congested Regions.
+East Dir 1x1 Area, Max Cong = 73.5294%, No Congested Regions.
+West Dir 1x1 Area, Max Cong = 64.7059%, No Congested Regions.
+Phase 7 Route finalize | Checksum: e104c9b8
 
-Time (s): cpu = 00:01:07 ; elapsed = 00:00:39 . Memory (MB): peak = 2007.844 ; gain = 76.914 ; free physical = 1397 ; free virtual = 5530
+Time (s): cpu = 00:02:03 ; elapsed = 00:01:07 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5674
 
 Phase 8 Verifying routed nets
 
  Verification completed successfully
-Phase 8 Verifying routed nets | Checksum: 19e8713ca
+Phase 8 Verifying routed nets | Checksum: e104c9b8
 
-Time (s): cpu = 00:01:07 ; elapsed = 00:00:39 . Memory (MB): peak = 2007.844 ; gain = 76.914 ; free physical = 1397 ; free virtual = 5530
+Time (s): cpu = 00:02:03 ; elapsed = 00:01:07 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5674
 
 Phase 9 Depositing Routes
-Phase 9 Depositing Routes | Checksum: 1ed0c42e6
+Phase 9 Depositing Routes | Checksum: d90a8dfe
 
-Time (s): cpu = 00:01:08 ; elapsed = 00:00:40 . Memory (MB): peak = 2007.844 ; gain = 76.914 ; free physical = 1397 ; free virtual = 5530
+Time (s): cpu = 00:02:04 ; elapsed = 00:01:09 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5674
 
 Phase 10 Post Router Timing
-INFO: [Route 35-57] Estimated Timing Summary | WNS=0.510  | TNS=0.000  | WHS=0.017  | THS=0.000  |
+INFO: [Route 35-57] Estimated Timing Summary | WNS=-0.924 | TNS=-17.218| WHS=0.036  | THS=0.000  |
 
-INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
-Phase 10 Post Router Timing | Checksum: 1ed0c42e6
+WARNING: [Route 35-328] Router estimated timing not met.
+Resolution: For a complete and accurate timing signoff, report_timing_summary must be run after route_design. Alternatively, route_design can be run with the -timing_summary option to enable a complete timing signoff at the end of route_design.
+Phase 10 Post Router Timing | Checksum: d90a8dfe
 
-Time (s): cpu = 00:01:08 ; elapsed = 00:00:40 . Memory (MB): peak = 2007.844 ; gain = 76.914 ; free physical = 1397 ; free virtual = 5530
+Time (s): cpu = 00:02:04 ; elapsed = 00:01:09 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5674
 INFO: [Route 35-16] Router Completed Successfully
 
-Time (s): cpu = 00:01:08 ; elapsed = 00:00:40 . Memory (MB): peak = 2007.844 ; gain = 76.914 ; free physical = 1397 ; free virtual = 5530
+Time (s): cpu = 00:02:04 ; elapsed = 00:01:09 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5674
 
 Routing Is Done.
 INFO: [Common 17-83] Releasing license: Implementation
-14 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+18 Infos, 102 Warnings, 0 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:01:10 ; elapsed = 00:00:41 . Memory (MB): peak = 2007.844 ; gain = 76.914 ; free physical = 1397 ; free virtual = 5530
+route_design: Time (s): cpu = 00:02:08 ; elapsed = 00:01:11 . Memory (MB): peak = 2090.223 ; gain = 89.914 ; free physical = 1259 ; free virtual = 5674
 # write_checkpoint -force $outputDir/post_route.dcp
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.68 . Memory (MB): peak = 2007.844 ; gain = 0.000 ; free physical = 1384 ; free virtual = 5527
+Write XDEF Complete: Time (s): cpu = 00:00:05 ; elapsed = 00:00:02 . Memory (MB): peak = 2096.137 ; gain = 0.000 ; free physical = 1229 ; free virtual = 5673
 # report_route_status -file $outputDir/post_route_status.rpt
 # report_timing_summary -file $outputDir/post_route_timing_summary.rpt
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
@@ -2381,6 +2936,7 @@ Finished Running Vector-less Activity Propagation
 INFO: [DRC 23-27] Running DRC with 6 threads
 INFO: [Coretcl 2-168] The results of DRC are in file /home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/post_imp_drc.rpt.
 # write_verilog -force $outputDir/cpu_impl_netlist.v -mode timesim -sdf_anno true
+write_verilog: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2144.184 ; gain = 0.000 ; free physical = 1202 ; free virtual = 5624
 # write_bitstream -force $outputDir/bsp.bit
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t'
@@ -2418,12 +2974,12 @@ WARNING: [DRC 23-20] Rule violation (CFGBVS-1) Missing CFGBVS and CONFIG_VOLTAGE
  #where value2 is the voltage provided to configuration bank 0
 
 Refer to the device configuration user guide for more information.
-WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP USER_DESIGN_INST_1/main_0_140457473533424/product_b_reg input A B is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP USER_DESIGN_INST_1/main_0_140457473533424/product_c_reg input A B is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP USER_DESIGN_INST_1/main_0_140457473533424/result0 input A B C is not pipelined. Pipelining DSP48 input will improve performance.
-WARNING: [DRC 23-20] Rule violation (DPOP-1) Output pipelining - DSP USER_DESIGN_INST_1/main_0_140457473533424/product_b_reg output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
-WARNING: [DRC 23-20] Rule violation (DPOP-1) Output pipelining - DSP USER_DESIGN_INST_1/main_0_140457473533424/product_c_reg output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
-WARNING: [DRC 23-20] Rule violation (DPOP-1) Output pipelining - DSP USER_DESIGN_INST_1/main_0_140457473533424/result0 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP USER_DESIGN_INST_1/main_0_139935148058096/product_b_reg input A B is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP USER_DESIGN_INST_1/main_0_139935148058096/product_c_reg input A B is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPIP-1) Input pipelining - DSP USER_DESIGN_INST_1/main_0_139935148058096/result0 input A B C is not pipelined. Pipelining DSP48 input will improve performance.
+WARNING: [DRC 23-20] Rule violation (DPOP-1) Output pipelining - DSP USER_DESIGN_INST_1/main_0_139935148058096/product_b_reg output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+WARNING: [DRC 23-20] Rule violation (DPOP-1) Output pipelining - DSP USER_DESIGN_INST_1/main_0_139935148058096/product_c_reg output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+WARNING: [DRC 23-20] Rule violation (DPOP-1) Output pipelining - DSP USER_DESIGN_INST_1/main_0_139935148058096/result0 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 WARNING: [DRC 23-20] Rule violation (DPOP-1) Output pipelining - DSP radio_inst_1/wt0 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 WARNING: [DRC 23-20] Rule violation (DPOP-1) Output pipelining - DSP radio_inst_1/wt0__0 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 WARNING: [DRC 23-20] Rule violation (DPOP-1) Output pipelining - DSP radio_inst_1/wt0__1 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
@@ -2441,5 +2997,5 @@ Creating bitstream...
 Writing bitstream ./bsp.bit...
 INFO: [Vivado 12-1842] Bitgen Completed Successfully.
 INFO: [Common 17-83] Releasing license: Implementation
-write_bitstream: Time (s): cpu = 00:00:31 ; elapsed = 00:00:29 . Memory (MB): peak = 2267.414 ; gain = 227.539 ; free physical = 1104 ; free virtual = 5237
-INFO: [Common 17-206] Exiting Vivado at Sun Oct  9 12:48:11 2016...
+write_bitstream: Time (s): cpu = 00:00:43 ; elapsed = 00:00:40 . Memory (MB): peak = 2380.723 ; gain = 236.539 ; free physical = 928 ; free virtual = 5355
+INFO: [Common 17-206] Exiting Vivado at Sun Oct  9 14:15:20 2016...
