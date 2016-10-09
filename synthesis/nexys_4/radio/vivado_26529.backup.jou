@@ -2,9 +2,9 @@
 # Vivado v2015.2 (64-bit)
 # SW Build 1266856 on Fri Jun 26 16:35:25 MDT 2015
 # IP Build 1264090 on Wed Jun 24 14:22:01 MDT 2015
-# Start of session at: Sun Oct  9 11:12:57 2016
-# Process ID: 6342
+# Start of session at: Sun Oct  9 12:48:12 2016
+# Process ID: 26388
 # Log file: /home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/vivado.log
 # Journal file: /home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/vivado.jou
 #-----------------------------------------------------------
-source bsp.tcl
+source download.tcl

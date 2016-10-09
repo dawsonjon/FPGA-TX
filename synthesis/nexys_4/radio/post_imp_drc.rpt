@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date         : Sun Oct  9 11:30:16 2016
+| Date         : Sun Oct  9 12:58:00 2016
 | Host         : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command      : report_drc
 ------------------------------------------------------------------------------------
@@ -154,32 +154,32 @@ Related violations: <none>
 
 DPIP-1#1 Warning
 Input pipelining  
-DSP USER_DESIGN_INST_1/main_0_140109721560560/product_b_reg input A B is not pipelined. Pipelining DSP48 input will improve performance.
+DSP USER_DESIGN_INST_1/main_0_140156380857840/product_b_reg input A B is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#2 Warning
 Input pipelining  
-DSP USER_DESIGN_INST_1/main_0_140109721560560/product_c_reg input A B is not pipelined. Pipelining DSP48 input will improve performance.
+DSP USER_DESIGN_INST_1/main_0_140156380857840/product_c_reg input A B is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#3 Warning
 Input pipelining  
-DSP USER_DESIGN_INST_1/main_0_140109721560560/result0 input A B C is not pipelined. Pipelining DSP48 input will improve performance.
+DSP USER_DESIGN_INST_1/main_0_140156380857840/result0 input A B C is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPOP-1#1 Warning
 Output pipelining  
-DSP USER_DESIGN_INST_1/main_0_140109721560560/product_b_reg output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP USER_DESIGN_INST_1/main_0_140156380857840/product_b_reg output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 DPOP-1#2 Warning
 Output pipelining  
-DSP USER_DESIGN_INST_1/main_0_140109721560560/product_c_reg output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP USER_DESIGN_INST_1/main_0_140156380857840/product_c_reg output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 DPOP-1#3 Warning
 Output pipelining  
-DSP USER_DESIGN_INST_1/main_0_140109721560560/result0 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP USER_DESIGN_INST_1/main_0_140156380857840/result0 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 DPOP-1#4 Warning

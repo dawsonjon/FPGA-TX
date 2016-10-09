@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date         : Sun Oct  9 11:27:32 2016
+| Date         : Sun Oct  9 12:56:32 2016
 | Host         : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command      : report_timing_summary -file ./post_synth_timing_summary.rpt
 | Design       : BSP
@@ -124,10 +124,10 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-     -0.230       -1.133                      8                14789        0.037        0.000                      0                14789        0.345        0.000                       0                  5902  
+      0.597        0.000                      0                12694        0.037        0.000                      0                12694        0.345        0.000                       0                  3842  
 
 
-Timing constraints are not met.
+All user specified timing constraints are met.
 
 
 ------------------------------------------------------------------------------------------------
@@ -153,7 +153,7 @@ sys_clk_pin  {0.000 5.000}        10.000          100.000
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
 sys_clk_pin                                                                                                                                                     3.000        0.000                       0                     1  
-  clk0             -0.230       -1.133                      8                 8428        0.192        0.000                      0                 8428        3.750        0.000                       0                  4877  
+  clk0              0.597        0.000                      0                 6333        0.192        0.000                      0                 6333        3.750        0.000                       0                  2817  
   clk2x                                                                                                                                                         2.845        0.000                       0                     2  
   clkdv            14.657        0.000                      0                 6250        0.176        0.000                      0                 6250        8.750        0.000                       0                  1018  
   clkfx                                                                                                                                                         0.345        0.000                       0                     2  
@@ -215,7 +215,7 @@ High Pulse Width  Slow    MMCME2_ADV/CLKIN1  n/a            2.000         5.000 
 From Clock:  clk0
   To Clock:  clk0
 
-Setup :            8  Failing Endpoints,  Worst Slack       -0.230ns,  Total Violation       -1.133ns
+Setup :            0  Failing Endpoints,  Worst Slack        0.597ns,  Total Violation        0.000ns
 Hold  :            0  Failing Endpoints,  Worst Slack        0.192ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        3.750ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
@@ -223,16 +223,16 @@ PW    :            0  Failing Endpoints,  Worst Slack        3.750ns,  Total Vio
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (VIOLATED) :        -0.230ns  (required time - arrival time)
-  Source:                 radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[23][1]/C
-                            (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][30]/D
-                            (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
+Slack (MET) :             0.597ns  (required time - arrival time)
+  Source:                 radio_inst_1/wt0__0/CLK
+                            (rising edge-triggered cell DSP48E1 clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            radio_inst_1/wt_reg_rep_bsel_rep/ADDRARDADDR[11]
+                            (rising edge-triggered cell RAMB18E1 clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk0 rise@10.000ns - clk0 rise@0.000ns)
-  Data Path Delay:        10.174ns  (logic 4.968ns (48.830%)  route 5.206ns (51.170%))
-  Logic Levels:           23  (CARRY4=13 LUT1=1 LUT2=1 LUT3=4 LUT4=2 LUT6=2)
+  Data Path Delay:        8.558ns  (logic 6.952ns (81.234%)  route 1.606ns (18.766%))
+  Logic Levels:           6  (CARRY4=4 DSP48E1=1 LUT2=1)
   Clock Path Skew:        -0.040ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    -1.914ns = ( 8.086 - 10.000 ) 
     Source Clock Delay      (SCD):    -1.343ns
@@ -253,71 +253,30 @@ Slack (VIOLATED) :        -0.230ns  (required time - arrival time)
                                                      -5.330    -3.045 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.803    -2.242    clk0
                          BUFG (Prop_bufg_I_O)         0.096    -2.146 r  BUFG_INST2/O
-                         net (fo=4881, unplaced)      0.803    -1.343    radio_inst_1/rectangular_to_polar_inst_1/CLK
-                         FDRE                                         r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[23][1]/C
+                         net (fo=2821, unplaced)      0.803    -1.343    radio_inst_1/CLK
+                         DSP48E1                                      r  radio_inst_1/wt0__0/CLK
   -------------------------------------------------------------------    -------------------
-                         FDRE (Prop_fdre_C_Q)         0.478    -0.865 f  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[23][1]/Q
-                         net (fo=8, unplaced)         0.349    -0.516    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg_n_0_[23][1]
-                         LUT1 (Prop_lut1_I0_O)        0.295    -0.221 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24][3]_i_84/O
-                         net (fo=1, unplaced)         0.000    -0.221    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24][3]_i_84_n_0
+                         DSP48E1 (Prop_dsp48e1_CLK_PCOUT[47])
+                                                      4.206     2.863 r  radio_inst_1/wt0__0/PCOUT[47]
+                         net (fo=1, unplaced)         0.000     2.863    radio_inst_1/wt0__0_n_106
+                         DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.518     4.381 r  radio_inst_1/wt0__1/P[0]
+                         net (fo=2, unplaced)         0.803     5.184    radio_inst_1/wt0__1_n_105
+                         LUT2 (Prop_lut2_I0_O)        0.124     5.308 r  radio_inst_1/wt_reg_rep_bsel_rep_i_19/O
+                         net (fo=1, unplaced)         0.000     5.308    radio_inst_1/wt_reg_rep_bsel_rep_i_19_n_0
                          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.533     0.312 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][3]_i_77/CO[3]
-                         net (fo=1, unplaced)         0.000     0.312    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][3]_i_77_n_0
+                                                      0.533     5.841 r  radio_inst_1/wt_reg_rep_bsel_rep_i_12/CO[3]
+                         net (fo=1, unplaced)         0.000     5.841    radio_inst_1/wt_reg_rep_bsel_rep_i_12_n_0
                          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     0.429 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][3]_i_64/CO[3]
-                         net (fo=1, unplaced)         0.000     0.429    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][3]_i_64_n_0
+                                                      0.117     5.958 r  radio_inst_1/wt_reg_rep_bsel_rep_i_3/CO[3]
+                         net (fo=1, unplaced)         0.000     5.958    radio_inst_1/wt_reg_rep_bsel_rep_i_3_n_0
                          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     0.546 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][3]_i_50/CO[3]
-                         net (fo=1, unplaced)         0.000     0.546    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][3]_i_50_n_0
-                         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     0.663 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][3]_i_36/CO[3]
-                         net (fo=1, unplaced)         0.000     0.663    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][3]_i_36_n_0
-                         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     0.780 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][3]_i_21/CO[3]
-                         net (fo=1, unplaced)         0.000     0.780    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][3]_i_21_n_0
-                         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     0.897 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][3]_i_18/CO[3]
-                         net (fo=1, unplaced)         0.000     0.897    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][3]_i_18_n_0
+                                                      0.117     6.075 r  radio_inst_1/wt_reg_rep_bsel_rep_i_2/CO[3]
+                         net (fo=1, unplaced)         0.000     6.075    radio_inst_1/wt_reg_rep_bsel_rep_i_2_n_0
                          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.337     1.234 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][7]_i_23/O[1]
-                         net (fo=4, unplaced)         0.336     1.570    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24]4[25]
-                         LUT3 (Prop_lut3_I2_O)        0.298     1.868 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24][3]_i_14/O
-                         net (fo=4, unplaced)         0.473     2.341    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24][3]_i_14_n_0
-                         LUT6 (Prop_lut6_I2_O)        0.124     2.465 f  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24][7]_i_21/O
-                         net (fo=3, unplaced)         0.467     2.932    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24][7]_i_21_n_0
-                         LUT6 (Prop_lut6_I5_O)        0.124     3.056 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24][7]_i_19/O
-                         net (fo=2, unplaced)         0.676     3.732    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24][7]_i_19_n_0
-                         LUT4 (Prop_lut4_I0_O)        0.116     3.848 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24][31]_i_16/O
-                         net (fo=2, unplaced)         0.676     4.524    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24][31]_i_16_n_0
-                         LUT4 (Prop_lut4_I0_O)        0.124     4.648 f  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24][7]_i_14/O
-                         net (fo=3, unplaced)         0.467     5.115    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24][7]_i_14_n_0
-                         LUT3 (Prop_lut3_I2_O)        0.124     5.239 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24][31]_i_14/O
-                         net (fo=26, unplaced)        0.515     5.754    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24][31]_i_14_n_0
-                         LUT3 (Prop_lut3_I2_O)        0.124     5.878 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24][31]_i_12/O
-                         net (fo=23, unplaced)        0.512     6.390    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24][31]_i_12_n_0
-                         LUT2 (Prop_lut2_I1_O)        0.124     6.514 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24][11]_i_6/O
-                         net (fo=1, unplaced)         0.000     6.514    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24][11]_i_6_n_0
-                         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.533     7.047 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][11]_i_2/CO[3]
-                         net (fo=1, unplaced)         0.000     7.047    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][11]_i_2_n_0
-                         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     7.164 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][15]_i_2/CO[3]
-                         net (fo=1, unplaced)         0.000     7.164    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][15]_i_2_n_0
-                         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     7.281 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][19]_i_2/CO[3]
-                         net (fo=1, unplaced)         0.000     7.281    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][19]_i_2_n_0
-                         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     7.398 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][23]_i_2/CO[3]
-                         net (fo=1, unplaced)         0.000     7.398    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][23]_i_2_n_0
-                         CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     7.515 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][27]_i_2/CO[3]
-                         net (fo=1, unplaced)         0.000     7.515    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][27]_i_2_n_0
-                         CARRY4 (Prop_carry4_CI_O[2])
-                                                      0.256     7.771 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][31]_i_2/O[2]
-                         net (fo=1, unplaced)         0.735     8.506    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24]00_in[30]
-                         LUT3 (Prop_lut3_I0_O)        0.325     8.831 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24][30]_i_1/O
-                         net (fo=1, unplaced)         0.000     8.831    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i[24]_0[30]
-                         FDRE                                         r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][30]/D
+                                                      0.337     6.412 r  radio_inst_1/wt_reg_rep_bsel_rep_i_1/O[1]
+                         net (fo=1, unplaced)         0.803     7.215    radio_inst_1/p_0_in[7]
+                         RAMB18E1                                     r  radio_inst_1/wt_reg_rep_bsel_rep/ADDRARDADDR[11]
   -------------------------------------------------------------------    -------------------
 
                          (clock clk0 rise edge)      10.000    10.000 r  
@@ -329,16 +288,17 @@ Slack (VIOLATED) :        -0.230ns  (required time - arrival time)
                                                      -5.705     6.469 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.763     7.232    clk0
                          BUFG (Prop_bufg_I_O)         0.091     7.323 r  BUFG_INST2/O
-                         net (fo=4881, unplaced)      0.763     8.086    radio_inst_1/rectangular_to_polar_inst_1/CLK
-                         FDRE                                         r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][30]/C
+                         net (fo=2821, unplaced)      0.763     8.086    radio_inst_1/CLK
+                         RAMB18E1                                     r  radio_inst_1/wt_reg_rep_bsel_rep/CLKARDCLK
                          clock pessimism              0.531     8.617    
                          clock uncertainty           -0.059     8.557    
-                         FDRE (Setup_fdre_C_D)        0.044     8.601    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[24][30]
+                         RAMB18E1 (Setup_ramb18e1_CLKARDCLK_ADDRARDADDR[11])
+                                                     -0.745     7.812    radio_inst_1/wt_reg_rep_bsel_rep
   -------------------------------------------------------------------
-                         required time                          8.601    
-                         arrival time                          -8.831    
+                         required time                          7.812    
+                         arrival time                          -7.215    
   -------------------------------------------------------------------
-                         slack                                 -0.230    
+                         slack                                  0.597    
 
 
 
@@ -347,9 +307,9 @@ Slack (VIOLATED) :        -0.230ns  (required time - arrival time)
 Min Delay Paths
 --------------------------------------------------------------------------------------
 Slack (MET) :             0.192ns  (arrival time - required time)
-  Source:                 USER_DESIGN_INST_1/main_0_140109721560560/result_reg[2]/C
+  Source:                 USER_DESIGN_INST_1/main_0_140156380857840/result_reg[2]/C
                             (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            USER_DESIGN_INST_1/main_0_140109721560560/registers_reg_r1_0_15_0_5/RAMB/I
+  Destination:            USER_DESIGN_INST_1/main_0_140156380857840/registers_reg_r1_0_15_0_5/RAMB/I
                             (rising edge-triggered cell RAMD32 clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk0
   Path Type:              Hold (Min at Fast Process Corner)
@@ -372,12 +332,12 @@ Slack (MET) :             0.192ns  (arrival time - required time)
                                                      -2.002    -1.414 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.338    -1.075    clk0
                          BUFG (Prop_bufg_I_O)         0.026    -1.049 r  BUFG_INST2/O
-                         net (fo=4881, unplaced)      0.338    -0.711    USER_DESIGN_INST_1/main_0_140109721560560/CLK
-                         FDRE                                         r  USER_DESIGN_INST_1/main_0_140109721560560/result_reg[2]/C
+                         net (fo=2821, unplaced)      0.338    -0.711    USER_DESIGN_INST_1/main_0_140156380857840/CLK
+                         FDRE                                         r  USER_DESIGN_INST_1/main_0_140156380857840/result_reg[2]/C
   -------------------------------------------------------------------    -------------------
-                         FDRE (Prop_fdre_C_Q)         0.147    -0.564 r  USER_DESIGN_INST_1/main_0_140109721560560/result_reg[2]/Q
-                         net (fo=7, unplaced)         0.156    -0.408    USER_DESIGN_INST_1/main_0_140109721560560/registers_reg_r1_0_15_0_5/DIB0
-                         RAMD32                                       r  USER_DESIGN_INST_1/main_0_140109721560560/registers_reg_r1_0_15_0_5/RAMB/I
+                         FDRE (Prop_fdre_C_Q)         0.147    -0.564 r  USER_DESIGN_INST_1/main_0_140156380857840/result_reg[2]/Q
+                         net (fo=7, unplaced)         0.156    -0.408    USER_DESIGN_INST_1/main_0_140156380857840/registers_reg_r1_0_15_0_5/DIB0
+                         RAMD32                                       r  USER_DESIGN_INST_1/main_0_140156380857840/registers_reg_r1_0_15_0_5/RAMB/I
   -------------------------------------------------------------------    -------------------
 
                          (clock clk0 rise edge)       0.000     0.000 r  
@@ -389,11 +349,11 @@ Slack (MET) :             0.192ns  (arrival time - required time)
                                                      -2.509    -1.715 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.356    -1.358    clk0
                          BUFG (Prop_bufg_I_O)         0.029    -1.329 r  BUFG_INST2/O
-                         net (fo=4881, unplaced)      0.356    -0.973    USER_DESIGN_INST_1/main_0_140109721560560/registers_reg_r1_0_15_0_5/WCLK
-                         RAMD32                                       r  USER_DESIGN_INST_1/main_0_140109721560560/registers_reg_r1_0_15_0_5/RAMB/CLK
+                         net (fo=2821, unplaced)      0.356    -0.973    USER_DESIGN_INST_1/main_0_140156380857840/registers_reg_r1_0_15_0_5/WCLK
+                         RAMD32                                       r  USER_DESIGN_INST_1/main_0_140156380857840/registers_reg_r1_0_15_0_5/RAMB/CLK
                          clock pessimism              0.280    -0.693    
                          RAMD32 (Hold_ramd32_CLK_I)
-                                                      0.093    -0.600    USER_DESIGN_INST_1/main_0_140109721560560/registers_reg_r1_0_15_0_5/RAMB
+                                                      0.093    -0.600    USER_DESIGN_INST_1/main_0_140156380857840/registers_reg_r1_0_15_0_5/RAMB
   -------------------------------------------------------------------
                          required time                          0.600    
                          arrival time                          -0.408    
@@ -414,8 +374,8 @@ Sources:            { dcm_sp_inst/CLKFBOUT }
 Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location  Pin
 Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.576         10.000      7.424                CHARSVGA_INST_1/BRAM_INST_1/MEMORY_reg_0/CLKARDCLK
 Max Period        n/a     MMCME2_ADV/CLKFBIN  n/a            100.000       10.000      90.000               dcm_sp_inst/CLKFBIN
-Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         5.000       3.750                USER_DESIGN_INST_1/main_0_140109721560560/registers_reg_r1_0_15_0_5/RAMA/CLK
-High Pulse Width  Slow    RAMD32/CLK          n/a            1.250         5.000       3.750                USER_DESIGN_INST_1/main_0_140109721560560/registers_reg_r1_0_15_0_5/RAMA/CLK
+Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         5.000       3.750                USER_DESIGN_INST_1/main_0_140156380857840/registers_reg_r1_0_15_0_5/RAMA/CLK
+High Pulse Width  Slow    RAMD32/CLK          n/a            1.250         5.000       3.750                USER_DESIGN_INST_1/main_0_140156380857840/registers_reg_r1_0_15_0_5/RAMA/CLK
 
 
 
@@ -489,7 +449,7 @@ Slack (MET) :             14.657ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
                          RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[4])
                                                       2.454     1.111 r  ethernet_inst_1/TX_MEMORY_reg/DOBDO[4]
-                         net (fo=4, unplaced)         0.803     1.914    ethernet_inst_1/p_17_in[0]
+                         net (fo=5, unplaced)         0.803     1.914    ethernet_inst_1/p_17_in[0]
                          LUT6 (Prop_lut6_I5_O)        0.124     2.038 r  ethernet_inst_1/TXD[0]_i_11/O
                          net (fo=1, unplaced)         0.000     2.038    ethernet_inst_1/TXD[0]_i_11_n_0
                          MUXF7 (Prop_muxf7_I1_O)      0.247     2.285 r  ethernet_inst_1/TXD_reg[0]_i_5/O
@@ -713,7 +673,7 @@ Slack (MET) :             6.290ns  (required time - arrival time)
                                                      -5.705     6.469 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.763     7.232    clk0
                          BUFG (Prop_bufg_I_O)         0.091     7.323 r  BUFG_INST2/O
-                         net (fo=4881, unplaced)      0.763     8.086    ethernet_inst_1/CLK
+                         net (fo=2821, unplaced)      0.763     8.086    ethernet_inst_1/CLK
                          FDRE                                         r  ethernet_inst_1/RX_reg[10]/C
                          clock pessimism              0.485     8.572    
                          clock uncertainty           -0.209     8.363    
@@ -777,7 +737,7 @@ Slack (MET) :             0.050ns  (arrival time - required time)
                                                      -2.509    -1.715 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.356    -1.358    clk0
                          BUFG (Prop_bufg_I_O)         0.029    -1.329 r  BUFG_INST2/O
-                         net (fo=4881, unplaced)      0.356    -0.973    ethernet_inst_1/CLK
+                         net (fo=2821, unplaced)      0.356    -0.973    ethernet_inst_1/CLK
                          FDRE                                         r  ethernet_inst_1/RX_BUFFER_BUSY_DEL_reg[0]/C
                          clock pessimism              0.301    -0.672    
                          clock uncertainty            0.209    -0.464    
@@ -833,7 +793,7 @@ Slack (MET) :             5.737ns  (required time - arrival time)
                                                      -5.330     6.955 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.803     7.758    clk0
                          BUFG (Prop_bufg_I_O)         0.096     7.854 r  BUFG_INST2/O
-                         net (fo=4881, unplaced)      0.803     8.657    ethernet_inst_1/CLK
+                         net (fo=2821, unplaced)      0.803     8.657    ethernet_inst_1/CLK
                          FDRE                                         r  ethernet_inst_1/TX_PACKET_LENGTH_reg[0]/C
   -------------------------------------------------------------------    -------------------
                          FDRE (Prop_fdre_C_Q)         0.478     9.135 r  ethernet_inst_1/TX_PACKET_LENGTH_reg[0]/Q
@@ -909,7 +869,7 @@ Slack (MET) :             0.037ns  (arrival time - required time)
                                                      -2.002    -1.414 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.338    -1.075    clk0
                          BUFG (Prop_bufg_I_O)         0.026    -1.049 r  BUFG_INST2/O
-                         net (fo=4881, unplaced)      0.338    -0.711    ethernet_inst_1/CLK
+                         net (fo=2821, unplaced)      0.338    -0.711    ethernet_inst_1/CLK
                          FDRE                                         r  ethernet_inst_1/TX_PACKET_LENGTH_reg[10]/C
   -------------------------------------------------------------------    -------------------
                          FDRE (Prop_fdre_C_Q)         0.147    -0.564 r  ethernet_inst_1/TX_PACKET_LENGTH_reg[10]/Q

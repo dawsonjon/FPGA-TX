@@ -2,8 +2,8 @@
 # Vivado v2015.2 (64-bit)
 # SW Build 1266856 on Fri Jun 26 16:35:25 MDT 2015
 # IP Build 1264090 on Wed Jun 24 14:22:01 MDT 2015
-# Start of session at: Sun Oct  9 11:21:22 2016
-# Process ID: 10177
+# Start of session at: Sun Oct  9 12:48:12 2016
+# Process ID: 26388
 # Log file: /home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/vivado.log
 # Journal file: /home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/vivado.jou
 #-----------------------------------------------------------
@@ -38,4 +38,4 @@ WARNING: [Labtools 27-3123] The debug hub core was not detected at User Scan Cha
 Resolution: 
 1. Make sure the clock connected to the debug hub (dbg_hub) core is a free running clock and is active OR
 2. Manually launch hw_server with -e "set xsdb-user-bscan <C_USER_SCAN_CHAIN scan_chain_number>" to detect the debug hub at User Scan Chain of 2 or 4. To determine the user scan chain setting, open the implemented design and use: get_property C_USER_SCAN_CHAIN [get_debug_cores dbg_hub].
-INFO: [Common 17-206] Exiting Vivado at Sun Oct  9 11:21:44 2016...
+INFO: [Common 17-206] Exiting Vivado at Sun Oct  9 12:48:25 2016...

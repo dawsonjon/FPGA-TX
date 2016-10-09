@@ -114,6 +114,8 @@ begin
       average_q <= (others => '0');
       sample_count <= (others => '0');
       average_stb <= '1';
+      s_audio_stb <= '1';
+      audio <= average_i(30) & average_i;
     else
       average_i <= std_logic_vector(signed(average_i) + i);
       average_q <= std_logic_vector(signed(average_q) + q);
@@ -129,10 +131,8 @@ begin
       average_samples_reg <= unsigned(average_samples);
     end if;
 
-    if magnitude_stb = '1' then
-      s_audio_stb <= '1';
-      audio <= magnitude;
-    end if;
+    --if magnitude_stb = '1' then
+    --end if;
 
     if s_audio_stb = '1' and audio_ack = '1' then
       s_audio_stb <= '0';

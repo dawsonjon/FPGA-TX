@@ -36,8 +36,7 @@ end entity rectangular_to_polar;
 architecture rtl of rectangular_to_polar is
 
   --The range of output bits represents -pi to +pi radians
-  constant phase_range : integer := 2**width;
-  constant half_phase_range : integer := phase_range/2;
+  constant half_phase_range : integer := 2**(width-1);
 
   type pipeline_type is array (0 to width) of signed(width downto 0);
   signal pipeline_i     : pipeline_type := (others => (others => '0'));
@@ -54,7 +53,7 @@ begin
 
     wait until rising_edge(clk);
 
-    if signed(q) > 0 then
+    if signed(q) < 0 then
       pipeline_i(0) <= -resize(signed(q), width+1);
       pipeline_q(0) <= resize(signed(i), width+1);
       pipeline_phase(0) <= -to_signed(half_phase_range/2, width+1);
@@ -68,12 +67,12 @@ begin
     d := 1;
     for N in 0 to (width-1) loop
       if pipeline_q(N) < 0 then
-        pipeline_i(N+1) <= pipeline_i(N) - pipeline_q(n)/d;
-        pipeline_q(N+1) <= pipeline_q(N) + pipeline_i(n)/d;
+        pipeline_i(N+1) <= pipeline_i(N) - (pipeline_q(N)/d);
+        pipeline_q(N+1) <= pipeline_q(N) + (pipeline_i(N)/d);
         pipeline_phase(N+1) <= pipeline_phase(N) - integer(round(real(half_phase_range)*(arctan(1.0/real(d))/math_pi)));
       else
-        pipeline_i(N+1) <= pipeline_i(N) + pipeline_q(N)/d;
-        pipeline_q(N+1) <= pipeline_q(N) - pipeline_i(N)/d;
+        pipeline_i(N+1) <= pipeline_i(N) + (pipeline_q(N)/d);
+        pipeline_q(N+1) <= pipeline_q(N) - (pipeline_i(N)/d);
         pipeline_phase(N+1) <= pipeline_phase(N) + integer(round(real(half_phase_range)*(arctan(1.0/real(d))/math_pi)));
       end if;
       d := d*2;
