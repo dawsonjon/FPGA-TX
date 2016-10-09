@@ -92,10 +92,11 @@ bsp = __import__("demo.bsp.%s.bsp"%bsp, globals(), locals(), ["bsp"], -1)
 
 #apply the application to the chip
 chip = bsp.make_chip()
-try:
-    application.application(chip)
-except KeyError:
-    pass
+print chip.inputs.values()
+#try:
+application.application(chip)
+#except KeyError:
+    #pass
 
 #terminate unused bsp io
 for i in chip.inputs.values():

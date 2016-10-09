@@ -18,6 +18,7 @@ def make_chip():
     Input(chip, "input_timer")
     Input(chip, "input_i2c")
     Input(chip, "input_ps2")
+    Input(chip, "input_radio_audio")
 
     Output(chip, "output_eth_tx")
     Output(chip, "output_rs232_tx")
@@ -30,5 +31,7 @@ def make_chip():
     Output(chip, "output_i2c")
     Output(chip, "output_vga")
     Output(chip, "output_audio")
+    Output(chip, "output_radio_frequency")
+    Output(chip, "output_radio_average_samples")
 
     return chip

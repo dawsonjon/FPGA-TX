@@ -1,12 +1,12 @@
-module main_7 (output_out_ack,clk,rst,output_out,output_out_stb,exception);
-  input output_out_ack;
+//Discard stream contents
+module main_7 (input_in_ack,clk,rst,input_in,input_in_stb,exception);
   input clk;
   input rst;
-  output [31:0] output_out;
-  output output_out_stb;
+  input [31:0] input_in;
+  input input_in_stb;
+  output input_in_ack;
   output exception;
 
-  assign output_out = 0;
-  assign output_out_stb = 1;
+  assign input_in_ack = 1;
   assign exception = 0;
 endmodule

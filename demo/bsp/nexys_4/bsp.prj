@@ -9,4 +9,6 @@
 ../../bsp_components/svga_core.vhd
 ../../bsp_components/svga_timing_gen.vhd
 ../../bsp_components/pwm_audio.vhd
+../../bsp_components/rectangular_to_polar.vhd
+../../bsp_components/radio.vhd
 bsp.vhd

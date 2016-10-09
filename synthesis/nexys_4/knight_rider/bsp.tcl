@@ -6,8 +6,10 @@
     #
     read_xdc ./bsp.xdc
     read_verilog main_12.v
+read_verilog main_19.v
 read_verilog main_11.v
 read_verilog main_13.v
+read_verilog main_20.v
 read_verilog main_15.v
 read_verilog main_10.v
 read_verilog main_0.v
@@ -20,6 +22,7 @@ read_verilog main_6.v
 read_verilog main_7.v
 read_verilog main_8.v
 read_verilog main_9.v
+read_verilog main_18.v
 read_verilog main_16.v
 read_verilog main_14.v
 read_verilog main_17.v
@@ -36,6 +39,7 @@ read_vhdl svga_package.vhd
 read_vhdl svga_core.vhd
 read_vhdl svga_timing_gen.vhd
 read_vhdl pwm_audio.vhd
+read_vhdl radio.vhd
 read_vhdl bsp.vhd
 
     #

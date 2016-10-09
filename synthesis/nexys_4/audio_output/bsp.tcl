@@ -20,7 +20,10 @@ read_verilog main_6.v
 read_verilog main_7.v
 read_verilog main_8.v
 read_verilog main_9.v
+read_verilog main_18.v
+read_verilog main_16.v
 read_verilog main_14.v
+read_verilog main_17.v
 read_verilog user_design.v
 read_verilog chips_lib.v
 read_vhdl serial_out.vhd
@@ -34,6 +37,7 @@ read_vhdl svga_package.vhd
 read_vhdl svga_core.vhd
 read_vhdl svga_timing_gen.vhd
 read_vhdl pwm_audio.vhd
+read_vhdl radio.vhd
 read_vhdl bsp.vhd
 
     #

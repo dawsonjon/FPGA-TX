@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date             : Sun Jul 31 18:42:41 2016
+| Date             : Sat Oct  1 16:14:48 2016
 | Host             : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command          : report_power -file ./post_route_power.rpt
 | Design           : BSP
@@ -30,12 +30,12 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.133 |
-| Dynamic (W)              | 0.036 |
-| Device Static (W)        | 0.098 |
+| Total On-Chip Power (W)  | 0.145 |
+| Dynamic (W)              | 0.037 |
+| Device Static (W)        | 0.108 |
 | Effective TJA (C/W)      | 4.6   |
-| Max Ambient (C)          | 84.4  |
-| Junction Temperature (C) | 25.6  |
+| Max Ambient (C)          | 84.3  |
+| Junction Temperature (C) | 25.7  |
 | Confidence Level         | Low   |
 | Setting File             | ---   |
 | Simulation Activity File | ---   |
@@ -50,19 +50,20 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.003 |        8 |       --- |             --- |
-| Slice Logic              |     0.003 |     1945 |       --- |             --- |
-|   LUT as Logic           |     0.003 |     1039 |     63400 |            1.64 |
+| Slice Logic              |     0.003 |     2022 |       --- |             --- |
+|   LUT as Logic           |     0.003 |     1060 |     63400 |            1.67 |
 |   LUT as Distributed RAM |    <0.001 |       48 |     19000 |            0.25 |
-|   CARRY4                 |    <0.001 |       44 |     15850 |            0.28 |
-|   Register               |    <0.001 |      552 |    126800 |            0.44 |
-|   F7/F8 Muxes            |    <0.001 |       43 |     63400 |            0.07 |
-|   Others                 |     0.000 |       32 |       --- |             --- |
-| Signals                  |     0.004 |     1509 |       --- |             --- |
+|   CARRY4                 |    <0.001 |       64 |     15850 |            0.40 |
+|   Register               |    <0.001 |      588 |    126800 |            0.46 |
+|   F7/F8 Muxes            |    <0.001 |       41 |     63400 |            0.06 |
+|   Others                 |     0.000 |       36 |       --- |             --- |
+| Signals                  |     0.004 |     1708 |       --- |             --- |
 | Block RAM                |     0.004 |     10.5 |       135 |            7.78 |
 | MMCM                     |     0.000 |        1 |         6 |           16.67 |
-| I/O                      |     0.021 |       90 |       210 |           42.86 |
-| Static Power             |     0.098 |          |           |                 |
-| Total                    |     0.133 |          |           |                 |
+| DSPs                     |    <0.001 |        3 |       240 |            1.25 |
+| I/O                      |     0.023 |       94 |       210 |           44.76 |
+| Static Power             |     0.108 |          |           |                 |
+| Total                    |     0.145 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -73,9 +74,9 @@ Table of Contents
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
 | Vccint    |       1.000 |     0.030 |       0.015 |      0.015 |
-| Vccaux    |       1.800 |     0.019 |       0.001 |      0.018 |
+| Vccaux    |       1.800 |     0.020 |       0.002 |      0.018 |
 | Vcco33    |       3.300 |     0.010 |       0.006 |      0.004 |
-| Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
+| Vcco25    |       2.500 |     0.004 |       0.000 |      0.004 |
 | Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
@@ -143,7 +144,7 @@ Table of Contents
 +-----------------------------------+-----------+
 | Name                              | Power (W) |
 +-----------------------------------+-----------+
-| BSP                               |     0.036 |
+| BSP                               |     0.037 |
 |   CHARSVGA_INST_1                 |     0.002 |
 |     BRAM_INST_1                   |     0.001 |
 |     TIMEING1                      |    <0.001 |
@@ -155,7 +156,7 @@ Table of Contents
 |   SDA_IOBUF_inst                  |     0.000 |
 |   SERIAL_OUTPUT_INST_1            |    <0.001 |
 |   USER_DESIGN_INST_1              |     0.009 |
-|     main_0_139862638468704        |     0.009 |
+|     main_0_139708244144496        |     0.009 |
 |       registers_reg_r1_0_15_0_5   |    <0.001 |
 |       registers_reg_r1_0_15_12_17 |    <0.001 |
 |       registers_reg_r1_0_15_18_23 |    <0.001 |
@@ -170,6 +171,7 @@ Table of Contents
 |       registers_reg_r2_0_15_6_11  |    <0.001 |
 |   ethernet_inst_1                 |     0.002 |
 |   pwm_audio_inst_1                |    <0.001 |
+|   radio_inst_1                    |    <0.001 |
 +-----------------------------------+-----------+
 
 

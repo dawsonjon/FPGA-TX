@@ -108,6 +108,12 @@ entity BSP is
    KD                    : in  std_logic;
    KC                    : in  std_logic;
 
+   --radio interface
+   RF_P                  : in std_logic;
+   RF_N                  : in std_logic;
+   MIX                   : out std_logic;
+   LO                    : out std_logic;
+
    --AUDIO interface
    AUDIO                 : out std_logic;
    AUDIO_EN              : out std_logic;
@@ -169,6 +175,32 @@ architecture RTL of BSP is
       RX_ACK      : in  std_logic
     );
   end component rmii_ethernet;
+
+  component radio is
+  port(
+    clk : in std_logic;
+    rst : in std_logic;
+    
+    rf : in std_logic;
+    lo_out : out std_logic;
+    mixer_out : out std_logic;
+
+    --Frequency control input
+    frequency : in std_logic_vector(31 downto 0);
+    frequency_stb : in std_logic;
+    frequency_ack : out std_logic;
+
+    --Average samples
+    average_samples : in std_logic_vector(31 downto 0);
+    average_samples_stb : in std_logic;
+    average_samples_ack : out std_logic;
+
+    --Audio output
+    audio : out std_logic_vector(31 downto 0);
+    audio_stb : out std_logic;
+    audio_ack : in std_logic
+  );
+  end component radio;
 
   component CHARSVGA is
     port ( 
@@ -265,6 +297,18 @@ architecture RTL of BSP is
       OUTPUT_AUDIO : out std_logic_vector(31 downto 0);
       OUTPUT_AUDIO_STB : out std_logic;
       OUTPUT_AUDIO_ACK : in std_logic;
+
+      output_radio_frequency : out std_logic_vector(31 downto 0);
+      output_radio_frequency_stb : out std_logic;
+      output_radio_frequency_ack : in std_logic;
+
+      output_radio_average_samples : out std_logic_vector(31 downto 0);
+      output_radio_average_samples_stb : out std_logic;
+      output_radio_average_samples_ack : in std_logic;
+
+      input_radio_audio : in std_logic_vector(31 downto 0);
+      input_radio_audio_stb : in std_logic;
+      input_radio_audio_ack : out std_logic;
 
       OUTPUT_LED_R : out std_logic_vector(31 downto 0);
       OUTPUT_LED_R_STB : out std_logic;
@@ -423,6 +467,24 @@ architecture RTL of BSP is
   signal OUTPUT_AUDIO_STB : std_logic;
   signal OUTPUT_AUDIO_ACK :  std_logic;
 
+  --RADIO
+  signal  rf : std_logic;
+
+  --Frequency control input
+  signal  output_radio_frequency : std_logic_vector(31 downto 0);
+  signal  output_radio_frequency_stb : std_logic;
+  signal  output_radio_frequency_ack : std_logic;
+
+  --Average samples
+  signal  output_radio_average_samples : std_logic_vector(31 downto 0);
+  signal  output_radio_average_samples_stb : std_logic;
+  signal  output_radio_average_samples_ack : std_logic;
+
+  --Audio output
+  signal  input_radio_audio : std_logic_vector(31 downto 0);
+  signal  input_radio_audio_stb : std_logic;
+  signal  input_radio_audio_ack : std_logic;
+
   --Interface for SVGA
   signal VGACLK : std_logic;
   signal VGA_RR : std_logic;
@@ -530,6 +592,36 @@ begin
     VGA_B(I) <= VGA_BB;
   end generate;
 
+  radio_inst_1 : radio port map (
+    clk => clk,
+    rst => internal_rst,
+    
+    rf => rf,
+    lo_out => lo,
+    mixer_out => mix,
+
+    --Frequency control input
+    frequency => output_radio_frequency,
+    frequency_stb => output_radio_frequency_stb,
+    frequency_ack => output_radio_frequency_ack,
+
+    --Average samples
+    average_samples => output_radio_average_samples,
+    average_samples_stb => output_radio_average_samples_stb,
+    average_samples_ack => output_radio_average_samples_ack,
+
+    --Audio output
+    audio => input_radio_audio,
+    audio_stb => input_radio_audio_stb,
+    audio_ack => input_radio_audio_ack
+  );
+  
+  ibufds_inst_1 : ibufds port map(
+    i => rf_p,
+    ib => rf_n,
+    o => rf
+  );
+
   pwm_audio_inst_1 : pwm_audio 
   generic map(
       CLOCK_FREQUENCY => 50000000,
@@ -597,6 +689,19 @@ begin
       OUTPUT_AUDIO => OUTPUT_AUDIO,
       OUTPUT_AUDIO_STB => OUTPUT_AUDIO_STB,
       OUTPUT_AUDIO_ACK => OUTPUT_AUDIO_ACK,
+
+      --radio interface
+      output_radio_frequency => output_radio_frequency,
+      output_radio_frequency_stb => output_radio_frequency_stb,
+      output_radio_frequency_ack => output_radio_frequency_ack,
+
+      output_radio_average_samples => output_radio_average_samples,
+      output_radio_average_samples_stb => output_radio_average_samples_stb,
+      output_radio_average_samples_ack => output_radio_average_samples_ack,
+
+      input_radio_audio => input_radio_audio,
+      input_radio_audio_stb => input_radio_audio_stb,
+      input_radio_audio_ack => input_radio_audio_ack,
 
       --SEVEN SEGMENT DISPLAY INTERFACE
       OUTPUT_SEVEN_SEGMENT_CATHODE => OUTPUT_SEVEN_SEGMENT_CATHODE,

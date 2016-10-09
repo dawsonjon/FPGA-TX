@@ -1,0 +1,61 @@
+#-----------------------------------------------------------
+# Vivado v2015.2 (64-bit)
+# SW Build 1266856 on Fri Jun 26 16:35:25 MDT 2015
+# IP Build 1264090 on Wed Jun 24 14:22:01 MDT 2015
+# Start of session at: Sun Oct  9 11:12:57 2016
+# Process ID: 6342
+# Log file: /home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/vivado.log
+# Journal file: /home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/vivado.jou
+#-----------------------------------------------------------
+source bsp.tcl
+# set outputDir .
+# read_xdc ./bsp.xdc
+# read_verilog main_12.v
+# read_verilog main_11.v
+# read_verilog main_13.v
+# read_verilog main_10.v
+# read_verilog main_0.v
+# read_verilog main_1.v
+# read_verilog main_2.v
+# read_verilog main_3.v
+# read_verilog main_4.v
+# read_verilog main_5.v
+# read_verilog main_6.v
+# read_verilog main_7.v
+# read_verilog main_8.v
+# read_verilog main_9.v
+# read_verilog user_design.v
+# read_verilog chips_lib.v
+# read_vhdl serial_out.vhd
+# read_vhdl serial_in.vhd
+# read_vhdl rmii_ethernet.vhd
+# read_vhdl i2c.vhd
+# read_vhdl pwm.vhd
+# read_vhdl keyboard.vhd
+# read_vhdl bram.vhd
+# read_vhdl svga_package.vhd
+# read_vhdl svga_core.vhd
+# read_vhdl svga_timing_gen.vhd
+# read_vhdl pwm_audio.vhd
+# read_vhdl rectangular_to_polar.vhd
+# read_vhdl radio.vhd
+# read_vhdl bsp.vhd
+# synth_design -top bsp -part XC7A100T-CSG324-1
+Command: synth_design -top bsp -part XC7A100T-CSG324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 946.062 ; gain = 141.520 ; free physical = 976 ; free virtual = 6556
+---------------------------------------------------------------------------------
+ERROR: [Synth 8-2778] type error near phase ; expected type std_logic_vector [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/radio.vhd:156]
+INFO: [Synth 8-2810] unit rtl ignored due to previous errors [/home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/radio.vhd:33]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 982.344 ; gain = 177.801 ; free physical = 939 ; free virtual = 6519
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+INFO: [Common 17-83] Releasing license: Synthesis
+3 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+INFO: [Common 17-206] Exiting Vivado at Sun Oct  9 11:13:10 2016...
