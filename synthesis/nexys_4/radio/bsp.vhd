@@ -398,7 +398,7 @@ architecture RTL of BSP is
   component pwm_audio is
     generic(
       CLOCK_FREQUENCY : integer := 100000000;
-      SAMPLE_RATE : integer := 6102;
+      SAMPLE_RATE : integer := 6104;
       AUDIO_BITS : integer := 8
     );
     port(
@@ -629,8 +629,8 @@ begin
   pwm_audio_inst_1 : pwm_audio 
   generic map(
       CLOCK_FREQUENCY => 100000000,
-      SAMPLE_RATE => 44100,
-      AUDIO_BITS => 8
+      SAMPLE_RATE => 12207,
+      AUDIO_BITS => 10
   ) port map (
       CLK => CLK,
       RST => INTERNAL_RST,

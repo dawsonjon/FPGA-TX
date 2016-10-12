@@ -13,13 +13,13 @@ unsigned rs232_tx = output("rs232_tx");
 #include "scan.h"
 #include "print.h"
 
-#define AUDIO_RANGE 256
-#define AUDIO_BIAS 128
-#define AUDIO_MAX 127
-#define AUDIO_MIN -128
+#define AUDIO_RANGE 1024
+#define AUDIO_BIAS 512
+#define AUDIO_MAX 511
+#define AUDIO_MIN -512
 
-#define SAMPLING_FREQUENCY 100.0e6
-#define AVERAGE_SAMPLES 16384
+#define SAMPLING_FREQUENCY 200.0e6
+#define AVERAGE_SAMPLES 8192
 #define AUDIO_SAMPLING_FREQUENCY SAMPLING_FREQUENCY/AVERAGE_SAMPLES
 
 void output_audio(int sample){
@@ -31,8 +31,8 @@ void output_audio(int sample){
 void main(){
 
     unsigned frequency_hz = 910e3;
-    int min=0, max=0, range=0, attenuation=0, differential=0,
-    integral=0, sample=0, centre=0, last_integral=0, last_sample=0;
+    int min=0, max=0, range=0, attenuation=0, 
+    sample=0, centre=0;
     unsigned audio_leak = 2;
 
     stdout = rs232_tx;
@@ -47,37 +47,31 @@ void main(){
 
     while(1){
 
-        //remove DC and low frequencies using a differentiator
-        //and leaky integrator.
         
-        //differentiator
-        last_sample = sample;
         sample = fgetc(audio_in);
-        sample >>= 10;
-        differential = sample - last_sample;
-
-        //leaky integrator
-        last_integral = integral;
-        integral = (last_integral >> 10) + differential;
-        //integral = last_integral + differential;
 
         //automatic gain control
-        if(integral > max) max = integral;
-        if(integral < min) min = integral;
+        if(sample > max) max = sample;
+        if(sample < min) min = sample;
         centre = (max+min)>>1;
         range = (max-min);
-        attenuation = 0;
-        while((range>>attenuation) > AUDIO_RANGE){
-            attenuation++;
-        }
-        output_audio((integral-centre)>>attenuation);
-        if(!audio_leak--){
-            audio_leak = 2;
+
+
+        attenuation = (range + AUDIO_RANGE)/AUDIO_RANGE;
+
+        //attenuation = 0;
+        //while((range>>attenuation) > AUDIO_RANGE){
+            //attenuation++;
+        //}
+
+        output_audio((sample-centre) / attenuation);
+        //if(!audio_leak--){
+            //audio_leak = 100;
             if(range > 2){
                 max -= 1;
                 min += 1;
             }
-        }
+        //}
 
         //print_decimal(min);
         //puts(" ");

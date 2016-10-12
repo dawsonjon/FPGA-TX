@@ -4,6 +4,9 @@ use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.math_real.all;
 
+library UNISIM;
+use UNISIM.vcomponents.all;
+
 entity radio is
   port(
     clk : in std_logic;
@@ -71,18 +74,32 @@ architecture rtl of radio is
   constant sin_array : sin_array_type := initialise_sin_array;
   constant cos_array : sin_array_type := initialise_cos_array;
 
-  signal rf_d1 : std_logic;
-  signal rf_d2 : std_logic;
+  signal rf_0 : std_logic;
+  signal rf_1 : std_logic;
+  signal rf_0_d1 : std_logic;
+  signal rf_0_d2 : std_logic;
+  signal rf_1_d1 : std_logic;
+  signal rf_1_d2 : std_logic;
   signal s_audio_stb : std_logic;
   signal rect_stb : std_logic;
   signal magnitude_stb : std_logic;
-  signal lo_i : signed(9 downto 0) := (others => '0');
-  signal lo_q : signed(9 downto 0) := (others => '0');
+  signal lo_i_0 : signed(9 downto 0) := (others => '0');
+  signal lo_q_0 : signed(9 downto 0) := (others => '0');
+  signal lo_i_1 : signed(9 downto 0) := (others => '0');
+  signal lo_q_1 : signed(9 downto 0) := (others => '0');
+  signal i_0 : signed(11 downto 0);
+  signal i_1 : signed(11 downto 0);
+  signal q_0 : signed(11 downto 0);
+  signal q_1 : signed(11 downto 0);
   signal i : signed(11 downto 0);
   signal q : signed(11 downto 0);
-  signal rf_signed : signed(1 downto 0);
+  signal rf_0_signed : signed(1 downto 0);
+  signal rf_1_signed : signed(1 downto 0);
   signal t : unsigned(31 downto 0) := (others => '0');
-  signal wt : unsigned(63 downto 0) := (others => '0');
+  signal t_0 : unsigned(31 downto 0) := (others => '0');
+  signal t_1 : unsigned(31 downto 0) := (others => '0');
+  signal wt_0 : unsigned(63 downto 0) := (others => '0');
+  signal wt_1 : unsigned(63 downto 0) := (others => '0');
   signal frequency_reg  : unsigned(31 downto 0) := (others => '0');
   signal average_i : std_logic_vector(30 downto 0) := (others => '0');
   signal average_q : std_logic_vector(30 downto 0) := (others => '0');
@@ -100,16 +117,29 @@ begin
 
     wait until rising_edge(clk);
 
-    rf_d1 <= rf;
-    rf_d2 <= rf_d1;
-    rf_signed <= rf_d2 & '1';
+    rf_0_d1 <= rf_0;
+    rf_0_d2 <= rf_0_d1;
+    rf_1_d1 <= rf_1;
+    rf_1_d2 <= rf_1_d1;
+
+    rf_0_signed <= rf_0_d2 & '1';
+    rf_1_signed <= rf_1_d2 & '1';
 
     t <= t + 1;
-    wt <= t * frequency_reg;
-    lo_i <= sin_array(to_integer(unsigned(wt(31 downto 22))));
-    lo_q <= cos_array(to_integer(unsigned(wt(31 downto 22))));
-    i <= rf_signed * lo_i;
-    q <= rf_signed * lo_q;
+    t_0 <= t(30 downto 0) & '0';
+    t_1 <= t(30 downto 0) & '1';
+    wt_0 <= t_0 * frequency_reg;
+    wt_1 <= t_1 * frequency_reg;
+    lo_i_0 <= sin_array(to_integer(unsigned(wt_0(31 downto 22))));
+    lo_q_0 <= cos_array(to_integer(unsigned(wt_0(31 downto 22))));
+    lo_i_1 <= sin_array(to_integer(unsigned(wt_1(31 downto 22))));
+    lo_q_1 <= cos_array(to_integer(unsigned(wt_1(31 downto 22))));
+    i_0 <= rf_0_signed * lo_i_0;
+    q_0 <= rf_0_signed * lo_q_0;
+    i_1 <= rf_1_signed * lo_i_1;
+    q_1 <= rf_1_signed * lo_q_1;
+    i <= i_0 + i_1;
+    q <= q_0 + q_1;
 
     if sample_count = average_samples_reg - 1 then
       average_i <= (others => '0');
@@ -166,5 +196,21 @@ begin
   average_samples_ack <= '1';
   lo_out <= '0';
   mixer_out <= '0';
+
+  IDDR_inst : IDDR
+  generic map (
+    DDR_CLK_EDGE => "SAME_EDGE_PIPELINED", -- "OPPOSITE_EDGE", "SAME_EDGE"
+    INIT_Q1 => '0',
+    INIT_Q2 => '0',
+    SRTYPE => "SYNC")
+  port map (
+    Q1 => rf_1,
+    Q2 => rf_0, --Q2 is earlier in time
+    C => clk, -- 1-bit clock input
+    CE => '1', -- 1-bit clock enable input
+    D => rf, -- 1-bit DDR data input
+    R => '0', -- 1-bit reset
+    S => '0' -- 1-bit set
+ );
 
 end rtl;
