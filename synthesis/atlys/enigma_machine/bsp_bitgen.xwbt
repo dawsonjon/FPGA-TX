@@ -1,8 +1,0 @@
-INTSTYLE=xflow
-INFILE=/home/storage/Projects/Chips-Demo/synthesis/atlys/enigma_machine/bsp.ncd
-OUTFILE=/home/storage/Projects/Chips-Demo/synthesis/atlys/enigma_machine/bsp.bit
-FAMILY=Spartan6
-PART=xc6slx45-3csg324
-WORKINGDIR=/home/storage/Projects/Chips-Demo/synthesis/atlys/enigma_machine
-LICENSE=WebPack
-USER_INFO=176529646_206660144_0_111

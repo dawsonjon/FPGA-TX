@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date         : Mon Oct 10 20:08:22 2016
+| Date         : Sat Oct 15 11:58:26 2016
 | Host         : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command      : report_timing_summary -file ./post_synth_timing_summary.rpt
 | Design       : BSP
@@ -124,7 +124,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-     -0.689      -12.086                     28                15480       -0.907       -1.806                      2                15480        0.345        0.000                       0                  6234  
+     -2.033    -2414.323                   2719                20776       -0.725       -1.450                      2                20776        0.345        0.000                       0                 11043  
 
 
 Timing constraints are not met.
@@ -135,14 +135,18 @@ Timing constraints are not met.
 | -------------
 ------------------------------------------------------------------------------------------------
 
-Clock        Waveform(ns)         Period(ns)      Frequency(MHz)
------        ------------         ----------      --------------
-sys_clk_pin  {0.000 5.000}        10.000          100.000         
-  clk0       {0.000 5.000}        10.000          100.000         
-  clk2x      {0.000 2.500}        5.000           200.000         
-  clkdv      {0.000 10.000}       20.000          50.000          
-  clkfx      {0.000 1.250}        2.500           400.000         
-  clkfx180   {1.250 2.500}        2.500           400.000         
+Clock            Waveform(ns)         Period(ns)      Frequency(MHz)
+-----            ------------         ----------      --------------
+sys_clk_pin      {0.000 5.000}        10.000          100.000         
+  clk0           {0.000 5.000}        10.000          100.000         
+    CLKFBOUT     {0.000 5.000}        10.000          100.000         
+    CLK_100_s    {0.000 5.000}        10.000          100.000         
+    CLK_400_N_s  {2.500 5.000}        5.000           200.000         
+    CLK_400_s    {0.000 2.500}        5.000           200.000         
+  clk2x          {0.000 2.500}        5.000           200.000         
+  clkdv          {0.000 10.000}       20.000          50.000          
+  clkfx          {0.000 1.250}        2.500           400.000         
+  clkfx180       {1.250 2.500}        2.500           400.000         
 
 
 ------------------------------------------------------------------------------------------------
@@ -150,14 +154,18 @@ sys_clk_pin  {0.000 5.000}        10.000          100.000
 | -----------------
 ------------------------------------------------------------------------------------------------
 
-Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
------             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-sys_clk_pin                                                                                                                                                     3.000        0.000                       0                     1  
-  clk0             -0.689      -12.086                     28                 9119       -0.907       -1.806                      2                 9119        3.750        0.000                       0                  5209  
-  clk2x                                                                                                                                                         2.845        0.000                       0                     2  
-  clkdv            14.657        0.000                      0                 6250        0.176        0.000                      0                 6250        8.750        0.000                       0                  1018  
-  clkfx                                                                                                                                                         0.345        0.000                       0                     2  
-  clkfx180                                                                                                                                                      0.345        0.000                       0                     2  
+Clock                WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----                -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+sys_clk_pin                                                                                                                                                        3.000        0.000                       0                     1  
+  clk0                -2.033    -2414.323                   2719                14412        0.193        0.000                      0                14412        3.000        0.000                       0                 10006  
+    CLKFBOUT                                                                                                                                                       7.845        0.000                       0                     3  
+    CLK_100_s                                                                                                                                                      7.845        0.000                       0                     3  
+    CLK_400_N_s                                                                                                                                                    2.845        0.000                       0                     3  
+    CLK_400_s                                                                                                                                                      2.845        0.000                       0                     3  
+  clk2x                                                                                                                                                            2.845        0.000                       0                     2  
+  clkdv               14.657        0.000                      0                 6250        0.176        0.000                      0                 6250        8.750        0.000                       0                  1018  
+  clkfx                                                                                                                                                            0.345        0.000                       0                     2  
+  clkfx180                                                                                                                                                         0.345        0.000                       0                     2  
 
 
 ------------------------------------------------------------------------------------------------
@@ -167,8 +175,10 @@ sys_clk_pin                                                                     
 
 From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
 ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+CLK_100_s     clk0                9.825        0.000                      0                    2       -0.725       -1.450                      2                    2  
 clkdv         clk0                6.290        0.000                      0                   71        0.050        0.000                      0                   71  
-clk0          clkdv               5.737        0.000                      0                   94        0.037        0.000                      0                   94  
+clk0          CLK_100_s           6.982        0.000                      0                    1        0.742        0.000                      0                    1  
+clk0          clkdv               6.876        0.000                      0                   94        0.040        0.000                      0                   94  
 
 
 ------------------------------------------------------------------------------------------------
@@ -215,24 +225,24 @@ High Pulse Width  Slow    MMCME2_ADV/CLKIN1  n/a            2.000         5.000 
 From Clock:  clk0
   To Clock:  clk0
 
-Setup :           28  Failing Endpoints,  Worst Slack       -0.689ns,  Total Violation      -12.086ns
-Hold  :            2  Failing Endpoints,  Worst Slack       -0.907ns,  Total Violation       -1.806ns
-PW    :            0  Failing Endpoints,  Worst Slack        3.750ns,  Total Violation        0.000ns
+Setup :         2719  Failing Endpoints,  Worst Slack       -2.033ns,  Total Violation    -2414.323ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.193ns,  Total Violation        0.000ns
+PW    :            0  Failing Endpoints,  Worst Slack        3.000ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (VIOLATED) :        -0.689ns  (required time - arrival time)
-  Source:                 radio_inst_1/t_1_reg[16]/C
+Slack (VIOLATED) :        -2.033ns  (required time - arrival time)
+  Source:                 radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[31][0]/C
                             (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            radio_inst_1/wt_1_reg_rep_bsel_rep/ADDRARDADDR[11]
-                            (rising edge-triggered cell RAMB18E1 clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][53]/D
+                            (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk0 rise@10.000ns - clk0 rise@0.000ns)
-  Data Path Delay:        9.844ns  (logic 7.435ns (75.528%)  route 2.409ns (24.472%))
-  Logic Levels:           7  (CARRY4=4 DSP48E1=2 LUT2=1)
+  Data Path Delay:        12.009ns  (logic 9.486ns (78.991%)  route 2.523ns (21.009%))
+  Logic Levels:           43  (CARRY4=37 LUT1=1 LUT2=1 LUT3=2 LUT5=2)
   Clock Path Skew:        -0.040ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    -1.914ns = ( 8.086 - 10.000 ) 
     Source Clock Delay      (SCD):    -1.343ns
@@ -253,32 +263,135 @@ Slack (VIOLATED) :        -0.689ns  (required time - arrival time)
                                                      -5.330    -3.045 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.803    -2.242    clk0
                          BUFG (Prop_bufg_I_O)         0.096    -2.146 r  BUFG_INST2/O
-                         net (fo=5215, unplaced)      0.803    -1.343    radio_inst_1/CLK
-                         FDRE                                         r  radio_inst_1/t_1_reg[16]/C
+                         net (fo=10012, unplaced)     0.803    -1.343    radio_inst_1/rectangular_to_polar_inst_1/CLK
+                         FDRE                                         r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[31][0]/C
   -------------------------------------------------------------------    -------------------
-                         FDRE (Prop_fdre_C_Q)         0.478    -0.865 r  radio_inst_1/t_1_reg[16]/Q
-                         net (fo=1, unplaced)         0.803    -0.062    radio_inst_1/t_1[16]
-                         DSP48E1 (Prop_dsp48e1_A[16]_PCOUT[47])
-                                                      4.211     4.149 r  radio_inst_1/wt_10__0/PCOUT[47]
-                         net (fo=1, unplaced)         0.000     4.149    radio_inst_1/wt_10__0_n_117
-                         DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
-                                                      1.518     5.667 r  radio_inst_1/wt_10__1/P[0]
-                         net (fo=2, unplaced)         0.803     6.470    radio_inst_1/wt_10__1_n_116
-                         LUT2 (Prop_lut2_I0_O)        0.124     6.594 r  radio_inst_1/wt_1_reg_rep_bsel_rep_rep_i_35/O
-                         net (fo=1, unplaced)         0.000     6.594    radio_inst_1/wt_1_reg_rep_bsel_rep_rep_i_35_n_11
+                         FDRE (Prop_fdre_C_Q)         0.478    -0.865 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg[31][0]/Q
+                         net (fo=9, unplaced)         0.511    -0.354    radio_inst_1/rectangular_to_polar_inst_1/pipeline_i_reg_n_0_[31][0]
+                         LUT2 (Prop_lut2_I0_O)        0.321    -0.033 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q[32][23]_i_101/O
+                         net (fo=1, unplaced)         0.000    -0.033    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q[32][23]_i_101_n_0
+                         CARRY4 (Prop_carry4_DI[0]_CO[3])
+                                                      0.576     0.543 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_88/CO[3]
+                         net (fo=1, unplaced)         0.000     0.543    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_88_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     0.660 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_78/CO[3]
+                         net (fo=1, unplaced)         0.000     0.660    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_78_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     0.777 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_68/CO[3]
+                         net (fo=1, unplaced)         0.000     0.777    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_68_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     0.894 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_58/CO[3]
+                         net (fo=1, unplaced)         0.000     0.894    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_58_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     1.011 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_45/CO[3]
+                         net (fo=1, unplaced)         0.000     1.011    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_45_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     1.128 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_27/CO[3]
+                         net (fo=1, unplaced)         0.000     1.128    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_27_n_0
+                         CARRY4 (Prop_carry4_CI_CO[2])
+                                                      0.252     1.380 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_18/CO[2]
+                         net (fo=101, unplaced)       0.522     1.902    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_18_n_1
+                         LUT3 (Prop_lut3_I1_O)        0.310     2.212 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q[32][23]_i_143/O
+                         net (fo=1, unplaced)         0.000     2.212    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q[32][23]_i_143_n_0
                          CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.533     7.127 r  radio_inst_1/wt_1_reg_rep_bsel_rep_rep_i_15/CO[3]
-                         net (fo=1, unplaced)         0.000     7.127    radio_inst_1/wt_1_reg_rep_bsel_rep_rep_i_15_n_11
+                                                      0.533     2.745 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_136/CO[3]
+                         net (fo=1, unplaced)         0.000     2.745    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_136_n_0
                          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     7.244 r  radio_inst_1/wt_1_reg_rep_bsel_rep_rep_i_3/CO[3]
-                         net (fo=1, unplaced)         0.000     7.244    radio_inst_1/wt_1_reg_rep_bsel_rep_rep_i_3_n_11
+                                                      0.117     2.862 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_131/CO[3]
+                         net (fo=1, unplaced)         0.000     2.862    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_131_n_0
                          CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     7.361 r  radio_inst_1/wt_1_reg_rep_bsel_rep_rep_i_2/CO[3]
-                         net (fo=1, unplaced)         0.000     7.361    radio_inst_1/wt_1_reg_rep_bsel_rep_rep_i_2_n_11
+                                                      0.117     2.979 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_126/CO[3]
+                         net (fo=1, unplaced)         0.000     2.979    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_126_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.096 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_121/CO[3]
+                         net (fo=1, unplaced)         0.000     3.096    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_121_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.213 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_116/CO[3]
+                         net (fo=1, unplaced)         0.000     3.213    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_116_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.330 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_111/CO[3]
+                         net (fo=1, unplaced)         0.000     3.330    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_111_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.447 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_106/CO[3]
+                         net (fo=1, unplaced)         0.000     3.447    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_106_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.564 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_97/CO[3]
+                         net (fo=1, unplaced)         0.000     3.564    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_97_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.681 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_87/CO[3]
+                         net (fo=1, unplaced)         0.000     3.681    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_87_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.798 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_77/CO[3]
+                         net (fo=1, unplaced)         0.000     3.798    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_77_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     3.915 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_67/CO[3]
+                         net (fo=1, unplaced)         0.000     3.915    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_67_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.032 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_54/CO[3]
+                         net (fo=1, unplaced)         0.000     4.032    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_54_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     4.149 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_36/CO[3]
+                         net (fo=1, unplaced)         0.000     4.149    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_36_n_0
+                         CARRY4 (Prop_carry4_CI_CO[1])
+                                                      0.179     4.328 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_20/CO[1]
+                         net (fo=47, unplaced)        0.393     4.721    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_20_n_2
+                         LUT5 (Prop_lut5_I3_O)        0.332     5.053 f  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q[32][3]_i_13/O
+                         net (fo=4, unplaced)         0.473     5.526    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q[32][3]_i_13_n_0
+                         LUT1 (Prop_lut1_I0_O)        0.124     5.650 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q[32][3]_i_43/O
+                         net (fo=1, unplaced)         0.000     5.650    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q[32][3]_i_43_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     6.183 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][3]_i_35/CO[3]
+                         net (fo=1, unplaced)         0.000     6.183    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][3]_i_35_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     6.300 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][7]_i_34/CO[3]
+                         net (fo=1, unplaced)         0.000     6.300    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][7]_i_34_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     6.417 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][11]_i_34/CO[3]
+                         net (fo=1, unplaced)         0.000     6.417    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][11]_i_34_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     6.534 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][15]_i_34/CO[3]
+                         net (fo=1, unplaced)         0.000     6.534    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][15]_i_34_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     6.651 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][19]_i_34/CO[3]
+                         net (fo=1, unplaced)         0.000     6.651    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][19]_i_34_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     6.768 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_44/CO[3]
+                         net (fo=1, unplaced)         0.000     6.768    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][23]_i_44_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     6.885 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][27]_i_16/CO[3]
+                         net (fo=1, unplaced)         0.000     6.885    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][27]_i_16_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     7.002 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][31]_i_16/CO[3]
+                         net (fo=1, unplaced)         0.000     7.002    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][31]_i_16_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     7.119 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][35]_i_16/CO[3]
+                         net (fo=1, unplaced)         0.000     7.119    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][35]_i_16_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     7.236 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][39]_i_16/CO[3]
+                         net (fo=1, unplaced)         0.000     7.236    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][39]_i_16_n_0
+                         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117     7.353 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][43]_i_16/CO[3]
+                         net (fo=1, unplaced)         0.000     7.353    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][43]_i_16_n_0
                          CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.337     7.698 r  radio_inst_1/wt_1_reg_rep_bsel_rep_rep_i_1/O[1]
-                         net (fo=2, unplaced)         0.803     8.501    radio_inst_1/wt_1_reg_rep_bsel_rep_rep_i_1_n_17
-                         RAMB18E1                                     r  radio_inst_1/wt_1_reg_rep_bsel_rep/ADDRARDADDR[11]
+                                                      0.337     7.690 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][47]_i_16/O[1]
+                         net (fo=1, unplaced)         0.312     8.002    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q[32]2[45]
+                         LUT3 (Prop_lut3_I2_O)        0.306     8.308 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q[32][47]_i_14/O
+                         net (fo=1, unplaced)         0.000     8.308    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q[32][47]_i_14_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     8.841 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][47]_i_11/CO[3]
+                         net (fo=1, unplaced)         0.000     8.841    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][47]_i_11_n_0
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.337     9.178 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][51]_i_11/O[1]
+                         net (fo=1, unplaced)         0.312     9.490    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][51]_i_11_n_6
+                         LUT5 (Prop_lut5_I2_O)        0.306     9.796 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q[32][51]_i_8/O
+                         net (fo=1, unplaced)         0.000     9.796    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q[32][51]_i_8_n_0
+                         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    10.329 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][51]_i_1/CO[3]
+                         net (fo=1, unplaced)         0.000    10.329    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][51]_i_1_n_0
+                         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.337    10.666 r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][53]_i_1/O[1]
+                         net (fo=1, unplaced)         0.000    10.666    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][53]_i_1_n_6
+                         FDRE                                         r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][53]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk0 rise edge)      10.000    10.000 r  
@@ -290,17 +403,16 @@ Slack (VIOLATED) :        -0.689ns  (required time - arrival time)
                                                      -5.705     6.469 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.763     7.232    clk0
                          BUFG (Prop_bufg_I_O)         0.091     7.323 r  BUFG_INST2/O
-                         net (fo=5215, unplaced)      0.763     8.086    radio_inst_1/CLK
-                         RAMB18E1                                     r  radio_inst_1/wt_1_reg_rep_bsel_rep/CLKARDCLK
+                         net (fo=10012, unplaced)     0.763     8.086    radio_inst_1/rectangular_to_polar_inst_1/CLK
+                         FDRE                                         r  radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][53]/C
                          clock pessimism              0.531     8.617    
                          clock uncertainty           -0.059     8.557    
-                         RAMB18E1 (Setup_ramb18e1_CLKARDCLK_ADDRARDADDR[11])
-                                                     -0.745     7.812    radio_inst_1/wt_1_reg_rep_bsel_rep
+                         FDRE (Setup_fdre_C_D)        0.076     8.633    radio_inst_1/rectangular_to_polar_inst_1/pipeline_q_reg[32][53]
   -------------------------------------------------------------------
-                         required time                          7.812    
-                         arrival time                          -8.501    
+                         required time                          8.633    
+                         arrival time                         -10.666    
   -------------------------------------------------------------------
-                         slack                                 -0.689    
+                         slack                                 -2.033    
 
 
 
@@ -308,59 +420,59 @@ Slack (VIOLATED) :        -0.689ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (VIOLATED) :        -0.907ns  (arrival time - required time)
-  Source:                 radio_inst_1/IDDR_inst/C
-                            (rising edge-triggered cell IDDR clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            radio_inst_1/rf_0_d2_reg_srl2/D
-                            (rising edge-triggered cell SRL16E clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
+Slack (MET) :             0.193ns  (arrival time - required time)
+  Source:                 USER_DESIGN_INST_1/main_0_139722169542056/result_reg[2]/C
+                            (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            USER_DESIGN_INST_1/main_0_139722169542056/registers_reg_r1_0_15_0_5/RAMB/I
+                            (rising edge-triggered cell RAMD32 clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk0
-  Path Type:              Hold (Min at Slow Process Corner)
+  Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk0 rise@0.000ns - clk0 rise@0.000ns)
-  Data Path Delay:        0.145ns  (logic 0.145ns (100.000%)  route 0.000ns (0.000%))
+  Data Path Delay:        0.304ns  (logic 0.147ns (48.319%)  route 0.157ns (51.681%))
   Logic Levels:           0  
-  Clock Path Skew:        0.803ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    -1.343ns
-    Source Clock Delay      (SCD):    -2.677ns
-    Clock Pessimism Removal (CPR):    0.531ns
+  Clock Path Skew:        0.018ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.973ns
+    Source Clock Delay      (SCD):    -0.711ns
+    Clock Pessimism Removal (CPR):    -0.280ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
                          (clock clk0 rise edge)       0.000     0.000 r  
     E3                                                0.000     0.000 r  CLK_IN (IN)
                          net (fo=0)                   0.000     0.000    CLK_IN
-    E3                   IBUF (Prop_ibuf_I_O)         1.411     1.411 r  clkin1_buf/O
-                         net (fo=1, unplaced)         0.763     2.174    CLKIN
+    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  clkin1_buf/O
+                         net (fo=1, unplaced)         0.338     0.588    CLKIN
                          MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
-                                                     -5.705    -3.531 r  dcm_sp_inst/CLKFBOUT
-                         net (fo=1, unplaced)         0.763    -2.768    clk0
-                         BUFG (Prop_bufg_I_O)         0.091    -2.677 r  BUFG_INST2/O
-                         net (fo=5215, unplaced)      0.000    -2.677    radio_inst_1/CLK
-    ILOGIC_X0Y132        IDDR                                         r  radio_inst_1/IDDR_inst/C
+                                                     -2.002    -1.414 r  dcm_sp_inst/CLKFBOUT
+                         net (fo=1, unplaced)         0.338    -1.075    clk0
+                         BUFG (Prop_bufg_I_O)         0.026    -1.049 r  BUFG_INST2/O
+                         net (fo=10012, unplaced)     0.338    -0.711    USER_DESIGN_INST_1/main_0_139722169542056/CLK
+                         FDRE                                         r  USER_DESIGN_INST_1/main_0_139722169542056/result_reg[2]/C
   -------------------------------------------------------------------    -------------------
-    ILOGIC_X0Y132        IDDR (Prop_iddr_C_Q2)        0.145    -2.532 r  radio_inst_1/IDDR_inst/Q2
-                         net (fo=1, unplaced)         0.000    -2.532    radio_inst_1/rf_0
-                         SRL16E                                       r  radio_inst_1/rf_0_d2_reg_srl2/D
+                         FDRE (Prop_fdre_C_Q)         0.147    -0.564 r  USER_DESIGN_INST_1/main_0_139722169542056/result_reg[2]/Q
+                         net (fo=8, unplaced)         0.157    -0.407    USER_DESIGN_INST_1/main_0_139722169542056/registers_reg_r1_0_15_0_5/DIB0
+                         RAMD32                                       r  USER_DESIGN_INST_1/main_0_139722169542056/registers_reg_r1_0_15_0_5/RAMB/I
   -------------------------------------------------------------------    -------------------
 
                          (clock clk0 rise edge)       0.000     0.000 r  
     E3                                                0.000     0.000 r  CLK_IN (IN)
                          net (fo=0)                   0.000     0.000    CLK_IN
-    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  clkin1_buf/O
-                         net (fo=1, unplaced)         0.803     2.285    CLKIN
+    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  clkin1_buf/O
+                         net (fo=1, unplaced)         0.356     0.794    CLKIN
                          MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
-                                                     -5.330    -3.045 r  dcm_sp_inst/CLKFBOUT
-                         net (fo=1, unplaced)         0.803    -2.242    clk0
-                         BUFG (Prop_bufg_I_O)         0.096    -2.146 r  BUFG_INST2/O
-                         net (fo=5215, unplaced)      0.803    -1.343    radio_inst_1/CLK
-                         SRL16E                                       r  radio_inst_1/rf_0_d2_reg_srl2/CLK
-                         clock pessimism             -0.531    -1.874    
-                         SRL16E (Hold_srl16e_CLK_D)
-                                                      0.249    -1.625    radio_inst_1/rf_0_d2_reg_srl2
+                                                     -2.509    -1.715 r  dcm_sp_inst/CLKFBOUT
+                         net (fo=1, unplaced)         0.356    -1.358    clk0
+                         BUFG (Prop_bufg_I_O)         0.029    -1.329 r  BUFG_INST2/O
+                         net (fo=10012, unplaced)     0.356    -0.973    USER_DESIGN_INST_1/main_0_139722169542056/registers_reg_r1_0_15_0_5/WCLK
+                         RAMD32                                       r  USER_DESIGN_INST_1/main_0_139722169542056/registers_reg_r1_0_15_0_5/RAMB/CLK
+                         clock pessimism              0.280    -0.693    
+                         RAMD32 (Hold_ramd32_CLK_I)
+                                                      0.093    -0.600    USER_DESIGN_INST_1/main_0_139722169542056/registers_reg_r1_0_15_0_5/RAMB
   -------------------------------------------------------------------
-                         required time                          1.625    
-                         arrival time                          -2.532    
+                         required time                          0.600    
+                         arrival time                          -0.407    
   -------------------------------------------------------------------
-                         slack                                 -0.907    
+                         slack                                  0.193    
 
 
 
@@ -375,9 +487,101 @@ Sources:            { dcm_sp_inst/CLKFBOUT }
 
 Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location  Pin
 Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.576         10.000      7.424                CHARSVGA_INST_1/BRAM_INST_1/MEMORY_reg_0/CLKARDCLK
-Max Period        n/a     MMCME2_ADV/CLKFBIN  n/a            100.000       10.000      90.000               dcm_sp_inst/CLKFBIN
-Low Pulse Width   Slow    RAMD32/CLK          n/a            1.250         5.000       3.750                USER_DESIGN_INST_1/main_0_139896505267624/registers_reg_r1_0_15_0_5/RAMA/CLK
-High Pulse Width  Slow    RAMD32/CLK          n/a            1.250         5.000       3.750                USER_DESIGN_INST_1/main_0_139896505267624/registers_reg_r1_0_15_0_5/RAMA/CLK
+Max Period        n/a     PLLE2_ADV/CLKIN1    n/a            52.633        10.000      42.633               radio_inst_1/PLLE2_BASE_inst/CLKIN1
+Low Pulse Width   Slow    PLLE2_ADV/CLKIN1    n/a            2.000         5.000       3.000                radio_inst_1/PLLE2_BASE_inst/CLKIN1
+High Pulse Width  Slow    PLLE2_ADV/CLKIN1    n/a            2.000         5.000       3.000                radio_inst_1/PLLE2_BASE_inst/CLKIN1
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  CLKFBOUT
+  To Clock:  CLKFBOUT
+
+Setup :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+PW    :            0  Failing Endpoints,  Worst Slack        7.845ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         CLKFBOUT
+Waveform(ns):       { 0.000 5.000 }
+Period(ns):         10.000
+Sources:            { radio_inst_1/PLLE2_BASE_inst/CLKFBOUT }
+
+Check Type  Corner  Lib Pin            Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location  Pin
+Min Period  n/a     BUFG/I             n/a            2.155         10.000      7.845                radio_inst_1/BUFG_inst_4/I
+Max Period  n/a     PLLE2_ADV/CLKFBIN  n/a            52.633        10.000      42.633               radio_inst_1/PLLE2_BASE_inst/CLKFBIN
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  CLK_100_s
+  To Clock:  CLK_100_s
+
+Setup :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+PW    :            0  Failing Endpoints,  Worst Slack        7.845ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         CLK_100_s
+Waveform(ns):       { 0.000 5.000 }
+Period(ns):         10.000
+Sources:            { radio_inst_1/PLLE2_BASE_inst/CLKOUT0 }
+
+Check Type  Corner  Lib Pin            Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location  Pin
+Min Period  n/a     BUFG/I             n/a            2.155         10.000      7.845                radio_inst_1/BUFG_inst_1/I
+Max Period  n/a     PLLE2_ADV/CLKOUT0  n/a            160.000       10.000      150.000              radio_inst_1/PLLE2_BASE_inst/CLKOUT0
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  CLK_400_N_s
+  To Clock:  CLK_400_N_s
+
+Setup :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+PW    :            0  Failing Endpoints,  Worst Slack        2.845ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         CLK_400_N_s
+Waveform(ns):       { 2.500 5.000 }
+Period(ns):         5.000
+Sources:            { radio_inst_1/PLLE2_BASE_inst/CLKOUT2 }
+
+Check Type  Corner  Lib Pin            Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location  Pin
+Min Period  n/a     BUFG/I             n/a            2.155         5.000       2.845                radio_inst_1/BUFG_inst_3/I
+Max Period  n/a     PLLE2_ADV/CLKOUT2  n/a            160.000       5.000       155.000              radio_inst_1/PLLE2_BASE_inst/CLKOUT2
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  CLK_400_s
+  To Clock:  CLK_400_s
+
+Setup :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+Hold  :           NA  Failing Endpoints,  Worst Slack           NA  ,  Total Violation           NA
+PW    :            0  Failing Endpoints,  Worst Slack        2.845ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Pulse Width Checks
+--------------------------------------------------------------------------------------
+Clock Name:         CLK_400_s
+Waveform(ns):       { 0.000 2.500 }
+Period(ns):         5.000
+Sources:            { radio_inst_1/PLLE2_BASE_inst/CLKOUT1 }
+
+Check Type  Corner  Lib Pin            Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location  Pin
+Min Period  n/a     BUFG/I             n/a            2.155         5.000       2.845                radio_inst_1/BUFG_inst_2/I
+Max Period  n/a     PLLE2_ADV/CLKOUT1  n/a            160.000       5.000       155.000              radio_inst_1/PLLE2_BASE_inst/CLKOUT1
 
 
 
@@ -453,13 +657,13 @@ Slack (MET) :             14.657ns  (required time - arrival time)
                                                       2.454     1.111 r  ethernet_inst_1/TX_MEMORY_reg/DOBDO[4]
                          net (fo=4, unplaced)         0.803     1.914    ethernet_inst_1/p_17_in[0]
                          LUT6 (Prop_lut6_I5_O)        0.124     2.038 r  ethernet_inst_1/TXD[0]_i_11/O
-                         net (fo=1, unplaced)         0.000     2.038    ethernet_inst_1/TXD[0]_i_11_n_11
+                         net (fo=1, unplaced)         0.000     2.038    ethernet_inst_1/TXD[0]_i_11_n_0
                          MUXF7 (Prop_muxf7_I1_O)      0.247     2.285 r  ethernet_inst_1/TXD_reg[0]_i_5/O
-                         net (fo=1, unplaced)         0.452     2.737    ethernet_inst_1/TXD_reg[0]_i_5_n_11
+                         net (fo=1, unplaced)         0.452     2.737    ethernet_inst_1/TXD_reg[0]_i_5_n_0
                          LUT6 (Prop_lut6_I3_O)        0.298     3.035 r  ethernet_inst_1/TXD[0]_i_2/O
-                         net (fo=1, unplaced)         0.732     3.767    ethernet_inst_1/TXD[0]_i_2_n_11
+                         net (fo=1, unplaced)         0.732     3.767    ethernet_inst_1/TXD[0]_i_2_n_0
                          LUT3 (Prop_lut3_I0_O)        0.148     3.915 r  ethernet_inst_1/TXD[0]_i_1/O
-                         net (fo=1, unplaced)         0.000     3.915    ethernet_inst_1/TXD[0]_i_1_n_11
+                         net (fo=1, unplaced)         0.000     3.915    ethernet_inst_1/TXD[0]_i_1_n_0
                          FDRE                                         r  ethernet_inst_1/TXD_reg[0]/D
   -------------------------------------------------------------------    -------------------
 
@@ -609,6 +813,159 @@ Max Period  n/a     MMCME2_ADV/CLKOUT0B  n/a            213.360       2.500     
 
 
 ---------------------------------------------------------------------------------------------------
+From Clock:  CLK_100_s
+  To Clock:  clk0
+
+Setup :            0  Failing Endpoints,  Worst Slack        9.825ns,  Total Violation        0.000ns
+Hold  :            2  Failing Endpoints,  Worst Slack       -0.725ns,  Total Violation       -1.450ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             9.825ns  (required time - arrival time)
+  Source:                 radio_inst_1/ISERDESE2_inst/CLKDIV
+                            (rising edge-triggered cell ISERDESE2 clocked by CLK_100_s  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            radio_inst_1/rf_2_reg[0]_srl2/D
+                            (rising edge-triggered cell SRL16E clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (clk0 rise@10.000ns - CLK_100_s rise@0.000ns)
+  Data Path Delay:        0.653ns  (logic 0.653ns (100.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.763ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -1.914ns = ( 8.086 - 10.000 ) 
+    Source Clock Delay      (SCD):    -2.146ns
+    Clock Pessimism Removal (CPR):    0.531ns
+  Clock Uncertainty:      0.241ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.142ns
+    Phase Error              (PE):    0.162ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK_100_s rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  CLK_IN (IN)
+                         net (fo=0)                   0.000     0.000    CLK_IN
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  clkin1_buf/O
+                         net (fo=1, unplaced)         0.803     2.285    CLKIN
+                         MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
+                                                     -5.330    -3.045 r  dcm_sp_inst/CLKFBOUT
+                         net (fo=1, unplaced)         0.803    -2.242    clk0
+                         BUFG (Prop_bufg_I_O)         0.096    -2.146 r  BUFG_INST2/O
+                         net (fo=10012, unplaced)     0.803    -1.343    radio_inst_1/CLK
+                         PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT0)
+                                                     -1.702    -3.045 r  radio_inst_1/PLLE2_BASE_inst/CLKOUT0
+                         net (fo=1, unplaced)         0.803    -2.242    radio_inst_1/CLK_100_s
+                         BUFG (Prop_bufg_I_O)         0.096    -2.146 r  radio_inst_1/BUFG_inst_1/O
+                         net (fo=1, unplaced)         0.000    -2.146    radio_inst_1/CLKDIV
+    ILOGIC_X0Y132        ISERDESE2                                    r  radio_inst_1/ISERDESE2_inst/CLKDIV
+  -------------------------------------------------------------------    -------------------
+    ILOGIC_X0Y132        ISERDESE2 (Prop_iserdese2_CLKDIV_Q2)
+                                                      0.653    -1.493 r  radio_inst_1/ISERDESE2_inst/Q2
+                         net (fo=1, unplaced)         0.000    -1.493    radio_inst_1/rf_0[0]
+                         SRL16E                                       r  radio_inst_1/rf_2_reg[0]_srl2/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk0 rise edge)      10.000    10.000 r  
+    E3                                                0.000    10.000 r  CLK_IN (IN)
+                         net (fo=0)                   0.000    10.000    CLK_IN
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  clkin1_buf/O
+                         net (fo=1, unplaced)         0.763    12.174    CLKIN
+                         MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
+                                                     -5.705     6.469 r  dcm_sp_inst/CLKFBOUT
+                         net (fo=1, unplaced)         0.763     7.232    clk0
+                         BUFG (Prop_bufg_I_O)         0.091     7.323 r  BUFG_INST2/O
+                         net (fo=10012, unplaced)     0.763     8.086    radio_inst_1/CLK
+                         SRL16E                                       r  radio_inst_1/rf_2_reg[0]_srl2/CLK
+                         clock pessimism              0.531     8.617    
+                         clock uncertainty           -0.241     8.376    
+                         SRL16E (Setup_srl16e_CLK_D)
+                                                     -0.044     8.332    radio_inst_1/rf_2_reg[0]_srl2
+  -------------------------------------------------------------------
+                         required time                          8.332    
+                         arrival time                           1.493    
+  -------------------------------------------------------------------
+                         slack                                  9.825    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (VIOLATED) :        -0.725ns  (arrival time - required time)
+  Source:                 radio_inst_1/ISERDESE2_inst/CLKDIV
+                            (rising edge-triggered cell ISERDESE2 clocked by CLK_100_s  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            radio_inst_1/rf_2_reg[0]_srl2/D
+                            (rising edge-triggered cell SRL16E clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk0
+  Path Type:              Hold (Min at Slow Process Corner)
+  Requirement:            0.000ns  (clk0 rise@0.000ns - CLK_100_s rise@0.000ns)
+  Data Path Delay:        0.568ns  (logic 0.568ns (100.000%)  route 0.000ns (0.000%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.803ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -1.343ns
+    Source Clock Delay      (SCD):    -2.677ns
+    Clock Pessimism Removal (CPR):    0.531ns
+  Clock Uncertainty:      0.241ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.142ns
+    Phase Error              (PE):    0.162ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock CLK_100_s rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  CLK_IN (IN)
+                         net (fo=0)                   0.000     0.000    CLK_IN
+    E3                   IBUF (Prop_ibuf_I_O)         1.411     1.411 r  clkin1_buf/O
+                         net (fo=1, unplaced)         0.763     2.174    CLKIN
+                         MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
+                                                     -5.705    -3.531 r  dcm_sp_inst/CLKFBOUT
+                         net (fo=1, unplaced)         0.763    -2.768    clk0
+                         BUFG (Prop_bufg_I_O)         0.091    -2.677 r  BUFG_INST2/O
+                         net (fo=10012, unplaced)     0.763    -1.914    radio_inst_1/CLK
+                         PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT0)
+                                                     -1.617    -3.531 r  radio_inst_1/PLLE2_BASE_inst/CLKOUT0
+                         net (fo=1, unplaced)         0.763    -2.768    radio_inst_1/CLK_100_s
+                         BUFG (Prop_bufg_I_O)         0.091    -2.677 r  radio_inst_1/BUFG_inst_1/O
+                         net (fo=1, unplaced)         0.000    -2.677    radio_inst_1/CLKDIV
+    ILOGIC_X0Y132        ISERDESE2                                    r  radio_inst_1/ISERDESE2_inst/CLKDIV
+  -------------------------------------------------------------------    -------------------
+    ILOGIC_X0Y132        ISERDESE2 (Prop_iserdese2_CLKDIV_Q2)
+                                                      0.568    -2.109 r  radio_inst_1/ISERDESE2_inst/Q2
+                         net (fo=1, unplaced)         0.000    -2.109    radio_inst_1/rf_0[0]
+                         SRL16E                                       r  radio_inst_1/rf_2_reg[0]_srl2/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk0 rise edge)       0.000     0.000 r  
+    E3                                                0.000     0.000 r  CLK_IN (IN)
+                         net (fo=0)                   0.000     0.000    CLK_IN
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  clkin1_buf/O
+                         net (fo=1, unplaced)         0.803     2.285    CLKIN
+                         MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
+                                                     -5.330    -3.045 r  dcm_sp_inst/CLKFBOUT
+                         net (fo=1, unplaced)         0.803    -2.242    clk0
+                         BUFG (Prop_bufg_I_O)         0.096    -2.146 r  BUFG_INST2/O
+                         net (fo=10012, unplaced)     0.803    -1.343    radio_inst_1/CLK
+                         SRL16E                                       r  radio_inst_1/rf_2_reg[0]_srl2/CLK
+                         clock pessimism             -0.531    -1.874    
+                         clock uncertainty            0.241    -1.633    
+                         SRL16E (Hold_srl16e_CLK_D)
+                                                      0.249    -1.384    radio_inst_1/rf_2_reg[0]_srl2
+  -------------------------------------------------------------------
+                         required time                          1.384    
+                         arrival time                          -2.109    
+  -------------------------------------------------------------------
+                         slack                                 -0.725    
+
+
+
+
+
+---------------------------------------------------------------------------------------------------
 From Clock:  clkdv
   To Clock:  clk0
 
@@ -654,15 +1011,15 @@ Slack (MET) :             6.290ns  (required time - arrival time)
   -------------------------------------------------------------------    -------------------
                          RAMD64E (Prop_ramd64e_CLK_O)
                                                       1.317    -0.026 r  ethernet_inst_1/RX_MEMORY_reg_256_319_9_11/RAMB/O
-                         net (fo=1, unplaced)         0.449     0.423    ethernet_inst_1/RX_MEMORY_reg_256_319_9_11_n_12
-                         LUT6 (Prop_lut6_I5_O)        0.124     0.547 r  ethernet_inst_1/RX[10]_i_15/O
-                         net (fo=1, unplaced)         0.000     0.547    ethernet_inst_1/RX[10]_i_15_n_11
-                         MUXF7 (Prop_muxf7_I1_O)      0.247     0.794 r  ethernet_inst_1/RX_reg[10]_i_7/O
-                         net (fo=1, unplaced)         0.452     1.246    ethernet_inst_1/RX_reg[10]_i_7_n_11
-                         LUT6 (Prop_lut6_I5_O)        0.298     1.544 r  ethernet_inst_1/RX[10]_i_2/O
+                         net (fo=1, unplaced)         0.449     0.423    ethernet_inst_1/RX_MEMORY_reg_256_319_9_11_n_1
+                         LUT6 (Prop_lut6_I5_O)        0.124     0.547 r  ethernet_inst_1/RX[10]_i_16/O
+                         net (fo=1, unplaced)         0.000     0.547    ethernet_inst_1/RX[10]_i_16_n_0
+                         MUXF7 (Prop_muxf7_I1_O)      0.247     0.794 r  ethernet_inst_1/RX_reg[10]_i_8/O
+                         net (fo=1, unplaced)         0.452     1.246    ethernet_inst_1/RX_reg[10]_i_8_n_0
+                         LUT6 (Prop_lut6_I5_O)        0.298     1.544 r  ethernet_inst_1/RX[10]_i_3/O
                          net (fo=1, unplaced)         0.449     1.993    ethernet_inst_1/RX0[10]
-                         LUT6 (Prop_lut6_I0_O)        0.124     2.117 r  ethernet_inst_1/RX[10]_i_1/O
-                         net (fo=1, unplaced)         0.000     2.117    ethernet_inst_1/RX[10]_i_1_n_11
+                         LUT6 (Prop_lut6_I0_O)        0.124     2.117 r  ethernet_inst_1/RX[10]_i_2/O
+                         net (fo=1, unplaced)         0.000     2.117    ethernet_inst_1/RX[10]_i_2_n_0
                          FDRE                                         r  ethernet_inst_1/RX_reg[10]/D
   -------------------------------------------------------------------    -------------------
 
@@ -675,7 +1032,7 @@ Slack (MET) :             6.290ns  (required time - arrival time)
                                                      -5.705     6.469 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.763     7.232    clk0
                          BUFG (Prop_bufg_I_O)         0.091     7.323 r  BUFG_INST2/O
-                         net (fo=5215, unplaced)      0.763     8.086    ethernet_inst_1/CLK
+                         net (fo=10012, unplaced)     0.763     8.086    ethernet_inst_1/CLK
                          FDRE                                         r  ethernet_inst_1/RX_reg[10]/C
                          clock pessimism              0.485     8.572    
                          clock uncertainty           -0.209     8.363    
@@ -739,7 +1096,7 @@ Slack (MET) :             0.050ns  (arrival time - required time)
                                                      -2.509    -1.715 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.356    -1.358    clk0
                          BUFG (Prop_bufg_I_O)         0.029    -1.329 r  BUFG_INST2/O
-                         net (fo=5215, unplaced)      0.356    -0.973    ethernet_inst_1/CLK
+                         net (fo=10012, unplaced)     0.356    -0.973    ethernet_inst_1/CLK
                          FDRE                                         r  ethernet_inst_1/RX_BUFFER_BUSY_DEL_reg[0]/C
                          clock pessimism              0.301    -0.672    
                          clock uncertainty            0.209    -0.464    
@@ -756,25 +1113,176 @@ Slack (MET) :             0.050ns  (arrival time - required time)
 
 ---------------------------------------------------------------------------------------------------
 From Clock:  clk0
-  To Clock:  clkdv
+  To Clock:  CLK_100_s
 
-Setup :            0  Failing Endpoints,  Worst Slack        5.737ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.037ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        6.982ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.742ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             5.737ns  (required time - arrival time)
-  Source:                 ethernet_inst_1/TX_PACKET_LENGTH_reg[0]/C
+Slack (MET) :             6.982ns  (required time - arrival time)
+  Source:                 INTERNAL_RST_reg/C
+                            (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            radio_inst_1/ISERDESE2_inst/RST
+                            (rising edge-triggered cell ISERDESE2 clocked by CLK_100_s  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             CLK_100_s
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            10.000ns  (CLK_100_s rise@10.000ns - clk0 rise@0.000ns)
+  Data Path Delay:        1.281ns  (logic 0.478ns (37.315%)  route 0.803ns (62.685%))
+  Logic Levels:           0  
+  Clock Path Skew:        -0.803ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -2.677ns = ( 7.323 - 10.000 ) 
+    Source Clock Delay      (SCD):    -1.343ns
+    Clock Pessimism Removal (CPR):    0.531ns
+  Clock Uncertainty:      0.242ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.145ns
+    Phase Error              (PE):    0.162ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk0 rise edge)       0.000     0.000 r  
+    E3                                                0.000     0.000 r  CLK_IN (IN)
+                         net (fo=0)                   0.000     0.000    CLK_IN
+    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  clkin1_buf/O
+                         net (fo=1, unplaced)         0.803     2.285    CLKIN
+                         MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
+                                                     -5.330    -3.045 r  dcm_sp_inst/CLKFBOUT
+                         net (fo=1, unplaced)         0.803    -2.242    clk0
+                         BUFG (Prop_bufg_I_O)         0.096    -2.146 r  BUFG_INST2/O
+                         net (fo=10012, unplaced)     0.803    -1.343    CLK
+                         FDRE                                         r  INTERNAL_RST_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_fdre_C_Q)         0.478    -0.865 r  INTERNAL_RST_reg/Q
+                         net (fo=337, unplaced)       0.803    -0.062    radio_inst_1/INTERNAL_RST_reg
+    ILOGIC_X0Y132        ISERDESE2                                    r  radio_inst_1/ISERDESE2_inst/RST
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK_100_s rise edge)
+                                                     10.000    10.000 r  
+    E3                                                0.000    10.000 r  CLK_IN (IN)
+                         net (fo=0)                   0.000    10.000    CLK_IN
+    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  clkin1_buf/O
+                         net (fo=1, unplaced)         0.763    12.174    CLKIN
+                         MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
+                                                     -5.705     6.469 r  dcm_sp_inst/CLKFBOUT
+                         net (fo=1, unplaced)         0.763     7.232    clk0
+                         BUFG (Prop_bufg_I_O)         0.091     7.323 r  BUFG_INST2/O
+                         net (fo=10012, unplaced)     0.763     8.086    radio_inst_1/CLK
+                         PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT0)
+                                                     -1.617     6.469 r  radio_inst_1/PLLE2_BASE_inst/CLKOUT0
+                         net (fo=1, unplaced)         0.763     7.232    radio_inst_1/CLK_100_s
+                         BUFG (Prop_bufg_I_O)         0.091     7.323 r  radio_inst_1/BUFG_inst_1/O
+                         net (fo=1, unplaced)         0.000     7.323    radio_inst_1/CLKDIV
+    ILOGIC_X0Y132        ISERDESE2                                    r  radio_inst_1/ISERDESE2_inst/CLKDIV
+                         clock pessimism              0.531     7.854    
+                         clock uncertainty           -0.242     7.612    
+    ILOGIC_X0Y132        ISERDESE2 (Setup_iserdese2_CLKDIV_RST)
+                                                     -0.692     6.920    radio_inst_1/ISERDESE2_inst
+  -------------------------------------------------------------------
+                         required time                          6.920    
+                         arrival time                           0.062    
+  -------------------------------------------------------------------
+                         slack                                  6.982    
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             0.742ns  (arrival time - required time)
+  Source:                 INTERNAL_RST_reg/C
+                            (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            radio_inst_1/ISERDESE2_inst/RST
+                            (rising edge-triggered cell ISERDESE2 clocked by CLK_100_s  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             CLK_100_s
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (CLK_100_s rise@0.000ns - clk0 rise@0.000ns)
+  Data Path Delay:        0.485ns  (logic 0.147ns (30.279%)  route 0.338ns (69.721%))
+  Logic Levels:           0  
+  Clock Path Skew:        -0.338ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -1.329ns
+    Source Clock Delay      (SCD):    -0.711ns
+    Clock Pessimism Removal (CPR):    -0.280ns
+  Clock Uncertainty:      0.242ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Discrete Jitter          (DJ):    0.145ns
+    Phase Error              (PE):    0.162ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk0 rise edge)       0.000     0.000 r  
+    E3                                                0.000     0.000 r  CLK_IN (IN)
+                         net (fo=0)                   0.000     0.000    CLK_IN
+    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  clkin1_buf/O
+                         net (fo=1, unplaced)         0.338     0.588    CLKIN
+                         MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
+                                                     -2.002    -1.414 r  dcm_sp_inst/CLKFBOUT
+                         net (fo=1, unplaced)         0.338    -1.075    clk0
+                         BUFG (Prop_bufg_I_O)         0.026    -1.049 r  BUFG_INST2/O
+                         net (fo=10012, unplaced)     0.338    -0.711    CLK
+                         FDRE                                         r  INTERNAL_RST_reg/C
+  -------------------------------------------------------------------    -------------------
+                         FDRE (Prop_fdre_C_Q)         0.147    -0.564 r  INTERNAL_RST_reg/Q
+                         net (fo=337, unplaced)       0.338    -0.225    radio_inst_1/INTERNAL_RST_reg
+    ILOGIC_X0Y132        ISERDESE2                                    r  radio_inst_1/ISERDESE2_inst/RST
+  -------------------------------------------------------------------    -------------------
+
+                         (clock CLK_100_s rise edge)
+                                                      0.000     0.000 r  
+    E3                                                0.000     0.000 r  CLK_IN (IN)
+                         net (fo=0)                   0.000     0.000    CLK_IN
+    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  clkin1_buf/O
+                         net (fo=1, unplaced)         0.356     0.794    CLKIN
+                         MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
+                                                     -2.509    -1.715 r  dcm_sp_inst/CLKFBOUT
+                         net (fo=1, unplaced)         0.356    -1.358    clk0
+                         BUFG (Prop_bufg_I_O)         0.029    -1.329 r  BUFG_INST2/O
+                         net (fo=10012, unplaced)     0.356    -0.973    radio_inst_1/CLK
+                         PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT0)
+                                                     -0.742    -1.715 r  radio_inst_1/PLLE2_BASE_inst/CLKOUT0
+                         net (fo=1, unplaced)         0.356    -1.358    radio_inst_1/CLK_100_s
+                         BUFG (Prop_bufg_I_O)         0.029    -1.329 r  radio_inst_1/BUFG_inst_1/O
+                         net (fo=1, unplaced)         0.000    -1.329    radio_inst_1/CLKDIV
+    ILOGIC_X0Y132        ISERDESE2                                    r  radio_inst_1/ISERDESE2_inst/CLKDIV
+                         clock pessimism              0.280    -1.049    
+                         clock uncertainty            0.242    -0.807    
+    ILOGIC_X0Y132        ISERDESE2 (Hold_iserdese2_CLKDIV_RST)
+                                                     -0.160    -0.967    radio_inst_1/ISERDESE2_inst
+  -------------------------------------------------------------------
+                         required time                          0.967    
+                         arrival time                          -0.225    
+  -------------------------------------------------------------------
+                         slack                                  0.742    
+
+
+
+
+
+---------------------------------------------------------------------------------------------------
+From Clock:  clk0
+  To Clock:  clkdv
+
+Setup :            0  Failing Endpoints,  Worst Slack        6.876ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.040ns,  Total Violation        0.000ns
+---------------------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack (MET) :             6.876ns  (required time - arrival time)
+  Source:                 ethernet_inst_1/TX_PACKET_LENGTH_reg[1]/C
                             (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            ethernet_inst_1/TX_OUT_COUNT_reg[10]/D
                             (rising edge-triggered cell FDRE clocked by clkdv  {rise@0.000ns fall@10.000ns period=20.000ns})
   Path Group:             clkdv
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clkdv rise@20.000ns - clk0 rise@10.000ns)
-  Data Path Delay:        4.013ns  (logic 1.385ns (34.513%)  route 2.628ns (65.487%))
-  Logic Levels:           6  (LUT3=1 LUT6=5)
+  Data Path Delay:        2.874ns  (logic 1.137ns (39.562%)  route 1.737ns (60.438%))
+  Logic Levels:           4  (LUT5=2 LUT6=2)
   Clock Path Skew:        -0.085ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    -1.914ns = ( 18.086 - 20.000 ) 
     Source Clock Delay      (SCD):    -1.343ns = ( 8.657 - 10.000 ) 
@@ -795,23 +1303,19 @@ Slack (MET) :             5.737ns  (required time - arrival time)
                                                      -5.330     6.955 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.803     7.758    clk0
                          BUFG (Prop_bufg_I_O)         0.096     7.854 r  BUFG_INST2/O
-                         net (fo=5215, unplaced)      0.803     8.657    ethernet_inst_1/CLK
-                         FDRE                                         r  ethernet_inst_1/TX_PACKET_LENGTH_reg[0]/C
+                         net (fo=10012, unplaced)     0.803     8.657    ethernet_inst_1/CLK
+                         FDRE                                         r  ethernet_inst_1/TX_PACKET_LENGTH_reg[1]/C
   -------------------------------------------------------------------    -------------------
-                         FDRE (Prop_fdre_C_Q)         0.478     9.135 r  ethernet_inst_1/TX_PACKET_LENGTH_reg[0]/Q
-                         net (fo=5, unplaced)         0.339     9.474    ethernet_inst_1/TX_PACKET_LENGTH[0]
-                         LUT3 (Prop_lut3_I2_O)        0.287     9.761 r  ethernet_inst_1/TX_OUT_COUNT[2]_i_2/O
-                         net (fo=2, unplaced)         0.460    10.221    ethernet_inst_1/p_0_out[0]
-                         LUT6 (Prop_lut6_I2_O)        0.124    10.345 r  ethernet_inst_1/TX_OUT_COUNT[4]_i_2/O
-                         net (fo=2, unplaced)         0.460    10.805    ethernet_inst_1/TX_OUT_COUNT[4]_i_2_n_11
-                         LUT6 (Prop_lut6_I2_O)        0.124    10.929 r  ethernet_inst_1/TX_OUT_COUNT[6]_i_2/O
-                         net (fo=2, unplaced)         0.460    11.389    ethernet_inst_1/TX_OUT_COUNT[6]_i_2_n_11
-                         LUT6 (Prop_lut6_I2_O)        0.124    11.513 r  ethernet_inst_1/TX_OUT_COUNT[8]_i_2/O
-                         net (fo=2, unplaced)         0.460    11.973    ethernet_inst_1/TX_OUT_COUNT[8]_i_2_n_11
-                         LUT6 (Prop_lut6_I2_O)        0.124    12.097 r  ethernet_inst_1/TX_OUT_COUNT[10]_i_5/O
-                         net (fo=1, unplaced)         0.449    12.546    ethernet_inst_1/TX_OUT_COUNT[10]_i_5_n_11
-                         LUT6 (Prop_lut6_I2_O)        0.124    12.670 r  ethernet_inst_1/TX_OUT_COUNT[10]_i_2/O
-                         net (fo=1, unplaced)         0.000    12.670    ethernet_inst_1/TX_OUT_COUNT0_in[10]
+                         FDRE (Prop_fdre_C_Q)         0.478     9.135 r  ethernet_inst_1/TX_PACKET_LENGTH_reg[1]/Q
+                         net (fo=6, unplaced)         0.343     9.478    ethernet_inst_1/TX_PACKET_LENGTH[1]
+                         LUT5 (Prop_lut5_I2_O)        0.287     9.765 r  ethernet_inst_1/TX_OUT_COUNT[3]_i_2/O
+                         net (fo=2, unplaced)         0.460    10.225    ethernet_inst_1/TX_OUT_COUNT[3]_i_2_n_0
+                         LUT6 (Prop_lut6_I2_O)        0.124    10.349 r  ethernet_inst_1/TX_OUT_COUNT[5]_i_2/O
+                         net (fo=3, unplaced)         0.467    10.816    ethernet_inst_1/TX_OUT_COUNT[5]_i_2_n_0
+                         LUT6 (Prop_lut6_I1_O)        0.124    10.940 r  ethernet_inst_1/TX_OUT_COUNT[10]_i_7/O
+                         net (fo=3, unplaced)         0.467    11.407    ethernet_inst_1/TX_OUT_COUNT[10]_i_7_n_0
+                         LUT5 (Prop_lut5_I2_O)        0.124    11.531 r  ethernet_inst_1/TX_OUT_COUNT[10]_i_2/O
+                         net (fo=1, unplaced)         0.000    11.531    ethernet_inst_1/TX_OUT_COUNT0_in[10]
                          FDRE                                         r  ethernet_inst_1/TX_OUT_COUNT_reg[10]/D
   -------------------------------------------------------------------    -------------------
 
@@ -831,9 +1335,9 @@ Slack (MET) :             5.737ns  (required time - arrival time)
                          FDRE (Setup_fdre_C_D)        0.044    18.407    ethernet_inst_1/TX_OUT_COUNT_reg[10]
   -------------------------------------------------------------------
                          required time                         18.407    
-                         arrival time                         -12.670    
+                         arrival time                         -11.531    
   -------------------------------------------------------------------
-                         slack                                  5.737    
+                         slack                                  6.876    
 
 
 
@@ -841,15 +1345,15 @@ Slack (MET) :             5.737ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.037ns  (arrival time - required time)
-  Source:                 ethernet_inst_1/TX_PACKET_LENGTH_reg[10]/C
+Slack (MET) :             0.040ns  (arrival time - required time)
+  Source:                 ethernet_inst_1/TX_PACKET_LENGTH_reg[8]/C
                             (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            ethernet_inst_1/TX_OUT_COUNT_reg[10]/D
+  Destination:            ethernet_inst_1/TX_OUT_COUNT_reg[8]/D
                             (rising edge-triggered cell FDRE clocked by clkdv  {rise@0.000ns fall@10.000ns period=20.000ns})
   Path Group:             clkdv
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clkdv rise@0.000ns - clk0 rise@0.000ns)
-  Data Path Delay:        0.384ns  (logic 0.245ns (63.855%)  route 0.139ns (36.145%))
+  Data Path Delay:        0.386ns  (logic 0.245ns (63.437%)  route 0.141ns (36.563%))
   Logic Levels:           1  (LUT6=1)
   Clock Path Skew:        0.039ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    -0.973ns
@@ -871,14 +1375,14 @@ Slack (MET) :             0.037ns  (arrival time - required time)
                                                      -2.002    -1.414 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.338    -1.075    clk0
                          BUFG (Prop_bufg_I_O)         0.026    -1.049 r  BUFG_INST2/O
-                         net (fo=5215, unplaced)      0.338    -0.711    ethernet_inst_1/CLK
-                         FDRE                                         r  ethernet_inst_1/TX_PACKET_LENGTH_reg[10]/C
+                         net (fo=10012, unplaced)     0.338    -0.711    ethernet_inst_1/CLK
+                         FDRE                                         r  ethernet_inst_1/TX_PACKET_LENGTH_reg[8]/C
   -------------------------------------------------------------------    -------------------
-                         FDRE (Prop_fdre_C_Q)         0.147    -0.564 r  ethernet_inst_1/TX_PACKET_LENGTH_reg[10]/Q
-                         net (fo=3, unplaced)         0.139    -0.425    ethernet_inst_1/TX_PACKET_LENGTH[10]
-                         LUT6 (Prop_lut6_I3_O)        0.098    -0.327 r  ethernet_inst_1/TX_OUT_COUNT[10]_i_2/O
-                         net (fo=1, unplaced)         0.000    -0.327    ethernet_inst_1/TX_OUT_COUNT0_in[10]
-                         FDRE                                         r  ethernet_inst_1/TX_OUT_COUNT_reg[10]/D
+                         FDRE (Prop_fdre_C_Q)         0.147    -0.564 r  ethernet_inst_1/TX_PACKET_LENGTH_reg[8]/Q
+                         net (fo=4, unplaced)         0.141    -0.423    ethernet_inst_1/TX_PACKET_LENGTH[8]
+                         LUT6 (Prop_lut6_I3_O)        0.098    -0.325 r  ethernet_inst_1/TX_OUT_COUNT[8]_i_1/O
+                         net (fo=1, unplaced)         0.000    -0.325    ethernet_inst_1/TX_OUT_COUNT0_in[8]
+                         FDRE                                         r  ethernet_inst_1/TX_OUT_COUNT_reg[8]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clkdv rise edge)      0.000     0.000 r  
@@ -891,15 +1395,15 @@ Slack (MET) :             0.037ns  (arrival time - required time)
                          net (fo=1, unplaced)         0.356    -1.358    clkdv
                          BUFG (Prop_bufg_I_O)         0.029    -1.329 r  BUFG_INST1/O
                          net (fo=1017, unplaced)      0.356    -0.973    ethernet_inst_1/ETH_CLK_OBUF
-                         FDRE                                         r  ethernet_inst_1/TX_OUT_COUNT_reg[10]/C
+                         FDRE                                         r  ethernet_inst_1/TX_OUT_COUNT_reg[8]/C
                          clock pessimism              0.301    -0.672    
                          clock uncertainty            0.209    -0.464    
-                         FDRE (Hold_fdre_C_D)         0.099    -0.365    ethernet_inst_1/TX_OUT_COUNT_reg[10]
+                         FDRE (Hold_fdre_C_D)         0.099    -0.365    ethernet_inst_1/TX_OUT_COUNT_reg[8]
   -------------------------------------------------------------------
                          required time                          0.365    
-                         arrival time                          -0.327    
+                         arrival time                          -0.325    
   -------------------------------------------------------------------
-                         slack                                  0.037    
+                         slack                                  0.040    
 
 
 

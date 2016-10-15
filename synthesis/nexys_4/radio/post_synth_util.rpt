@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date         : Mon Oct 10 20:08:23 2016
+| Date         : Sat Oct 15 11:58:26 2016
 | Host         : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command      : report_utilization -file ./post_synth_util.rpt
 | Design       : BSP
@@ -30,16 +30,16 @@ Table of Contents
 +----------------------------+-------+-------+-----------+-------+
 |          Site Type         |  Used | Fixed | Available | Util% |
 +----------------------------+-------+-------+-----------+-------+
-| Slice LUTs*                | 17715 |     0 |     63400 | 27.94 |
-|   LUT as Logic             | 16944 |     0 |     63400 | 26.73 |
-|   LUT as Memory            |   771 |     0 |     19000 |  4.06 |
+| Slice LUTs*                | 33082 |     0 |     63400 | 52.18 |
+|   LUT as Logic             | 32310 |     0 |     63400 | 50.96 |
+|   LUT as Memory            |   772 |     0 |     19000 |  4.06 |
 |     LUT as Distributed RAM |   768 |     0 |           |       |
-|     LUT as Shift Register  |     3 |     0 |           |       |
-| Slice Registers            |  5369 |     0 |    126800 |  4.23 |
-|   Register as Flip Flop    |  5369 |     0 |    126800 |  4.23 |
+|     LUT as Shift Register  |     4 |     0 |           |       |
+| Slice Registers            | 10165 |     0 |    126800 |  8.02 |
+|   Register as Flip Flop    | 10165 |     0 |    126800 |  8.02 |
 |   Register as Latch        |     0 |     0 |    126800 |  0.00 |
-| F7 Muxes                   |   271 |     0 |     31700 |  0.85 |
-| F8 Muxes                   |    36 |     0 |     15850 |  0.23 |
+| F7 Muxes                   |   274 |     0 |     31700 |  0.86 |
+| F8 Muxes                   |    33 |     0 |     15850 |  0.21 |
 +----------------------------+-------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 
@@ -59,7 +59,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 89    |          Yes |         Set |            - |
-| 5280  |          Yes |       Reset |            - |
+| 10076 |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -110,7 +110,7 @@ Table of Contents
 | IDELAYE2/IDELAYE2_FINEDELAY |    0 |     0 |       300 |  0.00 |
 | IBUFDS_GTE2                 |    0 |     0 |         4 |  0.00 |
 | ILOGIC                      |    1 |     1 |       210 |  0.48 |
-|   IFF_IDDR_Register         |    1 |     1 |           |       |
+|   ISERDES                   |    1 |     1 |           |       |
 | OLOGIC                      |    0 |     0 |       210 |  0.00 |
 +-----------------------------+------+-------+-----------+-------+
 
@@ -121,10 +121,10 @@ Table of Contents
 +------------+------+-------+-----------+-------+
 |  Site Type | Used | Fixed | Available | Util% |
 +------------+------+-------+-----------+-------+
-| BUFGCTRL   |    5 |     0 |        32 | 15.63 |
+| BUFGCTRL   |    9 |     0 |        32 | 28.13 |
 | BUFIO      |    0 |     0 |        24 |  0.00 |
 | MMCME2_ADV |    1 |     0 |         6 | 16.67 |
-| PLLE2_ADV  |    0 |     0 |         6 |  0.00 |
+| PLLE2_ADV  |    1 |     0 |         6 | 16.67 |
 | BUFMRCE    |    0 |     0 |        12 |  0.00 |
 | BUFHCE     |    0 |     0 |        96 |  0.00 |
 | BUFR       |    0 |     0 |        24 |  0.00 |
@@ -152,36 +152,37 @@ Table of Contents
 7. Primitives
 -------------
 
-+------------+------+---------------------+
-|  Ref Name  | Used | Functional Category |
-+------------+------+---------------------+
-| FDRE       | 5280 |        Flop & Latch |
-| LUT3       | 4834 |                 LUT |
-| LUT2       | 3920 |                 LUT |
-| CARRY4     | 3272 |          CarryLogic |
-| LUT4       | 2944 |                 LUT |
-| LUT5       | 2887 |                 LUT |
-| LUT1       | 2509 |                 LUT |
-| LUT6       | 2419 |                 LUT |
-| RAMD64E    |  704 |  Distributed Memory |
-| MUXF7      |  271 |               MuxFx |
-| RAMD32     |   96 |  Distributed Memory |
-| FDSE       |   89 |        Flop & Latch |
-| OBUF       |   60 |                  IO |
-| MUXF8      |   36 |               MuxFx |
-| RAMS32     |   32 |  Distributed Memory |
-| IBUF       |   32 |                  IO |
-| RAMB36E1   |   10 |        Block Memory |
-| DSP48E1    |    9 |    Block Arithmetic |
-| BUFG       |    5 |               Clock |
-| RAMB18E1   |    3 |        Block Memory |
-| SRL16E     |    2 |  Distributed Memory |
-| OBUFT      |    2 |                  IO |
-| SRLC32E    |    1 |  Distributed Memory |
-| MMCME2_ADV |    1 |               Clock |
-| IDDR       |    1 |                  IO |
-| IBUFDS     |    1 |                  IO |
-+------------+------+---------------------+
++------------+-------+---------------------+
+|  Ref Name  |  Used | Functional Category |
++------------+-------+---------------------+
+| FDRE       | 10076 |        Flop & Latch |
+| LUT3       |  9617 |                 LUT |
+| LUT2       |  9369 |                 LUT |
+| CARRY4     |  7341 |          CarryLogic |
+| LUT4       |  5452 |                 LUT |
+| LUT1       |  5019 |                 LUT |
+| LUT5       |  4881 |                 LUT |
+| LUT6       |  2139 |                 LUT |
+| RAMD64E    |   704 |  Distributed Memory |
+| MUXF7      |   274 |               MuxFx |
+| RAMD32     |    96 |  Distributed Memory |
+| FDSE       |    89 |        Flop & Latch |
+| OBUF       |    60 |                  IO |
+| MUXF8      |    33 |               MuxFx |
+| RAMS32     |    32 |  Distributed Memory |
+| IBUF       |    32 |                  IO |
+| RAMB36E1   |    10 |        Block Memory |
+| DSP48E1    |     9 |    Block Arithmetic |
+| BUFG       |     9 |               Clock |
+| RAMB18E1   |     3 |        Block Memory |
+| SRLC32E    |     2 |  Distributed Memory |
+| SRL16E     |     2 |  Distributed Memory |
+| OBUFT      |     2 |                  IO |
+| PLLE2_ADV  |     1 |               Clock |
+| MMCME2_ADV |     1 |               Clock |
+| ISERDESE2  |     1 |                  IO |
+| IBUFDS     |     1 |                  IO |
++------------+-------+---------------------+
 
 
 8. Black Boxes

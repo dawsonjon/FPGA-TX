@@ -1,7 +1,7 @@
 Copyright 1986-2015 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2015.2 (lin64) Build 1266856 Fri Jun 26 16:35:25 MDT 2015
-| Date         : Mon Oct 10 20:12:03 2016
+| Date         : Sat Oct 15 12:06:41 2016
 | Host         : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command      : report_drc
 ------------------------------------------------------------------------------------
@@ -154,72 +154,72 @@ Related violations: <none>
 
 DPIP-1#1 Warning
 Input pipelining  
-DSP USER_DESIGN_INST_1/main_0_139896505267624/product_b_reg input A B is not pipelined. Pipelining DSP48 input will improve performance.
+DSP USER_DESIGN_INST_1/main_0_139722169542056/product_b_reg input A B is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#2 Warning
 Input pipelining  
-DSP USER_DESIGN_INST_1/main_0_139896505267624/product_c_reg input A B is not pipelined. Pipelining DSP48 input will improve performance.
+DSP USER_DESIGN_INST_1/main_0_139722169542056/product_c_reg input A B is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#3 Warning
 Input pipelining  
-DSP USER_DESIGN_INST_1/main_0_139896505267624/result0 input A B C is not pipelined. Pipelining DSP48 input will improve performance.
+DSP USER_DESIGN_INST_1/main_0_139722169542056/result0 input A B C is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#4 Warning
 Input pipelining  
-DSP radio_inst_1/wt_10__0 input A is not pipelined. Pipelining DSP48 input will improve performance.
+DSP radio_inst_1/wt_reg[1]0__0 input A is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#5 Warning
 Input pipelining  
-DSP radio_inst_1/wt_10__1 input B is not pipelined. Pipelining DSP48 input will improve performance.
+DSP radio_inst_1/wt_reg[1]0__1 input B is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPOP-1#1 Warning
 Output pipelining  
-DSP USER_DESIGN_INST_1/main_0_139896505267624/product_b_reg output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP USER_DESIGN_INST_1/main_0_139722169542056/product_b_reg output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 DPOP-1#2 Warning
 Output pipelining  
-DSP USER_DESIGN_INST_1/main_0_139896505267624/product_c_reg output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP USER_DESIGN_INST_1/main_0_139722169542056/product_c_reg output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 DPOP-1#3 Warning
 Output pipelining  
-DSP USER_DESIGN_INST_1/main_0_139896505267624/result0 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP USER_DESIGN_INST_1/main_0_139722169542056/result0 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 DPOP-1#4 Warning
 Output pipelining  
-DSP radio_inst_1/wt_00 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP radio_inst_1/wt_reg[0]0 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 DPOP-1#5 Warning
 Output pipelining  
-DSP radio_inst_1/wt_00__0 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP radio_inst_1/wt_reg[0]0__0 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 DPOP-1#6 Warning
 Output pipelining  
-DSP radio_inst_1/wt_00__1 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP radio_inst_1/wt_reg[0]0__1 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 DPOP-1#7 Warning
 Output pipelining  
-DSP radio_inst_1/wt_10 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP radio_inst_1/wt_reg[1]0 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 DPOP-1#8 Warning
 Output pipelining  
-DSP radio_inst_1/wt_10__0 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP radio_inst_1/wt_reg[1]0__0 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 DPOP-1#9 Warning
 Output pipelining  
-DSP radio_inst_1/wt_10__1 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
+DSP radio_inst_1/wt_reg[1]0__1 output P is not pipelined. Pipelining DSP48 output will improve performance. Both multiplier/adder output can be pipelined.
 Related violations: <none>
 
 PLIO-7#1 Warning

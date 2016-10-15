@@ -1,0 +1,25 @@
+#
+# An unexpected error has occurred (11)
+#
+Stack:
+/lib/x86_64-linux-gnu/libc.so.6(+0x36d40) [0x7efcecab5d40]
+/home/storage/Xilinx/Vivado/2015.2/lib/lnx64.o/libstdc++.so.6(_ZNSsD2Ev+0) [0x7efced112930]
+/lib/x86_64-linux-gnu/libc.so.6(+0x3c259) [0x7efcecabb259]
+/lib/x86_64-linux-gnu/libc.so.6(+0x3c2a5) [0x7efcecabb2a5]
+/home/storage/Xilinx/Vivado/2015.2/lib/lnx64.o/libtcl8.5.so(+0x74371) [0x7efce8b6a371]
+/home/storage/Xilinx/Vivado/2015.2/lib/lnx64.o/libtcl8.5.so(+0x3b7ef) [0x7efce8b317ef]
+/home/storage/Xilinx/Vivado/2015.2/lib/lnx64.o/libtcl8.5.so(+0x331f5) [0x7efce8b291f5]
+/home/storage/Xilinx/Vivado/2015.2/lib/lnx64.o/libtcl8.5.so(+0x34d6b) [0x7efce8b2ad6b]
+/home/storage/Xilinx/Vivado/2015.2/lib/lnx64.o/libtcl8.5.so(Tcl_EvalEx+0x16) [0x7efce8b2b276]
+/home/storage/Xilinx/Vivado/2015.2/lib/lnx64.o/libtcl8.5.so(Tcl_Eval+0x15) [0x7efce8b2b295]
+/home/storage/Xilinx/Vivado/2015.2/lib/lnx64.o/librdi_commontasks.so(+0x30ddf3) [0x7efce4dd6df3]
+/home/storage/Xilinx/Vivado/2015.2/lib/lnx64.o/librdi_commontasks.so(+0x3078e3) [0x7efce4dd08e3]
+/home/storage/Xilinx/Vivado/2015.2/lib/lnx64.o/librdi_common.so(+0x62104f) [0x7efcedb8904f]
+/home/storage/Xilinx/Vivado/2015.2/lib/lnx64.o/libtcl8.5.so(+0x331f5) [0x7efce8b291f5]
+/home/storage/Xilinx/Vivado/2015.2/lib/lnx64.o/libtcl8.5.so(Tcl_EvalObjv+0x32) [0x7efce8b297e2]
+/home/storage/Xilinx/Vivado/2015.2/lib/lnx64.o/libtcl8.5.so(TclEvalObjEx+0x322) [0x7efce8b2b5d2]
+/home/storage/Xilinx/Vivado/2015.2/lib/lnx64.o/librdi_commonmain.so(+0x7110) [0x7efced363110]
+/home/storage/Xilinx/Vivado/2015.2/lib/lnx64.o/libtcl8.5.so(Tcl_Main+0x1d5) [0x7efce8b96175]
+/home/storage/Xilinx/Vivado/2015.2/lib/lnx64.o/librdi_common.so(+0x659c89) [0x7efcedbc1c89]
+/lib/x86_64-linux-gnu/libpthread.so.0(+0x8182) [0x7efcec563182]
+/lib/x86_64-linux-gnu/libc.so.6(clone+0x6d) [0x7efcecb7947d]

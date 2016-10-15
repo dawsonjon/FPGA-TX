@@ -33,6 +33,7 @@ read_vhdl svga_core.vhd
 read_vhdl svga_timing_gen.vhd
 read_vhdl pwm_audio.vhd
 read_vhdl rectangular_to_polar.vhd
+read_vhdl cic_filter.vhd
 read_vhdl radio.vhd
 read_vhdl bsp.vhd
 
