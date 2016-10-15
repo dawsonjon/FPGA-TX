@@ -31,7 +31,7 @@ v
 
 ### FPGA Development Card
 
-![Nexys 4](images/nexys_4.jpg)
+![Nexys 4](https://github.com/dawsonjon/FPGA-radio/tree/master/images/nexys_4.JPG)
 
 The hardware consists of an [nexys 4 FPGA development
 card](http://store.digilentinc.com/nexys-4-artix-7-fpga-trainer-board-limited-time-see-nexys4-ddr/)
@@ -50,7 +50,7 @@ match to the impedance of a length of coax cable.
 
 ### Anti-aliasing filter
 
-![Antialiasing Filter](images/filter.jpg)
+![Antialiasing Filter](https://github.com/dawsonjon/FPGA-radio/tree/master/images/filter.JPG)
 
 Initially a sample rate of 100MHz has been chosen, this gives 50MHz of RF
 bandwidth.  In the first nyquist region, we can easily cover the long wave,
@@ -64,7 +64,7 @@ https://www-users.cs.york.ac.uk/~fisher/lcfilter/)
 
 ### Low Noise Amplifier
 
-![Low Noise Amplifier](images/LNA.jpg)
+![Low Noise Amplifier](https://github.com/dawsonjon/FPGA-radio/tree/master/images/LNA.JPG)
 
 By itself, there is insufficient power at the end of the coax to cause the LVDS
 input to toggle, a wide band low noise amplifier which is claimed to give
@@ -73,7 +73,7 @@ digital input to "see" the RF input.
 
 ### Transformer
 
-![Transformer](images/transformer.jpg)
+![Transformer](https://github.com/dawsonjon/FPGA-radio/tree/master/images/transformer.JPG)
 
 The output of the LNA is coupled to the FPGA input using a DIY RF transformer
 with a 1:1 ratio. This converts the unbalanced signal to a differential signal,
