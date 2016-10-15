@@ -1,9 +1,12 @@
 #-----------------------------------------------------------
-# Vivado v2015.2 (64-bit)
-# SW Build 1266856 on Fri Jun 26 16:35:25 MDT 2015
-# IP Build 1264090 on Wed Jun 24 14:22:01 MDT 2015
-# Start of session at: Sat Oct 15 12:07:44 2016
-# Process ID: 26286
-# Log file: /home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/vivado.log
-# Journal file: /home/storage/Projects/Chips-Demo/synthesis/nexys_4/radio/vivado.jou
+# Vivado v2016.3 (64-bit)
+# SW Build 1682563 on Mon Oct 10 19:07:26 MDT 2016
+# IP Build 1681267 on Mon Oct 10 21:28:31 MDT 2016
+# Start of session at: Sat Oct 15 14:31:10 2016
+# Process ID: 12150
+# Current directory: /home/storage/Projects/FPGA-radio/synthesis/nexys_4/radio
+# Command line: vivado -mode batch -source download.tcl
+# Log file: /home/storage/Projects/FPGA-radio/synthesis/nexys_4/radio/vivado.log
+# Journal file: /home/storage/Projects/FPGA-radio/synthesis/nexys_4/radio/vivado.jou
 #-----------------------------------------------------------
+source download.tcl

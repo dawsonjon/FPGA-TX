@@ -38,9 +38,9 @@ architecture rtl of radio is
   constant sin_bits : integer := 10;
   constant sin_scale : real := 2.0**real(sin_bits);
   constant sin_output_scale : real := (2.0**real(sin_bits-1))-1.0;
-  constant decimator_bits : integer := 53;
-  constant channels : integer := 2;
-  constant channel_bits : integer := 1;
+  constant decimator_bits : integer := 54;
+  constant channels : integer := 4;
+  constant channel_bits : integer := 2;
 
   type sin_array_type is array (0 to (2**sin_bits)-1) of signed(sin_bits-1 downto 0);
 
@@ -251,7 +251,7 @@ begin
   ISERDESE2_inst : ISERDESE2
   generic map (
     DATA_RATE => "SDR", -- DDR, SDR
-    DATA_WIDTH => 2, -- Parallel data width (2-8,10,14)
+    DATA_WIDTH => 4, -- Parallel data width (2-8,10,14)
     DYN_CLKDIV_INV_EN => "FALSE", -- Enable DYNCLKDIVINVSEL inversion (FALSE, TRUE)
     DYN_CLK_INV_EN => "FALSE", -- Enable DYNCLKINVSEL inversion (FALSE, TRUE)
     -- INIT_Q1 - INIT_Q4: Initial value on the Q outputs (0/1)
@@ -273,10 +273,10 @@ begin
   port map (
     O => open, -- 1-bit output: Combinatorial output
     -- Q1 - Q8: 1-bit (each) output: Registered data outputs
-    Q1 => rf_0(1),
-    Q2 => rf_0(0),
-    Q3 => open,
-    Q4 => open,
+    Q1 => rf_0(3),
+    Q2 => rf_0(2),
+    Q3 => rf_0(1),
+    Q4 => rf_0(0),
     Q5 => open,
     Q6 => open,
     Q7 => open,
@@ -320,8 +320,8 @@ begin
     CLKIN1_PERIOD => 10.0, -- Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
     -- CLKOUT0_DIVIDE - CLKOUT5_DIVIDE: Divide amount for each CLKOUT (1-128)
     CLKOUT0_DIVIDE => 8,
-    CLKOUT1_DIVIDE => 4,
-    CLKOUT2_DIVIDE => 4,
+    CLKOUT1_DIVIDE => 2,
+    CLKOUT2_DIVIDE => 2,
     CLKOUT3_DIVIDE => 1,
     CLKOUT4_DIVIDE => 1,
     CLKOUT5_DIVIDE => 1,

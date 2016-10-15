@@ -250,7 +250,7 @@ begin
 
   ISERDESE2_inst : ISERDESE2
   generic map (
-    DATA_RATE => "DDR", -- DDR, SDR
+    DATA_RATE => "SDR", -- DDR, SDR
     DATA_WIDTH => 4, -- Parallel data width (2-8,10,14)
     DYN_CLKDIV_INV_EN => "FALSE", -- Enable DYNCLKDIVINVSEL inversion (FALSE, TRUE)
     DYN_CLK_INV_EN => "FALSE", -- Enable DYNCLKINVSEL inversion (FALSE, TRUE)
@@ -320,8 +320,8 @@ begin
     CLKIN1_PERIOD => 10.0, -- Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
     -- CLKOUT0_DIVIDE - CLKOUT5_DIVIDE: Divide amount for each CLKOUT (1-128)
     CLKOUT0_DIVIDE => 8,
-    CLKOUT1_DIVIDE => 4,
-    CLKOUT2_DIVIDE => 4,
+    CLKOUT1_DIVIDE => 2,
+    CLKOUT2_DIVIDE => 2,
     CLKOUT3_DIVIDE => 1,
     CLKOUT4_DIVIDE => 1,
     CLKOUT5_DIVIDE => 1,
