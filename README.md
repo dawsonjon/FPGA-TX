@@ -53,8 +53,8 @@ match to the impedance of a length of coax cable.
 ![Antialiasing Filter](https://github.com/dawsonjon/FPGA-radio/raw/master/images/filter.JPG)
 
 Initially a sample rate of 100MHz has been chosen, this gives 50MHz of RF
-bandwidth.  In the first nyquist region, we can easily cover the long wave,
-medium wave and short wavebands from 0.1-30MHz.
+bandwidth.  In the first Nyquist region, we can easily cover the long wave,
+medium wave and short wave bands from 0.1-30MHz.
 
 In order to prevent high frequency signals appearing as aliases, the signal is
 first fed through a low pass filter with a cut-off frequency of 30MHz. A 5 pole
@@ -77,7 +77,7 @@ digital input to "see" the RF input.
 
 The output of the LNA is coupled to the FPGA input using a DIY RF transformer
 with a 1:1 ratio. This converts the unbalanced signal to a differential signal,
-and removes any DC (common mode) component. The transformer consists of a 2
+and removes any DC component. The transformer consists of a 2
 turn primary winding and 2 turn secondary winding on a toroidal ferrite core.
 
 ##Firmware
@@ -109,11 +109,11 @@ Frequency [31:0] -->            |             +---------+
 The local oscillator consists of 32-bit unsigned counter, which is multiplied
 by a 32-bit frequency value supplied by the control software. The top 10 bits
 then index a table of sin values, generating a scaled 10 bit signed output.
-At the moment the table contains all values from -pi to pi radians, but greater
-resolutions could be achieved by exploiting the symmetry of the sin function.
+At the moment the table contains all values from -pi to +pi radians, but greater
+resolutions could be achieved by exploiting the symmetry of the sine function.
 1024 x 10 bits fits into a single FPGA Block RAM.
 
-A Frequency resolution of 32 bits alls the LO to be tuned in the range 0 to Fs/2
+A Frequency resolution of 32 bits allows the LO to be tuned in the range 0 to Fs/2
 in steps of Fs/(2^32). This gives a frequency resolution of ~0.02Hz at 100MHz.
 This gives some flexibility to compensate for the +/-100ppm crystal oscillator,
 even at higher sampling rates.
@@ -133,10 +133,10 @@ RF ---> Remove DC Bias >--[1:0]-->            |
 The LVDS input has an output of either 0 or 1 giving the signal a DC bias of 0.5.
 This is easily removed by scaling to a 2 bit signed number of either -1 or +1.
 
-The mixer generates to mixing products, F(carrier)+F(lo) and F(carrier)-(lo).
+The mixer generates two mixing products, F(carrier)+F(lo) and F(carrier)-F(lo).
 Tuning F(lo) to F(carrier) places F(carrier)-F(lo) at 0, down-converting the
 signal of interest to baseband. The F(carrier)+F(lo) product is much higher
-than the baseband frequency and gets filtered out by the decimator. This Mixer
+than the baseband frequency and gets filtered out by the decimator. This mixer
 should work with AM and single side band modulation, the lower side band gets
 converted to a negative audio frequency, and the upper side band to a positive
 one.
@@ -150,9 +150,9 @@ RF_TIMES_LO[11:0] -------> Decimate >------[25:0]----> AUDIO
 ```
 
 The decimator performs the dual function of low pass filtering the signal, and
-down sampling to the new sample rate.  A Decimation factor of 8192 reduces the
-Sampling rate from 100MHz to 12KHz. This should give us about 6.5 usable bits
-of audio resolution.
+down sampling to the new sample rate.  A decimation factor of 8192 reduces the
+sampling rate from 100MHz to about 12KHz. This should give us about 6.5 usable 
+bits of audio resolution.
 
 The decimator is the simplest possible, taking 8192 consecutive samples, and
 adding them together to form 1 audio sample. This is equivalent to filtering
@@ -175,7 +175,7 @@ The AGC is a C component implemented in Chips. The AGC scales the audio data so
 that it covers the range of the audio DAC as best as possible. This is achieved
 by using a 'leaky' max hold to work out the maximum and minimum audio values
 seen over a period of a few seconds. From here the centre and the range are
-calculated. The attenuation needed to fit the DAC is ceil(range/DAC range).
+calculated. The attenuation needed to fit the DAC is ceiling(range/DAC range).
 The audio is sample is (sample-centre)/attenuation.
 
 ## Testing
@@ -194,7 +194,7 @@ carrier and the local oscillator phased in and out, causing the audio to vary
 between a strong positive signal when in phase, a strong negative signal when
 in anti phase, and quiet periods when out of phase.
 
-There seemed to be too possible solutions at this stage, either to find some
+There seemed to be two possible solutions at this stage, either to find some
 way of locking the phase of the local oscillator to the carrier, to generate a
 second signal 90 degrees out of phase with the first, and to calculate the
 absolute magnitude of the in-phase and in-quadrature channels. The second
@@ -245,3 +245,34 @@ RF --->      >-- Q2 -+  |                     +-->      >-->             |
                      +------< *cos(t/2+1) >------>      >-->             |
                                                  +------+  +-------------+
 ```
+
+The next improvement in bandwidth was achieved using an ISERDES2 primitive,
+this primitive converts a serial input from the pin, into a parallel bus.  The
+ISERDES was set up in DDR mode, to provide an 8-bit parallel word. As with the
+IDDR2 solution, multiple copies of the mixer and NCO are needed, this time 8.
+Two support the ISERDES, 3 clocks are generated in a PLL, and are phase aligned
+to the 100MHz clock driving the logic. A 100MHz clock drives the parallel
+output registers. A 400 MHz clock and its compliment are used to capture the
+incoming data.  A maximum of 1200MHz sampling rate could be achieved using this
+method, probably the simplest way to achieve this would be to increase the
+logic clock to 150 MHz. This would probably require the wide multipliers in the
+NCO to be pipelined more efficiently.
+
+## Conclusion (for now)
+The LVDS input of an FPGA can be used to directly sample RF, without the need
+for an ADC.  The key to achieving a reasonable SNR is to use a high bandwidth
+which can be exchanged for better resolution in the decimation process.
+
+Using this method, I have successfully received strong broadcast stations,
+particularly strong signals from the nearby [Brookmans
+Park](https://en.wikipedia.org/wiki/Brookmans_Park_transmitting_station) t was
+also possible to receive short wave broadcasts. Removing the anti-aliasing
+filter also allowed reception of the Luton Airport ATIS service on 120.575MHz.
+
+Next steps:
+
++ Try to reduce interference from other signals
++ Try to demodulate FM
++ Try transmitting
+
+
