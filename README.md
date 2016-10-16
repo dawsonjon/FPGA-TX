@@ -178,7 +178,7 @@ seen over a period of a few seconds. From here the centre and the range are
 calculated. The attenuation needed to fit the DAC is ceil(range/DAC range).
 The audio is sample is (sample-centre)/attenuation.
 
-### Testing
+## Testing
 
 During the first experiments, a strong AM radio station was selected. A muffled
 and almost inaudible voice was accompanied by a constant audio tone. After some
@@ -225,3 +225,23 @@ This resulted in an intelligible and steady signal, but there is still room
 for improvement. A number of strong stations can be received in the medium
 wave and short wave bands.
 
+
+## Increasing Bandwidth
+
+The first attempt to increase bandwidth was by using an IDDR primitive to capture
+data on both the rising and falling edge of the clock effectively doubling the
+sampling frequency. This first attempt to increase the sampling frequency to 200MHz
+was successful, and a noticeable drop in noise was observed. Adjacent samples
+are combined by adding, increasing the width by 1-bit going into the decimator.
+
+```
+      +------+                                   +------+  +-------------+
+CLK --> IDDR >-- Q1 ----+---< *sin(t/2)   >------> ADD  |  | DECIMATE    |
+RF --->      >-- Q2 -+  |                     +-->      >-->             |
+      +------+       |  +---< *cos(t/2)   >-+ |  +------+  +-------------+
+                     |                      | |
+                     +------< *sin(t/2+1) >---+  +------+  +-------------+
+                     |                      +----> ADD  |  | DECIMATE    |
+                     +------< *cos(t/2+1) >------>      >-->             |
+                                                 +------+  +-------------+
+```

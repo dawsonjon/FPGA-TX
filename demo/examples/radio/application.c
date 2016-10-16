@@ -1,6 +1,7 @@
 
 unsigned eth_in = input("eth_in");
-unsigned audio_in = input("audio_in");
+unsigned am_in = input("am_in");
+unsigned fm_in = input("fm_in");
 unsigned rs232_rx = input("rs232_rx");
 
 unsigned eth_out = output("eth_out");
@@ -19,7 +20,7 @@ unsigned rs232_tx = output("rs232_tx");
 #define AUDIO_MIN -512
 
 #define SAMPLING_FREQUENCY 800.0e6
-#define AVERAGE_SAMPLES 8192
+#define AVERAGE_SAMPLES 2048
 #define AUDIO_SAMPLING_FREQUENCY SAMPLING_FREQUENCY/AVERAGE_SAMPLES
 
 void output_audio(int sample){
@@ -48,7 +49,7 @@ void main(){
     while(1){
 
         
-        sample = fgetc(audio_in);
+        sample = fgetc(fm_in);
 
         //automatic gain control
         if(sample > max) max = sample;
@@ -73,7 +74,7 @@ void main(){
             }
         //}
 
-        //print_decimal(min);
+        //print_decimal(sample);
         //puts(" ");
         //print_decimal(max);
         //puts(" ");

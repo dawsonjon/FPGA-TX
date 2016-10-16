@@ -211,11 +211,8 @@ set_property PACKAGE_PIN A14 [get_ports RF_N]
 set_property IOSTANDARD LVDS_25 [get_ports RF_N]
 #set_property IOSTANDARD LVCMOS25 [get_ports RF_N]
 
-set_property PACKAGE_PIN A15 [get_ports LO]						
-set_property IOSTANDARD LVCMOS25 [get_ports LO]
-
-set_property PACKAGE_PIN A16 [get_ports MIX]						
-set_property IOSTANDARD LVCMOS25 [get_ports MIX]
+set_property PACKAGE_PIN A15 [get_ports RF_OUT]						
+set_property IOSTANDARD LVCMOS25 [get_ports RF_OUT]
 
 set_property PACKAGE_PIN K2 [get_ports {JC[0]}]					
 	set_property IOSTANDARD LVCMOS33 [get_ports {JC[0]}]

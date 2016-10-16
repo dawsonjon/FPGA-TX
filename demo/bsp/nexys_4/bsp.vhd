@@ -111,8 +111,7 @@ entity BSP is
    --radio interface
    RF_P                  : in std_logic;
    RF_N                  : in std_logic;
-   MIX                   : out std_logic;
-   LO                    : out std_logic;
+   RF_OUT                : out std_logic;
 
    --AUDIO interface
    AUDIO                 : out std_logic;
@@ -182,8 +181,7 @@ architecture RTL of BSP is
     rst : in std_logic;
     
     rf : in std_logic;
-    lo_out : out std_logic;
-    mixer_out : out std_logic;
+    rf_out : out std_logic;
 
     --Frequency control input
     frequency : in std_logic_vector(31 downto 0);
@@ -196,9 +194,14 @@ architecture RTL of BSP is
     average_samples_ack : out std_logic;
 
     --Audio output
-    audio : out std_logic_vector(31 downto 0);
-    audio_stb : out std_logic;
-    audio_ack : in std_logic
+    am : out std_logic_vector(31 downto 0);
+    am_stb : out std_logic;
+    am_ack : in std_logic;
+
+    fm : out std_logic_vector(31 downto 0);
+    fm_stb : out std_logic;
+    fm_ack : in std_logic
+
   );
   end component radio;
 
@@ -306,9 +309,13 @@ architecture RTL of BSP is
       output_radio_average_samples_stb : out std_logic;
       output_radio_average_samples_ack : in std_logic;
 
-      input_radio_audio : in std_logic_vector(31 downto 0);
-      input_radio_audio_stb : in std_logic;
-      input_radio_audio_ack : out std_logic;
+      input_radio_am : in std_logic_vector(31 downto 0);
+      input_radio_am_stb : in std_logic;
+      input_radio_am_ack : out std_logic;
+
+      input_radio_fm : in std_logic_vector(31 downto 0);
+      input_radio_fm_stb : in std_logic;
+      input_radio_fm_ack : out std_logic;
 
       OUTPUT_LED_R : out std_logic_vector(31 downto 0);
       OUTPUT_LED_R_STB : out std_logic;
@@ -481,9 +488,12 @@ architecture RTL of BSP is
   signal  output_radio_average_samples_ack : std_logic;
 
   --Audio output
-  signal  input_radio_audio : std_logic_vector(31 downto 0);
-  signal  input_radio_audio_stb : std_logic;
-  signal  input_radio_audio_ack : std_logic;
+  signal  input_radio_am : std_logic_vector(31 downto 0);
+  signal  input_radio_am_stb : std_logic;
+  signal  input_radio_am_ack : std_logic;
+  signal  input_radio_fm : std_logic_vector(31 downto 0);
+  signal  input_radio_fm_stb : std_logic;
+  signal  input_radio_fm_ack : std_logic;
 
   --Interface for SVGA
   signal VGACLK : std_logic;
@@ -592,17 +602,12 @@ begin
     VGA_B(I) <= VGA_BB;
   end generate;
 
-  lo <= '0';
-  mix <= '0';
   radio_inst_1 : radio port map (
     clk => clk,
     rst => internal_rst,
     
     rf => rf,
-    lo_out => open,
-    mixer_out => open,
-    --lo_out => lo,
-    --mixer_out => mix,
+    rf_out => rf_out,
 
     --Frequency control input
     frequency => output_radio_frequency,
@@ -615,9 +620,13 @@ begin
     average_samples_ack => output_radio_average_samples_ack,
 
     --Audio output
-    audio => input_radio_audio,
-    audio_stb => input_radio_audio_stb,
-    audio_ack => input_radio_audio_ack
+    am => input_radio_am,
+    am_stb => input_radio_am_stb,
+    am_ack => input_radio_am_ack,
+
+    fm => input_radio_fm,
+    fm_stb => input_radio_fm_stb,
+    fm_ack => input_radio_fm_ack
   );
   
   ibufds_inst_1 : ibufds port map(
@@ -629,7 +638,8 @@ begin
   pwm_audio_inst_1 : pwm_audio 
   generic map(
       CLOCK_FREQUENCY => 100000000,
-      SAMPLE_RATE => 12207,
+      --SAMPLE_RATE => 12207,
+      SAMPLE_RATE => 48828,
       AUDIO_BITS => 10
   ) port map (
       CLK => CLK,
@@ -703,9 +713,13 @@ begin
       output_radio_average_samples_stb => output_radio_average_samples_stb,
       output_radio_average_samples_ack => output_radio_average_samples_ack,
 
-      input_radio_audio => input_radio_audio,
-      input_radio_audio_stb => input_radio_audio_stb,
-      input_radio_audio_ack => input_radio_audio_ack,
+      input_radio_am => input_radio_am,
+      input_radio_am_stb => input_radio_am_stb,
+      input_radio_am_ack => input_radio_am_ack,
+
+      input_radio_fm => input_radio_fm,
+      input_radio_fm_stb => input_radio_fm_stb,
+      input_radio_fm_ack => input_radio_fm_ack,
 
       --SEVEN SEGMENT DISPLAY INTERFACE
       OUTPUT_SEVEN_SEGMENT_CATHODE => OUTPUT_SEVEN_SEGMENT_CATHODE,

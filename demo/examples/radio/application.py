@@ -8,7 +8,8 @@ def application(chip):
         chip, 
         inputs = {
             "eth_in" : chip.inputs["input_eth_rx"],
-            "audio_in" : chip.inputs["input_radio_audio"],
+            "am_in" : chip.inputs["input_radio_am"],
+            "fm_in" : chip.inputs["input_radio_fm"],
             "rs232_rx":chip.inputs["input_rs232_rx"],
         },
         outputs = {

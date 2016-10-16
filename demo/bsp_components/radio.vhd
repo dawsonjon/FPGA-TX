@@ -13,8 +13,7 @@ entity radio is
     rst : in std_logic;
     
     rf : in std_logic;
-    lo_out : out std_logic;
-    mixer_out : out std_logic;
+    rf_out : out std_logic;
 
     --Frequency control input
     frequency : in std_logic_vector(31 downto 0);
@@ -27,9 +26,13 @@ entity radio is
     average_samples_ack : out std_logic;
 
     --Audio output
-    audio : out std_logic_vector(31 downto 0);
-    audio_stb : out std_logic;
-    audio_ack : in std_logic
+    am : out std_logic_vector(31 downto 0);
+    am_stb : out std_logic;
+    am_ack : in std_logic;
+
+    fm : out std_logic_vector(31 downto 0);
+    fm_stb : out std_logic;
+    fm_ack : in std_logic
   );
 end entity radio;
 
@@ -135,9 +138,11 @@ architecture rtl of radio is
   signal downsampled_stb : std_logic;
   signal magnitude : std_logic_vector(decimator_bits downto 0) := (others => '0');
   signal phase : std_logic_vector(decimator_bits downto 0) := (others => '0');
-  signal s_audio_stb : std_logic;
+  signal s_am_stb : std_logic;
+  signal s_fm_stb : std_logic;
   signal polar_stb : std_logic;
   signal average_samples_reg : std_logic_vector(31 downto 0) := (others => '0');
+  signal fm_d : signed(31 downto 0) := (others => '0');
 
 begin
 
@@ -188,19 +193,27 @@ begin
       average_samples_reg <= average_samples;
     end if;
 
-    --audio output registers
+    --am output registers
     if polar_stb = '1' then
-      s_audio_stb <= '1';
-      audio <= magnitude(decimator_bits downto decimator_bits-31);
+      s_am_stb <= '1';
+      s_fm_stb <= '1';
+      am <= magnitude(decimator_bits downto decimator_bits-31);
+      fm_d <= signed(phase(decimator_bits downto decimator_bits-31));
+      fm <= std_logic_vector(signed(phase(decimator_bits downto decimator_bits-31))-fm_d);
     end if;
 
-    if s_audio_stb = '1' and audio_ack = '1' then
-      s_audio_stb <= '0';
+    if s_am_stb = '1' and am_ack = '1' then
+      s_am_stb <= '0';
+    end if;
+
+    if s_fm_stb = '1' and fm_ack = '1' then
+      s_fm_stb <= '0';
     end if;
 
     --reset
     if rst = '1' then
-      s_audio_stb <= '0';
+      s_am_stb <= '0';
+      s_fm_stb <= '0';
     end if;
 
   end process;
@@ -242,11 +255,10 @@ begin
     magnitude => magnitude
   );
 
-  audio_stb <= s_audio_stb;
+  am_stb <= s_am_stb;
+  fm_stb <= s_fm_stb;
   frequency_ack <= '1';
   average_samples_ack <= '1';
-  lo_out <= '0';
-  mixer_out <= '0';
 
   ISERDESE2_inst : ISERDESE2
   generic map (
@@ -271,7 +283,7 @@ begin
     SRVAL_Q4 => '0'
   )
   port map (
-    O => open, -- 1-bit output: Combinatorial output
+    O => rf_out, -- 1-bit output: Combinatorial output
     -- Q1 - Q8: 1-bit (each) output: Registered data outputs
     Q1 => rf_0(7),
     Q2 => rf_0(6),
