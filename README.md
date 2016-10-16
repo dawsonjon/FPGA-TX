@@ -265,7 +265,7 @@ which can be exchanged for better resolution in the decimation process.
 
 Using this method, I have successfully received strong broadcast stations,
 particularly strong signals from the nearby [Brookmans
-Park](https://en.wikipedia.org/wiki/Brookmans_Park_transmitting_station) t was
+Park](https://en.wikipedia.org/wiki/Brookmans_Park_transmitting_station).  It was
 also possible to receive short wave broadcasts. Removing the anti-aliasing
 filter also allowed reception of the Luton Airport ATIS service on 120.575MHz.
 
