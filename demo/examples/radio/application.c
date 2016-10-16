@@ -20,7 +20,7 @@ unsigned rs232_tx = output("rs232_tx");
 #define AUDIO_MIN -512
 
 #define SAMPLING_FREQUENCY 800.0e6
-#define AVERAGE_SAMPLES 2048
+#define AVERAGE_SAMPLES 8192
 #define AUDIO_SAMPLING_FREQUENCY SAMPLING_FREQUENCY/AVERAGE_SAMPLES
 
 void output_audio(int sample){
