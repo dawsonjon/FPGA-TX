@@ -136,8 +136,8 @@ architecture rtl of radio is
 
   signal frequency_reg  : unsigned(31 downto 0) := (others => '0');
   signal downsampled_stb : std_logic;
-  signal magnitude : std_logic_vector(decimator_bits downto 0) := (others => '0');
-  signal phase : std_logic_vector(decimator_bits downto 0) := (others => '0');
+  signal magnitude : std_logic_vector(31 downto 0) := (others => '0');
+  signal phase : std_logic_vector(31 downto 0) := (others => '0');
   signal s_am_stb : std_logic;
   signal s_fm_stb : std_logic;
   signal polar_stb : std_logic;
@@ -197,9 +197,9 @@ begin
     if polar_stb = '1' then
       s_am_stb <= '1';
       s_fm_stb <= '1';
-      am <= magnitude(decimator_bits downto decimator_bits-31);
-      fm_d <= signed(phase(decimator_bits downto decimator_bits-31));
-      fm <= std_logic_vector(signed(phase(decimator_bits downto decimator_bits-31))-fm_d);
+      am <= magnitude;
+      fm_d <= signed(phase);
+      fm <= std_logic_vector(signed(phase) - fm_d);
     end if;
 
     if s_am_stb = '1' and am_ack = '1' then
@@ -243,14 +243,14 @@ begin
   );
 
   rectangular_to_polar_inst_1 : rectangular_to_polar generic map(
-    width => decimator_bits
+    width => 31
   ) port map (
     clk => clk,
     rst => rst,
     stb_in => downsampled_stb,
     stb_out => polar_stb,
-    i => downsampled_i,
-    q => downsampled_q,
+    i => downsampled_i(decimator_bits - 1 downto decimator_bits - 31),
+    q => downsampled_q(decimator_bits - 1 downto decimator_bits - 31),
     phase => phase,
     magnitude => magnitude
   );

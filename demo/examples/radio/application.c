@@ -20,7 +20,7 @@ unsigned rs232_tx = output("rs232_tx");
 #define AUDIO_MIN -512
 
 #define SAMPLING_FREQUENCY 800.0e6
-#define AVERAGE_SAMPLES 8192
+#define AVERAGE_SAMPLES 2048
 #define AUDIO_SAMPLING_FREQUENCY SAMPLING_FREQUENCY/AVERAGE_SAMPLES
 
 void output_audio(int sample){
@@ -35,53 +35,68 @@ void main(){
     int min=0, max=0, range=0, attenuation=0, 
     sample=0, centre=0;
     unsigned audio_leak = 2;
+    char c;
 
     stdout = rs232_tx;
     stdin = rs232_rx;
 
-    fputc(AVERAGE_SAMPLES, samples_out);
-    puts("Enter frequency in hz:\n");
-    frequency_hz = scan_udecimal();
-    puts("calculating frequency:\n");
-    fputc((int)(frequency_hz/(SAMPLING_FREQUENCY/4294967296.0)), frequency_out);
-    puts("playing audio:\n");
+    puts("a for am f for fm:\n");
+    c = getc();
+    if( c == 'a'){
+        fputc(8192, samples_out);
+        puts("Enter frequency in hz:\n");
+        frequency_hz = scan_udecimal();
+        puts("calculating frequency:\n");
+        fputc((int)(frequency_hz/(SAMPLING_FREQUENCY/4294967296.0)), frequency_out);
+        puts("playing audio:\n");
 
-    while(1){
+        while(1){
 
-        
-        sample = fgetc(fm_in);
+            
+            sample = fgetc(am_in);
 
-        //automatic gain control
-        if(sample > max) max = sample;
-        if(sample < min) min = sample;
-        centre = (max+min)>>1;
-        range = (max-min);
+            //automatic gain control
+            if(sample > max) max = sample;
+            if(sample < min) min = sample;
+            centre = (max+min)>>1;
+            range = (max-min);
+            attenuation = (range + AUDIO_RANGE)/AUDIO_RANGE;
+            output_audio((sample-centre) / attenuation);
 
-
-        attenuation = (range + AUDIO_RANGE)/AUDIO_RANGE;
-
-        //attenuation = 0;
-        //while((range>>attenuation) > AUDIO_RANGE){
-            //attenuation++;
-        //}
-
-        output_audio((sample-centre) / attenuation);
-        //if(!audio_leak--){
-            //audio_leak = 100;
             if(range > 2){
                 max -= 1;
                 min += 1;
             }
-        //}
 
-        //print_decimal(sample);
-        //puts(" ");
-        //print_decimal(max);
-        //puts(" ");
-        //print_decimal(centre);
-        //puts(" ");
-        //print_decimal(attenuation);
-        //puts("\n");
+        }
+    } else {
+        fputc(1024, samples_out);
+        puts("Enter frequency in hz:\n");
+        frequency_hz = scan_udecimal();
+        puts("calculating frequency:\n");
+        fputc((int)(frequency_hz/(SAMPLING_FREQUENCY/4294967296.0)), frequency_out);
+        puts("playing audio:\n");
+
+        while(1){
+
+            
+            sample = ((int)fgetc(fm_in)) >> 2;
+            sample += ((int)fgetc(fm_in)) >> 2;
+
+            //automatic gain control
+            if(sample > max) max = sample;
+            if(sample < min) min = sample;
+            centre = (max+min)>>1;
+            range = (max-min);
+
+
+            attenuation = (range + AUDIO_RANGE)/AUDIO_RANGE;
+            output_audio((sample-centre) / attenuation);
+            //if(range > 2){
+            //    max -= 1;
+            //    min += 1;
+            //}
+        }
     }
 
 
