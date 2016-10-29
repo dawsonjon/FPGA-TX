@@ -13,6 +13,8 @@ unsigned rs232_tx = output("rs232_tx");
 #include "print.h"
 
 #define RF_SAMPLING_FREQUENCY 800.0e6
+#define NO_FREQUENCY_STEPS 4294967296.0
+
 
 void send_am(signed sample){
   sample >>= 1; //-64 <= sample <= 63
@@ -21,9 +23,19 @@ void send_am(signed sample){
   fputc(sample, am_out);
 }
 
+void send_fm_12(signed sample, unsigned frequency_steps){
+  //-128 <= sample <= 127
+  int frequency = frequency_steps + (sample * 252);
+  fputc(frequency, frequency_out);
+  wait_clocks(8333);
+}
+
 void main(){
 
-    unsigned t, length, count=3, frequency_hz = 27005000;
+    unsigned frequency_hz = 27005000;
+    double frequency_steps_double;
+    unsigned frequency_steps;
+    unsigned t, length, count=3;
     int sample;
     int buffer[256];
 
@@ -35,7 +47,12 @@ void main(){
     puts("enter frequency in hz:\n");
 
     frequency_hz = scan_udecimal();
-    fputc((int)(frequency_hz/(RF_SAMPLING_FREQUENCY/4294967296.0)), frequency_out);
+    frequency_steps_double = ((double)frequency_hz)/(RF_SAMPLING_FREQUENCY/NO_FREQUENCY_STEPS);
+    frequency_steps = frequency_steps_double;
+    print_udecimal(frequency_steps);
+    puts("\n");
+    fputc(frequency_steps, frequency_out);
+    fputc(0x007f007f, am_out);
     puts("transmitting audio:\n");
 
     while(1){
@@ -50,7 +67,8 @@ void main(){
         //0 <= sample <= 255
         sample += (buffer[t] & 0xff) - 128;
         if(!count--){
-            send_am(sample >> 2);
+            //send_am(sample >> 2);
+            send_fm_12(sample, frequency_steps);
             sample = 0;
             count = 3;
         }
