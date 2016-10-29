@@ -2,8 +2,8 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 
-library UNISIM;
-use UNISIM.vcomponents.all;
+library unisim;
+use unisim.vcomponents.all;
 
 entity serdes is
   port(
@@ -25,140 +25,139 @@ end entity serdes;
 
 architecture rtl of serdes is
 
-  signal CLK_100 : std_logic;
-  signal CLK_100_s : std_logic;
-  signal CLK_400 : std_logic;
-  signal CLK_400_s : std_logic;
-  signal CLK_400_N : std_logic;
-  signal CLK_400_N_s : std_logic;
-  signal CLKFBIN : std_logic;
-  signal CLKFBOUT : std_logic;
+  signal clk_100 : std_logic;
+  signal clk_100_s : std_logic;
+  signal clk_400 : std_logic;
+  signal clk_400_s : std_logic;
+  signal clk_400_n : std_logic;
+  signal clk_400_n_s : std_logic;
+  signal clkfbin : std_logic;
+  signal clkfbout : std_logic;
 
 begin
 
-  output <= input_7;
 
-  OSERDESE2_inst : OSERDESE2
+  oserdese2_inst : oserdese2
   generic map (
-    DATA_RATE_OQ => "DDR", -- DDR, SDR
-    DATA_RATE_TQ => "DDR", -- DDR, BUF, SDR
-    DATA_WIDTH => 8, -- Parallel data width (2-8,10,14)
-    INIT_OQ => '0', -- Initial value of OQ output (1'b0,1'b1)
-    INIT_TQ => '0', -- Initial value of TQ output (1'b0,1'b1)
-    SERDES_MODE => "MASTER", -- MASTER, SLAVE
-    SRVAL_OQ => '0', -- OQ output value when SR is used (1'b0,1'b1)
-    SRVAL_TQ => '0', -- TQ output value when SR is used (1'b0,1'b1)
-    TBYTE_CTL => "FALSE", -- Enable tristate byte operation (FALSE, TRUE)
-    TBYTE_SRC => "FALSE", -- Tristate byte source (FALSE, TRUE)
-    TRISTATE_WIDTH => 1 -- 3-state converter width (1,4)
+    data_rate_oq => "ddr", -- ddr, sdr
+    data_rate_tq => "sdr", -- ddr, buf, sdr
+    data_width => 8, -- parallel data width (2-8,10,14)
+    init_oq => '0', -- initial value of oq output (1'b0,1'b1)
+    init_tq => '0', -- initial value of tq output (1'b0,1'b1)
+    serdes_mode => "master", -- master, slave
+    srval_oq => '0', -- oq output value when sr is used (1'b0,1'b1)
+    srval_tq => '0', -- tq output value when sr is used (1'b0,1'b1)
+    tbyte_ctl => "false", -- enable tristate byte operation (false, true)
+    tbyte_src => "false", -- tristate byte source (false, true)
+    tristate_width => 1 -- 3-state converter width (1,4)
   )
   port map (
-    OFB => open, -- 1-bit output: Feedback path for data
-    OQ => open, -- 1-bit output: Data path output
-    -- SHIFTOUT1 / SHIFTOUT2: 1-bit (each) output: Data output expansion (1-bit each)
-    SHIFTOUT1 => open,
-    SHIFTOUT2 => open,
-    TBYTEOUT => open, -- 1-bit output: Byte group tristate
-    TFB => open, -- 1-bit output: 3-state control
-    TQ => open, -- 1-bit output: 3-state control
-    CLK => CLK_400, -- 1-bit input: High speed clock
-    CLKDIV => CLK_100, -- 1-bit input: Divided clock
-    -- D1 - D8: 1-bit (each) input: Parallel data inputs (1-bit each)
-    D1 => input_0,
-    D2 => input_1,
-    D3 => input_2,
-    D4 => input_3,
-    D5 => input_4,
-    D6 => input_5,
-    D7 => input_6,
-    D8 => input_7,
-    OCE => '1', -- 1-bit input: Output data clock enable
-    RST => '0', -- 1-bit input: Reset
-    -- SHIFTIN1 / SHIFTIN2: 1-bit (each) input: Data input expansion (1-bit each)
-    SHIFTIN1 => '0',
-    SHIFTIN2 => '0',
-    -- T1 - T4: 1-bit (each) input: Parallel 3-state inputs
-    T1 => '0',
-    T2 => '0',
-    T3 => '0',
-    T4 => '0',
-    TBYTEIN => '0', -- 1-bit input: Byte group tristate
-    TCE => '1' -- 1-bit input: 3-state clock enable
+    ofb => open, -- 1-bit output: feedback path for data
+    oq => output, -- 1-bit output: data path output
+    -- shiftout1 / shiftout2: 1-bit (each) output: data output expansion (1-bit each)
+    shiftout1 => open,
+    shiftout2 => open,
+    tbyteout => open, -- 1-bit output: byte group tristate
+    tfb => open, -- 1-bit output: 3-state control
+    tq => open, -- 1-bit output: 3-state control
+    clk => clk_400, -- 1-bit input: high speed clock
+    clkdiv => clk_100, -- 1-bit input: divided clock
+    -- d1 - d8: 1-bit (each) input: parallel data inputs (1-bit each)
+    d1 => input_0,
+    d2 => input_1,
+    d3 => input_2,
+    d4 => input_3,
+    d5 => input_4,
+    d6 => input_5,
+    d7 => input_6,
+    d8 => input_7,
+    oce => '1', -- 1-bit input: output data clock enable
+    rst => '0', -- 1-bit input: reset
+    -- shiftin1 / shiftin2: 1-bit (each) input: data input expansion (1-bit each)
+    shiftin1 => '0',
+    shiftin2 => '0',
+    -- t1 - t4: 1-bit (each) input: parallel 3-state inputs
+    t1 => '0',
+    t2 => '0',
+    t3 => '0',
+    t4 => '0',
+    tbytein => '0', -- 1-bit input: byte group tristate
+    tce => '1' -- 1-bit input: 3-state clock enable
   );
 
-  PLLE2_BASE_inst : PLLE2_BASE generic map (
-    BANDWIDTH => "OPTIMIZED", -- OPTIMIZED, HIGH, LOW
-    CLKFBOUT_MULT => 8, -- Multiply value for all CLKOUT, (2-64)
-    CLKFBOUT_PHASE => 0.0, -- Phase offset in degrees of CLKFB, (-360.000-360.000).
-    CLKIN1_PERIOD => 10.0, -- Input clock period in ns to ps resolution (i.e. 33.333 is 30 MHz).
-    -- CLKOUT0_DIVIDE - CLKOUT5_DIVIDE: Divide amount for each CLKOUT (1-128)
-    CLKOUT0_DIVIDE => 8,
-    CLKOUT1_DIVIDE => 2,
-    CLKOUT2_DIVIDE => 2,
-    CLKOUT3_DIVIDE => 1,
-    CLKOUT4_DIVIDE => 1,
-    CLKOUT5_DIVIDE => 1,
-    -- CLKOUT0_DUTY_CYCLE - CLKOUT5_DUTY_CYCLE: Duty cycle for each CLKOUT (0.001-0.999).
-    CLKOUT0_DUTY_CYCLE => 0.5,
-    CLKOUT1_DUTY_CYCLE => 0.5,
-    CLKOUT2_DUTY_CYCLE => 0.5,
-    CLKOUT3_DUTY_CYCLE => 0.5,
-    CLKOUT4_DUTY_CYCLE => 0.5,
-    CLKOUT5_DUTY_CYCLE => 0.5,
-    -- CLKOUT0_PHASE - CLKOUT5_PHASE: Phase offset for each CLKOUT (-360.000-360.000).
-    CLKOUT0_PHASE => 0.0,
-    CLKOUT1_PHASE => 0.0,
-    CLKOUT2_PHASE => 180.0,
-    CLKOUT3_PHASE => 0.0,
-    CLKOUT4_PHASE => 0.0,
-    CLKOUT5_PHASE => 0.0,
-    DIVCLK_DIVIDE => 1, -- Master division value, (1-56)
-    REF_JITTER1 => 0.0, -- Reference input jitter in UI, (0.000-0.999).
-    STARTUP_WAIT => "FALSE" -- Delay DONE until PLL Locks, ("TRUE"/"FALSE")
+  plle2_base_inst : plle2_base generic map (
+    bandwidth => "optimized", -- optimized, high, low
+    clkfbout_mult => 8, -- multiply value for all clkout, (2-64)
+    clkfbout_phase => 0.0, -- phase offset in degrees of clkfb, (-360.000-360.000).
+    clkin1_period => 10.0, -- input clock period in ns to ps resolution (i.e. 33.333 is 30 mhz).
+    -- clkout0_divide - clkout5_divide: divide amount for each clkout (1-128)
+    clkout0_divide => 8,
+    clkout1_divide => 2,
+    clkout2_divide => 2,
+    clkout3_divide => 1,
+    clkout4_divide => 1,
+    clkout5_divide => 1,
+    -- clkout0_duty_cycle - clkout5_duty_cycle: duty cycle for each clkout (0.001-0.999).
+    clkout0_duty_cycle => 0.5,
+    clkout1_duty_cycle => 0.5,
+    clkout2_duty_cycle => 0.5,
+    clkout3_duty_cycle => 0.5,
+    clkout4_duty_cycle => 0.5,
+    clkout5_duty_cycle => 0.5,
+    -- clkout0_phase - clkout5_phase: phase offset for each clkout (-360.000-360.000).
+    clkout0_phase => 0.0,
+    clkout1_phase => 0.0,
+    clkout2_phase => 180.0,
+    clkout3_phase => 0.0,
+    clkout4_phase => 0.0,
+    clkout5_phase => 0.0,
+    divclk_divide => 1, -- master division value, (1-56)
+    ref_jitter1 => 0.0, -- reference input jitter in ui, (0.000-0.999).
+    startup_wait => "false" -- delay done until pll locks, ("true"/"false")
   )
   port map (
-    -- Clock Outputs: 1-bit (each) output: User configurable clock outputs
-    CLKOUT0 => CLK_100_s,
-    CLKOUT1 => CLK_400_s,
-    CLKOUT2 => CLK_400_N_s,
-    CLKOUT3 => open,
-    CLKOUT4 => open,
-    CLKOUT5 => open,
-    -- Feedback Clocks: 1-bit (each) output: Clock feedback ports
-    CLKFBOUT => CLKFBOUT, -- 1-bit output: Feedback clock
-    -- Status Port: 1-bit (each) output: PLL status ports
-    LOCKED => open, -- 1-bit output: LOCK
-    -- Clock Input: 1-bit (each) input: Clock input
-    CLKIN1 => CLK, -- 1-bit input: Input clock
-    -- Control Ports: 1-bit (each) input: PLL control ports
-    PWRDWN => '0', -- 1-bit input: Power-down
-    RST => '0', -- 1-bit input: Reset
-    -- Feedback Clocks: 1-bit (each) input: Clock feedback ports
-    CLKFBIN => CLKFBIN -- 1-bit input: Feedback clock
+    -- clock outputs: 1-bit (each) output: user configurable clock outputs
+    clkout0 => clk_100_s,
+    clkout1 => clk_400_s,
+    clkout2 => clk_400_n_s,
+    clkout3 => open,
+    clkout4 => open,
+    clkout5 => open,
+    -- feedback clocks: 1-bit (each) output: clock feedback ports
+    clkfbout => clkfbout, -- 1-bit output: feedback clock
+    -- status port: 1-bit (each) output: pll status ports
+    locked => open, -- 1-bit output: lock
+    -- clock input: 1-bit (each) input: clock input
+    clkin1 => clk, -- 1-bit input: input clock
+    -- control ports: 1-bit (each) input: pll control ports
+    pwrdwn => '0', -- 1-bit input: power-down
+    rst => '0', -- 1-bit input: reset
+    -- feedback clocks: 1-bit (each) input: clock feedback ports
+    clkfbin => clkfbin -- 1-bit input: feedback clock
   );
 
-  BUFG_inst_1 : BUFG
+  bufg_inst_1 : bufg
   port map (
-  O => CLK_100, -- 1-bit output: Clock output
-  I => CLK_100_s -- 1-bit input: Clock input
+  o => clk_100, -- 1-bit output: clock output
+  i => clk_100_s -- 1-bit input: clock input
   );
 
-  BUFG_inst_2 : BUFG
+  bufg_inst_2 : bufg
   port map (
-  O => CLK_400, -- 1-bit output: Clock output
-  I => CLK_400_s -- 1-bit input: Clock input
+  o => clk_400, -- 1-bit output: clock output
+  i => clk_400_s -- 1-bit input: clock input
   );
 
-  BUFG_inst_3 : BUFG
+  bufg_inst_3 : bufg
   port map (
-  O => CLK_400_N, -- 1-bit output: Clock output
-  I => CLK_400_N_s -- 1-bit input: Clock input
+  o => clk_400_n, -- 1-bit output: clock output
+  i => clk_400_n_s -- 1-bit input: clock input
   );
 
-  BUFG_inst_4 : BUFG
+  bufg_inst_4 : bufg
   port map (
-  O => CLKFBIN,
-  I => CLKFBOUT
+  o => clkfbin,
+  i => clkfbout
   );
 
 end rtl;
