@@ -9,7 +9,9 @@
 ../../bsp_components/svga_core.vhd
 ../../bsp_components/svga_timing_gen.vhd
 ../../bsp_components/pwm_audio.vhd
-../../bsp_components/rectangular_to_polar.vhd
-../../bsp_components/cic_filter.vhd
-../../bsp_components/radio.vhd
+../../bsp_components/interpolate.vhd
+../../bsp_components/nco.vhd
+../../bsp_components/serdes.vhd
+../../bsp_components/dac_interface.vhd
+../../bsp_components/transmitter.vhd
 bsp.vhd

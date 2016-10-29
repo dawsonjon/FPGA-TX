@@ -1,3 +1,4 @@
 *.pyc
 out.bmp
 *.swp
+*.o

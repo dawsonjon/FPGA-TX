@@ -82,351 +82,323 @@ use ieee.numeric_std.all;
 library unisim;
 use unisim.vcomponents.all;
 
-entity BSP is
+entity bsp is
   port(
-   CLK_IN                : in    std_logic;       
-   RST                   : in    std_logic;       
+   clk_in                : in    std_logic;       
+   rst                   : in    std_logic;       
 
-   --PHY INTERFACE
-   ETH_CLK               : out   std_logic;     
-   PHY_RESET_N           : out   std_logic;       
+   --phy interface
+   eth_clk               : out   std_logic;     
+   phy_reset_n           : out   std_logic;       
 
-   RXDV                  : in    std_logic;       
-   RXER                  : in    std_logic;       
-   RXD                   : in    std_logic_vector(1 downto 0);
+   rxdv                  : in    std_logic;       
+   rxer                  : in    std_logic;       
+   rxd                   : in    std_logic_vector(1 downto 0);
 
-   TXD                   : out   std_logic_vector(1 downto 0);
-   TXEN                  : out   std_logic;      
+   txd                   : out   std_logic_vector(1 downto 0);
+   txen                  : out   std_logic;      
 
-   JC                    : inout std_logic_vector(7 downto 0);
+   --i2c
+   sda                   : inout std_logic;
+   scl                   : inout std_logic;
 
-   --I2C
-   SDA                   : inout std_logic;
-   SCL                   : inout std_logic;
+   --ps2 keyboard interface
+   kd                    : in  std_logic;
+   kc                    : in  std_logic;
 
-   --PS2 keyboard interface
-   KD                    : in  std_logic;
-   KC                    : in  std_logic;
+   rf_out                : out std_logic;
 
-   --radio interface
-   RF_P                  : in std_logic;
-   RF_N                  : in std_logic;
-   RF_OUT                : out std_logic;
+   --audio interface
+   audio                 : out std_logic;
+   audio_en              : out std_logic;
 
-   --AUDIO interface
-   AUDIO                 : out std_logic;
-   AUDIO_EN              : out std_logic;
+   --vga interface
+   vga_r                 : out std_logic_vector(3 downto 0);
+   vga_g                 : out std_logic_vector(3 downto 0);
+   vga_b                 : out std_logic_vector(3 downto 0);
+   hsynch                : out std_logic;
+   vsynch                : out std_logic;
 
-   --VGA interface
-   VGA_R                 : out Std_logic_vector(3 downto 0);
-   VGA_G                 : out Std_logic_vector(3 downto 0);
-   VGA_B                 : out Std_logic_vector(3 downto 0);
-   HSYNCH                : out Std_logic;
-   VSYNCH                : out Std_logic;
+   --leds
+   gpio_leds             : out std_logic_vector(15 downto 0);   
+   gpio_switches         : in  std_logic_vector(15 downto 0);   
+   gpio_buttons          : in  std_logic_vector(4 downto 0);   
 
-   --LEDS
-   GPIO_LEDS             : out std_logic_vector(15 downto 0);   
-   GPIO_SWITCHES         : in  std_logic_vector(15 downto 0);   
-   GPIO_BUTTONS          : in  std_logic_vector(4 downto 0);   
+   --rgb led
+   led_r_pwm             : out std_logic;
+   led_g_pwm             : out std_logic;
+   led_b_pwm             : out std_logic;
 
-   --RGB LED
-   LED_R_PWM             : out std_logic;
-   LED_G_PWM             : out std_logic;
-   LED_B_PWM             : out std_logic;
+   seven_segment_cathode : out std_logic_vector(6 downto 0);
+   seven_segment_annode  : out std_logic_vector(7 downto 0);
 
-   SEVEN_SEGMENT_CATHODE : out std_logic_vector(6 downto 0);
-   SEVEN_SEGMENT_ANNODE  : out std_logic_vector(7 downto 0);
-
-   --RS232 INTERFACE
-   RS232_RX              : in std_logic;
-   RS232_TX              : out std_logic
+   --rs232 interface
+   rs232_rx              : in std_logic;
+   rs232_tx              : out std_logic
   );
-end entity BSP;
+end entity bsp;
 
-architecture RTL of BSP is
+architecture rtl of bsp is
 
   component rmii_ethernet is
     port(
 
-      CLK         : in  std_logic;
-      RST         : in  std_logic;
+      clk         : in  std_logic;
+      rst         : in  std_logic;
 
-      ETH_CLK     : in  std_logic;
-      PHY_RESET   : out std_logic; 
+      eth_clk     : in  std_logic;
+      phy_reset   : out std_logic; 
 
-      --MII IF
-      TXD         : out std_logic_vector(1 downto 0);
-      TXER        : out std_logic;
-      TXEN        : out std_logic;
+      --mii if
+      txd         : out std_logic_vector(1 downto 0);
+      txer        : out std_logic;
+      txen        : out std_logic;
 
-      RXD         : in  std_logic_vector(1 downto 0);
-      RXER        : in  std_logic;
-      RXDV        : in  std_logic;
+      rxd         : in  std_logic_vector(1 downto 0);
+      rxer        : in  std_logic;
+      rxdv        : in  std_logic;
 
-      --RX STREAM
-      TX          : in  std_logic_vector(15 downto 0);
-      TX_STB      : in  std_logic;
-      TX_ACK      : out std_logic;
+      --rx stream
+      tx          : in  std_logic_vector(15 downto 0);
+      tx_stb      : in  std_logic;
+      tx_ack      : out std_logic;
 
-      --RX STREAM
-      RX          : out std_logic_vector(15 downto 0);
-      RX_STB      : out std_logic;
-      RX_ACK      : in  std_logic
+      --rx stream
+      rx          : out std_logic_vector(15 downto 0);
+      rx_stb      : out std_logic;
+      rx_ack      : in  std_logic
     );
   end component rmii_ethernet;
 
-  component radio is
-  port(
-    clk : in std_logic;
-    rst : in std_logic;
-    
-    rf : in std_logic;
-    rf_out : out std_logic;
+  component transmitter is
+    port(
+      clk : in std_logic;
+      rst : in std_logic;
+      frequency : in std_logic_vector(31 downto 0);
+      i_input : in std_logic_vector(7 downto 0);
+      i_input_stb : in std_logic;
+      i_input_ack : out std_logic;
+      q_input : in std_logic_vector(7 downto 0);
+      q_input_stb : in std_logic;
+      q_input_ack : out std_logic;
+      rf : out std_logic
+    );
+  end component transmitter;
 
-    --Frequency control input
-    frequency : in std_logic_vector(31 downto 0);
-    frequency_stb : in std_logic;
-    frequency_ack : out std_logic;
-
-    --Average samples
-    average_samples : in std_logic_vector(31 downto 0);
-    average_samples_stb : in std_logic;
-    average_samples_ack : out std_logic;
-
-    --Audio output
-    am : out std_logic_vector(31 downto 0);
-    am_stb : out std_logic;
-    am_ack : in std_logic;
-
-    fm : out std_logic_vector(31 downto 0);
-    fm_stb : out std_logic;
-    fm_ack : in std_logic
-
-  );
-  end component radio;
-
-  component CHARSVGA is
+  component charsvga is
     port ( 
 
-    CLK        : in  Std_logic;
-    DATA       : in  Std_logic_vector(31 downto 0);
-    DATA_ACK   : out Std_logic;
-    DATA_STB   : in  Std_logic;
+    clk        : in  std_logic;
+    data       : in  std_logic_vector(31 downto 0);
+    data_ack   : out std_logic;
+    data_stb   : in  std_logic;
     
-    --VGA interface
-    VGACLK     : in  Std_logic;
-    RST        : in  Std_logic;
-    R          : out Std_logic;
-    G          : out Std_logic;
-    B          : out Std_logic;
-    HSYNCH     : out Std_logic;
-    VSYNCH     : out Std_logic
+    --vga interface
+    vgaclk     : in  std_logic;
+    rst        : in  std_logic;
+    r          : out std_logic;
+    g          : out std_logic;
+    b          : out std_logic;
+    hsynch     : out std_logic;
+    vsynch     : out std_logic
     );
-  end component CHARSVGA;
+  end component charsvga;
 
-  component PWM is
+  component pwm is
     generic(
-      MAX_VAL : integer := 256;
-      CLOCK_DIVIDER : integer := 256
+      max_val : integer := 256;
+      clock_divider : integer := 256
     );
     port(
-      CLK : in std_logic;
+      clk : in std_logic;
 
-      DATA : in std_logic_vector(31 downto 0);
-      DATA_STB : in std_logic;
-      DATA_ACK : out std_logic;
+      data : in std_logic_vector(31 downto 0);
+      data_stb : in std_logic;
+      data_ack : out std_logic;
 
-      OUT_BIT : out std_logic
+      out_bit : out std_logic
     );
-  end component PWM;
+  end component pwm;
 
-  component KEYBOARD is
+  component keyboard is
     port (
-    CLK      : in  Std_logic;
-    RST      : in  Std_logic;
+    clk      : in  std_logic;
+    rst      : in  std_logic;
 
-    DATA_STB : out Std_logic;
-    DATA_ACK : in  Std_logic;
-    DATA     : out Std_logic_vector (31 downto 0);
+    data_stb : out std_logic;
+    data_ack : in  std_logic;
+    data     : out std_logic_vector (31 downto 0);
     
-    KD      : in  Std_logic;
-    KC      : in  Std_logic
+    kd      : in  std_logic;
+    kc      : in  std_logic
     );
-  end component KEYBOARD;
+  end component keyboard;
 
-  component I2C is
+  component i2c is
     generic(
-      CLOCKS_PER_SECOND : integer := 100000000;
-      SPEED : integer := 100000
+      clocks_per_second : integer := 100000000;
+      speed : integer := 100000
     );
     port(
-      CLK : in std_logic;
-      RST : in std_logic;
+      clk : in std_logic;
+      rst : in std_logic;
  
-      SDA : inout std_logic;
-      SCL : inout std_logic;
+      sda : inout std_logic;
+      scl : inout std_logic;
 
-      I2C_IN : in std_logic_vector(31 downto 0);
-      I2C_IN_STB : in std_logic;
-      I2C_IN_ACK : out std_logic;
+      i2c_in : in std_logic_vector(31 downto 0);
+      i2c_in_stb : in std_logic;
+      i2c_in_ack : out std_logic;
  
-      I2C_OUT : out std_logic_vector(31 downto 0);
-      I2C_OUT_STB : out std_logic;
-      I2C_OUT_ACK : in std_logic
+      i2c_out : out std_logic_vector(31 downto 0);
+      i2c_out_stb : out std_logic;
+      i2c_out_ack : in std_logic
     );
-  end component I2C;
+  end component i2c;
 
-  component USER_DESIGN is
+  component user_design is
     port(
-      CLK : in std_logic;
-      RST : in std_logic;
+      clk : in std_logic;
+      rst : in std_logic;
     
-      OUTPUT_LEDS : out std_logic_vector(31 downto 0);
-      OUTPUT_LEDS_STB : out std_logic;
-      OUTPUT_LEDS_ACK : in std_logic;
+      output_leds : out std_logic_vector(31 downto 0);
+      output_leds_stb : out std_logic;
+      output_leds_ack : in std_logic;
 
-      INPUT_SWITCHES : in std_logic_vector(31 downto 0);
-      INPUT_SWITCHES_STB : in std_logic;
-      INPUT_SWITCHES_ACK : out std_logic;
+      input_switches : in std_logic_vector(31 downto 0);
+      input_switches_stb : in std_logic;
+      input_switches_ack : out std_logic;
 
-      INPUT_BUTTONS : in std_logic_vector(31 downto 0);
-      INPUT_BUTTONS_STB : in std_logic;
-      INPUT_BUTTONS_ACK : out std_logic;
+      input_buttons : in std_logic_vector(31 downto 0);
+      input_buttons_stb : in std_logic;
+      input_buttons_ack : out std_logic;
 
-      OUTPUT_VGA : out  Std_logic_vector(31 downto 0);
-      OUTPUT_VGA_ACK : in Std_logic;
-      OUTPUT_VGA_STB : out  Std_logic;
+      output_vga : out  std_logic_vector(31 downto 0);
+      output_vga_ack : in std_logic;
+      output_vga_stb : out  std_logic;
 
-      OUTPUT_AUDIO : out std_logic_vector(31 downto 0);
-      OUTPUT_AUDIO_STB : out std_logic;
-      OUTPUT_AUDIO_ACK : in std_logic;
+      output_audio : out std_logic_vector(31 downto 0);
+      output_audio_stb : out std_logic;
+      output_audio_ack : in std_logic;
 
-      output_radio_frequency : out std_logic_vector(31 downto 0);
-      output_radio_frequency_stb : out std_logic;
-      output_radio_frequency_ack : in std_logic;
+      output_tx_freq : out std_logic_vector(31 downto 0);
+      output_tx_freq_stb : out std_logic;
+      output_tx_freq_ack : in std_logic;
 
-      output_radio_average_samples : out std_logic_vector(31 downto 0);
-      output_radio_average_samples_stb : out std_logic;
-      output_radio_average_samples_ack : in std_logic;
+      output_tx_am : out std_logic_vector(31 downto 0);
+      output_tx_am_stb : out std_logic;
+      output_tx_am_ack : in std_logic;
 
-      input_radio_am : in std_logic_vector(31 downto 0);
-      input_radio_am_stb : in std_logic;
-      input_radio_am_ack : out std_logic;
+      output_led_r : out std_logic_vector(31 downto 0);
+      output_led_r_stb : out std_logic;
+      output_led_r_ack : in std_logic;
+      output_led_g : out std_logic_vector(31 downto 0);
+      output_led_g_stb : out std_logic;
+      output_led_g_ack : in std_logic;
+      output_led_b : out std_logic_vector(31 downto 0);
+      output_led_b_stb : out std_logic;
+      output_led_b_ack : in std_logic;
 
-      input_radio_fm : in std_logic_vector(31 downto 0);
-      input_radio_fm_stb : in std_logic;
-      input_radio_fm_ack : out std_logic;
+      output_seven_segment_cathode : out std_logic_vector(31 downto 0);
+      output_seven_segment_cathode_stb : out std_logic;
+      output_seven_segment_cathode_ack : in std_logic;
 
-      OUTPUT_LED_R : out std_logic_vector(31 downto 0);
-      OUTPUT_LED_R_STB : out std_logic;
-      OUTPUT_LED_R_ACK : in std_logic;
-      OUTPUT_LED_G : out std_logic_vector(31 downto 0);
-      OUTPUT_LED_G_STB : out std_logic;
-      OUTPUT_LED_G_ACK : in std_logic;
-      OUTPUT_LED_B : out std_logic_vector(31 downto 0);
-      OUTPUT_LED_B_STB : out std_logic;
-      OUTPUT_LED_B_ACK : in std_logic;
+      output_seven_segment_annode : out std_logic_vector(31 downto 0);
+      output_seven_segment_annode_stb : out std_logic;
+      output_seven_segment_annode_ack : in std_logic;
 
-      OUTPUT_SEVEN_SEGMENT_CATHODE : out std_logic_vector(31 downto 0);
-      OUTPUT_SEVEN_SEGMENT_CATHODE_STB : out std_logic;
-      OUTPUT_SEVEN_SEGMENT_CATHODE_ACK : in std_logic;
+      input_ps2 : in std_logic_vector(31 downto 0);
+      input_ps2_stb : in std_logic;
+      input_ps2_ack : out std_logic;
 
-      OUTPUT_SEVEN_SEGMENT_ANNODE : out std_logic_vector(31 downto 0);
-      OUTPUT_SEVEN_SEGMENT_ANNODE_STB : out std_logic;
-      OUTPUT_SEVEN_SEGMENT_ANNODE_ACK : in std_logic;
+      input_i2c : in std_logic_vector(31 downto 0);
+      input_i2c_stb : in std_logic;
+      input_i2c_ack : out std_logic;
+      output_i2c : out std_logic_vector(31 downto 0);
+      output_i2c_stb : out std_logic;
+      output_i2c_ack : in std_logic;
 
-      INPUT_PS2 : in std_logic_vector(31 downto 0);
-      INPUT_PS2_STB : in std_logic;
-      INPUT_PS2_ACK : out std_logic;
+      --eth rx stream
+      input_eth_rx : in std_logic_vector(31 downto 0);
+      input_eth_rx_stb : in std_logic;
+      input_eth_rx_ack : out std_logic;
 
-      INPUT_I2C : in std_logic_vector(31 downto 0);
-      INPUT_I2C_STB : in std_logic;
-      INPUT_I2C_ACK : out std_logic;
-      OUTPUT_I2C : out std_logic_vector(31 downto 0);
-      OUTPUT_I2C_STB : out std_logic;
-      OUTPUT_I2C_ACK : in std_logic;
+      --eth tx stream
+      output_eth_tx : out std_logic_vector(31 downto 0);
+      output_eth_tx_stb : out std_logic;
+      output_eth_tx_ack : in std_logic;
 
-      --ETH RX STREAM
-      INPUT_ETH_RX : in std_logic_vector(31 downto 0);
-      INPUT_ETH_RX_STB : in std_logic;
-      INPUT_ETH_RX_ACK : out std_logic;
+      --rs232 rx stream
+      input_rs232_rx : in std_logic_vector(31 downto 0);
+      input_rs232_rx_stb : in std_logic;
+      input_rs232_rx_ack : out std_logic;
 
-      --ETH TX STREAM
-      OUTPUT_ETH_TX : out std_logic_vector(31 downto 0);
-      OUTPUT_ETH_TX_STB : out std_logic;
-      OUTPUT_ETH_TX_ACK : in std_logic;
-
-      --RS232 RX STREAM
-      INPUT_RS232_RX : in std_logic_vector(31 downto 0);
-      INPUT_RS232_RX_STB : in std_logic;
-      INPUT_RS232_RX_ACK : out std_logic;
-
-      --RS232 TX STREAM
-      OUTPUT_RS232_TX : out std_logic_vector(31 downto 0);
-      OUTPUT_RS232_TX_STB : out std_logic;
-      OUTPUT_RS232_TX_ACK : in std_logic
+      --rs232 tx stream
+      output_rs232_tx : out std_logic_vector(31 downto 0);
+      output_rs232_tx_stb : out std_logic;
+      output_rs232_tx_ack : in std_logic
 
 
     );
   end component;
 
-  component SERIAL_INPUT is
+  component serial_input is
     generic(
-      CLOCK_FREQUENCY : integer;
-      BAUD_RATE       : integer
+      clock_frequency : integer;
+      baud_rate       : integer
     );
     port(
-      CLK      : in std_logic;
-      RST      : in std_logic;
-      RX       : in std_logic;
+      clk      : in std_logic;
+      rst      : in std_logic;
+      rx       : in std_logic;
      
-      OUT1     : out std_logic_vector(7 downto 0);
-      OUT1_STB : out std_logic;
-      OUT1_ACK : in  std_logic
+      out1     : out std_logic_vector(7 downto 0);
+      out1_stb : out std_logic;
+      out1_ack : in  std_logic
     );
-  end component SERIAL_INPUT;
+  end component serial_input;
 
-  component SERIAL_OUTPUT is
+  component serial_output is
     generic(
-      CLOCK_FREQUENCY : integer;
-      BAUD_RATE       : integer
+      clock_frequency : integer;
+      baud_rate       : integer
     );
     port(
-      CLK     : in std_logic;
-      RST     : in  std_logic;
-      TX      : out std_logic;
+      clk     : in std_logic;
+      rst     : in  std_logic;
+      tx      : out std_logic;
      
-      IN1     : in std_logic_vector(7 downto 0);
-      IN1_STB : in std_logic;
-      IN1_ACK : out std_logic
+      in1     : in std_logic_vector(7 downto 0);
+      in1_stb : in std_logic;
+      in1_ack : out std_logic
     );
   end component serial_output;
 
   component pwm_audio is
     generic(
-      CLOCK_FREQUENCY : integer := 100000000;
-      SAMPLE_RATE : integer := 6104;
-      AUDIO_BITS : integer := 8
+      clock_frequency : integer := 100000000;
+      sample_rate : integer := 6104;
+      audio_bits : integer := 8
     );
     port(
-      CLK : in std_logic;
-      RST : in std_logic;
+      clk : in std_logic;
+      rst : in std_logic;
 
-      DATA_IN : in std_logic_vector(31 downto 0);
-      DATA_IN_STB : in std_logic;
-      DATA_IN_ACK : out std_logic;
+      data_in : in std_logic_vector(31 downto 0);
+      data_in_stb : in std_logic;
+      data_in_ack : out std_logic;
 
-      AUDIO : out std_logic
+      audio : out std_logic
 
     );
   end component pwm_audio;
 
   --chips signals
-  signal CLK : std_logic;
+  signal clk : std_logic;
 
   --clock tree signals
   signal clkin1            : std_logic;
-  -- Output clock buffering
+  -- output clock buffering
   signal clkfb             : std_logic;
   signal clk0              : std_logic;
   signal clk2x             : std_logic;
@@ -436,561 +408,527 @@ architecture RTL of BSP is
   signal clkfbout          : std_logic;
   signal locked_internal   : std_logic;
   signal status_internal   : std_logic_vector(7 downto 0);
-  signal CLK_OUT1          : std_logic;
-  signal CLK_OUT2          : std_logic;
-  signal CLK_OUT3          : std_logic;
-  signal CLK_OUT3_N        : std_logic;
-  signal CLK_OUT4          : std_logic;
-  signal NOT_LOCKED        : std_logic;
-  signal RST_INV           : std_logic;
-  signal INTERNAL_RST      : std_logic;
+  signal clk_out1          : std_logic;
+  signal clk_out2          : std_logic;
+  signal clk_out3          : std_logic;
+  signal clk_out3_n        : std_logic;
+  signal clk_out4          : std_logic;
+  signal not_locked        : std_logic;
+  signal rst_inv           : std_logic;
+  signal internal_rst      : std_logic;
 
 
-  --GPIO signals
-  signal OUTPUT_LEDS : std_logic_vector(31 downto 0);
-  signal OUTPUT_LEDS_STB : std_logic;
-  signal OUTPUT_LEDS_ACK : std_logic;
+  --gpio signals
+  signal output_leds : std_logic_vector(31 downto 0);
+  signal output_leds_stb : std_logic;
+  signal output_leds_ack : std_logic;
 
-  signal INPUT_SWITCHES : std_logic_vector(31 downto 0);
-  signal INPUT_SWITCHES_STB : std_logic;
-  signal INPUT_SWITCHES_ACK : std_logic;
-  signal GPIO_SWITCHES_D : std_logic_vector(15 downto 0);
+  signal input_switches : std_logic_vector(31 downto 0);
+  signal input_switches_stb : std_logic;
+  signal input_switches_ack : std_logic;
+  signal gpio_switches_d : std_logic_vector(15 downto 0);
 
-  signal INPUT_BUTTONS : std_logic_vector(31 downto 0);
-  signal INPUT_BUTTONS_STB : std_logic;
-  signal INPUT_BUTTONS_ACK : std_logic;
-  signal GPIO_BUTTONS_D : std_logic_vector(4 downto 0);
+  signal input_buttons : std_logic_vector(31 downto 0);
+  signal input_buttons_stb : std_logic;
+  signal input_buttons_ack : std_logic;
+  signal gpio_buttons_d : std_logic_vector(4 downto 0);
 
-  --SEVEN SEGMENT DISPLAY STREAM
-  signal OUTPUT_SEVEN_SEGMENT_CATHODE : std_logic_vector(31 downto 0);
-  signal OUTPUT_SEVEN_SEGMENT_CATHODE_STB : std_logic;
-  signal OUTPUT_SEVEN_SEGMENT_CATHODE_ACK : std_logic;
-  signal OUTPUT_SEVEN_SEGMENT_ANNODE : std_logic_vector(31 downto 0);
-  signal OUTPUT_SEVEN_SEGMENT_ANNODE_STB : std_logic;
-  signal OUTPUT_SEVEN_SEGMENT_ANNODE_ACK : std_logic;
+  --seven segment display stream
+  signal output_seven_segment_cathode : std_logic_vector(31 downto 0);
+  signal output_seven_segment_cathode_stb : std_logic;
+  signal output_seven_segment_cathode_ack : std_logic;
+  signal output_seven_segment_annode : std_logic_vector(31 downto 0);
+  signal output_seven_segment_annode_stb : std_logic;
+  signal output_seven_segment_annode_ack : std_logic;
 
-  --AUDIO
-  signal OUTPUT_AUDIO : std_logic_vector(31 downto 0);
-  signal OUTPUT_AUDIO_STB : std_logic;
-  signal OUTPUT_AUDIO_ACK :  std_logic;
+  --audio
+  signal output_audio : std_logic_vector(31 downto 0);
+  signal output_audio_stb : std_logic;
+  signal output_audio_ack :  std_logic;
 
-  --RADIO
-  signal  rf : std_logic;
+  --tx interface
+  signal  output_tx_freq : std_logic_vector(31 downto 0);
+  signal  output_tx_freq_reg : std_logic_vector(31 downto 0);
+  signal  output_tx_freq_stb : std_logic;
+  signal  output_tx_freq_ack : std_logic;
+  signal  output_tx_am : std_logic_vector(31 downto 0);
+  signal  output_tx_am_stb : std_logic;
+  signal  output_tx_am_ack : std_logic;
 
-  --Frequency control input
-  signal  output_radio_frequency : std_logic_vector(31 downto 0);
-  signal  output_radio_frequency_stb : std_logic;
-  signal  output_radio_frequency_ack : std_logic;
+  --interface for svga
+  signal vgaclk : std_logic;
+  signal vga_rr : std_logic;
+  signal vga_gg : std_logic;
+  signal vga_bb : std_logic;
+  signal output_vga : std_logic_vector(31 downto 0);
+  signal output_vga_ack : std_logic;
+  signal output_vga_stb : std_logic;
 
-  --Average samples
-  signal  output_radio_average_samples : std_logic_vector(31 downto 0);
-  signal  output_radio_average_samples_stb : std_logic;
-  signal  output_radio_average_samples_ack : std_logic;
+  --ps2 interface for kb/mouse
+  signal ps2_stb : std_logic;
+  signal ps2_ack : std_logic;
+  signal ps2 : std_logic_vector (31 downto 0);
 
-  --Audio output
-  signal  input_radio_am : std_logic_vector(31 downto 0);
-  signal  input_radio_am_stb : std_logic;
-  signal  input_radio_am_ack : std_logic;
-  signal  input_radio_fm : std_logic_vector(31 downto 0);
-  signal  input_radio_fm_stb : std_logic;
-  signal  input_radio_fm_ack : std_logic;
+  --i2c interface for temperature monitor
+  signal input_i2c : std_logic_vector(31 downto 0);
+  signal input_i2c_stb : std_logic;
+  signal input_i2c_ack : std_logic;
+  signal output_i2c : std_logic_vector(31 downto 0);
+  signal output_i2c_stb : std_logic;
+  signal output_i2c_ack : std_logic;
 
-  --Interface for SVGA
-  signal VGACLK : std_logic;
-  signal VGA_RR : std_logic;
-  signal VGA_GG : std_logic;
-  signal VGA_BB : std_logic;
-  signal OUTPUT_VGA : std_logic_vector(31 downto 0);
-  signal OUTPUT_VGA_ACK : std_logic;
-  signal OUTPUT_VGA_STB : std_logic;
-
-  --PS2 interface for kb/mouse
-  signal PS2_STB : std_logic;
-  signal PS2_ACK : std_logic;
-  signal PS2 : std_logic_vector (31 downto 0);
-
-  --I2C interface for temperature monitor
-  signal INPUT_I2C : std_logic_vector(31 downto 0);
-  signal INPUT_I2C_STB : std_logic;
-  signal INPUT_I2C_ACK : std_logic;
-  signal OUTPUT_I2C : std_logic_vector(31 downto 0);
-  signal OUTPUT_I2C_STB : std_logic;
-  signal OUTPUT_I2C_ACK : std_logic;
-
-  --ETH TX STREAM
-  signal ETH_TX          : std_logic_vector(31 downto 0);
-  signal ETH_TX_STB      : std_logic;
-  signal ETH_TX_ACK      : std_logic;
+  --eth tx stream
+  signal eth_tx          : std_logic_vector(31 downto 0);
+  signal eth_tx_stb      : std_logic;
+  signal eth_tx_ack      : std_logic;
   
-  --ETH RX STREAM
-  signal ETH_RX          : std_logic_vector(31 downto 0);
-  signal ETH_RX_STB      : std_logic;
-  signal ETH_RX_ACK      : std_logic;
+  --eth rx stream
+  signal eth_rx          : std_logic_vector(31 downto 0);
+  signal eth_rx_stb      : std_logic;
+  signal eth_rx_ack      : std_logic;
 
-  --RS232 RX STREAM
-  signal INPUT_RS232_RX : std_logic_vector(31 downto 0);
-  signal INPUT_RS232_RX_STB : std_logic;
-  signal INPUT_RS232_RX_ACK : std_logic;
+  --rs232 rx stream
+  signal input_rs232_rx : std_logic_vector(31 downto 0);
+  signal input_rs232_rx_stb : std_logic;
+  signal input_rs232_rx_ack : std_logic;
 
-  --RS232 TX STREAM
-  signal OUTPUT_RS232_TX : std_logic_vector(31 downto 0);
-  signal OUTPUT_RS232_TX_STB : std_logic;
-  signal OUTPUT_RS232_TX_ACK : std_logic;
+  --rs232 tx stream
+  signal output_rs232_tx : std_logic_vector(31 downto 0);
+  signal output_rs232_tx_stb : std_logic;
+  signal output_rs232_tx_ack : std_logic;
 
-  --tri color LED signals
-  signal LED_R : std_logic_vector(31 downto 0);
-  signal LED_R_STB : std_logic;
-  signal LED_R_ACK : std_logic;
-  signal LED_G : std_logic_vector(31 downto 0);
-  signal LED_G_STB : std_logic;
-  signal LED_G_ACK : std_logic;
-  signal LED_B : std_logic_vector(31 downto 0);
-  signal LED_B_STB : std_logic;
-  signal LED_B_ACK : std_logic;
+  --tri color led signals
+  signal led_r : std_logic_vector(31 downto 0);
+  signal led_r_stb : std_logic;
+  signal led_r_ack : std_logic;
+  signal led_g : std_logic_vector(31 downto 0);
+  signal led_g_stb : std_logic;
+  signal led_g_ack : std_logic;
+  signal led_b : std_logic_vector(31 downto 0);
+  signal led_b_stb : std_logic;
+  signal led_b_ack : std_logic;
 
 begin
 
 
   ethernet_inst_1 : rmii_ethernet port map(
-      CLK         => CLK,
-      RST         => INTERNAL_RST,
+      clk         => clk,
+      rst         => internal_rst,
 
-      --GMII IF
-      ETH_CLK     => CLK_OUT1,
+      --gmii if
+      eth_clk     => clk_out1,
 
-      TXD         => TXD,
-      TXER        => open,
-      TXEN        => TXEN,
+      txd         => txd,
+      txer        => open,
+      txen        => txen,
 
-      PHY_RESET   => PHY_RESET_N,
+      phy_reset   => phy_reset_n,
 
-      RXD         => RXD,
-      RXER        => RXER,
-      RXDV        => RXDV,
+      rxd         => rxd,
+      rxer        => rxer,
+      rxdv        => rxdv,
 
-      --RX STREAM
-      TX          => ETH_TX(15 downto 0),
-      TX_STB      => ETH_TX_STB,
-      TX_ACK      => ETH_TX_ACK,
+      --rx stream
+      tx          => eth_tx(15 downto 0),
+      tx_stb      => eth_tx_stb,
+      tx_ack      => eth_tx_ack,
 
-      --RX STREAM
-      RX          => ETH_RX(15 downto 0),
-      RX_STB      => ETH_RX_STB,
-      RX_ACK      => ETH_RX_ACK
+      --rx stream
+      rx          => eth_rx(15 downto 0),
+      rx_stb      => eth_rx_stb,
+      rx_ack      => eth_rx_ack
     );
 
-  CHARSVGA_INST_1 : CHARSVGA port map( 
+  charsvga_inst_1 : charsvga port map( 
 
-    CLK => CLK,
-    DATA => OUTPUT_VGA,
-    DATA_ACK => OUTPUT_VGA_ACK,
-    DATA_STB => OUTPUT_VGA_STB,
+    clk => clk,
+    data => output_vga,
+    data_ack => output_vga_ack,
+    data_stb => output_vga_stb,
     
-    --VGA interface
-    VGACLK => VGACLK,
-    RST => INTERNAL_RST,
-    R => VGA_RR,
-    G => VGA_GG,
-    B => VGA_BB,
-    HSYNCH => HSYNCH,
-    VSYNCH => VSYNCH
+    --vga interface
+    vgaclk => vgaclk,
+    rst => internal_rst,
+    r => vga_rr,
+    g => vga_gg,
+    b => vga_bb,
+    hsynch => hsynch,
+    vsynch => vsynch
   );
 
-  generate_vga : for I in 0 to 3 generate
-    VGA_R(I) <= VGA_RR;
-    VGA_G(I) <= VGA_GG;
-    VGA_B(I) <= VGA_BB;
+  generate_vga : for i in 0 to 3 generate
+    vga_r(i) <= vga_rr;
+    vga_g(i) <= vga_gg;
+    vga_b(i) <= vga_bb;
   end generate;
 
-  radio_inst_1 : radio port map (
-    clk => clk,
-    rst => internal_rst,
-    
-    rf => rf,
-    rf_out => rf_out,
+  process
+  begin
+    wait until rising_edge(clk);
+    if output_tx_freq_stb = '1' then
+      output_tx_freq_reg <= output_tx_freq;
+    end if;
+  end process;
+  output_tx_freq_ack <= '1';
 
-    --Frequency control input
-    frequency => output_radio_frequency,
-    frequency_stb => output_radio_frequency_stb,
-    frequency_ack => output_radio_frequency_ack,
-
-    --Average samples
-    average_samples => output_radio_average_samples,
-    average_samples_stb => output_radio_average_samples_stb,
-    average_samples_ack => output_radio_average_samples_ack,
-
-    --Audio output
-    am => input_radio_am,
-    am_stb => input_radio_am_stb,
-    am_ack => input_radio_am_ack,
-
-    fm => input_radio_fm,
-    fm_stb => input_radio_fm_stb,
-    fm_ack => input_radio_fm_ack
-  );
-  
-  ibufds_inst_1 : ibufds port map(
-    i => rf_p,
-    ib => rf_n,
-    o => rf
+  transmitter_inst_1 :  transmitter port map(
+      clk => clk,
+      rst => internal_rst,
+      frequency => output_tx_freq_reg,
+      i_input => output_tx_am(7 downto 0),
+      i_input_stb => output_tx_am_stb,
+      i_input_ack => output_tx_am_ack,
+      q_input => output_tx_am(23 downto 16),
+      q_input_stb => output_tx_am_stb,
+      q_input_ack => open,
+      rf => rf_out
   );
 
   pwm_audio_inst_1 : pwm_audio 
   generic map(
-      CLOCK_FREQUENCY => 100000000,
-      --SAMPLE_RATE => 12207,
-      SAMPLE_RATE => 48828,
-      AUDIO_BITS => 10
+      clock_frequency => 100000000,
+      sample_rate => 12207,
+      audio_bits => 10
   ) port map (
-      CLK => CLK,
-      RST => INTERNAL_RST,
+      clk => clk,
+      rst => internal_rst,
 
-      DATA_IN => OUTPUT_AUDIO,
-      DATA_IN_STB => OUTPUT_AUDIO_STB,
-      DATA_IN_ACK => OUTPUT_AUDIO_ACK,
+      data_in => output_audio,
+      data_in_stb => output_audio_stb,
+      data_in_ack => output_audio_ack,
 
-      AUDIO => AUDIO
+      audio => audio
 
   );
-  AUDIO_EN <= '1';
-  JC(0) <= OUTPUT_AUDIO_STB;
-  JC(1) <= OUTPUT_AUDIO_ACK;
+  audio_en <= '1';
 
-  USER_DESIGN_INST_1 : USER_DESIGN port map(
-      CLK => CLK,
-      RST => INTERNAL_RST,
+  user_design_inst_1 : user_design port map(
+      clk => clk,
+      rst => internal_rst,
     
-      --GPIO interfaces
-      OUTPUT_LEDS => OUTPUT_LEDS,
-      OUTPUT_LEDS_STB => OUTPUT_LEDS_STB,
-      OUTPUT_LEDS_ACK => OUTPUT_LEDS_ACK,
+      --gpio interfaces
+      output_leds => output_leds,
+      output_leds_stb => output_leds_stb,
+      output_leds_ack => output_leds_ack,
 
-      INPUT_SWITCHES => INPUT_SWITCHES,
-      INPUT_SWITCHES_STB => INPUT_SWITCHES_STB,
-      INPUT_SWITCHES_ACK => INPUT_SWITCHES_ACK,
+      input_switches => input_switches,
+      input_switches_stb => input_switches_stb,
+      input_switches_ack => input_switches_ack,
 
-      INPUT_BUTTONS => INPUT_BUTTONS,
-      INPUT_BUTTONS_STB => INPUT_BUTTONS_STB,
-      INPUT_BUTTONS_ACK => INPUT_BUTTONS_ACK,
+      input_buttons => input_buttons,
+      input_buttons_stb => input_buttons_stb,
+      input_buttons_ack => input_buttons_ack,
 
-      --VGA interfave
-      OUTPUT_VGA => OUTPUT_VGA,
-      OUTPUT_VGA_ACK => OUTPUT_VGA_ACK,
-      OUTPUT_VGA_STB => OUTPUT_VGA_STB,
+      --vga interfave
+      output_vga => output_vga,
+      output_vga_ack => output_vga_ack,
+      output_vga_stb => output_vga_stb,
 
-      --TRI color LED interface
-      OUTPUT_LED_R => LED_R,
-      OUTPUT_LED_R_STB => LED_R_STB,
-      OUTPUT_LED_R_ACK => LED_R_ACK,
-      OUTPUT_LED_G => LED_G,
-      OUTPUT_LED_G_STB => LED_G_STB,
-      OUTPUT_LED_G_ACK => LED_G_ACK,
-      OUTPUT_LED_B => LED_B,
-      OUTPUT_LED_B_STB => LED_B_STB,
-      OUTPUT_LED_B_ACK => LED_B_ACK,
+      --tri color led interface
+      output_led_r => led_r,
+      output_led_r_stb => led_r_stb,
+      output_led_r_ack => led_r_ack,
+      output_led_g => led_g,
+      output_led_g_stb => led_g_stb,
+      output_led_g_ack => led_g_ack,
+      output_led_b => led_b,
+      output_led_b_stb => led_b_stb,
+      output_led_b_ack => led_b_ack,
 
-      --RS232 RX STREAM
-      INPUT_RS232_RX => INPUT_RS232_RX,
-      INPUT_RS232_RX_STB => INPUT_RS232_RX_STB,
-      INPUT_RS232_RX_ACK => INPUT_RS232_RX_ACK,
+      --rs232 rx stream
+      input_rs232_rx => input_rs232_rx,
+      input_rs232_rx_stb => input_rs232_rx_stb,
+      input_rs232_rx_ack => input_rs232_rx_ack,
 
-      --RS232 TX STREAM
-      OUTPUT_RS232_TX => OUTPUT_RS232_TX,
-      OUTPUT_RS232_TX_STB => OUTPUT_RS232_TX_STB,
-      OUTPUT_RS232_TX_ACK => OUTPUT_RS232_TX_ACK,
+      --rs232 tx stream
+      output_rs232_tx => output_rs232_tx,
+      output_rs232_tx_stb => output_rs232_tx_stb,
+      output_rs232_tx_ack => output_rs232_tx_ack,
 
-      --AUDIO OUT
-      OUTPUT_AUDIO => OUTPUT_AUDIO,
-      OUTPUT_AUDIO_STB => OUTPUT_AUDIO_STB,
-      OUTPUT_AUDIO_ACK => OUTPUT_AUDIO_ACK,
+      --audio out
+      output_audio => output_audio,
+      output_audio_stb => output_audio_stb,
+      output_audio_ack => output_audio_ack,
 
-      --radio interface
-      output_radio_frequency => output_radio_frequency,
-      output_radio_frequency_stb => output_radio_frequency_stb,
-      output_radio_frequency_ack => output_radio_frequency_ack,
+      --transmit interface
+      output_tx_freq     => output_tx_freq,
+      output_tx_freq_stb => output_tx_freq_stb,
+      output_tx_freq_ack => output_tx_freq_ack,
 
-      output_radio_average_samples => output_radio_average_samples,
-      output_radio_average_samples_stb => output_radio_average_samples_stb,
-      output_radio_average_samples_ack => output_radio_average_samples_ack,
+      output_tx_am       => output_tx_am,
+      output_tx_am_stb   => output_tx_am_stb,
+      output_tx_am_ack   => output_tx_am_ack,
 
-      input_radio_am => input_radio_am,
-      input_radio_am_stb => input_radio_am_stb,
-      input_radio_am_ack => input_radio_am_ack,
-
-      input_radio_fm => input_radio_fm,
-      input_radio_fm_stb => input_radio_fm_stb,
-      input_radio_fm_ack => input_radio_fm_ack,
-
-      --SEVEN SEGMENT DISPLAY INTERFACE
-      OUTPUT_SEVEN_SEGMENT_CATHODE => OUTPUT_SEVEN_SEGMENT_CATHODE,
-      OUTPUT_SEVEN_SEGMENT_CATHODE_STB => OUTPUT_SEVEN_SEGMENT_CATHODE_STB,
-      OUTPUT_SEVEN_SEGMENT_CATHODE_ACK => OUTPUT_SEVEN_SEGMENT_CATHODE_ACK,
-      OUTPUT_SEVEN_SEGMENT_ANNODE => OUTPUT_SEVEN_SEGMENT_ANNODE,
-      OUTPUT_SEVEN_SEGMENT_ANNODE_STB => OUTPUT_SEVEN_SEGMENT_ANNODE_STB,
-      OUTPUT_SEVEN_SEGMENT_ANNODE_ACK => OUTPUT_SEVEN_SEGMENT_ANNODE_ACK,
+      --seven segment display interface
+      output_seven_segment_cathode => output_seven_segment_cathode,
+      output_seven_segment_cathode_stb => output_seven_segment_cathode_stb,
+      output_seven_segment_cathode_ack => output_seven_segment_cathode_ack,
+      output_seven_segment_annode => output_seven_segment_annode,
+      output_seven_segment_annode_stb => output_seven_segment_annode_stb,
+      output_seven_segment_annode_ack => output_seven_segment_annode_ack,
      
-      --PS2 KEYBOAD INTERFACE
-      INPUT_PS2_STB => PS2_STB,
-      INPUT_PS2_ACK => PS2_ACK,
-      INPUT_PS2 => PS2,
+      --ps2 keyboad interface
+      input_ps2_stb => ps2_stb,
+      input_ps2_ack => ps2_ack,
+      input_ps2 => ps2,
 
-      --I2C interface for temperature monitor
-      INPUT_I2C      => OUTPUT_I2C,
-      INPUT_I2C_STB  => OUTPUT_I2C_STB,
-      INPUT_I2C_ACK  => OUTPUT_I2C_ACK,
-      OUTPUT_I2C     => INPUT_I2C,
-      OUTPUT_I2C_STB => INPUT_I2C_STB,
-      OUTPUT_I2C_ACK => INPUT_I2C_ACK,
+      --i2c interface for temperature monitor
+      input_i2c      => output_i2c,
+      input_i2c_stb  => output_i2c_stb,
+      input_i2c_ack  => output_i2c_ack,
+      output_i2c     => input_i2c,
+      output_i2c_stb => input_i2c_stb,
+      output_i2c_ack => input_i2c_ack,
 
-      --ETH RX STREAM
-      INPUT_ETH_RX => ETH_RX,
-      INPUT_ETH_RX_STB => ETH_RX_STB,
-      INPUT_ETH_RX_ACK => ETH_RX_ACK,
+      --eth rx stream
+      input_eth_rx => eth_rx,
+      input_eth_rx_stb => eth_rx_stb,
+      input_eth_rx_ack => eth_rx_ack,
 
-      --ETH TX STREAM
-      OUTPUT_ETH_TX => ETH_TX,
-      OUTPUT_ETH_TX_STB => ETH_TX_STB,
-      OUTPUT_ETH_TX_ACK => ETH_TX_ACK
+      --eth tx stream
+      output_eth_tx => eth_tx,
+      output_eth_tx_stb => eth_tx_stb,
+      output_eth_tx_ack => eth_tx_ack
 
   );
 
-  SERIAL_OUTPUT_INST_1 : SERIAL_OUTPUT generic map(
-      CLOCK_FREQUENCY => 100000000,
-      BAUD_RATE       => 115200
+  serial_output_inst_1 : serial_output generic map(
+      clock_frequency => 100000000,
+      baud_rate       => 115200
   )port map(
-      CLK     => CLK,
-      RST     => INTERNAL_RST,
-      TX      => RS232_TX,
+      clk     => clk,
+      rst     => internal_rst,
+      tx      => rs232_tx,
      
-      IN1     => OUTPUT_RS232_TX(7 downto 0),
-      IN1_STB => OUTPUT_RS232_TX_STB,
-      IN1_ACK => OUTPUT_RS232_TX_ACK
+      in1     => output_rs232_tx(7 downto 0),
+      in1_stb => output_rs232_tx_stb,
+      in1_ack => output_rs232_tx_ack
   );
 
-  SERIAL_INPUT_INST_1 : SERIAL_INPUT generic map(
-      CLOCK_FREQUENCY => 100000000,
-      BAUD_RATE       => 115200
+  serial_input_inst_1 : serial_input generic map(
+      clock_frequency => 100000000,
+      baud_rate       => 115200
   ) port map (
-      CLK      => CLK,
-      RST      => INTERNAL_RST,
-      RX       => RS232_RX,
+      clk      => clk,
+      rst      => internal_rst,
+      rx       => rs232_rx,
      
-      OUT1     => INPUT_RS232_RX(7 downto 0),
-      OUT1_STB => INPUT_RS232_RX_STB,
-      OUT1_ACK => INPUT_RS232_RX_ACK
+      out1     => input_rs232_rx(7 downto 0),
+      out1_stb => input_rs232_rx_stb,
+      out1_ack => input_rs232_rx_ack
   );
 
-  INPUT_RS232_RX(15 downto 8) <= (others => '0');
+  input_rs232_rx(15 downto 8) <= (others => '0');
 
-  I2C_INST_1 : I2C generic map(
-      CLOCKS_PER_SECOND => 100000000,
-      SPEED => 10000
+  i2c_inst_1 : i2c generic map(
+      clocks_per_second => 100000000,
+      speed => 10000
   ) port map (
-      CLK => CLK,
-      RST => INTERNAL_RST,
+      clk => clk,
+      rst => internal_rst,
  
-      SDA => SDA,
-      SCL => SCL,
+      sda => sda,
+      scl => scl,
 
-      I2C_IN => INPUT_I2C,
-      I2C_IN_STB => INPUT_I2C_STB,
-      I2C_IN_ACK =>INPUT_I2C_ACK,
+      i2c_in => input_i2c,
+      i2c_in_stb => input_i2c_stb,
+      i2c_in_ack =>input_i2c_ack,
  
-      I2C_OUT => OUTPUT_I2C,
-      I2C_OUT_STB => OUTPUT_I2C_STB,
-      I2C_OUT_ACK => OUTPUT_I2C_ACK
+      i2c_out => output_i2c,
+      i2c_out_stb => output_i2c_stb,
+      i2c_out_ack => output_i2c_ack
   );
 
-  PWM_INST_1 : PWM generic map(
-      MAX_VAL => 255,
-      CLOCK_DIVIDER => 1000
+  pwm_inst_1 : pwm generic map(
+      max_val => 255,
+      clock_divider => 1000
   ) port map (
-      CLK => CLK,
+      clk => clk,
 
-      DATA => LED_R,
-      DATA_STB => LED_R_STB,
-      DATA_ACK => LED_R_ACK,
+      data => led_r,
+      data_stb => led_r_stb,
+      data_ack => led_r_ack,
 
-      OUT_BIT => LED_R_PWM
+      out_bit => led_r_pwm
   );
 
-  PWM_INST_2 : PWM generic map(
-      MAX_VAL => 255,
-      CLOCK_DIVIDER => 1000
+  pwm_inst_2 : pwm generic map(
+      max_val => 255,
+      clock_divider => 1000
   ) port map (
-      CLK => CLK,
+      clk => clk,
 
-      DATA => LED_G,
-      DATA_STB => LED_G_STB,
-      DATA_ACK => LED_G_ACK,
+      data => led_g,
+      data_stb => led_g_stb,
+      data_ack => led_g_ack,
 
-      OUT_BIT => LED_G_PWM
+      out_bit => led_g_pwm
   );
 
-  PWM_INST_3 : PWM generic map(
-      MAX_VAL => 255,
-      CLOCK_DIVIDER => 1000
+  pwm_inst_3 : pwm generic map(
+      max_val => 255,
+      clock_divider => 1000
   ) port map (
-      CLK => CLK,
+      clk => clk,
 
-      DATA => LED_B,
-      DATA_STB => LED_B_STB,
-      DATA_ACK => LED_B_ACK,
+      data => led_b,
+      data_stb => led_b_stb,
+      data_ack => led_b_ack,
 
-      OUT_BIT => LED_B_PWM
+      out_bit => led_b_pwm
   );
 
-  KEYBOARD_INST1 : KEYBOARD port map(
-    CLK => CLK,
-    RST => INTERNAL_RST,
+  keyboard_inst1 : keyboard port map(
+    clk => clk,
+    rst => internal_rst,
 
-    DATA_STB => PS2_STB,
-    DATA_ACK => PS2_ACK,
-    DATA => PS2,
+    data_stb => ps2_stb,
+    data_ack => ps2_ack,
+    data => ps2,
     
-    KD => KD,
-    KC => KC
+    kd => kd,
+    kc => kc
   );
 
   process
   begin
-    wait until rising_edge(CLK);
-    NOT_LOCKED <= not LOCKED_INTERNAL;
-    INTERNAL_RST <= NOT_LOCKED;
+    wait until rising_edge(clk);
+    not_locked <= not locked_internal;
+    internal_rst <= not_locked;
    
-    if OUTPUT_LEDS_STB = '1' then
-       GPIO_LEDS <= OUTPUT_LEDS(15 downto 0);
+    if output_leds_stb = '1' then
+       gpio_leds <= output_leds(15 downto 0);
     end if;
-    OUTPUT_LEDS_ACK <= '1';
+    output_leds_ack <= '1';
 
-    if OUTPUT_SEVEN_SEGMENT_ANNODE_STB = '1' then
-       SEVEN_SEGMENT_ANNODE <= not OUTPUT_SEVEN_SEGMENT_ANNODE(7 downto 0);
+    if output_seven_segment_annode_stb = '1' then
+       seven_segment_annode <= not output_seven_segment_annode(7 downto 0);
     end if;
-    OUTPUT_SEVEN_SEGMENT_ANNODE_ACK <= '1';
+    output_seven_segment_annode_ack <= '1';
 
-    if OUTPUT_SEVEN_SEGMENT_CATHODE_STB = '1' then
-       SEVEN_SEGMENT_CATHODE <= not OUTPUT_SEVEN_SEGMENT_CATHODE(6 downto 0);
+    if output_seven_segment_cathode_stb = '1' then
+       seven_segment_cathode <= not output_seven_segment_cathode(6 downto 0);
     end if;
-    OUTPUT_SEVEN_SEGMENT_CATHODE_ACK <= '1';
+    output_seven_segment_cathode_ack <= '1';
 
-    INPUT_SWITCHES_STB <= '1';
-    GPIO_SWITCHES_D <= GPIO_SWITCHES;
-    INPUT_SWITCHES <= (others => '0');
-    INPUT_SWITCHES(15 downto 0) <= GPIO_SWITCHES_D;
+    input_switches_stb <= '1';
+    gpio_switches_d <= gpio_switches;
+    input_switches <= (others => '0');
+    input_switches(15 downto 0) <= gpio_switches_d;
 
-    INPUT_BUTTONS_STB <= '1';
-    GPIO_BUTTONS_D <= GPIO_BUTTONS;
-    INPUT_BUTTONS <= (others => '0');
-    INPUT_BUTTONS(4 downto 0) <= GPIO_BUTTONS_D;
+    input_buttons_stb <= '1';
+    gpio_buttons_d <= gpio_buttons;
+    input_buttons <= (others => '0');
+    input_buttons(4 downto 0) <= gpio_buttons_d;
 
   end process;
 
 
   -------------------------
-  -- Output     Output     
-  -- Clock     Freq (MHz)  
+  -- output     output     
+  -- clock     freq (mhz)  
   -------------------------
-  -- CLK_OUT1    50.000    
-  -- CLK_OUT2   100.000    
-  -- CLK_OUT3   125.000    
-  -- CLK_OUT4   200.000    
+  -- clk_out1    50.000    
+  -- clk_out2   100.000    
+  -- clk_out3   125.000    
+  -- clk_out4   200.000    
 
   ----------------------------------
-  -- Input Clock   Input Freq (MHz) 
+  -- input clock   input freq (mhz) 
   ----------------------------------
   -- primary         100.000        
 
 
-  -- Input buffering
+  -- input buffering
   --------------------------------------
-  clkin1_buf : IBUFG
+  clkin1_buf : ibufg
   port map
-   (O  => clkin1,
-    I  => CLK_IN);
+   (o  => clkin1,
+    i  => clk_in);
 
 
-  -- Clocking primitive
+  -- clocking primitive
   --------------------------------------
-  -- Instantiation of the DCM primitive
-  --    * Unused inputs are tied off
-  --    * Unused outputs are labeled unused
-  dcm_sp_inst: DCM_SP
+  -- instantiation of the dcm primitive
+  --    * unused inputs are tied off
+  --    * unused outputs are labeled unused
+  dcm_sp_inst: dcm_sp
   generic map
-   (CLKDV_DIVIDE          => 2.000,
-    CLKFX_DIVIDE          => 4,
-    CLKFX_MULTIPLY        => 5,
-    CLKIN_DIVIDE_BY_2     => FALSE,
-    CLKIN_PERIOD          => 10.0,
-    CLKOUT_PHASE_SHIFT    => "NONE",
-    CLK_FEEDBACK          => "1X",
-    DESKEW_ADJUST         => "SYSTEM_SYNCHRONOUS",
-    PHASE_SHIFT           => 0,
-    STARTUP_WAIT          => FALSE)
+   (clkdv_divide          => 2.000,
+    clkfx_divide          => 4,
+    clkfx_multiply        => 5,
+    clkin_divide_by_2     => false,
+    clkin_period          => 10.0,
+    clkout_phase_shift    => "none",
+    clk_feedback          => "1x",
+    deskew_adjust         => "system_synchronous",
+    phase_shift           => 0,
+    startup_wait          => false)
   port map
-   -- Input clock
-   (CLKIN                 => clkin1,
-    CLKFB                 => clkfb,
-    -- Output clocks
-    CLK0                  => clk0,
-    CLK90                 => open,
-    CLK180                => open,
-    CLK270                => open,
-    CLK2X                 => clk2x,
-    CLK2X180              => open,
-    CLKFX                 => clkfx,
-    CLKFX180              => clkfx180,
-    CLKDV                 => clkdv,
-   -- Ports for dynamic phase shift
-    PSCLK                 => '0',
-    PSEN                  => '0',
-    PSINCDEC              => '0',
-    PSDONE                => open,
-   -- Other control and status signals
-    LOCKED                => LOCKED_INTERNAL,
-    STATUS                => status_internal,
-    RST                   => RST_INV,
-   -- Unused pin, tie low
-    DSSEN                 => '0');
+   -- input clock
+   (clkin                 => clkin1,
+    clkfb                 => clkfb,
+    -- output clocks
+    clk0                  => clk0,
+    clk90                 => open,
+    clk180                => open,
+    clk270                => open,
+    clk2x                 => clk2x,
+    clk2x180              => open,
+    clkfx                 => clkfx,
+    clkfx180              => clkfx180,
+    clkdv                 => clkdv,
+   -- ports for dynamic phase shift
+    psclk                 => '0',
+    psen                  => '0',
+    psincdec              => '0',
+    psdone                => open,
+   -- other control and status signals
+    locked                => locked_internal,
+    status                => status_internal,
+    rst                   => rst_inv,
+   -- unused pin, tie low
+    dssen                 => '0');
 
-  -- Output buffering
+  -- output buffering
   -------------------------------------
-  clkfb <= CLK_OUT2;
+  clkfb <= clk_out2;
 
-  BUFG_INST1 : BUFG
+  bufg_inst1 : bufg
   port map
-   (O   => CLK_OUT1,
-    I   => clkdv);
+   (o   => clk_out1,
+    i   => clkdv);
 
-  BUFG_INST2 : BUFG
+  bufg_inst2 : bufg
   port map
-   (O   => CLK_OUT2,
-    I   => clk0);
+   (o   => clk_out2,
+    i   => clk0);
 
-  BUFG_INST3 : BUFG
+  bufg_inst3 : bufg
   port map
-   (O   => CLK_OUT3,
-    I   => clkfx);
+   (o   => clk_out3,
+    i   => clkfx);
   
-  BUFG_INST4 : BUFG
+  bufg_inst4 : bufg
   port map
-   (O   => CLK_OUT3_N,
-    I   => clkfx180);
+   (o   => clk_out3_n,
+    i   => clkfx180);
 
-  BUFG_INST5 : BUFG
+  bufg_inst5 : bufg
   port map
-   (O   => CLK_OUT4,
-    I   => clk2x);
+   (o   => clk_out4,
+    i   => clk2x);
     
-  RST_INV <= not RST;
-  ETH_CLK <= CLK_OUT1;
-  VGACLK <= CLK_OUT1;
+  rst_inv <= not rst;
+  eth_clk <= clk_out1;
+  vgaclk <= clk_out1;
   
 
-  -- Chips CLK frequency selection
+  -- chips clk frequency selection
   -------------------------------------
-  --CLK <= CLK_OUT1; --50 MHz
-  CLK <= CLK_OUT2; --100 MHz
-  --CLK <= CLK_OUT3; --125 MHz
-  --CLK <= CLK_OUT4; --200 MHz
+  --clk <= clk_out1; --50 mhz
+  clk <= clk_out2; --100 mhz
+  --clk <= clk_out3; --125 mhz
+  --clk <= clk_out4; --200 mhz
 
-end architecture RTL;
+end architecture rtl;

@@ -1,0 +1,16 @@
+#force speed of ethernet interface requires ethtool
+#sudo ethtool -s eth0 speed 1000 duplex full
+
+#Configure a new network conected to adaptor eth0
+#This pc's IP on the network is 192.168.1.0
+#All ips 192.168.1.something shoiuld be routed to this adaptor.
+sudo ifconfig eth1 192.168.1.0 netmask 255.255.255.0
+
+#Manualy configure hardware address of dev board (not requires)
+sudo arp -s 192.168.1.1 hw_addr 00:01:02:03:04:05
+
+#turn off window scaling and timestamps (not implemented)
+sudo sysctl -w net.ipv4.tcp_window_scaling=0
+sudo sysctl -w net.ipv4.tcp_timestamps=0
+
+#scripts/send_tcp.py

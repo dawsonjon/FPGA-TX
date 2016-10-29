@@ -1,0 +1,8 @@
+ghdl -a nco.vhd
+ghdl -a interpolate.vhd
+ghdl -a serdes_model.vhd
+ghdl -a dac_interface.vhd
+ghdl -a transmitter.vhd
+ghdl -a transmitter_tb.vhd
+ghdl -e transmitter_tb
+
