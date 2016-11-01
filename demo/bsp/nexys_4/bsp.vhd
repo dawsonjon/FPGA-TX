@@ -107,6 +107,8 @@ entity bsp is
    kc                    : in  std_logic;
 
    rf_out                : out std_logic;
+   test_1                : out std_logic;
+   test_2                : out std_logic;
 
    --audio interface
    audio                 : out std_logic;
@@ -580,14 +582,16 @@ begin
       clk => clk,
       rst => internal_rst,
       frequency => output_tx_freq_reg,
-      i_input => output_tx_am_reg(7 downto 0),
+      i_input => X"7f",
       i_input_stb => '1',
       i_input_ack => open,
-      q_input => output_tx_am_reg(23 downto 16),
+      q_input => X"7f",
       q_input_stb => '1',
       q_input_ack => open,
       rf => rf_out
   );
+  test_1 <= output_tx_freq_stb;
+  test_2 <= output_tx_am_stb;
 
   pwm_audio_inst_1 : pwm_audio 
   generic map(

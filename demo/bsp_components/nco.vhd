@@ -63,25 +63,33 @@ architecture rtl of nco is
   constant sin_array : sin_array_type := initialise_sin_array;
   constant cos_array : sin_array_type := initialise_cos_array;
 
-  signal t_0 : unsigned(31 downto 0);
-  signal t_1 : unsigned(31 downto 0);
-  signal t_2 : unsigned(31 downto 0);
-  signal t_3 : unsigned(31 downto 0);
-  signal t_4 : unsigned(31 downto 0);
-  signal t_5 : unsigned(31 downto 0);
-  signal t_6 : unsigned(31 downto 0);
-  signal t_7 : unsigned(31 downto 0);
+  signal w_0 : unsigned(31 downto 0);
+  signal w_1 : unsigned(31 downto 0);
+  signal w_2 : unsigned(31 downto 0);
+  signal w_3 : unsigned(31 downto 0);
+  signal w_4 : unsigned(31 downto 0);
+  signal w_5 : unsigned(31 downto 0);
+  signal w_6 : unsigned(31 downto 0);
+  signal w_7 : unsigned(31 downto 0);
 
-  signal w_0 : unsigned(63 downto 0);
-  signal w_1 : unsigned(63 downto 0);
-  signal w_2 : unsigned(63 downto 0);
-  signal w_3 : unsigned(63 downto 0);
-  signal w_4 : unsigned(63 downto 0);
-  signal w_5 : unsigned(63 downto 0);
-  signal w_6 : unsigned(63 downto 0);
-  signal w_7 : unsigned(63 downto 0);
-
-  signal count : unsigned(31 downto 0) := (others => '0');
+  signal frequency_d1 : unsigned(31 downto 0) := (others => '0');
+  signal frequency_d2 : unsigned(31 downto 0) := (others => '0');
+  signal frequency_d3 : unsigned(31 downto 0) := (others => '0');
+  signal accum : unsigned(31 downto 0) := (others => '0');
+  signal tree_0 : unsigned(31 downto 0) := (others => '0');
+  signal tree_1 : unsigned(31 downto 0) := (others => '0');
+  signal tree_00 : unsigned(31 downto 0) := (others => '0');
+  signal tree_01 : unsigned(31 downto 0) := (others => '0');
+  signal tree_10 : unsigned(31 downto 0) := (others => '0');
+  signal tree_11 : unsigned(31 downto 0) := (others => '0');
+  signal tree_000 : unsigned(31 downto 0) := (others => '0');
+  signal tree_001 : unsigned(31 downto 0) := (others => '0');
+  signal tree_010 : unsigned(31 downto 0) := (others => '0');
+  signal tree_011 : unsigned(31 downto 0) := (others => '0');
+  signal tree_100 : unsigned(31 downto 0) := (others => '0');
+  signal tree_101 : unsigned(31 downto 0) := (others => '0');
+  signal tree_110 : unsigned(31 downto 0) := (others => '0');
+  signal tree_111 : unsigned(31 downto 0) := (others => '0');
 
 begin
 
@@ -90,25 +98,37 @@ begin
   begin
     wait until rising_edge(clk);
 
-      count <= count + 1;
+      frequency_d1 <= unsigned(frequency);
+      frequency_d2 <= frequency_d1;
+      frequency_d3 <= frequency_d2;
 
-      t_0 <= count(28 downto 0) & to_unsigned(0, 3);
-      t_1 <= count(28 downto 0) & to_unsigned(1, 3);
-      t_2 <= count(28 downto 0) & to_unsigned(2, 3);
-      t_3 <= count(28 downto 0) & to_unsigned(3, 3);
-      t_4 <= count(28 downto 0) & to_unsigned(4, 3);
-      t_5 <= count(28 downto 0) & to_unsigned(5, 3);
-      t_6 <= count(28 downto 0) & to_unsigned(6, 3);
-      t_7 <= count(28 downto 0) & to_unsigned(7, 3);
+      accum  <= accum + (unsigned(frequency(28 downto 0)) & "000");
 
-      w_0 <= t_0 * unsigned(frequency);
-      w_1 <= t_1 * unsigned(frequency);
-      w_2 <= t_2 * unsigned(frequency);
-      w_3 <= t_3 * unsigned(frequency);
-      w_4 <= t_4 * unsigned(frequency);
-      w_5 <= t_5 * unsigned(frequency);
-      w_6 <= t_6 * unsigned(frequency);
-      w_7 <= t_7 * unsigned(frequency);
+      tree_0 <= accum;
+      tree_1 <= accum + (frequency_d1(29 downto 0) & "00");
+
+      tree_00 <= tree_0;
+      tree_01 <= tree_0 + (frequency_d2(30 downto 0) & '0');
+      tree_10 <= tree_1;
+      tree_11 <= tree_1 + (frequency_d2(30 downto 0) & '0');
+
+      tree_000 <= tree_00;
+      tree_001 <= tree_00 + frequency_d3;
+      tree_010 <= tree_01;
+      tree_011 <= tree_01 + frequency_d3;
+      tree_100 <= tree_10;
+      tree_101 <= tree_10 + frequency_d3;
+      tree_110 <= tree_11;
+      tree_111 <= tree_11 + frequency_d3;
+
+      w_0 <= tree_000;
+      w_1 <= tree_001;
+      w_2 <= tree_010;
+      w_3 <= tree_011;
+      w_4 <= tree_100;
+      w_5 <= tree_101;
+      w_6 <= tree_110;
+      w_7 <= tree_111;
 
       lo_q_0 <= sin_array(to_integer(w_0(31 downto 32-sin_bits)));
       lo_q_1 <= sin_array(to_integer(w_1(31 downto 32-sin_bits)));

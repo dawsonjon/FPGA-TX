@@ -206,3 +206,8 @@ set_property IOSTANDARD LVCMOS25 [get_ports audio_en]
 set_property PACKAGE_PIN F14 [get_ports rf_out]						
 set_property IOSTANDARD LVCMOS25 [get_ports rf_out]
 
+set_property PACKAGE_PIN D17 [get_ports test_1]						
+set_property IOSTANDARD LVCMOS25 [get_ports test_1]
+
+set_property PACKAGE_PIN E17 [get_ports test_2]						
+set_property IOSTANDARD LVCMOS25 [get_ports test_2]
