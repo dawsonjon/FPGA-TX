@@ -1,4 +1,16 @@
 v 3
+file . "fifo.vhd" "20161103210331.000" "20161103210633.258":
+  entity fifo at 1( 0) + 0 on 503;
+  architecture rtl of fifo at 23( 424) + 0 on 504;
+file . "serial_tb.vhd" "20161103210630.000" "20161103210633.470":
+  entity serial_tb at 2( 1) + 0 on 509;
+  architecture rtl of serial_tb at 10( 138) + 0 on 510;
+file . "serial_in.vhd" "20161103210027.000" "20161103210633.341":
+  entity serial_input at 15( 391) + 0 on 505;
+  architecture rtl of serial_input at 38( 825) + 0 on 506;
+file . "serial_out.vhd" "20161103201411.000" "20161103210633.398":
+  entity serial_output at 15( 393) + 0 on 507;
+  architecture rtl of serial_output at 37( 813) + 0 on 508;
 file . "nco.vhd" "20161028201020.000" "20161028211022.351":
   entity nco at 1( 0) + 0 on 383;
   architecture rtl of nco at 36( 1154) + 0 on 384;

@@ -582,10 +582,10 @@ begin
       clk => clk,
       rst => internal_rst,
       frequency => output_tx_freq_reg,
-      i_input => X"7f",
+      i_input => output_tx_am(7 downto 0),
       i_input_stb => '1',
       i_input_ack => open,
-      q_input => X"7f",
+      q_input => output_tx_am(23 downto 16),
       q_input_stb => '1',
       q_input_ack => open,
       rf => rf_out

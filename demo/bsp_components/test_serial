@@ -1,0 +1,6 @@
+ghdl -a fifo.vhd
+ghdl -a serial_in.vhd
+ghdl -a serial_out.vhd
+ghdl -a serial_tb.vhd
+ghdl -e serial_tb
+./serial_tb --wave=wave.ghw

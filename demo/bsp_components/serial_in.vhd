@@ -11,188 +11,134 @@
 ---  A Serial Input Component
 ---
 --------------------------------------------------------------------------------
----
----Serial Input
----============
----
----Read a stream of data from a serial UART
----
----Outputs
------------
----
---- + OUT1 : Serial data stream
----
----Generics
------------
----
---- + baud_rate
---- + clock frequency
 
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
+use ieee.math_real.all;
 
-entity SERIAL_INPUT is
+entity serial_input is
 
   generic(
-    CLOCK_FREQUENCY : integer;
-    BAUD_RATE       : integer
+    clock_frequency : integer;
+    baud_rate       : integer
   );
   port(
-    CLK      : in std_logic;
-    RST      : in std_logic;
-    RX       : in std_logic;
+    clk      : in std_logic;
+    rst      : in std_logic;
+    rx       : in std_logic;
    
-    OUT1     : out std_logic_vector(7 downto 0);
-    OUT1_STB : out std_logic;
-    OUT1_ACK : in  std_logic
+    out1     : out std_logic_vector(7 downto 0);
+    out1_stb : out std_logic;
+    out1_ack : in  std_logic
   );
 
-end entity SERIAL_INPUT;
+end entity serial_input;
 
-architecture RTL of SERIAL_INPUT is
+architecture rtl of serial_input is
 
-  type SERIAL_IN_STATE_TYPE is (IDLE, START, RX0, RX1, RX2, RX3, RX4, RX5, RX6, RX7, STOP, OUTPUT_DATA);
-  signal STATE           : SERIAL_IN_STATE_TYPE;
-  signal STREAM          : std_logic_vector(7 downto 0);
-  signal STREAM_STB      : std_logic;
-  signal STREAM_ACK      : std_logic;
-  signal COUNT           : integer Range 0 to 3;
-  signal BIT_SPACING     : integer Range 0 to 15;
-  signal INT_SERIAL      : std_logic;
-  signal SERIAL_DEGLITCH : std_logic_Vector(1 downto 0);
-  constant CLOCK_DIVIDER : unsigned(11 downto 0) := To_unsigned(CLOCK_FREQUENCY/(BAUD_RATE * 16), 12);
-  signal BAUD_COUNT      : unsigned(11 downto 0);
-  signal X16CLK_EN       : std_logic;
+  component fifo is
+    generic(
+      width : integer;
+      depth : integer
+    );
+    port(
+      clk : in std_logic;
+      rst : in std_logic;
+
+      input : in std_logic_vector(width-1 downto 0);
+      input_stb : in std_logic;
+      input_ack : out std_logic;
+
+      output : out std_logic_vector(width-1 downto 0);
+      output_stb : out std_logic;
+      output_ack : in std_logic
+    );
+  end component fifo;
+
+  constant bit_clocks     : integer := integer(round(real(clock_frequency)/real(baud_rate)))-1;
+  constant bit_clocks_1_5 : integer := integer(round(real(clock_frequency)/real(baud_rate) * 1.5))-1;
+
+  signal bit_count : integer range 0 to 8;
+  signal bit_spacing : integer range 0 to bit_clocks_1_5;
+
+  type serial_in_state_type is (idle, get_byte, output_data, wait_done);
+  signal state : serial_in_state_type;
+  signal rx_d, rx_d2 : std_logic;
+  signal data : std_logic_vector(8 downto 0);
+
+  signal int_out1     : std_logic_vector(7 downto 0);
+  signal int_out1_stb : std_logic;
+  signal int_out1_ack : std_logic;
 
 begin
 
-  process
-  begin
-    wait until rising_edge(CLK);
-    if BAUD_COUNT = CLOCK_DIVIDER then
-      BAUD_COUNT <= (others => '0');
-      X16CLK_EN  <= '1';
-    else
-      BAUD_COUNT <= BAUD_COUNT + 1;
-      X16CLK_EN  <= '0';
-    end if;
-    if RST = '1' then
-      BAUD_COUNT <= (others => '0');
-      X16CLK_EN  <= '0';
-    end if;
-  end process;
+  fifo_1 : fifo generic map(
+      width => 8,
+      depth => 1024
+  ) port map(
+      clk => clk,
+      rst => rst,
+
+      input => int_out1,
+      input_stb => int_out1_stb,
+      input_ack => int_out1_ack,
+
+      output => out1,
+      output_stb => out1_stb,
+      output_ack => out1_ack
+  );
 
   process
   begin
-    wait until rising_edge(CLK);
-    SERIAL_DEGLITCH <= SERIAL_DEGLITCH(0) & RX;
-    if X16CLK_EN = '1' then
-      if SERIAL_DEGLITCH(1) = '0' then
-        if COUNT = 0 then
-          INT_SERIAL <= '0';
-        else 
-          COUNT <= COUNT - 1;
-        end if;
-      else
-        if COUNT = 3 then
-          INT_SERIAL <= '1';
-        else
-          COUNT <= COUNT + 1;
-        end if;
-      end if;
-    end if;
-    if RST = '1' then
-      SERIAL_DEGLITCH <= "11";
-    end if;
-  end process;
+    wait until rising_edge(clk);
+    rx_d <= rx;
+    rx_d2 <= rx_d;
+    
+    case state is
 
-  process
-  begin
-    wait until rising_edge(CLK);
-	 if X16CLK_EN = '1' then 
-      if BIT_SPACING = 15 then
-        BIT_SPACING <= 0;
-      else
-        BIT_SPACING <= BIT_SPACING + 1;
-      end if;
-    end if;
-    case STATE is
-      when IDLE =>
-        BIT_SPACING <= 0;
-        if X16CLK_EN = '1' and INT_SERIAL = '0' then
-          STATE <= START;
+      when idle =>
+        if rx_d2 = '0' then
+          state <= get_byte;
+          bit_spacing <= bit_clocks_1_5;
+          bit_count <= 8;
         end if;
-      when START =>
-        if X16CLK_EN = '1' and BIT_SPACING = 7 then
-          BIT_SPACING <= 0;
-          STATE <= RX0;
-        end if; 
-      when RX0 =>
-        if X16CLK_EN = '1' and BIT_SPACING = 15 then
-          OUT1(0) <= INT_SERIAL;
-          BIT_SPACING <= 0;
-          STATE <= RX1;
-        end if;
-      when RX1 =>
-        if X16CLK_EN = '1' and BIT_SPACING = 15 then
-          OUT1(1) <= INT_SERIAL;
-          BIT_SPACING <= 0;
-          STATE <= RX2;
-        end if;
-      when RX2 =>
-        if X16CLK_EN = '1' and BIT_SPACING = 15 then
-          OUT1(2) <= INT_SERIAL;
-          BIT_SPACING <= 0;
-          STATE <= RX3;
-        end if;
-      when RX3 =>
-        if X16CLK_EN = '1' and BIT_SPACING = 15 then
-          OUT1(3) <= INT_SERIAL;
-          BIT_SPACING <= 0;
-          STATE <= RX4;
-        end if;
-      when RX4 =>
-        if X16CLK_EN = '1' and BIT_SPACING = 15 then
-          OUT1(4) <= INT_SERIAL;
-          BIT_SPACING <= 0;
-          STATE <= RX5;
-        end if;
-      when RX5 =>
-        if X16CLK_EN = '1' and BIT_SPACING = 15 then
-          OUT1(5) <= INT_SERIAL;
-          BIT_SPACING <= 0;
-          STATE <= RX6;
-        end if;
-      when RX6 =>
-        if X16CLK_EN = '1' and BIT_SPACING = 15 then
-          OUT1(6) <= INT_SERIAL;
-          BIT_SPACING <= 0;
-          STATE <= RX7;
-        end if;
-      when RX7 =>
-        if X16CLK_EN = '1' and BIT_SPACING = 15 then
-          OUT1(7) <= INT_SERIAL;
-          BIT_SPACING <= 0;
-          STATE <= STOP;
-        end if;
-      when STOP =>
-        if X16CLK_EN = '1' and BIT_SPACING = 15 then
-            BIT_SPACING <= 0;
-            STATE <= OUTPUT_DATA;
-            OUT1_STB <= '1';
-        end if;
-      when OUTPUT_DATA =>
-          if OUT1_ACK = '1' then
-            OUT1_STB <= '0';
-            STATE <= IDLE;
+
+      when get_byte =>
+        if bit_spacing = 0 then
+          data <= rx_d2 & data(8 downto 1);
+          if bit_count = 0 then
+            int_out1_stb <= '1';
+            state <= output_data;
+          else
+            bit_spacing <= bit_clocks;
+            bit_count <= bit_count - 1;
           end if;
+        else
+          bit_spacing <= bit_spacing - 1;
+        end if; 
+
+      when output_data =>
+        if int_out1_ack = '1' then
+          int_out1_stb <= '0';
+          state <= wait_done;
+        end if;
+
+      when wait_done =>
+        if rx_d2 = '1' then
+          state <= idle;
+        end if;
+
       when others =>
-        STATE <= IDLE;
+        state <= idle;
     end case;
-    if RST = '1' then
-      STATE <= IDLE;
-      OUT1_STB <= '0';
+
+    if rst = '1' then
+      state <= idle;
+      int_out1_stb <= '0';
     end if; 
+
   end process;
-end architecture RTL;
+  int_out1 <= data(7 downto 0);
+
+end architecture rtl;

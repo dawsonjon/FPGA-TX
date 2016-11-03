@@ -87,22 +87,14 @@ begin
     rand_6 <= resize(rand_6 * unsigned'(X"41c64e6d") + unsigned'(X"3039"), 32);
     rand_7 <= resize(rand_7 * unsigned'(X"41c64e6d") + unsigned'(X"3039"), 32);
 
-    --dac_0 <= to_std(signed(input_0) > signed(rand_0(width-1 downto 0)));
-    --dac_1 <= to_std(signed(input_1) > signed(rand_1(width-1 downto 0)));
-    --dac_2 <= to_std(signed(input_2) > signed(rand_2(width-1 downto 0)));
-    --dac_3 <= to_std(signed(input_3) > signed(rand_3(width-1 downto 0)));
-    --dac_4 <= to_std(signed(input_4) > signed(rand_4(width-1 downto 0)));
-    --dac_5 <= to_std(signed(input_5) > signed(rand_5(width-1 downto 0)));
-    --dac_6 <= to_std(signed(input_6) > signed(rand_6(width-1 downto 0)));
-    --dac_7 <= to_std(signed(input_7) > signed(rand_7(width-1 downto 0)));
-    dac_0 <= to_std(signed(input_0) > signed(to_signed(0, width)));
-    dac_1 <= to_std(signed(input_1) > signed(to_signed(0, width)));
-    dac_2 <= to_std(signed(input_2) > signed(to_signed(0, width)));
-    dac_3 <= to_std(signed(input_3) > signed(to_signed(0, width)));
-    dac_4 <= to_std(signed(input_4) > signed(to_signed(0, width)));
-    dac_5 <= to_std(signed(input_5) > signed(to_signed(0, width)));
-    dac_6 <= to_std(signed(input_6) > signed(to_signed(0, width)));
-    dac_7 <= to_std(signed(input_7) > signed(to_signed(0, width)));
+    dac_0 <= to_std(signed(input_0) > signed(rand_0(width-1 downto 0)));
+    dac_1 <= to_std(signed(input_1) > signed(rand_1(width-1 downto 0)));
+    dac_2 <= to_std(signed(input_2) > signed(rand_2(width-1 downto 0)));
+    dac_3 <= to_std(signed(input_3) > signed(rand_3(width-1 downto 0)));
+    dac_4 <= to_std(signed(input_4) > signed(rand_4(width-1 downto 0)));
+    dac_5 <= to_std(signed(input_5) > signed(rand_5(width-1 downto 0)));
+    dac_6 <= to_std(signed(input_6) > signed(rand_6(width-1 downto 0)));
+    dac_7 <= to_std(signed(input_7) > signed(rand_7(width-1 downto 0)));
   end process;
 
   serdes_inst_1 : serdes port map(

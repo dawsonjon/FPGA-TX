@@ -1,11 +1,14 @@
+#!/usr/bin/env python
+
 import serial
 import struct
 from scipy.io.wavfile import read
 import time
+import sys
 
 def check_hardware():
     for i in range(2):
-        port.write("z")
+        port.write("}")
         if port.readline() == ">\n":
             return
     assert False
@@ -36,6 +39,7 @@ def set_amplitude(amplitude):
 
 def transmit(filename, port, mode):
     sample_rate, data = read(filename)
+    print data
     data = data/256
     data = data+128
     print "reading file sample rate:", sample_rate,
@@ -57,14 +61,31 @@ def transmit(filename, port, mode):
     print "[OK]"
     print count
 
-port = serial.Serial('/dev/ttyUSB1', 230400, timeout=1)  # open serial port
-check_hardware()
-set_frequency(27.005e6, port)
-set_amplitude(255)
-port.write("b"+chr(1)+chr(128))
-port.readline()
-transmit("test.wav", port, 'b')
-port.write("b"+chr(1)+chr(128))
-port.readline()
-#set_amplitude(0)
-port.close()
+#extract 
+if len(sys.argv) <= 1 or "-h" in sys.argv or "--help" in sys.argv:
+    print "Usage:"
+    print "tx.py -f=<frequency> -m=<mode>"
+    print "e.g. sox test.wav -t raw -b 16 -r 12k - | ./tx.py -f=100e6 -m=fm"
+    sys.exit(0)
+else:
+    for arg in sys.argv[1:]:
+        if arg.startswith("-f="):
+            frequency = int(round(float(arg[3:])))
+        elif arg.startswith("-m="):
+            mode = arg[3:]
+
+
+    port = serial.Serial('/dev/ttyUSB1', 230400, timeout=1)  # open serial port
+    check_hardware()
+    set_frequency(frequency, port)
+    set_amplitude(255)
+    port.write("b"+chr(1)+chr(128))
+    port.readline()
+    if mode == "am":
+        transmit("test.wav", port, 'a')
+    elif mode == "fm":
+        transmit("test.wav", port, 'b')
+    port.write("b"+chr(1)+chr(128))
+    port.readline()
+    set_amplitude(0)
+    port.close()

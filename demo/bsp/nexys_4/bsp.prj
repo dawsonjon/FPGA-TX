@@ -1,3 +1,4 @@
+../../bsp_components/fifo.vhd
 ../../bsp_components/serial_out.vhd
 ../../bsp_components/serial_in.vhd
 ../../bsp_components/rmii_ethernet.vhd

@@ -34,6 +34,10 @@ void send_am(signed sample){
   fputc(sample, am_out);
 }
 
+void send_iq(signed sample){
+  fputc(sample, am_out);
+}
+
 void send_fm_12k(signed sample, unsigned frequency_steps){
   //-128 <= sample <= 127
   int frequency = frequency_steps + (sample * 252); //~+6KHz
@@ -92,7 +96,7 @@ void main(){
                 }
                 break;
 
-            //mode b FM 1200
+            //mode b FM 8-bit
             case 'b':
                 length = getc();
                 //set am to maximum
@@ -110,6 +114,37 @@ void main(){
                         send_fm_12k(buffer[op++], frequency_steps);
                         next_sample_time += 8333;
                     }
+                }
+                break;
+
+            //mode a IQ
+            case 'c':
+                length = getc();
+                //set frequency to carrier frequency
+                fputc(frequency_steps, frequency_out);
+                next_sample_time = timer_low() + 8333;
+                op = 0;
+                ip = 0;
+                while(op<length){
+                    if(ready(stdin)){
+                        buffer[ip++] = getc()-128 | ((getc()-128) << 16);
+                    }
+                    if(timer_low() >= next_sample_time){
+                        //accept audio at ~12KHz 8 bit
+                        //-128 <= sample <= 127
+                        send_iq(buffer[op++]);
+                        next_sample_time += 8333;
+                    }
+                }
+                break;
+
+            //echo
+            case 'z':
+                length = getc();
+                op = 0;
+                while(op<length){
+                    putc(getc());
+                    op++;
                 }
                 break;
         }
