@@ -1,1 +1,0 @@
-rtl_fm -p `cat ppm` -M am -f 27.005M -s 12k - | play -r 12k -t raw -e s -b 16 -c 1 -V1 -

@@ -703,7 +703,7 @@ begin
 
   serial_output_inst_1 : serial_output generic map(
       clock_frequency => 100000000,
-      baud_rate       => 230400
+      baud_rate       => 12000000
   )port map(
       clk     => clk,
       rst     => internal_rst,
@@ -716,7 +716,7 @@ begin
 
   serial_input_inst_1 : serial_input generic map(
       clock_frequency => 100000000,
-      baud_rate       => 230400
+      baud_rate       => 12000000
   ) port map (
       clk      => clk,
       rst      => internal_rst,
