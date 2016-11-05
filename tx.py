@@ -2,8 +2,9 @@
 
 import serial
 import struct
+import numpy as np
 from numpy import array, zeros, ones, around, unwrap, log10, angle
-from scipy.signal import lfilter, freqz
+from scipy.signal import lfilter, freqz, remez
 import matplotlib.pyplot as plt
 import time
 import sys
@@ -12,6 +13,11 @@ clock_frequency = 100.0e6
 frequency_step_size = 800.0e6/(2.0**32.0)
 fm_bits = 16
 preemphasis_time_constant = 50e-6
+hilbert_taps = 81
+hilbert_width = 0.1
+
+def generate_hilbert_filter(taps, width):
+    return remez(taps, [width, 0.5-width], [1.0], type='hilbert')
 
 def preemphasis(fs, tau):
     f1 = 1.0/tau
@@ -78,7 +84,7 @@ def modulate_am(data):
     """convert to 7 bit, add dc bias, duplicate in i and q channel"""
     i = data/512+192
     q = data/512+192
-    return (i*256 + q)
+    return (i+q*256)
 
 def modulate_wbfm(data, gain, b, a):
     #data = data/32768.0
@@ -87,12 +93,22 @@ def modulate_wbfm(data, gain, b, a):
     #data = around(data*32768).astype(int)
     return data+32768;
 
-def modulate_lsb(data):
-    return data;
+def modulate_ssb(data, kernel, taps, lsb=False):
+    data = data/(2.0**15)
+    G = taps/2
+    i = np.concatenate([np.zeros(G), data[:-G]])
+    q = lfilter(kernel, 1, data)
+    if lsb:
+        q = -q
+    i = np.clip(i, -1, 1)
+    q = np.clip(q, -1, 1)
+    i = np.around(i*((2.0**7)-1))+128
+    q = np.around(q*((2.0**7)-1))+128
+    data = i*256.0+q
+    return data
 
 def modulate_fm(data):
     return data+32768;
-    #return ones(255) * 65535
 
 def transmit(port, mode, sample_rate):
     if mode == "FM":
@@ -111,6 +127,12 @@ def transmit(port, mode, sample_rate):
         port.readline()
         #calculate filter coefficients for preemphasis
         gain, b, a = preemphasis(sample_rate, preemphasis_time_constant)
+    elif mode == "USB":
+        #calculate filter coefficients for hilbert transform
+        hilbert_kernel = generate_hilbert_filter(hilbert_taps, hilbert_width)
+    elif mode == "LSB":
+        #calculate filter coefficients for hilbert transform
+        hilbert_kernel = generate_hilbert_filter(hilbert_taps, hilbert_width)
 
     while 1:
         #read 255 bytes into buffer
@@ -131,6 +153,12 @@ def transmit(port, mode, sample_rate):
         elif mode == "WBFM":
             data = modulate_wbfm(data, gain, b, a)
             cmd = "a"
+        elif mode == "USB":
+            data = modulate_ssb(data, hilbert_kernel, hilbert_taps)
+            cmd = "b"
+        elif mode == "LSB":
+            data = modulate_ssb(data, hilbert_kernel, hilbert_taps, True)
+            cmd = "b"
 
         #send frame to FPGA
         length = len(data)
@@ -142,6 +170,10 @@ def transmit(port, mode, sample_rate):
         if response != ">\n":
             error("incorrect response received"+response)
         if done:
+            #switch off
+            if mode == "USB" or mode == "LSB":
+                port.write("b"+chr(1)+chr(128)+chr(128))
+                port.readline()
             return
 
 if len(sys.argv) <= 1 or "-h" in sys.argv or "--help" in sys.argv:
