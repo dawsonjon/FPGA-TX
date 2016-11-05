@@ -2,13 +2,25 @@
 
 import serial
 import struct
-from numpy import array, zeros
+from numpy import array, zeros, ones, around, unwrap, log10, angle
+from scipy.signal import lfilter, freqz
+import matplotlib.pyplot as plt
 import time
 import sys
 
 clock_frequency = 100.0e6
 frequency_step_size = 800.0e6/(2.0**32.0)
 fm_bits = 16
+preemphasis_time_constant = 50e-6
+
+def preemphasis(fs, tau):
+    f1 = 1.0/tau
+    f2 = 1.0e6
+    b = array([(f1+2*fs)/(f2+2*fs), (f1-2*fs)/(f2+2*fs)])
+    a = array([1, (f2-2*fs)/(f2+2*fs)])
+    w, h = freqz(b*f2/f1, a)
+    gain = max(abs(h))
+    return gain, b, a
 
 def error(message):
     print message
@@ -21,13 +33,13 @@ def check_hardware():
             return
     error("Could not communicate with FPGA hardware")
 
-def check_response(port, error):
+def check_response(port, msg):
     response = port.readline()
     port.flushInput()
     if not response:
-        error("No response from FPGA")
+        error("No response from FPGA\n"+msg)
     if not response or response[0] != ">":
-        error("Incorrect from FPGA")
+        error("Incorrect response from FPGA\n"+msg)
 
 def set_frequency(frequency, port):
     frequency_steps = (frequency/frequency_step_size)
@@ -68,14 +80,37 @@ def modulate_am(data):
     q = data/512+192
     return (i*256 + q)
 
-def modulate_fm(data):
+def modulate_wbfm(data, gain, b, a):
+    #data = data/32768.0
+    #data = lfilter(b, a, data)*gain
+    #print b, a, min(data), max(data)
+    #data = around(data*32768).astype(int)
     return data+32768;
 
-def transmit(port, mode):
+def modulate_lsb(data):
+    return data;
+
+def modulate_fm(data):
+    return data+32768;
+    #return ones(255) * 65535
+
+def transmit(port, mode, sample_rate):
     if mode == "FM":
+        #set sample rate
+        set_sample_rate(sample_rate, port)
         #set maximum i and maximum q
+        set_fm_deviation(5000, port)
         port.write("b"+chr(1)+chr(0)+chr(0))
         port.readline()
+    elif mode == "WBFM":
+        #set sample rate
+        set_sample_rate(sample_rate, port)
+        #set maximum i and maximum q
+        set_fm_deviation(150000, port)
+        port.write("b"+chr(1)+chr(0)+chr(0))
+        port.readline()
+        #calculate filter coefficients for preemphasis
+        gain, b, a = preemphasis(sample_rate, preemphasis_time_constant)
 
     while 1:
         #read 255 bytes into buffer
@@ -92,6 +127,9 @@ def transmit(port, mode):
             cmd = "b"
         elif mode == "FM":
             data = modulate_fm(data)
+            cmd = "a"
+        elif mode == "WBFM":
+            data = modulate_wbfm(data, gain, b, a)
             cmd = "a"
 
         #send frame to FPGA
@@ -138,6 +176,7 @@ else:
     frequency = None
     mode = None
     device = "/dev/ttyUSB1"
+    sample_rate=12000
 
     for arg in sys.argv[1:]:
         if arg.startswith("-f="):
@@ -146,6 +185,8 @@ else:
             mode = arg[3:].upper()
         elif arg.startswith("-d="):
             device = arg[3:]
+        elif arg.startswith("-r="):
+            sample_rate = int(round(float(arg[3:])))
 
     if frequency is None:
         print "frequency must be specified"
@@ -159,9 +200,7 @@ else:
     port = serial.Serial(device, 12000000, timeout=1)  # open serial port
     check_hardware()
     set_frequency(frequency, port)
-    set_control_register(0, port)
-    set_fm_deviation(150000, port)
-    set_sample_rate(12000, port)
-    transmit(port, mode)
+    set_control_register(1, port)
+    transmit(port, mode, sample_rate)
     port.readline()
     port.close()

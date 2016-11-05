@@ -28,7 +28,8 @@ void send_iq(signed sample){
 void send_fm(signed sample, unsigned frequency_steps, unsigned fm_deviation){
   //-128 <= sample <= 127
   int frequency;
-  frequency = (sample*fm_deviation)>>8; //~+5KHz
+  frequency = sample*fm_deviation;
+  frequency >>= 8;
   frequency += frequency_steps;
   fputc(frequency, frequency_out);
 }
