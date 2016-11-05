@@ -5,7 +5,7 @@ use ieee.math_real.all;
 
 entity nco is
   generic(
-    width : integer
+    width : integer := 32
   );
   port(
     clk : in std_logic;

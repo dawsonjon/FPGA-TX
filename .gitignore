@@ -2,3 +2,5 @@
 out.bmp
 *.swp
 *.o
+*.cf
+*.ghw

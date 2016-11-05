@@ -12,12 +12,14 @@ entity transmitter is
     clk : in std_logic;
     rst : in std_logic;
     frequency : in std_logic_vector(31 downto 0);
-    i_input : in std_logic_vector(7 downto 0);
-    i_input_stb : in std_logic;
-    i_input_ack : out std_logic;
-    q_input : in std_logic_vector(7 downto 0);
-    q_input_stb : in std_logic;
-    q_input_ack : out std_logic;
+    frequency_stb : in std_logic;
+    frequency_ack : out std_logic;
+    control : in std_logic_vector(31 downto 0);
+    control_stb : in std_logic;
+    control_ack : out std_logic;
+    amplitude : in std_logic_vector(31 downto 0);
+    amplitude_stb : in std_logic;
+    amplitude_ack : out std_logic;
     rf : out std_logic
   );
 end entity transmitter;
@@ -87,6 +89,8 @@ architecture rtl of transmitter is
       clk : in std_logic;
       rst : in std_logic;
 
+      dithering : in std_logic;
+
       input_0 : in std_logic_vector(width - 1 downto 0);
       input_1 : in std_logic_vector(width - 1 downto 0);
       input_2 : in std_logic_vector(width - 1 downto 0);
@@ -100,70 +104,89 @@ architecture rtl of transmitter is
     );
   end component dac_interface;
 
-   signal i_full_rate_0 : std_logic_vector(23 downto 0);
-   signal i_full_rate_1 : std_logic_vector(23 downto 0);
-   signal i_full_rate_2 : std_logic_vector(23 downto 0);
-   signal i_full_rate_3 : std_logic_vector(23 downto 0);
-   signal i_full_rate_4 : std_logic_vector(23 downto 0);
-   signal i_full_rate_5 : std_logic_vector(23 downto 0);
-   signal i_full_rate_6 : std_logic_vector(23 downto 0);
-   signal i_full_rate_7 : std_logic_vector(23 downto 0);
+   signal i_full_rate_0 : std_logic_vector(23 downto 0) := (others => '0');
+   signal i_full_rate_1 : std_logic_vector(23 downto 0) := (others => '0');
+   signal i_full_rate_2 : std_logic_vector(23 downto 0) := (others => '0');
+   signal i_full_rate_3 : std_logic_vector(23 downto 0) := (others => '0');
+   signal i_full_rate_4 : std_logic_vector(23 downto 0) := (others => '0');
+   signal i_full_rate_5 : std_logic_vector(23 downto 0) := (others => '0');
+   signal i_full_rate_6 : std_logic_vector(23 downto 0) := (others => '0');
+   signal i_full_rate_7 : std_logic_vector(23 downto 0) := (others => '0');
 
-   signal q_full_rate_0 : std_logic_vector(23 downto 0);
-   signal q_full_rate_1 : std_logic_vector(23 downto 0);
-   signal q_full_rate_2 : std_logic_vector(23 downto 0);
-   signal q_full_rate_3 : std_logic_vector(23 downto 0);
-   signal q_full_rate_4 : std_logic_vector(23 downto 0);
-   signal q_full_rate_5 : std_logic_vector(23 downto 0);
-   signal q_full_rate_6 : std_logic_vector(23 downto 0);
-   signal q_full_rate_7 : std_logic_vector(23 downto 0);
+   signal q_full_rate_0 : std_logic_vector(23 downto 0) := (others => '0');
+   signal q_full_rate_1 : std_logic_vector(23 downto 0) := (others => '0');
+   signal q_full_rate_2 : std_logic_vector(23 downto 0) := (others => '0');
+   signal q_full_rate_3 : std_logic_vector(23 downto 0) := (others => '0');
+   signal q_full_rate_4 : std_logic_vector(23 downto 0) := (others => '0');
+   signal q_full_rate_5 : std_logic_vector(23 downto 0) := (others => '0');
+   signal q_full_rate_6 : std_logic_vector(23 downto 0) := (others => '0');
+   signal q_full_rate_7 : std_logic_vector(23 downto 0) := (others => '0');
 
-   signal lo_i_0 : std_logic_vector(9 downto 0);
-   signal lo_i_1 : std_logic_vector(9 downto 0);
-   signal lo_i_2 : std_logic_vector(9 downto 0);
-   signal lo_i_3 : std_logic_vector(9 downto 0);
-   signal lo_i_4 : std_logic_vector(9 downto 0);
-   signal lo_i_5 : std_logic_vector(9 downto 0);
-   signal lo_i_6 : std_logic_vector(9 downto 0);
-   signal lo_i_7 : std_logic_vector(9 downto 0);
+   signal lo_i_0 : std_logic_vector(9 downto 0) := (others => '0');
+   signal lo_i_1 : std_logic_vector(9 downto 0) := (others => '0');
+   signal lo_i_2 : std_logic_vector(9 downto 0) := (others => '0');
+   signal lo_i_3 : std_logic_vector(9 downto 0) := (others => '0');
+   signal lo_i_4 : std_logic_vector(9 downto 0) := (others => '0');
+   signal lo_i_5 : std_logic_vector(9 downto 0) := (others => '0');
+   signal lo_i_6 : std_logic_vector(9 downto 0) := (others => '0');
+   signal lo_i_7 : std_logic_vector(9 downto 0) := (others => '0');
 
-   signal lo_q_0 : std_logic_vector(9 downto 0);
-   signal lo_q_1 : std_logic_vector(9 downto 0);
-   signal lo_q_2 : std_logic_vector(9 downto 0);
-   signal lo_q_3 : std_logic_vector(9 downto 0);
-   signal lo_q_4 : std_logic_vector(9 downto 0);
-   signal lo_q_5 : std_logic_vector(9 downto 0);
-   signal lo_q_6 : std_logic_vector(9 downto 0);
-   signal lo_q_7 : std_logic_vector(9 downto 0);
+   signal lo_q_0 : std_logic_vector(9 downto 0) := (others => '0');
+   signal lo_q_1 : std_logic_vector(9 downto 0) := (others => '0');
+   signal lo_q_2 : std_logic_vector(9 downto 0) := (others => '0');
+   signal lo_q_3 : std_logic_vector(9 downto 0) := (others => '0');
+   signal lo_q_4 : std_logic_vector(9 downto 0) := (others => '0');
+   signal lo_q_5 : std_logic_vector(9 downto 0) := (others => '0');
+   signal lo_q_6 : std_logic_vector(9 downto 0) := (others => '0');
+   signal lo_q_7 : std_logic_vector(9 downto 0) := (others => '0');
 
-   signal i_out_0 : signed(33 downto 0);
-   signal i_out_1 : signed(33 downto 0);
-   signal i_out_2 : signed(33 downto 0);
-   signal i_out_3 : signed(33 downto 0);
-   signal i_out_4 : signed(33 downto 0);
-   signal i_out_5 : signed(33 downto 0);
-   signal i_out_6 : signed(33 downto 0);
-   signal i_out_7 : signed(33 downto 0);
+   signal i_out_0 : signed(33 downto 0) := (others => '0');
+   signal i_out_1 : signed(33 downto 0) := (others => '0');
+   signal i_out_2 : signed(33 downto 0) := (others => '0');
+   signal i_out_3 : signed(33 downto 0) := (others => '0');
+   signal i_out_4 : signed(33 downto 0) := (others => '0');
+   signal i_out_5 : signed(33 downto 0) := (others => '0');
+   signal i_out_6 : signed(33 downto 0) := (others => '0');
+   signal i_out_7 : signed(33 downto 0) := (others => '0');
 
-   signal q_out_0 : signed(33 downto 0);
-   signal q_out_1 : signed(33 downto 0);
-   signal q_out_2 : signed(33 downto 0);
-   signal q_out_3 : signed(33 downto 0);
-   signal q_out_4 : signed(33 downto 0);
-   signal q_out_5 : signed(33 downto 0);
-   signal q_out_6 : signed(33 downto 0);
-   signal q_out_7 : signed(33 downto 0);
+   signal q_out_0 : signed(33 downto 0) := (others => '0');
+   signal q_out_1 : signed(33 downto 0) := (others => '0');
+   signal q_out_2 : signed(33 downto 0) := (others => '0');
+   signal q_out_3 : signed(33 downto 0) := (others => '0');
+   signal q_out_4 : signed(33 downto 0) := (others => '0');
+   signal q_out_5 : signed(33 downto 0) := (others => '0');
+   signal q_out_6 : signed(33 downto 0) := (others => '0');
+   signal q_out_7 : signed(33 downto 0) := (others => '0');
 
-   signal out_0 : std_logic_vector(31 downto 0);
-   signal out_1 : std_logic_vector(31 downto 0);
-   signal out_2 : std_logic_vector(31 downto 0);
-   signal out_3 : std_logic_vector(31 downto 0);
-   signal out_4 : std_logic_vector(31 downto 0);
-   signal out_5 : std_logic_vector(31 downto 0);
-   signal out_6 : std_logic_vector(31 downto 0);
-   signal out_7 : std_logic_vector(31 downto 0);
+   signal out_0 : std_logic_vector(31 downto 0) := (others => '0');
+   signal out_1 : std_logic_vector(31 downto 0) := (others => '0');
+   signal out_2 : std_logic_vector(31 downto 0) := (others => '0');
+   signal out_3 : std_logic_vector(31 downto 0) := (others => '0');
+   signal out_4 : std_logic_vector(31 downto 0) := (others => '0');
+   signal out_5 : std_logic_vector(31 downto 0) := (others => '0');
+   signal out_6 : std_logic_vector(31 downto 0) := (others => '0');
+   signal out_7 : std_logic_vector(31 downto 0) := (others => '0');
+
+   signal dithering : std_logic := '0';
+   signal frequency_reg : std_logic_vector(31 downto 0) := (others => '0');
 
 begin
+
+  process
+  begin
+    wait until rising_edge(clk);
+
+    if control_stb = '1' then
+      dithering <= control(0);
+    end if;
+
+    if frequency_stb = '1' then
+      frequency_reg <= frequency;
+    end if;
+
+  end process;
+  control_ack <= '1';
+  frequency_ack <= '1';
 
   nco_inst_1 : nco generic map(
       width => 10
@@ -171,7 +194,7 @@ begin
       clk => clk,
       rst => rst,
 
-      frequency => frequency,
+      frequency => frequency_reg,
 
       lo_i_0 => lo_i_0,
       lo_i_1 => lo_i_1,
@@ -200,9 +223,9 @@ begin
       clk => clk,
       rst => rst,
 
-      input => i_input,
-      input_stb => i_input_stb,
-      input_ack => i_input_ack,
+      input => amplitude(23 downto 16),
+      input_stb => amplitude_stb,
+      input_ack => amplitude_ack,
 
       output_0 => i_full_rate_0,
       output_1 => i_full_rate_1,
@@ -222,9 +245,9 @@ begin
       clk => clk,
       rst => rst,
 
-      input => q_input,
-      input_stb => q_input_stb,
-      input_ack => q_input_ack,
+      input => amplitude(7 downto 0),
+      input_stb => amplitude_stb,
+      input_ack => open,
 
       output_0 => q_full_rate_0,
       output_1 => q_full_rate_1,
@@ -292,6 +315,7 @@ begin
       clk => clk,
       rst => rst,
 
+      dithering => dithering,
       input_0 => out_0,
       input_1 => out_1,
       input_2 => out_2,

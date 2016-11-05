@@ -177,12 +177,14 @@ architecture rtl of bsp is
       clk : in std_logic;
       rst : in std_logic;
       frequency : in std_logic_vector(31 downto 0);
-      i_input : in std_logic_vector(7 downto 0);
-      i_input_stb : in std_logic;
-      i_input_ack : out std_logic;
-      q_input : in std_logic_vector(7 downto 0);
-      q_input_stb : in std_logic;
-      q_input_ack : out std_logic;
+      frequency_stb : in std_logic;
+      frequency_ack : out std_logic;
+      control : in std_logic_vector(31 downto 0);
+      control_stb : in std_logic;
+      control_ack : out std_logic;
+      amplitude : in std_logic_vector(31 downto 0);
+      amplitude_stb : in std_logic;
+      amplitude_ack : out std_logic;
       rf : out std_logic
     );
   end component transmitter;
@@ -290,6 +292,10 @@ architecture rtl of bsp is
       output_tx_am : out std_logic_vector(31 downto 0);
       output_tx_am_stb : out std_logic;
       output_tx_am_ack : in std_logic;
+
+      output_tx_ctl : out std_logic_vector(31 downto 0);
+      output_tx_ctl_stb : out std_logic;
+      output_tx_ctl_ack : in std_logic;
 
       output_led_r : out std_logic_vector(31 downto 0);
       output_led_r_stb : out std_logic;
@@ -450,13 +456,14 @@ architecture rtl of bsp is
 
   --tx interface
   signal  output_tx_freq : std_logic_vector(31 downto 0);
-  signal  output_tx_freq_reg : std_logic_vector(31 downto 0);
   signal  output_tx_freq_stb : std_logic;
   signal  output_tx_freq_ack : std_logic;
   signal  output_tx_am : std_logic_vector(31 downto 0);
-  signal  output_tx_am_reg : std_logic_vector(31 downto 0);
   signal  output_tx_am_stb : std_logic;
   signal  output_tx_am_ack : std_logic;
+  signal  output_tx_ctl : std_logic_vector(31 downto 0);
+  signal  output_tx_ctl_stb : std_logic;
+  signal  output_tx_ctl_ack : std_logic;
 
   --interface for svga
   signal vgaclk : std_logic;
@@ -565,29 +572,22 @@ begin
     vga_b(i) <= vga_bb;
   end generate;
 
-  process
-  begin
-    wait until rising_edge(clk);
-    if output_tx_freq_stb = '1' then
-      output_tx_freq_reg <= output_tx_freq;
-    end if;
-    if output_tx_am_stb = '1' then
-      output_tx_am_reg <= output_tx_am;
-    end if;
-  end process;
-  output_tx_freq_ack <= '1';
-  output_tx_am_ack <= '1';
-
   transmitter_inst_1 :  transmitter port map(
       clk => clk,
       rst => internal_rst,
-      frequency => output_tx_freq_reg,
-      i_input => output_tx_am(7 downto 0),
-      i_input_stb => '1',
-      i_input_ack => open,
-      q_input => output_tx_am(23 downto 16),
-      q_input_stb => '1',
-      q_input_ack => open,
+
+      frequency => output_tx_freq,
+      frequency_stb => output_tx_freq_stb,
+      frequency_ack => output_tx_freq_ack,
+
+      control => output_tx_ctl,
+      control_stb => output_tx_ctl_stb,
+      control_ack => output_tx_ctl_ack,
+
+      amplitude => output_tx_am,
+      amplitude_stb => output_tx_am_stb,
+      amplitude_ack => output_tx_am_ack,
+
       rf => rf_out
   );
   test_1 <= output_tx_freq_stb;
@@ -667,6 +667,10 @@ begin
       output_tx_am       => output_tx_am,
       output_tx_am_stb   => output_tx_am_stb,
       output_tx_am_ack   => output_tx_am_ack,
+
+      output_tx_ctl       => output_tx_ctl,
+      output_tx_ctl_stb   => output_tx_ctl_stb,
+      output_tx_ctl_ack   => output_tx_ctl_ack,
 
       --seven segment display interface
       output_seven_segment_cathode => output_seven_segment_cathode,

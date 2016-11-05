@@ -4,9 +4,9 @@ use ieee.numeric_std.all;
 
 entity interpolate is
   generic(
-    interpolation_factor : integer;
-    output_width : integer;
-    width        : integer
+    interpolation_factor : integer := 8192;
+    output_width : integer := 24;
+    width        : integer := 8
   );
   port(
     clk : in std_logic;
