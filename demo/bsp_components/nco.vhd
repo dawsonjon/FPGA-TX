@@ -46,7 +46,7 @@ architecture rtl of nco is
     variable x : sin_array_type;
   begin
     for i in 0 to (2**sin_bits)-1 loop
-      x(i) := std_logic_vector(to_signed(integer(round(sin_output_scale * sin(real(i) * sin_input_scale))), sin_bits));
+      x(i) := std_logic_vector(to_signed(-integer(round(sin_output_scale * sin(real(i) * sin_input_scale))), sin_bits));
     end loop;
     return x;
   end function;

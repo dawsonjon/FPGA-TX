@@ -28,13 +28,14 @@ class SSBModulator:
         G = self.taps/2
         i = np.concatenate([np.zeros(G), data[:-G]])
         q = lfilter(self.kernel, 1, data)
+        i = i[:len(q)]
         if self.lsb:
             q = -q
         i = np.clip(i, -1, 1)
         q = np.clip(q, -1, 1)
         i = np.around(i*((2.0**7)-1))+128
         q = np.around(q*((2.0**7)-1))+128
-        data = i*256.0+q
+        data = (i*256.0)+q
         return data
 
 class WBFMModulator:
@@ -161,7 +162,7 @@ class AMModulator:
         """convert to 7 bit, add dc bias, duplicate in i and q channel"""
         i = data/512+192
         q = data/512+192
-        return (i+q*256)
+        return i+(q*256)
 
 
 def error(message):

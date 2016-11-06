@@ -21,7 +21,10 @@ void flush_stdin(){
     }
 }
 
-void send_iq(signed sample){
+void send_iq(signed i, signed q){
+  int sample;
+  sample = (i & 0xff) << 16;
+  sample |= (q & 0xff);
   fputc(sample, am_out);
 }
 
@@ -41,7 +44,7 @@ void main(){
     unsigned fm_deviation = 105; //default to 5kHz
     unsigned control = 0; //dithering off
     unsigned op, next_sample_time, length;
-    int sample;
+    int sample, i, q;
     char cmd;
 
     stdout = rs232_tx;
@@ -126,10 +129,11 @@ void main(){
                 puts(">\n");
 
                 for(op=0; op<length; op++){
-                    sample  = (getc()-128);
-                    sample |= (getc()-128) << 8;
-                    send_iq(sample);
+                    i = getc()-128;
+                    q = getc()-128;
+                    send_iq(i, q);
                 }
+
                 break;
 
             //echo
