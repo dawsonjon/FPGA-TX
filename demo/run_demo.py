@@ -134,6 +134,10 @@ try:
         download_tool = bsp.download_tool
         download_tool(chip, bsp, working_directory)
 
+    if "flash" in sys.argv:
+        flash_tool = bsp.flash_tool
+        flash_tool(chip, bsp, working_directory)
+
     if "run" in sys.argv:
         host.run()
 

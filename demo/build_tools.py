@@ -189,10 +189,19 @@ def build_vivado(chip, bsp, working_directory):
     report_power -file $outputDir/post_route_power.rpt
     report_drc -file $outputDir/post_imp_drc.rpt
     write_verilog -force $outputDir/cpu_impl_netlist.v -mode timesim -sdf_anno true
+
+
     #
     # STEP#6: generate a bitstream
     #
     write_bitstream -force $outputDir/bsp.bit
+
+    #
+    # Create Programming file
+    #
+
+    write_cfgmem -force -format mcs -interface spix4 -size 16 -loadbit "up 0x0 $outputDir/bsp.bit" -file bsp.mcs
+
     """ % bsp.device)
     prj_file.close()
 

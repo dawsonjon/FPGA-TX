@@ -75,7 +75,7 @@ begin
 
   fifo_1 : fifo generic map(
       width => 8,
-      depth => 1024
+      depth => 4096
   ) port map(
       clk => clk,
       rst => rst,

@@ -50,17 +50,22 @@ void main(){
 
     while(1){
         //implement command interface
-        puts(">\n");
         cmd = getc();
         
         switch(cmd)
         {
+            //respond
+            case '>':
+                puts(">\n");
+                break;
+
             //set frequency
             case 'f':
                 frequency_steps = scan_udecimal();
                 print_udecimal(frequency_steps);
                 puts("\n");
                 fputc(frequency_steps, frequency_out);
+                puts(">\n");
                 break;
 
             //set sample rate
@@ -68,6 +73,7 @@ void main(){
                 sample_rate_steps = scan_udecimal();
                 print_udecimal(sample_rate_steps);
                 puts("\n");
+                puts(">\n");
                 break;
 
             //set fm deviation
@@ -75,6 +81,7 @@ void main(){
                 fm_deviation = scan_udecimal();
                 print_udecimal(fm_deviation);
                 puts("\n");
+                puts(">\n");
                 break;
 
             //set control
@@ -83,6 +90,7 @@ void main(){
                 fputc(control, ctl_out);
                 print_udecimal(control);
                 puts("\n");
+                puts(">\n");
                 break;
 
             //mode b FM
@@ -90,6 +98,10 @@ void main(){
                 next_sample_time = timer_low() + sample_rate_steps;
 
                 length = getc();
+                length |= getc() << 8;
+                //respond early so that sender can start now
+                puts(">\n");
+
                 //send samples
                 for(op=0; op<length; op++){
                     sample  = getc();
@@ -109,6 +121,10 @@ void main(){
 
                 //send samples
                 length = getc();
+                length |= getc() << 8;
+                //respond early so that sender can start now
+                puts(">\n");
+
                 for(op=0; op<length; op++){
                     sample  = (getc()-128);
                     sample |= (getc()-128) << 8;
@@ -124,6 +140,7 @@ void main(){
                     putc(getc());
                     op++;
                 }
+                puts(">\n");
                 break;
         }
     }

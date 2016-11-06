@@ -5,6 +5,7 @@ import struct
 import numpy as np
 from numpy import array, zeros, ones, around, unwrap, log10, angle
 from scipy.signal import lfilter, freqz, remez
+from scipy import signal
 import matplotlib.pyplot as plt
 import time
 import sys
@@ -38,16 +39,117 @@ class SSBModulator:
 
 class WBFMModulator:
     def __init__(self, fs, time_constant):
+
+        #create pre-emphasis filter kernel
         f1 = 1.0/time_constant
         f2 = 1.0e6
         self.b = array([(f1+2*fs)/(f2+2*fs), (f1-2*fs)/(f2+2*fs)])
         self.a = array([1, (f2-2*fs)/(f2+2*fs)])
 
+        #calculate frequency response
+        w, h = signal.freqz(self.b, self.a)
+        f = w/(2*np.pi)#convert to normalised frequency
+
+        #gain increases with frequency, so
+        #find gain at maximum audio frequency
+        self.preemp_gain = f[int(round((2*15e3)/fs))]
+
+        #only allow frequencies below 15KHz
+        self.lpf_kernel = signal.firwin(50, 15.0e3, pass_zero=True, nyq=fs/2.0) 
+
+        #calculate frequency response
+        w, h = signal.freqz(self.lpf_kernel)
+        self.lpf_gain = max(abs(h))
+
     def modulate(self, data):
-        #data = data/32768.0
-        #data = lfilter(self.b, self.a, data)
-        #print b, a, min(data), max(data)
-        #data = around(data*32768).astype(int)
+
+        #convert to floating point
+        data = data/32768.0
+
+        #low pass filter
+        data = lfilter(self.lpf_kernel, 1, data)/self.lpf_gain
+
+        #add preemphasis
+        data = lfilter(self.b, self.a, data)/self.preemp_gain
+
+        #convert to 16-bit pcm
+        data = np.clip(data, -1, 1)
+        data = around(data*32767).astype(int)
+        return data+32768;
+
+class StereoModulator:
+    def __init__(self, fs, time_constant):
+        self.fs = fs
+
+        #create pre-emphasis filter kernel
+        f1 = 1.0/time_constant
+        f2 = 1.0e6
+        self.b = array([(f1+2*fs)/(f2+2*fs), (f1-2*fs)/(f2+2*fs)])
+        self.a = array([1, (f2-2*fs)/(f2+2*fs)])
+
+        #calculate frequency response
+        w, h = signal.freqz(self.b, self.a)
+        f = w/(2*np.pi)#convert to normalised frequency
+
+        #gain increases with frequency, so
+        #find gain at maximum audio frequency
+        self.preemp_gain = f[int(round((2*15e3)/fs))]
+
+        #only allow frequencies below 15KHz
+        self.lpf_kernel = signal.firwin(50, 15.0e3, pass_zero=True, nyq=fs/2.0) 
+
+        #calculate frequency response
+        w, h = signal.freqz(self.lpf_kernel)
+        self.lpf_gain = max(abs(h))
+        f1 = 1.0/time_constant
+        f2 = 1.0e6
+        self.b = array([(f1+2*fs)/(f2+2*fs), (f1-2*fs)/(f2+2*fs)])
+        self.a = array([1, (f2-2*fs)/(f2+2*fs)])
+        self.fs = fs
+        self.t = 0
+        #only allow frequencies below 15KHz
+        self.lpf_kernel = signal.firwin(50, 15.0e3, pass_zero=True, nyq=fs/2.0) 
+
+        #create pilot_tone and stereo subcarrier
+        fsh = 152.0e3
+        t = np.arange(0, 10e-3, 1/fsh)
+        self.pilot = np.sin(2*np.pi*19.0e3*t)
+        self.subcarrier = np.sin(2*np.pi*38.0e3*t)
+
+    def modulate(self, data):
+
+        #convert to floating point
+        data = data/32768.0
+
+        #split data into left and right channels
+        left = data[::2]
+        right = data[1::2]
+
+        #lowpass filter
+        left = lfilter(self.lpf_kernel, 1, left)/self.lpf_gain
+        right = lfilter(self.lpf_kernel, 1, right)/self.lpf_gain
+
+        #preemphasis
+        left = lfilter(self.b, self.a, left)/self.preemp_gain
+        right = lfilter(self.b, self.a, right)/self.preemp_gain
+
+        #upsample data
+        fsh = 152.0e3
+        resample_factor = fsh/self.fs
+        left = signal.resample(left, int(round(len(left)*resample_factor)))
+        right = signal.resample(right, int(round(len(right)*resample_factor)))
+
+        #Create modulated stereo
+        subcarrier = self.subcarrier[:len(left)]
+        pilot = self.pilot[:len(left)]
+        data = left + right
+        data += (left - right) * subcarrier
+        data += pilot
+        data /= 3.0
+
+        #convert to 16-bit pcm
+        data = np.clip(data, -1, 1)
+        data = around(data*32767).astype(int)
         return data+32768;
 
 class FMModulator:
@@ -67,8 +169,9 @@ def error(message):
     sys.exit(1)
 
 def check_hardware():
+    port.flushInput()
     for i in range(2):
-        port.write("}")
+        port.write(">")
         if port.readline() == ">\n":
             return
     error("Could not communicate with FPGA hardware")
@@ -123,7 +226,7 @@ def transmit(port, mode, sample_rate):
         set_sample_rate(sample_rate, port)
         #set maximum i and maximum q
         set_fm_deviation(5000, port)
-        port.write("b"+chr(1)+chr(0)+chr(0))
+        port.write("b"+chr(1)+chr(0)+chr(0)+chr(0))
         port.readline()
         modulator = FMModulator()
         cmd = 'a'
@@ -132,9 +235,20 @@ def transmit(port, mode, sample_rate):
         set_sample_rate(sample_rate, port)
         #set maximum i and maximum q
         set_fm_deviation(150000, port)
-        port.write("b"+chr(1)+chr(0)+chr(0))
+        port.write("b"+chr(1)+chr(0)+chr(0)+chr(0))
         port.readline()
+        print sample_rate
         modulator = WBFMModulator(sample_rate, preemphasis_time_constant)
+        cmd = 'a'
+    elif mode == "STEREO":
+        modulator = StereoModulator(sample_rate, preemphasis_time_constant)
+        sample_rate = 152.0e3
+        #set sample rate
+        set_sample_rate(sample_rate, port)
+        #set maximum i and maximum q
+        set_fm_deviation(150000, port)
+        port.write("b"+chr(1)+chr(0)+chr(0)+chr(0))
+        port.readline()
         cmd = 'a'
     elif mode == "USB":
         modulator = SSBModulator(hilbert_taps, hilbert_width)
@@ -144,9 +258,12 @@ def transmit(port, mode, sample_rate):
         cmd = 'b'
 
     while 1:
-        #read 255 bytes into buffer
-        data = sys.stdin.read(510)
-        done = len(data) < 510
+        #tx has a 4kx8byte buffer
+        #assuming 2bytes/sample, 504 samples should ~quarter fill the buffer
+        #in stereo ~3 times as many samples are generated 504 is a multiple of 8
+        #so should be an exact number of 19 and 38k cycles
+        data = sys.stdin.read(504)
+        done = len(data) < 504
         length = len(data)/2
         data = struct.unpack("<"+("h"*length), data)
         data = array(data)
@@ -157,7 +274,7 @@ def transmit(port, mode, sample_rate):
         #send frame to FPGA
         length = len(data)
         frame = struct.pack("<" + "H"*length, *data)
-        port.write(cmd+chr(length)+frame)
+        port.write(cmd+chr(length & 0xff)+chr(length>>8)+frame)
 
         #Check response
         response = port.readline()
@@ -166,7 +283,7 @@ def transmit(port, mode, sample_rate):
         if done:
             #switch off
             if mode == "USB" or mode == "LSB":
-                port.write("b"+chr(1)+chr(128)+chr(128))
+                port.write("b"+chr(1)+chr(0)+chr(128)+chr(128))
                 port.readline()
             return
 
