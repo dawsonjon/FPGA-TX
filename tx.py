@@ -16,6 +16,7 @@ fm_bits = 16
 preemphasis_time_constant = 50e-6
 hilbert_taps = 81
 hilbert_width = 0.1
+showplots = False
 
 class SSBModulator:
     def __init__(self, taps, bandwidth, lsb = False):
@@ -81,6 +82,7 @@ class WBFMModulator:
 class StereoModulator:
     def __init__(self, fs, time_constant):
         self.fs = fs
+        self.sample = 0
 
         #create pre-emphasis filter kernel
         f1 = 1.0/time_constant
@@ -97,25 +99,25 @@ class StereoModulator:
         self.preemp_gain = f[int(round((2*15e3)/fs))]
 
         #only allow frequencies below 15KHz
-        self.lpf_kernel = signal.firwin(50, 15.0e3, pass_zero=True, nyq=fs/2.0) 
+        self.lpf_kernel = signal.firwin(50, [1000, 15.0e3], pass_zero=False, nyq=fs/2.0) 
 
         #calculate frequency response
         w, h = signal.freqz(self.lpf_kernel)
         self.lpf_gain = max(abs(h))
-        f1 = 1.0/time_constant
-        f2 = 1.0e6
-        self.b = array([(f1+2*fs)/(f2+2*fs), (f1-2*fs)/(f2+2*fs)])
-        self.a = array([1, (f2-2*fs)/(f2+2*fs)])
-        self.fs = fs
-        self.t = 0
-        #only allow frequencies below 15KHz
-        self.lpf_kernel = signal.firwin(50, 15.0e3, pass_zero=True, nyq=fs/2.0) 
+
+        if showplots:
+            plt.plot(w, 20.0*np.log10(abs(h)))
+            plt.show()
 
         #create pilot_tone and stereo subcarrier
         fsh = 152.0e3
         t = np.arange(0, 10e-3, 1/fsh)
         self.pilot = np.sin(2*np.pi*19.0e3*t)
         self.subcarrier = np.sin(2*np.pi*38.0e3*t)
+        if showplots:
+            #plt.plot(t, self.pilot, t, self.subcarrier)
+            plt.plot(t, abs(np.fft.fftshift(np.fft.fft(self.pilot))))
+            plt.show()
 
     def modulate(self, data):
 
@@ -137,16 +139,27 @@ class StereoModulator:
         #upsample data
         fsh = 152.0e3
         resample_factor = fsh/self.fs
-        left = signal.resample(left, int(round(len(left)*resample_factor)))
-        right = signal.resample(right, int(round(len(right)*resample_factor)))
+        new_samples = 8*int(round(len(left) * resample_factor)//8)
+        left = signal.resample(left, new_samples)
+        right = signal.resample(right, new_samples)
 
         #Create modulated stereo
         subcarrier = self.subcarrier[:len(left)]
         pilot = self.pilot[:len(left)]
-        data = left + right
-        data += (left - right) * subcarrier
-        data += pilot
-        data /= 3.0
+        data = (left + right)/2
+        data += ((left - right)/2) * subcarrier
+        data *= 0.9
+        data += pilot * 0.1
+        
+        if self.sample == 1000:
+            if showplots:
+                plt.figure()
+                plt.plot(data)
+                plt.figure()
+                plt.plot(abs(np.fft.fftshift(np.fft.fft(data))))
+                plt.show()
+        else:
+            self.sample += 1
 
         #convert to 16-bit pcm
         data = np.clip(data, -1, 1)
@@ -357,7 +370,7 @@ else:
     port = serial.Serial(device, 12000000, timeout=1)  # open serial port
     check_hardware()
     set_frequency(frequency, port)
-    set_control_register(1, port)
+    set_control_register(0, port)
     transmit(port, mode, sample_rate)
     port.readline()
     port.close()
