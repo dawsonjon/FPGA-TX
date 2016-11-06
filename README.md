@@ -1,3 +1,14 @@
+FPGA-TX
+=======
+
+FPGA-TX is an FPGA based radio transmitter, that can transmit using common
+modulation schemes up to a frequency of 400MHz. 
+
+Before you transmit, know your laws. FPGA-TX has not been tested for compliance
+with regulations governing transmission of radio signals. You are responsible
+for using your FPGA-TX legally.
+
+
 Software
 ========
 
@@ -19,7 +30,7 @@ Sampling rate must be specified for FM, WBFM and STEREO modes
 For WBFM and STEREO, sampling rate must be greater than 30KHz,
 44.1K or 48K are recommended.
 
-options
+Options
 -------
 
 ```
@@ -40,7 +51,7 @@ Mode may be AM or FM
 
 specify USB/serial device of transmitter. default is /dev/ttyUSB1
 
-examples
+Examples
 --------
 
 
