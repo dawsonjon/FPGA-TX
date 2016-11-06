@@ -1,0 +1,445 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------
+| Tool Version     : Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
+| Date             : Sun Nov  6 16:40:27 2016
+| Host             : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
+| Command          : report_power -file ./post_route_power.rpt
+| Design           : bsp
+| Device           : xc7a100tcsg324-1
+| Design State     : routed
+| Grade            : commercial
+| Process          : typical
+| Characterization : Production
+----------------------------------------------------------------------------------------
+
+Power Report
+
+Table of Contents
+-----------------
+1. Summary
+1.1 On-Chip Components
+1.2 Power Supply Summary
+1.3 Confidence Level
+2. Settings
+2.1 Environment
+2.2 Clock Constraints
+3. Detailed Reports
+3.1 By Hierarchy
+
+1. Summary
+----------
+
++--------------------------+-------+
+| Total On-Chip Power (W)  | 0.484 |
+| Dynamic (W)              | 0.375 |
+| Device Static (W)        | 0.109 |
+| Effective TJA (C/W)      | 4.6   |
+| Max Ambient (C)          | 82.8  |
+| Junction Temperature (C) | 27.2  |
+| Confidence Level         | Low   |
+| Setting File             | ---   |
+| Simulation Activity File | ---   |
+| Design Nets Matched      | NA    |
++--------------------------+-------+
+
+
+1.1 On-Chip Components
+----------------------
+
++--------------------------+-----------+----------+-----------+-----------------+
+| On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
++--------------------------+-----------+----------+-----------+-----------------+
+| Clocks                   |     0.018 |        8 |       --- |             --- |
+| Slice Logic              |     0.019 |     7433 |       --- |             --- |
+|   LUT as Logic           |     0.015 |     2642 |     63400 |            4.17 |
+|   CARRY4                 |     0.002 |      409 |     15850 |            2.58 |
+|   Register               |     0.001 |     2249 |    126800 |            1.77 |
+|   F7/F8 Muxes            |    <0.001 |      619 |     63400 |            0.98 |
+|   LUT as Distributed RAM |    <0.001 |     1072 |     19000 |            5.64 |
+|   LUT as Shift Register  |    <0.001 |        1 |     19000 |           <0.01 |
+|   Others                 |     0.000 |       52 |       --- |             --- |
+| Signals                  |     0.042 |     6406 |       --- |             --- |
+| Block RAM                |     0.040 |     16.5 |       135 |           12.22 |
+| MMCM                     |     0.095 |        1 |         6 |           16.67 |
+| PLL                      |     0.094 |        1 |         6 |           16.67 |
+| DSPs                     |     0.041 |       43 |       240 |           17.92 |
+| I/O                      |     0.025 |       64 |       210 |           30.48 |
+| Static Power             |     0.109 |          |           |                 |
+| Total                    |     0.484 |          |           |                 |
++--------------------------+-----------+----------+-----------+-----------------+
+
+
+1.2 Power Supply Summary
+------------------------
+
++-----------+-------------+-----------+-------------+------------+
+| Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
++-----------+-------------+-----------+-------------+------------+
+| Vccint    |       1.000 |     0.182 |       0.165 |      0.017 |
+| Vccaux    |       1.800 |     0.120 |       0.102 |      0.018 |
+| Vcco33    |       3.300 |     0.007 |       0.003 |      0.004 |
+| Vcco25    |       2.500 |     0.009 |       0.005 |      0.004 |
+| Vcco18    |       1.800 |     0.000 |       0.000 |      0.000 |
+| Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
+| Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
+| Vcco12    |       1.200 |     0.000 |       0.000 |      0.000 |
+| Vccaux_io |       1.800 |     0.000 |       0.000 |      0.000 |
+| Vccbram   |       1.000 |     0.004 |       0.003 |      0.001 |
+| MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
+| MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
+| Vccadc    |       1.800 |     0.020 |       0.000 |      0.020 |
++-----------+-------------+-----------+-------------+------------+
+
+
+1.3 Confidence Level
+--------------------
+
++-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| User Input Data             | Confidence | Details                                                | Action                                                                                                     |
++-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| Design implementation state | High       | Design is routed                                       |                                                                                                            |
+| Clock nodes activity        | High       | User specified more than 95% of clocks                 |                                                                                                            |
+| I/O nodes activity          | Low        | More than 75% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view   |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views |
+| Device models               | High       | Device models are Production                           |                                                                                                            |
+|                             |            |                                                        |                                                                                                            |
+| Overall confidence level    | Low        |                                                        |                                                                                                            |
++-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+
+
+2. Settings
+-----------
+
+2.1 Environment
+---------------
+
++-----------------------+--------------------------+
+| Ambient Temp (C)      | 25.0                     |
+| ThetaJA (C/W)         | 4.6                      |
+| Airflow (LFM)         | 250                      |
+| Heat Sink             | medium (Medium Profile)  |
+| ThetaSA (C/W)         | 4.6                      |
+| Board Selection       | medium (10"x10")         |
+| # of Board Layers     | 12to15 (12 to 15 Layers) |
+| Board Temperature (C) | 25.0                     |
++-----------------------+--------------------------+
+
+
+2.2 Clock Constraints
+---------------------
+
++-------------+-----------------------------------------------------------------+-----------------+
+| Clock       | Domain                                                          | Constraint (ns) |
++-------------+-----------------------------------------------------------------+-----------------+
+| clk0        | clk0                                                            |            10.0 |
+| clk_100_s   | transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/clk_100_s |            10.0 |
+| clk_400_s   | transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/clk_400_s |             2.5 |
+| clkdv       | clkdv                                                           |            20.0 |
+| clkfbout    | transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/clkfbout  |            10.0 |
+| sys_clk_pin | clk_in                                                          |            10.0 |
++-------------+-----------------------------------------------------------------+-----------------+
+
+
+3. Detailed Reports
+-------------------
+
+3.1 By Hierarchy
+----------------
+
++-----------------------------------+-----------+
+| Name                              | Power (W) |
++-----------------------------------+-----------+
+| bsp                               |     0.375 |
+|   charsvga_inst_1                 |     0.003 |
+|     BRAM_INST_1                   |     0.002 |
+|     TIMEING1                      |    <0.001 |
+|   ethernet_inst_1                 |     0.003 |
+|   i2c_inst_1                      |    <0.001 |
+|   pwm_audio_inst_1                |    <0.001 |
+|   pwm_inst_1                      |    <0.001 |
+|   pwm_inst_2                      |    <0.001 |
+|   pwm_inst_3                      |    <0.001 |
+|   scl_IOBUF_inst                  |     0.000 |
+|   sda_IOBUF_inst                  |     0.000 |
+|   serial_input_inst_1             |     0.014 |
+|     fifo_1                        |     0.014 |
+|       memory_reg_0_127_0_0        |    <0.001 |
+|       memory_reg_0_127_1_1        |    <0.001 |
+|       memory_reg_0_127_2_2        |    <0.001 |
+|       memory_reg_0_127_3_3        |    <0.001 |
+|       memory_reg_0_127_4_4        |    <0.001 |
+|       memory_reg_0_127_5_5        |    <0.001 |
+|       memory_reg_0_127_6_6        |    <0.001 |
+|       memory_reg_0_127_7_7        |    <0.001 |
+|       memory_reg_1024_1151_0_0    |    <0.001 |
+|       memory_reg_1024_1151_1_1    |    <0.001 |
+|       memory_reg_1024_1151_2_2    |    <0.001 |
+|       memory_reg_1024_1151_3_3    |    <0.001 |
+|       memory_reg_1024_1151_4_4    |    <0.001 |
+|       memory_reg_1024_1151_5_5    |    <0.001 |
+|       memory_reg_1024_1151_6_6    |    <0.001 |
+|       memory_reg_1024_1151_7_7    |    <0.001 |
+|       memory_reg_1152_1279_0_0    |    <0.001 |
+|       memory_reg_1152_1279_1_1    |    <0.001 |
+|       memory_reg_1152_1279_2_2    |    <0.001 |
+|       memory_reg_1152_1279_3_3    |    <0.001 |
+|       memory_reg_1152_1279_4_4    |    <0.001 |
+|       memory_reg_1152_1279_5_5    |    <0.001 |
+|       memory_reg_1152_1279_6_6    |    <0.001 |
+|       memory_reg_1152_1279_7_7    |    <0.001 |
+|       memory_reg_1280_1407_0_0    |    <0.001 |
+|       memory_reg_1280_1407_1_1    |    <0.001 |
+|       memory_reg_1280_1407_2_2    |    <0.001 |
+|       memory_reg_1280_1407_3_3    |    <0.001 |
+|       memory_reg_1280_1407_4_4    |    <0.001 |
+|       memory_reg_1280_1407_5_5    |    <0.001 |
+|       memory_reg_1280_1407_6_6    |    <0.001 |
+|       memory_reg_1280_1407_7_7    |    <0.001 |
+|       memory_reg_128_255_0_0      |    <0.001 |
+|       memory_reg_128_255_1_1      |    <0.001 |
+|       memory_reg_128_255_2_2      |    <0.001 |
+|       memory_reg_128_255_3_3      |    <0.001 |
+|       memory_reg_128_255_4_4      |    <0.001 |
+|       memory_reg_128_255_5_5      |    <0.001 |
+|       memory_reg_128_255_6_6      |    <0.001 |
+|       memory_reg_128_255_7_7      |    <0.001 |
+|       memory_reg_1408_1535_0_0    |    <0.001 |
+|       memory_reg_1408_1535_1_1    |    <0.001 |
+|       memory_reg_1408_1535_2_2    |    <0.001 |
+|       memory_reg_1408_1535_3_3    |    <0.001 |
+|       memory_reg_1408_1535_4_4    |    <0.001 |
+|       memory_reg_1408_1535_5_5    |    <0.001 |
+|       memory_reg_1408_1535_6_6    |    <0.001 |
+|       memory_reg_1408_1535_7_7    |    <0.001 |
+|       memory_reg_1536_1663_0_0    |    <0.001 |
+|       memory_reg_1536_1663_1_1    |    <0.001 |
+|       memory_reg_1536_1663_2_2    |    <0.001 |
+|       memory_reg_1536_1663_3_3    |    <0.001 |
+|       memory_reg_1536_1663_4_4    |    <0.001 |
+|       memory_reg_1536_1663_5_5    |    <0.001 |
+|       memory_reg_1536_1663_6_6    |    <0.001 |
+|       memory_reg_1536_1663_7_7    |    <0.001 |
+|       memory_reg_1664_1791_0_0    |    <0.001 |
+|       memory_reg_1664_1791_1_1    |    <0.001 |
+|       memory_reg_1664_1791_2_2    |    <0.001 |
+|       memory_reg_1664_1791_3_3    |    <0.001 |
+|       memory_reg_1664_1791_4_4    |    <0.001 |
+|       memory_reg_1664_1791_5_5    |    <0.001 |
+|       memory_reg_1664_1791_6_6    |    <0.001 |
+|       memory_reg_1664_1791_7_7    |    <0.001 |
+|       memory_reg_1792_1919_0_0    |    <0.001 |
+|       memory_reg_1792_1919_1_1    |    <0.001 |
+|       memory_reg_1792_1919_2_2    |    <0.001 |
+|       memory_reg_1792_1919_3_3    |    <0.001 |
+|       memory_reg_1792_1919_4_4    |    <0.001 |
+|       memory_reg_1792_1919_5_5    |    <0.001 |
+|       memory_reg_1792_1919_6_6    |    <0.001 |
+|       memory_reg_1792_1919_7_7    |    <0.001 |
+|       memory_reg_1920_2047_0_0    |    <0.001 |
+|       memory_reg_1920_2047_1_1    |    <0.001 |
+|       memory_reg_1920_2047_2_2    |    <0.001 |
+|       memory_reg_1920_2047_3_3    |    <0.001 |
+|       memory_reg_1920_2047_4_4    |    <0.001 |
+|       memory_reg_1920_2047_5_5    |    <0.001 |
+|       memory_reg_1920_2047_6_6    |    <0.001 |
+|       memory_reg_1920_2047_7_7    |    <0.001 |
+|       memory_reg_2048_2175_0_0    |    <0.001 |
+|       memory_reg_2048_2175_1_1    |    <0.001 |
+|       memory_reg_2048_2175_2_2    |    <0.001 |
+|       memory_reg_2048_2175_3_3    |    <0.001 |
+|       memory_reg_2048_2175_4_4    |    <0.001 |
+|       memory_reg_2048_2175_5_5    |    <0.001 |
+|       memory_reg_2048_2175_6_6    |    <0.001 |
+|       memory_reg_2048_2175_7_7    |    <0.001 |
+|       memory_reg_2176_2303_0_0    |    <0.001 |
+|       memory_reg_2176_2303_1_1    |    <0.001 |
+|       memory_reg_2176_2303_2_2    |    <0.001 |
+|       memory_reg_2176_2303_3_3    |    <0.001 |
+|       memory_reg_2176_2303_4_4    |    <0.001 |
+|       memory_reg_2176_2303_5_5    |    <0.001 |
+|       memory_reg_2176_2303_6_6    |    <0.001 |
+|       memory_reg_2176_2303_7_7    |    <0.001 |
+|       memory_reg_2304_2431_0_0    |    <0.001 |
+|       memory_reg_2304_2431_1_1    |    <0.001 |
+|       memory_reg_2304_2431_2_2    |    <0.001 |
+|       memory_reg_2304_2431_3_3    |    <0.001 |
+|       memory_reg_2304_2431_4_4    |    <0.001 |
+|       memory_reg_2304_2431_5_5    |    <0.001 |
+|       memory_reg_2304_2431_6_6    |    <0.001 |
+|       memory_reg_2304_2431_7_7    |    <0.001 |
+|       memory_reg_2432_2559_0_0    |    <0.001 |
+|       memory_reg_2432_2559_1_1    |    <0.001 |
+|       memory_reg_2432_2559_2_2    |    <0.001 |
+|       memory_reg_2432_2559_3_3    |    <0.001 |
+|       memory_reg_2432_2559_4_4    |    <0.001 |
+|       memory_reg_2432_2559_5_5    |    <0.001 |
+|       memory_reg_2432_2559_6_6    |    <0.001 |
+|       memory_reg_2432_2559_7_7    |    <0.001 |
+|       memory_reg_2560_2687_0_0    |    <0.001 |
+|       memory_reg_2560_2687_1_1    |    <0.001 |
+|       memory_reg_2560_2687_2_2    |    <0.001 |
+|       memory_reg_2560_2687_3_3    |    <0.001 |
+|       memory_reg_2560_2687_4_4    |    <0.001 |
+|       memory_reg_2560_2687_5_5    |    <0.001 |
+|       memory_reg_2560_2687_6_6    |    <0.001 |
+|       memory_reg_2560_2687_7_7    |    <0.001 |
+|       memory_reg_256_383_0_0      |    <0.001 |
+|       memory_reg_256_383_1_1      |    <0.001 |
+|       memory_reg_256_383_2_2      |    <0.001 |
+|       memory_reg_256_383_3_3      |    <0.001 |
+|       memory_reg_256_383_4_4      |    <0.001 |
+|       memory_reg_256_383_5_5      |    <0.001 |
+|       memory_reg_256_383_6_6      |    <0.001 |
+|       memory_reg_256_383_7_7      |    <0.001 |
+|       memory_reg_2688_2815_0_0    |    <0.001 |
+|       memory_reg_2688_2815_1_1    |    <0.001 |
+|       memory_reg_2688_2815_2_2    |    <0.001 |
+|       memory_reg_2688_2815_3_3    |    <0.001 |
+|       memory_reg_2688_2815_4_4    |    <0.001 |
+|       memory_reg_2688_2815_5_5    |    <0.001 |
+|       memory_reg_2688_2815_6_6    |    <0.001 |
+|       memory_reg_2688_2815_7_7    |    <0.001 |
+|       memory_reg_2816_2943_0_0    |    <0.001 |
+|       memory_reg_2816_2943_1_1    |    <0.001 |
+|       memory_reg_2816_2943_2_2    |    <0.001 |
+|       memory_reg_2816_2943_3_3    |    <0.001 |
+|       memory_reg_2816_2943_4_4    |    <0.001 |
+|       memory_reg_2816_2943_5_5    |    <0.001 |
+|       memory_reg_2816_2943_6_6    |    <0.001 |
+|       memory_reg_2816_2943_7_7    |    <0.001 |
+|       memory_reg_2944_3071_0_0    |    <0.001 |
+|       memory_reg_2944_3071_1_1    |    <0.001 |
+|       memory_reg_2944_3071_2_2    |    <0.001 |
+|       memory_reg_2944_3071_3_3    |    <0.001 |
+|       memory_reg_2944_3071_4_4    |    <0.001 |
+|       memory_reg_2944_3071_5_5    |    <0.001 |
+|       memory_reg_2944_3071_6_6    |    <0.001 |
+|       memory_reg_2944_3071_7_7    |    <0.001 |
+|       memory_reg_3072_3199_0_0    |    <0.001 |
+|       memory_reg_3072_3199_1_1    |    <0.001 |
+|       memory_reg_3072_3199_2_2    |    <0.001 |
+|       memory_reg_3072_3199_3_3    |    <0.001 |
+|       memory_reg_3072_3199_4_4    |    <0.001 |
+|       memory_reg_3072_3199_5_5    |    <0.001 |
+|       memory_reg_3072_3199_6_6    |    <0.001 |
+|       memory_reg_3072_3199_7_7    |    <0.001 |
+|       memory_reg_3200_3327_0_0    |    <0.001 |
+|       memory_reg_3200_3327_1_1    |    <0.001 |
+|       memory_reg_3200_3327_2_2    |    <0.001 |
+|       memory_reg_3200_3327_3_3    |    <0.001 |
+|       memory_reg_3200_3327_4_4    |    <0.001 |
+|       memory_reg_3200_3327_5_5    |    <0.001 |
+|       memory_reg_3200_3327_6_6    |    <0.001 |
+|       memory_reg_3200_3327_7_7    |    <0.001 |
+|       memory_reg_3328_3455_0_0    |    <0.001 |
+|       memory_reg_3328_3455_1_1    |    <0.001 |
+|       memory_reg_3328_3455_2_2    |    <0.001 |
+|       memory_reg_3328_3455_3_3    |    <0.001 |
+|       memory_reg_3328_3455_4_4    |    <0.001 |
+|       memory_reg_3328_3455_5_5    |    <0.001 |
+|       memory_reg_3328_3455_6_6    |    <0.001 |
+|       memory_reg_3328_3455_7_7    |    <0.001 |
+|       memory_reg_3456_3583_0_0    |    <0.001 |
+|       memory_reg_3456_3583_1_1    |    <0.001 |
+|       memory_reg_3456_3583_2_2    |    <0.001 |
+|       memory_reg_3456_3583_3_3    |    <0.001 |
+|       memory_reg_3456_3583_4_4    |    <0.001 |
+|       memory_reg_3456_3583_5_5    |    <0.001 |
+|       memory_reg_3456_3583_6_6    |    <0.001 |
+|       memory_reg_3456_3583_7_7    |    <0.001 |
+|       memory_reg_3584_3711_0_0    |    <0.001 |
+|       memory_reg_3584_3711_1_1    |    <0.001 |
+|       memory_reg_3584_3711_2_2    |    <0.001 |
+|       memory_reg_3584_3711_3_3    |    <0.001 |
+|       memory_reg_3584_3711_4_4    |    <0.001 |
+|       memory_reg_3584_3711_5_5    |    <0.001 |
+|       memory_reg_3584_3711_6_6    |    <0.001 |
+|       memory_reg_3584_3711_7_7    |    <0.001 |
+|       memory_reg_3712_3839_0_0    |    <0.001 |
+|       memory_reg_3712_3839_1_1    |    <0.001 |
+|       memory_reg_3712_3839_2_2    |    <0.001 |
+|       memory_reg_3712_3839_3_3    |    <0.001 |
+|       memory_reg_3712_3839_4_4    |    <0.001 |
+|       memory_reg_3712_3839_5_5    |    <0.001 |
+|       memory_reg_3712_3839_6_6    |    <0.001 |
+|       memory_reg_3712_3839_7_7    |    <0.001 |
+|       memory_reg_3840_3967_0_0    |    <0.001 |
+|       memory_reg_3840_3967_1_1    |    <0.001 |
+|       memory_reg_3840_3967_2_2    |    <0.001 |
+|       memory_reg_3840_3967_3_3    |    <0.001 |
+|       memory_reg_3840_3967_4_4    |    <0.001 |
+|       memory_reg_3840_3967_5_5    |    <0.001 |
+|       memory_reg_3840_3967_6_6    |    <0.001 |
+|       memory_reg_3840_3967_7_7    |    <0.001 |
+|       memory_reg_384_511_0_0      |    <0.001 |
+|       memory_reg_384_511_1_1      |    <0.001 |
+|       memory_reg_384_511_2_2      |    <0.001 |
+|       memory_reg_384_511_3_3      |    <0.001 |
+|       memory_reg_384_511_4_4      |    <0.001 |
+|       memory_reg_384_511_5_5      |    <0.001 |
+|       memory_reg_384_511_6_6      |    <0.001 |
+|       memory_reg_384_511_7_7      |    <0.001 |
+|       memory_reg_3968_4095_0_0    |    <0.001 |
+|       memory_reg_3968_4095_1_1    |    <0.001 |
+|       memory_reg_3968_4095_2_2    |    <0.001 |
+|       memory_reg_3968_4095_3_3    |    <0.001 |
+|       memory_reg_3968_4095_4_4    |    <0.001 |
+|       memory_reg_3968_4095_5_5    |    <0.001 |
+|       memory_reg_3968_4095_6_6    |    <0.001 |
+|       memory_reg_3968_4095_7_7    |    <0.001 |
+|       memory_reg_512_639_0_0      |    <0.001 |
+|       memory_reg_512_639_1_1      |    <0.001 |
+|       memory_reg_512_639_2_2      |    <0.001 |
+|       memory_reg_512_639_3_3      |    <0.001 |
+|       memory_reg_512_639_4_4      |    <0.001 |
+|       memory_reg_512_639_5_5      |    <0.001 |
+|       memory_reg_512_639_6_6      |    <0.001 |
+|       memory_reg_512_639_7_7      |    <0.001 |
+|       memory_reg_640_767_0_0      |    <0.001 |
+|       memory_reg_640_767_1_1      |    <0.001 |
+|       memory_reg_640_767_2_2      |    <0.001 |
+|       memory_reg_640_767_3_3      |    <0.001 |
+|       memory_reg_640_767_4_4      |    <0.001 |
+|       memory_reg_640_767_5_5      |    <0.001 |
+|       memory_reg_640_767_6_6      |    <0.001 |
+|       memory_reg_640_767_7_7      |    <0.001 |
+|       memory_reg_768_895_0_0      |    <0.001 |
+|       memory_reg_768_895_1_1      |    <0.001 |
+|       memory_reg_768_895_2_2      |    <0.001 |
+|       memory_reg_768_895_3_3      |    <0.001 |
+|       memory_reg_768_895_4_4      |    <0.001 |
+|       memory_reg_768_895_5_5      |    <0.001 |
+|       memory_reg_768_895_6_6      |    <0.001 |
+|       memory_reg_768_895_7_7      |    <0.001 |
+|       memory_reg_896_1023_0_0     |    <0.001 |
+|       memory_reg_896_1023_1_1     |    <0.001 |
+|       memory_reg_896_1023_2_2     |    <0.001 |
+|       memory_reg_896_1023_3_3     |    <0.001 |
+|       memory_reg_896_1023_4_4     |    <0.001 |
+|       memory_reg_896_1023_5_5     |    <0.001 |
+|       memory_reg_896_1023_6_6     |    <0.001 |
+|       memory_reg_896_1023_7_7     |    <0.001 |
+|   serial_output_inst_1            |    <0.001 |
+|   transmitter_inst_1              |     0.189 |
+|     dac_interface_inst_1          |     0.135 |
+|       serdes_inst_1               |     0.098 |
+|     interpolate_inst_1            |     0.005 |
+|     interpolate_inst_2            |     0.005 |
+|     nco_inst_1                    |     0.026 |
+|   user_design_inst_1              |     0.041 |
+|     main_0_139871567460040        |     0.041 |
+|       registers_reg_r1_0_15_0_5   |    <0.001 |
+|       registers_reg_r1_0_15_12_17 |    <0.001 |
+|       registers_reg_r1_0_15_18_23 |    <0.001 |
+|       registers_reg_r1_0_15_24_29 |    <0.001 |
+|       registers_reg_r1_0_15_30_31 |    <0.001 |
+|       registers_reg_r1_0_15_6_11  |    <0.001 |
+|       registers_reg_r2_0_15_0_5   |    <0.001 |
+|       registers_reg_r2_0_15_12_17 |    <0.001 |
+|       registers_reg_r2_0_15_18_23 |    <0.001 |
+|       registers_reg_r2_0_15_24_29 |    <0.001 |
+|       registers_reg_r2_0_15_30_31 |    <0.001 |
+|       registers_reg_r2_0_15_6_11  |    <0.001 |
++-----------------------------------+-----------+
+
+

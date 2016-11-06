@@ -295,7 +295,11 @@ if len(sys.argv) <= 1 or "-h" in sys.argv or "--help" in sys.argv:
     tx.py -f=<frequency> -m=<mode>"
 
     Accepts data from stdin in mono raw 16-bit pcm format
-    Sampling rate should be 12kS/s
+
+    Sampling rate should be 12kS/s for AM, LSB and USB modes
+    Sampling rate must be specified for FM, WBFM and STEREO modes
+    For WBFM and STEREO, sampling rate must be greater than 30KHz,
+    44.1K or 48K are reccommended.
 
     options
     -------
@@ -313,7 +317,16 @@ if len(sys.argv) <= 1 or "-h" in sys.argv or "--help" in sys.argv:
     specify USB/serial device of transmitter. default is /dev/ttyUSB1
     
     
-    e.g. sox test.wav -t raw -b 16 -r 12k - | ./tx.py -f=100e6 -m=fm
+    --transmit narrow band fm on 27MHz 
+    sox test.wav -t raw -b 16 -r 12k - | ./tx.py -f=12e6 -m=fm -r=12000
+
+    --transmit stereo FM on 88 MHz
+    e.g. sox test.wav --channels 2 -t raw -b 16 -r 48k - | ./tx.py -f=88e6 -m=stereo -r 12000
+
+    --transmit lower sideband on 10 MHz
+    e.g. sox test.wav -t raw -b 16 -r 12k - | ./tx.py -f=100e6 -m=lsb
+
+
     """.splitlines()])
     sys.exit(0)
 else:
