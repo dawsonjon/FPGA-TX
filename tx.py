@@ -16,17 +16,51 @@ preemphasis_time_constant = 50e-6
 hilbert_taps = 81
 hilbert_width = 0.1
 
-def generate_hilbert_filter(taps, width):
-    return remez(taps, [width, 0.5-width], [1.0], type='hilbert')
+class SSBModulator:
+    def __init__(self, taps, bandwidth, lsb = False):
+        self.taps = taps
+        self.kernel = remez(taps, [bandwidth, 0.5-bandwidth], [1.0], type='hilbert')
+        self.lsb = lsb
 
-def preemphasis(fs, tau):
-    f1 = 1.0/tau
-    f2 = 1.0e6
-    b = array([(f1+2*fs)/(f2+2*fs), (f1-2*fs)/(f2+2*fs)])
-    a = array([1, (f2-2*fs)/(f2+2*fs)])
-    w, h = freqz(b*f2/f1, a)
-    gain = max(abs(h))
-    return gain, b, a
+    def modulate(self, data):
+        data = data/(2.0**15)
+        G = self.taps/2
+        i = np.concatenate([np.zeros(G), data[:-G]])
+        q = lfilter(self.kernel, 1, data)
+        if self.lsb:
+            q = -q
+        i = np.clip(i, -1, 1)
+        q = np.clip(q, -1, 1)
+        i = np.around(i*((2.0**7)-1))+128
+        q = np.around(q*((2.0**7)-1))+128
+        data = i*256.0+q
+        return data
+
+class WBFMModulator:
+    def __init__(self, fs, time_constant):
+        f1 = 1.0/time_constant
+        f2 = 1.0e6
+        self.b = array([(f1+2*fs)/(f2+2*fs), (f1-2*fs)/(f2+2*fs)])
+        self.a = array([1, (f2-2*fs)/(f2+2*fs)])
+
+    def modulate(self, data):
+        #data = data/32768.0
+        #data = lfilter(self.b, self.a, data)
+        #print b, a, min(data), max(data)
+        #data = around(data*32768).astype(int)
+        return data+32768;
+
+class FMModulator:
+    def modulate(self, data):
+        return data+32768;
+
+class AMModulator:
+    def modulate(self, data):
+        """convert to 7 bit, add dc bias, duplicate in i and q channel"""
+        i = data/512+192
+        q = data/512+192
+        return (i+q*256)
+
 
 def error(message):
     print message
@@ -80,44 +114,19 @@ def set_control_register(control, port):
     print "control register", control
     check_response(port, "error setting control register")
 
-def modulate_am(data):
-    """convert to 7 bit, add dc bias, duplicate in i and q channel"""
-    i = data/512+192
-    q = data/512+192
-    return (i+q*256)
-
-def modulate_wbfm(data, gain, b, a):
-    #data = data/32768.0
-    #data = lfilter(b, a, data)*gain
-    #print b, a, min(data), max(data)
-    #data = around(data*32768).astype(int)
-    return data+32768;
-
-def modulate_ssb(data, kernel, taps, lsb=False):
-    data = data/(2.0**15)
-    G = taps/2
-    i = np.concatenate([np.zeros(G), data[:-G]])
-    q = lfilter(kernel, 1, data)
-    if lsb:
-        q = -q
-    i = np.clip(i, -1, 1)
-    q = np.clip(q, -1, 1)
-    i = np.around(i*((2.0**7)-1))+128
-    q = np.around(q*((2.0**7)-1))+128
-    data = i*256.0+q
-    return data
-
-def modulate_fm(data):
-    return data+32768;
-
 def transmit(port, mode, sample_rate):
-    if mode == "FM":
+    if mode == "AM":
+        modulator = AMModulator()
+        cmd = 'b'
+    elif mode == "FM":
         #set sample rate
         set_sample_rate(sample_rate, port)
         #set maximum i and maximum q
         set_fm_deviation(5000, port)
         port.write("b"+chr(1)+chr(0)+chr(0))
         port.readline()
+        modulator = FMModulator()
+        cmd = 'a'
     elif mode == "WBFM":
         #set sample rate
         set_sample_rate(sample_rate, port)
@@ -125,14 +134,14 @@ def transmit(port, mode, sample_rate):
         set_fm_deviation(150000, port)
         port.write("b"+chr(1)+chr(0)+chr(0))
         port.readline()
-        #calculate filter coefficients for preemphasis
-        gain, b, a = preemphasis(sample_rate, preemphasis_time_constant)
+        modulator = WBFMModulator(sample_rate, preemphasis_time_constant)
+        cmd = 'a'
     elif mode == "USB":
-        #calculate filter coefficients for hilbert transform
-        hilbert_kernel = generate_hilbert_filter(hilbert_taps, hilbert_width)
+        modulator = SSBModulator(hilbert_taps, hilbert_width)
+        cmd = 'b'
     elif mode == "LSB":
-        #calculate filter coefficients for hilbert transform
-        hilbert_kernel = generate_hilbert_filter(hilbert_taps, hilbert_width)
+        modulator = SSBModulator(hilbert_taps, hilbert_width, True)
+        cmd = 'b'
 
     while 1:
         #read 255 bytes into buffer
@@ -142,23 +151,8 @@ def transmit(port, mode, sample_rate):
         data = struct.unpack("<"+("h"*length), data)
         data = array(data)
 
-        #Apply any additional modulation
-        #for formatting needed for a particular mode
-        if mode == "AM":
-            data = modulate_am(data)
-            cmd = "b"
-        elif mode == "FM":
-            data = modulate_fm(data)
-            cmd = "a"
-        elif mode == "WBFM":
-            data = modulate_wbfm(data, gain, b, a)
-            cmd = "a"
-        elif mode == "USB":
-            data = modulate_ssb(data, hilbert_kernel, hilbert_taps)
-            cmd = "b"
-        elif mode == "LSB":
-            data = modulate_ssb(data, hilbert_kernel, hilbert_taps, True)
-            cmd = "b"
+        #modulate data into iq or frequency format
+        data = modulator.modulate(data)
 
         #send frame to FPGA
         length = len(data)
