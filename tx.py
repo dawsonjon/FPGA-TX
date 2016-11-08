@@ -48,13 +48,14 @@ class WBFMModulator:
         self.b = array([(f1+2*fs)/(f2+2*fs), (f1-2*fs)/(f2+2*fs)])
         self.a = array([1, (f2-2*fs)/(f2+2*fs)])
 
+
         #calculate frequency response
         w, h = signal.freqz(self.b, self.a)
         f = w/(2*np.pi)#convert to normalised frequency
 
         #gain increases with frequency, so
         #find gain at maximum audio frequency
-        self.preemp_gain = f[int(round((2*15e3)/fs))]
+        self.preemp_gain = h[int(round((2*15e3)/fs))]
 
         #only allow frequencies below 15KHz
         self.lpf_kernel = signal.firwin(50, 15.0e3, pass_zero=True, nyq=fs/2.0) 
@@ -85,31 +86,32 @@ class StereoModulator:
         self.sample = 0
 
         #create pre-emphasis filter kernel
+        ##################################
         f1 = 1.0/time_constant
         f2 = 1.0e6
         self.b = array([(f1+2*fs)/(f2+2*fs), (f1-2*fs)/(f2+2*fs)])
         self.a = array([1, (f2-2*fs)/(f2+2*fs)])
 
-        #calculate frequency response
+        #calculate frequency response and gain estimate
         w, h = signal.freqz(self.b, self.a)
         f = w/(2*np.pi)#convert to normalised frequency
+        if showplots:
+            plt.plot(f, 20.0*np.log10(abs(h)))
+            plt.show()
+        self.preemp_gain = abs(h[int(round((2*15e3)/fs))])
 
-        #gain increases with frequency, so
-        #find gain at maximum audio frequency
-        self.preemp_gain = f[int(round((2*15e3)/fs))]
+        #create low pass filter kernel
+        ##############################
 
-        #only allow frequencies below 15KHz
+        #15KHz cutoff
         self.lpf_kernel = signal.firwin(50, 15.0e3, pass_zero=True, nyq=fs/2.0) 
 
-        #calculate frequency response
+        #calculate frequency response and gain estimate
         w, h = signal.freqz(self.lpf_kernel)
         self.lpf_gain = max(abs(h))
 
-        if showplots:
-            plt.plot(w, 20.0*np.log10(abs(h)))
-            plt.show()
-
-        #create pilot_tone and stereo subcarrier
+        #create pilot_tone and stereo sub carrier
+        ########################################
         fsh = 152.0e3
         t = np.arange(0, 20e-3, 1/fsh)
         self.pilot = np.sin(2*np.pi*19.0e3*t)
@@ -129,8 +131,8 @@ class StereoModulator:
         right = lfilter(self.lpf_kernel, 1, right)/self.lpf_gain
 
         #preemphasis
-        #left = lfilter(self.b, self.a, left)/self.preemp_gain
-        #right = lfilter(self.b, self.a, right)/self.preemp_gain
+        left = lfilter(self.b, self.a, left)/self.preemp_gain
+        right = lfilter(self.b, self.a, right)/self.preemp_gain
 
         #upsample data
         fsh = 152.0e3
