@@ -99,7 +99,7 @@ class StereoModulator:
         self.preemp_gain = f[int(round((2*15e3)/fs))]
 
         #only allow frequencies below 15KHz
-        self.lpf_kernel = signal.firwin(50, [1000, 15.0e3], pass_zero=False, nyq=fs/2.0) 
+        self.lpf_kernel = signal.firwin(50, 15.0e3, pass_zero=True, nyq=fs/2.0) 
 
         #calculate frequency response
         w, h = signal.freqz(self.lpf_kernel)
@@ -111,7 +111,7 @@ class StereoModulator:
 
         #create pilot_tone and stereo subcarrier
         fsh = 152.0e3
-        t = np.arange(0, 10e-3, 1/fsh)
+        t = np.arange(0, 20e-3, 1/fsh)
         self.pilot = np.sin(2*np.pi*19.0e3*t)
         self.subcarrier = np.sin(2*np.pi*38.0e3*t)
         if showplots:
@@ -133,8 +133,8 @@ class StereoModulator:
         right = lfilter(self.lpf_kernel, 1, right)/self.lpf_gain
 
         #preemphasis
-        left = lfilter(self.b, self.a, left)/self.preemp_gain
-        right = lfilter(self.b, self.a, right)/self.preemp_gain
+        #left = lfilter(self.b, self.a, left)/self.preemp_gain
+        #right = lfilter(self.b, self.a, right)/self.preemp_gain
 
         #upsample data
         fsh = 152.0e3
@@ -146,18 +146,18 @@ class StereoModulator:
         #Create modulated stereo
         subcarrier = self.subcarrier[:len(left)]
         pilot = self.pilot[:len(left)]
-        data = (left + right)/2
-        data += ((left - right)/2) * subcarrier
-        data *= 0.9
+        data = (left + right) * 0.45
+        data += ((left - right)/2) * subcarrier * 0.45
+        #print max(data)
         data += pilot * 0.1
+
+
         
-        if self.sample == 1000:
+        if self.sample % 10000 == 0:
             if showplots:
-                plt.figure()
-                plt.plot(data)
-                plt.figure()
+                plt.ion()
                 plt.plot(abs(np.fft.fftshift(np.fft.fft(data))))
-                plt.show()
+                plt.draw()
         else:
             self.sample += 1
 
@@ -177,17 +177,21 @@ class AMModulator:
         q = data/512+192
         return i+(q*256)
 
-
 def error(message):
     print message
     sys.exit(1)
 
-def check_hardware():
+def reset_hardware(port):
     port.flushInput()
-    for i in range(2):
-        port.write(">")
-        if port.readline() == ">\n":
-            return
+    port.write("*"*10000)
+    while port.inWaiting():
+        print port.read(port.inWaiting())
+
+def check_hardware(port):
+    reset_hardware(port)
+    port.write(">")
+    if port.readline() == ">\n":
+        return
     error("Could not communicate with FPGA hardware")
 
 def check_response(port, msg):
@@ -272,26 +276,32 @@ def transmit(port, mode, sample_rate):
         cmd = 'b'
 
     while 1:
-        #tx has a 4kx8byte buffer
-        #assuming 2bytes/sample, 504 samples should ~quarter fill the buffer
-        #in stereo ~3 times as many samples are generated 504 is a multiple of 8
-        #so should be an exact number of 19 and 38k cycles
-        data = sys.stdin.read(504)
-        done = len(data) < 504
+        #tx has a 8kx8byte buffer
+        #assuming 2bytes/sample, 2016 samples should ~quarter fill the buffer
+        #in stereo ~3 times as many samples are generated
+
+        t0 = time.time()
+        data = sys.stdin.read(2016)
+        done = len(data) < 2016
         length = len(data)/2
         data = struct.unpack("<"+("h"*length), data)
         data = array(data)
+        t1 = time.time()
 
         #modulate data into iq or frequency format
         data = modulator.modulate(data)
+        t2 = time.time()
 
         #send frame to FPGA
         length = len(data)
         frame = struct.pack("<" + "H"*length, *data)
         port.write(cmd+chr(length & 0xff)+chr(length>>8)+frame)
+        t3 = time.time()
 
         #Check response
         response = port.readline()
+        t4 = time.time()
+        #print t1-t0, t2-t1, t3-t2, t4-t3, t4-t0
         if response != ">\n":
             error("incorrect response received"+response)
         if done:
@@ -368,7 +378,7 @@ else:
 
 
     port = serial.Serial(device, 12000000, timeout=1)  # open serial port
-    check_hardware()
+    check_hardware(port)
     set_frequency(frequency, port)
     set_control_register(0, port)
     transmit(port, mode, sample_rate)

@@ -43,7 +43,8 @@ void main(){
     unsigned sample_rate_steps = 8333; //default to 12k
     unsigned fm_deviation = 105; //default to 5kHz
     unsigned control = 0; //dithering off
-    unsigned op, next_sample_time, length;
+    unsigned op, next_sample_time=0, length;
+    unsigned next_multiple_of_8_samples;
     int sample, i, q;
     char cmd;
 
@@ -98,10 +99,18 @@ void main(){
 
             //mode b FM
             case 'a':
-                next_sample_time = timer_low() + sample_rate_steps;
+                if (timer_low() > next_sample_time){
+                    next_multiple_of_8_samples = next_sample_time + (sample_rate_steps * 7);
+                    if (timer_low() < next_multiple_of_8_samples){
+                        next_sample_time = next_multiple_of_8_samples;
+                    } else {
+                        next_sample_time = timer_low() + sample_rate_steps;
+                    }
+                }
 
                 length = getc();
                 length |= getc() << 8;
+                length &= 0x7ff; //2048 samples, 1024 bytes (half buffer size)
                 //respond early so that sender can start now
                 puts(">\n");
 
@@ -125,6 +134,8 @@ void main(){
                 //send samples
                 length = getc();
                 length |= getc() << 8;
+                length &= 0x7ff; //2048 samples, 1024 bytes (half buffer size)
+
                 //respond early so that sender can start now
                 puts(">\n");
 

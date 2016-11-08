@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
-| Date         : Sun Nov  6 16:37:51 2016
+| Date         : Tue Nov  8 19:16:18 2016
 | Host         : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command      : report_timing_summary -file ./post_synth_timing_summary.rpt
 | Design       : bsp
@@ -126,7 +126,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-     -2.014      -58.076                    111                15411       -0.170       -4.469                     72                15411        0.345        0.000                       0                  3691  
+     -2.014      -58.076                    111                24739       -0.170       -4.410                     72                24739        0.345        0.000                       0                  4756  
 
 
 Timing constraints are not met.
@@ -159,7 +159,7 @@ sys_clk_pin      {0.000 5.000}        10.000          100.000
 Clock                WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----                -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
 sys_clk_pin                                                                                                                                                        3.000        0.000                       0                     1  
-  clk0                -2.014      -58.076                    111                14567        0.068        0.000                      0                14567        3.000        0.000                       0                  3382  
+  clk0                -2.014      -58.076                    111                23895        0.067        0.000                      0                23895        3.000        0.000                       0                  4447  
     clk_100_s                                                                                                                                                      7.845        0.000                       0                     3  
     clk_400_n_s                                                                                                                                                    0.345        0.000                       0                     2  
     clk_400_s                                                                                                                                                      0.345        0.000                       0                     3  
@@ -179,7 +179,7 @@ From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS
 ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
 clkdv         clk0                7.656        0.000                      0                   55        0.019        0.000                      0                   55  
 clk0          clk_100_s           7.856        0.000                      0                    8        0.036        0.000                      0                    8  
-clk0          clkdv               8.141        0.000                      0                   76       -0.170       -4.469                     72                   76  
+clk0          clkdv               8.139        0.000                      0                   76       -0.170       -4.410                     72                   76  
 
 
 ------------------------------------------------------------------------------------------------
@@ -227,7 +227,7 @@ From Clock:  clk0
   To Clock:  clk0
 
 Setup :          111  Failing Endpoints,  Worst Slack       -2.014ns,  Total Violation      -58.076ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.068ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.067ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        3.000ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
@@ -264,7 +264,7 @@ Slack (VIOLATED) :        -2.014ns  (required time - arrival time)
                                                      -5.111    -3.045 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.803    -2.242    clk0
                          BUFG (Prop_bufg_I_O)         0.096    -2.146 r  bufg_inst2/O
-                         net (fo=3384, unplaced)      0.584    -1.562    transmitter_inst_1/dac_interface_inst_1/clk
+                         net (fo=4449, unplaced)      0.584    -1.562    transmitter_inst_1/dac_interface_inst_1/clk
                          FDRE                                         r  transmitter_inst_1/dac_interface_inst_1/rand_7_reg[16]/C
   -------------------------------------------------------------------    -------------------
                          FDRE (Prop_fdre_C_Q)         0.478    -1.084 r  transmitter_inst_1/dac_interface_inst_1/rand_7_reg[16]/Q
@@ -306,7 +306,7 @@ Slack (VIOLATED) :        -2.014ns  (required time - arrival time)
                                                      -5.381     6.470 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.763     7.232    clk0
                          BUFG (Prop_bufg_I_O)         0.091     7.323 r  bufg_inst2/O
-                         net (fo=3384, unplaced)      0.439     7.762    transmitter_inst_1/dac_interface_inst_1/clk
+                         net (fo=4449, unplaced)      0.439     7.762    transmitter_inst_1/dac_interface_inst_1/clk
                          DSP48E1                                      r  transmitter_inst_1/dac_interface_inst_1/rand_71/CLK
                          clock pessimism              0.531     8.293    
                          clock uncertainty           -0.059     8.233    
@@ -324,15 +324,15 @@ Slack (VIOLATED) :        -2.014ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.068ns  (arrival time - required time)
-  Source:                 user_design_inst_1/main_0_139871567460040/result_reg[8]/C
+Slack (MET) :             0.067ns  (arrival time - required time)
+  Source:                 user_design_inst_1/main_0_140588782622480/result_reg[14]/C
                             (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            user_design_inst_1/main_0_139871567460040/registers_reg_r1_0_15_6_11/RAMB/I
+  Destination:            user_design_inst_1/main_0_140588782622480/registers_reg_r1_0_15_12_17/RAMB/I
                             (rising edge-triggered cell RAMD32 clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk0 rise@0.000ns - clk0 rise@0.000ns)
-  Data Path Delay:        0.306ns  (logic 0.147ns (48.053%)  route 0.159ns (51.947%))
+  Data Path Delay:        0.305ns  (logic 0.147ns (48.186%)  route 0.158ns (51.814%))
   Logic Levels:           0  
   Clock Path Skew:        0.145ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    -1.070ns
@@ -350,12 +350,12 @@ Slack (MET) :             0.068ns  (arrival time - required time)
                                                      -1.777    -1.414 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.338    -1.075    clk0
                          BUFG (Prop_bufg_I_O)         0.026    -1.049 r  bufg_inst2/O
-                         net (fo=3384, unplaced)      0.114    -0.935    user_design_inst_1/main_0_139871567460040/clk
-                         FDRE                                         r  user_design_inst_1/main_0_139871567460040/result_reg[8]/C
+                         net (fo=4449, unplaced)      0.114    -0.935    user_design_inst_1/main_0_140588782622480/clk
+                         FDRE                                         r  user_design_inst_1/main_0_140588782622480/result_reg[14]/C
   -------------------------------------------------------------------    -------------------
-                         FDRE (Prop_fdre_C_Q)         0.147    -0.788 r  user_design_inst_1/main_0_139871567460040/result_reg[8]/Q
-                         net (fo=10, unplaced)        0.159    -0.629    user_design_inst_1/main_0_139871567460040/registers_reg_r1_0_15_6_11/DIB0
-                         RAMD32                                       r  user_design_inst_1/main_0_139871567460040/registers_reg_r1_0_15_6_11/RAMB/I
+                         FDRE (Prop_fdre_C_Q)         0.147    -0.788 r  user_design_inst_1/main_0_140588782622480/result_reg[14]/Q
+                         net (fo=9, unplaced)         0.158    -0.630    user_design_inst_1/main_0_140588782622480/registers_reg_r1_0_15_12_17/DIB0
+                         RAMD32                                       r  user_design_inst_1/main_0_140588782622480/registers_reg_r1_0_15_12_17/RAMB/I
   -------------------------------------------------------------------    -------------------
 
                          (clock clk0 rise edge)       0.000     0.000 r  
@@ -367,16 +367,16 @@ Slack (MET) :             0.068ns  (arrival time - required time)
                                                      -2.411    -1.715 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.356    -1.358    clk0
                          BUFG (Prop_bufg_I_O)         0.029    -1.329 r  bufg_inst2/O
-                         net (fo=3384, unplaced)      0.259    -1.070    user_design_inst_1/main_0_139871567460040/registers_reg_r1_0_15_6_11/WCLK
-                         RAMD32                                       r  user_design_inst_1/main_0_139871567460040/registers_reg_r1_0_15_6_11/RAMB/CLK
+                         net (fo=4449, unplaced)      0.259    -1.070    user_design_inst_1/main_0_140588782622480/registers_reg_r1_0_15_12_17/WCLK
+                         RAMD32                                       r  user_design_inst_1/main_0_140588782622480/registers_reg_r1_0_15_12_17/RAMB/CLK
                          clock pessimism              0.280    -0.790    
                          RAMD32 (Hold_ramd32_CLK_I)
-                                                      0.093    -0.697    user_design_inst_1/main_0_139871567460040/registers_reg_r1_0_15_6_11/RAMB
+                                                      0.093    -0.697    user_design_inst_1/main_0_140588782622480/registers_reg_r1_0_15_12_17/RAMB
   -------------------------------------------------------------------
                          required time                          0.697    
-                         arrival time                          -0.629    
+                         arrival time                          -0.630    
   -------------------------------------------------------------------
-                         slack                                  0.068    
+                         slack                                  0.067    
 
 
 
@@ -773,7 +773,7 @@ Slack (MET) :             7.656ns  (required time - arrival time)
                                                      -5.381     6.470 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.763     7.232    clk0
                          BUFG (Prop_bufg_I_O)         0.091     7.323 r  bufg_inst2/O
-                         net (fo=3384, unplaced)      0.439     7.762    ethernet_inst_1/clk
+                         net (fo=4449, unplaced)      0.439     7.762    ethernet_inst_1/clk
                          FDRE                                         r  ethernet_inst_1/RX_PACKET_LENGTH_SYNC_reg[0]/C
                          clock pessimism              0.485     8.248    
                          clock uncertainty           -0.209     8.039    
@@ -837,7 +837,7 @@ Slack (MET) :             0.019ns  (arrival time - required time)
                                                      -2.411    -1.715 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.356    -1.358    clk0
                          BUFG (Prop_bufg_I_O)         0.029    -1.329 r  bufg_inst2/O
-                         net (fo=3384, unplaced)      0.259    -1.070    ethernet_inst_1/clk
+                         net (fo=4449, unplaced)      0.259    -1.070    ethernet_inst_1/clk
                          FDRE                                         r  ethernet_inst_1/RX_BUFFER_BUSY_DEL_reg[0]/C
                          clock pessimism              0.301    -0.770    
                          clock uncertainty            0.209    -0.561    
@@ -893,7 +893,7 @@ Slack (MET) :             7.856ns  (required time - arrival time)
                                                      -5.111    -3.045 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.803    -2.242    clk0
                          BUFG (Prop_bufg_I_O)         0.096    -2.146 r  bufg_inst2/O
-                         net (fo=3384, unplaced)      0.584    -1.562    transmitter_inst_1/dac_interface_inst_1/clk
+                         net (fo=4449, unplaced)      0.584    -1.562    transmitter_inst_1/dac_interface_inst_1/clk
                          FDRE                                         r  transmitter_inst_1/dac_interface_inst_1/dac_0_reg/C
   -------------------------------------------------------------------    -------------------
                          FDRE (Prop_fdre_C_Q)         0.478    -1.084 r  transmitter_inst_1/dac_interface_inst_1/dac_0_reg/Q
@@ -911,7 +911,7 @@ Slack (MET) :             7.856ns  (required time - arrival time)
                                                      -5.381     6.470 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.763     7.232    clk0
                          BUFG (Prop_bufg_I_O)         0.091     7.323 r  bufg_inst2/O
-                         net (fo=3384, unplaced)      0.439     7.762    transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/clk
+                         net (fo=4449, unplaced)      0.439     7.762    transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/clk
                          PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT0)
                                                      -1.293     6.470 r  transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/plle2_base_inst/CLKOUT0
                          net (fo=1, unplaced)         0.763     7.232    transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/clk_100_s
@@ -964,7 +964,7 @@ Slack (MET) :             0.036ns  (arrival time - required time)
                                                      -1.777    -1.414 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.338    -1.075    clk0
                          BUFG (Prop_bufg_I_O)         0.026    -1.049 r  bufg_inst2/O
-                         net (fo=3384, unplaced)      0.114    -0.935    transmitter_inst_1/dac_interface_inst_1/clk
+                         net (fo=4449, unplaced)      0.114    -0.935    transmitter_inst_1/dac_interface_inst_1/clk
                          FDRE                                         r  transmitter_inst_1/dac_interface_inst_1/dac_0_reg/C
   -------------------------------------------------------------------    -------------------
                          FDRE (Prop_fdre_C_Q)         0.147    -0.788 r  transmitter_inst_1/dac_interface_inst_1/dac_0_reg/Q
@@ -982,7 +982,7 @@ Slack (MET) :             0.036ns  (arrival time - required time)
                                                      -2.411    -1.715 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.356    -1.358    clk0
                          BUFG (Prop_bufg_I_O)         0.029    -1.329 r  bufg_inst2/O
-                         net (fo=3384, unplaced)      0.259    -1.070    transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/clk
+                         net (fo=4449, unplaced)      0.259    -1.070    transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/clk
                          PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT0)
                                                      -0.644    -1.715 r  transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/plle2_base_inst/CLKOUT0
                          net (fo=1, unplaced)         0.356    -1.358    transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/clk_100_s
@@ -1007,14 +1007,14 @@ Slack (MET) :             0.036ns  (arrival time - required time)
 From Clock:  clk0
   To Clock:  clkdv
 
-Setup :            0  Failing Endpoints,  Worst Slack        8.141ns,  Total Violation        0.000ns
-Hold  :           72  Failing Endpoints,  Worst Slack       -0.170ns,  Total Violation       -4.469ns
+Setup :            0  Failing Endpoints,  Worst Slack        8.139ns,  Total Violation        0.000ns
+Hold  :           72  Failing Endpoints,  Worst Slack       -0.170ns,  Total Violation       -4.410ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             8.141ns  (required time - arrival time)
+Slack (MET) :             8.139ns  (required time - arrival time)
   Source:                 internal_rst_reg/C
                             (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Destination:            charsvga_inst_1/TIMEING1/COL_ADDRESS_reg[0]/R
@@ -1022,7 +1022,7 @@ Slack (MET) :             8.141ns  (required time - arrival time)
   Path Group:             clkdv
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clkdv rise@20.000ns - clk0 rise@10.000ns)
-  Data Path Delay:        0.951ns  (logic 0.478ns (50.263%)  route 0.473ns (49.737%))
+  Data Path Delay:        0.953ns  (logic 0.478ns (50.157%)  route 0.475ns (49.843%))
   Logic Levels:           0  
   Clock Path Skew:        0.029ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    -2.019ns = ( 17.981 - 20.000 ) 
@@ -1044,11 +1044,11 @@ Slack (MET) :             8.141ns  (required time - arrival time)
                                                      -5.111     6.955 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.803     7.758    clk0
                          BUFG (Prop_bufg_I_O)         0.096     7.854 r  bufg_inst2/O
-                         net (fo=3384, unplaced)      0.584     8.438    clk
+                         net (fo=4449, unplaced)      0.584     8.438    clk
                          FDRE                                         r  internal_rst_reg/C
   -------------------------------------------------------------------    -------------------
                          FDRE (Prop_fdre_C_Q)         0.478     8.916 r  internal_rst_reg/Q
-                         net (fo=333, unplaced)       0.473     9.389    charsvga_inst_1/TIMEING1/internal_rst_reg
+                         net (fo=364, unplaced)       0.475     9.391    charsvga_inst_1/TIMEING1/internal_rst_reg
                          FDRE                                         r  charsvga_inst_1/TIMEING1/COL_ADDRESS_reg[0]/R
   -------------------------------------------------------------------    -------------------
 
@@ -1068,9 +1068,9 @@ Slack (MET) :             8.141ns  (required time - arrival time)
                          FDRE (Setup_fdre_C_R)       -0.728    17.530    charsvga_inst_1/TIMEING1/COL_ADDRESS_reg[0]
   -------------------------------------------------------------------
                          required time                         17.530    
-                         arrival time                          -9.389    
+                         arrival time                          -9.391    
   -------------------------------------------------------------------
-                         slack                                  8.141    
+                         slack                                  8.139    
 
 
 
@@ -1108,7 +1108,7 @@ Slack (VIOLATED) :        -0.170ns  (arrival time - required time)
                                                      -1.777    -1.414 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, unplaced)         0.338    -1.075    clk0
                          BUFG (Prop_bufg_I_O)         0.026    -1.049 r  bufg_inst2/O
-                         net (fo=3384, unplaced)      0.114    -0.935    ethernet_inst_1/clk
+                         net (fo=4449, unplaced)      0.114    -0.935    ethernet_inst_1/clk
                          FDRE                                         r  ethernet_inst_1/GO_reg/C
   -------------------------------------------------------------------    -------------------
                          FDRE (Prop_fdre_C_Q)         0.147    -0.788 r  ethernet_inst_1/GO_reg/Q

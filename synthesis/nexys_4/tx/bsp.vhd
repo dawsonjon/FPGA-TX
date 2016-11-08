@@ -518,6 +518,9 @@ architecture rtl of bsp is
   signal led_b_stb : std_logic;
   signal led_b_ack : std_logic;
 
+  signal s_test_1 : std_logic := '0';
+  signal s_test_2 : std_logic := '0';
+
 begin
 
 
@@ -590,8 +593,18 @@ begin
 
       rf => rf_out
   );
-  test_1 <= output_tx_freq_stb;
-  test_2 <= output_tx_am_stb;
+  process
+  begin
+    wait until rising_edge(clk);
+    if output_tx_freq_stb = '1' then
+      s_test_1 <= not s_test_1;
+    end if;
+    if output_tx_am_stb = '1' then
+      s_test_2 <= not s_test_2;
+    end if;
+  end process;
+  test_1 <= s_test_1;
+  test_2 <= s_test_2;
 
   pwm_audio_inst_1 : pwm_audio 
   generic map(
