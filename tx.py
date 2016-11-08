@@ -114,10 +114,6 @@ class StereoModulator:
         t = np.arange(0, 20e-3, 1/fsh)
         self.pilot = np.sin(2*np.pi*19.0e3*t)
         self.subcarrier = np.sin(2*np.pi*38.0e3*t)
-        if showplots:
-            #plt.plot(t, self.pilot, t, self.subcarrier)
-            plt.plot(t, abs(np.fft.fftshift(np.fft.fft(self.pilot))))
-            plt.show()
 
     def modulate(self, data):
 
@@ -139,19 +135,19 @@ class StereoModulator:
         #upsample data
         fsh = 152.0e3
         resample_factor = fsh/self.fs
-        new_samples = 8*int(round(len(left) * resample_factor)//8)
+        new_samples = int(round(len(left) * resample_factor))
         left = signal.resample(left, new_samples)
         right = signal.resample(right, new_samples)
 
-        #Create modulated stereo
-        subcarrier = self.subcarrier[:len(left)]
-        pilot = self.pilot[:len(left)]
+        #shift subcarrier and pilot to maintain phase across frames
+        subcarrier = self.subcarrier[:new_samples]
+        self.subcarrier = np.concatenate([self.subcarrier[new_samples:], subcarrier])
+        pilot = self.pilot[:new_samples]
+        self.pilot = np.concatenate([self.pilot[new_samples:], pilot])
+
         data = (left + right) * 0.45
         data += ((left - right)/2) * subcarrier * 0.45
-        #print max(data)
         data += pilot * 0.1
-
-
         
         if self.sample % 10000 == 0:
             if showplots:
@@ -182,10 +178,8 @@ def error(message):
     sys.exit(1)
 
 def reset_hardware(port):
+    port.write(" "*10000)
     port.flushInput()
-    port.write("*"*10000)
-    while port.inWaiting():
-        print port.read(port.inWaiting())
 
 def check_hardware(port):
     reset_hardware(port)
