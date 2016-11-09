@@ -1,11 +1,11 @@
 from chips.api.api import Stimulus, Response, Input, Output, Chip
-from demo.build_tools import build_vivado
-from demo.download_tools import vivado
-import demo.flash_tools
+from fpga_tx.build_tools import build_vivado
+from fpga_tx.download_tools import vivado
+import fpga_tx.flash_tools
 
 build_tool = build_vivado
 download_tool = vivado
-flash_tool = demo.flash_tools.vivado
+flash_tool = fpga_tx.flash_tools.vivado
 device =  "XC7A100T-CSG324-1"
 board="Atlys"
 

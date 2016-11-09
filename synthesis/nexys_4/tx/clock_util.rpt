@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
-| Date         : Tue Nov  8 19:17:25 2016
+| Date         : Wed Nov  9 20:04:41 2016
 | Host         : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command      : report_clock_utilization -file ./clock_util.rpt
 | Design       : bsp
@@ -368,6 +368,6 @@ resize_pblock [get_pblocks {CLKAG_eth_clk_OBUF}] -add {CLOCKREGION_X0Y1:CLOCKREG
 # Clock net "clk" driven by instance "bufg_inst2" located at site "BUFGCTRL_X0Y17"
 #startgroup
 create_pblock {CLKAG_clk}
-add_cells_to_pblock [get_pblocks  {CLKAG_clk}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL && NAME!=transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/plle2_base_inst && NAME!=dcm_sp_inst} -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="clk"}]]]
+add_cells_to_pblock [get_pblocks  {CLKAG_clk}] [get_cells -filter { PRIMITIVE_GROUP != I/O && IS_PRIMITIVE==1 && PRIMITIVE_LEVEL !=INTERNAL && NAME!=dcm_sp_inst && NAME!=transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/plle2_base_inst} -of_object [get_pins -filter {DIRECTION==IN} -of_objects [get_nets -hierarchical -filter {PARENT=="clk"}]]]
 resize_pblock [get_pblocks {CLKAG_clk}] -add {CLOCKREGION_X0Y1:CLOCKREGION_X0Y1 CLOCKREGION_X0Y2:CLOCKREGION_X0Y2 CLOCKREGION_X0Y3:CLOCKREGION_X0Y3 CLOCKREGION_X1Y1:CLOCKREGION_X1Y1 CLOCKREGION_X1Y2:CLOCKREGION_X1Y2 CLOCKREGION_X1Y3:CLOCKREGION_X1Y3}
 #endgroup

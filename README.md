@@ -62,12 +62,12 @@ sox test.wav -t raw -b 16 -r 12k - | ./tx.py -f=12e6 -m=fm -r=12000
 
 ####transmit stereo FM on 88 MHz
 ```
-e.g. sox test.wav --channels 2 -t raw -b 16 -r 48k - | ./tx.py -f=88e6 -m=stereo -r 12000
+sox test.wav --channels 2 -t raw -b 16 -r 48k - | ./tx.py -f=88e6 -m=stereo -r 12000
 ```
 
-####transmit lower sideband on 10 MHz
+####transmit lower sideband on 10 MHz (using soundcard inputi, e.g. microphone)
 ```
-e.g. sox test.wav -t raw -b 16 -r 12k - | ./tx.py -f=100e6 -m=lsb
+rec -t raw -b 16 -r 12k - | ./tx.py -f=10e6 -m=lsb
 ```
 
 FPGA Firmware
@@ -86,15 +86,16 @@ sudo apt-get install python-numpy python-scipy python-serial
 You will need Chips-2.0 to build the FPGA embedded C code.
 
 ```
-git clone https://github.com/dawsonjon/Chips-2.0.git
+git clone --recursive https://github.com/dawsonjon/Chips-2.0.git
 cd Chips-2.0
-sudo python setup.py install
+sudo python setup install
+cd ..
 ```
 
 ### Additional software
 Requires the vendor's tools for the target FPGA card. Vivado webpack edition
 can be downloaded from the [Xilinx](www.xilinx.com) website. You will need to
-edit the demo/user_settings.py file to point to the location where Vivado is
+edit the fpga_tx/user_settings.py file to point to the location where Vivado is
 installed.
 
 Build Process
@@ -104,14 +105,14 @@ Build Process
 This step is optional, you can use the precompiled files.
 
 ```
-./run_demo tx nexys_4 compile
+./run_fpga nexys_4 compile
 ```
 
 ### Building the VHDL and Verilog into an FPGA bitstream
 This step is optional, you can use the precompiled files.
 
 ```
-./run_demo tx nexys_4 compile build
+./run_fpga nexys_4 compile build
 ```
 
 ### Download the bitstream into FPGA (volatile)
@@ -119,7 +120,7 @@ Do this step if you want to try out the FPGA firmware without overwriting the SP
 The FPGA will lose its configuration each time it loses power.
 
 ```
-./run_demo tx nexys_4 compile download
+./run_fpga nexys_4 compile download
 ```
 
 ### Download the bitstream into SPI Flash (non-volatile)
@@ -127,5 +128,5 @@ Do this step if you want to program the SPI PROM on the FPGA card.
 The FPGA will retain its configuration if power is lost.
 
 ```
-./run_demo tx nexys_4 compile flash
+./run_demo nexys_4 compile flash
 ```

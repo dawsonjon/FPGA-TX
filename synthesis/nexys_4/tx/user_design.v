@@ -65,26 +65,26 @@ module user_design(clk, rst, exception, input_timer, input_rs232_rx, input_ps2, 
   output [31:0] output_tx_freq;
   output output_tx_freq_stb;
   input  output_tx_freq_ack;
-  wire   exception_140588782622480;
-  wire   exception_140588782243784;
-  wire   exception_140588780067152;
-  wire   exception_140588779468488;
-  wire   exception_140588782608536;
-  wire   exception_140588779217768;
-  wire   exception_140588780939096;
-  wire   exception_140588780940248;
-  wire   exception_140588781105592;
-  wire   exception_140588782589352;
-  wire   exception_140588782525616;
-  wire   exception_140588781675080;
-  wire   exception_140588781105808;
-  wire   exception_140588780198584;
-  wire   exception_140588781700520;
-  wire   exception_140588778955768;
-  main_0 main_0_140588782622480(
+  wire   exception_140168272482960;
+  wire   exception_140168272329184;
+  wire   exception_140168269919224;
+  wire   exception_140168269992304;
+  wire   exception_140168272969024;
+  wire   exception_140168270828536;
+  wire   exception_140168270781832;
+  wire   exception_140168270796488;
+  wire   exception_140168270950696;
+  wire   exception_140168269245400;
+  wire   exception_140168272329112;
+  wire   exception_140168271554896;
+  wire   exception_140168270981888;
+  wire   exception_140168270010704;
+  wire   exception_140168270816392;
+  wire   exception_140168271751504;
+  main_0 main_0_140168272482960(
     .clk(clk),
     .rst(rst),
-    .exception(exception_140588782622480),
+    .exception(exception_140168272482960),
     .input_rs232_rx(input_rs232_rx),
     .input_rs232_rx_stb(input_rs232_rx_stb),
     .input_rs232_rx_ack(input_rs232_rx_ack),
@@ -103,110 +103,110 @@ module user_design(clk, rst, exception, input_timer, input_rs232_rx, input_ps2, 
     .output_ctl_out(output_tx_ctl),
     .output_ctl_out_stb(output_tx_ctl_stb),
     .output_ctl_out_ack(output_tx_ctl_ack));
-  main_1 main_1_140588782243784(
+  main_1 main_1_140168272329184(
     .clk(clk),
     .rst(rst),
-    .exception(exception_140588782243784),
+    .exception(exception_140168272329184),
     .input_in(input_timer),
     .input_in_stb(input_timer_stb),
     .input_in_ack(input_timer_ack));
-  main_2 main_2_140588780067152(
+  main_2 main_2_140168269919224(
     .clk(clk),
     .rst(rst),
-    .exception(exception_140588780067152),
+    .exception(exception_140168269919224),
     .input_in(input_ps2),
     .input_in_stb(input_ps2_stb),
     .input_in_ack(input_ps2_ack));
-  main_3 main_3_140588779468488(
+  main_3 main_3_140168269992304(
     .clk(clk),
     .rst(rst),
-    .exception(exception_140588779468488),
+    .exception(exception_140168269992304),
     .input_in(input_i2c),
     .input_in_stb(input_i2c_stb),
     .input_in_ack(input_i2c_ack));
-  main_4 main_4_140588782608536(
+  main_4 main_4_140168272969024(
     .clk(clk),
     .rst(rst),
-    .exception(exception_140588782608536),
+    .exception(exception_140168272969024),
     .input_in(input_switches),
     .input_in_stb(input_switches_stb),
     .input_in_ack(input_switches_ack));
-  main_5 main_5_140588779217768(
+  main_5 main_5_140168270828536(
     .clk(clk),
     .rst(rst),
-    .exception(exception_140588779217768),
+    .exception(exception_140168270828536),
     .input_in(input_eth_rx),
     .input_in_stb(input_eth_rx_stb),
     .input_in_ack(input_eth_rx_ack));
-  main_6 main_6_140588780939096(
+  main_6 main_6_140168270781832(
     .clk(clk),
     .rst(rst),
-    .exception(exception_140588780939096),
+    .exception(exception_140168270781832),
     .input_in(input_buttons),
     .input_in_stb(input_buttons_stb),
     .input_in_ack(input_buttons_ack));
-  main_7 main_7_140588780940248(
+  main_7 main_7_140168270796488(
     .clk(clk),
     .rst(rst),
-    .exception(exception_140588780940248),
+    .exception(exception_140168270796488),
     .output_out(output_seven_segment_annode),
     .output_out_stb(output_seven_segment_annode_stb),
     .output_out_ack(output_seven_segment_annode_ack));
-  main_8 main_8_140588781105592(
+  main_8 main_8_140168270950696(
     .clk(clk),
     .rst(rst),
-    .exception(exception_140588781105592),
+    .exception(exception_140168270950696),
     .output_out(output_eth_tx),
     .output_out_stb(output_eth_tx_stb),
     .output_out_ack(output_eth_tx_ack));
-  main_9 main_9_140588782589352(
+  main_9 main_9_140168269245400(
     .clk(clk),
     .rst(rst),
-    .exception(exception_140588782589352),
+    .exception(exception_140168269245400),
     .output_out(output_leds),
     .output_out_stb(output_leds_stb),
     .output_out_ack(output_leds_ack));
-  main_10 main_10_140588782525616(
+  main_10 main_10_140168272329112(
     .clk(clk),
     .rst(rst),
-    .exception(exception_140588782525616),
+    .exception(exception_140168272329112),
     .output_out(output_led_g),
     .output_out_stb(output_led_g_stb),
     .output_out_ack(output_led_g_ack));
-  main_11 main_11_140588781675080(
+  main_11 main_11_140168271554896(
     .clk(clk),
     .rst(rst),
-    .exception(exception_140588781675080),
+    .exception(exception_140168271554896),
     .output_out(output_seven_segment_cathode),
     .output_out_stb(output_seven_segment_cathode_stb),
     .output_out_ack(output_seven_segment_cathode_ack));
-  main_12 main_12_140588781105808(
+  main_12 main_12_140168270981888(
     .clk(clk),
     .rst(rst),
-    .exception(exception_140588781105808),
+    .exception(exception_140168270981888),
     .output_out(output_led_b),
     .output_out_stb(output_led_b_stb),
     .output_out_ack(output_led_b_ack));
-  main_13 main_13_140588780198584(
+  main_13 main_13_140168270010704(
     .clk(clk),
     .rst(rst),
-    .exception(exception_140588780198584),
+    .exception(exception_140168270010704),
     .output_out(output_i2c),
     .output_out_stb(output_i2c_stb),
     .output_out_ack(output_i2c_ack));
-  main_14 main_14_140588781700520(
+  main_14 main_14_140168270816392(
     .clk(clk),
     .rst(rst),
-    .exception(exception_140588781700520),
+    .exception(exception_140168270816392),
     .output_out(output_vga),
     .output_out_stb(output_vga_stb),
     .output_out_ack(output_vga_ack));
-  main_15 main_15_140588778955768(
+  main_15 main_15_140168271751504(
     .clk(clk),
     .rst(rst),
-    .exception(exception_140588778955768),
+    .exception(exception_140168271751504),
     .output_out(output_led_r),
     .output_out_stb(output_led_r_stb),
     .output_out_ack(output_led_r_ack));
-  assign exception = exception_140588782622480 || exception_140588782243784 || exception_140588780067152 || exception_140588779468488 || exception_140588782608536 || exception_140588779217768 || exception_140588780939096 || exception_140588780940248 || exception_140588781105592 || exception_140588782589352 || exception_140588782525616 || exception_140588781675080 || exception_140588781105808 || exception_140588780198584 || exception_140588781700520 || exception_140588778955768;
+  assign exception = exception_140168272482960 || exception_140168272329184 || exception_140168269919224 || exception_140168269992304 || exception_140168272969024 || exception_140168270828536 || exception_140168270781832 || exception_140168270796488 || exception_140168270950696 || exception_140168269245400 || exception_140168272329112 || exception_140168271554896 || exception_140168270981888 || exception_140168270010704 || exception_140168270816392 || exception_140168271751504;
 endmodule
