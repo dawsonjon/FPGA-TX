@@ -87,17 +87,6 @@ entity bsp is
    clk_in                : in    std_logic;       
    rst                   : in    std_logic;       
 
-   --phy interface
-   eth_clk               : out   std_logic;     
-   phy_reset_n           : out   std_logic;       
-
-   rxdv                  : in    std_logic;       
-   rxer                  : in    std_logic;       
-   rxd                   : in    std_logic_vector(1 downto 0);
-
-   txd                   : out   std_logic_vector(1 downto 0);
-   txen                  : out   std_logic;      
-
    --i2c
    sda                   : inout std_logic;
    scl                   : inout std_logic;
@@ -113,13 +102,6 @@ entity bsp is
    --audio interface
    audio                 : out std_logic;
    audio_en              : out std_logic;
-
-   --vga interface
-   vga_r                 : out std_logic_vector(3 downto 0);
-   vga_g                 : out std_logic_vector(3 downto 0);
-   vga_b                 : out std_logic_vector(3 downto 0);
-   hsynch                : out std_logic;
-   vsynch                : out std_logic;
 
    --leds
    gpio_leds             : out std_logic_vector(15 downto 0);   
@@ -142,36 +124,6 @@ end entity bsp;
 
 architecture rtl of bsp is
 
-  component rmii_ethernet is
-    port(
-
-      clk         : in  std_logic;
-      rst         : in  std_logic;
-
-      eth_clk     : in  std_logic;
-      phy_reset   : out std_logic; 
-
-      --mii if
-      txd         : out std_logic_vector(1 downto 0);
-      txer        : out std_logic;
-      txen        : out std_logic;
-
-      rxd         : in  std_logic_vector(1 downto 0);
-      rxer        : in  std_logic;
-      rxdv        : in  std_logic;
-
-      --rx stream
-      tx          : in  std_logic_vector(15 downto 0);
-      tx_stb      : in  std_logic;
-      tx_ack      : out std_logic;
-
-      --rx stream
-      rx          : out std_logic_vector(15 downto 0);
-      rx_stb      : out std_logic;
-      rx_ack      : in  std_logic
-    );
-  end component rmii_ethernet;
-
   component transmitter is
     port(
       clk : in std_logic;
@@ -188,25 +140,6 @@ architecture rtl of bsp is
       rf : out std_logic
     );
   end component transmitter;
-
-  component charsvga is
-    port ( 
-
-    clk        : in  std_logic;
-    data       : in  std_logic_vector(31 downto 0);
-    data_ack   : out std_logic;
-    data_stb   : in  std_logic;
-    
-    --vga interface
-    vgaclk     : in  std_logic;
-    rst        : in  std_logic;
-    r          : out std_logic;
-    g          : out std_logic;
-    b          : out std_logic;
-    hsynch     : out std_logic;
-    vsynch     : out std_logic
-    );
-  end component charsvga;
 
   component pwm is
     generic(
@@ -277,10 +210,6 @@ architecture rtl of bsp is
       input_buttons_stb : in std_logic;
       input_buttons_ack : out std_logic;
 
-      output_vga : out  std_logic_vector(31 downto 0);
-      output_vga_ack : in std_logic;
-      output_vga_stb : out  std_logic;
-
       output_audio : out std_logic_vector(31 downto 0);
       output_audio_stb : out std_logic;
       output_audio_ack : in std_logic;
@@ -325,16 +254,6 @@ architecture rtl of bsp is
       output_i2c : out std_logic_vector(31 downto 0);
       output_i2c_stb : out std_logic;
       output_i2c_ack : in std_logic;
-
-      --eth rx stream
-      input_eth_rx : in std_logic_vector(31 downto 0);
-      input_eth_rx_stb : in std_logic;
-      input_eth_rx_ack : out std_logic;
-
-      --eth tx stream
-      output_eth_tx : out std_logic_vector(31 downto 0);
-      output_eth_tx_stb : out std_logic;
-      output_eth_tx_ack : in std_logic;
 
       --rs232 rx stream
       input_rs232_rx : in std_logic_vector(31 downto 0);
@@ -465,15 +384,6 @@ architecture rtl of bsp is
   signal  output_tx_ctl_stb : std_logic;
   signal  output_tx_ctl_ack : std_logic;
 
-  --interface for svga
-  signal vgaclk : std_logic;
-  signal vga_rr : std_logic;
-  signal vga_gg : std_logic;
-  signal vga_bb : std_logic;
-  signal output_vga : std_logic_vector(31 downto 0);
-  signal output_vga_ack : std_logic;
-  signal output_vga_stb : std_logic;
-
   --ps2 interface for kb/mouse
   signal ps2_stb : std_logic;
   signal ps2_ack : std_logic;
@@ -486,16 +396,6 @@ architecture rtl of bsp is
   signal output_i2c : std_logic_vector(31 downto 0);
   signal output_i2c_stb : std_logic;
   signal output_i2c_ack : std_logic;
-
-  --eth tx stream
-  signal eth_tx          : std_logic_vector(31 downto 0);
-  signal eth_tx_stb      : std_logic;
-  signal eth_tx_ack      : std_logic;
-  
-  --eth rx stream
-  signal eth_rx          : std_logic_vector(31 downto 0);
-  signal eth_rx_stb      : std_logic;
-  signal eth_rx_ack      : std_logic;
 
   --rs232 rx stream
   signal input_rs232_rx : std_logic_vector(31 downto 0);
@@ -522,58 +422,6 @@ architecture rtl of bsp is
   signal s_test_2 : std_logic := '0';
 
 begin
-
-
-  ethernet_inst_1 : rmii_ethernet port map(
-      clk         => clk,
-      rst         => internal_rst,
-
-      --gmii if
-      eth_clk     => clk_out1,
-
-      txd         => txd,
-      txer        => open,
-      txen        => txen,
-
-      phy_reset   => phy_reset_n,
-
-      rxd         => rxd,
-      rxer        => rxer,
-      rxdv        => rxdv,
-
-      --rx stream
-      tx          => eth_tx(15 downto 0),
-      tx_stb      => eth_tx_stb,
-      tx_ack      => eth_tx_ack,
-
-      --rx stream
-      rx          => eth_rx(15 downto 0),
-      rx_stb      => eth_rx_stb,
-      rx_ack      => eth_rx_ack
-    );
-
-  charsvga_inst_1 : charsvga port map( 
-
-    clk => clk,
-    data => output_vga,
-    data_ack => output_vga_ack,
-    data_stb => output_vga_stb,
-    
-    --vga interface
-    vgaclk => vgaclk,
-    rst => internal_rst,
-    r => vga_rr,
-    g => vga_gg,
-    b => vga_bb,
-    hsynch => hsynch,
-    vsynch => vsynch
-  );
-
-  generate_vga : for i in 0 to 3 generate
-    vga_r(i) <= vga_rr;
-    vga_g(i) <= vga_gg;
-    vga_b(i) <= vga_bb;
-  end generate;
 
   transmitter_inst_1 :  transmitter port map(
       clk => clk,
@@ -641,11 +489,6 @@ begin
       input_buttons_stb => input_buttons_stb,
       input_buttons_ack => input_buttons_ack,
 
-      --vga interfave
-      output_vga => output_vga,
-      output_vga_ack => output_vga_ack,
-      output_vga_stb => output_vga_stb,
-
       --tri color led interface
       output_led_r => led_r,
       output_led_r_stb => led_r_stb,
@@ -704,17 +547,7 @@ begin
       input_i2c_ack  => output_i2c_ack,
       output_i2c     => input_i2c,
       output_i2c_stb => input_i2c_stb,
-      output_i2c_ack => input_i2c_ack,
-
-      --eth rx stream
-      input_eth_rx => eth_rx,
-      input_eth_rx_stb => eth_rx_stb,
-      input_eth_rx_ack => eth_rx_ack,
-
-      --eth tx stream
-      output_eth_tx => eth_tx,
-      output_eth_tx_stb => eth_tx_stb,
-      output_eth_tx_ack => eth_tx_ack
+      output_i2c_ack => input_i2c_ack
 
   );
 
@@ -946,8 +779,6 @@ begin
     i   => clk2x);
     
   rst_inv <= not rst;
-  eth_clk <= clk_out1;
-  vgaclk <= clk_out1;
   
 
   -- chips clk frequency selection

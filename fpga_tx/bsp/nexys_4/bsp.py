@@ -13,7 +13,6 @@ def make_chip():
     chip = Chip("user_design")
 
     #create stimulus and response
-    Input(chip, "input_eth_rx")
     Input(chip, "input_rs232_rx")
     Input(chip, "input_switches")
     Input(chip, "input_buttons")
@@ -21,7 +20,6 @@ def make_chip():
     Input(chip, "input_i2c")
     Input(chip, "input_ps2")
 
-    Output(chip, "output_eth_tx")
     Output(chip, "output_rs232_tx")
     Output(chip, "output_leds")
     Output(chip, "output_led_r")
@@ -30,7 +28,6 @@ def make_chip():
     Output(chip, "output_seven_segment_cathode")
     Output(chip, "output_seven_segment_annode")
     Output(chip, "output_i2c")
-    Output(chip, "output_vga")
     Output(chip, "output_audio")
     Output(chip, "output_tx_freq")
     Output(chip, "output_tx_am")

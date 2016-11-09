@@ -7,8 +7,6 @@
     read_xdc ./bsp.xdc
     read_verilog main_12.v
 read_verilog main_11.v
-read_verilog main_13.v
-read_verilog main_15.v
 read_verilog main_10.v
 read_verilog main_0.v
 read_verilog main_1.v
@@ -20,7 +18,6 @@ read_verilog main_6.v
 read_verilog main_7.v
 read_verilog main_8.v
 read_verilog main_9.v
-read_verilog main_14.v
 read_verilog user_design.v
 read_verilog chips_lib.v
 read_vhdl fifo.vhd

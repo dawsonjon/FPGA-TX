@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
-| Date         : Tue Nov  8 19:19:05 2016
+| Date         : Wed Nov  9 20:25:11 2016
 | Host         : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command      : report_timing_summary -file ./post_route_timing_summary.rpt
 | Design       : bsp
@@ -81,7 +81,7 @@ Table of Contents
 
 6. checking no_output_delay
 ---------------------------
- There are 28 ports with no output delay specified. (HIGH)
+ There are 10 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
@@ -126,7 +126,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-     -0.533       -4.245                     20                24131        0.022        0.000                      0                24131        0.345        0.000                       0                  4501  
+     -0.444       -5.014                     28                23685        0.024        0.000                      0                23685        0.345        0.000                       0                  4317  
 
 
 Timing constraints are not met.
@@ -144,7 +144,6 @@ sys_clk_pin    {0.000 5.000}        10.000          100.000
     clk_100_s  {0.000 5.000}        10.000          100.000         
     clk_400_s  {0.000 1.250}        2.500           400.000         
     clkfbout   {0.000 5.000}        10.000          100.000         
-  clkdv        {0.000 10.000}       20.000          50.000          
 
 
 ------------------------------------------------------------------------------------------------
@@ -155,11 +154,10 @@ sys_clk_pin    {0.000 5.000}        10.000          100.000
 Clock              WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----              -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
 sys_clk_pin                                                                                                                                                      3.000        0.000                       0                     1  
-  clk0              -0.533       -4.245                     20                23777        0.022        0.000                      0                23777        3.000        0.000                       0                  4350  
+  clk0              -0.444       -5.014                     28                23677        0.024        0.000                      0                23677        3.000        0.000                       0                  4307  
     clk_100_s                                                                                                                                                    7.845        0.000                       0                     3  
     clk_400_s                                                                                                                                                    0.345        0.000                       0                     3  
     clkfbout                                                                                                                                                     7.845        0.000                       0                     3  
-  clkdv             13.365        0.000                      0                  289        0.115        0.000                      0                  289        9.500        0.000                       0                   141  
 
 
 ------------------------------------------------------------------------------------------------
@@ -169,9 +167,7 @@ sys_clk_pin                                                                     
 
 From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
 ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
-clkdv         clk0                7.659        0.000                      0                    1        0.166        0.000                      0                    1  
-clk0          clk_100_s           5.788        0.000                      0                    8        0.236        0.000                      0                    8  
-clk0          clkdv               4.050        0.000                      0                   61        0.227        0.000                      0                   61  
+clk0          clk_100_s           6.517        0.000                      0                    8        0.309        0.000                      0                    8  
 
 
 ------------------------------------------------------------------------------------------------
@@ -218,27 +214,27 @@ High Pulse Width  Fast    MMCME2_ADV/CLKIN1  n/a            2.000         5.000 
 From Clock:  clk0
   To Clock:  clk0
 
-Setup :           20  Failing Endpoints,  Worst Slack       -0.533ns,  Total Violation       -4.245ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.022ns,  Total Violation        0.000ns
+Setup :           28  Failing Endpoints,  Worst Slack       -0.444ns,  Total Violation       -5.014ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.024ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack        3.000ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (VIOLATED) :        -0.533ns  (required time - arrival time)
-  Source:                 transmitter_inst_1/dac_interface_inst_1/rand_7_reg[13]_replica/C
+Slack (VIOLATED) :        -0.444ns  (required time - arrival time)
+  Source:                 transmitter_inst_1/dac_interface_inst_1/rand_7_reg[3]_replica/C
                             (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            transmitter_inst_1/dac_interface_inst_1/psdsp_1/D
+  Destination:            transmitter_inst_1/dac_interface_inst_1/psdsp_5/D
                             (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk0 rise@10.000ns - clk0 rise@0.000ns)
-  Data Path Delay:        10.183ns  (logic 8.152ns (80.056%)  route 2.031ns (19.944%))
-  Logic Levels:           8  (CARRY4=5 DSP48E1=2 LUT2=1)
-  Clock Path Skew:        -0.043ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    -1.338ns = ( 8.662 - 10.000 ) 
-    Source Clock Delay      (SCD):    -0.727ns
+  Data Path Delay:        10.114ns  (logic 8.176ns (80.839%)  route 1.938ns (19.161%))
+  Logic Levels:           7  (CARRY4=4 DSP48E1=2 LUT2=1)
+  Clock Path Skew:        -0.047ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    -1.348ns = ( 8.652 - 10.000 ) 
+    Source Clock Delay      (SCD):    -0.733ns
     Clock Pessimism Removal (CPR):    0.569ns
   Clock Uncertainty:      0.059ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -255,36 +251,33 @@ Slack (VIOLATED) :        -0.533ns  (required time - arrival time)
     MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
                                                      -7.070    -4.355 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, routed)           1.719    -2.636    clk0
-    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.096    -2.540 r  bufg_inst2/O
-                         net (fo=4352, routed)        1.813    -0.727    transmitter_inst_1/dac_interface_inst_1/clk
-    SLICE_X13Y158        FDRE                                         r  transmitter_inst_1/dac_interface_inst_1/rand_7_reg[13]_replica/C
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096    -2.540 r  bufg_inst2/O
+                         net (fo=4309, routed)        1.807    -0.733    transmitter_inst_1/dac_interface_inst_1/clk
+    SLICE_X9Y165         FDRE                                         r  transmitter_inst_1/dac_interface_inst_1/rand_7_reg[3]_replica/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X13Y158        FDRE (Prop_fdre_C_Q)         0.456    -0.271 r  transmitter_inst_1/dac_interface_inst_1/rand_7_reg[13]_replica/Q
-                         net (fo=1, routed)           0.402     0.131    transmitter_inst_1/dac_interface_inst_1/rand_7[13]_repN
-    DSP48_X0Y63          DSP48E1 (Prop_dsp48e1_A[13]_PCOUT[47])
-                                                      4.036     4.167 r  transmitter_inst_1/dac_interface_inst_1/rand_71__0/PCOUT[47]
-                         net (fo=1, routed)           0.002     4.169    transmitter_inst_1/dac_interface_inst_1/rand_71__0_n_106
-    DSP48_X0Y64          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
-                                                      1.518     5.687 r  transmitter_inst_1/dac_interface_inst_1/rand_71__1/P[0]
-                         net (fo=2, routed)           0.781     6.468    transmitter_inst_1/dac_interface_inst_1/rand_71__1_n_105
-    SLICE_X10Y159        LUT2 (Prop_lut2_I0_O)        0.124     6.592 r  transmitter_inst_1/dac_interface_inst_1/rand_71_carry_i_3/O
-                         net (fo=1, routed)           0.000     6.592    transmitter_inst_1/dac_interface_inst_1/rand_71_carry_i_3_n_0
-    SLICE_X10Y159        CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.533     7.125 r  transmitter_inst_1/dac_interface_inst_1/rand_71_carry/CO[3]
-                         net (fo=1, routed)           0.000     7.125    transmitter_inst_1/dac_interface_inst_1/rand_71_carry_n_0
-    SLICE_X10Y160        CARRY4 (Prop_carry4_CI_CO[3])
-                                                      0.117     7.242 r  transmitter_inst_1/dac_interface_inst_1/rand_71_carry__0/CO[3]
-                         net (fo=1, routed)           0.000     7.242    transmitter_inst_1/dac_interface_inst_1/rand_71_carry__0_n_0
-    SLICE_X10Y161        CARRY4 (Prop_carry4_CI_O[3])
-                                                      0.315     7.557 r  transmitter_inst_1/dac_interface_inst_1/rand_71_carry__1/O[3]
-                         net (fo=1, routed)           0.581     8.138    transmitter_inst_1/dac_interface_inst_1/rand_71_carry__1_n_4
-    SLICE_X11Y161        CARRY4 (Prop_carry4_S[2]_CO[3])
-                                                      0.705     8.843 r  transmitter_inst_1/dac_interface_inst_1/rand_70_carry__5/CO[3]
-                         net (fo=1, routed)           0.000     8.843    transmitter_inst_1/dac_interface_inst_1/rand_70_carry__5_n_0
-    SLICE_X11Y162        CARRY4 (Prop_carry4_CI_O[1])
-                                                      0.348     9.191 r  transmitter_inst_1/dac_interface_inst_1/rand_70_carry__6/O[1]
-                         net (fo=2, routed)           0.266     9.456    transmitter_inst_1/dac_interface_inst_1/rand_70_carry__6_n_6
-    SLICE_X11Y162        FDRE                                         r  transmitter_inst_1/dac_interface_inst_1/psdsp_1/D
+    SLICE_X9Y165         FDRE (Prop_fdre_C_Q)         0.456    -0.277 r  transmitter_inst_1/dac_interface_inst_1/rand_7_reg[3]_replica/Q
+                         net (fo=1, routed)           0.393     0.116    transmitter_inst_1/dac_interface_inst_1/rand_7[3]_repN
+    DSP48_X0Y66          DSP48E1 (Prop_dsp48e1_A[3]_PCOUT[47])
+                                                      4.036     4.152 r  transmitter_inst_1/dac_interface_inst_1/rand_71__0/PCOUT[47]
+                         net (fo=1, routed)           0.002     4.154    transmitter_inst_1/dac_interface_inst_1/rand_71__0_n_106
+    DSP48_X0Y67          DSP48E1 (Prop_dsp48e1_PCIN[47]_P[0])
+                                                      1.518     5.672 r  transmitter_inst_1/dac_interface_inst_1/rand_71__1/P[0]
+                         net (fo=2, routed)           0.768     6.440    transmitter_inst_1/dac_interface_inst_1/rand_71__1_n_105
+    SLICE_X10Y168        LUT2 (Prop_lut2_I0_O)        0.124     6.564 r  transmitter_inst_1/dac_interface_inst_1/rand_71_carry_i_3/O
+                         net (fo=1, routed)           0.000     6.564    transmitter_inst_1/dac_interface_inst_1/rand_71_carry_i_3_n_0
+    SLICE_X10Y168        CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533     7.097 r  transmitter_inst_1/dac_interface_inst_1/rand_71_carry/CO[3]
+                         net (fo=1, routed)           0.000     7.097    transmitter_inst_1/dac_interface_inst_1/rand_71_carry_n_0
+    SLICE_X10Y169        CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323     7.420 r  transmitter_inst_1/dac_interface_inst_1/rand_71_carry__0/O[1]
+                         net (fo=1, routed)           0.469     7.889    transmitter_inst_1/dac_interface_inst_1/rand_71_carry__0_n_6
+    SLICE_X11Y170        CARRY4 (Prop_carry4_S[0]_CO[3])
+                                                      0.838     8.727 r  transmitter_inst_1/dac_interface_inst_1/rand_70_carry__4/CO[3]
+                         net (fo=1, routed)           0.000     8.727    transmitter_inst_1/dac_interface_inst_1/rand_70_carry__4_n_0
+    SLICE_X11Y171        CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.348     9.075 r  transmitter_inst_1/dac_interface_inst_1/rand_70_carry__5/O[1]
+                         net (fo=2, routed)           0.306     9.381    transmitter_inst_1/dac_interface_inst_1/rand_70_carry__5_n_6
+    SLICE_X10Y172        FDRE                                         r  transmitter_inst_1/dac_interface_inst_1/psdsp_5/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk0 rise edge)      10.000    10.000 r  
@@ -295,17 +288,17 @@ Slack (VIOLATED) :        -0.533ns  (required time - arrival time)
     MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
                                                      -7.324     5.249 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, routed)           1.639     6.888    clk0
-    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.091     6.979 r  bufg_inst2/O
-                         net (fo=4352, routed)        1.682     8.662    transmitter_inst_1/dac_interface_inst_1/clk
-    SLICE_X11Y162        FDRE                                         r  transmitter_inst_1/dac_interface_inst_1/psdsp_1/C
-                         clock pessimism              0.569     9.230    
-                         clock uncertainty           -0.059     9.171    
-    SLICE_X11Y162        FDRE (Setup_fdre_C_D)       -0.248     8.923    transmitter_inst_1/dac_interface_inst_1/psdsp_1
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     6.979 r  bufg_inst2/O
+                         net (fo=4309, routed)        1.672     8.652    transmitter_inst_1/dac_interface_inst_1/clk
+    SLICE_X10Y172        FDRE                                         r  transmitter_inst_1/dac_interface_inst_1/psdsp_5/C
+                         clock pessimism              0.569     9.220    
+                         clock uncertainty           -0.059     9.161    
+    SLICE_X10Y172        FDRE (Setup_fdre_C_D)       -0.224     8.937    transmitter_inst_1/dac_interface_inst_1/psdsp_5
   -------------------------------------------------------------------
-                         required time                          8.923    
-                         arrival time                          -9.456    
+                         required time                          8.937    
+                         arrival time                          -9.381    
   -------------------------------------------------------------------
-                         slack                                 -0.533    
+                         slack                                 -0.444    
 
 
 
@@ -313,19 +306,19 @@ Slack (VIOLATED) :        -0.533ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.022ns  (arrival time - required time)
-  Source:                 pwm_audio_inst_1/SIGMA_reg[3]/C
+Slack (MET) :             0.024ns  (arrival time - required time)
+  Source:                 transmitter_inst_1/nco_inst_1/tree_110_reg[22]/C
                             (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            pwm_audio_inst_1/SIGMA_reg[4]/D
-                            (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            transmitter_inst_1/nco_inst_1/w_6_reg_rep_bsel/ADDRARDADDR[4]
+                            (rising edge-triggered cell RAMB18E1 clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk0 rise@0.000ns - clk0 rise@0.000ns)
-  Data Path Delay:        0.509ns  (logic 0.371ns (72.917%)  route 0.138ns (27.083%))
-  Logic Levels:           3  (CARRY4=2 LUT2=1)
-  Clock Path Skew:        0.352ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    -0.755ns
-    Source Clock Delay      (SCD):    -0.603ns
+  Data Path Delay:        0.552ns  (logic 0.128ns (23.186%)  route 0.424ns (76.814%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.398ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    -0.704ns
+    Source Clock Delay      (SCD):    -0.598ns
     Clock Pessimism Removal (CPR):    -0.504ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -338,21 +331,13 @@ Slack (MET) :             0.022ns  (arrival time - required time)
     MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
                                                      -2.379    -1.689 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, routed)           0.499    -1.190    clk0
-    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.026    -1.164 r  bufg_inst2/O
-                         net (fo=4352, routed)        0.561    -0.603    pwm_audio_inst_1/clk
-    SLICE_X46Y149        FDRE                                         r  pwm_audio_inst_1/SIGMA_reg[3]/C
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.164 r  bufg_inst2/O
+                         net (fo=4309, routed)        0.566    -0.598    transmitter_inst_1/nco_inst_1/clk
+    SLICE_X28Y145        FDRE                                         r  transmitter_inst_1/nco_inst_1/tree_110_reg[22]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X46Y149        FDRE (Prop_fdre_C_Q)         0.164    -0.439 r  pwm_audio_inst_1/SIGMA_reg[3]/Q
-                         net (fo=1, routed)           0.137    -0.302    pwm_audio_inst_1/SIGMA[3]
-    SLICE_X46Y149        LUT2 (Prop_lut2_I1_O)        0.045    -0.257 r  pwm_audio_inst_1/SIGMA[3]_i_2/O
-                         net (fo=1, routed)           0.000    -0.257    pwm_audio_inst_1/SIGMA[3]_i_2_n_0
-    SLICE_X46Y149        CARRY4 (Prop_carry4_S[3]_CO[3])
-                                                      0.109    -0.148 r  pwm_audio_inst_1/SIGMA_reg[3]_i_1/CO[3]
-                         net (fo=1, routed)           0.001    -0.147    pwm_audio_inst_1/SIGMA_reg[3]_i_1_n_0
-    SLICE_X46Y150        CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.053    -0.094 r  pwm_audio_inst_1/SIGMA_reg[7]_i_1/O[0]
-                         net (fo=1, routed)           0.000    -0.094    pwm_audio_inst_1/SIGMA_reg[7]_i_1_n_7
-    SLICE_X46Y150        FDRE                                         r  pwm_audio_inst_1/SIGMA_reg[4]/D
+    SLICE_X28Y145        FDRE (Prop_fdre_C_Q)         0.128    -0.470 r  transmitter_inst_1/nco_inst_1/tree_110_reg[22]/Q
+                         net (fo=2, routed)           0.424    -0.046    transmitter_inst_1/nco_inst_1/tree_110_reg_n_0_[22]
+    RAMB18_X0Y60         RAMB18E1                                     r  transmitter_inst_1/nco_inst_1/w_6_reg_rep_bsel/ADDRARDADDR[4]
   -------------------------------------------------------------------    -------------------
 
                          (clock clk0 rise edge)       0.000     0.000 r  
@@ -363,16 +348,17 @@ Slack (MET) :             0.022ns  (arrival time - required time)
     MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
                                                      -3.163    -2.245 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, routed)           0.544    -1.702    clk0
-    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.029    -1.673 r  bufg_inst2/O
-                         net (fo=4352, routed)        0.918    -0.755    pwm_audio_inst_1/clk
-    SLICE_X46Y150        FDRE                                         r  pwm_audio_inst_1/SIGMA_reg[4]/C
-                         clock pessimism              0.504    -0.251    
-    SLICE_X46Y150        FDRE (Hold_fdre_C_D)         0.134    -0.117    pwm_audio_inst_1/SIGMA_reg[4]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.673 r  bufg_inst2/O
+                         net (fo=4309, routed)        0.969    -0.704    transmitter_inst_1/nco_inst_1/clk
+    RAMB18_X0Y60         RAMB18E1                                     r  transmitter_inst_1/nco_inst_1/w_6_reg_rep_bsel/CLKARDCLK
+                         clock pessimism              0.504    -0.200    
+    RAMB18_X0Y60         RAMB18E1 (Hold_ramb18e1_CLKARDCLK_ADDRARDADDR[4])
+                                                      0.130    -0.070    transmitter_inst_1/nco_inst_1/w_6_reg_rep_bsel
   -------------------------------------------------------------------
-                         required time                          0.117    
-                         arrival time                          -0.094    
+                         required time                          0.070    
+                         arrival time                          -0.046    
   -------------------------------------------------------------------
-                         slack                                  0.022    
+                         slack                                  0.024    
 
 
 
@@ -386,7 +372,7 @@ Period(ns):         10.000
 Sources:            { dcm_sp_inst/CLKFBOUT }
 
 Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location        Pin
-Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.576         10.000      7.424      RAMB36_X1Y20    charsvga_inst_1/BRAM_INST_1/MEMORY_reg_0/CLKARDCLK
+Min Period        n/a     RAMB36E1/CLKARDCLK  n/a            2.576         10.000      7.424      RAMB36_X1Y27    user_design_inst_1/main_0_139971795464416/program_counter_reg_rep_0/CLKARDCLK
 Max Period        n/a     PLLE2_ADV/CLKIN1    n/a            52.633        10.000      42.633     PLLE2_ADV_X0Y0  transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/plle2_base_inst/CLKIN1
 Low Pulse Width   Slow    PLLE2_ADV/CLKIN1    n/a            2.000         5.000       3.000      PLLE2_ADV_X0Y0  transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/plle2_base_inst/CLKIN1
 High Pulse Width  Slow    PLLE2_ADV/CLKIN1    n/a            2.000         5.000       3.000      PLLE2_ADV_X0Y0  transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/plle2_base_inst/CLKIN1
@@ -463,323 +449,29 @@ Max Period  n/a     PLLE2_ADV/CLKFBIN  n/a            52.633        10.000      
 
 
 ---------------------------------------------------------------------------------------------------
-From Clock:  clkdv
-  To Clock:  clkdv
-
-Setup :            0  Failing Endpoints,  Worst Slack       13.365ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.115ns,  Total Violation        0.000ns
-PW    :            0  Failing Endpoints,  Worst Slack        9.500ns,  Total Violation        0.000ns
----------------------------------------------------------------------------------------------------
-
-
-Max Delay Paths
---------------------------------------------------------------------------------------
-Slack (MET) :             13.365ns  (required time - arrival time)
-  Source:                 ethernet_inst_1/TX_MEMORY_reg/CLKBWRCLK
-                            (rising edge-triggered cell RAMB36E1 clocked by clkdv  {rise@0.000ns fall@10.000ns period=20.000ns})
-  Destination:            ethernet_inst_1/TX_CRC_reg[10]/D
-                            (rising edge-triggered cell FDRE clocked by clkdv  {rise@0.000ns fall@10.000ns period=20.000ns})
-  Path Group:             clkdv
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            20.000ns  (clkdv rise@20.000ns - clkdv rise@0.000ns)
-  Data Path Delay:        6.473ns  (logic 3.062ns (47.305%)  route 3.411ns (52.695%))
-  Logic Levels:           3  (LUT2=1 LUT5=1 LUT6=1)
-  Clock Path Skew:        -0.102ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    -1.434ns = ( 18.566 - 20.000 ) 
-    Source Clock Delay      (SCD):    -0.851ns
-    Clock Pessimism Removal (CPR):    0.480ns
-  Clock Uncertainty:      0.089ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Discrete Jitter          (DJ):    0.163ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clkdv rise edge)      0.000     0.000 r  
-    E3                                                0.000     0.000 r  clk_in (IN)
-                         net (fo=0)                   0.000     0.000    clk_in
-    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  clkin1_buf/O
-                         net (fo=1, routed)           1.233     2.715    clkin1
-    MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT4)
-                                                     -7.070    -4.355 r  dcm_sp_inst/CLKOUT4
-                         net (fo=1, routed)           1.719    -2.636    clkdv
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096    -2.540 r  bufg_inst1/O
-                         net (fo=140, routed)         1.689    -0.851    ethernet_inst_1/eth_clk_OBUF
-    RAMB36_X0Y19         RAMB36E1                                     r  ethernet_inst_1/TX_MEMORY_reg/CLKBWRCLK
-  -------------------------------------------------------------------    -------------------
-    RAMB36_X0Y19         RAMB36E1 (Prop_ramb36e1_CLKBWRCLK_DOBDO[12])
-                                                      2.454     1.603 r  ethernet_inst_1/TX_MEMORY_reg/DOBDO[12]
-                         net (fo=14, routed)          2.582     4.185    ethernet_inst_1/p_8_in[0]
-    SLICE_X6Y105         LUT2 (Prop_lut2_I1_O)        0.153     4.338 r  ethernet_inst_1/TX_CRC[10]_i_4/O
-                         net (fo=1, routed)           0.426     4.764    ethernet_inst_1/TX_CRC[10]_i_4_n_0
-    SLICE_X4Y105         LUT6 (Prop_lut6_I2_O)        0.331     5.095 r  ethernet_inst_1/TX_CRC[10]_i_2/O
-                         net (fo=1, routed)           0.403     5.498    ethernet_inst_1/TX_CRC[10]_i_2_n_0
-    SLICE_X5Y105         LUT5 (Prop_lut5_I1_O)        0.124     5.622 r  ethernet_inst_1/TX_CRC[10]_i_1/O
-                         net (fo=1, routed)           0.000     5.622    ethernet_inst_1/TX_CRC[10]
-    SLICE_X5Y105         FDRE                                         r  ethernet_inst_1/TX_CRC_reg[10]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clkdv rise edge)     20.000    20.000 r  
-    E3                                                0.000    20.000 r  clk_in (IN)
-                         net (fo=0)                   0.000    20.000    clk_in
-    E3                   IBUF (Prop_ibuf_I_O)         1.411    21.411 r  clkin1_buf/O
-                         net (fo=1, routed)           1.162    22.573    clkin1
-    MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT4)
-                                                     -7.324    15.249 r  dcm_sp_inst/CLKOUT4
-                         net (fo=1, routed)           1.639    16.888    clkdv
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    16.979 r  bufg_inst1/O
-                         net (fo=140, routed)         1.587    18.566    ethernet_inst_1/eth_clk_OBUF
-    SLICE_X5Y105         FDRE                                         r  ethernet_inst_1/TX_CRC_reg[10]/C
-                         clock pessimism              0.480    19.047    
-                         clock uncertainty           -0.089    18.958    
-    SLICE_X5Y105         FDRE (Setup_fdre_C_D)        0.029    18.987    ethernet_inst_1/TX_CRC_reg[10]
-  -------------------------------------------------------------------
-                         required time                         18.987    
-                         arrival time                          -5.622    
-  -------------------------------------------------------------------
-                         slack                                 13.365    
-
-
-
-
-
-Min Delay Paths
---------------------------------------------------------------------------------------
-Slack (MET) :             0.115ns  (arrival time - required time)
-  Source:                 ethernet_inst_1/TX_PHY_STATE_reg[0]/C
-                            (rising edge-triggered cell FDRE clocked by clkdv  {rise@0.000ns fall@10.000ns period=20.000ns})
-  Destination:            ethernet_inst_1/PREAMBLE_COUNT_reg[3]/D
-                            (rising edge-triggered cell FDRE clocked by clkdv  {rise@0.000ns fall@10.000ns period=20.000ns})
-  Path Group:             clkdv
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clkdv rise@0.000ns - clkdv rise@0.000ns)
-  Data Path Delay:        0.484ns  (logic 0.209ns (43.190%)  route 0.275ns (56.810%))
-  Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        0.277ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    -0.798ns
-    Source Clock Delay      (SCD):    -0.566ns
-    Clock Pessimism Removal (CPR):    -0.509ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clkdv rise edge)      0.000     0.000 r  
-    E3                                                0.000     0.000 r  clk_in (IN)
-                         net (fo=0)                   0.000     0.000    clk_in
-    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  clkin1_buf/O
-                         net (fo=1, routed)           0.440     0.690    clkin1
-    MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT4)
-                                                     -2.379    -1.689 r  dcm_sp_inst/CLKOUT4
-                         net (fo=1, routed)           0.499    -1.190    clkdv
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.164 r  bufg_inst1/O
-                         net (fo=140, routed)         0.598    -0.566    ethernet_inst_1/eth_clk_OBUF
-    SLICE_X6Y100         FDRE                                         r  ethernet_inst_1/TX_PHY_STATE_reg[0]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X6Y100         FDRE (Prop_fdre_C_Q)         0.164    -0.402 f  ethernet_inst_1/TX_PHY_STATE_reg[0]/Q
-                         net (fo=35, routed)          0.275    -0.127    ethernet_inst_1/TX_PHY_STATE_reg_n_0_[0]
-    SLICE_X4Y99          LUT6 (Prop_lut6_I3_O)        0.045    -0.082 r  ethernet_inst_1/PREAMBLE_COUNT[3]_i_1/O
-                         net (fo=1, routed)           0.000    -0.082    ethernet_inst_1/PREAMBLE_COUNT[3]_i_1_n_0
-    SLICE_X4Y99          FDRE                                         r  ethernet_inst_1/PREAMBLE_COUNT_reg[3]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clkdv rise edge)      0.000     0.000 r  
-    E3                                                0.000     0.000 r  clk_in (IN)
-                         net (fo=0)                   0.000     0.000    clk_in
-    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  clkin1_buf/O
-                         net (fo=1, routed)           0.480     0.918    clkin1
-    MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT4)
-                                                     -3.163    -2.245 r  dcm_sp_inst/CLKOUT4
-                         net (fo=1, routed)           0.544    -1.702    clkdv
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.673 r  bufg_inst1/O
-                         net (fo=140, routed)         0.875    -0.798    ethernet_inst_1/eth_clk_OBUF
-    SLICE_X4Y99          FDRE                                         r  ethernet_inst_1/PREAMBLE_COUNT_reg[3]/C
-                         clock pessimism              0.509    -0.289    
-    SLICE_X4Y99          FDRE (Hold_fdre_C_D)         0.092    -0.197    ethernet_inst_1/PREAMBLE_COUNT_reg[3]
-  -------------------------------------------------------------------
-                         required time                          0.197    
-                         arrival time                          -0.082    
-  -------------------------------------------------------------------
-                         slack                                  0.115    
-
-
-
-
-
-Pulse Width Checks
---------------------------------------------------------------------------------------
-Clock Name:         clkdv
-Waveform(ns):       { 0.000 10.000 }
-Period(ns):         20.000
-Sources:            { dcm_sp_inst/CLKOUT4 }
-
-Check Type        Corner  Lib Pin             Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location         Pin
-Min Period        n/a     RAMB36E1/CLKBWRCLK  n/a            2.576         20.000      17.424     RAMB36_X1Y20     charsvga_inst_1/BRAM_INST_1/MEMORY_reg_0/CLKBWRCLK
-Max Period        n/a     MMCME2_ADV/CLKOUT4  n/a            213.360       20.000      193.360    MMCME2_ADV_X1Y2  dcm_sp_inst/CLKOUT4
-Low Pulse Width   Fast    FDRE/C              n/a            0.500         10.000      9.500      SLICE_X65Y106    charsvga_inst_1/BLANK_DEL_DEL_reg/C
-High Pulse Width  Slow    FDRE/C              n/a            0.500         10.000      9.500      SLICE_X65Y106    charsvga_inst_1/BLANK_DEL_DEL_reg/C
-
-
-
----------------------------------------------------------------------------------------------------
-From Clock:  clkdv
-  To Clock:  clk0
-
-Setup :            0  Failing Endpoints,  Worst Slack        7.659ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.166ns,  Total Violation        0.000ns
----------------------------------------------------------------------------------------------------
-
-
-Max Delay Paths
---------------------------------------------------------------------------------------
-Slack (MET) :             7.659ns  (required time - arrival time)
-  Source:                 ethernet_inst_1/DONE_reg/C
-                            (rising edge-triggered cell FDRE clocked by clkdv  {rise@0.000ns fall@10.000ns period=20.000ns})
-  Destination:            ethernet_inst_1/DONE_DEL_reg/D
-                            (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk0
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (clk0 rise@10.000ns - clkdv rise@0.000ns)
-  Data Path Delay:        1.859ns  (logic 0.456ns (24.535%)  route 1.403ns (75.465%))
-  Logic Levels:           0  
-  Clock Path Skew:        -0.207ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    -1.433ns = ( 8.567 - 10.000 ) 
-    Source Clock Delay      (SCD):    -0.831ns
-    Clock Pessimism Removal (CPR):    0.395ns
-  Clock Uncertainty:      0.209ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Discrete Jitter          (DJ):    0.163ns
-    Phase Error              (PE):    0.120ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clkdv rise edge)      0.000     0.000 r  
-    E3                                                0.000     0.000 r  clk_in (IN)
-                         net (fo=0)                   0.000     0.000    clk_in
-    E3                   IBUF (Prop_ibuf_I_O)         1.482     1.482 r  clkin1_buf/O
-                         net (fo=1, routed)           1.233     2.715    clkin1
-    MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT4)
-                                                     -7.070    -4.355 r  dcm_sp_inst/CLKOUT4
-                         net (fo=1, routed)           1.719    -2.636    clkdv
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096    -2.540 r  bufg_inst1/O
-                         net (fo=140, routed)         1.709    -0.831    ethernet_inst_1/eth_clk_OBUF
-    SLICE_X4Y101         FDRE                                         r  ethernet_inst_1/DONE_reg/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X4Y101         FDRE (Prop_fdre_C_Q)         0.456    -0.375 r  ethernet_inst_1/DONE_reg/Q
-                         net (fo=2, routed)           1.403     1.027    ethernet_inst_1/DONE
-    SLICE_X5Y101         FDRE                                         r  ethernet_inst_1/DONE_DEL_reg/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk0 rise edge)      10.000    10.000 r  
-    E3                                                0.000    10.000 r  clk_in (IN)
-                         net (fo=0)                   0.000    10.000    clk_in
-    E3                   IBUF (Prop_ibuf_I_O)         1.411    11.411 r  clkin1_buf/O
-                         net (fo=1, routed)           1.162    12.573    clkin1
-    MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
-                                                     -7.324     5.249 r  dcm_sp_inst/CLKFBOUT
-                         net (fo=1, routed)           1.639     6.888    clk0
-    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.091     6.979 r  bufg_inst2/O
-                         net (fo=4352, routed)        1.588     8.567    ethernet_inst_1/clk
-    SLICE_X5Y101         FDRE                                         r  ethernet_inst_1/DONE_DEL_reg/C
-                         clock pessimism              0.395     8.962    
-                         clock uncertainty           -0.209     8.754    
-    SLICE_X5Y101         FDRE (Setup_fdre_C_D)       -0.067     8.687    ethernet_inst_1/DONE_DEL_reg
-  -------------------------------------------------------------------
-                         required time                          8.687    
-                         arrival time                          -1.027    
-  -------------------------------------------------------------------
-                         slack                                  7.659    
-
-
-
-
-
-Min Delay Paths
---------------------------------------------------------------------------------------
-Slack (MET) :             0.166ns  (arrival time - required time)
-  Source:                 ethernet_inst_1/DONE_reg/C
-                            (rising edge-triggered cell FDRE clocked by clkdv  {rise@0.000ns fall@10.000ns period=20.000ns})
-  Destination:            ethernet_inst_1/DONE_DEL_reg/D
-                            (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Path Group:             clk0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk0 rise@0.000ns - clkdv rise@0.000ns)
-  Data Path Delay:        0.764ns  (logic 0.141ns (18.465%)  route 0.623ns (81.535%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.319ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    -0.804ns
-    Source Clock Delay      (SCD):    -0.566ns
-    Clock Pessimism Removal (CPR):    -0.557ns
-  Clock Uncertainty:      0.209ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Discrete Jitter          (DJ):    0.163ns
-    Phase Error              (PE):    0.120ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clkdv rise edge)      0.000     0.000 r  
-    E3                                                0.000     0.000 r  clk_in (IN)
-                         net (fo=0)                   0.000     0.000    clk_in
-    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  clkin1_buf/O
-                         net (fo=1, routed)           0.440     0.690    clkin1
-    MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT4)
-                                                     -2.379    -1.689 r  dcm_sp_inst/CLKOUT4
-                         net (fo=1, routed)           0.499    -1.190    clkdv
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.164 r  bufg_inst1/O
-                         net (fo=140, routed)         0.598    -0.566    ethernet_inst_1/eth_clk_OBUF
-    SLICE_X4Y101         FDRE                                         r  ethernet_inst_1/DONE_reg/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X4Y101         FDRE (Prop_fdre_C_Q)         0.141    -0.425 r  ethernet_inst_1/DONE_reg/Q
-                         net (fo=2, routed)           0.623     0.197    ethernet_inst_1/DONE
-    SLICE_X5Y101         FDRE                                         r  ethernet_inst_1/DONE_DEL_reg/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk0 rise edge)       0.000     0.000 r  
-    E3                                                0.000     0.000 r  clk_in (IN)
-                         net (fo=0)                   0.000     0.000    clk_in
-    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  clkin1_buf/O
-                         net (fo=1, routed)           0.480     0.918    clkin1
-    MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
-                                                     -3.163    -2.245 r  dcm_sp_inst/CLKFBOUT
-                         net (fo=1, routed)           0.544    -1.702    clk0
-    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.029    -1.673 r  bufg_inst2/O
-                         net (fo=4352, routed)        0.868    -0.804    ethernet_inst_1/clk
-    SLICE_X5Y101         FDRE                                         r  ethernet_inst_1/DONE_DEL_reg/C
-                         clock pessimism              0.557    -0.248    
-                         clock uncertainty            0.209    -0.039    
-    SLICE_X5Y101         FDRE (Hold_fdre_C_D)         0.070     0.031    ethernet_inst_1/DONE_DEL_reg
-  -------------------------------------------------------------------
-                         required time                         -0.031    
-                         arrival time                           0.197    
-  -------------------------------------------------------------------
-                         slack                                  0.166    
-
-
-
-
-
----------------------------------------------------------------------------------------------------
 From Clock:  clk0
   To Clock:  clk_100_s
 
-Setup :            0  Failing Endpoints,  Worst Slack        5.788ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.236ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack        6.517ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.309ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             5.788ns  (required time - arrival time)
-  Source:                 transmitter_inst_1/dac_interface_inst_1/dac_5_reg/C
+Slack (MET) :             6.517ns  (required time - arrival time)
+  Source:                 transmitter_inst_1/dac_interface_inst_1/dac_6_reg/C
                             (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/oserdese2_inst/D6
+  Destination:            transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/oserdese2_inst/D7
                             (rising edge-triggered cell OSERDESE2 clocked by clk_100_s  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_100_s
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            10.000ns  (clk_100_s rise@10.000ns - clk0 rise@0.000ns)
-  Data Path Delay:        2.956ns  (logic 0.478ns (16.170%)  route 2.478ns (83.830%))
+  Data Path Delay:        2.201ns  (logic 0.419ns (19.036%)  route 1.782ns (80.964%))
   Logic Levels:           0  
-  Clock Path Skew:        -0.218ns (DCD - SCD + CPR)
+  Clock Path Skew:        -0.240ns (DCD - SCD + CPR)
     Destination Clock Delay (DCD):    -1.448ns = ( 8.552 - 10.000 ) 
-    Source Clock Delay      (SCD):    -0.750ns
+    Source Clock Delay      (SCD):    -0.728ns
     Clock Pessimism Removal (CPR):    0.480ns
   Clock Uncertainty:      0.242ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -796,13 +488,13 @@ Slack (MET) :             5.788ns  (required time - arrival time)
     MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
                                                      -7.070    -4.355 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, routed)           1.719    -2.636    clk0
-    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.096    -2.540 r  bufg_inst2/O
-                         net (fo=4352, routed)        1.790    -0.750    transmitter_inst_1/dac_interface_inst_1/clk
-    SLICE_X56Y161        FDRE                                         r  transmitter_inst_1/dac_interface_inst_1/dac_5_reg/C
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.096    -2.540 r  bufg_inst2/O
+                         net (fo=4309, routed)        1.812    -0.728    transmitter_inst_1/dac_interface_inst_1/clk
+    SLICE_X16Y158        FDRE                                         r  transmitter_inst_1/dac_interface_inst_1/dac_6_reg/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X56Y161        FDRE (Prop_fdre_C_Q)         0.478    -0.272 r  transmitter_inst_1/dac_interface_inst_1/dac_5_reg/Q
-                         net (fo=1, routed)           2.478     2.206    transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/input_5
-    OLOGIC_X0Y139        OSERDESE2                                    r  transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/oserdese2_inst/D6
+    SLICE_X16Y158        FDRE (Prop_fdre_C_Q)         0.419    -0.309 r  transmitter_inst_1/dac_interface_inst_1/dac_6_reg/Q
+                         net (fo=1, routed)           1.782     1.473    transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/input_6
+    OLOGIC_X0Y139        OSERDESE2                                    r  transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/oserdese2_inst/D7
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_100_s rise edge)
@@ -814,8 +506,8 @@ Slack (MET) :             5.788ns  (required time - arrival time)
     MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
                                                      -7.324     5.249 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, routed)           1.639     6.888    clk0
-    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.091     6.979 r  bufg_inst2/O
-                         net (fo=4352, routed)        1.705     8.684    transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/clk
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091     6.979 r  bufg_inst2/O
+                         net (fo=4309, routed)        1.705     8.684    transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/clk
     PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT0)
                                                      -3.711     4.973 r  transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/plle2_base_inst/CLKOUT0
                          net (fo=1, routed)           1.918     6.891    transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/clk_100_s
@@ -824,13 +516,13 @@ Slack (MET) :             5.788ns  (required time - arrival time)
     OLOGIC_X0Y139        OSERDESE2                                    r  transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/oserdese2_inst/CLKDIV
                          clock pessimism              0.480     9.032    
                          clock uncertainty           -0.242     8.790    
-    OLOGIC_X0Y139        OSERDESE2 (Setup_oserdese2_CLKDIV_D6)
-                                                     -0.796     7.994    transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/oserdese2_inst
+    OLOGIC_X0Y139        OSERDESE2 (Setup_oserdese2_CLKDIV_D7)
+                                                     -0.800     7.990    transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/oserdese2_inst
   -------------------------------------------------------------------
-                         required time                          7.994    
-                         arrival time                          -2.206    
+                         required time                          7.990    
+                         arrival time                          -1.473    
   -------------------------------------------------------------------
-                         slack                                  5.788    
+                         slack                                  6.517    
 
 
 
@@ -838,19 +530,19 @@ Slack (MET) :             5.788ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.236ns  (arrival time - required time)
-  Source:                 transmitter_inst_1/dac_interface_inst_1/dac_7_reg/C
+Slack (MET) :             0.309ns  (arrival time - required time)
+  Source:                 transmitter_inst_1/dac_interface_inst_1/dac_4_reg/C
                             (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/oserdese2_inst/D8
+  Destination:            transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/oserdese2_inst/D5
                             (rising edge-triggered cell OSERDESE2 clocked by clk_100_s  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk_100_s
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_100_s rise@0.000ns - clk0 rise@0.000ns)
-  Data Path Delay:        0.741ns  (logic 0.148ns (19.986%)  route 0.593ns (80.014%))
+  Data Path Delay:        0.868ns  (logic 0.164ns (18.885%)  route 0.704ns (81.115%))
   Logic Levels:           0  
-  Clock Path Skew:        0.297ns (DCD - SCD - CPR)
+  Clock Path Skew:        0.299ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    -0.806ns
-    Source Clock Delay      (SCD):    -0.594ns
+    Source Clock Delay      (SCD):    -0.596ns
     Clock Pessimism Removal (CPR):    -0.509ns
   Clock Uncertainty:      0.242ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
@@ -867,13 +559,13 @@ Slack (MET) :             0.236ns  (arrival time - required time)
     MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
                                                      -2.379    -1.689 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, routed)           0.499    -1.190    clk0
-    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.026    -1.164 r  bufg_inst2/O
-                         net (fo=4352, routed)        0.570    -0.594    transmitter_inst_1/dac_interface_inst_1/clk
-    SLICE_X12Y147        FDRE                                         r  transmitter_inst_1/dac_interface_inst_1/dac_7_reg/C
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026    -1.164 r  bufg_inst2/O
+                         net (fo=4309, routed)        0.568    -0.596    transmitter_inst_1/dac_interface_inst_1/clk
+    SLICE_X10Y140        FDRE                                         r  transmitter_inst_1/dac_interface_inst_1/dac_4_reg/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X12Y147        FDRE (Prop_fdre_C_Q)         0.148    -0.446 r  transmitter_inst_1/dac_interface_inst_1/dac_7_reg/Q
-                         net (fo=1, routed)           0.593     0.146    transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/input_7
-    OLOGIC_X0Y139        OSERDESE2                                    r  transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/oserdese2_inst/D8
+    SLICE_X10Y140        FDRE (Prop_fdre_C_Q)         0.164    -0.432 r  transmitter_inst_1/dac_interface_inst_1/dac_4_reg/Q
+                         net (fo=1, routed)           0.704     0.272    transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/input_4
+    OLOGIC_X0Y139        OSERDESE2                                    r  transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/oserdese2_inst/D5
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_100_s rise edge)
@@ -885,8 +577,8 @@ Slack (MET) :             0.236ns  (arrival time - required time)
     MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
                                                      -3.163    -2.245 r  dcm_sp_inst/CLKFBOUT
                          net (fo=1, routed)           0.544    -1.702    clk0
-    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.029    -1.673 r  bufg_inst2/O
-                         net (fo=4352, routed)        0.903    -0.770    transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/clk
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.673 r  bufg_inst2/O
+                         net (fo=4309, routed)        0.903    -0.770    transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/clk
     PLLE2_ADV_X0Y0       PLLE2_ADV (Prop_plle2_adv_CLKIN1_CLKOUT0)
                                                      -1.646    -2.416 r  transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/plle2_base_inst/CLKOUT0
                          net (fo=1, routed)           0.716    -1.700    transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/clk_100_s
@@ -895,150 +587,13 @@ Slack (MET) :             0.236ns  (arrival time - required time)
     OLOGIC_X0Y139        OSERDESE2                                    r  transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/oserdese2_inst/CLKDIV
                          clock pessimism              0.509    -0.297    
                          clock uncertainty            0.242    -0.055    
-    OLOGIC_X0Y139        OSERDESE2 (Hold_oserdese2_CLKDIV_D8)
-                                                     -0.034    -0.089    transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/oserdese2_inst
+    OLOGIC_X0Y139        OSERDESE2 (Hold_oserdese2_CLKDIV_D5)
+                                                      0.019    -0.036    transmitter_inst_1/dac_interface_inst_1/serdes_inst_1/oserdese2_inst
   -------------------------------------------------------------------
-                         required time                          0.089    
-                         arrival time                           0.146    
+                         required time                          0.036    
+                         arrival time                           0.272    
   -------------------------------------------------------------------
-                         slack                                  0.236    
-
-
-
-
-
----------------------------------------------------------------------------------------------------
-From Clock:  clk0
-  To Clock:  clkdv
-
-Setup :            0  Failing Endpoints,  Worst Slack        4.050ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.227ns,  Total Violation        0.000ns
----------------------------------------------------------------------------------------------------
-
-
-Max Delay Paths
---------------------------------------------------------------------------------------
-Slack (MET) :             4.050ns  (required time - arrival time)
-  Source:                 internal_rst_reg/C
-                            (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            ethernet_inst_1/TXEN_reg/R
-                            (rising edge-triggered cell FDRE clocked by clkdv  {rise@0.000ns fall@10.000ns period=20.000ns})
-  Path Group:             clkdv
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            10.000ns  (clkdv rise@20.000ns - clk0 rise@10.000ns)
-  Data Path Delay:        5.029ns  (logic 0.518ns (10.300%)  route 4.511ns (89.700%))
-  Logic Levels:           0  
-  Clock Path Skew:        -0.188ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    -1.431ns = ( 18.569 - 20.000 ) 
-    Source Clock Delay      (SCD):    -0.848ns = ( 9.152 - 10.000 ) 
-    Clock Pessimism Removal (CPR):    0.395ns
-  Clock Uncertainty:      0.209ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Discrete Jitter          (DJ):    0.163ns
-    Phase Error              (PE):    0.120ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk0 rise edge)      10.000    10.000 r  
-    E3                                                0.000    10.000 r  clk_in (IN)
-                         net (fo=0)                   0.000    10.000    clk_in
-    E3                   IBUF (Prop_ibuf_I_O)         1.482    11.482 r  clkin1_buf/O
-                         net (fo=1, routed)           1.233    12.715    clkin1
-    MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
-                                                     -7.070     5.645 r  dcm_sp_inst/CLKFBOUT
-                         net (fo=1, routed)           1.719     7.364    clk0
-    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.096     7.460 r  bufg_inst2/O
-                         net (fo=4352, routed)        1.692     9.152    clk
-    SLICE_X74Y132        FDRE                                         r  internal_rst_reg/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X74Y132        FDRE (Prop_fdre_C_Q)         0.518     9.670 r  internal_rst_reg/Q
-                         net (fo=352, routed)         4.511    14.181    ethernet_inst_1/internal_rst_reg
-    SLICE_X2Y101         FDRE                                         r  ethernet_inst_1/TXEN_reg/R
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clkdv rise edge)     20.000    20.000 r  
-    E3                                                0.000    20.000 r  clk_in (IN)
-                         net (fo=0)                   0.000    20.000    clk_in
-    E3                   IBUF (Prop_ibuf_I_O)         1.411    21.411 r  clkin1_buf/O
-                         net (fo=1, routed)           1.162    22.573    clkin1
-    MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT4)
-                                                     -7.324    15.249 r  dcm_sp_inst/CLKOUT4
-                         net (fo=1, routed)           1.639    16.888    clkdv
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091    16.979 r  bufg_inst1/O
-                         net (fo=140, routed)         1.590    18.569    ethernet_inst_1/eth_clk_OBUF
-    SLICE_X2Y101         FDRE                                         r  ethernet_inst_1/TXEN_reg/C
-                         clock pessimism              0.395    18.964    
-                         clock uncertainty           -0.209    18.756    
-    SLICE_X2Y101         FDRE (Setup_fdre_C_R)       -0.524    18.232    ethernet_inst_1/TXEN_reg
-  -------------------------------------------------------------------
-                         required time                         18.232    
-                         arrival time                         -14.181    
-  -------------------------------------------------------------------
-                         slack                                  4.050    
-
-
-
-
-
-Min Delay Paths
---------------------------------------------------------------------------------------
-Slack (MET) :             0.227ns  (arrival time - required time)
-  Source:                 ethernet_inst_1/GO_reg/C
-                            (rising edge-triggered cell FDRE clocked by clk0  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            ethernet_inst_1/GO_DEL_reg/D
-                            (rising edge-triggered cell FDRE clocked by clkdv  {rise@0.000ns fall@10.000ns period=20.000ns})
-  Path Group:             clkdv
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clkdv rise@0.000ns - clk0 rise@0.000ns)
-  Data Path Delay:        0.820ns  (logic 0.141ns (17.201%)  route 0.679ns (82.799%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.314ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    -0.804ns
-    Source Clock Delay      (SCD):    -0.561ns
-    Clock Pessimism Removal (CPR):    -0.557ns
-  Clock Uncertainty:      0.209ns  ((TSJ^2 + DJ^2)^1/2) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Discrete Jitter          (DJ):    0.163ns
-    Phase Error              (PE):    0.120ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk0 rise edge)       0.000     0.000 r  
-    E3                                                0.000     0.000 r  clk_in (IN)
-                         net (fo=0)                   0.000     0.000    clk_in
-    E3                   IBUF (Prop_ibuf_I_O)         0.250     0.250 r  clkin1_buf/O
-                         net (fo=1, routed)           0.440     0.690    clkin1
-    MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKFBOUT)
-                                                     -2.379    -1.689 r  dcm_sp_inst/CLKFBOUT
-                         net (fo=1, routed)           0.499    -1.190    clk0
-    BUFGCTRL_X0Y17       BUFG (Prop_bufg_I_O)         0.026    -1.164 r  bufg_inst2/O
-                         net (fo=4352, routed)        0.603    -0.561    ethernet_inst_1/clk
-    SLICE_X4Y96          FDRE                                         r  ethernet_inst_1/GO_reg/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X4Y96          FDRE (Prop_fdre_C_Q)         0.141    -0.420 r  ethernet_inst_1/GO_reg/Q
-                         net (fo=2, routed)           0.679     0.258    ethernet_inst_1/GO
-    SLICE_X4Y100         FDRE                                         r  ethernet_inst_1/GO_DEL_reg/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clkdv rise edge)      0.000     0.000 r  
-    E3                                                0.000     0.000 r  clk_in (IN)
-                         net (fo=0)                   0.000     0.000    clk_in
-    E3                   IBUF (Prop_ibuf_I_O)         0.438     0.438 r  clkin1_buf/O
-                         net (fo=1, routed)           0.480     0.918    clkin1
-    MMCME2_ADV_X1Y2      MMCME2_ADV (Prop_mmcme2_adv_CLKIN1_CLKOUT4)
-                                                     -3.163    -2.245 r  dcm_sp_inst/CLKOUT4
-                         net (fo=1, routed)           0.544    -1.702    clkdv
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029    -1.673 r  bufg_inst1/O
-                         net (fo=140, routed)         0.868    -0.804    ethernet_inst_1/eth_clk_OBUF
-    SLICE_X4Y100         FDRE                                         r  ethernet_inst_1/GO_DEL_reg/C
-                         clock pessimism              0.557    -0.248    
-                         clock uncertainty            0.209    -0.039    
-    SLICE_X4Y100         FDRE (Hold_fdre_C_D)         0.070     0.031    ethernet_inst_1/GO_DEL_reg
-  -------------------------------------------------------------------
-                         required time                         -0.031    
-                         arrival time                           0.258    
-  -------------------------------------------------------------------
-                         slack                                  0.227    
+                         slack                                  0.309    
 
 
 
