@@ -5,33 +5,12 @@
     # STEP#2: setup design sources and constraints
     #
     read_xdc ./bsp.xdc
-    read_verilog main_12.v
-read_verilog main_11.v
-read_verilog main_10.v
-read_verilog main_0.v
-read_verilog main_1.v
-read_verilog main_2.v
-read_verilog main_3.v
-read_verilog main_4.v
-read_verilog main_5.v
-read_verilog main_6.v
-read_verilog main_7.v
-read_verilog main_8.v
-read_verilog main_9.v
+    read_verilog main_0.v
 read_verilog user_design.v
 read_verilog chips_lib.v
 read_vhdl fifo.vhd
 read_vhdl serial_out.vhd
 read_vhdl serial_in.vhd
-read_vhdl rmii_ethernet.vhd
-read_vhdl i2c.vhd
-read_vhdl pwm.vhd
-read_vhdl keyboard.vhd
-read_vhdl bram.vhd
-read_vhdl svga_package.vhd
-read_vhdl svga_core.vhd
-read_vhdl svga_timing_gen.vhd
-read_vhdl pwm_audio.vhd
 read_vhdl interpolate.vhd
 read_vhdl nco.vhd
 read_vhdl serdes.vhd

@@ -1,6 +1,0 @@
-#!/bin/sh
-
-ghdl -a rectangular_to_polar.vhd
-ghdl -a rectangular_to_polar_tb.vhd
-ghdl -e rectangular_to_polar_tb
-./rectangular_to_polar_tb --disp-time --wave=wave.ghw

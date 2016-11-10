@@ -1,4 +1,0 @@
-ghdl -a ../ethernet.vhd
-ghdl -a ethernet_tb.vhd
-ghdl -e ethernet_tb
-./ethernet_tb --wave=wave.ghw

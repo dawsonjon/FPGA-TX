@@ -21,7 +21,16 @@ Prerequisites
 sudo apt-get install python-numpy python-scipy python-serial
 ```
 
+Serial Port Permissions
+-----------------------
+
+To tun tx.py as an ordinary user, you need to grant read and write access to
+the appropriate serial device. A convenient way to achieve this on Ubuntu based
+systems is to add yourself to the dialout group.
+
+```
 tx.py -f=<frequency> -m=<mode>"
+```
 
 Accepts data from stdin in mono raw 16-bit pcm format
 

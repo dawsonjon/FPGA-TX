@@ -1,15 +1,6 @@
 ../../bsp_components/fifo.vhd
 ../../bsp_components/serial_out.vhd
 ../../bsp_components/serial_in.vhd
-../../bsp_components/rmii_ethernet.vhd
-../../bsp_components/i2c.vhd
-../../bsp_components/pwm.vhd
-../../bsp_components/keyboard.vhd
-../../bsp_components/bram.vhd
-../../bsp_components/svga_package.vhd
-../../bsp_components/svga_core.vhd
-../../bsp_components/svga_timing_gen.vhd
-../../bsp_components/pwm_audio.vhd
 ../../bsp_components/interpolate.vhd
 ../../bsp_components/nco.vhd
 ../../bsp_components/serdes.vhd

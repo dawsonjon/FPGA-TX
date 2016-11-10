@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
-| Date             : Wed Nov  9 20:25:14 2016
+| Date             : Thu Nov 10 18:54:11 2016
 | Host             : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command          : report_power -file ./post_route_power.rpt
 | Design           : bsp
@@ -29,18 +29,18 @@ Table of Contents
 1. Summary
 ----------
 
-+--------------------------+-------+
-| Total On-Chip Power (W)  | 0.478 |
-| Dynamic (W)              | 0.369 |
-| Device Static (W)        | 0.109 |
-| Effective TJA (C/W)      | 4.6   |
-| Max Ambient (C)          | 82.8  |
-| Junction Temperature (C) | 27.2  |
-| Confidence Level         | Low   |
-| Setting File             | ---   |
-| Simulation Activity File | ---   |
-| Design Nets Matched      | NA    |
-+--------------------------+-------+
++--------------------------+--------+
+| Total On-Chip Power (W)  | 0.477  |
+| Dynamic (W)              | 0.368  |
+| Device Static (W)        | 0.109  |
+| Effective TJA (C/W)      | 4.6    |
+| Max Ambient (C)          | 82.8   |
+| Junction Temperature (C) | 27.2   |
+| Confidence Level         | Medium |
+| Setting File             | ---    |
+| Simulation Activity File | ---    |
+| Design Nets Matched      | NA     |
++--------------------------+--------+
 
 
 1.1 On-Chip Components
@@ -49,23 +49,23 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.020 |        7 |       --- |             --- |
-| Slice Logic              |     0.019 |     8849 |       --- |             --- |
-|   LUT as Logic           |     0.015 |     2615 |     63400 |            4.12 |
-|   CARRY4                 |     0.002 |      403 |     15850 |            2.54 |
-|   Register               |     0.002 |     2116 |    126800 |            1.67 |
-|   F7/F8 Muxes            |    <0.001 |     1221 |     63400 |            1.93 |
+| Clocks                   |     0.018 |        7 |       --- |             --- |
+| Slice Logic              |     0.019 |     8509 |       --- |             --- |
+|   LUT as Logic           |     0.015 |     2454 |     63400 |            3.87 |
+|   CARRY4                 |     0.002 |      390 |     15850 |            2.46 |
+|   Register               |     0.001 |     1979 |    126800 |            1.56 |
+|   F7/F8 Muxes            |    <0.001 |     1216 |     63400 |            1.92 |
 |   LUT as Distributed RAM |    <0.001 |     2096 |     19000 |           11.03 |
 |   LUT as Shift Register  |    <0.001 |        1 |     19000 |           <0.01 |
-|   Others                 |     0.000 |       43 |       --- |             --- |
-| Signals                  |     0.045 |     6665 |       --- |             --- |
+|   Others                 |     0.000 |       33 |       --- |             --- |
+| Signals                  |     0.047 |     6441 |       --- |             --- |
 | Block RAM                |     0.037 |       14 |       135 |           10.37 |
 | MMCM                     |     0.095 |        1 |         6 |           16.67 |
 | PLL                      |     0.094 |        1 |         6 |           16.67 |
 | DSPs                     |     0.041 |       43 |       240 |           17.92 |
-| I/O                      |     0.018 |       45 |       210 |           21.43 |
+| I/O                      |     0.017 |        7 |       210 |            3.33 |
 | Static Power             |     0.109 |          |           |                 |
-| Total                    |     0.478 |          |           |                 |
+| Total                    |     0.477 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,7 +75,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.183 |       0.167 |      0.016 |
+| Vccint    |       1.000 |     0.183 |       0.166 |      0.016 |
 | Vccaux    |       1.800 |     0.120 |       0.102 |      0.018 |
 | Vcco33    |       3.300 |     0.004 |       0.000 |      0.004 |
 | Vcco25    |       2.500 |     0.010 |       0.006 |      0.004 |
@@ -94,17 +94,17 @@ Table of Contents
 1.3 Confidence Level
 --------------------
 
-+-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
-| User Input Data             | Confidence | Details                                                | Action                                                                                                     |
-+-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
-| Design implementation state | High       | Design is routed                                       |                                                                                                            |
-| Clock nodes activity        | High       | User specified more than 95% of clocks                 |                                                                                                            |
-| I/O nodes activity          | Low        | More than 75% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view   |
-| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views |
-| Device models               | High       | Device models are Production                           |                                                                                                            |
-|                             |            |                                                        |                                                                                                            |
-| Overall confidence level    | Low        |                                                        |                                                                                                            |
-+-----------------------------+------------+--------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
++-----------------------------+------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| User Input Data             | Confidence | Details                                               | Action                                                                                                     |
++-----------------------------+------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
+| Design implementation state | High       | Design is routed                                      |                                                                                                            |
+| Clock nodes activity        | High       | User specified more than 95% of clocks                |                                                                                                            |
+| I/O nodes activity          | Medium     | More than 5% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view   |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes        | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views |
+| Device models               | High       | Device models are Production                          |                                                                                                            |
+|                             |            |                                                       |                                                                                                            |
+| Overall confidence level    | Medium     |                                                       |                                                                                                            |
++-----------------------------+------------+-------------------------------------------------------+------------------------------------------------------------------------------------------------------------+
 
 
 2. Settings
@@ -148,16 +148,9 @@ Table of Contents
 +-----------------------------------+-----------+
 | Name                              | Power (W) |
 +-----------------------------------+-----------+
-| bsp                               |     0.369 |
-|   i2c_inst_1                      |    <0.001 |
-|   pwm_audio_inst_1                |    <0.001 |
-|   pwm_inst_1                      |    <0.001 |
-|   pwm_inst_2                      |    <0.001 |
-|   pwm_inst_3                      |    <0.001 |
-|   scl_IOBUF_inst                  |     0.000 |
-|   sda_IOBUF_inst                  |     0.000 |
+| bsp                               |     0.368 |
 |   serial_input_inst_1             |     0.024 |
-|     fifo_1                        |     0.023 |
+|     fifo_1                        |     0.024 |
 |       memory_reg_0_127_0_0        |    <0.001 |
 |       memory_reg_0_127_1_1        |    <0.001 |
 |       memory_reg_0_127_2_2        |    <0.001 |
@@ -671,14 +664,14 @@ Table of Contents
 |       memory_reg_896_1023_6_6     |    <0.001 |
 |       memory_reg_896_1023_7_7     |    <0.001 |
 |   serial_output_inst_1            |    <0.001 |
-|   transmitter_inst_1              |     0.189 |
+|   transmitter_inst_1              |     0.188 |
 |     dac_interface_inst_1          |     0.135 |
 |       serdes_inst_1               |     0.098 |
 |     interpolate_inst_1            |     0.005 |
 |     interpolate_inst_2            |     0.005 |
 |     nco_inst_1                    |     0.026 |
-|   user_design_inst_1              |     0.039 |
-|     main_0_139971795464416        |     0.039 |
+|   user_design_inst_1              |     0.041 |
+|     main_0_140565643155792        |     0.041 |
 |       registers_reg_r1_0_15_0_5   |    <0.001 |
 |       registers_reg_r1_0_15_12_17 |    <0.001 |
 |       registers_reg_r1_0_15_18_23 |    <0.001 |

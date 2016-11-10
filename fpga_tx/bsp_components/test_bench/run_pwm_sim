@@ -1,4 +1,0 @@
-ghdl -a ../pwm.vhd
-ghdl -a pwm_tb.vhd
-ghdl -e pwm_tb
-./pwm_tb --stop-time=1ms --wave=wave.ghw

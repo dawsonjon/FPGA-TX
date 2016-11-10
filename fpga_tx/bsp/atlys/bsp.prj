@@ -1,5 +1,0 @@
-../../bsp_components/serial_out.vhd
-../../bsp_components/serial_in.vhd
-../../bsp_components/gigabit_ethernet.vhd
-../../bsp_components/keyboard.vhd
-bsp.vhd

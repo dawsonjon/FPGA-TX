@@ -1,7 +1,4 @@
-
 unsigned rs232_rx = input("rs232_rx");
-
-unsigned audio_out = output("audio_out");
 unsigned frequency_out = output("freq_out");
 unsigned am_out = output("am_out");
 unsigned ctl_out = output("ctl_out");
