@@ -376,7 +376,7 @@ else:
     port = serial.Serial(device, 12000000, timeout=1)  # open serial port
     check_hardware(port)
     set_frequency(frequency, port)
-    set_control_register(0, port)
+    set_control_register(1, port)
     transmit(port, mode, sample_rate)
     port.readline()
     port.close()
