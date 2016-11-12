@@ -6,7 +6,7 @@ modulation schemes up to a frequency of 400MHz.
 
 Before you transmit, know your laws. FPGA-TX has not been tested for compliance
 with regulations governing transmission of radio signals. You are responsible
-for using your FPGA-TX legally.
+for using FPGA-TX legally.
 
 
 Software
@@ -24,9 +24,16 @@ sudo apt-get install python-numpy python-scipy python-serial
 Serial Port Permissions
 -----------------------
 
-To tun tx.py as an ordinary user, you need to grant read and write access to
+To run tx.py as an ordinary user, you need to grant read and write access to
 the appropriate serial device. A convenient way to achieve this on Ubuntu based
 systems is to add yourself to the dialout group.
+
+```
+sudo usermod -a -G dialout $USER
+```
+
+Usage
+-----
 
 ```
 tx.py -f=<frequency> -m=<mode>"

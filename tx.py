@@ -13,25 +13,91 @@ import sys
 clock_frequency = 100.0e6
 frequency_step_size = 800.0e6/(2.0**32.0)
 fm_bits = 16
-preemphasis_time_constant = 50e-6
-hilbert_taps = 81
-hilbert_width = 0.1
-showplots = False
 
-class SSBModulator:
-    def __init__(self, taps, bandwidth, lsb = False):
-        self.taps = taps
-        self.kernel = remez(taps, [bandwidth, 0.5-bandwidth], [1.0], type='hilbert')
+def create_lowpass_filter(fs, cutoff):
+    kernel = signal.firwin(50, cutoff, pass_zero=True, nyq=fs/2.0) 
+    w, h = signal.freqz(kernel)
+    gain = max(abs(h))
+    return kernel, gain
+
+def create_preemphasis_filter(fs, tc):
+    #create pre-emphasis filter kernel
+    f1 = 1.0/fs
+    f2 = 1.0e6
+    b = array([(f1+2*fs)/(f2+2*fs), (f1-2*fs)/(f2+2*fs)])
+    a = array([1, (f2-2*fs)/(f2+2*fs)])
+
+    #calculate frequency response
+    w, h = signal.freqz(b, a)
+    f = w/(2*np.pi)#convert to normalised frequency
+
+    #gain increases with frequency, so
+    #find gain at maximum audio frequency
+    gain = abs(h[int(round((2*15e3)/fs))])
+
+    return b, a, gain
+
+class Modulator:
+    def __init__(self, 
+            frequency=30.0e6, 
+            sample_rate=12000, 
+            fm_deviation=5000, 
+            cutoff=5000, 
+            preemphasis_time_constant=50.0e-6,
+            lsb=False):
+        self.frequency = frequency
+        self.sample_rate = sample_rate
+        self.fm_deviation = fm_deviation
+        self.preemphasis_time_constant = preemphasis_time_constant
         self.lsb = lsb
+        self.lpf_kernel, self.lpf_gain = create_lowpass_filter(
+                sample_rate, 
+                cutoff
+        )
+
+    def setup_transmitter(self, transmitter):
+        transmitter.set_frequency(self.frequency)
+        transmitter.set_sample_rate(self.sample_rate)
+        transmitter.set_fm_deviation(self.fm_deviation)
+        transmitter.set_control_register(0)
+
+class SSBModulator(Modulator):
+    def __init__(self, *args, **kwargs):
+        Modulator.__init__(self, *args, **kwargs)
+        self.taps = 81
+        self.kernel = remez(
+                self.taps,
+                [0.1, 0.4], 
+                [1.0], 
+                type='hilbert'
+        )
+
+    def setup_transmitter(self, transmitter):
+        Modulator.setup_transmitter(self, transmitter)
+        transmitter.cmd = 'b'
 
     def modulate(self, data):
-        data = data/(2.0**15)
+        #convert to floating point
+        data = data/32768.0
+
+        #low pass filter
+        data = lfilter(self.lpf_kernel, 1, data)/self.lpf_gain
+
+        #resample to 12K
+        fs = 12.0e3
+        resample_factor = fs/self.sample_rate
+        new_samples = int(round(len(data) * resample_factor))
+
+        #pass through hilbert filter
         G = self.taps/2
         i = np.concatenate([np.zeros(G), data[:-G]])
         q = lfilter(self.kernel, 1, data)
         i = i[:len(q)]
+
         if self.lsb:
             q = -q
+
+        #convert to 8-bit
         i = np.clip(i, -1, 1)
         q = np.clip(q, -1, 1)
         i = np.around(i*((2.0**7)-1))+128
@@ -39,30 +105,18 @@ class SSBModulator:
         data = (i*256.0)+q
         return data
 
-class WBFMModulator:
-    def __init__(self, fs, time_constant):
+class WBFMModulator(Modulator):
+    def __init__(self, *args, **kwargs):
+        Modulator.__init__(self, *args, **kwargs)
+        self.b, self.a, self.preemp_gain = create_preemphasis_filter(
+                48e3, 
+                self.preemphasis_time_constant
+        )
 
-        #create pre-emphasis filter kernel
-        f1 = 1.0/time_constant
-        f2 = 1.0e6
-        self.b = array([(f1+2*fs)/(f2+2*fs), (f1-2*fs)/(f2+2*fs)])
-        self.a = array([1, (f2-2*fs)/(f2+2*fs)])
-
-
-        #calculate frequency response
-        w, h = signal.freqz(self.b, self.a)
-        f = w/(2*np.pi)#convert to normalised frequency
-
-        #gain increases with frequency, so
-        #find gain at maximum audio frequency
-        self.preemp_gain = h[int(round((2*15e3)/fs))]
-
-        #only allow frequencies below 15KHz
-        self.lpf_kernel = signal.firwin(50, 15.0e3, pass_zero=True, nyq=fs/2.0) 
-
-        #calculate frequency response
-        w, h = signal.freqz(self.lpf_kernel)
-        self.lpf_gain = max(abs(h))
+    def setup_transmitter(self, transmitter):
+        Modulator.setup_transmitter(self, transmitter)
+        transmitter.set_iq(255, 255)
+        transmitter.cmd = 'b'
 
     def modulate(self, data):
 
@@ -72,6 +126,11 @@ class WBFMModulator:
         #low pass filter
         data = lfilter(self.lpf_kernel, 1, data)/self.lpf_gain
 
+        #resample to 48K
+        fs = 48.0e3
+        resample_factor = fs/self.sample_rate
+        new_samples = int(round(len(data) * resample_factor))
+
         #add preemphasis
         data = lfilter(self.b, self.a, data)/self.preemp_gain
 
@@ -80,45 +139,26 @@ class WBFMModulator:
         data = around(data*32767).astype(int)
         return data+32768;
 
-class StereoModulator:
-    def __init__(self, fs, time_constant):
-        self.fs = fs
-        self.sample = 0
-
-        #create pre-emphasis filter kernel
-        ##################################
-        f1 = 1.0/time_constant
-        f2 = 1.0e6
-        self.b = array([(f1+2*fs)/(f2+2*fs), (f1-2*fs)/(f2+2*fs)])
-        self.a = array([1, (f2-2*fs)/(f2+2*fs)])
-
-        #calculate frequency response and gain estimate
-        w, h = signal.freqz(self.b, self.a)
-        f = w/(2*np.pi)#convert to normalised frequency
-        if showplots:
-            plt.plot(f, 20.0*np.log10(abs(h)))
-            plt.show()
-        self.preemp_gain = abs(h[int(round((2*15e3)/fs))])
-
-        #create low pass filter kernel
-        ##############################
-
-        #15KHz cutoff
-        self.lpf_kernel = signal.firwin(50, 15.0e3, pass_zero=True, nyq=fs/2.0) 
-
-        #calculate frequency response and gain estimate
-        w, h = signal.freqz(self.lpf_kernel)
-        self.lpf_gain = max(abs(h))
-
+class StereoModulator(Modulator):
+    def __init__(self, *args, **kwargs):
+        Modulator.__init__(self, *args, **kwargs)
+        self.b, self.a, self.preemp_gain = create_preemphasis_filter(
+                48e3, 
+                self.preemphasis_time_constant
+        )
         #create pilot_tone and stereo sub carrier
-        ########################################
         fsh = 152.0e3
         t = np.arange(0, 20e-3, 1/fsh)
         self.pilot = np.sin(2*np.pi*19.0e3*t)
         self.subcarrier = np.sin(2*np.pi*38.0e3*t)
 
-    def modulate(self, data):
+    def setup_transmitter(self, transmitter):
+        Modulator.setup_transmitter(self, transmitter)
+        transmitter.set_iq(255, 255)
+        transmitter.set_sample_rate(152e3)
+        transmitter.cmd = 'b'
 
+    def modulate(self, data):
         #convert to floating point
         data = data/32768.0
 
@@ -130,20 +170,26 @@ class StereoModulator:
         left = lfilter(self.lpf_kernel, 1, left)/self.lpf_gain
         right = lfilter(self.lpf_kernel, 1, right)/self.lpf_gain
 
+        #resample to 48K
+        fs = 48.0e3
+        resample_factor = fs/self.sample_rate
+        new_samples = int(round(len(data) * resample_factor))
+
         #preemphasis
         left = lfilter(self.b, self.a, left)/self.preemp_gain
         right = lfilter(self.b, self.a, right)/self.preemp_gain
 
         #upsample data
         fsh = 152.0e3
-        resample_factor = fsh/self.fs
+        resample_factor = fsh/fs
         new_samples = int(round(len(left) * resample_factor))
         left = signal.resample(left, new_samples)
         right = signal.resample(right, new_samples)
 
         #shift subcarrier and pilot to maintain phase across frames
         subcarrier = self.subcarrier[:new_samples]
-        self.subcarrier = np.concatenate([self.subcarrier[new_samples:], subcarrier])
+        self.subcarrier = np.concatenate([self.subcarrier[new_samples:], 
+            subcarrier])
         pilot = self.pilot[:new_samples]
         self.pilot = np.concatenate([self.pilot[new_samples:], pilot])
 
@@ -151,208 +197,228 @@ class StereoModulator:
         data += ((left - right)/2) * subcarrier * 0.45
         data += pilot * 0.1
         
-        if self.sample % 10000 == 0:
-            if showplots:
-                plt.ion()
-                plt.plot(abs(np.fft.fftshift(np.fft.fft(data))))
-                plt.draw()
-        else:
-            self.sample += 1
+        #convert to 16-bit pcm
+        data = np.clip(data, -1, 1)
+        data = around(data*32767).astype(int)
+
+        return data+32768;
+
+class FMModulator(Modulator):
+
+    def setup_transmitter(self, transmitter):
+        Modulator.setup_transmitter(self, transmitter)
+        transmitter.set_iq(255, 255)
+        transmitter.cmd = 'a'
+
+    def modulate(self, data):
+        #convert to floating point
+        data = data/32768.0
+
+        #low pass filter
+        data = lfilter(self.lpf_kernel, 1, data)/self.lpf_gain
+
+        #resample to 12K
+        fs = 12.0e3
+        resample_factor = fs/self.sample_rate
+        new_samples = int(round(len(data) * resample_factor))
+        data = signal.resample(data, new_samples)
 
         #convert to 16-bit pcm
         data = np.clip(data, -1, 1)
         data = around(data*32767).astype(int)
+
         return data+32768;
 
-class FMModulator:
-    def modulate(self, data):
-        return data+32768;
+class AMModulator(Modulator):
 
-class AMModulator:
+    def setup_transmitter(self, transmitter):
+
+        Modulator.setup_transmitter(self, transmitter)
+        transmitter.cmd = 'b'
+
     def modulate(self, data):
-        """convert to 7 bit, add dc bias, duplicate in i and q channel"""
-        i = data/512+192
-        q = data/512+192
-        return i+(q*256)
+
+        #convert to floating point
+        data = data/32768.0
+
+        #low pass filter
+        data = lfilter(self.lpf_kernel, 1, data)/self.lpf_gain
+
+        #resample to 12K
+        fs = 12.0e3
+        resample_factor = fs/self.sample_rate
+        new_samples = int(round(len(data) * resample_factor))
+        data = signal.resample(data, new_samples)
+
+        #amplitude modulate
+        i = data*0.5+1.0
+        q = data*0.5+1.0
+
+        #convert to 8-bit
+        i = np.clip(i, -1, 1)
+        q = np.clip(q, -1, 1)
+        i = np.around(i*((2.0**7)-1))+128
+        q = np.around(q*((2.0**7)-1))+128
+        data = (i*256.0)+q
+        return data
+
+class TransmitterException(Exception):
+    pass
 
 def error(message):
-    print message
-    sys.exit(1)
+    raise TransmitterException
 
-def reset_hardware(port):
-    port.write(" "*10000)
-    port.flushInput()
+class Transmitter:
 
-def check_hardware(port):
-    reset_hardware(port)
-    port.write(">")
-    if port.readline() == ">\n":
-        return
-    error("Could not communicate with FPGA hardware")
+    def __init__(self, device, modulator):
+        self.port = serial.Serial(device, 12000000, timeout=1)
+        self.check_hardware()
+        modulator.setup_transmitter(self)
 
-def check_response(port, msg):
-    response = port.readline()
-    port.flushInput()
-    if not response:
-        error("No response from FPGA\n"+msg)
-    if not response or response[0] != ">":
-        error("Incorrect response from FPGA\n"+msg)
+    def __del__(self):
+        self.set_iq(127,127)
+        self.port.close()
 
-def set_frequency(frequency, port):
-    frequency_steps = (frequency/frequency_step_size)
-    port.write('f'+str(int(round(frequency_steps)))+'\n')
-    port.flush()
-    steps = port.readline().strip()
-    print "frequency steps", steps
-    check_response(port, "error setting frequency")
+    def reset_hardware(self):
+        self.port.write(" "*10000)
+        self.port.flushInput()
 
-def set_fm_deviation(deviation, port):
-    fm_resolution_hz = deviation/(2.0**fm_bits)
-    fm_resolution_steps = fm_resolution_hz/frequency_step_size
-    fm_resolution_256 = fm_resolution_steps * 256.0
-    port.write('d'+str(int(round(fm_resolution_256)))+'\n')
-    port.flush()
-    multiplier = port.readline().strip()
-    print "deviation_multiplier", multiplier
-    check_response(port, "error setting fm deviation")
-
-def set_sample_rate(sample_rate, port):
-    sample_rate_clocks = clock_frequency/sample_rate
-    port.write('s'+str(int(round(sample_rate_clocks)))+'\n')
-    port.flush()
-    sample_rate_clocks = port.readline().strip()
-    print "sample_rate_clocks", sample_rate_clocks
-    check_response(port, "error setting sample_rate")
-
-def set_control_register(control, port):
-    port.write('c'+str(int(control))+'\n')
-    port.flush()
-    control = port.readline().strip()
-    print "control register", control
-    check_response(port, "error setting control register")
-
-def transmit(port, mode, sample_rate):
-    if mode == "AM":
-        modulator = AMModulator()
-        cmd = 'b'
-    elif mode == "FM":
-        #set sample rate
-        set_sample_rate(sample_rate, port)
-        #set maximum i and maximum q
-        set_fm_deviation(5000, port)
-        port.write("b"+chr(1)+chr(0)+chr(0)+chr(0))
-        port.readline()
-        modulator = FMModulator()
-        cmd = 'a'
-    elif mode == "WBFM":
-        #set sample rate
-        set_sample_rate(sample_rate, port)
-        #set maximum i and maximum q
-        set_fm_deviation(150000, port)
-        port.write("b"+chr(1)+chr(0)+chr(0)+chr(0))
-        port.readline()
-        print sample_rate
-        modulator = WBFMModulator(sample_rate, preemphasis_time_constant)
-        cmd = 'a'
-    elif mode == "STEREO":
-        modulator = StereoModulator(sample_rate, preemphasis_time_constant)
-        sample_rate = 152.0e3
-        #set sample rate
-        set_sample_rate(sample_rate, port)
-        #set maximum i and maximum q
-        set_fm_deviation(150000, port)
-        port.write("b"+chr(1)+chr(0)+chr(0)+chr(0))
-        port.readline()
-        cmd = 'a'
-    elif mode == "USB":
-        modulator = SSBModulator(hilbert_taps, hilbert_width)
-        cmd = 'b'
-    elif mode == "LSB":
-        modulator = SSBModulator(hilbert_taps, hilbert_width, True)
-        cmd = 'b'
-
-    while 1:
-        #tx has a 8kx8byte buffer
-        #assuming 2bytes/sample, 2016 samples should ~quarter fill the buffer
-        #in stereo ~3 times as many samples are generated
-
-        t0 = time.time()
-        data = sys.stdin.read(2016)
-        done = len(data) < 2016
-        length = len(data)/2
-        data = struct.unpack("<"+("h"*length), data)
-        data = array(data)
-        t1 = time.time()
-
-        #modulate data into iq or frequency format
-        data = modulator.modulate(data)
-        t2 = time.time()
-
-        #send frame to FPGA
-        length = len(data)
-        frame = struct.pack("<" + "H"*length, *data)
-        port.write(cmd+chr(length & 0xff)+chr(length>>8)+frame)
-        t3 = time.time()
-
-        #Check response
-        response = port.readline()
-        t4 = time.time()
-        #print t1-t0, t2-t1, t3-t2, t4-t3, t4-t0
-        if response != ">\n":
-            error("incorrect response received"+response)
-        if done:
-            #switch off
-            if mode == "USB" or mode == "LSB":
-                port.write("b"+chr(1)+chr(0)+chr(128)+chr(128))
-                port.readline()
+    def check_hardware(self):
+        self.reset_hardware()
+        self.port.write(">")
+        if self.port.readline() == ">\n":
             return
+        error("Could not communicate with FPGA hardware")
 
-if len(sys.argv) <= 1 or "-h" in sys.argv or "--help" in sys.argv:
-    print "\n".join([i.lstrip() for i in """Usage
-    =====
+    def check_response(self, msg):
+        response = self.port.readline()
+        self.port.flushInput()
+        if not response:
+            error("No response from FPGA\n"+msg)
+        if not response or response[0] != ">":
+            error("Incorrect response from FPGA\n"+msg)
 
-    tx.py -f=<frequency> -m=<mode>"
+    def set_frequency(self, frequency):
+        frequency_steps = (frequency/frequency_step_size)
+        self.port.write('f'+str(int(round(frequency_steps)))+'\n')
+        self.port.flush()
+        steps = self.port.readline().strip()
+        print "frequency steps", steps
+        self.check_response("error setting frequency")
 
-    Accepts data from stdin in mono raw 16-bit pcm format
+    def set_fm_deviation(self, deviation):
+        fm_resolution_hz = deviation/(2.0**fm_bits)
+        fm_resolution_steps = fm_resolution_hz/frequency_step_size
+        fm_resolution_256 = fm_resolution_steps * 256.0
+        self.port.write('d'+str(int(round(fm_resolution_256)))+'\n')
+        self.port.flush()
+        multiplier = self.port.readline().strip()
+        print "deviation_multiplier", multiplier
+        self.check_response("error setting fm deviation")
 
-    Sampling rate should be 12kS/s for AM, LSB and USB modes
-    Sampling rate must be specified for FM, WBFM and STEREO modes
-    For WBFM and STEREO, sampling rate must be greater than 30KHz,
-    44.1K or 48K are reccommended.
+    def set_sample_rate(self, sample_rate):
+        sample_rate_clocks = clock_frequency/sample_rate
+        self.port.write('s'+str(int(round(sample_rate_clocks)))+'\n')
+        self.port.flush()
+        sample_rate_clocks = self.port.readline().strip()
+        print "sample_rate_clocks", sample_rate_clocks
+        self.check_response("error setting sample_rate")
 
-    options
-    -------
+    def set_control_register(self, control):
+        self.port.write('c'+str(int(control))+'\n')
+        self.port.flush()
+        control = self.port.readline().strip()
+        print "control register", control
+        self.check_response("error setting control register")
 
-    -f=<frequency>
+    def set_iq(self, i, q):
+        self.port.write("b"+chr(1)+chr(0)+chr(i)+chr(q))
+        self.port.readline()
 
-    Specify transmit frequency in Hz
+    def transmit(self, in_file):
+        while 1:
+            #tx has a 8kx8byte buffer
+            #assuming 2bytes/sample, 2016 samples should ~quarter fill the
+            #buffer in stereo ~3 times as many samples are generated
 
-    -m=<mode>
+            t0 = time.time()
+            data = in_file.read(2016)
+            done = len(data) < 2016
+            length = len(data)/2
+            data = struct.unpack("<"+("h"*length), data)
+            data = array(data)
+            t1 = time.time()
 
-    Mode may be AM or FM
+            #modulate data into iq or frequency format
+            data = modulator.modulate(data)
+            t2 = time.time()
 
-    -d=<device>
+            #send frame to FPGA
+            length = len(data)
+            frame = struct.pack("<" + "H"*length, *data)
+            self.port.write(self.cmd+chr(length & 0xff)+chr(length>>8)+frame)
+            t3 = time.time()
 
-    specify USB/serial device of transmitter. default is /dev/ttyUSB1
-    
-    
-    --transmit narrow band fm on 27MHz 
-    sox test.wav -t raw -b 16 -r 12k - | ./tx.py -f=12e6 -m=fm -r=12000
+            #Check response
+            response = self.port.readline()
+            t4 = time.time()
 
-    --transmit stereo FM on 88 MHz
-    e.g. sox test.wav --channels 2 -t raw -b 16 -r 48k - | ./tx.py -f=88e6 -m=stereo -r 12000
+            #print t1-t0, t2-t1, t3-t2, t4-t3, t4-t0
 
-    --transmit lower sideband on 10 MHz
-    e.g. sox test.wav -t raw -b 16 -r 12k - | ./tx.py -f=100e6 -m=lsb
+            if response != ">\n":
+                error("incorrect response received during transmission"+response)
+            if done:
+                #switch off
+                if mode == "USB" or mode == "LSB":
+                    self.set_iq(128, 128)
+                    self.port.readline()
+                return
+
+if __name__ == "__main__":
+
+    if len(sys.argv) <= 1 or "-h" in sys.argv or "--help" in sys.argv:
+        print "\n".join([i.lstrip() for i in """Usage
+        =====
+
+        tx.py -f=<frequency> -m=<mode>"
+
+        Accepts data from stdin in raw 16-bit pcm format
+        (stereo mode requires 2 channel, all others require 1 channel)
+
+        Options
+        -------
+
+        -f=<frequency>
+
+        Specify transmit frequency in Hz.
+
+        -m=<mode>
+
+        Mode may be AM or FM, WBFM, Stereo, LSB or USB.
+        (not case sensitive)
+
+        -d=<device>
+
+        Specify USB/serial device of transmitter. Default is /dev/ttyUSB1.
+        
+        --transmit narrow band fm on 27MHz 
+        sox test.wav -t raw -b 16 -r 12k --channels 1 - | ./tx.py -f=12e6 -m=fm -r=12000
+
+        --transmit stereo FM on 88 MHz
+        e.g. sox test.wav --channels 2 -t raw -b 16 -r 48k - | ./tx.py -f=88e6 -m=stereo -r=12000
+
+        --transmit lower sideband on 10 MHz
+        e.g. sox test.wav -t raw -b 16 -r 12k --channels 1 - | ./tx.py -f=100e6 -m=lsb -r=12000
 
 
-    """.splitlines()])
-    sys.exit(0)
-else:
+        """.splitlines()])
+        sys.exit(0)
+
     frequency = None
     mode = None
     device = "/dev/ttyUSB1"
-    sample_rate=12000
+    sample_rate=None
+    audio_cutoff=None
 
     for arg in sys.argv[1:]:
         if arg.startswith("-f="):
@@ -363,6 +429,8 @@ else:
             device = arg[3:]
         elif arg.startswith("-r="):
             sample_rate = int(round(float(arg[3:])))
+        elif arg.startswith("-l="):
+            sample_rate = int(round(float(arg[3:])))
 
     if frequency is None:
         print "frequency must be specified"
@@ -372,11 +440,64 @@ else:
         print "mode must be specified"
         exit(0)
 
+    if mode.upper() == "AM":
+        if sample_rate is None:
+            print "sample rate not specified"
+            print "defaulting to 12k"
+            sample_rate = 12000
+        modulator = AMModulator(
+            frequency=frequency,
+            sample_rate=sample_rate
+        )
+    elif mode.upper() == "USB":
+        if sample_rate is None:
+            print "sample rate not specified"
+            print "defaulting to 12k"
+            sample_rate = 12000
+        modulator = SSBModulator(
+            frequency=frequency,
+            sample_rate=sample_rate
+        )
+    elif mode.upper() == "LSB":
+        if sample_rate is None:
+            print "sample rate not specified"
+            print "defaulting to 12k"
+            sample_rate = 12000
+        modulator = SSBModulator(
+            frequency=frequency,
+            sample_rate=sample_rate,
+            lsb = True
+        )
+    elif mode.upper() == "FM":
+        if sample_rate is None:
+            print "sample rate not specified"
+            print "defaulting to 12k"
+            sample_rate = 12000
+        modulator = FMModulator(
+            frequency=frequency,
+            sample_rate=sample_rate,
+            fm_deviation=5000,
+        )
+    elif mode.upper() == "WBFM":
+        if sample_rate is None:
+            print "sample rate not specified"
+            print "defaulting to 48k"
+            sample_rate = 48000
+        modulator = WBFMModulator(
+            frequency=frequency,
+            sample_rate=sample_rate,
+            fm_deviation=75000,
+        )
+    elif mode.upper() == "STEREO":
+        if sample_rate is None:
+            print "sample rate not specified"
+            print "defaulting to 48k"
+            sample_rate = 48000
+        modulator = StereoModulator(
+            frequency=frequency,
+            sample_rate=sample_rate,
+            fm_deviation=75000,
+        )
 
-    port = serial.Serial(device, 12000000, timeout=1)  # open serial port
-    check_hardware(port)
-    set_frequency(frequency, port)
-    set_control_register(0, port)
-    transmit(port, mode, sample_rate)
-    port.readline()
-    port.close()
+    transmitter = Transmitter(device, modulator)
+    transmitter.transmit(sys.stdin)
