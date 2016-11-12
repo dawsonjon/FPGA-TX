@@ -59,7 +59,7 @@ class Modulator:
         transmitter.set_frequency(self.frequency)
         transmitter.set_sample_rate(self.sample_rate)
         transmitter.set_fm_deviation(self.fm_deviation)
-        transmitter.set_control_register(0)
+        transmitter.set_control_register(1)
 
 class SSBModulator(Modulator):
     def __init__(self, *args, **kwargs):
@@ -87,6 +87,7 @@ class SSBModulator(Modulator):
         fs = 12.0e3
         resample_factor = fs/self.sample_rate
         new_samples = int(round(len(data) * resample_factor))
+        data = signal.resample(data, new_samples)
 
         #pass through hilbert filter
         G = self.taps/2
@@ -109,7 +110,7 @@ class WBFMModulator(Modulator):
     def __init__(self, *args, **kwargs):
         Modulator.__init__(self, *args, **kwargs)
         self.b, self.a, self.preemp_gain = create_preemphasis_filter(
-                48e3, 
+                self.sample_rate, 
                 self.preemphasis_time_constant
         )
 
@@ -124,15 +125,11 @@ class WBFMModulator(Modulator):
         data = data/32768.0
 
         #low pass filter
-        data = lfilter(self.lpf_kernel, 1, data)/self.lpf_gain
-
-        #resample to 48K
-        fs = 48.0e3
-        resample_factor = fs/self.sample_rate
-        new_samples = int(round(len(data) * resample_factor))
+        #data = lfilter(self.lpf_kernel, 1, data)/self.lpf_gain
 
         #add preemphasis
-        data = lfilter(self.b, self.a, data)/self.preemp_gain
+        #data = lfilter(self.b, self.a, data)/self.preemp_gain
+        #print max(data)
 
         #convert to 16-bit pcm
         data = np.clip(data, -1, 1)
@@ -143,7 +140,7 @@ class StereoModulator(Modulator):
     def __init__(self, *args, **kwargs):
         Modulator.__init__(self, *args, **kwargs)
         self.b, self.a, self.preemp_gain = create_preemphasis_filter(
-                48e3, 
+                self.sample_rate, 
                 self.preemphasis_time_constant
         )
         #create pilot_tone and stereo sub carrier
@@ -170,18 +167,13 @@ class StereoModulator(Modulator):
         left = lfilter(self.lpf_kernel, 1, left)/self.lpf_gain
         right = lfilter(self.lpf_kernel, 1, right)/self.lpf_gain
 
-        #resample to 48K
-        fs = 48.0e3
-        resample_factor = fs/self.sample_rate
-        new_samples = int(round(len(data) * resample_factor))
-
         #preemphasis
         left = lfilter(self.b, self.a, left)/self.preemp_gain
         right = lfilter(self.b, self.a, right)/self.preemp_gain
 
         #upsample data
         fsh = 152.0e3
-        resample_factor = fsh/fs
+        resample_factor = fsh/self.sample_rate
         new_samples = int(round(len(left) * resample_factor))
         left = signal.resample(left, new_samples)
         right = signal.resample(right, new_samples)
@@ -216,12 +208,6 @@ class FMModulator(Modulator):
 
         #low pass filter
         data = lfilter(self.lpf_kernel, 1, data)/self.lpf_gain
-
-        #resample to 12K
-        fs = 12.0e3
-        resample_factor = fs/self.sample_rate
-        new_samples = int(round(len(data) * resample_factor))
-        data = signal.resample(data, new_samples)
 
         #convert to 16-bit pcm
         data = np.clip(data, -1, 1)
@@ -476,7 +462,8 @@ if __name__ == "__main__":
         modulator = FMModulator(
             frequency=frequency,
             sample_rate=sample_rate,
-            fm_deviation=5000,
+            cutoff=3000.0,
+            fm_deviation=5000.0,
         )
     elif mode.upper() == "WBFM":
         if sample_rate is None:
@@ -486,7 +473,8 @@ if __name__ == "__main__":
         modulator = WBFMModulator(
             frequency=frequency,
             sample_rate=sample_rate,
-            fm_deviation=75000,
+            cutoff=15000,
+            fm_deviation=150000,
         )
     elif mode.upper() == "STEREO":
         if sample_rate is None:
@@ -496,6 +484,7 @@ if __name__ == "__main__":
         modulator = StereoModulator(
             frequency=frequency,
             sample_rate=sample_rate,
+            cutoff=15000,
             fm_deviation=75000,
         )
 
