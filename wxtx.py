@@ -36,13 +36,13 @@ def setup_plot(figure, axes):
     axes.set_ylabel("Magnitude (dB)")
     axes.grid(color='0.8')
 
-def transmit(frequency, mode, source, input_file):
+def transmit(frequency, mode, source, input_file, cutoff, deviation):
     if mode.upper() == "AM":
         fs = 12000
         channels = 1
         modulator = tx.AMModulator(
             frequency=frequency,
-            cutoff=3000.0,
+            cutoff=cutoff,
             sample_rate=12000
         )
     elif mode.upper() == "USB":
@@ -50,7 +50,7 @@ def transmit(frequency, mode, source, input_file):
         channels = 1
         modulator = tx.SSBModulator(
             frequency=frequency,
-            cutoff=3000.0,
+            cutoff=cutoff,
             sample_rate=12000
         )
     elif mode.upper() == "LSB":
@@ -59,7 +59,7 @@ def transmit(frequency, mode, source, input_file):
         modulator = tx.SSBModulator(
             frequency=frequency,
             sample_rate=12000,
-            cutoff=3000.0,
+            cutoff=cutoff,
             lsb = True
         )
     elif mode.upper() == "FM":
@@ -68,8 +68,8 @@ def transmit(frequency, mode, source, input_file):
         modulator = tx.FMModulator(
             frequency=frequency,
             sample_rate=12000,
-            cutoff=3000.0,
-            fm_deviation=5000.0,
+            cutoff=cutoff,
+            fm_deviation=deviation,
         )
     elif mode.upper() == "WBFM":
         fs = 48000
@@ -77,8 +77,8 @@ def transmit(frequency, mode, source, input_file):
         modulator = tx.WBFMModulator(
             frequency=frequency,
             sample_rate=48000,
-            cutoff=15000,
-            fm_deviation=150000,
+            cutoff=cutoff,
+            fm_deviation=deviation,
         )
     elif mode.upper() == "STEREO":
         fs = 48000
@@ -86,33 +86,33 @@ def transmit(frequency, mode, source, input_file):
         modulator = tx.StereoModulator(
             frequency=frequency,
             sample_rate=48000,
-            cutoff=15000,
-            fm_deviation=150000,
+            cutoff=cutoff,
+            fm_deviation=deviation,
         )
 
     #Use sox to capture/resample input
     if source == "File":
         pipe = subprocess.Popen(
-                "/usr/bin/sox %s -r %u -b 16 -t raw --channels %u -"%(
-                    input_file, fs, channels), 
-                stdout=subprocess.PIPE, 
-                shell=True
+            "/usr/bin/sox %s -r %u -b 16 -t raw --channels %u -"%(
+                input_file, fs, channels), 
+            stdout=subprocess.PIPE, 
+            shell=True
         )
     else:
         pipe = subprocess.Popen(
-                "/usr/bin/rec -r %u -b 16 -t raw --channels %u -"%(
-                    fs, channels), 
-                stdout=subprocess.PIPE, 
-                shell=True
+            "/usr/bin/rec -r %u -b 16 -t raw --channels %u -"%(
+                fs, channels), 
+            stdout=subprocess.PIPE, 
+            shell=True
         )
 
     transmitter = tx.Transmitter(device, modulator)
 
     #run the transmitter in its own thread
     transmit_thread = threading.Thread(
-            group=None, 
-            target=transmitter.transmit, 
-            args=(pipe.stdout,)
+        group=None, 
+        target=transmitter.transmit, 
+        args=(pipe.stdout,)
     )
     transmit_thread.start()
     return transmitter, transmit_thread, pipe
@@ -131,31 +131,47 @@ class CanvasPanel(wx.Panel):
         self.vsizer = wx.BoxSizer(wx.VERTICAL)
         self.settings_sizer = wx.BoxSizer(wx.VERTICAL)
         self.freq_sizer = wx.BoxSizer(wx.HORIZONTAL)
+        self.lpf_sizer = wx.BoxSizer(wx.HORIZONTAL)
+        self.fm_deviation_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.source_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.mode_sizer = wx.BoxSizer(wx.HORIZONTAL)
 
         self.frequency = wx.TextCtrl(self, value="30000000")
+        self.lpf       = wx.TextCtrl(self, value="3000")
+        self.fm_deviation = wx.TextCtrl(self, value="5000")
+        self.fm_deviation.Disable()
         self.mode      = wx.Choice(self, choices=modes)
         self.source    = wx.Choice(self, choices=sources)
         self.input_file_button = filebrowse.FileBrowseButton(self, labelText="Input File:")
+        self.input_file_button.Disable()
         self.tx = wx.ToggleButton(self, label="TX")
         self.Bind(wx.EVT_TOGGLEBUTTON, self.on_transmit, self.tx)
+        self.Bind(wx.EVT_CHOICE, self.on_mode, self.mode)
+        self.Bind(wx.EVT_CHOICE, self.on_source, self.source)
 
         self.vsizer.Add(self.canvas, 1, wx.EXPAND | wx.ALL)
 
         self.freq_sizer.Add(wx.StaticText(self, label="Frequency (Hz): "), 0, wx.CENTER)
         self.freq_sizer.Add(self.frequency, 1)
-        self.vsizer.Add(self.freq_sizer, 0, wx.EXPAND | wx.ALL, 10)
+        self.vsizer.Add(self.freq_sizer, 0, wx.EXPAND | wx.ALL, 5)
+
+        self.lpf_sizer.Add(wx.StaticText(self, label="Audio Cutoff (Hz): "), 0, wx.CENTER)
+        self.lpf_sizer.Add(self.lpf, 1)
+        self.vsizer.Add(self.lpf_sizer, 0, wx.EXPAND | wx.ALL, 5)
+
+        self.fm_deviation_sizer.Add(wx.StaticText(self, label="FM Deviation (Hz): "), 0, wx.CENTER)
+        self.fm_deviation_sizer.Add(self.fm_deviation, 1)
+        self.vsizer.Add(self.fm_deviation_sizer, 0, wx.EXPAND | wx.ALL, 5)
 
         self.mode_sizer.Add(wx.StaticText(self, label="Mode:"), 0, wx.CENTRE)
         self.mode_sizer.Add(self.mode, 1, wx.EXPAND | wx.ALL)
-        self.vsizer.Add(self.mode_sizer, 0, wx.EXPAND | wx.ALL, 10)
+        self.vsizer.Add(self.mode_sizer, 0, wx.EXPAND | wx.ALL, 5)
 
         self.source_sizer.Add(wx.StaticText(self, label="Source:"), 0, wx.CENTRE)
         self.source_sizer.Add(self.source, 1, wx.EXPAND | wx.ALL)
-        self.vsizer.Add(self.source_sizer, 0, wx.EXPAND | wx.ALL, 10)
+        self.vsizer.Add(self.source_sizer, 0, wx.EXPAND | wx.ALL, 5)
 
-        self.vsizer.Add(self.input_file_button, 0, wx.EXPAND | wx.ALL, 10)
+        self.vsizer.Add(self.input_file_button, 0, wx.EXPAND | wx.ALL, 5)
         self.vsizer.Add(self.tx, 0, wx.EXPAND, 10)
 
         self.SetSizer(self.vsizer)
@@ -188,9 +204,9 @@ class CanvasPanel(wx.Panel):
 
     def stop_transmit(self):
         #terminate the process creating the input data
-        self.transmitter_pipe.terminate()
         self.transmitter.stop = True
         self.transmitter_thread.join()
+        self.transmitter_pipe.terminate()
         del(self.transmitter)
         self.transmitter = None
         self.transmitter_thread = None
@@ -198,14 +214,61 @@ class CanvasPanel(wx.Panel):
         self.line = None
         self.tx.SetValue(False)
 
+    def on_source(self, event):
+        source = sources[self.source.GetCurrentSelection()]
+        if source.upper() == "FILE":
+            self.input_file_button.Enable()
+        elif source.upper() == "SOUNDCARD":
+            self.input_file_button.Disable()
+
+    def on_mode(self, event):
+        mode = modes[self.mode.GetCurrentSelection()]
+        if mode.upper() == "AM":
+            self.lpf.SetValue("5000")
+            self.fm_deviation.SetValue("5000")
+            self.fm_deviation.Disable()
+        elif mode.upper() == "LSB":
+            self.lpf.SetValue("3000")
+            self.fm_deviation.SetValue("5000")
+            self.fm_deviation.Disable()
+        elif mode.upper() == "USB":
+            self.lpf.SetValue("3000")
+            self.fm_deviation.SetValue("5000")
+            self.fm_deviation.Disable()
+        elif mode.upper() == "FM":
+            self.lpf.SetValue("5000")
+            self.fm_deviation.SetValue("5000")
+            self.fm_deviation.Enable()
+        elif mode.upper() == "WBFM":
+            self.lpf.SetValue("15000")
+            self.fm_deviation.SetValue("150000")
+            self.fm_deviation.Enable()
+        elif mode.upper() == "STEREO":
+            self.lpf.SetValue("15000")
+            self.fm_deviation.SetValue("150000")
+            self.fm_deviation.Enable()
+
 
     def on_transmit(self, event):
         if event.IsChecked():
             frequency = float(self.frequency.GetValue())
+            cutoff = float(self.lpf.GetValue())
+            deviation = float(self.fm_deviation.GetValue())
             mode = modes[self.mode.GetCurrentSelection()]
             source = sources[self.source.GetCurrentSelection()]
             input_file = self.input_file_button.GetValue()
-            self.transmitter, self.transmitter_thread, self.transmitter_pipe=transmit(frequency, mode, source, input_file)
+            (
+                self.transmitter, 
+                self.transmitter_thread, 
+                self.transmitter_pipe
+            )=transmit(
+                frequency, 
+                mode, 
+                source, 
+                input_file,
+                cutoff,
+                deviation,
+            )
         else:
             if self.transmitter is not None:
                 self.stop_transmit()
