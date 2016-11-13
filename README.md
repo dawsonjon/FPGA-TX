@@ -1,8 +1,14 @@
 FPGA-TX
 =======
 
-FPGA-TX is an FPGA based radio transmitter, that can transmit using common
-modulation schemes up to a frequency of 400MHz. 
+FPGA-TX is an FPGA based radio transmitter, that can transmit at frequencies up
+to 400MHz. So far, FPGA-TX supports AM, FM, LSB, USB, Wideband FM, and Wideband
+FM Stereo.
+
+![screenshot](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/screenshot.png)
+
+So far FPGA-TX has been tested on Ubuntu, but it uses portable libraries, so
+could be ported to other platforms with a little effort.
 
 Before you transmit, know your laws. FPGA-TX has not been tested for compliance
 with regulations governing transmission of radio signals. You are responsible
@@ -17,8 +23,11 @@ Prerequisites
 
 ### Python Modules
 
+FPGA-TX has some dependencies on Python modules. The software uses the sox tool
+to provide a portable and flexible method for capturing/reading audio.
+
 ```
-sudo apt-get install python-numpy python-scipy python-serial
+sudo apt-get install python-numpy python-scipy python-matplotlib python-serial sox
 ```
 
 Serial Port Permissions
@@ -32,19 +41,20 @@ systems is to add yourself to the dialout group.
 sudo usermod -a -G dialout $USER
 ```
 
-Usage
------
+GUI transmitter (wxtx.py)
+----------------------------
+```
+wxtx.py
+```
+
+Command line utility (tx.py)
+----------------------------
 
 ```
 tx.py -f=<frequency> -m=<mode>"
 ```
 
 Accepts data from stdin in mono raw 16-bit pcm format
-
-Sampling rate should be 12kS/s for AM, LSB and USB modes
-Sampling rate must be specified for FM, WBFM and STEREO modes
-For WBFM and STEREO, sampling rate must be greater than 30KHz,
-44.1K or 48K are recommended.
 
 Options
 -------
@@ -72,18 +82,21 @@ Examples
 
 
 ####transmit narrow band fm on 27MHz 
+
 ```
-sox test.wav -t raw -b 16 -r 12k - | ./tx.py -f=12e6 -m=fm -r=12000
+sox test.wav -t raw -b 16 -r 12k - | tx.py -f=12e6 -m=fm -r=12000
 ```
 
 ####transmit stereo FM on 88 MHz
+
 ```
-sox test.wav --channels 2 -t raw -b 16 -r 48k - | ./tx.py -f=88e6 -m=stereo -r 12000
+sox myfile.mp3 --channels 2 -t raw -b 16 -r 48k - | tx.py -f=88e6 -m=stereo -r 12000
 ```
 
-####transmit lower sideband on 10 MHz (using soundcard inputi, e.g. microphone)
+####transmit lower sideband on 10 MHz (using soundcard input, e.g. microphone)
+
 ```
-rec -t raw -b 16 -r 12k - | ./tx.py -f=10e6 -m=lsb
+rec -t raw -b 16 -r 12k - | tx.py -f=10e6 -m=lsb
 ```
 
 FPGA Firmware
@@ -117,6 +130,14 @@ installed.
 Build Process
 -------------
 
+### Clone the git repo
+
+```
+git clone https://github.com/dawsonjon/FPGA-TX.git
+cd FPGA-TX
+```
+
+
 ### Compiling the C code
 This step is optional, you can use the precompiled files.
 
@@ -132,8 +153,8 @@ This step is optional, you can use the precompiled files.
 ```
 
 ### Download the bitstream into FPGA (volatile)
-Do this step if you want to try out the FPGA firmware without overwriting the SPI PROM.
-The FPGA will lose its configuration each time it loses power.
+Do this step if you want to try out the FPGA firmware without overwriting the
+SPI PROM.  The FPGA will lose its configuration each time it loses power.
 
 ```
 ./run_fpga nexys_4 compile download
