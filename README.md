@@ -18,10 +18,7 @@ for using FPGA-TX legally.
 Software
 ========
 
-Prerequisites
--------------
-
-### Python Modules
+## Python Modules
 
 FPGA-TX has some dependencies on Python modules. The software uses the sox tool
 to provide a portable and flexible method for capturing/reading audio.
@@ -30,7 +27,7 @@ to provide a portable and flexible method for capturing/reading audio.
 sudo apt-get install python-numpy python-scipy python-matplotlib python-serial python-wxgtk2.8 sox
 ```
 
-### Serial Port Permissions
+## Serial Port Permissions
 
 To run tx as an ordinary user, you need to grant read and write access to
 the appropriate serial device. A convenient way to achieve this on Ubuntu based
@@ -40,8 +37,7 @@ systems is to add yourself to the dialout group.
 sudo usermod -a -G dialout $USER
 ```
 
-Install
--------
+## Install
 
 ```
 git clone https://github.com/dawsonjon/FPGA-TX.git
@@ -49,15 +45,13 @@ cd FPGA-TX
 sudo python setup.py install
 ```
 
-GUI transmitter (wxtx)
-----------------------------
+## GUI transmitter (wxtx)
 
 ```
 wxtx
 ```
 
-Command line utility (tx)
-----------------------------
+## Command line utility (tx)
 
 ```
 tx -f=<frequency> -m=<mode>"
@@ -65,8 +59,7 @@ tx -f=<frequency> -m=<mode>"
 
 Accepts data from stdin in mono raw 16-bit pcm format
 
-Options
--------
+### Options
 
 ```
 -f=<frequency>
@@ -86,8 +79,7 @@ Mode may be AM or FM
 
 specify USB/serial device of transmitter. default is /dev/ttyUSB1
 
-Examples
---------
+### Examples
 
 
 ####transmit narrow band fm on 27MHz 
@@ -111,57 +103,52 @@ rec -t raw -b 16 -r 12k - | tx -f=10e6 -m=lsb
 FPGA Firmware
 =============
 
-Prerequisites
--------------
-
-### Python Modules
+## Install Python Modules
 
 ```
 sudo apt-get install python-numpy python-scipy python-serial
 ```
 
-### Chips-2.0
+## Install Chips-2.0
+
 You will need Chips-2.0 to build the FPGA embedded C code.
 
 ```
 git clone --recursive https://github.com/dawsonjon/Chips-2.0.git
 cd Chips-2.0
-sudo python setup install
+sudo python setup.py install
 cd ..
 ```
 
-### Additional software
+## Install Additional software
+
 Requires the vendor's tools for the target FPGA card. Vivado webpack edition
 can be downloaded from the [Xilinx](www.xilinx.com) website. You will need to
 edit the fpga_tx/user_settings.py file to point to the location where Vivado is
 installed.
 
-Build Process
--------------
-
-### Clone the git repo
+## Clone the git repo
 
 ```
 git clone https://github.com/dawsonjon/FPGA-TX.git
 cd FPGA-TX
 ```
 
-
-### Compiling the C code
+## Compiling the C code
 This step is optional, you can use the precompiled files.
 
 ```
 ./run_fpga nexys_4 compile
 ```
 
-### Building the VHDL and Verilog into an FPGA bitstream
+## Building the VHDL and Verilog into an FPGA bitstream
 This step is optional, you can use the precompiled files.
 
 ```
 ./run_fpga nexys_4 compile build
 ```
 
-### Download the bitstream into FPGA (volatile)
+## Download the bitstream into FPGA (volatile)
 Do this step if you want to try out the FPGA firmware without overwriting the
 SPI PROM.  The FPGA will lose its configuration each time it loses power.
 
@@ -169,10 +156,71 @@ SPI PROM.  The FPGA will lose its configuration each time it loses power.
 ./run_fpga nexys_4 compile download
 ```
 
-### Download the bitstream into SPI Flash (non-volatile)
+## Download the bitstream into SPI Flash (non-volatile)
 Do this step if you want to program the SPI PROM on the FPGA card.
 The FPGA will retain its configuration if power is lost.
 
 ```
 ./run_demo nexys_4 compile flash
 ```
+
+Technical Details
+=================
+
+## FPGA Firmware
+
+The FPGA firmware consists of 2 major parts, the transmitter written in VHDL,
+and the Controller written in C (using Chips to convert to Verilog).
+
+## The Transmitter
+
+The transmitter allows both Quadrature Amplitude Modulation, and Frequency 
+modulation. The sample rate is 800 MHz, while the clock rate is 100 MHz, in
+each clock cycle, 8 samples are processed. In general, this is achieved by 
+implementing 8 parallel data paths.
+
+```
+              +-----+   +---+            +---+  +---------------+
+  FREQUENCY --> NCO >---> x >------------> + >--> DAC INTERFACE >--> RF
+              |     |   +-^-+         +-->   |  +---------------+
+              |     |     |    +---+  |  +---+
+              |     >----------> x >--+
+              +-----+     |    +-^-+
+                          |      |
+      +--------------+    |      |
+  I --> Interpolate  >----+      |
+  Q -->    65536     >-----------+
+      +--------------+
+
+```
+
+## NCO
+
+The NCO is based on a 32 bit accumulator which generates the phase, the phase
+is fed into a lookup table of sin or cosine values. A 32 bit accumulator gives
+a resolution 0.186 Hz with an 800 MHz Sample Rate.
+
+## Interpolate
+
+The Interpolate block increases the sample rate of the I/Q data by 65536. With
+an output sampling rate of 800 MHz, the input sampling rate is 12000 Hz. The
+Interpolate block is based on an first order CIC filter. The first step is a
+differentiator, followed by an up-sampler, and finally an integrator.
+
+## Up-convert
+
+The IQ data is up converted to the carrier frequency, by multiplying by the cos
+and -sin components of the NCO. The sin and cosine components are added to form
+complex samples. 
+
+## DAC Interface
+
+The first function of the DAC interface is to perform 1-bit quantization.
+Dithering is performed to reduce in-band harmonics. Dithering is achieved by
+comparing the data to a random number, the result is a single bit output whose
+probability of being 1 is proportional to the signal value. This has the same
+effect as adding -6dB of broadband noise to the signal.
+
+The second function is to serialise the 8 parallel data streams into a single
+stream of data before outputting on a logic pin. This is achieved using an
+OSERDES component.
