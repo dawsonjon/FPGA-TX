@@ -97,6 +97,9 @@ class SSBModulator(Modulator):
 
         if self.lsb:
             q = -q
+        
+        self.fft = 20.0*np.log10(abs(np.fft.fftshift(np.fft.fft(i-1.0j*q))))
+        self.nyq = self.sample_rate/2000.0
 
         #convert to 8-bit
         i = np.clip(i, -1, 1)
@@ -116,8 +119,8 @@ class WBFMModulator(Modulator):
 
     def setup_transmitter(self, transmitter):
         Modulator.setup_transmitter(self, transmitter)
-        transmitter.set_iq(255, 255)
-        transmitter.cmd = 'b'
+        transmitter.set_iq(0, 0)
+        transmitter.cmd = 'a'
 
     def modulate(self, data):
 
@@ -125,11 +128,14 @@ class WBFMModulator(Modulator):
         data = data/32768.0
 
         #low pass filter
-        #data = lfilter(self.lpf_kernel, 1, data)/self.lpf_gain
+        data = lfilter(self.lpf_kernel, 1, data)/self.lpf_gain
 
         #add preemphasis
-        #data = lfilter(self.b, self.a, data)/self.preemp_gain
-        #print max(data)
+        data = lfilter(self.b, self.a, data)/self.preemp_gain
+
+        #fft plot
+        self.fft = 20.0*np.log10(abs(np.fft.fftshift(np.fft.fft(data))))
+        self.nyq = self.sample_rate/2000.0
 
         #convert to 16-bit pcm
         data = np.clip(data, -1, 1)
@@ -153,7 +159,7 @@ class StereoModulator(Modulator):
         Modulator.setup_transmitter(self, transmitter)
         transmitter.set_iq(255, 255)
         transmitter.set_sample_rate(152e3)
-        transmitter.cmd = 'b'
+        transmitter.cmd = 'a'
 
     def modulate(self, data):
         #convert to floating point
@@ -188,6 +194,10 @@ class StereoModulator(Modulator):
         data = (left + right) * 0.45
         data += ((left - right)/2) * subcarrier * 0.45
         data += pilot * 0.1
+
+        #fft plot
+        self.fft = 20.0*np.log10(abs(np.fft.fftshift(np.fft.fft(data))))
+        self.nyq = 152.0e3/2000.0
         
         #convert to 16-bit pcm
         data = np.clip(data, -1, 1)
@@ -208,6 +218,10 @@ class FMModulator(Modulator):
 
         #low pass filter
         data = lfilter(self.lpf_kernel, 1, data)/self.lpf_gain
+
+        #fft plot
+        self.fft = 20.0*np.log10(abs(np.fft.fftshift(np.fft.fft(data))))
+        self.nyq = self.sample_rate/2000.0
 
         #convert to 16-bit pcm
         data = np.clip(data, -1, 1)
@@ -240,6 +254,10 @@ class AMModulator(Modulator):
         i = data*0.5+1.0
         q = data*0.5+1.0
 
+        #fft plot
+        self.fft = 20.0*np.log10(abs(np.fft.fftshift(np.fft.fft(i+1.0j*q))))
+        self.nyq = self.sample_rate/2000.0
+
         #convert to 8-bit
         i = np.clip(i, -1, 1)
         q = np.clip(q, -1, 1)
@@ -260,13 +278,16 @@ class Transmitter:
         self.port = serial.Serial(device, 12000000, timeout=1)
         self.check_hardware()
         modulator.setup_transmitter(self)
+        self.modulator = modulator
+        self.stop = False
 
     def __del__(self):
-        self.set_iq(127,127)
+        #self.set_iq(127,127)
         self.port.close()
 
     def reset_hardware(self):
         self.port.write(" "*10000)
+        time.sleep(0.5)
         self.port.flushInput()
 
     def check_hardware(self):
@@ -304,6 +325,7 @@ class Transmitter:
 
     def set_sample_rate(self, sample_rate):
         sample_rate_clocks = clock_frequency/sample_rate
+        print "setting sample rate", sample_rate
         self.port.write('s'+str(int(round(sample_rate_clocks)))+'\n')
         self.port.flush()
         sample_rate_clocks = self.port.readline().strip()
@@ -336,7 +358,7 @@ class Transmitter:
             t1 = time.time()
 
             #modulate data into iq or frequency format
-            data = modulator.modulate(data)
+            data = self.modulator.modulate(data)
             t2 = time.time()
 
             #send frame to FPGA
@@ -353,11 +375,10 @@ class Transmitter:
 
             if response != ">\n":
                 error("incorrect response received during transmission"+response)
-            if done:
+            if done or self.stop:
                 #switch off
-                if mode == "USB" or mode == "LSB":
-                    self.set_iq(128, 128)
-                    self.port.readline()
+                self.set_iq(128, 128)
+                self.port.readline()
                 return
 
 if __name__ == "__main__":
@@ -485,7 +506,7 @@ if __name__ == "__main__":
             frequency=frequency,
             sample_rate=sample_rate,
             cutoff=15000,
-            fm_deviation=75000,
+            fm_deviation=150000,
         )
 
     transmitter = Transmitter(device, modulator)
