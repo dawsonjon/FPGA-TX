@@ -27,13 +27,12 @@ FPGA-TX has some dependencies on Python modules. The software uses the sox tool
 to provide a portable and flexible method for capturing/reading audio.
 
 ```
-sudo apt-get install python-numpy python-scipy python-matplotlib python-serial sox
+sudo apt-get install python-numpy python-scipy python-matplotlib python-serial python-wxgtk2.8 sox
 ```
 
-Serial Port Permissions
------------------------
+### Serial Port Permissions
 
-To run tx.py as an ordinary user, you need to grant read and write access to
+To run tx as an ordinary user, you need to grant read and write access to
 the appropriate serial device. A convenient way to achieve this on Ubuntu based
 systems is to add yourself to the dialout group.
 
@@ -41,17 +40,27 @@ systems is to add yourself to the dialout group.
 sudo usermod -a -G dialout $USER
 ```
 
-GUI transmitter (wxtx.py)
-----------------------------
-```
-wxtx.py
-```
-
-Command line utility (tx.py)
-----------------------------
+Install
+-------
 
 ```
-tx.py -f=<frequency> -m=<mode>"
+git clone https://github.com/dawsonjon/FPGA-TX.git
+cd FPGA-TX
+sudo python setup.py install
+```
+
+GUI transmitter (wxtx)
+----------------------------
+
+```
+wxtx
+```
+
+Command line utility (tx)
+----------------------------
+
+```
+tx -f=<frequency> -m=<mode>"
 ```
 
 Accepts data from stdin in mono raw 16-bit pcm format
@@ -84,19 +93,19 @@ Examples
 ####transmit narrow band fm on 27MHz 
 
 ```
-sox test.wav -t raw -b 16 -r 12k - | tx.py -f=12e6 -m=fm -r=12000
+sox test.wav -t raw -b 16 -r 12k - | tx -f=12e6 -m=fm -r=12000
 ```
 
 ####transmit stereo FM on 88 MHz
 
 ```
-sox myfile.mp3 --channels 2 -t raw -b 16 -r 48k - | tx.py -f=88e6 -m=stereo -r 12000
+sox myfile.mp3 --channels 2 -t raw -b 16 -r 48k - | tx -f=88e6 -m=stereo -r 12000
 ```
 
 ####transmit lower sideband on 10 MHz (using soundcard input, e.g. microphone)
 
 ```
-rec -t raw -b 16 -r 12k - | tx.py -f=10e6 -m=lsb
+rec -t raw -b 16 -r 12k - | tx -f=10e6 -m=lsb
 ```
 
 FPGA Firmware

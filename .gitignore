@@ -4,3 +4,6 @@ out.bmp
 *.o
 *.cf
 *.ghw
+build
+dist
+fpga_tx.egg-info
