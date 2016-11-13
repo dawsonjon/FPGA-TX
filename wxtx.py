@@ -42,6 +42,7 @@ def transmit(frequency, mode, source, input_file):
         channels = 1
         modulator = tx.AMModulator(
             frequency=frequency,
+            cutoff=3000.0,
             sample_rate=12000
         )
     elif mode.upper() == "USB":
@@ -49,6 +50,7 @@ def transmit(frequency, mode, source, input_file):
         channels = 1
         modulator = tx.SSBModulator(
             frequency=frequency,
+            cutoff=3000.0,
             sample_rate=12000
         )
     elif mode.upper() == "LSB":
@@ -57,6 +59,7 @@ def transmit(frequency, mode, source, input_file):
         modulator = tx.SSBModulator(
             frequency=frequency,
             sample_rate=12000,
+            cutoff=3000.0,
             lsb = True
         )
     elif mode.upper() == "FM":
@@ -87,13 +90,30 @@ def transmit(frequency, mode, source, input_file):
             fm_deviation=150000,
         )
 
+    #Use sox to capture/resample input
     if source == "File":
-        pipe = subprocess.Popen("/usr/bin/sox %s -r %u -b 16 -t raw --channels %u -"%(input_file, fs, channels), stdout=subprocess.PIPE, shell=True)
+        pipe = subprocess.Popen(
+                "/usr/bin/sox %s -r %u -b 16 -t raw --channels %u -"%(
+                    input_file, fs, channels), 
+                stdout=subprocess.PIPE, 
+                shell=True
+        )
     else:
-        pipe = subprocess.Popen("/usr/bin/rec -r %u -b 16 -t raw --channels %u -"%(fs, channels), stdout=subprocess.PIPE, shell=True)
+        pipe = subprocess.Popen(
+                "/usr/bin/rec -r %u -b 16 -t raw --channels %u -"%(
+                    fs, channels), 
+                stdout=subprocess.PIPE, 
+                shell=True
+        )
 
     transmitter = tx.Transmitter(device, modulator)
-    transmit_thread = threading.Thread(group=None, target=transmitter.transmit, args=(pipe.stdout,))
+
+    #run the transmitter in its own thread
+    transmit_thread = threading.Thread(
+            group=None, 
+            target=transmitter.transmit, 
+            args=(pipe.stdout,)
+    )
     transmit_thread.start()
     return transmitter, transmit_thread, pipe
 
@@ -148,6 +168,11 @@ class CanvasPanel(wx.Panel):
 
     def update_plot(self, event):
         if self.transmitter is not None:
+            if not self.transmitter_thread.is_alive():
+                self.stop_transmit()
+                return
+            if not hasattr(self.transmitter.modulator, "fft"):
+               return
             fft = self.transmitter.modulator.fft
             nyq = self.transmitter.modulator.nyq
             f = linspace(-nyq, nyq, len(fft))
@@ -161,31 +186,29 @@ class CanvasPanel(wx.Panel):
                 self.line.set_ydata(fft)
             self.figure.canvas.draw()
 
+    def stop_transmit(self):
+        #terminate the process creating the input data
+        self.transmitter_pipe.terminate()
+        self.transmitter.stop = True
+        self.transmitter_thread.join()
+        del(self.transmitter)
+        self.transmitter = None
+        self.transmitter_thread = None
+        self.transmitter_pipe = None
+        self.line = None
+        self.tx.SetValue(False)
+
 
     def on_transmit(self, event):
         if event.IsChecked():
-            print "transmit on"
             frequency = float(self.frequency.GetValue())
             mode = modes[self.mode.GetCurrentSelection()]
             source = sources[self.source.GetCurrentSelection()]
             input_file = self.input_file_button.GetValue()
             self.transmitter, self.transmitter_thread, self.transmitter_pipe=transmit(frequency, mode, source, input_file)
-            print "transmitter started"
         else:
-            print "transmit off"
             if self.transmitter is not None:
-                #terminate the process creating the input data
-                self.transmitter_pipe.terminate()
-                print "source terminated"
-                self.transmitter.stop = True
-                print "transmitter stopped"
-                self.transmitter_thread.join()
-                print "transmit thread terminated"
-                del(self.transmitter)
-                self.transmitter = None
-                self.transmitter_thread = None
-                self.transmitter_pipe = None
-                self.line = None
+                self.stop_transmit()
 
 if __name__ == "__main__":
     app = wx.PySimpleApp()
