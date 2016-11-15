@@ -3,6 +3,7 @@ unsigned frequency_out = output("freq_out");
 unsigned am_out = output("am_out");
 unsigned ctl_out = output("ctl_out");
 unsigned rs232_tx = output("rs232_tx");
+unsigned leds = output("leds");
 
 #include "scan.h"
 #include "print.h"
@@ -40,8 +41,7 @@ void main(){
     unsigned sample_rate_steps = 8333; //default to 12k
     unsigned fm_deviation = 105; //default to 5kHz
     unsigned control = 0; //dithering off
-    unsigned op, next_sample_time=0, length;
-    unsigned next_multiple_of_8_samples;
+    unsigned t0=0;
     int sample, i, q;
     char cmd;
 
@@ -51,7 +51,9 @@ void main(){
 
     while(1){
         //implement command interface
+        fputc(0, leds);
         cmd = getc();
+        fputc(1, leds);
         
         switch(cmd)
         {
@@ -62,6 +64,7 @@ void main(){
 
             //set frequency
             case 'f':
+                fputc(2, leds);
                 frequency_steps = scan_udecimal();
                 print_udecimal(frequency_steps);
                 puts("\n");
@@ -71,6 +74,7 @@ void main(){
 
             //set sample rate
             case 's':
+                fputc(3, leds);
                 sample_rate_steps = scan_udecimal();
                 print_udecimal(sample_rate_steps);
                 puts("\n");
@@ -79,6 +83,7 @@ void main(){
 
             //set fm deviation
             case 'd':
+                fputc(4, leds);
                 fm_deviation = scan_udecimal();
                 print_udecimal(fm_deviation);
                 puts("\n");
@@ -87,6 +92,7 @@ void main(){
 
             //set control
             case 'c':
+                fputc(5, leds);
                 control = scan_udecimal();
                 fputc(control, ctl_out);
                 print_udecimal(control);
@@ -96,64 +102,32 @@ void main(){
 
             //mode b FM
             case 'a':
-                if (timer_low() > next_sample_time){
-                    next_multiple_of_8_samples = next_sample_time + (sample_rate_steps * 7);
-                    if (timer_low() < next_multiple_of_8_samples){
-                        next_sample_time = next_multiple_of_8_samples;
-                    } else {
-                        next_sample_time = timer_low() + sample_rate_steps;
-                    }
+                fputc(6, leds);
+                if((timer_low()-t0) > sample_rate_steps){
+                    t0 = timer_low();
                 }
-
-                length = getc();
-                length |= getc() << 8;
-                length &= 0x7ff; //2048 samples, 1024 bytes (half buffer size)
-                //respond early so that sender can start now
-                puts(">\n");
-
-                //send samples
-                for(op=0; op<length; op++){
-                    sample  = getc();
-                    sample |= getc() << 8;
-                    sample -= 32768; //convert to signed
-                    while(timer_low() < next_sample_time){}
-                    send_fm(sample, frequency_steps, fm_deviation);
-                    next_sample_time += sample_rate_steps;
-                }
+                sample  = getc();
+                sample |= getc() << 8;
+                sample -= 32768; //convert to signed
+                fputc(7, leds);
+                while((timer_low()-t0) < sample_rate_steps){}
+                t0 += sample_rate_steps;
+                fputc(8, leds);
+                send_fm(sample, frequency_steps, fm_deviation);
                 break;
 
             //mode a IQ
             case 'b':
 
-                //set frequency to carrier frequency
+                fputc(9, leds);
                 fputc(frequency_steps, frequency_out);
-
-                //send samples
-                length = getc();
-                length |= getc() << 8;
-                length &= 0x7ff; //2048 samples, 1024 bytes (half buffer size)
-
-                //respond early so that sender can start now
-                puts(">\n");
-
-                for(op=0; op<length; op++){
-                    i = getc()-128;
-                    q = getc()-128;
-                    send_iq(i, q);
-                }
+                i = getc()-128;
+                q = getc()-128;
+                send_iq(i, q);
+                fputc(10, leds);
 
                 break;
 
-            //echo
-            case 'z':
-                length = getc();
-                op = 0;
-                while(op<length){
-                    putc(getc());
-                    op++;
-                }
-                puts(">\n");
-                break;
         }
     }
 }

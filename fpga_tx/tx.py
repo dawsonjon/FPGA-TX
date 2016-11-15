@@ -286,8 +286,12 @@ class Transmitter:
         self.port.close()
 
     def reset_hardware(self):
-        self.port.write(" "*10000)
         self.port.flushInput()
+        while 1:
+            self.port.write("               >")
+            response = self.port.readline()
+            if response.endswith(">\n"):
+                return
 
     def check_hardware(self):
         self.reset_hardware()
@@ -363,8 +367,8 @@ class Transmitter:
 
             #send frame to FPGA
             length = len(data)
-            frame = struct.pack("<" + "H"*length, *data)
-            self.port.write(self.cmd+chr(length & 0xff)+chr(length>>8)+frame)
+            frame = "".join([">"]+[self.cmd+chr(int(i)&0xff)+chr(int(i)>>8) for i in data])
+            self.port.write(frame)
             t3 = time.time()
 
             #Check response
@@ -374,9 +378,14 @@ class Transmitter:
             #print t1-t0, t2-t1, t3-t2, t4-t3, t4-t0
 
             if response != ">\n":
-                print "Incorrect response"
-                print response
-                #self.reset_hardware()
+                if len(response) == 0:
+                    print "no response received"
+                    self.reset_hardware()
+                    self.check_hardware()
+                else:
+                    print "Incorrect response"
+                    print response
+                    self.reset_hardware()
             if done or self.stop:
                 #switch off
                 self.set_iq(128, 128)

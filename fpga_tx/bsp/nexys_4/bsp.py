@@ -18,5 +18,6 @@ def make_chip():
     Output(chip, "output_tx_freq")
     Output(chip, "output_tx_am")
     Output(chip, "output_tx_ctl")
+    Output(chip, "output_leds")
 
     return chip

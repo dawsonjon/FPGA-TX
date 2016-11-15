@@ -62,6 +62,8 @@ entity bsp is
    test_1                : out std_logic;
    test_2                : out std_logic;
 
+   leds                  : out std_logic_vector(7 downto 0);
+
    --rs232 interface
    rs232_rx              : in std_logic;
    rs232_tx              : out std_logic
@@ -103,6 +105,10 @@ architecture rtl of bsp is
       output_tx_ctl : out std_logic_vector(31 downto 0);
       output_tx_ctl_stb : out std_logic;
       output_tx_ctl_ack : in std_logic;
+
+      output_leds : out std_logic_vector(31 downto 0);
+      output_leds_stb : out std_logic;
+      output_leds_ack : in std_logic;
 
       --rs232 rx stream
       input_rs232_rx : in std_logic_vector(31 downto 0);
@@ -197,6 +203,10 @@ architecture rtl of bsp is
   signal s_test_1 : std_logic := '0';
   signal s_test_2 : std_logic := '0';
 
+  signal output_leds : std_logic_vector(31 downto 0);
+  signal output_leds_stb : std_logic;
+  signal output_leds_ack : std_logic;
+
 begin
 
   transmitter_inst_1 :  transmitter port map(
@@ -244,6 +254,10 @@ begin
       output_rs232_tx_stb => output_rs232_tx_stb,
       output_rs232_tx_ack => output_rs232_tx_ack,
 
+      output_leds => output_leds,
+      output_leds_stb => output_leds_stb,
+      output_leds_ack => output_leds_ack,
+
       --transmit interface
       output_tx_freq => output_tx_freq,
       output_tx_freq_stb => output_tx_freq_stb,
@@ -285,6 +299,15 @@ begin
   );
 
   input_rs232_rx(15 downto 8) <= (others => '0');
+
+  process
+  begin
+    wait until rising_edge(clk);
+    if output_leds_stb = '1' then
+      leds <= output_leds(7 downto 0);
+    end if;
+  end process;
+  output_leds_ack <= '1';
 
 
 

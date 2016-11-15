@@ -14,5 +14,6 @@ def application(chip):
             "am_out" : chip.outputs["output_tx_am"],
             "ctl_out" : chip.outputs["output_tx_ctl"],
             "rs232_tx": chip.outputs["output_rs232_tx"],
+            "leds": chip.outputs["output_leds"],
         },
     )
