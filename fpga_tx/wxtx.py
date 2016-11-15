@@ -274,7 +274,7 @@ class CanvasPanel(wx.Panel):
                 self.stop_transmit()
 
 app = wx.PySimpleApp()
-fr = wx.Frame(None, title='wxtx')
+fr = wx.Frame(None, size=(800, 600), title='wxtx')
 panel = CanvasPanel(fr)
 fr.Show()
 app.MainLoop()
