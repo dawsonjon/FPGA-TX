@@ -6,7 +6,7 @@ import sys
 
 def check_hardware():
     for i in range(2):
-        port.write("}")
+        port.write(">")
         if port.readline() == ">\n":
             return
     assert False
@@ -31,7 +31,9 @@ def test(filename, port):
         test_code = "abcdefghij"*20
         port.write('z'+chr(len(test_code))+test_code)
         response = port.readline()
-        assert response[:len(test_code)] == test_code
+        if response[:len(test_code)] != test_code:
+            print response
+            exit(0)
     t1 = time.time()
     seconds = t1-t0
     bytes_ = messages*255
@@ -43,5 +45,6 @@ def test(filename, port):
 
 port = serial.Serial('/dev/ttyUSB1', 12000000, timeout=1)  # open serial port
 check_hardware()
-test("test.wav", port)
+for i in range(100):
+    test("test.wav", port)
 port.close()
