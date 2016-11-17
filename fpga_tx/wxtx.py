@@ -179,7 +179,7 @@ class CanvasPanel(wx.Panel):
 
         self.line = None
         self.t1 = wx.Timer(self)
-        self.t1.Start(100)
+        self.t1.Start(200)
         self.Bind(wx.EVT_TIMER, self.update_plot)
 
     def update_plot(self, event):

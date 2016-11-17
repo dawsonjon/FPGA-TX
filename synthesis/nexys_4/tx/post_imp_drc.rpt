@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
-| Date         : Tue Nov 15 21:09:48 2016
+| Date         : Thu Nov 17 20:29:19 2016
 | Host         : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command      : report_drc -file ./post_imp_drc.rpt
 | Design       : bsp
@@ -172,37 +172,37 @@ Related violations: <none>
 
 DPIP-1#25 Warning
 Input pipelining  
-DSP user_design_inst_1/main_0_139800460159384/product_b_reg input user_design_inst_1/main_0_139800460159384/product_b_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP user_design_inst_1/main_0_140191123487128/product_b_reg input user_design_inst_1/main_0_140191123487128/product_b_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#26 Warning
 Input pipelining  
-DSP user_design_inst_1/main_0_139800460159384/product_b_reg input user_design_inst_1/main_0_139800460159384/product_b_reg/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP user_design_inst_1/main_0_140191123487128/product_b_reg input user_design_inst_1/main_0_140191123487128/product_b_reg/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#27 Warning
 Input pipelining  
-DSP user_design_inst_1/main_0_139800460159384/product_c_reg input user_design_inst_1/main_0_139800460159384/product_c_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP user_design_inst_1/main_0_140191123487128/product_c_reg input user_design_inst_1/main_0_140191123487128/product_c_reg/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#28 Warning
 Input pipelining  
-DSP user_design_inst_1/main_0_139800460159384/product_c_reg input user_design_inst_1/main_0_139800460159384/product_c_reg/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP user_design_inst_1/main_0_140191123487128/product_c_reg input user_design_inst_1/main_0_140191123487128/product_c_reg/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#29 Warning
 Input pipelining  
-DSP user_design_inst_1/main_0_139800460159384/result0 input user_design_inst_1/main_0_139800460159384/result0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP user_design_inst_1/main_0_140191123487128/result0 input user_design_inst_1/main_0_140191123487128/result0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#30 Warning
 Input pipelining  
-DSP user_design_inst_1/main_0_139800460159384/result0 input user_design_inst_1/main_0_139800460159384/result0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP user_design_inst_1/main_0_140191123487128/result0 input user_design_inst_1/main_0_140191123487128/result0/B[17:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPIP-1#31 Warning
 Input pipelining  
-DSP user_design_inst_1/main_0_139800460159384/result0 input user_design_inst_1/main_0_139800460159384/result0/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
+DSP user_design_inst_1/main_0_140191123487128/result0 input user_design_inst_1/main_0_140191123487128/result0/C[47:0] is not pipelined. Pipelining DSP48 input will improve performance.
 Related violations: <none>
 
 DPOP-1#1 Warning
@@ -327,17 +327,17 @@ Related violations: <none>
 
 DPOP-1#25 Warning
 PREG Output pipelining  
-DSP user_design_inst_1/main_0_139800460159384/product_b_reg output user_design_inst_1/main_0_139800460159384/product_b_reg/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+DSP user_design_inst_1/main_0_140191123487128/product_b_reg output user_design_inst_1/main_0_140191123487128/product_b_reg/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-1#26 Warning
 PREG Output pipelining  
-DSP user_design_inst_1/main_0_139800460159384/product_c_reg output user_design_inst_1/main_0_139800460159384/product_c_reg/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+DSP user_design_inst_1/main_0_140191123487128/product_c_reg output user_design_inst_1/main_0_140191123487128/product_c_reg/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-1#27 Warning
 PREG Output pipelining  
-DSP user_design_inst_1/main_0_139800460159384/result0 output user_design_inst_1/main_0_139800460159384/result0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
+DSP user_design_inst_1/main_0_140191123487128/result0 output user_design_inst_1/main_0_140191123487128/result0/P[47:0] is not pipelined (PREG=0). Pipelining the DSP48 output will improve performance and often saves power so it is suggested whenever possible to fully pipeline this function.  If this DSP48 function was inferred, it is suggested to describe an additional register stage after this function.  If the DSP48 was instantiated in the design, it is suggested to set the PREG attribute to 1.
 Related violations: <none>
 
 DPOP-2#1 Warning

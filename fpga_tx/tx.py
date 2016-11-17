@@ -191,8 +191,10 @@ class StereoModulator(Modulator):
         pilot = self.pilot[:new_samples]
         self.pilot = np.concatenate([self.pilot[new_samples:], pilot])
 
+        left *= 0.05
+        right *= 0.05
         data = (left + right) * 0.45
-        data += ((left - right)/2) * subcarrier * 0.45
+        data += (left - right) * subcarrier * 0.45
         data += pilot * 0.1
 
         #fft plot
@@ -282,7 +284,7 @@ class Transmitter:
         self.stop = False
 
     def __del__(self):
-        #self.set_iq(127,127)
+        self.set_iq(127,127)
         self.port.close()
 
     def reset_hardware(self):
@@ -348,14 +350,15 @@ class Transmitter:
         self.port.readline()
 
     def transmit(self, in_file):
+        first = True
         while 1:
             #tx has a 8kx8byte buffer
             #assuming 2bytes/sample, 2016 samples should ~quarter fill the
             #buffer in stereo ~3 times as many samples are generated
 
             t0 = time.time()
-            data = in_file.read(2016)
-            done = len(data) < 2016
+            data = in_file.read(3448)
+            done = len(data) < 3448
             length = len(data)/2
             data = struct.unpack("<"+("h"*length), data)
             data = array(data)
@@ -368,16 +371,12 @@ class Transmitter:
             #send frame to FPGA
             length = len(data)
             frame = "".join([">"]+[self.cmd+chr(int(i)&0xff)+chr(int(i)>>8) for i in data])
-            self.port.write(frame)
             t3 = time.time()
 
             #Check response
             response = self.port.readline()
-            t4 = time.time()
-
-            #print t1-t0, t2-t1, t3-t2, t4-t3, t4-t0
-
-            if response != ">\n":
+            if response != ">\n" and not first:
+                first = False
                 if len(response) == 0:
                     print "no response received"
                     self.reset_hardware()
@@ -386,6 +385,13 @@ class Transmitter:
                     print "Incorrect response"
                     print response
                     self.reset_hardware()
+
+            t4 = time.time()
+            self.port.write(frame)
+            t5 = time.time()
+
+            #print t1-t0, t2-t1, t3-t2, t4-t3, t4-t5, t5-t0
+
             if done or self.stop:
                 #switch off
                 self.set_iq(128, 128)

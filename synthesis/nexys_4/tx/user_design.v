@@ -20,11 +20,11 @@ module user_design(clk, rst, exception, input_rs232_rx, input_rs232_rx_stb, inpu
   output [31:0] output_leds;
   output output_leds_stb;
   input  output_leds_ack;
-  wire   exception_139800460159384;
-  main_0 main_0_139800460159384(
+  wire   exception_140191123487128;
+  main_0 main_0_140191123487128(
     .clk(clk),
     .rst(rst),
-    .exception(exception_139800460159384),
+    .exception(exception_140191123487128),
     .input_rs232_rx(input_rs232_rx),
     .input_rs232_rx_stb(input_rs232_rx_stb),
     .input_rs232_rx_ack(input_rs232_rx_ack),
@@ -43,5 +43,5 @@ module user_design(clk, rst, exception, input_rs232_rx, input_rs232_rx_stb, inpu
     .output_ctl_out(output_tx_ctl),
     .output_ctl_out_stb(output_tx_ctl_stb),
     .output_ctl_out_ack(output_tx_ctl_ack));
-  assign exception = exception_139800460159384;
+  assign exception = exception_140191123487128;
 endmodule

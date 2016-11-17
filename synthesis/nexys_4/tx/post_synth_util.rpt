@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
-| Date         : Tue Nov 15 21:07:07 2016
+| Date         : Thu Nov 17 20:25:01 2016
 | Host         : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command      : report_utilization -file ./post_synth_util.rpt
 | Design       : bsp
@@ -30,16 +30,16 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 4889 |     0 |     63400 |  7.71 |
-|   LUT as Logic             | 2792 |     0 |     63400 |  4.40 |
-|   LUT as Memory            | 2097 |     0 |     19000 | 11.04 |
-|     LUT as Distributed RAM | 2096 |     0 |           |       |
+| Slice LUTs*                | 7300 |     0 |     63400 | 11.51 |
+|   LUT as Logic             | 3155 |     0 |     63400 |  4.98 |
+|   LUT as Memory            | 4145 |     0 |     19000 | 21.82 |
+|     LUT as Distributed RAM | 4144 |     0 |           |       |
 |     LUT as Shift Register  |    1 |     0 |           |       |
-| Slice Registers            | 1972 |     0 |    126800 |  1.56 |
-|   Register as Flip Flop    | 1972 |     0 |    126800 |  1.56 |
+| Slice Registers            | 2037 |     0 |    126800 |  1.61 |
+|   Register as Flip Flop    | 2037 |     0 |    126800 |  1.61 |
 |   Register as Latch        |    0 |     0 |    126800 |  0.00 |
-| F7 Muxes                   | 1161 |     0 |     31700 |  3.66 |
-| F8 Muxes                   |   64 |     0 |     15850 |  0.40 |
+| F7 Muxes                   | 2329 |     0 |     31700 |  7.35 |
+| F8 Muxes                   |  128 |     0 |     15850 |  0.81 |
 +----------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 
@@ -59,7 +59,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 30    |          Yes |         Set |            - |
-| 1942  |          Yes |       Reset |            - |
+| 2007  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -154,18 +154,18 @@ Table of Contents
 +------------+------+---------------------+
 |  Ref Name  | Used | Functional Category |
 +------------+------+---------------------+
-| RAMD64E    | 2048 |  Distributed Memory |
-| FDRE       | 1942 |        Flop & Latch |
-| MUXF7      | 1161 |               MuxFx |
-| LUT2       |  967 |                 LUT |
-| LUT6       |  859 |                 LUT |
-| LUT1       |  459 |                 LUT |
-| LUT4       |  399 |                 LUT |
-| CARRY4     |  390 |          CarryLogic |
-| LUT3       |  213 |                 LUT |
-| LUT5       |  177 |                 LUT |
+| RAMD64E    | 4096 |  Distributed Memory |
+| MUXF7      | 2329 |               MuxFx |
+| FDRE       | 2007 |        Flop & Latch |
+| LUT6       | 1226 |                 LUT |
+| LUT2       |  956 |                 LUT |
+| LUT1       |  474 |                 LUT |
+| LUT4       |  402 |                 LUT |
+| CARRY4     |  392 |          CarryLogic |
+| LUT3       |  212 |                 LUT |
+| LUT5       |  179 |                 LUT |
+| MUXF8      |  128 |               MuxFx |
 | RAMD32     |   72 |  Distributed Memory |
-| MUXF8      |   64 |               MuxFx |
 | DSP48E1    |   43 |    Block Arithmetic |
 | FDSE       |   30 |        Flop & Latch |
 | RAMS32     |   24 |  Distributed Memory |
