@@ -179,7 +179,7 @@ class CanvasPanel(wx.Panel):
 
         self.line = None
         self.t1 = wx.Timer(self)
-        self.t1.Start(400)
+        self.t1.Start(100)
         self.Bind(wx.EVT_TIMER, self.update_plot)
 
     def update_plot(self, event):
@@ -196,11 +196,15 @@ class CanvasPanel(wx.Panel):
                 setup_plot(self.figure, self.axes)
                 self.axes.set_xlim([-nyq, nyq])
                 self.axes.set_ylim([-100.0, 100.0])
+                self.figure.canvas.draw()
+                self.background = self.figure.canvas.copy_from_bbox(self.axes.bbox)
                 self.line = self.axes.plot(f, fft, linewidth='1.0', color='green')[0]
             else:
+                self.figure.canvas.restore_region(self.background)
                 self.line.set_xdata(f)
                 self.line.set_ydata(fft)
-            self.figure.canvas.draw()
+                self.axes.draw_artist(self.line)
+                self.figure.canvas.blit()
 
     def stop_transmit(self):
         #terminate the process creating the input data
@@ -274,7 +278,7 @@ class CanvasPanel(wx.Panel):
                 self.stop_transmit()
 
 app = wx.PySimpleApp()
-fr = wx.Frame(None, size=(800, 600), title='wxtx')
+fr = wx.Frame(None, size=(600, 600), title='wxtx')
 panel = CanvasPanel(fr)
 fr.Show()
 app.MainLoop()
