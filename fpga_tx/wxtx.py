@@ -2,6 +2,8 @@
 
 import subprocess
 import threading
+import shelve
+import os
 
 from numpy import arange, sin, pi, linspace
 import matplotlib
@@ -16,7 +18,10 @@ import wx.lib.filebrowsebutton as filebrowse
 
 import tx
 
+presets = shelve.open(os.path.expanduser("~/.wxtx"))
+
 modes = ["AM", "FM", "WBFM", "LSB", "USB", "STEREO"]
+units = ["MHz", "kHz", "Hz"]
 sources = ["Soundcard", "File"]
 device = "/dev/ttyUSB1"
 
@@ -130,13 +135,18 @@ class CanvasPanel(wx.Panel):
 
         self.vsizer = wx.BoxSizer(wx.VERTICAL)
         self.settings_sizer = wx.BoxSizer(wx.VERTICAL)
+        self.preset_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.freq_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.lpf_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.fm_deviation_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.source_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.mode_sizer = wx.BoxSizer(wx.HORIZONTAL)
 
-        self.frequency = wx.TextCtrl(self, value="30000000")
+        self.presets = wx.Choice(self, choices=sorted(presets.keys()))
+        self.save_preset = wx.Button(self, label="Save as...")
+        self.del_preset = wx.Button(self, label="delete")
+        self.frequency = wx.TextCtrl(self, value="30")
+        self.frequency_units = wx.Choice(self, choices=units)
         self.lpf       = wx.TextCtrl(self, value="3000")
         self.fm_deviation = wx.TextCtrl(self, value="5000")
         self.fm_deviation.Disable()
@@ -148,11 +158,21 @@ class CanvasPanel(wx.Panel):
         self.Bind(wx.EVT_TOGGLEBUTTON, self.on_transmit, self.tx)
         self.Bind(wx.EVT_CHOICE, self.on_mode, self.mode)
         self.Bind(wx.EVT_CHOICE, self.on_source, self.source)
+        self.Bind(wx.EVT_CHOICE, self.on_preset, self.presets)
+        self.Bind(wx.EVT_BUTTON, self.on_save_preset, self.save_preset)
+        self.Bind(wx.EVT_BUTTON, self.on_del_preset, self.del_preset)
 
         self.vsizer.Add(self.canvas, 1, wx.EXPAND | wx.ALL)
 
-        self.freq_sizer.Add(wx.StaticText(self, label="Frequency (Hz): "), 0, wx.CENTER)
+        self.preset_sizer.Add(wx.StaticText(self, label="Preset: "), 0, wx.CENTER)
+        self.preset_sizer.Add(self.presets, 1)
+        self.preset_sizer.Add(self.save_preset, 0.5)
+        self.preset_sizer.Add(self.del_preset, 0.5)
+        self.vsizer.Add(self.preset_sizer, 0, wx.EXPAND | wx.ALL, 5)
+
+        self.freq_sizer.Add(wx.StaticText(self, label="Frequency: "), 0, wx.CENTER)
         self.freq_sizer.Add(self.frequency, 1)
+        self.freq_sizer.Add(self.frequency_units, 0.5)
         self.vsizer.Add(self.freq_sizer, 0, wx.EXPAND | wx.ALL, 5)
 
         self.lpf_sizer.Add(wx.StaticText(self, label="Audio Cutoff (Hz): "), 0, wx.CENTER)
@@ -179,7 +199,7 @@ class CanvasPanel(wx.Panel):
 
         self.line = None
         self.t1 = wx.Timer(self)
-        self.t1.Start(200)
+        self.t1.Start(100)
         self.Bind(wx.EVT_TIMER, self.update_plot)
 
     def update_plot(self, event):
@@ -205,6 +225,50 @@ class CanvasPanel(wx.Panel):
                 self.line.set_ydata(fft)
                 self.axes.draw_artist(self.line)
                 self.figure.canvas.blit()
+
+    def on_preset(self, event):
+        preset_name = sorted(presets.keys())[self.presets.GetCurrentSelection()]
+        frequency, frequency_units, cutoff, deviation, mode = presets[str(preset_name)]
+        self.frequency.SetValue(str(frequency))
+        self.frequency_units.SetSelection(units.index(frequency_units))
+        self.lpf.SetValue(str(cutoff))
+        self.fm_deviation.SetValue(str(deviation))
+        self.mode.SetSelection(modes.index(mode))
+        if mode.upper() == "AM":
+            self.fm_deviation.Disable()
+        elif mode.upper() == "LSB":
+            self.fm_deviation.Disable()
+        elif mode.upper() == "USB":
+            self.fm_deviation.Disable()
+        elif mode.upper() == "FM":
+            self.fm_deviation.Enable()
+        elif mode.upper() == "WBFM":
+            self.fm_deviation.Enable()
+        elif mode.upper() == "STEREO":
+            self.fm_deviation.Enable()
+
+    def on_save_preset(self, event):
+        dlg = wx.TextEntryDialog(
+            self, 'Create Preset')
+
+        if dlg.ShowModal() == wx.ID_OK:
+            preset_name = dlg.GetValue()
+            frequency = float(self.frequency.GetValue())
+            frequency_units = units[self.frequency_units.GetCurrentSelection()]
+            cutoff = float(self.lpf.GetValue())
+            deviation = float(self.fm_deviation.GetValue())
+            mode = modes[self.mode.GetCurrentSelection()]
+            presets[str(preset_name)] = [frequency, frequency_units, cutoff, deviation, mode]
+            presets.sync()
+            self.presets.SetItems(sorted(presets.keys()))
+
+        dlg.Destroy()
+
+    def on_del_preset(self, event):
+        preset_name = sorted(presets.keys())[self.presets.GetCurrentSelection()]
+        presets.pop(preset_name)
+        presets.sync()
+        self.presets.SetItems(sorted(presets.keys()))
 
     def stop_transmit(self):
         #terminate the process creating the input data
@@ -256,6 +320,11 @@ class CanvasPanel(wx.Panel):
     def on_transmit(self, event):
         if event.IsChecked():
             frequency = float(self.frequency.GetValue())
+            frequency_units = units[self.frequency_units.GetCurrentSelection()]
+            if frequency_units == "MHz":
+                frequency *= 1e6
+            elif frequency_units == "kHz":
+                frequency *= 1e3
             cutoff = float(self.lpf.GetValue())
             deviation = float(self.fm_deviation.GetValue())
             mode = modes[self.mode.GetCurrentSelection()]
@@ -277,8 +346,9 @@ class CanvasPanel(wx.Panel):
             if self.transmitter is not None:
                 self.stop_transmit()
 
+
 app = wx.PySimpleApp()
-fr = wx.Frame(None, size=(600, 600), title='wxtx')
+fr = wx.Frame(None, size=(500, 600), title='wxtx')
 panel = CanvasPanel(fr)
 fr.Show()
 app.MainLoop()
