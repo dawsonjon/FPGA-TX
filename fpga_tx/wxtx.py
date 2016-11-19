@@ -226,9 +226,8 @@ class CanvasPanel(wx.Panel):
                 self.axes.draw_artist(self.line)
                 self.figure.canvas.blit()
 
-    def on_preset(self, event):
-        preset_name = sorted(presets.keys())[self.presets.GetCurrentSelection()]
-        frequency, frequency_units, cutoff, deviation, mode = presets[str(preset_name)]
+    def settings2gui(self, evt=None):
+        frequency, frequency_units, cutoff, deviation, mode = self.settings
         self.frequency.SetValue(str(frequency))
         self.frequency_units.SetSelection(units.index(frequency_units))
         self.lpf.SetValue(str(cutoff))
@@ -247,18 +246,27 @@ class CanvasPanel(wx.Panel):
         elif mode.upper() == "STEREO":
             self.fm_deviation.Enable()
 
+    def gui2settings(self, evt=None):
+        frequency = float(self.frequency.GetValue())
+        frequency_units = units[self.frequency_units.GetCurrentSelection()]
+        cutoff = float(self.lpf.GetValue())
+        deviation = float(self.fm_deviation.GetValue())
+        mode = modes[self.mode.GetCurrentSelection()]
+        self.settings = frequency, frequency_units, cutoff, deviation, mode
+
+    def on_preset(self, event):
+        preset_name = sorted(presets.keys())[self.presets.GetCurrentSelection()]
+        self.settings = presets[str(preset_name)]
+        self.settings2gui()
+
     def on_save_preset(self, event):
         dlg = wx.TextEntryDialog(
             self, 'Create Preset')
 
+        self.gui2settings()
         if dlg.ShowModal() == wx.ID_OK:
             preset_name = dlg.GetValue()
-            frequency = float(self.frequency.GetValue())
-            frequency_units = units[self.frequency_units.GetCurrentSelection()]
-            cutoff = float(self.lpf.GetValue())
-            deviation = float(self.fm_deviation.GetValue())
-            mode = modes[self.mode.GetCurrentSelection()]
-            presets[str(preset_name)] = [frequency, frequency_units, cutoff, deviation, mode]
+            presets[str(preset_name)] = self.settings
             presets.sync()
             self.presets.SetItems(sorted(presets.keys()))
 
@@ -316,18 +324,14 @@ class CanvasPanel(wx.Panel):
             self.fm_deviation.SetValue("150000")
             self.fm_deviation.Enable()
 
-
     def on_transmit(self, event):
         if event.IsChecked():
-            frequency = float(self.frequency.GetValue())
-            frequency_units = units[self.frequency_units.GetCurrentSelection()]
+            self.gui2settings()
+            frequency, frequency_units, cutoff, deviation, mode = self.settings
             if frequency_units == "MHz":
                 frequency *= 1e6
             elif frequency_units == "kHz":
                 frequency *= 1e3
-            cutoff = float(self.lpf.GetValue())
-            deviation = float(self.fm_deviation.GetValue())
-            mode = modes[self.mode.GetCurrentSelection()]
             source = sources[self.source.GetCurrentSelection()]
             input_file = self.input_file_button.GetValue()
             (
@@ -350,5 +354,7 @@ class CanvasPanel(wx.Panel):
 app = wx.PySimpleApp()
 fr = wx.Frame(None, size=(500, 600), title='wxtx')
 panel = CanvasPanel(fr)
+favicon = wx.Icon(os.path.join(os.path.dirname(__file__), 'favicon.ico'), wx.BITMAP_TYPE_ICO, 16, 16)
+fr.SetIcon(favicon)
 fr.Show()
 app.MainLoop()

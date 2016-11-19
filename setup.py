@@ -7,5 +7,6 @@ setup(
     url='https://github.com/dawsonjon/FPGA-TX',
     version='1.0',
     scripts=['tx', 'wxtx'],
-    packages=find_packages()
+    packages=find_packages(),
+    package_data={'fpga_tx': ['favicon.ico']}
 )
