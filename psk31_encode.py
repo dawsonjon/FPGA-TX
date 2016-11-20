@@ -141,7 +141,7 @@ def encode(message, sample_rate, baud_rate, subcarrier_frequency):
     n = sample_rate//baud_rate
 
     #varicode message
-    varicoded = "".join([varicodes[ord(i)]+"00" for i in message])
+    varicoded = "".join([varicodes[ord(i)]+"0000" for i in message])
     varicoded = "1111110000" + varicoded + "000001111111"
 
     #phase code
