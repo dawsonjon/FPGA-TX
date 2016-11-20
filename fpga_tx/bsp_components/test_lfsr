@@ -1,0 +1,4 @@
+ghdl -a lfsr.vhd
+ghdl -a lfsr_tb.vhd
+ghdl -e lfsr_tb
+./lfsr_tb --disp-time --wave=wave.ghw

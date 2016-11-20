@@ -8,6 +8,13 @@ unsigned leds = output("leds");
 #include "scan.h"
 #include "print.h"
 
+void output_bar_led(unsigned value){
+    value >>= 5;
+    value = 8 - value;
+    value = 0xff >> value;
+    fputc(value, leds);
+}
+
 void flush_stdin(){
     while(1){
         wait_clocks(50000000);
@@ -23,6 +30,7 @@ void send_iq(signed i, signed q){
   int sample;
   sample = (i & 0xff) << 16;
   sample |= (q & 0xff);
+  output_bar_led(i>0?i:-i);
   fputc(sample, am_out);
 }
 
@@ -32,6 +40,7 @@ void send_fm(signed sample, unsigned frequency_steps, unsigned fm_deviation){
   frequency = sample*fm_deviation;
   frequency >>= 8;
   frequency += frequency_steps;
+  output_bar_led(sample>0?sample:-sample >> 8);
   fputc(frequency, frequency_out);
 }
 
@@ -51,9 +60,7 @@ void main(){
 
     while(1){
         //implement command interface
-        fputc(0, leds);
         cmd = getc();
-        fputc(1, leds);
         
         switch(cmd)
         {
@@ -64,7 +71,6 @@ void main(){
 
             //set frequency
             case 'f':
-                fputc(2, leds);
                 frequency_steps = scan_udecimal();
                 print_udecimal(frequency_steps);
                 puts("\n");
@@ -74,7 +80,6 @@ void main(){
 
             //set sample rate
             case 's':
-                fputc(3, leds);
                 sample_rate_steps = scan_udecimal();
                 print_udecimal(sample_rate_steps);
                 puts("\n");
@@ -83,7 +88,6 @@ void main(){
 
             //set fm deviation
             case 'd':
-                fputc(4, leds);
                 fm_deviation = scan_udecimal();
                 print_udecimal(fm_deviation);
                 puts("\n");
@@ -92,7 +96,6 @@ void main(){
 
             //set control
             case 'c':
-                fputc(5, leds);
                 control = scan_udecimal();
                 fputc(control, ctl_out);
                 print_udecimal(control);
@@ -102,29 +105,24 @@ void main(){
 
             //mode b FM
             case 'a':
-                fputc(6, leds);
                 if((timer_low()-t0) > sample_rate_steps){
                     t0 = timer_low();
                 }
                 sample  = getc();
                 sample |= getc() << 8;
                 sample -= 32768; //convert to signed
-                fputc(7, leds);
                 while((timer_low()-t0) < sample_rate_steps){}
                 t0 += sample_rate_steps;
-                fputc(8, leds);
                 send_fm(sample, frequency_steps, fm_deviation);
                 break;
 
             //mode a IQ
             case 'b':
 
-                fputc(9, leds);
                 fputc(frequency_steps, frequency_out);
                 i = getc()-128;
                 q = getc()-128;
                 send_iq(i, q);
-                fputc(10, leds);
 
                 break;
 

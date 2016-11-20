@@ -53,14 +53,24 @@ architecture rtl of dac_interface is
     );
   end component serdes;
 
-  signal rand_0 : unsigned(31 downto 0) := X"A000b001";
-  signal rand_1 : unsigned(31 downto 0) := X"B0000002"; 
-  signal rand_2 : unsigned(31 downto 0) := X"C000e003";
-  signal rand_3 : unsigned(31 downto 0) := X"D0000004";
-  signal rand_4 : unsigned(31 downto 0) := X"E0004005";
-  signal rand_5 : unsigned(31 downto 0) := X"F0000006";
-  signal rand_6 : unsigned(31 downto 0) := X"00f00007";
-  signal rand_7 : unsigned(31 downto 0) := X"0000e008";
+  component lfsr is
+    generic(
+      init : in std_logic_vector(63 downto 0) := X"0000000000000001"
+    );
+    port(
+      clk : in std_logic;
+      rand : out std_logic_vector(31 downto 0)
+    );
+  end component lfsr;
+
+  signal rand_0 : std_logic_vector(31 downto 0) := X"A000b001";
+  signal rand_1 : std_logic_vector(31 downto 0) := X"B0000002"; 
+  signal rand_2 : std_logic_vector(31 downto 0) := X"C000e003";
+  signal rand_3 : std_logic_vector(31 downto 0) := X"D0000004";
+  signal rand_4 : std_logic_vector(31 downto 0) := X"E0004005";
+  signal rand_5 : std_logic_vector(31 downto 0) := X"F0000006";
+  signal rand_6 : std_logic_vector(31 downto 0) := X"00f00007";
+  signal rand_7 : std_logic_vector(31 downto 0) := X"0000e008";
 
   signal dithered_0 : std_logic;
   signal dithered_1 : std_logic;
@@ -83,19 +93,19 @@ architecture rtl of dac_interface is
 begin
 
 
+  lfsr_0 : lfsr generic map(init => X"0000004000800001") port map(clk, rand_0);
+  lfsr_1 : lfsr generic map(init => X"000e000600000004") port map(clk, rand_1);
+  lfsr_2 : lfsr generic map(init => X"0000005000400001") port map(clk, rand_2);
+  lfsr_3 : lfsr generic map(init => X"0000500000000001") port map(clk, rand_3);
+  lfsr_4 : lfsr generic map(init => X"000000000c000005") port map(clk, rand_4);
+  lfsr_5 : lfsr generic map(init => X"00000a00d0000001") port map(clk, rand_5);
+  lfsr_6 : lfsr generic map(init => X"000000000f000007") port map(clk, rand_6);
+  lfsr_7 : lfsr generic map(init => X"00000a0000000001") port map(clk, rand_7);
+
   process
   begin
 
     wait until rising_edge(clk);
-
-    rand_0 <= resize(rand_0 * unsigned'(X"41c64e6d") + unsigned'(X"3039"), 32);
-    rand_1 <= resize(rand_1 * unsigned'(X"41c64e6d") + unsigned'(X"3039"), 32);
-    rand_2 <= resize(rand_2 * unsigned'(X"41c64e6d") + unsigned'(X"3039"), 32);
-    rand_3 <= resize(rand_3 * unsigned'(X"41c64e6d") + unsigned'(X"3039"), 32);
-    rand_4 <= resize(rand_4 * unsigned'(X"41c64e6d") + unsigned'(X"3039"), 32);
-    rand_5 <= resize(rand_5 * unsigned'(X"41c64e6d") + unsigned'(X"3039"), 32);
-    rand_6 <= resize(rand_6 * unsigned'(X"41c64e6d") + unsigned'(X"3039"), 32);
-    rand_7 <= resize(rand_7 * unsigned'(X"41c64e6d") + unsigned'(X"3039"), 32);
 
     dithered_0 <= to_std(signed(input_0) > signed(rand_0(width-1 downto 0)));
     dithered_1 <= to_std(signed(input_1) > signed(rand_1(width-1 downto 0)));

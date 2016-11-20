@@ -172,7 +172,7 @@ Technical Details
 The FPGA firmware consists of 2 major parts, the transmitter written in VHDL,
 and the Controller written in C (using Chips to convert to Verilog).
 
-## The Transmitter
+### The Transmitter
 
 The transmitter allows both Quadrature Amplitude Modulation, and Frequency 
 modulation. The sample rate is 800 MHz, while the clock rate is 100 MHz, in
@@ -194,33 +194,50 @@ implementing 8 parallel data paths.
 
 ```
 
-## NCO
+### NCO
 
 The NCO is based on a 32 bit accumulator which generates the phase, the phase
 is fed into a lookup table of sin or cosine values. A 32 bit accumulator gives
 a resolution 0.186 Hz with an 800 MHz Sample Rate.
 
-## Interpolate
+### Interpolate
 
 The Interpolate block increases the sample rate of the I/Q data by 65536. With
 an output sampling rate of 800 MHz, the input sampling rate is 12000 Hz. The
 Interpolate block is based on an first order CIC filter. The first step is a
 differentiator, followed by an up-sampler, and finally an integrator.
 
-## Up-convert
+### Up-convert
 
 The IQ data is up converted to the carrier frequency, by multiplying by the cos
 and -sin components of the NCO. The sin and cosine components are added to form
 complex samples. 
 
-## DAC Interface
+### DAC Interface
 
-The first function of the DAC interface is to perform 1-bit quantization.
-Dithering is performed to reduce in-band harmonics. Dithering is achieved by
+The first function of the DAC interface is to perform 1-bit quantization. 
+In this design, there isn't any Digital to Analog converter, only a digital FPGA
+pin.  Dithering is performed to reduce in-band harmonics. Dithering is achieved by
 comparing the data to a random number, the result is a single bit output whose
-probability of being 1 is proportional to the signal value. This has the same
+probability of being 1 is proportional to the signal level. This has the same
 effect as adding -6dB of broadband noise to the signal.
+
+The effects of dithering can be seen in the following plots. In both plots, the
+fundamental frequency is set to 110 MHz. With no dithering, there are many spurious
+and harmonic emissions, with the largest being the third harmonic at 330 MHz. 
+
+With dithering applied, the strength of the third harmonic is greatly reduced,
+and there are fewer spurious emissions. The power contained in the harmonics
+has been spread evenly across the spectrum. 
+
+In the third plot a low pass filter has been added.
+
+![Without dithering](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/110_mhz_no_dither.png)
+![With dithering](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/110_mhz_dithered.png)
+![With dithering and filter](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/110_mhz_dithered_filtered.png)
+
 
 The second function is to serialise the 8 parallel data streams into a single
 stream of data before outputting on a logic pin. This is achieved using an
 OSERDES component.
+

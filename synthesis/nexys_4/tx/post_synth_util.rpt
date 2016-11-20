@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
-| Date         : Thu Nov 17 20:25:01 2016
+| Date         : Sun Nov 20 17:16:25 2016
 | Host         : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command      : report_utilization -file ./post_synth_util.rpt
 | Design       : bsp
@@ -30,15 +30,15 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 7300 |     0 |     63400 | 11.51 |
-|   LUT as Logic             | 3155 |     0 |     63400 |  4.98 |
+| Slice LUTs*                | 7320 |     0 |     63400 | 11.55 |
+|   LUT as Logic             | 3175 |     0 |     63400 |  5.01 |
 |   LUT as Memory            | 4145 |     0 |     19000 | 21.82 |
 |     LUT as Distributed RAM | 4144 |     0 |           |       |
 |     LUT as Shift Register  |    1 |     0 |           |       |
-| Slice Registers            | 2037 |     0 |    126800 |  1.61 |
-|   Register as Flip Flop    | 2037 |     0 |    126800 |  1.61 |
+| Slice Registers            | 2549 |     0 |    126800 |  2.01 |
+|   Register as Flip Flop    | 2549 |     0 |    126800 |  2.01 |
 |   Register as Latch        |    0 |     0 |    126800 |  0.00 |
-| F7 Muxes                   | 2329 |     0 |     31700 |  7.35 |
+| F7 Muxes                   | 2320 |     0 |     31700 |  7.32 |
 | F8 Muxes                   |  128 |     0 |     15850 |  0.81 |
 +----------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -59,7 +59,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
 | 30    |          Yes |         Set |            - |
-| 2007  |          Yes |       Reset |            - |
+| 2519  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -84,8 +84,8 @@ Table of Contents
 +----------------+------+-------+-----------+-------+
 |    Site Type   | Used | Fixed | Available | Util% |
 +----------------+------+-------+-----------+-------+
-| DSPs           |   43 |     0 |       240 | 17.92 |
-|   DSP48E1 only |   43 |       |           |       |
+| DSPs           |   19 |     0 |       240 |  7.92 |
+|   DSP48E1 only |   19 |       |           |       |
 +----------------+------+-------+-----------+-------+
 
 
@@ -155,20 +155,20 @@ Table of Contents
 |  Ref Name  | Used | Functional Category |
 +------------+------+---------------------+
 | RAMD64E    | 4096 |  Distributed Memory |
-| MUXF7      | 2329 |               MuxFx |
-| FDRE       | 2007 |        Flop & Latch |
-| LUT6       | 1226 |                 LUT |
-| LUT2       |  956 |                 LUT |
-| LUT1       |  474 |                 LUT |
-| LUT4       |  402 |                 LUT |
-| CARRY4     |  392 |          CarryLogic |
-| LUT3       |  212 |                 LUT |
-| LUT5       |  179 |                 LUT |
+| FDRE       | 2519 |        Flop & Latch |
+| MUXF7      | 2320 |               MuxFx |
+| LUT6       | 1276 |                 LUT |
+| LUT2       | 1124 |                 LUT |
+| LUT4       |  467 |                 LUT |
+| CARRY4     |  300 |          CarryLogic |
+| LUT3       |  219 |                 LUT |
+| LUT1       |  210 |                 LUT |
+| LUT5       |  204 |                 LUT |
 | MUXF8      |  128 |               MuxFx |
 | RAMD32     |   72 |  Distributed Memory |
-| DSP48E1    |   43 |    Block Arithmetic |
 | FDSE       |   30 |        Flop & Latch |
 | RAMS32     |   24 |  Distributed Memory |
+| DSP48E1    |   19 |    Block Arithmetic |
 | OBUF       |   12 |                  IO |
 | RAMB36E1   |   10 |        Block Memory |
 | BUFG       |    9 |               Clock |

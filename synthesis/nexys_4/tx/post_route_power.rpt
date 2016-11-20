@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
-| Date             : Thu Nov 17 20:29:17 2016
+| Date             : Sun Nov 20 17:18:55 2016
 | Host             : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command          : report_power -file ./post_route_power.rpt
 | Design           : bsp
@@ -30,12 +30,12 @@ Table of Contents
 ----------
 
 +--------------------------+--------+
-| Total On-Chip Power (W)  | 0.506  |
-| Dynamic (W)              | 0.397  |
+| Total On-Chip Power (W)  | 0.487  |
+| Dynamic (W)              | 0.378  |
 | Device Static (W)        | 0.109  |
 | Effective TJA (C/W)      | 4.6    |
-| Max Ambient (C)          | 82.7   |
-| Junction Temperature (C) | 27.3   |
+| Max Ambient (C)          | 82.8   |
+| Junction Temperature (C) | 27.2   |
 | Confidence Level         | Medium |
 | Setting File             | ---    |
 | Simulation Activity File | ---    |
@@ -50,22 +50,22 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |     0.022 |        7 |       --- |             --- |
-| Slice Logic              |     0.019 |    12284 |       --- |             --- |
-|   LUT as Logic           |     0.015 |     2838 |     63400 |            4.48 |
-|   CARRY4                 |     0.002 |      392 |     15850 |            2.47 |
-|   Register               |     0.001 |     2079 |    126800 |            1.64 |
-|   F7/F8 Muxes            |    <0.001 |     2457 |     63400 |            3.88 |
+| Slice Logic              |     0.021 |    12934 |       --- |             --- |
+|   LUT as Logic           |     0.017 |     3073 |     63400 |            4.85 |
+|   Register               |     0.002 |     2549 |    126800 |            2.01 |
+|   CARRY4                 |     0.002 |      300 |     15850 |            1.89 |
+|   F7/F8 Muxes            |    <0.001 |     2448 |     63400 |            3.86 |
 |   LUT as Distributed RAM |    <0.001 |     4144 |     19000 |           21.81 |
 |   LUT as Shift Register  |    <0.001 |        1 |     19000 |           <0.01 |
-|   Others                 |     0.000 |       33 |       --- |             --- |
-| Signals                  |     0.061 |     7726 |       --- |             --- |
+|   Others                 |     0.000 |       47 |       --- |             --- |
+| Signals                  |     0.064 |     7314 |       --- |             --- |
 | Block RAM                |     0.037 |       14 |       135 |           10.37 |
 | MMCM                     |     0.095 |        1 |         6 |           16.67 |
 | PLL                      |     0.094 |        1 |         6 |           16.67 |
-| DSPs                     |     0.041 |       43 |       240 |           17.92 |
-| I/O                      |     0.027 |       15 |       210 |            7.14 |
+| DSPs                     |     0.018 |       19 |       240 |            7.92 |
+| I/O                      |     0.028 |       15 |       210 |            7.14 |
 | Static Power             |     0.109 |          |           |                 |
-| Total                    |     0.506 |          |           |                 |
+| Total                    |     0.487 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -75,7 +75,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.202 |       0.185 |      0.016 |
+| Vccint    |       1.000 |     0.183 |       0.166 |      0.016 |
 | Vccaux    |       1.800 |     0.120 |       0.102 |      0.018 |
 | Vcco33    |       3.300 |     0.007 |       0.003 |      0.004 |
 | Vcco25    |       2.500 |     0.010 |       0.006 |      0.004 |
@@ -148,9 +148,9 @@ Table of Contents
 +-----------------------------------+-----------+
 | Name                              | Power (W) |
 +-----------------------------------+-----------+
-| bsp                               |     0.397 |
-|   serial_input_inst_1             |     0.045 |
-|     fifo_1                        |     0.045 |
+| bsp                               |     0.378 |
+|   serial_input_inst_1             |     0.049 |
+|     fifo_1                        |     0.049 |
 |       memory_reg_0_127_0_0        |    <0.001 |
 |       memory_reg_0_127_1_1        |    <0.001 |
 |       memory_reg_0_127_2_2        |    <0.001 |
@@ -1176,14 +1176,22 @@ Table of Contents
 |       memory_reg_9984_10111_6_6   |    <0.001 |
 |       memory_reg_9984_10111_7_7   |    <0.001 |
 |   serial_output_inst_1            |    <0.001 |
-|   transmitter_inst_1              |     0.187 |
-|     dac_interface_inst_1          |     0.135 |
+|   transmitter_inst_1              |     0.163 |
+|     dac_interface_inst_1          |     0.112 |
+|       lfsr_0                      |     0.002 |
+|       lfsr_1                      |     0.002 |
+|       lfsr_2                      |     0.002 |
+|       lfsr_3                      |     0.002 |
+|       lfsr_4                      |     0.002 |
+|       lfsr_5                      |     0.002 |
+|       lfsr_6                      |     0.002 |
+|       lfsr_7                      |     0.002 |
 |       serdes_inst_1               |     0.098 |
 |     interpolate_inst_1            |     0.004 |
 |     interpolate_inst_2            |     0.004 |
-|     nco_inst_1                    |     0.026 |
-|   user_design_inst_1              |     0.039 |
-|     main_0_140191123487128        |     0.039 |
+|     nco_inst_1                    |     0.025 |
+|   user_design_inst_1              |     0.040 |
+|     main_0_140075168856544        |     0.040 |
 |       registers_reg_r1_0_15_0_5   |    <0.001 |
 |       registers_reg_r1_0_15_12_17 |    <0.001 |
 |       registers_reg_r1_0_15_18_23 |    <0.001 |
