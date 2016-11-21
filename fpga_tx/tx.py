@@ -77,6 +77,20 @@ class SSBModulator(Modulator):
         transmitter.cmd = 'b'
 
     def modulate(self, data):
+
+        # SSB Modulator
+        # =============
+        #
+        #                               
+        #         +-----+  +----------+     +---------+
+        #  audio -> lpf >--> resample >--+--> delay   >------------> I
+        #         +-----+  | (12 kHz) |  |  +---------+
+        #                  +----------+  |
+        #                                |  +---------+  +------+
+        #                                +--> Hilbert >--> lsb? >--> Q
+        #                                   +---------+  | *-1  |
+        #                                                +------+
+
         #convert to floating point
         data = data/32768.0
 
@@ -124,6 +138,15 @@ class WBFMModulator(Modulator):
 
     def modulate(self, data):
 
+        # Wideband FM Modulator
+        # =====================
+        #
+        #        +-----+ +----------+
+        # audio -> lpf >-> pre-emph >--> frequency
+        #        +-----+ +----------+
+        #
+        
+
         #convert to floating point
         data = data/32768.0
 
@@ -162,6 +185,24 @@ class StereoModulator(Modulator):
         transmitter.cmd = 'a'
 
     def modulate(self, data):
+
+        # Stereo FM Modulator
+        # ===================
+        #
+        #        +-----+ +----------+      +---+         +-------+  +---+
+        #  left -> lpf >-> pre-emph >---+--> + >---------> *0.45 >--> + >--> frequency
+        #        +-----+ +----------+ +---->   |         +-------+  |   |
+        #                             | |  +---+                    |   |
+        #        +-----+ +----------+ | |  +---+  +---+  +-------+  |   |
+        # right -> lpf >-> pre-emph >-+ +--> - >--> * >--> *0.45 >-->   |
+        #        +-----+ +----------+ +---->   |  +-^-+  +-------+  |   |
+        #                                  +---+    |               |   |
+        #                                         ~38 kHz           |   |
+        #                                                           |   |
+        #                                                +-------+  |   |
+        #                                         19 kHz-> *0.1  >-->   |
+        #                                                +-------+  +---+
+
         #convert to floating point
         data = data/32768.0
 
@@ -215,6 +256,15 @@ class FMModulator(Modulator):
         transmitter.cmd = 'a'
 
     def modulate(self, data):
+
+        # FM Modulator
+        # ============
+        #
+        #         +-----+
+        #  audio -> lpf >--> frequency
+        #         +-----+ 
+        #               
+
         #convert to floating point
         data = data/32768.0
 
@@ -239,6 +289,16 @@ class AMModulator(Modulator):
         transmitter.cmd = 'b'
 
     def modulate(self, data):
+
+        # AM Modulator
+        # ============
+        #
+        #                                                     +---> I
+        #         +-----+  +----------+  +------+   +------+  |
+        #  audio -> lpf >--> resample >--> *0.5 >---> +0.1 >--+
+        #         +-----+  | (12 kHz) |  +------+   +------+  |
+        #                  +----------+                       +---> Q
+        #               
 
         #convert to floating point
         data = data/32768.0
