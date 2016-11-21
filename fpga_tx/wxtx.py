@@ -41,86 +41,6 @@ def setup_plot(figure, axes):
     axes.set_ylabel("Magnitude (dB)")
     axes.grid(color='0.8')
 
-def transmit(frequency, mode, source, input_file, cutoff, deviation):
-    if mode.upper() == "AM":
-        fs = 12000
-        channels = 1
-        modulator = tx.AMModulator(
-            frequency=frequency,
-            cutoff=cutoff,
-            sample_rate=12000
-        )
-    elif mode.upper() == "USB":
-        fs = 12000
-        channels = 1
-        modulator = tx.SSBModulator(
-            frequency=frequency,
-            cutoff=cutoff,
-            sample_rate=12000
-        )
-    elif mode.upper() == "LSB":
-        fs = 12000
-        channels = 1
-        modulator = tx.SSBModulator(
-            frequency=frequency,
-            sample_rate=12000,
-            cutoff=cutoff,
-            lsb = True
-        )
-    elif mode.upper() == "FM":
-        fs = 12000
-        channels = 1
-        modulator = tx.FMModulator(
-            frequency=frequency,
-            sample_rate=12000,
-            cutoff=cutoff,
-            fm_deviation=deviation,
-        )
-    elif mode.upper() == "WBFM":
-        fs = 48000
-        channels = 1
-        modulator = tx.WBFMModulator(
-            frequency=frequency,
-            sample_rate=48000,
-            cutoff=cutoff,
-            fm_deviation=deviation,
-        )
-    elif mode.upper() == "STEREO":
-        fs = 48000
-        channels = 2
-        modulator = tx.StereoModulator(
-            frequency=frequency,
-            sample_rate=48000,
-            cutoff=cutoff,
-            fm_deviation=deviation,
-        )
-
-    #Use sox to capture/resample input
-    if source == "File":
-        pipe = subprocess.Popen(
-            "/usr/bin/sox %s -r %u -b 16 -t raw --channels %u -"%(
-                input_file, fs, channels), 
-            stdout=subprocess.PIPE, 
-            shell=True
-        )
-    else:
-        pipe = subprocess.Popen(
-            "/usr/bin/rec -r %u -b 16 -t raw --channels %u -"%(
-                fs, channels), 
-            stdout=subprocess.PIPE, 
-            shell=True
-        )
-
-    transmitter = tx.Transmitter(device, modulator)
-
-    #run the transmitter in its own thread
-    transmit_thread = threading.Thread(
-        group=None, 
-        target=transmitter.transmit, 
-        args=(pipe.stdout,)
-    )
-    transmit_thread.start()
-    return transmitter, transmit_thread, pipe
 
 class CanvasPanel(wx.Panel):
     def __init__(self, parent):
@@ -200,31 +120,50 @@ class CanvasPanel(wx.Panel):
         self.line = None
         self.t1 = wx.Timer(self)
         self.t1.Start(100)
-        self.Bind(wx.EVT_TIMER, self.update_plot)
+        self.Bind(wx.EVT_TIMER, self.on_timer)
 
-    def update_plot(self, event):
-        if self.transmitter is not None:
+        self.transmitter = None
+        self.transmitter_thread = None
+        self.transmitter_pipe = None
+        self.transmitter_error = None
+
+    def on_timer(self, event):
+
+        if self.transmitter_thread is not None:
             if not self.transmitter_thread.is_alive():
                 self.stop_transmit()
-                return
-            if not hasattr(self.transmitter.modulator, "fft"):
-               return
-            fft = self.transmitter.modulator.fft
-            nyq = self.transmitter.modulator.nyq
-            f = linspace(-nyq, nyq, len(fft))
-            if self.line is None:
-                setup_plot(self.figure, self.axes)
-                self.axes.set_xlim([-nyq, nyq])
-                self.axes.set_ylim([-100.0, 100.0])
-                self.figure.canvas.draw()
-                self.background = self.figure.canvas.copy_from_bbox(self.axes.bbox)
-                self.line = self.axes.plot(f, fft, linewidth='1.0', color='green')[0]
-            else:
-                self.figure.canvas.restore_region(self.background)
-                self.line.set_xdata(f)
-                self.line.set_ydata(fft)
-                self.axes.draw_artist(self.line)
-                self.figure.canvas.blit()
+
+        if self.transmitter_error is not None:
+            dlg = wx.MessageDialog(self, 
+                'An exception occurred while running transmitter\n'
+                + self.transmitter_error,
+                'Transmitter Error',
+                wx.OK | wx.ICON_EXCLAMATION)
+            dlg.ShowModal()
+            dlg.Destroy()
+            self.transmitter_error = None
+
+        #when transmitter is running update plot
+        if self.transmitter is not None:
+            self.update_plot()
+
+    def update_plot(self):
+        fft = self.transmitter.modulator.fft
+        nyq = self.transmitter.modulator.nyq
+        f = linspace(-nyq, nyq, len(fft))
+        if self.line is None:
+            setup_plot(self.figure, self.axes)
+            self.axes.set_xlim([-nyq, nyq])
+            self.axes.set_ylim([-100.0, 100.0])
+            self.figure.canvas.draw()
+            self.background = self.figure.canvas.copy_from_bbox(self.axes.bbox)
+            self.line = self.axes.plot(f, fft, linewidth='1.0', color='green')[0]
+        else:
+            self.figure.canvas.restore_region(self.background)
+            self.line.set_xdata(f)
+            self.line.set_ydata(fft)
+            self.axes.draw_artist(self.line)
+            self.figure.canvas.blit()
 
     def settings2gui(self, evt=None):
         frequency, frequency_units, cutoff, deviation, mode = self.settings
@@ -262,14 +201,12 @@ class CanvasPanel(wx.Panel):
     def on_save_preset(self, event):
         dlg = wx.TextEntryDialog(
             self, 'Create Preset')
-
         self.gui2settings()
         if dlg.ShowModal() == wx.ID_OK:
             preset_name = dlg.GetValue()
             presets[str(preset_name)] = self.settings
             presets.sync()
             self.presets.SetItems(sorted(presets.keys()))
-
         dlg.Destroy()
 
     def on_del_preset(self, event):
@@ -277,18 +214,6 @@ class CanvasPanel(wx.Panel):
         presets.pop(preset_name)
         presets.sync()
         self.presets.SetItems(sorted(presets.keys()))
-
-    def stop_transmit(self):
-        #terminate the process creating the input data
-        self.transmitter.stop = True
-        self.transmitter_thread.join()
-        self.transmitter_pipe.terminate()
-        del(self.transmitter)
-        self.transmitter = None
-        self.transmitter_thread = None
-        self.transmitter_pipe = None
-        self.line = None
-        self.tx.SetValue(False)
 
     def on_source(self, event):
         source = sources[self.source.GetCurrentSelection()]
@@ -334,11 +259,7 @@ class CanvasPanel(wx.Panel):
                 frequency *= 1e3
             source = sources[self.source.GetCurrentSelection()]
             input_file = self.input_file_button.GetValue()
-            (
-                self.transmitter, 
-                self.transmitter_thread, 
-                self.transmitter_pipe
-            )=transmit(
+            self.transmit(
                 frequency, 
                 mode, 
                 source, 
@@ -349,6 +270,107 @@ class CanvasPanel(wx.Panel):
         else:
             if self.transmitter is not None:
                 self.stop_transmit()
+
+    def transmit(self, frequency, mode, source, input_file, cutoff, deviation):
+        if mode.upper() == "AM":
+            fs = 12000
+            channels = 1
+            modulator = tx.AMModulator(
+                frequency=frequency,
+                cutoff=cutoff,
+                sample_rate=12000
+            )
+        elif mode.upper() == "USB":
+            fs = 12000
+            channels = 1
+            modulator = tx.SSBModulator(
+                frequency=frequency,
+                cutoff=cutoff,
+                sample_rate=12000
+            )
+        elif mode.upper() == "LSB":
+            fs = 12000
+            channels = 1
+            modulator = tx.SSBModulator(
+                frequency=frequency,
+                sample_rate=12000,
+                cutoff=cutoff,
+                lsb = True
+            )
+        elif mode.upper() == "FM":
+            fs = 12000
+            channels = 1
+            modulator = tx.FMModulator(
+                frequency=frequency,
+                sample_rate=12000,
+                cutoff=cutoff,
+                fm_deviation=deviation,
+            )
+        elif mode.upper() == "WBFM":
+            fs = 48000
+            channels = 1
+            modulator = tx.WBFMModulator(
+                frequency=frequency,
+                sample_rate=48000,
+                cutoff=cutoff,
+                fm_deviation=deviation,
+            )
+        elif mode.upper() == "STEREO":
+            fs = 48000
+            channels = 2
+            modulator = tx.StereoModulator(
+                frequency=frequency,
+                sample_rate=48000,
+                cutoff=cutoff,
+                fm_deviation=deviation,
+            )
+
+        #Use sox to capture/resample input
+        if source == "File":
+            self.transmitter_pipe = subprocess.Popen(
+                "/usr/bin/sox %s -r %u -b 16 -t raw --channels %u -"%(
+                    input_file, fs, channels), 
+                stdout=subprocess.PIPE, 
+                shell=True
+            )
+        else:
+            self.transmitter_pipe = subprocess.Popen(
+                "/usr/bin/rec -r %u -b 16 -t raw --channels %u -"%(
+                    fs, channels), 
+                stdout=subprocess.PIPE, 
+                shell=True
+            )
+
+        #run the transmitter in its own thread
+        self.transmit_thread = threading.Thread(
+             group=None, 
+             target=self.handle_transmitter_exception, 
+             args=(device, modulator)
+        )
+        self.transmit_thread.start()
+
+    def handle_transmitter_exception(self, device, modulator):
+        try:
+            self.transmitter = tx.Transmitter(device, modulator)
+            transmitter.transmit(self.transmitter_pipe.stdout)
+        except Exception as x:
+            self.transmitter_error = str(x)
+            self.stop_transmit()
+
+    def stop_transmit(self):
+        #terminate the process creating the input data
+        if hasattr(self, "transmitter") and self.transmitter is not None:
+            self.transmitter.stop = True
+        if hasattr(self, "transmitter_thread") and self.transmitter_thread is not None:
+            self.transmitter_thread.join()
+        if hasattr(self, "transmitter_pipe") and self.transmitter_pipe is not None:
+            self.transmitter_pipe.terminate()
+        del(self.transmitter)
+        self.transmitter = None
+        self.transmitter_thread = None
+        self.transmitter_pipe = None
+        self.line = None
+        self.tx.SetValue(False)
 
 
 app = wx.PySimpleApp()

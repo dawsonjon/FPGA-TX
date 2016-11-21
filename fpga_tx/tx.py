@@ -284,8 +284,9 @@ class Transmitter:
         self.stop = False
 
     def __del__(self):
-        self.set_iq(127,127)
-        self.port.close()
+        if hasattr(self, "port"):
+            self.set_iq(127,127)
+            self.port.close()
 
     def reset_hardware(self):
         self.port.flushInput()
