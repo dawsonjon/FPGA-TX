@@ -59,10 +59,14 @@ entity bsp is
    rst                   : in std_logic;       
 
    rf_out                : out std_logic;
-   test_1                : out std_logic;
-   test_2                : out std_logic;
 
    leds                  : out std_logic_vector(7 downto 0);
+
+   gps_tx                : in  std_logic;
+   gps_rx                : out std_logic;
+   pps                   : in  std_logic;
+   tx_rx                 : out std_logic;
+   tx_pa                 : out std_logic;
 
    --rs232 interface
    rs232_rx              : in std_logic;
@@ -85,7 +89,9 @@ architecture rtl of bsp is
       amplitude : in std_logic_vector(31 downto 0);
       amplitude_stb : in std_logic;
       amplitude_ack : out std_logic;
-      rf : out std_logic
+      rf : out std_logic;
+      tx_rx : out std_logic;
+      tx_pa : out std_logic
     );
   end component transmitter;
 
@@ -109,6 +115,21 @@ architecture rtl of bsp is
       output_leds : out std_logic_vector(31 downto 0);
       output_leds_stb : out std_logic;
       output_leds_ack : in std_logic;
+
+      --gps pps count
+      input_gps_count : in std_logic_vector(31 downto 0);
+      input_gps_count_stb : in std_logic;
+      input_gps_count_ack : out std_logic;
+
+      --gps rx stream
+      input_gps_rx : in std_logic_vector(31 downto 0);
+      input_gps_rx_stb : in std_logic;
+      input_gps_rx_ack : out std_logic;
+
+      --gps tx stream
+      output_gps_tx : out std_logic_vector(31 downto 0);
+      output_gps_tx_stb : out std_logic;
+      output_gps_tx_ack : in std_logic;
 
       --rs232 rx stream
       input_rs232_rx : in std_logic_vector(31 downto 0);
@@ -156,6 +177,15 @@ architecture rtl of bsp is
     );
   end component serial_output;
 
+  component gps_pps
+    port(
+      clk : in std_logic;
+      pps : in std_logic;
+      pps_count : out std_logic_vector(31 downto 0);
+      pps_count_stb : out std_logic;
+      pps_count_ack : in std_logic);
+  end component gps_pps;
+
 
   --clock tree signals
   signal clk               : std_logic;
@@ -180,15 +210,19 @@ architecture rtl of bsp is
   signal internal_rst      : std_logic;
 
   --tx interface
-  signal  output_tx_freq : std_logic_vector(31 downto 0);
-  signal  output_tx_freq_stb : std_logic;
-  signal  output_tx_freq_ack : std_logic;
-  signal  output_tx_am : std_logic_vector(31 downto 0);
-  signal  output_tx_am_stb : std_logic;
-  signal  output_tx_am_ack : std_logic;
-  signal  output_tx_ctl : std_logic_vector(31 downto 0);
-  signal  output_tx_ctl_stb : std_logic;
-  signal  output_tx_ctl_ack : std_logic;
+  signal output_tx_freq : std_logic_vector(31 downto 0);
+  signal output_tx_freq_stb : std_logic;
+  signal output_tx_freq_ack : std_logic;
+  signal output_tx_am : std_logic_vector(31 downto 0);
+  signal output_tx_am_stb : std_logic;
+  signal output_tx_am_ack : std_logic;
+  signal output_tx_ctl : std_logic_vector(31 downto 0);
+  signal output_tx_ctl_stb : std_logic;
+  signal output_tx_ctl_ack : std_logic;
+
+  signal input_gps_count : std_logic_vector(31 downto 0);
+  signal input_gps_count_stb : std_logic;
+  signal input_gps_count_ack : std_logic;
 
   --rs232 rx stream
   signal input_rs232_rx : std_logic_vector(31 downto 0);
@@ -199,6 +233,16 @@ architecture rtl of bsp is
   signal output_rs232_tx : std_logic_vector(31 downto 0);
   signal output_rs232_tx_stb : std_logic;
   signal output_rs232_tx_ack : std_logic;
+
+  --gps rx stream
+  signal input_gps_rx : std_logic_vector(31 downto 0);
+  signal input_gps_rx_stb : std_logic;
+  signal input_gps_rx_ack : std_logic;
+
+  --gps tx stream
+  signal output_gps_tx : std_logic_vector(31 downto 0);
+  signal output_gps_tx_stb : std_logic;
+  signal output_gps_tx_ack : std_logic;
 
   signal s_test_1 : std_logic := '0';
   signal s_test_2 : std_logic := '0';
@@ -225,6 +269,8 @@ begin
       amplitude_stb => output_tx_am_stb,
       amplitude_ack => output_tx_am_ack,
 
+      tx_rx => tx_rx,
+      tx_pa => tx_pa,
       rf => rf_out
   );
   process
@@ -237,8 +283,6 @@ begin
       s_test_2 <= not s_test_2;
     end if;
   end process;
-  test_1 <= s_test_1;
-  test_2 <= s_test_2;
 
   user_design_inst_1 : user_design port map(
       clk => clk,
@@ -253,6 +297,20 @@ begin
       output_rs232_tx => output_rs232_tx,
       output_rs232_tx_stb => output_rs232_tx_stb,
       output_rs232_tx_ack => output_rs232_tx_ack,
+
+      --gps rx stream
+      input_gps_rx => input_gps_rx,
+      input_gps_rx_stb => input_gps_rx_stb,
+      input_gps_rx_ack => input_gps_rx_ack,
+
+      --gps tx stream
+      output_gps_tx => output_gps_tx,
+      output_gps_tx_stb => output_gps_tx_stb,
+      output_gps_tx_ack => output_gps_tx_ack,
+
+      input_gps_count => input_gps_count,
+      input_gps_count_stb => input_gps_count_stb,
+      input_gps_count_ack => input_gps_count_ack,
 
       output_leds => output_leds,
       output_leds_stb => output_leds_stb,
@@ -270,6 +328,14 @@ begin
       output_tx_ctl => output_tx_ctl,
       output_tx_ctl_stb => output_tx_ctl_stb,
       output_tx_ctl_ack => output_tx_ctl_ack
+  );
+
+  pps1 : gps_pps port map(
+      clk => clk,
+      pps => pps,
+      pps_count => input_gps_count,
+      pps_count_stb => input_gps_count_stb,
+      pps_count_ack => input_gps_count_ack
   );
 
   serial_output_inst_1 : serial_output generic map(
@@ -299,6 +365,34 @@ begin
   );
 
   input_rs232_rx(15 downto 8) <= (others => '0');
+
+  serial_output_inst_2 : serial_output generic map(
+      clock_frequency => 100000000,
+      baud_rate       => 9600
+  )port map(
+      clk     => clk,
+      rst     => internal_rst,
+      tx      => gps_rx,
+     
+      in1     => output_gps_tx(7 downto 0),
+      in1_stb => output_gps_tx_stb,
+      in1_ack => output_gps_tx_ack
+  );
+
+  serial_input_inst_2 : serial_input generic map(
+      clock_frequency => 100000000,
+      baud_rate       => 9600
+  ) port map (
+      clk      => clk,
+      rst      => internal_rst,
+      rx       => gps_tx,
+     
+      out1     => input_gps_rx(7 downto 0),
+      out1_stb => input_gps_rx_stb,
+      out1_ack => input_gps_rx_ack
+  );
+
+  input_gps_rx(15 downto 8) <= (others => '0');
 
   process
   begin

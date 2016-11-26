@@ -15,6 +15,9 @@ def make_chip():
     #create stimulus and response
     Input(chip, "input_rs232_rx")
     Output(chip, "output_rs232_tx")
+    Input(chip, "input_gps_count")
+    Input(chip, "input_gps_rx")
+    Output(chip, "output_gps_tx")
     Output(chip, "output_tx_freq")
     Output(chip, "output_tx_am")
     Output(chip, "output_tx_ctl")

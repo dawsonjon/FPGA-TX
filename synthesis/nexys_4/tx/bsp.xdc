@@ -10,14 +10,23 @@ set_property IOSTANDARD LVCMOS33 [get_ports rs232_rx]
 set_property PACKAGE_PIN D4 [get_ports rs232_tx]                       
 set_property IOSTANDARD LVCMOS33 [get_ports rs232_tx]
 
-set_property PACKAGE_PIN F14 [get_ports rf_out]						
+set_property PACKAGE_PIN B13 [get_ports rf_out]						
 set_property IOSTANDARD LVCMOS25 [get_ports rf_out]
 
-set_property PACKAGE_PIN D17 [get_ports test_1]						
-set_property IOSTANDARD LVCMOS25 [get_ports test_1]
+set_property PACKAGE_PIN F14 [get_ports pps]						
+set_property IOSTANDARD LVCMOS25 [get_ports pps]
 
-set_property PACKAGE_PIN E17 [get_ports test_2]						
-set_property IOSTANDARD LVCMOS25 [get_ports test_2]
+set_property PACKAGE_PIN D17 [get_ports gps_tx]						
+set_property IOSTANDARD LVCMOS25 [get_ports gps_tx]
+
+set_property PACKAGE_PIN E17 [get_ports gps_rx]						
+set_property IOSTANDARD LVCMOS25 [get_ports gps_rx]
+
+set_property PACKAGE_PIN G13 [get_ports tx_rx]						
+set_property IOSTANDARD LVCMOS25 [get_ports tx_rx]
+
+set_property PACKAGE_PIN C17 [get_ports tx_pa]						
+set_property IOSTANDARD LVCMOS25 [get_ports tx_pa]
 
 set_property PACKAGE_PIN T8 [get_ports {leds[0]}]                   
 set_property IOSTANDARD LVCMOS33 [get_ports {leds[0]}]

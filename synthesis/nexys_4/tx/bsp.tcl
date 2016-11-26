@@ -13,6 +13,7 @@ read_vhdl serial_out.vhd
 read_vhdl serial_in.vhd
 read_vhdl interpolate.vhd
 read_vhdl nco.vhd
+read_vhdl gps_pps.vhd
 read_vhdl lfsr.vhd
 read_vhdl serdes.vhd
 read_vhdl dac_interface.vhd

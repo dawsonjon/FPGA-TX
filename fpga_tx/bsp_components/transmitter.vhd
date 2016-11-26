@@ -20,7 +20,9 @@ entity transmitter is
     amplitude : in std_logic_vector(31 downto 0);
     amplitude_stb : in std_logic;
     amplitude_ack : out std_logic;
-    rf : out std_logic
+    rf : out std_logic;
+    tx_rx : out std_logic;
+    tx_pa : out std_logic
   );
 end entity transmitter;
 
@@ -178,6 +180,8 @@ begin
 
     if control_stb = '1' then
       dithering <= control(0);
+      tx_rx <= control(1);
+      tx_pa <= control(2);
     end if;
 
     if frequency_stb = '1' then

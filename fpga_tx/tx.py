@@ -56,7 +56,12 @@ class Modulator:
         )
 
     def setup_transmitter(self, transmitter):
-        transmitter.set_frequency(self.frequency)
+        pps = transmitter.get_pps()
+        self.freq_error = pps/100.0e6
+        if self.freq_error > 1.5 or self.freq_error < 0.5:
+            print "gps correction out of range, not applying gps correction"
+            self.freq_error = 1.0
+        transmitter.set_frequency(self.frequency/self.freq_error)
         transmitter.set_sample_rate(self.sample_rate)
         transmitter.set_fm_deviation(self.fm_deviation)
         transmitter.set_control_register(1)
@@ -318,6 +323,13 @@ class Transmitter:
         steps = self.port.readline().strip()
         print "frequency steps", steps
         self.check_response("error setting frequency")
+
+    def get_pps(self):
+        self.port.write('g\n')
+        count = self.port.readline().strip()
+        print "pps_count", count
+        self.check_response("error getting pps")
+        return int(count)
 
     def set_fm_deviation(self, deviation):
         fm_resolution_hz = deviation/(2.0**fm_bits)

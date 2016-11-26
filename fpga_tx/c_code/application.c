@@ -1,8 +1,11 @@
 unsigned rs232_rx = input("rs232_rx");
+unsigned gps_rx = input("gps_rx");
+unsigned gps_count = input("gps_count");
 unsigned frequency_out = output("freq_out");
 unsigned am_out = output("am_out");
 unsigned ctl_out = output("ctl_out");
 unsigned rs232_tx = output("rs232_tx");
+unsigned gps_tx = output("gps_tx");
 unsigned leds = output("leds");
 
 #include "scan.h"
@@ -51,6 +54,7 @@ void main(){
     unsigned fm_deviation = 105; //default to 5kHz
     unsigned control = 0; //dithering off
     unsigned t0=0;
+    unsigned gps_count_var=0;
     int sample, i, q;
     char cmd;
 
@@ -66,6 +70,14 @@ void main(){
         {
             //respond
             case '>':
+                puts(">\n");
+                break;
+
+            //get gps
+            case 'g':
+                gps_count_var = fgetc(gps_count);
+                print_udecimal(gps_count_var);
+                puts("\n");
                 puts(">\n");
                 break;
 
