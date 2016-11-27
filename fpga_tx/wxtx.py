@@ -341,7 +341,7 @@ class CanvasPanel(wx.Panel):
                 )
             else:
                 self.transmitter_pipe = subprocess.Popen(
-                    "/usr/bin/rec -r %u -b 16 -t raw --channels %u -"%(
+                    "/usr/bin/rec --buffer 256 -r %u -b 16 -t raw --channels %u -"%(
                         fs, channels), 
                     stdout=subprocess.PIPE, 
                     shell=True
