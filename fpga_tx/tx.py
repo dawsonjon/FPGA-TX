@@ -289,7 +289,8 @@ class Transmitter:
         self.stop = False
 
     def __del__(self):
-        self.set_iq(127,127)
+        print "turning off transmitter"
+        self.set_iq(128, 128)
         self.port.close()
 
     def reset_hardware(self):

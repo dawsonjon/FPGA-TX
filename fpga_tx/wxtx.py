@@ -54,12 +54,20 @@ class CanvasPanel(wx.Panel):
         setup_plot(self.figure, self.axes)
 
         self.vsizer = wx.BoxSizer(wx.VERTICAL)
+        self.sizer_sizer = wx.BoxSizer(wx.HORIZONTAL)
+        self.tx_sizer = wx.BoxSizer(wx.VERTICAL)
+        self.rx_sizer = wx.BoxSizer(wx.VERTICAL)
         self.settings_sizer = wx.BoxSizer(wx.VERTICAL)
         self.preset_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.freq_sizer = wx.BoxSizer(wx.HORIZONTAL)
+        self.freq_offset_sizer = wx.BoxSizer(wx.HORIZONTAL)
+        self.gain_sizer = wx.BoxSizer(wx.HORIZONTAL)
+        self.ppm_sizer = wx.BoxSizer(wx.HORIZONTAL)
+        self.squelch_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.lpf_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.fm_deviation_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.source_sizer = wx.BoxSizer(wx.HORIZONTAL)
+        self.destination_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.mode_sizer = wx.BoxSizer(wx.HORIZONTAL)
 
         self.presets = wx.Choice(self, choices=sorted(presets.keys()))
@@ -67,52 +75,84 @@ class CanvasPanel(wx.Panel):
         self.del_preset = wx.Button(self, label="delete")
         self.frequency = wx.TextCtrl(self, value="30")
         self.frequency_units = wx.Choice(self, choices=units)
+
+        self.rx_frequency_offset = wx.TextCtrl(self, value="0")
+        self.rx_gain = wx.TextCtrl(self, value="automatic")
+        self.rx_ppm = wx.TextCtrl(self, value="0")
+        self.rx_squelch = wx.TextCtrl(self, value="0")
+
         self.lpf       = wx.TextCtrl(self, value="3000")
         self.fm_deviation = wx.TextCtrl(self, value="5000")
         self.fm_deviation.Disable()
         self.mode      = wx.Choice(self, choices=modes)
         self.source    = wx.Choice(self, choices=sources)
+        self.destination = wx.Choice(self, choices=sources)
         self.input_file_button = filebrowse.FileBrowseButton(self, labelText="Input File:")
         self.input_file_button.Disable()
+        self.output_file_button = filebrowse.FileBrowseButton(self, labelText="Output File:", fileMode=wx.SAVE)
+        self.output_file_button.Disable()
         self.tx = wx.ToggleButton(self, label="TX")
+        self.rx = wx.ToggleButton(self, label="RX")
         self.Bind(wx.EVT_TOGGLEBUTTON, self.on_transmit, self.tx)
+        self.Bind(wx.EVT_TOGGLEBUTTON, self.on_receive, self.rx)
         self.Bind(wx.EVT_CHOICE, self.on_mode, self.mode)
         self.Bind(wx.EVT_CHOICE, self.on_source, self.source)
+        self.Bind(wx.EVT_CHOICE, self.on_destination, self.destination)
         self.Bind(wx.EVT_CHOICE, self.on_preset, self.presets)
         self.Bind(wx.EVT_BUTTON, self.on_save_preset, self.save_preset)
         self.Bind(wx.EVT_BUTTON, self.on_del_preset, self.del_preset)
 
         self.vsizer.Add(self.canvas, 1, wx.EXPAND | wx.ALL)
-
         self.preset_sizer.Add(wx.StaticText(self, label="Preset: "), 0, wx.CENTER)
         self.preset_sizer.Add(self.presets, 1)
         self.preset_sizer.Add(self.save_preset, 0.5)
         self.preset_sizer.Add(self.del_preset, 0.5)
         self.vsizer.Add(self.preset_sizer, 0, wx.EXPAND | wx.ALL, 5)
 
+        self.tx_sizer.Add(wx.StaticText(self, label="Transmitter Settings"), 0, wx.CENTER | wx.ALL, 10)
         self.freq_sizer.Add(wx.StaticText(self, label="Frequency: "), 0, wx.CENTER)
         self.freq_sizer.Add(self.frequency, 1)
         self.freq_sizer.Add(self.frequency_units, 0.5)
-        self.vsizer.Add(self.freq_sizer, 0, wx.EXPAND | wx.ALL, 5)
-
+        self.tx_sizer.Add(self.freq_sizer, 0, wx.EXPAND | wx.ALL, 3)
         self.lpf_sizer.Add(wx.StaticText(self, label="Audio Cutoff (Hz): "), 0, wx.CENTER)
         self.lpf_sizer.Add(self.lpf, 1)
-        self.vsizer.Add(self.lpf_sizer, 0, wx.EXPAND | wx.ALL, 5)
-
+        self.tx_sizer.Add(self.lpf_sizer, 0, wx.EXPAND | wx.ALL, 5)
         self.fm_deviation_sizer.Add(wx.StaticText(self, label="FM Deviation (Hz): "), 0, wx.CENTER)
         self.fm_deviation_sizer.Add(self.fm_deviation, 1)
-        self.vsizer.Add(self.fm_deviation_sizer, 0, wx.EXPAND | wx.ALL, 5)
-
+        self.tx_sizer.Add(self.fm_deviation_sizer, 0, wx.EXPAND | wx.ALL, 5)
         self.mode_sizer.Add(wx.StaticText(self, label="Mode:"), 0, wx.CENTRE)
         self.mode_sizer.Add(self.mode, 1, wx.EXPAND | wx.ALL)
-        self.vsizer.Add(self.mode_sizer, 0, wx.EXPAND | wx.ALL, 5)
-
+        self.tx_sizer.Add(self.mode_sizer, 0, wx.EXPAND | wx.ALL, 5)
         self.source_sizer.Add(wx.StaticText(self, label="Source:"), 0, wx.CENTRE)
         self.source_sizer.Add(self.source, 1, wx.EXPAND | wx.ALL)
-        self.vsizer.Add(self.source_sizer, 0, wx.EXPAND | wx.ALL, 5)
+        self.tx_sizer.Add(self.source_sizer, 0, wx.EXPAND | wx.ALL, 5)
+        self.tx_sizer.Add(self.input_file_button, 0, wx.EXPAND | wx.ALL, 5)
+        self.tx_sizer.Add(self.tx, 0, wx.EXPAND | wx.ALL)
+        self.sizer_sizer.Add(self.tx_sizer, 1, wx.EXPAND | wx.ALL)
+        self.sizer_sizer.Add(wx.StaticLine(self, style=wx.LI_VERTICAL), 0, wx.ALL|wx.EXPAND, 5)
 
-        self.vsizer.Add(self.input_file_button, 0, wx.EXPAND | wx.ALL, 5)
-        self.vsizer.Add(self.tx, 0, wx.EXPAND, 10)
+
+        self.rx_sizer.Add(wx.StaticText(self, label="Receiver Settings"), 0, wx.CENTRE | wx.ALL, 10)
+        self.freq_offset_sizer.Add(wx.StaticText(self, label="Frequency Offset (Hz):"), 0, wx.CENTRE)
+        self.freq_offset_sizer.Add(self.rx_frequency_offset, 1, wx.EXPAND | wx.ALL)
+        self.rx_sizer.Add(self.freq_offset_sizer, 0, wx.EXPAND | wx.ALL, 5)
+        self.gain_sizer.Add(wx.StaticText(self, label="Gain (dB):"), 0, wx.CENTRE)
+        self.gain_sizer.Add(self.rx_gain, 1)
+        self.rx_sizer.Add(self.gain_sizer, 0, wx.EXPAND | wx.ALL, 5)
+        self.ppm_sizer.Add(wx.StaticText(self, label="Frequency Correction (ppm):"), 0, wx.CENTRE)
+        self.ppm_sizer.Add(self.rx_ppm, 1)
+        self.rx_sizer.Add(self.ppm_sizer, 0, wx.EXPAND | wx.ALL, 5)
+        self.squelch_sizer.Add(wx.StaticText(self, label="Squelch (dB):"), 0, wx.CENTRE)
+        self.squelch_sizer.Add(self.rx_squelch, 1)
+        self.rx_sizer.Add(self.squelch_sizer, 0, wx.EXPAND | wx.ALL, 5)
+        #self.rx_sizer.Add((10,10), 1, wx.EXPAND | wx.ALL)
+        self.destination_sizer.Add(wx.StaticText(self, label="Destination:"), 0, wx.CENTRE)
+        self.destination_sizer.Add(self.destination, 1, wx.EXPAND | wx.ALL)
+        self.rx_sizer.Add(self.destination_sizer, 0, wx.EXPAND | wx.ALL, 5)
+        self.rx_sizer.Add(self.output_file_button, 0, wx.EXPAND | wx.ALL, 5)
+        self.rx_sizer.Add(self.rx, 0, wx.EXPAND | wx.ALL)
+        self.sizer_sizer.Add(self.rx_sizer, 1, wx.EXPAND | wx.ALL)
+        self.vsizer.Add(self.sizer_sizer, 0, wx.EXPAND, 10)
 
         self.SetSizer(self.vsizer)
         self.Fit()
@@ -125,6 +165,8 @@ class CanvasPanel(wx.Panel):
         self.transmitter = None
         self.transmitter_thread = None
         self.transmitter_pipe = None
+        self.receiver_pipe = None
+        self.sox_pipe = None
 
     def on_timer(self, event):
         if self.transmitter is not None:
@@ -153,12 +195,13 @@ class CanvasPanel(wx.Panel):
             self.figure.canvas.blit()
 
     def settings2gui(self, evt=None):
-        frequency, frequency_units, cutoff, deviation, mode = self.settings
+        frequency, frequency_units, cutoff, deviation, mode, rx_frequency_offset = self.settings
         self.frequency.SetValue(str(frequency))
         self.frequency_units.SetSelection(units.index(frequency_units))
         self.lpf.SetValue(str(cutoff))
         self.fm_deviation.SetValue(str(deviation))
         self.mode.SetSelection(modes.index(mode))
+        self.rx_frequency_offset.SetValue(str(rx_frequency_offset))
         if mode.upper() == "AM":
             self.fm_deviation.Disable()
         elif mode.upper() == "LSB":
@@ -178,7 +221,8 @@ class CanvasPanel(wx.Panel):
         cutoff = float(self.lpf.GetValue())
         deviation = float(self.fm_deviation.GetValue())
         mode = modes[self.mode.GetCurrentSelection()]
-        self.settings = frequency, frequency_units, cutoff, deviation, mode
+        rx_frequency_offset = float(self.rx_frequency_offset.GetValue())
+        self.settings = frequency, frequency_units, cutoff, deviation, mode, rx_frequency_offset
 
     def on_preset(self, event):
         preset_name = sorted(presets.keys())[self.presets.GetCurrentSelection()]
@@ -204,20 +248,6 @@ class CanvasPanel(wx.Panel):
         presets.sync()
         self.presets.SetItems(sorted(presets.keys()))
 
-    def stop_transmit(self):
-        #terminate the process creating the input data
-        if self.transmitter is not None:
-            self.transmitter.stop = True
-            del(self.transmitter)
-            self.transmitter = None
-        if self.transmitter_thread is not None:
-            self.transmitter_thread.join()
-            self.transmitter_thread = None
-        if self.transmitter_pipe is not None:
-            self.transmitter_pipe.terminate()
-            self.transmitter_pipe = None
-        self.line = None
-        self.tx.SetValue(False)
 
     def on_source(self, event):
         source = sources[self.source.GetCurrentSelection()]
@@ -225,6 +255,13 @@ class CanvasPanel(wx.Panel):
             self.input_file_button.Enable()
         elif source.upper() == "SOUNDCARD":
             self.input_file_button.Disable()
+
+    def on_destination(self, event):
+        destination = sources[self.destination.GetCurrentSelection()]
+        if destination.upper() == "FILE":
+            self.output_file_button.Enable()
+        elif destination.upper() == "SOUNDCARD":
+            self.output_file_button.Disable()
 
     def on_mode(self, event):
         mode = modes[self.mode.GetCurrentSelection()]
@@ -253,10 +290,129 @@ class CanvasPanel(wx.Panel):
             self.fm_deviation.SetValue("150000")
             self.fm_deviation.Enable()
 
+    def on_receive(self, event):
+        if event.IsChecked():
+            self.gui2settings()
+            frequency, frequency_units, cutoff, deviation, mode, rx_frequency_offset = self.settings
+            destination = sources[self.destination.GetCurrentSelection()]
+            output_file = self.output_file_button.GetValue()
+            gain = self.rx_gain.GetValue()
+            ppm = float(self.rx_ppm.GetValue())
+            squelch = float(self.rx_squelch.GetValue())
+            if frequency_units == "MHz":
+                frequency *= 1e6
+            elif frequency_units == "kHz":
+                frequency *= 1e3
+
+            self.receive(
+                float(frequency)+float(rx_frequency_offset), 
+                mode, 
+                destination,
+                output_file,
+                gain,
+                ppm,
+                squelch
+            )
+
+        else:
+            if self.receiver_pipe is not None:
+                self.stop_receive()
+
+    def receive(self, frequency, mode, destination, output_file, gain, ppm, squelch):
+
+        if mode.upper() == "AM":
+            fs = 12000
+            channels = 1
+        elif mode.upper() == "USB":
+            fs = 12000
+            channels = 1
+        elif mode.upper() == "LSB":
+            fs = 12000
+            channels = 1
+        elif mode.upper() == "FM":
+            fs = 12000
+            channels = 1
+        elif mode.upper() == "WBFM":
+            fs = 48000
+            channels = 1
+        elif mode.upper() == "STEREO":
+            mode = wbfm
+            fs = 48000
+            channels = 2
+
+        self.receiver_pipe = subprocess.Popen(
+            [
+            "rtl_fm",
+            "-M",
+            mode.lower(),
+            "-f",
+            str(frequency),
+            "-s",
+            str(fs),
+            "-g",
+            str(gain),
+            "-p",
+            str(ppm),
+            "-l",
+            str(squelch),
+            "-",
+            ],
+            stdout=subprocess.PIPE, 
+        )
+        if destination == "File":
+            self.sox_pipe = subprocess.Popen(
+                [
+                "sox",
+                "-r",
+                str(fs),
+                "--buffer",
+                "256",
+                "-t",
+                "raw",
+                "-es",
+                "-b",
+                "16",
+                "-c",
+                "1",
+                "-V1",
+                str(output_file),
+                ],
+                stdin=self.receiver_pipe.stdout, 
+            )
+        else:
+            self.sox_pipe = subprocess.Popen(
+                [
+                "play",
+                "-r",
+                str(fs),
+                "--buffer",
+                "256",
+                "-t",
+                "raw",
+                "-es",
+                "-b",
+                "16",
+                "-c",
+                "1",
+                "-V1",
+                "-",
+                ],
+                stdin=self.receiver_pipe.stdout, 
+            )
+
+    def stop_receive(self):
+        #terminate the process creating the input data
+        if self.receiver_pipe is not None:
+            self.receiver_pipe.kill()
+            self.receiver_pipe = None
+        if self.sox_pipe is not None:
+            self.sox_pipe.kill()
+            self.sox_pipe = None
+
     def on_transmit(self, event):
         if event.IsChecked():
             self.gui2settings()
-            frequency, frequency_units, cutoff, deviation, mode = self.settings
+            frequency, frequency_units, cutoff, deviation, mode, rx_frequency_offset = self.settings
             if frequency_units == "MHz":
                 frequency *= 1e6
             elif frequency_units == "kHz":
@@ -348,6 +504,7 @@ class CanvasPanel(wx.Panel):
                     "-",
                     ],
                     stdout=subprocess.PIPE, 
+                    shell=False,
                 )
             else:
                 self.transmitter_pipe = subprocess.Popen(
@@ -366,6 +523,7 @@ class CanvasPanel(wx.Panel):
                     "-",
                     ],
                     stdout=subprocess.PIPE, 
+                    shell=False,
                 )
 
             self.transmitter = tx.Transmitter(device, modulator)
@@ -388,6 +546,22 @@ class CanvasPanel(wx.Panel):
             args=(self.transmitter_pipe.stdout,)
         )
         self.transmitter_thread.start()
+
+    def stop_transmit(self):
+        #terminate the process creating the input data
+        if self.transmitter is not None:
+            self.transmitter.stop = True
+            del(self.transmitter)
+            self.transmitter = None
+        if self.transmitter_thread is not None:
+            self.transmitter_thread.join()
+            self.transmitter_thread = None
+        if self.transmitter_pipe is not None:
+            print "terminating sox"
+            self.transmitter_pipe.kill()
+            self.transmitter_pipe = None
+        self.line = None
+        self.tx.SetValue(False)
 
 
 app = wx.PySimpleApp()
