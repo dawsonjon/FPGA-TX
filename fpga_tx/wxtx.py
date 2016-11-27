@@ -334,17 +334,38 @@ class CanvasPanel(wx.Panel):
             #Use sox to capture/resample input
             if source == "File":
                 self.transmitter_pipe = subprocess.Popen(
-                    "/usr/bin/sox %s -r %u -b 16 -t raw --channels %u -"%(
-                        input_file, fs, channels), 
+                    [
+                    "sox",
+                    input_file,
+                    "-r",
+                    str(fs),
+                    "-b",
+                    "16",
+                    "-t" ,
+                    "raw",
+                    "--channels",
+                    str(channels),
+                    "-",
+                    ],
                     stdout=subprocess.PIPE, 
-                    shell=True
                 )
             else:
                 self.transmitter_pipe = subprocess.Popen(
-                    "/usr/bin/rec --buffer 256 -r %u -b 16 -t raw --channels %u -"%(
-                        fs, channels), 
+                    [
+                    "rec",
+                    "--buffer",
+                    "256",
+                    "-r",
+                    str(fs),
+                    "-b",
+                    "16",
+                    "-t",
+                    "raw",
+                    "--channels",
+                    str(channels),
+                    "-",
+                    ],
                     stdout=subprocess.PIPE, 
-                    shell=True
                 )
 
             self.transmitter = tx.Transmitter(device, modulator)
