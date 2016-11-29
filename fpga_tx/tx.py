@@ -64,7 +64,9 @@ class Modulator:
         transmitter.set_frequency(self.frequency/self.freq_error)
         transmitter.set_sample_rate(self.sample_rate)
         transmitter.set_fm_deviation(self.fm_deviation)
-        transmitter.set_control_register(1)
+        transmitter.set_control_register(3)
+        time.sleep(0.3)
+        transmitter.set_control_register(7)
 
 class SSBModulator(Modulator):
     def __init__(self, *args, **kwargs):
@@ -291,6 +293,9 @@ class Transmitter:
     def __del__(self):
         print "turning off transmitter"
         self.set_iq(128, 128)
+        self.set_control_register(3)
+        time.sleep(0.3)
+        self.set_control_register(1)
         self.port.close()
 
     def reset_hardware(self):
@@ -359,7 +364,7 @@ class Transmitter:
         self.check_response("error setting control register")
 
     def set_iq(self, i, q):
-        self.port.write("b"+chr(1)+chr(0)+chr(i)+chr(q))
+        self.port.write("b"+chr(i)+chr(q))
         self.port.readline()
 
     def transmit(self, in_file):
