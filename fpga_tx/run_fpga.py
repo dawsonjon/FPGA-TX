@@ -9,7 +9,7 @@ import shutil
 from chips.components.components import discard, constant
 from chips.compiler.exceptions import C2CHIPError
 import user_settings
-all_bsps = ["nexys_4"]
+all_bsps = ["nexys_4", "cmod_a7_15"]
 
 def compile_user_design(application, working_directory):
     if not os.path.exists(working_directory):

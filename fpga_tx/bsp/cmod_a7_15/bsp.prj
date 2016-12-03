@@ -1,0 +1,11 @@
+../../bsp_components/fifo.vhd
+../../bsp_components/serial_out.vhd
+../../bsp_components/serial_in.vhd
+../../bsp_components/interpolate.vhd
+../../bsp_components/nco.vhd
+../../bsp_components/gps_pps.vhd
+../../bsp_components/lfsr.vhd
+../../bsp_components/serdes.vhd
+../../bsp_components/dac_interface.vhd
+../../bsp_components/transmitter.vhd
+bsp.vhd

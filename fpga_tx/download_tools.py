@@ -17,6 +17,9 @@ def digilent(chip, bsp, working_directory):
 
 def vivado(chip, bsp, working_directory):
     print "Downloading bit file to development kit ...."
+
+    device = bsp.device.split("-")[0].lower()
+    print device
     current_directory = os.getcwd()
     os.chdir(working_directory)
     download_script = open("download.tcl", "w")
@@ -24,13 +27,13 @@ def vivado(chip, bsp, working_directory):
     """open_hw
     connect_hw_server
     open_hw_target
-    current_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
-    refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a100t_0] 0]
+    current_hw_device [lindex [get_hw_devices %s_0] 0]
+    refresh_hw_device -update_hw_probes false [lindex [get_hw_devices %s_0] 0]
     set_property PROBES.FILE {} [lindex [get_hw_devices] 0]
-    set_property PROGRAM.FILE {bsp.bit} [lindex [get_hw_devices xc7a100t_0] 0]
-    program_hw_devices [lindex [get_hw_devices xc7a100t_0] 0]
-    refresh_hw_device [lindex [get_hw_devices xc7a100t_0] 0]
-    """)
+    set_property PROGRAM.FILE {bsp.bit} [lindex [get_hw_devices %s_0] 0]
+    program_hw_devices [lindex [get_hw_devices %s_0] 0]
+    refresh_hw_device [lindex [get_hw_devices %s_0] 0]
+    """%(device, device, device, device, device))
     download_script.close()
     retval = os.system("%s/vivado -mode batch -source download.tcl"%vivado_path) 
     if retval != 0: 

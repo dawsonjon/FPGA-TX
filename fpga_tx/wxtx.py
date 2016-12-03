@@ -23,7 +23,7 @@ presets = shelve.open(os.path.expanduser("~/.wxtx"))
 modes = ["AM", "FM", "WBFM", "LSB", "USB", "STEREO"]
 units = ["MHz", "kHz", "Hz"]
 sources = ["Soundcard", "File"]
-device = "/dev/ttyUSB1"
+device = "/dev/ttyUSB2"
 
 def setup_plot(figure, axes):
     axes.clear()

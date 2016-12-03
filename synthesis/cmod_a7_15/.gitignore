@@ -1,0 +1,10 @@
+*
+!.gitignore
+!*.v
+!*.vhd
+!*.rpt
+!bsp.*
+!*.mcs
+!*.bit
+
+!*/

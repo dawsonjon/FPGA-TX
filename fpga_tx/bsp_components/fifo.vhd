@@ -24,14 +24,14 @@ architecture rtl of fifo is
   signal s_output_stb, s_input_ack, full, empty, read, write : std_logic;
   signal a_out, a_in : integer range 0 to depth - 1 := 0;
   type memory_type is array (0 to depth - 1) of std_logic_vector(width -1 downto 0);
-  shared variable memory : memory_type;
+  signal memory : memory_type;
 begin
 
   process
   begin
     wait until rising_edge(clk);
     if write = '1' then
-      memory(a_in) := input;
+      memory(a_in) <= input;
     end if;
     if read = '1' then
       output <= memory(a_out);
