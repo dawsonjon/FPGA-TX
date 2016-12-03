@@ -24,7 +24,7 @@ FPGA-TX has some dependencies on Python modules. The software uses the sox tool
 to provide a portable and flexible method for capturing/reading audio.
 
 ```
-sudo apt-get install python-numpy python-scipy python-matplotlib python-serial python-wxgtk2.8 sox
+sudo apt-get install python-numpy python-scipy python-serial python-wxgtk3.0 python-matplotlib sox git
 ```
 
 ## Serial Port Permissions
@@ -82,7 +82,7 @@ specify USB/serial device of transmitter. default is /dev/ttyUSB1
 ### Examples
 
 
-####transmit narrow band fm on 27MHz 
+####transmit narrow band FM on 27MHz 
 
 ```
 sox test.wav -t raw -b 16 -r 12k - | tx -f=12e6 -m=fm -r=12000
@@ -111,7 +111,7 @@ sudo apt-get install python-numpy python-scipy python-serial
 
 ## Install Chips-2.0
 
-You will need Chips-2.0 to build the FPGA embedded C code.
+You will need ![Chips-2.0](www.pyandchips.org) to build the FPGA embedded C code.
 
 ```
 git clone --recursive https://github.com/dawsonjon/Chips-2.0.git
@@ -172,6 +172,8 @@ Technical Details
 The FPGA firmware consists of 2 major parts, the transmitter written in VHDL,
 and the Controller written in C (using Chips to convert to Verilog).
 
+![Firmware](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/firmware.png)
+
 ### The Transmitter
 
 The transmitter allows both Quadrature Amplitude Modulation, and Frequency 
@@ -179,20 +181,8 @@ modulation. The sample rate is 800 MHz, while the clock rate is 100 MHz, in
 each clock cycle, 8 samples are processed. In general, this is achieved by 
 implementing 8 parallel data paths.
 
-```
-              +-----+   +---+            +---+  +---------------+
-  FREQUENCY --> NCO >---> x >------------> + >--> DAC INTERFACE >--> RF
-              |     |   +-^-+         +-->   |  +---------------+
-              |     |     |    +---+  |  +---+
-              |     >----------> x >--+
-              +-----+     |    +-^-+
-                          |      |
-      +--------------+    |      |
-  I --> Interpolate  >----+      |
-  Q -->    65536     >-----------+
-      +--------------+
+![Transmitter](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/transmitter.png)
 
-```
 
 ### NCO
 

@@ -29,11 +29,11 @@ module user_design(clk, rst, exception, input_rs232_rx, input_gps_rx, input_gps_
   output [31:0] output_tx_am;
   output output_tx_am_stb;
   input  output_tx_am_ack;
-  wire   exception_140130331814800;
-  main_0 main_0_140130331814800(
+  wire   exception_140648237274824;
+  main_0 main_0_140648237274824(
     .clk(clk),
     .rst(rst),
-    .exception(exception_140130331814800),
+    .exception(exception_140648237274824),
     .input_gps_count(input_gps_count),
     .input_gps_count_stb(input_gps_count_stb),
     .input_gps_count_ack(input_gps_count_ack),
@@ -61,5 +61,5 @@ module user_design(clk, rst, exception, input_rs232_rx, input_gps_rx, input_gps_
     .output_am_out(output_tx_am),
     .output_am_out_stb(output_tx_am_stb),
     .output_am_out_ack(output_tx_am_ack));
-  assign exception = exception_140130331814800;
+  assign exception = exception_140648237274824;
 endmodule
