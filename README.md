@@ -190,6 +190,19 @@ The NCO is based on a 32 bit accumulator which generates the phase, the phase
 is fed into a lookup table of sin or cosine values. A 32 bit accumulator gives
 a resolution 0.186 Hz with an 800 MHz Sample Rate.
 
+![NCO](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/nco.png)
+
+However, since we are working at a sampling frequency of 800 MHz, with a clock
+frequency of 100 MHz, it is necassary to calculate the next 8 output samples
+each clock cycle. The sequence should be: accumulator, accumulator + frequency,
+accumulator + 2 * frequency .. accumulator + 7 * frequency. Since muliplication
+by a power of 2 is a much cheaper opperation, a tree can be employed to
+calculated these values using shifts and adds. The logic paths can easily be
+broken using pipeline registers, so long as the feedback loop only has a one
+clock cycle latency.
+
+![NCO](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/ncox8.png)
+
 ### Interpolate
 
 The Interpolate block increases the sample rate of the I/Q data by 65536. With
