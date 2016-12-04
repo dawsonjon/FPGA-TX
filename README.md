@@ -111,7 +111,7 @@ sudo apt-get install python-numpy python-scipy python-serial
 
 ## Install Chips-2.0
 
-You will need ![Chips-2.0](www.pyandchips.org) to build the FPGA embedded C code.
+You will need [Chips-2.0](www.pyandchips.org) to build the FPGA embedded C code.
 
 ```
 git clone --recursive https://github.com/dawsonjon/Chips-2.0.git
