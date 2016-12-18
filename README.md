@@ -231,3 +231,128 @@ The second function is to serialise the 8 parallel data streams into a single
 stream of data before outputting on a logic pin. This is achieved using an
 OSERDES component.
 
+
+## Hardware
+
+###FPGA Dev kit
+
+At present, two development cards are supported, the [Digilent Nexys
+4](http://store.digilentinc.com/) was used in the first prototypes, the
+[Digilent CMOD__A7](http://store.digilentinc.com/) (the 15T version) doesn't
+have so many unnecessary peripherals, has a more convenient USB-dongle form
+factor, and makes a good basis for a transmitter project.
+
+###Transmitter Prototype
+
+After some initial experiments had been made to establish that the popular
+transmission modes could be synthesised in software, a prototype transmitter
+was built to demonstrate that the FPGA could be incorporated into a self
+contained communications transmitter.
+
+The transmitter prototype consists of an FPGA module to act as a controller
+and modulator, a small wideband RF Power Amplifier, and circuitry to allow
+an antenna to be switched between transmit and receive modes.
+
+The prototype requires an external 12v power supply to provide sufficient power
+for the RF amplifier. When operating the CMOD A7 under USB power, programming
+of the flash was unreliable.  To overcome this, a diode was removed from the
+CMOD, and an external 5V regulator was used to power the CMOD. This resulted in
+much more reliable flash programming.
+
+
+###Amplifier
+
+The first experiments used a very short length of wire attached to a PMOD
+connector, allowing test signals to be picked up a few feet away. To build a
+more powerful transmitter a small inexpensive 2 watt broadband amplifier was
+purchased on e-ba for use in the transmitter prototype.
+
+![Amplifier](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/amplifier.jpg)
+
+###Attenuator
+
+The FPGA pin is configured to providean 3.3v LVTTL output with the maximum
+drive strength of 24mA. Assuming that the LVTTL output can source 24mA and a
+2.0V swing, the output impedance of the FPGA is assumed to be approximately 80
+ohms. 
+
+With a pk-pk voltage swing of 2V, the RMS voltage swing for a sin wave is
+approximately 0.7V. With a load impedance of 80 ohms, the RMS power can be
+estimated to be 6.25 mW, or about 8dBm. The wideband amplifier has an input
+impedance of 50 ohms, and has a maximum input power of 0dBm. An attenuation of
+15dB was chosen to allow some margin.
+
+A pi attenuator was designed using an [online
+calculator](http://chemandy.com/calculators/matching-pi-attenuator-calculator.htm).
+Resistance values of 120 ohms, 68 ohms and 180 ohms were selected for the
+input, output and series resistor respectively.
+
+![Attenuator](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/attenuator.png)
+
+In the prototype the filter is constructed using leaded resistors.
+
+![Attenuator Prototype](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/attenuator_prototype.jpg)
+
+###Filter
+
+In the digital domain, dithering has been used to minimise the harmonic and
+spurious signals within the band of interest (0-400MHz). The harmonics a
+spurious signal power has not been removed, but spread evenly across the band
+in the form of wideband noise.
+
+There is nothing that can be done in the digital domain to remove harmonic and
+spurious signals outside the band. For this reason, low pass filter with a cut-off
+frequency of 400MHz is added before the amplifier.
+
+An [online calculator](https://www-users.cs.york.ac.uk/~fisher/lcfilter/) was
+used to calculate the component values for a fifth order Chebyshev filter with
+1dB passband ripple and an impedance of 50 ohms.
+
+![Filter](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/filter.png)
+
+In the prototype, the surface mount capacitors and inductors can only just be made out.
+
+![Filter Prototype](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/filter_prototype.jpg)
+
+###TX/RX Switching
+
+The FPGA module provides two signals to switch between RX and TX modes, TX_PA
+turns the amplifier on and off, TX_RX connects and disconnects the receiver
+from the antenna. The transmitter is permanently connected to the antenna.
+
+Each signal is fed through an opto-isolator. The TX_PA signal turns on a relay
+supplying 12V to the power amplifier. TX_RX controls 2 MOSFETs, one connects or
+isolates the receiver, the other shorts the receiver connection during RX mode.
+In addition, signal diodes prevent large signals reaching the receiver. A 3rd
+MOSFET simply acts as an inverter.
+
+![TX RX switch](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/tx_rx_switch.png)
+
+The MOSFET circuit is based on [this tx rx switch](http://www.n5ese.com/tr_switch.htm). The prototype switch is shown below.
+
+
+![TX RX switch prototype](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/tx_rx_switch_prototype.jpg)
+
+The FPGA adds additional delay in the TX_RX path. This is to allow for any
+delay in the relays switching the power amplifier, and ensures that the
+receiver is always isolated while the power amplifier is switching on and off.
+![Filter](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/filter.png)
+
+###GPS Calibration
+
+The crystal oscillators used in FPGA development cards typically have an
+accuracy of the order +/- 100PPM.  At a frequency of 400MHz, this would give an
+error of +/- 40KHz which is clearly not acceptable when communication channels
+are typically 12.5KHz wide.
+
+One possibility would be to use a more accurate external oscillator, these are
+available with accuracies of around +/-0.1ppm.
+
+An other possibility is to make use of low cost GPS modules. These provide a
+reference signal with a period of 1 second. A counter within the firmware
+allows us to measure the number of 100MHz clock cycles that occur during each 1
+second pulse. This gives us a method of measuring how fast or slow the clock is
+running, and allows us to calculate a correction to the commanded frequency.
+
+![gps](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/gps.jpg)
+

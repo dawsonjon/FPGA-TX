@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
-| Date             : Thu Dec  1 21:04:54 2016
+| Date             : Wed Dec  7 19:50:04 2016
 | Host             : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command          : report_power -file ./post_route_power.rpt
 | Design           : bsp
@@ -30,7 +30,7 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.417 |
+| Total On-Chip Power (W)  | 0.418 |
 | Dynamic (W)              | 0.344 |
 | Device Static (W)        | 0.074 |
 | Effective TJA (C/W)      | 5.0   |
@@ -63,9 +63,9 @@ Table of Contents
 | MMCM                     |     0.084 |        1 |         5 |           20.00 |
 | PLL                      |     0.094 |        1 |         5 |           20.00 |
 | DSPs                     |     0.018 |       19 |        45 |           42.22 |
-| I/O                      |     0.034 |       19 |       106 |           17.92 |
+| I/O                      |     0.035 |       19 |       106 |           17.92 |
 | Static Power             |     0.074 |          |           |                 |
-| Total                    |     0.417 |          |           |                 |
+| Total                    |     0.418 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -172,7 +172,7 @@ Table of Contents
 |     interpolate_inst_2            |     0.005 |
 |     nco_inst_1                    |     0.026 |
 |   user_design_inst_1              |     0.041 |
-|     main_0_139976662531104        |     0.041 |
+|     main_0_140447914110056        |     0.041 |
 |       registers_reg_r1_0_15_0_5   |    <0.001 |
 |       registers_reg_r1_0_15_12_17 |    <0.001 |
 |       registers_reg_r1_0_15_18_23 |    <0.001 |

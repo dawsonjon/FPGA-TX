@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2016.3 (lin64) Build 1682563 Mon Oct 10 19:07:26 MDT 2016
-| Date         : Thu Dec  1 21:04:22 2016
+| Date         : Wed Dec  7 19:49:30 2016
 | Host         : jon-GA-MA770T-ES3 running 64-bit Linux Mint 17.2 Rafaela
 | Command      : report_timing_summary -file ./post_place_timing_summary.rpt
 | Design       : bsp
@@ -225,9 +225,9 @@ PW    :            0  Failing Endpoints,  Worst Slack        3.000ns,  Total Vio
 Max Delay Paths
 --------------------------------------------------------------------------------------
 Slack (MET) :             0.539ns  (required time - arrival time)
-  Source:                 user_design_inst_1/main_0_139976662531104/product_c_reg/CLK
+  Source:                 user_design_inst_1/main_0_140447914110056/product_c_reg/CLK
                             (rising edge-triggered cell DSP48E1 clocked by clk100  {rise@0.000ns fall@5.000ns period=10.000ns})
-  Destination:            user_design_inst_1/main_0_139976662531104/result_reg[23]/D
+  Destination:            user_design_inst_1/main_0_140447914110056/result_reg[23]/D
                             (rising edge-triggered cell FDRE clocked by clk100  {rise@0.000ns fall@5.000ns period=10.000ns})
   Path Group:             clk100
   Path Type:              Setup (Max at Slow Process Corner)
@@ -254,30 +254,30 @@ Slack (MET) :             0.539ns  (required time - arrival time)
                                                      -7.025    -4.316 r  mmcme2_base_inst/CLKOUT0
                          net (fo=1, estimated)        1.666    -2.650    clk100
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.096    -2.554 r  bufg_inst3/O
-                         net (fo=2761, estimated)     1.660    -0.894    user_design_inst_1/main_0_139976662531104/clk
-    DSP48_X1Y4           DSP48E1                                      r  user_design_inst_1/main_0_139976662531104/product_c_reg/CLK
+                         net (fo=2761, estimated)     1.660    -0.894    user_design_inst_1/main_0_140447914110056/clk
+    DSP48_X1Y4           DSP48E1                                      r  user_design_inst_1/main_0_140447914110056/product_c_reg/CLK
   -------------------------------------------------------------------    -------------------
     DSP48_X1Y4           DSP48E1 (Prop_dsp48e1_CLK_P[3])
-                                                      2.291     1.397 r  user_design_inst_1/main_0_139976662531104/product_c_reg/P[3]
-                         net (fo=1, estimated)        0.866     2.263    user_design_inst_1/main_0_139976662531104/C__0[19]
+                                                      2.291     1.397 r  user_design_inst_1/main_0_140447914110056/product_c_reg/P[3]
+                         net (fo=1, estimated)        0.866     2.263    user_design_inst_1/main_0_140447914110056/C__0[19]
     DSP48_X1Y5           DSP48E1 (Prop_dsp48e1_C[19]_P[20])
-                                                      1.820     4.083 r  user_design_inst_1/main_0_139976662531104/result0/P[20]
-                         net (fo=1, estimated)        0.764     4.847    user_design_inst_1/main_0_139976662531104/result0_n_85
-    SLICE_X55Y13         LUT2 (Prop_lut2_I1_O)        0.124     4.971 r  user_design_inst_1/main_0_139976662531104/result[21]_i_20/O
-                         net (fo=1, routed)           0.000     4.971    user_design_inst_1/main_0_139976662531104/result[21]_i_20_n_0
+                                                      1.820     4.083 r  user_design_inst_1/main_0_140447914110056/result0/P[20]
+                         net (fo=1, estimated)        0.764     4.847    user_design_inst_1/main_0_140447914110056/result0_n_85
+    SLICE_X55Y13         LUT2 (Prop_lut2_I1_O)        0.124     4.971 r  user_design_inst_1/main_0_140447914110056/result[21]_i_20/O
+                         net (fo=1, routed)           0.000     4.971    user_design_inst_1/main_0_140447914110056/result[21]_i_20_n_0
     SLICE_X55Y13         CARRY4 (Prop_carry4_S[1]_CO[3])
-                                                      0.550     5.521 r  user_design_inst_1/main_0_139976662531104/result_reg[21]_i_13/CO[3]
-                         net (fo=1, estimated)        0.000     5.521    user_design_inst_1/main_0_139976662531104/result_reg[21]_i_13_n_0
+                                                      0.550     5.521 r  user_design_inst_1/main_0_140447914110056/result_reg[21]_i_13/CO[3]
+                         net (fo=1, estimated)        0.000     5.521    user_design_inst_1/main_0_140447914110056/result_reg[21]_i_13_n_0
     SLICE_X55Y14         CARRY4 (Prop_carry4_CI_O[0])
-                                                      0.222     5.743 r  user_design_inst_1/main_0_139976662531104/result_reg[25]_i_11/O[0]
-                         net (fo=1, estimated)        0.603     6.346    user_design_inst_1/main_0_139976662531104/result_reg[25]_i_11_n_7
-    SLICE_X57Y19         LUT6 (Prop_lut6_I1_O)        0.299     6.645 r  user_design_inst_1/main_0_139976662531104/result[23]_i_13/O
-                         net (fo=1, estimated)        0.684     7.329    user_design_inst_1/main_0_139976662531104/result[23]_i_13_n_0
-    SLICE_X57Y19         LUT4 (Prop_lut4_I3_O)        0.150     7.479 r  user_design_inst_1/main_0_139976662531104/result[23]_i_5/O
-                         net (fo=1, estimated)        0.667     8.146    user_design_inst_1/main_0_139976662531104/result[23]_i_5_n_0
-    SLICE_X56Y20         LUT6 (Prop_lut6_I5_O)        0.326     8.472 r  user_design_inst_1/main_0_139976662531104/result[23]_i_1/O
-                         net (fo=1, routed)           0.000     8.472    user_design_inst_1/main_0_139976662531104/result[23]_i_1_n_0
-    SLICE_X56Y20         FDRE                                         r  user_design_inst_1/main_0_139976662531104/result_reg[23]/D
+                                                      0.222     5.743 r  user_design_inst_1/main_0_140447914110056/result_reg[25]_i_11/O[0]
+                         net (fo=1, estimated)        0.603     6.346    user_design_inst_1/main_0_140447914110056/result_reg[25]_i_11_n_7
+    SLICE_X57Y19         LUT6 (Prop_lut6_I1_O)        0.299     6.645 r  user_design_inst_1/main_0_140447914110056/result[23]_i_13/O
+                         net (fo=1, estimated)        0.684     7.329    user_design_inst_1/main_0_140447914110056/result[23]_i_13_n_0
+    SLICE_X57Y19         LUT4 (Prop_lut4_I3_O)        0.150     7.479 r  user_design_inst_1/main_0_140447914110056/result[23]_i_5/O
+                         net (fo=1, estimated)        0.667     8.146    user_design_inst_1/main_0_140447914110056/result[23]_i_5_n_0
+    SLICE_X56Y20         LUT6 (Prop_lut6_I5_O)        0.326     8.472 r  user_design_inst_1/main_0_140447914110056/result[23]_i_1/O
+                         net (fo=1, routed)           0.000     8.472    user_design_inst_1/main_0_140447914110056/result[23]_i_1_n_0
+    SLICE_X56Y20         FDRE                                         r  user_design_inst_1/main_0_140447914110056/result_reg[23]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk100 rise edge)    10.000    10.000 r  
@@ -289,11 +289,11 @@ Slack (MET) :             0.539ns  (required time - arrival time)
                                                      -7.279     5.298 r  mmcme2_base_inst/CLKOUT0
                          net (fo=1, estimated)        1.583     6.880    clk100
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.091     6.971 r  bufg_inst3/O
-                         net (fo=2761, estimated)     1.445     8.416    user_design_inst_1/main_0_139976662531104/clk
-    SLICE_X56Y20         FDRE                                         r  user_design_inst_1/main_0_139976662531104/result_reg[23]/C
+                         net (fo=2761, estimated)     1.445     8.416    user_design_inst_1/main_0_140447914110056/clk
+    SLICE_X56Y20         FDRE                                         r  user_design_inst_1/main_0_140447914110056/result_reg[23]/C
                          clock pessimism              0.553     8.970    
                          clock uncertainty           -0.036     8.934    
-    SLICE_X56Y20         FDRE (Setup_fdre_C_D)        0.077     9.011    user_design_inst_1/main_0_139976662531104/result_reg[23]
+    SLICE_X56Y20         FDRE (Setup_fdre_C_D)        0.077     9.011    user_design_inst_1/main_0_140447914110056/result_reg[23]
   -------------------------------------------------------------------
                          required time                          9.011    
                          arrival time                          -8.472    

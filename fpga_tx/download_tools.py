@@ -19,7 +19,6 @@ def vivado(chip, bsp, working_directory):
     print "Downloading bit file to development kit ...."
 
     device = bsp.device.split("-")[0].lower()
-    print device
     current_directory = os.getcwd()
     os.chdir(working_directory)
     download_script = open("download.tcl", "w")

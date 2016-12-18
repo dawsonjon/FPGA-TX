@@ -14,7 +14,8 @@ set_property PACKAGE_PIN A17 [get_ports ld1]
 set_property IOSTANDARD LVCMOS33 [get_ports ld1]
 
 set_property PACKAGE_PIN R3 [get_ports rf_out]						
-set_property IOSTANDARD LVCMOS33 [get_ports rf_out]
+set_property IOSTANDARD LVTTL [get_ports rf_out]
+set_property DRIVE 24 [get_ports rf_out]						
 
 set_property PACKAGE_PIN T3 [get_ports pps]						
 set_property IOSTANDARD LVCMOS33 [get_ports pps]

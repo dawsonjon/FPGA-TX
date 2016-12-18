@@ -7,6 +7,7 @@ build_tool = build_vivado
 download_tool = vivado
 flash_tool = fpga_tx.flash_tools.vivado
 device =  "XC7A100T-CSG324-1"
+flash = "s25fl128sxxxxxx0-spi-x1_x2_x4"
 board="Atlys"
 
 def make_chip():

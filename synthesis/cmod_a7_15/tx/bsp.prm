@@ -8,4 +8,4 @@ Start Address      0x00000000
 End Address        0x00FFFFFF
 
 Addr1         Addr2         Date                    File(s)
-0x00000000    0x0021728B    Dec  1 21:05:14 2016    ./bsp.bit
+0x00000000    0x0021728B    Dec  7 19:50:24 2016    ./bsp.bit

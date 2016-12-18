@@ -12,6 +12,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports rs232_tx]
 
 set_property PACKAGE_PIN B13 [get_ports rf_out]						
 set_property IOSTANDARD LVCMOS25 [get_ports rf_out]
+set_property DRIVE 24 [get_ports rf_out]
 
 set_property PACKAGE_PIN F14 [get_ports pps]						
 set_property IOSTANDARD LVCMOS25 [get_ports pps]

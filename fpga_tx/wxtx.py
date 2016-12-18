@@ -23,7 +23,6 @@ presets = shelve.open(os.path.expanduser("~/.wxtx"))
 modes = ["AM", "FM", "WBFM", "LSB", "USB", "STEREO"]
 units = ["MHz", "kHz", "Hz"]
 sources = ["Soundcard", "File"]
-device = "/dev/ttyUSB2"
 
 def setup_plot(figure, axes):
     axes.clear()
@@ -87,9 +86,13 @@ class CanvasPanel(wx.Panel):
         self.mode      = wx.Choice(self, choices=modes)
         self.source    = wx.Choice(self, choices=sources)
         self.destination = wx.Choice(self, choices=sources)
-        self.input_file_button = filebrowse.FileBrowseButton(self, labelText="Input File:")
+        self.input_file_button = filebrowse.FileBrowseButton(self, 
+                labelText="Input File:")
+        self.device_button = filebrowse.FileBrowseButton(self,
+                labelText="Transmitter:", initialValue="/dev/ttyUSB1")
         self.input_file_button.Disable()
-        self.output_file_button = filebrowse.FileBrowseButton(self, labelText="Output File:", fileMode=wx.SAVE)
+        self.output_file_button = filebrowse.FileBrowseButton(self, 
+                labelText="Output File:", fileMode=wx.SAVE)
         self.output_file_button.Disable()
         self.tx = wx.ToggleButton(self, label="TX")
         self.rx = wx.ToggleButton(self, label="RX")
@@ -127,6 +130,7 @@ class CanvasPanel(wx.Panel):
         self.source_sizer.Add(self.source, 1, wx.EXPAND | wx.ALL)
         self.tx_sizer.Add(self.source_sizer, 0, wx.EXPAND | wx.ALL, 5)
         self.tx_sizer.Add(self.input_file_button, 0, wx.EXPAND | wx.ALL, 5)
+        self.tx_sizer.Add(self.device_button, 0, wx.EXPAND | wx.ALL, 5)
         self.tx_sizer.Add(self.tx, 0, wx.EXPAND | wx.ALL)
         self.sizer_sizer.Add(self.tx_sizer, 1, wx.EXPAND | wx.ALL)
         self.sizer_sizer.Add(wx.StaticLine(self, style=wx.LI_VERTICAL), 0, wx.ALL|wx.EXPAND, 5)
@@ -145,7 +149,7 @@ class CanvasPanel(wx.Panel):
         self.squelch_sizer.Add(wx.StaticText(self, label="Squelch (dB):"), 0, wx.CENTRE)
         self.squelch_sizer.Add(self.rx_squelch, 1)
         self.rx_sizer.Add(self.squelch_sizer, 0, wx.EXPAND | wx.ALL, 5)
-        #self.rx_sizer.Add((10,10), 1, wx.EXPAND | wx.ALL)
+        self.rx_sizer.Add((10,10), 1, wx.EXPAND | wx.ALL)
         self.destination_sizer.Add(wx.StaticText(self, label="Destination:"), 0, wx.CENTRE)
         self.destination_sizer.Add(self.destination, 1, wx.EXPAND | wx.ALL)
         self.rx_sizer.Add(self.destination_sizer, 0, wx.EXPAND | wx.ALL, 5)
@@ -419,6 +423,7 @@ class CanvasPanel(wx.Panel):
                 frequency *= 1e3
             source = sources[self.source.GetCurrentSelection()]
             input_file = self.input_file_button.GetValue()
+            device = self.device_button.GetValue()
             self.transmit(
                 frequency, 
                 mode, 
@@ -426,12 +431,20 @@ class CanvasPanel(wx.Panel):
                 input_file,
                 cutoff,
                 deviation,
+                device,
             )
         else:
             if self.transmitter is not None:
                 self.stop_transmit()
 
-    def transmit(self, frequency, mode, source, input_file, cutoff, deviation):
+    def transmit(self, 
+            frequency, 
+            mode, 
+            source, 
+            input_file, 
+            cutoff, 
+            deviation,
+            device):
 
         try:
             if mode.upper() == "AM":
