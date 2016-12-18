@@ -227,8 +227,7 @@ effect as adding -6dB of broadband noise to the signal.
 
 The effects of dithering can be seen in the following plots. In both plots, the
 fundamental frequency is set to 110 MHz. With no dithering, there are many spurious
-and harmonic emissions, with the largest being the third harmonic at 330 MHz. 
-
+and harmonic emissions, with the largest being the third harmonic at 330 MHz.  
 With dithering applied, the strength of the third harmonic is greatly reduced,
 and there are fewer spurious emissions. The power contained in the harmonics
 has been spread evenly across the spectrum. 
@@ -251,7 +250,7 @@ OSERDES component.
 
 At present, two development cards are supported, the [Digilent Nexys
 4](http://store.digilentinc.com/) was used in the first prototypes, the
-[Digilent CMOD__A7](http://store.digilentinc.com/) (the 15T version) doesn't
+[Digilent CMOD A7](http://store.digilentinc.com/) (the 15T version) doesn't
 have so many unnecessary peripherals, has a more convenient USB-dongle form
 factor, and makes a good basis for a transmitter project.
 
