@@ -265,6 +265,8 @@ The transmitter prototype consists of an FPGA module to act as a controller
 and modulator, a small wideband RF Power Amplifier, and circuitry to allow
 an antenna to be switched between transmit and receive modes.
 
+![Transmitter Prototype](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/transmitter_prototype.jpg)
+
 The prototype requires an external 12v power supply to provide sufficient power
 for the RF amplifier. When operating the CMOD A7 under USB power, programming
 of the flash was unreliable.  To overcome this, a diode was removed from the
