@@ -261,6 +261,9 @@ transmission modes could be synthesised in software, a prototype transmitter
 was built to demonstrate that the FPGA could be incorporated into a self
 contained communications transmitter.
 
+![Transmitter Prototype](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/transmitter_prototype_front.jpg)
+![Transmitter Prototype](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/transmitter_prototype_back.jpg)
+
 The transmitter prototype consists of an FPGA module to act as a controller
 and modulator, a small wideband RF Power Amplifier, and circuitry to allow
 an antenna to be switched between transmit and receive modes.
@@ -355,7 +358,7 @@ receiver is always isolated while the power amplifier is switching on and off.
 ###GPS Calibration
 
 The crystal oscillators used in FPGA development cards typically have an
-accuracy of the order +/- 100PPM.  At a frequency of 400MHz, this would give an
+accuracy of the order +/- 100 ppm.  At a frequency of 400MHz, this would give an
 error of +/- 40KHz which is clearly not acceptable when communication channels
 are typically 12.5KHz wide.
 
