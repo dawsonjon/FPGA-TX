@@ -167,83 +167,6 @@ The FPGA will retain its configuration if power is lost.
 Technical Details
 =================
 
-## FPGA Firmware
-
-The FPGA firmware consists of 2 major parts, the transmitter written in VHDL,
-and the Controller written in C (using Chips to convert to Verilog).
-
-![Firmware](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/firmware.png)
-
-### The Transmitter
-
-The transmitter allows both Quadrature Amplitude Modulation, and Frequency 
-modulation. The sample rate is 800 MHz, while the clock rate is 100 MHz, in
-each clock cycle, 8 samples are processed. In general, this is achieved by 
-implementing 8 parallel data paths.
-
-![Transmitter](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/transmitter.png)
-
-
-### NCO
-
-The NCO is based on a 32 bit accumulator which generates the phase, the phase
-is fed into a lookup table of sin or cosine values. A 32 bit accumulator gives
-a resolution 0.186 Hz with an 800 MHz Sample Rate.
-
-![NCO](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/nco.png)
-
-However, since we are working at a sampling frequency of 800 MHz, with a clock
-frequency of 100 MHz, it is necassary to calculate the next 8 output samples
-each clock cycle. The sequence should be: accumulator, accumulator + frequency,
-accumulator + 2 * frequency .. accumulator + 7 * frequency. Since muliplication
-by a power of 2 is a much cheaper opperation, a tree can be employed to
-calculated these values using shifts and adds. The logic paths can easily be
-broken using pipeline registers, so long as the feedback loop only has a one
-clock cycle latency.
-
-![NCO](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/ncox8.png)
-
-### Interpolate
-
-The Interpolate block increases the sample rate of the I/Q data by 65536. With
-an output sampling rate of 800 MHz, the input sampling rate is 12000 Hz. The
-Interpolate block is based on an first order CIC filter. The first step is a
-differentiator, followed by an up-sampler, and finally an integrator.
-
-### Up-convert
-
-The IQ data is up converted to the carrier frequency, by multiplying by the cos
-and -sin components of the NCO. The sin and cosine components are added to form
-complex samples. 
-
-### DAC Interface
-
-The first function of the DAC interface is to perform 1-bit quantization. 
-In this design, there isn't any Digital to Analog converter, only a digital FPGA
-pin.  Dithering is performed to reduce in-band harmonics. Dithering is achieved by
-comparing the data to a random number, the result is a single bit output whose
-probability of being 1 is proportional to the signal level. This has the same
-effect as adding -6dB of broadband noise to the signal.
-
-The effects of dithering can be seen in the following plots. In both plots, the
-fundamental frequency is set to 110 MHz. With no dithering, there are many spurious
-and harmonic emissions, with the largest being the third harmonic at 330 MHz.  
-With dithering applied, the strength of the third harmonic is greatly reduced,
-and there are fewer spurious emissions. The power contained in the harmonics
-has been spread evenly across the spectrum. 
-
-In the third plot a low pass filter has been added.
-
-![Without dithering](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/110_mhz_no_dither.png)
-![With dithering](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/110_mhz_dithered.png)
-![With dithering and filter](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/110_mhz_dithered_filtered.png)
-
-
-The second function is to serialise the 8 parallel data streams into a single
-stream of data before outputting on a logic pin. This is achieved using an
-OSERDES component.
-
-
 ## Hardware
 
 ###FPGA Dev kit
@@ -373,3 +296,197 @@ running, and allows us to calculate a correction to the commanded frequency.
 
 ![gps](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/gps.jpg)
 
+## FPGA Firmware
+
+The FPGA firmware consists of 2 major parts, the transmitter written in VHDL,
+and the Controller written in C (using Chips to convert to Verilog).
+
+![Firmware](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/firmware.png)
+
+### The Transmitter
+
+The transmitter allows both Quadrature Amplitude Modulation, and Frequency 
+modulation. The sample rate is 800 MHz, while the clock rate is 100 MHz, in
+each clock cycle, 8 samples are processed. In general, this is achieved by 
+implementing 8 parallel data paths.
+
+![Transmitter](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/transmitter.png)
+
+
+### NCO
+
+The NCO is based on a 32 bit accumulator which generates the phase, the phase
+is fed into a lookup table of sin or cosine values. A 32 bit accumulator gives
+a resolution 0.186 Hz with an 800 MHz Sample Rate.
+
+![NCO](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/nco.png)
+
+However, since we are working at a sampling frequency of 800 MHz, with a clock
+frequency of 100 MHz, it is necassary to calculate the next 8 output samples
+each clock cycle. The sequence should be: accumulator, accumulator + frequency,
+accumulator + 2 * frequency .. accumulator + 7 * frequency. Since muliplication
+by a power of 2 is a much cheaper opperation, a tree can be employed to
+calculated these values using shifts and adds. The logic paths can easily be
+broken using pipeline registers, so long as the feedback loop only has a one
+clock cycle latency.
+
+![NCO](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/ncox8.png)
+
+### Interpolate
+
+The Interpolate block increases the sample rate of the I/Q data by 65536. With
+an output sampling rate of 800 MHz, the input sampling rate is 12000 Hz. The
+Interpolate block is based on an first order CIC filter. The first step is a
+differentiator, followed by an up-sampler, and finally an integrator.
+
+### Up-convert
+
+The IQ data is up converted to the carrier frequency, by multiplying by the cos
+and -sin components of the NCO. The sin and cosine components are added to form
+complex samples. 
+
+### DAC Interface
+
+The first function of the DAC interface is to perform 1-bit quantization. 
+In this design, there isn't any Digital to Analog converter, only a digital FPGA
+pin.  Dithering is performed to reduce in-band harmonics. Dithering is achieved by
+comparing the data to a random number, the result is a single bit output whose
+probability of being 1 is proportional to the signal level. This has the same
+effect as adding -6dB of broadband noise to the signal.
+
+The effects of dithering can be seen in the following plots. In both plots, the
+fundamental frequency is set to 110 MHz. With no dithering, there are many spurious
+and harmonic emissions, with the largest being the third harmonic at 330 MHz.  
+With dithering applied, the strength of the third harmonic is greatly reduced,
+and there are fewer spurious emissions. The power contained in the harmonics
+has been spread evenly across the spectrum. 
+
+In the third plot a low pass filter has been added.
+
+![Without dithering](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/110_mhz_no_dither.png)
+![With dithering](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/110_mhz_dithered.png)
+![With dithering and filter](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/110_mhz_dithered_filtered.png)
+
+
+The second function is to serialise the 8 parallel data streams into a single
+stream of data before outputting on a logic pin. This is achieved using an
+OSERDES component.
+
+### The Controller
+
+The controller is written in C, and translated into Verilog using the Chips
+Compiler. The Controller provides a simple slave interface to drive the
+transmitter. A simple protocol allows the software running on the host to
+control the frequency, and the amplitude of the I and Q signal components.
+While the frequency can be updated at an arbitrary rate (controlled by a
+counter in the controller), the sample rate of the amplitude is determined by
+the sample frequency and the ratio of the interpolator and is fixed at 12KHz.
+The controller is also responsible for setting the frequency sample rate, and
+fetching a calibrarion value from the GPS hardware.
+
+By allowing the host software direct control of the frequency and amplitude,
+all the commonly used analogue modes can be generated in the host software.
+FM modes require more bandwidth.
+
+### UART
+
+The supported development cards all make use of the [FTDI 2232H USB
+UART](http://www.ftdichip.com/Products/ICs/FT2232H.html). The transmitter
+communicates to the FTDI chip using a light-weight UART. The UART is configured
+to run at the maximum rate supported by the USB chip of 12Mbit/s.
+
+this allows some performance margin in Stereo FM which requires the most
+bandwidth of all the modes currently implemented. In stereo FM mode, the sample
+rate is 152 KHz, with a resolution of 16 bits. This requires a minimum transfer
+rate of 2.4Mbits/s
+
+Within the receive half of the UART, an 8k deep FIFO is employed. This provides
+sufficient buffering to allow smooth transmission of samples even when they are
+generated in software in real time.
+
+### GPS
+
+The GPS interface consists of a second UART, which allows communication with
+the GPS module. The UART is not currently used, but could be used to decode
+NMEA messages from the GPS module.
+
+The GPS interface also provides a counter running at 100MHz, which measures the
+length of the 1pps reference signal from the GPS module. The count value is
+used by the host software to measure the true frequency of the clock, and to
+make adjustments to the commanded frequency to compensate for any inaccuracies.
+
+## Software
+
+The software is written in Python. The [SciPy software
+stack](http://www.scipy.org) consisting of NumPy, SciPy and Matplotlib is used
+signal processing tasks. [pySerial](https://pythonhosted.org/pyserial/) is used
+to interface to the hardware. [wxPython](https://wxpython.org/) provides the
+GUI framework. The [SoX utility](http://sox.sourceforge.net/) provides a portable
+interface to the audio system.
+
+Initially, I thought that I might have to code some of the modulation schemes in
+C to get the necessary speed to run in real time. It turns out that the SciPy
+library provides acceptable real-time performance with no need for additional
+optimisations.
+
+All the modulation techniques follow the same basic layout. 
+
+The input audio stream is converted to a floating point representation 
+n the range -1 to + 1.
+
+The audio is then low-pass filtered to suppress frequency components outside the band.
+They are then resampled to a working sample frequency.  AM, FM and SSB modes
+use 12KHz, Wideband FM and Stereo FM use 48KHz to allow for the higher
+frequency content.
+
+The data is then modulated and clipped, before being converted back to fixed
+point format. 16 bits (8 for I and 8 for Q) are used for IQ samples, and 16bits
+are used for frequency samples. The frequency samples are the fed to the transmitter
+hardware via the USB interface.
+
+
+## AM
+
+AM is the simplest modulation scheme to implement. Audio samples are resampled
+to 12KHz, a DC offset is applied, and the data is duplicated in both I and Q
+channels.
+
+## SSB
+
+In order to generate single sideband modulation, audio samples need to be
+converted into a complex representation containing only positive frequencies
+for upper sideband, and negative frequencies for lower sideband.
+
+This is achieved by using an FIR filter to approximation of a Hilbert
+transform. The Hilbert transform shifts positive frequencies by 90 degrees, and
+negatrive frequencies by -90 degrees. When the transformed signal is added to
+the original transform, either the positive or negative frequencies cancel. A
+[MATLAB
+Tutorial](https://uk.mathworks.com/help/signal/examples/single-sideband-modulation-via-the-hilbert-transform.html)
+gives a straightforward introduction to the technique.
+
+![Single Sideband Modulation](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/ssb.png)
+
+## FM
+
+Narrow band FM modulation is another very simple modulation scheme. The audio
+sample is multiplied by a constant to create a frequency sample with the
+required deviation.
+
+## WBFM
+
+Wideband FM is similar to FM modulation, but used a larger constant to give the 
+increased frequency deviation. In addition, the audio is first passed through pre-emphasis
+filter to boost higher frequency components.
+
+## Stereo FM
+
+In Stereo FM, sum and difference channel are formed by adding and subtracting
+the left and right channels. The sum channel is FM modulated in the normal way.
+The difference channel mixed with a 38KHz sub-carrier and added to sum channel.
+A 19KHz pilot tone (which is phase locked to the 38KHz sub-carrier) is also
+added to the sum channel. Since the stereo sub carrier adds inedible higher
+frequency components to the signal, a sample rate of 152KHz is used for the
+multiplexed stereo signal.
+
+![Stereo Multiplexing](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/stereo.png)
