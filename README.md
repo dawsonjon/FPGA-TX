@@ -123,7 +123,7 @@ cd ..
 ## Install Additional software
 
 Requires the vendor's tools for the target FPGA card. Vivado webpack edition
-can be downloaded from the [Xilinx](www.xilinx.com) website. You will need to
+can be downloaded from the [Xilinx](http://www.xilinx.com) website. You will need to
 edit the fpga_tx/user_settings.py file to point to the location where Vivado is
 installed.
 
