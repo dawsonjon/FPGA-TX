@@ -361,7 +361,7 @@ form complex samples.
 ### DAC Interface
 
 The first function of the DAC interface is to perform 1-bit quantization. 
-In this design, there isn't a Digital to Analog Converter (ADC), only a digital
+In this design, there isn't a Digital to Analogue Converter (ADC), only a digital
 FPGA pin.  
 Dithering is performed to reduce in-band harmonics. Dithering is achieved by
 comparing the data to a random number, the result is a single bit output whose
