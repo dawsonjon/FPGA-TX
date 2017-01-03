@@ -14,7 +14,7 @@ Before you transmit, know your laws. FPGA-TX has not been tested for compliance
 with regulations governing transmission of radio signals. You are responsible
 for using FPGA-TX legally.
 
-FPGA-TX was inspired by the [raspberry pi FM
+FPGA-TX was inspired by the [Raspberry Pi FM
 transmitter](http://www.icrobotics.co.uk/wiki/index.php/Turning_the_Raspberry_Pi_Into_an_FM_Transmitter)
 and [rpitx](https://github.com/F5OEO/rpitx) projects.  FPGA-TX provides a
 similar capability but uses FPGA based hardware to generate a modulated output
@@ -336,7 +336,7 @@ a resolution 0.186 Hz with an 800 MHz Sample Rate.
 However, since we are working at a sampling frequency of 800 MHz, with a clock
 frequency of 100 MHz, it is necessary to calculate the next 8 output samples
 each clock cycle. The sequence should be: accumulator, accumulator + frequency,
-accumulator + 2 * frequency .. accumulator + 7 * frequency. Since multiplication
+accumulator + 2 * frequency, ..,  accumulator + 7 * frequency. Since multiplication
 by a power of 2 is a much cheaper operation, a tree can be employed to
 calculated these values using shifts and adds. The logic paths can easily be
 broken using pipeline registers, so long as the feedback loop only has a one
@@ -416,7 +416,7 @@ UART](http://www.ftdichip.com/Products/ICs/FT2232H.html). The transmitter
 communicates to the FTDI chip using a light-weight UART. The UART is configured
 to run at the maximum rate supported by the USB chip of 12Mbit/s.
 
-this allows some performance margin in Stereo FM which requires the most
+This allows some performance margin in Stereo FM which requires the most
 bandwidth of all the modes currently implemented. In stereo FM mode, the sample
 rate is 152 KHz, with a resolution of 16 bits. This requires a minimum transfer
 rate of 2.4Mbits/s
