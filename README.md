@@ -466,13 +466,13 @@ are used for frequency samples. The frequency samples are the fed to the transmi
 hardware via the USB interface.
 
 
-## AM
+### AM
 
 AM is the simplest modulation scheme to implement. Audio samples are re-sampled
 to 12KHz, a DC offset is applied, and the data is duplicated in both I and Q
 channels.
 
-## SSB
+### SSB
 
 In order to generate single sideband modulation, audio samples need to be
 converted into a complex representation containing only positive frequencies
@@ -488,19 +488,19 @@ gives a straightforward introduction to the technique.
 
 ![Single Sideband Modulation](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/ssb.png)
 
-## FM
+### FM
 
 Narrow band FM modulation is another very simple modulation scheme. The audio
 sample is multiplied by a constant to create a frequency sample with the
 required deviation.
 
-## WBFM
+### WBFM
 
 Wideband FM is similar to FM modulation, but used a larger constant to give the 
 increased frequency deviation. In addition, the audio is first passed through pre-emphasis
 filter to boost higher frequency components.
 
-## Stereo FM
+### Stereo FM
 
 In Stereo FM, sum and difference channel are formed by adding and subtracting
 the left and right channels. The sum channel is FM modulated in the normal way.
@@ -511,3 +511,17 @@ frequency components to the signal, a sample rate of 152KHz is used for the
 multiplexed stereo signal.
 
 ![Stereo Multiplexing](https://raw.githubusercontent.com/dawsonjon/FPGA-TX/master/images/stereo.png)
+
+# Further Work
+
+There's plenty of potential for future development here. A few Ideas I would
+like to explore:
+
++ Add an FPGA based receive capability, perhaps by combining the ADCs built into
+the FPGA (1MS/s sampling rate 10 bits) with an external mixer, using the FPGA
+to provide a local oscillator.
+
++ Add CTCSS/DTS capability.
+
++ Explore cheaper hardware options such as [iCEstick](http://www.latticesemi.com/icestick) FPGA platform.
+
