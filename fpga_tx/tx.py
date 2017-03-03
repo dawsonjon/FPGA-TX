@@ -54,6 +54,7 @@ class Modulator:
                 sample_rate, 
                 cutoff
         )
+        self.lpf_zi = np.zeros(len(self.lpf_kernel)-1)
 
     def setup_transmitter(self, transmitter):
         pps = transmitter.get_pps()
@@ -78,6 +79,9 @@ class SSBModulator(Modulator):
                 [1.0], 
                 type='hilbert'
         )
+        self.zi = np.zeros(len(self.kernel)-1)
+        G = self.taps/2
+        self.overlap = np.zeros(G)
 
     def setup_transmitter(self, transmitter):
         Modulator.setup_transmitter(self, transmitter)
@@ -88,7 +92,8 @@ class SSBModulator(Modulator):
         data = data/32768.0
 
         #low pass filter
-        data = lfilter(self.lpf_kernel, 1, data)/self.lpf_gain
+        data, self.lpf_zi = lfilter(self.lpf_kernel, 1, data, zi=self.lpf_zi)
+        data = data/self.lpf_gain
 
         #resample to 12K
         fs = 12.0e3
@@ -98,8 +103,9 @@ class SSBModulator(Modulator):
 
         #pass through hilbert filter
         G = self.taps/2
-        i = np.concatenate([np.zeros(G), data[:-G]])
-        q = lfilter(self.kernel, 1, data)
+        i = np.concatenate([self.overlap, data[:-G]])
+        self.overlap = data[-G:]
+        q, self.zi = lfilter(self.kernel, 1, data, zi=self.zi)
         i = i[:len(q)]
 
         if self.lsb:
@@ -135,7 +141,8 @@ class WBFMModulator(Modulator):
         data = data/32768.0
 
         #low pass filter
-        data = lfilter(self.lpf_kernel, 1, data)/self.lpf_gain
+        data, self.lpf_zi = lfilter(self.lpf_kernel, 1, data, zi=self.lpf_zi)
+        data = data/self.lpf_gain
 
         #add preemphasis
         data = lfilter(self.b, self.a, data)/self.preemp_gain
@@ -177,8 +184,10 @@ class StereoModulator(Modulator):
         right = data[1::2]
 
         #lowpass filter
-        left = lfilter(self.lpf_kernel, 1, left)/self.lpf_gain
-        right = lfilter(self.lpf_kernel, 1, right)/self.lpf_gain
+        left, self.lpf_zi = lfilter(self.lpf_kernel, 1, left, zi=self.lpf_zi)
+        left = left/self.lpf_gain
+        right, self.lpf_zi = lfilter(self.lpf_kernel, 1, right, zi=self.lpf_zi)
+        right = right/self.lpf_gain
 
         #preemphasis
         left = lfilter(self.b, self.a, left)/self.preemp_gain
@@ -226,7 +235,8 @@ class FMModulator(Modulator):
         data = data/32768.0
 
         #low pass filter
-        data = lfilter(self.lpf_kernel, 1, data)/self.lpf_gain
+        data, self.lpf_zi = lfilter(self.lpf_kernel, 1, data, zi=self.lpf_zi)
+        data = data/self.lpf_gain
 
         #fft plot
         self.fft = 20.0*np.log10(abs(np.fft.fftshift(np.fft.fft(data))))
@@ -251,7 +261,8 @@ class AMModulator(Modulator):
         data = data/32768.0
 
         #low pass filter
-        data = lfilter(self.lpf_kernel, 1, data)/self.lpf_gain
+        data, self.lpf_zi = lfilter(self.lpf_kernel, 1, data, zi=self.lpf_zi)
+        data = data/self.lpf_gain
 
         #resample to 12K
         fs = 12.0e3
