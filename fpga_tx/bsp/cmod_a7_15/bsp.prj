@@ -8,4 +8,7 @@
 ../../bsp_components/serdes.vhd
 ../../bsp_components/dac_interface.vhd
 ../../bsp_components/transmitter.vhd
+../../bsp_components/rx_nco.vhd
+../../bsp_components/rx_serdes.vhd
+../../bsp_components/receiver.vhd
 bsp.vhd

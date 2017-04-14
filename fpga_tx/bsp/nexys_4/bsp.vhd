@@ -60,6 +60,11 @@ entity bsp is
 
    rf_out                : out std_logic;
 
+   i                     : inout std_logic;
+   i_n                   : inout std_logic;
+   q                     : inout std_logic;
+   q_n                   : inout std_logic;
+
    leds                  : out std_logic_vector(7 downto 0);
 
    gps_tx                : in  std_logic;
@@ -95,11 +100,29 @@ architecture rtl of bsp is
     );
   end component transmitter;
 
+  component receiver is
+    port(
+      clk : in std_logic;
+      rst : in std_logic;
+      frequency : in std_logic_vector(31 downto 0);
+      frequency_stb : in std_logic;
+      frequency_ack : out std_logic;
+      i : inout std_logic;
+      i_n : inout std_logic;
+      q : inout std_logic;
+      q_n : inout std_logic
+    );
+  end component receiver;
+
   component user_design is
     port(
       clk : in std_logic;
       rst : in std_logic;
-    
+
+      output_rx_freq : out std_logic_vector(31 downto 0);
+      output_rx_freq_stb : out std_logic;
+      output_rx_freq_ack : in std_logic;
+
       output_tx_freq : out std_logic_vector(31 downto 0);
       output_tx_freq_stb : out std_logic;
       output_tx_freq_ack : in std_logic;
@@ -209,6 +232,11 @@ architecture rtl of bsp is
   signal rst_inv           : std_logic;
   signal internal_rst      : std_logic;
 
+  --rx interface
+  signal output_rx_freq : std_logic_vector(31 downto 0);
+  signal output_rx_freq_stb : std_logic;
+  signal output_rx_freq_ack : std_logic;
+
   --tx interface
   signal output_tx_freq : std_logic_vector(31 downto 0);
   signal output_tx_freq_stb : std_logic;
@@ -252,6 +280,20 @@ architecture rtl of bsp is
   signal output_leds_ack : std_logic;
 
 begin
+
+  receiver_inst_1 : receiver port map(
+      clk => clk,
+      rst => internal_rst,
+
+      frequency => output_rx_freq,
+      frequency_stb => output_rx_freq_stb,
+      frequency_ack => output_rx_freq_ack,
+
+      i => i,
+      i_n => i_n,
+      q => q,
+      q_n => q_n
+  );
 
   transmitter_inst_1 :  transmitter port map(
       clk => clk,
@@ -315,6 +357,11 @@ begin
       output_leds => output_leds,
       output_leds_stb => output_leds_stb,
       output_leds_ack => output_leds_ack,
+
+      --receive interface
+      output_rx_freq => output_rx_freq,
+      output_rx_freq_stb => output_rx_freq_stb,
+      output_rx_freq_ack => output_rx_freq_ack,
 
       --transmit interface
       output_tx_freq => output_tx_freq,

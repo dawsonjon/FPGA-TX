@@ -12,6 +12,7 @@ def application(chip):
             "gps_count":chip.inputs["input_gps_count"],
         },
         outputs = {
+            "rx_freq_out" : chip.outputs["output_rx_freq"],
             "freq_out" : chip.outputs["output_tx_freq"],
             "am_out" : chip.outputs["output_tx_am"],
             "ctl_out" : chip.outputs["output_tx_ctl"],

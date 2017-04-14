@@ -20,6 +20,7 @@ def make_chip():
     Input(chip, "input_gps_rx")
     Output(chip, "output_gps_tx")
     Output(chip, "output_tx_freq")
+    Output(chip, "output_rx_freq")
     Output(chip, "output_tx_am")
     Output(chip, "output_tx_ctl")
     Output(chip, "output_leds")

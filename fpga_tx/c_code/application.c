@@ -2,6 +2,7 @@ unsigned rs232_rx = input("rs232_rx");
 unsigned gps_rx = input("gps_rx");
 unsigned gps_count = input("gps_count");
 unsigned frequency_out = output("freq_out");
+unsigned rx_frequency_out = output("rx_freq_out");
 unsigned am_out = output("am_out");
 unsigned ctl_out = output("ctl_out");
 unsigned rs232_tx = output("rs232_tx");
@@ -50,6 +51,7 @@ void send_fm(signed sample, unsigned frequency_steps, unsigned fm_deviation){
 void main(){
 
     unsigned frequency_steps = 0;
+    unsigned rx_frequency_steps = 0;
     unsigned sample_rate_steps = 8333; //default to 12k
     unsigned fm_deviation = 105; //default to 5kHz
     unsigned control = 0; //dithering off
@@ -87,6 +89,15 @@ void main(){
                 print_udecimal(frequency_steps);
                 puts("\n");
                 fputc(frequency_steps, frequency_out);
+                puts(">\n");
+                break;
+
+            //set receive frequency
+            case 'r':
+                rx_frequency_steps = scan_udecimal();
+                print_udecimal(rx_frequency_steps);
+                puts("\n");
+                fputc(rx_frequency_steps, rx_frequency_out);
                 puts(">\n");
                 break;
 
